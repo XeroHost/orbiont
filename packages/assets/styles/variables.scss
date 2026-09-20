@@ -46,6 +46,18 @@
 	--color-green-950: #00341d;
 	--color-green: var(--color-green-600);
 
+	--color-cyan-50: #ecffff;
+	--color-cyan-100: #cbfdfd;
+	--color-cyan-200: #9ff9f9;
+	--color-cyan-300: #00ffff;
+	--color-cyan-400: #00f0f0;
+	--color-cyan-500: #00e1e1;
+	--color-cyan-600: #00c3c3;
+	--color-cyan-700: #00a7a7;
+	--color-cyan-800: #008b8b;
+	--color-cyan-900: #046e6e;
+	--color-cyan-950: #01403f;
+
 	--color-blue-50: #f2f7fd;
 	--color-blue-100: #e4ecfa;
 	--color-blue-200: #c3d9f4;
@@ -120,9 +132,9 @@
 	--color-blue-bg: rgba(31, 104, 192, 0.1);
 	--color-purple-bg: rgba(142, 50, 243, 0.1);
 
-	--color-brand: var(--color-green);
-	--color-brand-highlight: var(--color-green-highlight);
-	--color-brand-shadow: rgba(0, 175, 92, 0.7);
+	--color-brand: var(--color-cyan-700);
+	--color-brand-highlight: rgba(0, 167, 167, 0.25);
+	--color-brand-shadow: rgba(0, 167, 167, 0.7);
 
 	--shadow-inset-lg: inset 0px -2px 2px hsla(221, 39%, 91%, 0.1);
 	--shadow-inset: inset 0px -2px 2px hsla(221, 39%, 91%, 0.05);
@@ -141,24 +153,24 @@
 
 	--brand-gradient-bg: linear-gradient(
 		0deg,
-		rgba(68, 182, 138, 0.175) 0%,
-		rgba(58, 250, 112, 0.125) 100%
+		rgba(0, 240, 240, 0.175) 0%,
+		rgba(0, 255, 255, 0.125) 100%
 	);
 	--brand-gradient-strong-bg: linear-gradient(
 		270deg,
-		rgba(68, 182, 138, 0.175) 0%,
-		rgba(36, 225, 91, 0.12) 100%
+		rgba(0, 240, 240, 0.175) 0%,
+		rgba(0, 225, 225, 0.12) 100%
 	);
 	--brand-gradient-button: rgba(255, 255, 255, 0.5);
-	--brand-gradient-border: rgba(32, 64, 32, 0.15);
-	--brand-gradient-fade-out-color: linear-gradient(to bottom, rgba(213, 235, 224, 0), #d0ece0 70%);
+	--brand-gradient-border: rgba(32, 64, 64, 0.15);
+	--brand-gradient-fade-out-color: linear-gradient(to bottom, rgba(213, 235, 235, 0), #d0ecec 70%);
 
 	--color-button-bg-selected: var(--color-brand);
 	--color-button-text-selected: var(--color-accent-contrast);
 
 	--color-gradient-button-bg: linear-gradient(180deg, #f8f9fa 0%, #dce0e6 100%);
 
-	--loading-bar-gradient: linear-gradient(to right, var(--color-brand) 0%, #00af5c 100%);
+	--loading-bar-gradient: linear-gradient(to right, var(--color-brand) 0%, #00e1e1 100%);
 
 	--splash-tint-top: rgba(185, 255, 207, 0.465);
 	--splash-tint-bottom: rgba(183, 226, 255, 0.563);
@@ -277,6 +289,18 @@ html {
 	--color-green-950: #033018;
 	--color-green: var(--color-green-500);
 
+	--color-cyan-50: #ecffff;
+	--color-cyan-100: #cbfdfd;
+	--color-cyan-200: #9ff9f9;
+	--color-cyan-300: #00ffff;
+	--color-cyan-400: #00f0f0;
+	--color-cyan-500: #00e1e1;
+	--color-cyan-600: #00c3c3;
+	--color-cyan-700: #00a7a7;
+	--color-cyan-800: #008b8b;
+	--color-cyan-900: #046e6e;
+	--color-cyan-950: #01403f;
+
 	--color-blue-50: #eef6ff;
 	--color-blue-100: #daeaff;
 	--color-blue-200: #bddaff;
@@ -351,9 +375,9 @@ html {
 	--color-blue-bg: rgba(79, 156, 255, 0.2);
 	--color-purple-bg: rgba(199, 138, 255, 0.2);
 
-	--color-brand: var(--color-green);
-	--color-brand-highlight: rgba(27, 217, 106, 0.25);
-	--color-brand-shadow: rgba(27, 217, 106, 0.7);
+	--color-brand: var(--color-cyan-600);
+	--color-brand-highlight: rgba(0, 195, 195, 0.25);
+	--color-brand-shadow: rgba(0, 195, 195, 0.7);
 
 	--shadow-inset-lg: inset 0px -2px 2px hsla(221, 39%, 11%, 0.1);
 	--shadow-inset: inset 0px -2px 2px hsla(221, 39%, 11%, 0.05);
@@ -367,10 +391,10 @@ html {
 
 	--shadow-card: rgba(0, 0, 0, 0.25) 0px 2px 4px 0px;
 
-	--brand-gradient-bg: linear-gradient(0deg, rgba(14, 35, 19, 0.2) 0%, rgba(55, 137, 73, 0.1) 100%);
-	--brand-gradient-strong-bg: linear-gradient(270deg, #09110d 10%, #131f17 100%);
+	--brand-gradient-bg: linear-gradient(0deg, rgba(14, 35, 35, 0.2) 0%, rgba(0, 139, 139, 0.1) 100%);
+	--brand-gradient-strong-bg: linear-gradient(270deg, #091111 10%, #131f1f 100%);
 	--brand-gradient-button: rgba(255, 255, 255, 0.08);
-	--brand-gradient-border: rgba(155, 255, 160, 0.08);
+	--brand-gradient-border: rgba(155, 255, 255, 0.08);
 	--brand-gradient-fade-out-color: linear-gradient(to bottom, rgba(24, 30, 31, 0), #171d1e 80%);
 
 	--color-button-bg-selected: var(--color-brand-highlight);
@@ -378,7 +402,7 @@ html {
 
 	--color-gradient-button-bg: linear-gradient(180deg, #3a3d47 0%, #33363d 100%);
 
-	--loading-bar-gradient: linear-gradient(to right, var(--color-brand) 0%, #1ffa9a 100%);
+	--loading-bar-gradient: linear-gradient(to right, var(--color-brand) 0%, #1ffafa 100%);
 
 	--splash-tint-top: rgba(66, 131, 92, 0.275);
 	--splash-tint-bottom: rgba(17, 35, 43, 0.5);
@@ -421,13 +445,13 @@ html {
 
 	--brand-gradient-bg: linear-gradient(
 		0deg,
-		rgba(22, 66, 51, 0.15) 0%,
-		rgba(55, 137, 73, 0.1) 100%
+		rgba(22, 66, 66, 0.15) 0%,
+		rgba(0, 139, 139, 0.1) 100%
 	);
 	--brand-gradient-strong-bg: linear-gradient(
 		270deg,
-		rgba(9, 18, 14, 0.6) 10%,
-		rgba(19, 31, 23, 0.5) 100%
+		rgba(9, 18, 18, 0.6) 10%,
+		rgba(19, 31, 31, 0.5) 100%
 	);
 
 	--color-gradient-button-bg: linear-gradient(180deg, #1b1b20 0%, #25262b 100%);

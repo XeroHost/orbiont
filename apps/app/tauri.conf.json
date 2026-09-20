@@ -51,18 +51,18 @@
 		"fileAssociations": [
 			{
 				"ext": ["mrpack"],
-				"mimeType": "application/x-modrinth-modpack+zip"
+				"mimeType": "application/x-orbiont-modpack+zip"
 			}
 		]
 	},
-	"productName": "Modrinth App",
+	"productName": "Orbiont",
 	"version": "../app-frontend/package.json",
-	"mainBinaryName": "Modrinth App",
-	"identifier": "ModrinthApp",
+	"mainBinaryName": "Orbiont",
+	"identifier": "com.xerohost.orbiont",
 	"plugins": {
 		"deep-link": {
 			"desktop": {
-				"schemes": ["modrinth"]
+				"schemes": ["orbiont"]
 			},
 			"mobile": []
 		}
@@ -77,7 +77,7 @@
 				"fullscreen": false,
 				"height": 800,
 				"resizable": true,
-				"title": "Modrinth App",
+				"title": "Orbiont",
 				"label": "main",
 				"width": 1280,
 				"minHeight": 700,
