@@ -313,7 +313,6 @@ pub(crate) async fn sync_instance_content_files(
     }
     tx.commit().await?;
     if changed {
-        super::mark_shared_instance_stale(&instance.id, &state.pool).await?;
         crate::api::instance::queue_game_locale_index();
     }
     Ok(stored)

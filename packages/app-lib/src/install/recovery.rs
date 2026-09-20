@@ -154,8 +154,7 @@ async fn recover_unrecorded_instance_update_backup(
     if job.state.paths.staging_dir.is_some()
         || !matches!(
             &job.state.request,
-            InstallRequest::UpdateSharedInstance { .. }
-                | InstallRequest::InstallPackToExistingInstance { .. }
+            InstallRequest::InstallPackToExistingInstance { .. }
         )
     {
         return Ok(());
@@ -584,15 +583,6 @@ fn display_from_request(state: &InstallJobState) -> Option<InstallJobDisplay> {
                 ..
             } => None,
         },
-        InstallRequest::CreateSharedInstance { data } => {
-            Some(InstallJobDisplay {
-                title: data.name.clone(),
-                icon: data
-                    .modpack
-                    .as_ref()
-                    .and_then(|modpack| modpack.icon_url.clone()),
-            })
-        }
         InstallRequest::ImportInstance {
             instance_folder, ..
         } => Some(InstallJobDisplay {
@@ -601,8 +591,7 @@ fn display_from_request(state: &InstallJobState) -> Option<InstallJobDisplay> {
         }),
         InstallRequest::DuplicateInstance { .. }
         | InstallRequest::InstallExistingInstance { .. }
-        | InstallRequest::InstallPackToExistingInstance { .. }
-        | InstallRequest::UpdateSharedInstance { .. } => {
+        | InstallRequest::InstallPackToExistingInstance { .. } => {
             state.rollback.as_ref().map(|rollback| InstallJobDisplay {
                 title: rollback.instance.instance.name.clone(),
                 icon: rollback.instance.instance.icon_path.clone(),

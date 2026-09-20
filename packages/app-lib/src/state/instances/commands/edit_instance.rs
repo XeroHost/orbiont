@@ -223,10 +223,6 @@ pub(crate) async fn edit_instance(
 
     tx.commit().await?;
 
-    if should_mark_shared_instance_stale {
-        super::mark_shared_instance_stale(instance_id, pool).await?;
-    }
-
     Ok(instance)
 }
 

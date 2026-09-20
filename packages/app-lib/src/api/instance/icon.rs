@@ -104,19 +104,6 @@ pub async fn edit_generated_icon_if_empty(
         return Ok(None);
     }
 
-    if let Err(error) = super::shared::sync_shared_instance_icon(
-        instance_id,
-        Some(&icon_path),
-        &state,
-    )
-    .await
-    {
-        tracing::warn!(
-            instance_id,
-            error = %error,
-            "Failed to sync shared instance icon"
-        );
-    }
 
     emit_instance(&instance.id, InstancePayloadType::Edited).await?;
 
@@ -289,19 +276,6 @@ async fn apply_instance_icon(
     )
     .await?;
 
-    if let Err(error) = super::shared::sync_shared_instance_icon(
-        instance_id,
-        icon_path.as_deref(),
-        state,
-    )
-    .await
-    {
-        tracing::warn!(
-            instance_id,
-            error = %error,
-            "Failed to sync shared instance icon"
-        );
-    }
 
     emit_instance(&instance.id, InstancePayloadType::Edited).await?;
 

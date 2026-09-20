@@ -4,7 +4,6 @@ pub mod events;
 pub mod model;
 pub mod recovery;
 pub mod runner;
-mod shared_instance;
 pub mod store;
 
 pub use events::InstallProgressReporter;
@@ -13,13 +12,11 @@ pub use model::{
     InstallJobEventKind, InstallJobKind, InstallJobSnapshot, InstallJobStatus,
     InstallModpackPreview, InstallPhaseDetails, InstallPhaseId,
     InstallPostInstallEdit, InstallProgress, InstallProgressSecondary,
-    InstallRequest, SharedInstanceExternalFileData, SharedInstanceInstallData,
-    SharedInstanceInstallModpack,
+    InstallRequest,
 };
 pub use runner::{
-    cancel_job, create_instance, create_modpack_instance,
-    create_shared_instance, dismiss_job, duplicate_instance, get_job,
-    import_instance, install_existing_instance,
+    cancel_job, create_instance, create_modpack_instance, dismiss_job,
+    duplicate_instance, get_job, import_instance, install_existing_instance,
     install_pack_to_existing_instance, job_support_details, list_jobs,
-    pause_job, resume_job, retry_job, update_shared_instance,
+    pause_job, resume_job, retry_job,
 };

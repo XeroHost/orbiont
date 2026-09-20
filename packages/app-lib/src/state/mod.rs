@@ -50,17 +50,8 @@ pub use self::cache::*;
 pub mod content_store;
 pub(crate) mod runtime_cache;
 
-mod friends;
-pub use self::friends::*;
-
-mod tunnel;
-pub use self::tunnel::*;
-
 pub mod db;
 pub(crate) mod db_backup;
-mod mr_auth;
-
-pub use self::mr_auth::*;
 
 mod legacy_converter;
 
@@ -110,9 +101,6 @@ pub struct State {
     //
     // /// App identifier string (like com.modrinth.ModrinthApp)
     // pub app_identifier: String,
-    /// Friends socket
-    pub friends_socket: FriendsSocket,
-
     pub restart_after_pending_update: AtomicBool,
 
     pub(crate) pool: SqlitePool,
@@ -274,22 +262,11 @@ impl State {
                 state.discord_rpc.clear_to_default(true),
                 instances::refresh_all_instances(),
                 Settings::migrate(&state.pool),
-                ModrinthCredentials::refresh_all(),
             );
 
             if let Err(e) = res {
                 tracing::error!("Error running discord RPC: {e}");
             }
-
-            let _ = state
-                .friends_socket
-                .connect(
-                    &state.pool,
-                    &state.api_semaphore,
-                    &state.process_manager,
-                )
-                .await;
-            let _ = FriendsSocket::socket_loop().await;
         });
 
         Ok(())
@@ -372,8 +349,6 @@ impl State {
 
         let process_manager = ProcessManager::new();
 
-        let friends_socket = FriendsSocket::new();
-
         Ok(Arc::new(Self {
             startup_complete: AtomicBool::new(false),
             directories,
@@ -392,7 +367,6 @@ impl State {
             pack_sync_worker: crate::api::instance::PackSyncWorker::default(),
             discord_rpc,
             process_manager,
-            friends_socket,
             restart_after_pending_update: AtomicBool::new(false),
             pool,
             file_watcher,

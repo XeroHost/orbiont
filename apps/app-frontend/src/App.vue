@@ -79,8 +79,6 @@ import AccountsCard from '@/components/ui/AccountsCard.vue'
 import AppActionBar from '@/components/ui/AppActionBar.vue'
 import Breadcrumbs from '@/components/ui/Breadcrumbs.vue'
 import ErrorModal from '@/components/ui/ErrorModal.vue'
-import FriendsList from '@/components/ui/friends/FriendsList.vue'
-import HostingUpdateRequired from '@/components/ui/HostingUpdateRequired.vue'
 import AddServerToInstanceModal from '@/components/ui/install_flow/AddServerToInstanceModal.vue'
 import UnknownPackWarningModal from '@/components/ui/install_flow/UnknownPackWarningModal.vue'
 import IconEditorModal from '@/components/ui/instance_settings/icon-editor-modal/index.vue'
@@ -417,8 +415,7 @@ const {
 	(iconPath) =>
 		creationGeneratedIcon.value?.path === iconPath ? creationGeneratedIcon.value.config : null,
 )
-const { hasLoggedIntoMinecraft, hasLoggedIntoModrinth, showChecklist } = onboardingChecklist
-const showFriendsList = computed(() => !showChecklist.value || hasLoggedIntoModrinth.value)
+const { hasLoggedIntoMinecraft, showChecklist } = onboardingChecklist
 
 async function randomizeCreationIcon() {
 	const generated = await creationIconEditorModal.value?.randomizeAndSave()
@@ -1540,12 +1537,6 @@ const modrinthAccountMenuOptions = computed(() => [
 		shown: !hasPlus.value,
 	},
 	{
-		id: 'add-friend',
-		label: formatMessage(messages.addFriend),
-		icon: UserPlusIcon,
-		action: () => friendsList.value?.showAddFriendModal(),
-	},
-	{
 		id: 'flags',
 		label: formatMessage(commonSettingsMessages.featureFlags),
 		icon: ToggleRightIcon,
@@ -1632,7 +1623,6 @@ onMounted(() => {
 })
 
 const accounts = ref(null)
-const friendsList = ref(null)
 provide('accountsCard', accounts)
 
 useAppEvent('command', handleCommand, appEvents)
@@ -2277,18 +2267,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 			>
 				<ImageIcon />
 			</NavButton>
-			<NavButton
-				v-tooltip.right="formatMessage(messages.modrinthHosting)"
-				to="/hosting/manage"
-				:is-primary="(r) => r.path === '/hosting/manage' || r.path === '/hosting/manage/'"
-				:is-subpage="
-					(r) =>
-						(r.path.startsWith('/hosting/manage/') && r.path !== '/hosting/manage/') ||
-						((r.path.startsWith('/browse') || r.path.startsWith('/project')) && r.query.sid)
-				"
-			>
-				<ServerStackIcon />
-			</NavButton>
 			<suspense>
 				<QuickInstanceSwitcher>
 					<NavButton
@@ -2474,8 +2452,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 			>
 				{{ formatMessage(messages.authUnreachableBody) }}
 			</Admonition>
-			<HostingUpdateRequired v-if="hostingUpdateRequired" />
-			<RouterView v-else v-slot="{ Component }">
+			<RouterView v-slot="{ Component }">
 				<template v-if="Component">
 					<Suspense @pending="onSuspensePending" @resolve="onSuspenseResolve">
 						<component :is="Component"></component>
@@ -2509,18 +2486,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 						</h3>
 						<suspense>
 							<AccountsCard ref="accounts" />
-						</suspense>
-					</div>
-					<div
-						v-show="showFriendsList"
-						class="p-4 border-0 border-b-[1px] border-[--brand-gradient-border] border-solid"
-					>
-						<suspense>
-							<FriendsList
-								ref="friendsList"
-								:credentials="credentials"
-								:sign-in="() => requestSignIn()"
-							/>
 						</suspense>
 					</div>
 					<PrideFundraiserBanner

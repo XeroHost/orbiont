@@ -179,7 +179,6 @@ pub(crate) async fn migrate_legacy_content(
         }
     }
     if changed {
-        super::mark_shared_instance_stale(instance_id, &state.pool).await?;
         crate::api::instance::queue_game_locale_index();
         crate::event::emit::emit_instance(
             instance_id,

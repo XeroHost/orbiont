@@ -10,7 +10,6 @@ pub mod jre;
 pub mod logs;
 pub mod metadata;
 pub mod minecraft_skins;
-pub mod mr_auth;
 pub mod onboarding_checklist;
 pub mod process;
 pub mod reports;
@@ -21,14 +20,8 @@ mod thumbnails;
 pub mod users;
 pub mod utils;
 
-pub mod ads;
-#[cfg(target_os = "macos")]
-mod ads_occlusion_macos;
-#[cfg(windows)]
-mod ads_occlusion_windows;
 pub mod cache;
 pub mod files;
-pub mod friends;
 pub mod worlds;
 
 mod oauth_utils;

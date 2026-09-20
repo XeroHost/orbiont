@@ -1,6 +1,5 @@
 //! API for interacting with Theseus
 pub mod cache;
-pub mod friends;
 pub mod handler;
 pub mod instance;
 pub mod jre;
@@ -8,7 +7,6 @@ pub mod logs;
 pub mod metadata;
 pub mod minecraft_auth;
 pub mod minecraft_skins;
-pub mod mr_auth;
 pub mod onboarding_checklist;
 pub mod pack;
 pub mod process;
@@ -29,10 +27,10 @@ pub mod data {
         InstanceLaunchOverridesPatch, InstanceLink, InstanceMetadata,
         InstanceSyncedOption, InstanceSyncedOptions, InstanceTabVisibility,
         JavaVersion, LinkedModpackInfo, MemorySettings, ModLoader,
-        ModrinthCredentials, OnboardingChecklist, Organization, OwnerType,
+        OnboardingChecklist, Organization, OwnerType,
         ProcessMetadata, Project, ProjectType, ProjectV3, SearchResult,
         SearchResults, SearchResultsV3, Settings, SharedInstanceAttachment,
-        SharedInstanceRole, TeamMember, Theme, User, UserFriend, Version,
+        SharedInstanceRole, TeamMember, Theme, User, Version,
         WindowSize,
     };
     pub use ariadne::users::UserStatus;
@@ -47,7 +45,7 @@ pub mod prelude {
         State,
         data::*,
         event::CommandPayload,
-        install, instance, jre, metadata, minecraft_auth, mr_auth,
+        install, instance, jre, metadata, minecraft_auth,
         onboarding_checklist, pack, process, settings,
         state::{ReleaseChannel, db_backup::app_db_backup_dir},
         util::{

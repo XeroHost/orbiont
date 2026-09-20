@@ -12,10 +12,6 @@ pub use self::commands::{
     InstanceLaunchOverridesPatch, InstanceMetadata,
 };
 pub(crate) use self::commands::{
-    attach_shared_instance, clear_shared_instance, quarantine_shared_instance,
-    set_shared_instance_sync_status,
-};
-pub(crate) use self::commands::{
     create_instance, edit_instance, get_instance, get_instances_metadata,
     list_instances, refresh_all_instances, remove_instance,
 };

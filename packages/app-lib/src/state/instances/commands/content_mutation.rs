@@ -619,11 +619,6 @@ impl<'a> InstanceContent<'a> {
             ),
             _ => None,
         };
-        let stale_state = super::shared_instance::stale_sync_state(
-            &self.instance.id,
-            &self.state.pool,
-        )
-        .await?;
         let mut tx = self.state.pool.begin().await?;
         let content_scope = match &prepared.change {
             PreparedChange::Adopt { .. } => None,
@@ -760,10 +755,6 @@ impl<'a> InstanceContent<'a> {
                 ContentChangeResult::File(adopted)
             }
         };
-        if let Some(sync_state) = stale_state {
-            content_rows::upsert_content_set_sync_state(&sync_state, &mut tx)
-                .await?;
-        }
         tx.commit().await?;
         Ok(result)
     }

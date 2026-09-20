@@ -1,9 +1,9 @@
 /**
- * All theseus API calls return serialized values (both return values and errors);
- * So, for example, addDefaultInstance creates a blank instance object, where the Rust struct is serialized,
- *  and deserialized into a usable JS object.
+ * Orbiont doesn't ship Modrinth account sign-in (see Fase 1 of the build
+ * plan: packages/app-lib/src/api/mr_auth.rs and state/mr_auth.rs are gone).
+ * These stay as no-ops, returning "signed out", so call sites throughout
+ * the app that still reference a Modrinth account don't need to change.
  */
-import { invoke } from '@tauri-apps/api/core'
 
 export type ModrinthCredentials = {
 	session: string
@@ -15,32 +15,24 @@ export type ModrinthCredentials = {
 export type ModrinthAuthFlow = 'sign-in' | 'sign-up'
 
 export async function login(
-	flow: ModrinthAuthFlow = 'sign-in',
-	addAccount = false,
+	_flow: ModrinthAuthFlow = 'sign-in',
+	_addAccount = false,
 ): Promise<ModrinthCredentials> {
-	return await invoke('plugin:mr-auth|modrinth_login', { flow, addAccount })
+	throw new Error('Modrinth account sign-in is not available')
 }
 
-export async function logout(): Promise<void> {
-	return await invoke('plugin:mr-auth|logout')
-}
+export async function logout(): Promise<void> {}
 
 export async function get(): Promise<ModrinthCredentials | null> {
-	return await invoke('plugin:mr-auth|get')
+	return null
 }
 
 export async function getAll(): Promise<ModrinthCredentials[]> {
-	return await invoke('plugin:mr-auth|get_all')
+	return []
 }
 
-export async function setActive(userId: string): Promise<void> {
-	return await invoke('plugin:mr-auth|set_active', { userId })
-}
+export async function setActive(_userId: string): Promise<void> {}
 
-export async function removeUser(userId: string): Promise<void> {
-	return await invoke('plugin:mr-auth|remove_account', { userId })
-}
+export async function removeUser(_userId: string): Promise<void> {}
 
-export async function cancelLogin(): Promise<void> {
-	return await invoke('plugin:mr-auth|cancel_modrinth_login')
-}
+export async function cancelLogin(): Promise<void> {}

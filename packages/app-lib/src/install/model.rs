@@ -173,9 +173,6 @@ pub enum InstallRequest {
         #[serde(default)]
         post_install_edit: Option<InstallPostInstallEdit>,
     },
-    CreateSharedInstance {
-        data: SharedInstanceInstallData,
-    },
     ImportInstance {
         launcher_type: ImportLauncherType,
         base_path: PathBuf,
@@ -194,10 +191,6 @@ pub enum InstallRequest {
         #[serde(default)]
         post_install_edit: Option<InstallPostInstallEdit>,
     },
-    UpdateSharedInstance {
-        instance_id: String,
-        data: SharedInstanceInstallData,
-    },
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, Default)]
@@ -212,55 +205,12 @@ pub struct InstallPostInstallEdit {
     pub link: Option<InstanceLink>,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug)]
-pub struct SharedInstanceInstallData {
-    pub shared_instance_id: String,
-    pub manager_id: Option<String>,
-    #[serde(default)]
-    pub server_manager_name: Option<String>,
-    #[serde(default)]
-    pub server_manager_icon_url: Option<String>,
-    #[serde(default)]
-    pub instance_icon_url: Option<String>,
-    #[serde(default)]
-    pub linked_user_id: Option<String>,
-    pub name: String,
-    pub version: i32,
-    pub modrinth_ids: Vec<String>,
-    #[serde(default)]
-    pub external_files: Vec<SharedInstanceExternalFileData>,
-    pub modpack: Option<SharedInstanceInstallModpack>,
-    pub game_version: String,
-    pub loader: ModLoader,
-    pub loader_version: Option<String>,
-}
-
-#[derive(Serialize, Deserialize, Clone, Debug)]
-pub struct SharedInstanceExternalFileData {
-    pub file_name: String,
-    pub file_type: String,
-    pub url: String,
-    pub file_size: u64,
-}
-
-#[derive(Serialize, Deserialize, Clone, Debug)]
-pub struct SharedInstanceInstallModpack {
-    pub project_id: String,
-    pub version_id: String,
-    pub title: String,
-    pub icon_url: Option<String>,
-    pub dependency_count: usize,
-}
-
 impl InstallRequest {
     pub fn kind(&self) -> InstallJobKind {
         match self {
             Self::CreateInstance { .. } => InstallJobKind::CreateInstance,
             Self::CreateModpackInstance { .. } => {
                 InstallJobKind::CreateModpackInstance
-            }
-            Self::CreateSharedInstance { .. } => {
-                InstallJobKind::CreateSharedInstance
             }
             Self::ImportInstance { .. } => InstallJobKind::ImportInstance,
             Self::DuplicateInstance { .. } => InstallJobKind::DuplicateInstance,
@@ -270,17 +220,13 @@ impl InstallRequest {
             Self::InstallPackToExistingInstance { .. } => {
                 InstallJobKind::InstallPackToExistingInstance
             }
-            Self::UpdateSharedInstance { .. } => {
-                InstallJobKind::UpdateSharedInstance
-            }
         }
     }
 
     pub fn target(&self) -> InstallTarget {
         match self {
             Self::InstallExistingInstance { instance_id, .. }
-            | Self::InstallPackToExistingInstance { instance_id, .. }
-            | Self::UpdateSharedInstance { instance_id, .. } => {
+            | Self::InstallPackToExistingInstance { instance_id, .. } => {
                 InstallTarget::ExistingInstance {
                     instance_id: instance_id.clone(),
                 }
@@ -292,8 +238,7 @@ impl InstallRequest {
     pub fn cleanup(&self) -> InstallCleanup {
         match self {
             Self::InstallExistingInstance { instance_id, .. }
-            | Self::InstallPackToExistingInstance { instance_id, .. }
-            | Self::UpdateSharedInstance { instance_id, .. } => {
+            | Self::InstallPackToExistingInstance { instance_id, .. } => {
                 InstallCleanup::RestoreExistingInstance {
                     instance_id: instance_id.clone(),
                 }

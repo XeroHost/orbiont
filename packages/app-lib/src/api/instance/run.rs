@@ -46,12 +46,6 @@ pub async fn run(
         )
         .await?;
     }
-    super::shared::check_shared_instance_availability_before_launch(
-        instance_id,
-        &state,
-    )
-    .await?;
-
     let default_account = Credentials::get_default_credential(&state.pool)
         .await?
         .ok_or_else(|| crate::ErrorKind::NoCredentialsError.as_error())?;

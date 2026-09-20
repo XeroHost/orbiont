@@ -10,7 +10,7 @@ use crate::state::{
     CacheValue, CachedEntry, CachedFile, CachedFileHash, CachedFileUpdate,
     Credentials, DefaultPage, DependencyType, DeviceToken, DeviceTokenKey,
     DeviceTokenPair, FileType, Hooks, InstanceInstallStage,
-    LauncherFeatureVersion, MemorySettings, ModrinthCredentials,
+    LauncherFeatureVersion, MemorySettings,
     ReleaseChannel, TeamMember, Theme, VersionFile, WindowSize,
 };
 use crate::util::fetch::{IoSemaphore, read_json};
@@ -92,24 +92,6 @@ where
             {
                 java_version.upsert(exec).await?;
             }
-        }
-
-        let modrinth_auth_path =
-            old_launcher_root.join("caches/metadata/auth.json");
-        if let Ok(creds) = read_json::<LegacyModrinthCredentials>(
-            &modrinth_auth_path,
-            &io_semaphore,
-        )
-        .await
-        {
-            ModrinthCredentials {
-                session: creds.session,
-                expires: creds.expires_at,
-                user_id: creds.user.id,
-                active: true,
-            }
-            .upsert(exec)
-            .await?;
         }
 
         let minecraft_auth_path =

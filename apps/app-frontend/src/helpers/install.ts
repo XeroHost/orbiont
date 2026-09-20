@@ -175,56 +175,43 @@ export async function install_create_modpack_instance(
 	})
 }
 
-export async function install_get_shared_instance_preview(sharedInstanceId: string, name: string) {
-	return await invoke<SharedInstanceInstallPreview>(
-		'plugin:install|install_get_shared_instance_preview',
-		{
-			sharedInstanceId,
-			name,
-		},
-	)
+// Orbiont doesn't ship shared instances (see Fase 1 of the build plan).
+// These stay as no-ops so call sites throughout the app don't need to change.
+
+export async function install_get_shared_instance_preview(
+	_sharedInstanceId: string,
+	_name: string,
+): Promise<SharedInstanceInstallPreview> {
+	throw new Error('Shared instances are not available')
 }
 
-export async function install_accept_shared_instance_invite(inviteId: string) {
-	return await invoke<SharedInstanceInviteInstallPreview>(
-		'plugin:install|install_accept_shared_instance_invite',
-		{
-			inviteId,
-		},
-	)
+export async function install_accept_shared_instance_invite(
+	_inviteId: string,
+): Promise<SharedInstanceInviteInstallPreview> {
+	throw new Error('Shared instances are not available')
 }
 
-export async function install_get_shared_instance_update_preview(instanceId: string) {
-	return await invoke<SharedInstanceUpdatePreview | null>(
-		'plugin:install|install_get_shared_instance_update_preview',
-		{
-			instanceId,
-		},
-	)
+export async function install_get_shared_instance_update_preview(
+	_instanceId: string,
+): Promise<SharedInstanceUpdatePreview | null> {
+	return null
 }
 
 export async function install_shared_instance(
-	sharedInstanceId: string,
-	name: string,
-	managerId?: string | null,
-	serverManagerName?: string | null,
-	serverManagerIconUrl?: string | null,
-	instanceIconUrl?: string | null,
-) {
-	return await invoke<InstallJobSnapshot>('plugin:install|install_shared_instance', {
-		sharedInstanceId,
-		name,
-		managerId,
-		serverManagerName,
-		serverManagerIconUrl,
-		instanceIconUrl,
-	})
+	_sharedInstanceId: string,
+	_name: string,
+	_managerId?: string | null,
+	_serverManagerName?: string | null,
+	_serverManagerIconUrl?: string | null,
+	_instanceIconUrl?: string | null,
+): Promise<InstallJobSnapshot> {
+	throw new Error('Shared instances are not available')
 }
 
-export async function install_update_shared_instance(instanceId: string) {
-	return await invoke<InstallJobSnapshot>('plugin:install|install_update_shared_instance', {
-		instanceId,
-	})
+export async function install_update_shared_instance(
+	_instanceId: string,
+): Promise<InstallJobSnapshot> {
+	throw new Error('Shared instances are not available')
 }
 
 export async function install_import_instance(

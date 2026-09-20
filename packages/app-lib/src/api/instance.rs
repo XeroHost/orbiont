@@ -1,5 +1,23 @@
 //! Theseus instance management interface
 
+pub(crate) const CONFIG_DIRECTORY: &str = "config";
+pub(crate) const CONFIG_FILE_EXTENSIONS: [&str; 14] = [
+    "json",
+    "json5",
+    "jsonc",
+    "yml",
+    "yaml",
+    "css",
+    "toml",
+    "txt",
+    "ini",
+    "cfg",
+    "conf",
+    "properties",
+    "xml",
+    "nbt",
+];
+
 mod content;
 mod export_mrpack;
 mod files;
@@ -18,7 +36,6 @@ mod projects;
 mod run;
 mod screenshot_groups;
 mod screenshots;
-mod shared;
 mod synced_options;
 pub(crate) mod synced_packs;
 pub(crate) mod synced_servers;
@@ -73,29 +90,6 @@ pub use self::screenshots::{
     delete_screenshots, export_screenshots, get_screenshot_path,
     list_all_screenshots, list_screenshots, list_synced_screenshots,
     move_screenshots, save_edited_screenshot,
-};
-pub(crate) use self::shared::{
-    CONFIG_BUNDLE_FILE_TYPE, CONFIG_DIRECTORY, CONFIG_FILE_EXTENSIONS,
-    CONFIG_SYNC_ENABLED, MAX_CONFIG_BUNDLE_ENTRIES,
-    read_bounded_config_bundle_entry,
-};
-pub use self::shared::{
-    SharedInstanceExternalFilePreview, SharedInstanceInstallPreview,
-    SharedInstanceInvite, SharedInstanceInviteInstallPreview,
-    SharedInstanceInviteLink, SharedInstanceJoinType,
-    SharedInstancePublishPreview, SharedInstanceUpdateDiff,
-    SharedInstanceUpdateDiffType, SharedInstanceUpdatePreview,
-    SharedInstanceUser, SharedInstanceUsers,
-    accept_pending_shared_instance_invite,
-    accept_shared_instance_invite_for_install,
-    can_active_user_use_shared_instances, create_shared_instance_invite_link,
-    decline_pending_shared_instance_invite,
-    get_shared_instance_install_preview, get_shared_instance_invites,
-    get_shared_instance_publish_preview, get_shared_instance_update_preview,
-    get_shared_instance_users, install_shared_instance,
-    invite_shared_instance_users, publish_shared_instance,
-    remove_shared_instance_users, revoke_shared_instance_invite,
-    unlink_shared_instance, unpublish_shared_instance, update_shared_instance,
 };
 pub use self::synced_options::game_options::{
     CanonicalValue as GameOptionCanonicalValue, EditableGameSetting,

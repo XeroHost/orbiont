@@ -699,77 +699,68 @@ export interface SharedInstanceInvite {
 	uses: number
 }
 
+// Orbiont doesn't ship shared instances (see Fase 1 of the build plan:
+// packages/app-lib/src/api/instance/shared/** is gone). These stay as
+// no-ops so call sites throughout the app don't need to change.
+
 export async function can_current_user_use_shared_instances(): Promise<boolean> {
-	return await invoke('plugin:instance|instance_share_can_current_user_use')
+	return false
 }
 
-export async function get_shared_instance_users(instanceId: string): Promise<SharedInstanceUsers> {
-	return await invoke('plugin:instance|instance_share_get_users', { instanceId })
+export async function get_shared_instance_users(_instanceId: string): Promise<SharedInstanceUsers> {
+	return { user_ids: [], users: [], tokens: 0 }
 }
 
 export async function invite_shared_instance_users(
-	instanceId: string,
-	userIds: string[],
+	_instanceId: string,
+	_userIds: string[],
 ): Promise<SharedInstanceUsers> {
-	return await invoke('plugin:instance|instance_share_invite_users', { instanceId, userIds })
+	throw new Error('Shared instances are not available')
 }
 
 export async function create_shared_instance_invite_link(
-	instanceId: string,
-	options: {
+	_instanceId: string,
+	_options: {
 		maxAgeSeconds?: number
 		maxUses?: number
 		replaceInviteId?: string
 	} = {},
 ): Promise<SharedInstanceInviteLink> {
-	return await invoke('plugin:instance|instance_share_create_invite_link', {
-		instanceId,
-		...options,
-	})
+	throw new Error('Shared instances are not available')
 }
 
 export async function get_shared_instance_invites(
-	instanceId: string,
+	_instanceId: string,
 ): Promise<SharedInstanceInvite[]> {
-	return await invoke('plugin:instance|instance_share_get_invites', { instanceId })
+	return []
 }
 
 export async function revoke_shared_instance_invite(
-	instanceId: string,
-	inviteId: string,
-): Promise<void> {
-	return await invoke('plugin:instance|instance_share_revoke_invite', { instanceId, inviteId })
-}
+	_instanceId: string,
+	_inviteId: string,
+): Promise<void> {}
 
 export async function remove_shared_instance_users(
-	instanceId: string,
-	userIds: string[],
-	hasPendingRecipients: boolean,
+	_instanceId: string,
+	_userIds: string[],
+	_hasPendingRecipients: boolean,
 ): Promise<SharedInstanceUsers> {
-	return await invoke('plugin:instance|instance_share_remove_users', {
-		instanceId,
-		userIds,
-		hasPendingRecipients,
-	})
+	throw new Error('Shared instances are not available')
 }
 
 export async function get_shared_instance_publish_preview(
-	instanceId: string,
+	_instanceId: string,
 ): Promise<SharedInstancePublishPreview | null> {
-	return await invoke('plugin:instance|instance_share_get_publish_preview', { instanceId })
+	return null
 }
 
 export async function publish_shared_instance(
-	instanceId: string,
-	configPaths: string[],
+	_instanceId: string,
+	_configPaths: string[],
 ): Promise<SharedInstanceAttachment> {
-	return await invoke('plugin:instance|instance_share_publish', { instanceId, configPaths })
+	throw new Error('Shared instances are not available')
 }
 
-export async function unlink_shared_instance(instanceId: string): Promise<void> {
-	return await invoke('plugin:instance|instance_share_unlink', { instanceId })
-}
+export async function unlink_shared_instance(_instanceId: string): Promise<void> {}
 
-export async function unpublish_shared_instance(instanceId: string): Promise<void> {
-	return await invoke('plugin:instance|instance_share_unpublish', { instanceId })
-}
+export async function unpublish_shared_instance(_instanceId: string): Promise<void> {}

@@ -4,12 +4,6 @@ use super::model::{
     InstallJobEventKind, InstallJobSnapshot, InstallJobState, InstallJobStatus,
     InstallPhaseDetails, InstallPhaseId, InstallPostInstallEdit,
     InstallProgress, InstallRequest, InstallRollbackState, InstallTarget,
-    SharedInstanceInstallData,
-};
-use super::shared_instance::{
-    apply_shared_instance_content, apply_shared_instance_update,
-    attach_pending_shared_instance, finalize_shared_instance_attachment,
-    shared_instance_link, shared_instance_pack_location,
 };
 use super::{diagnostics, recovery, store};
 use crate::ErrorKind;
@@ -103,19 +97,6 @@ pub async fn create_modpack_instance(
         post_install_edit,
     })
     .await
-}
-
-pub async fn create_shared_instance(
-    data: SharedInstanceInstallData,
-) -> crate::Result<InstallJobSnapshot> {
-    start(InstallRequest::CreateSharedInstance { data }).await
-}
-
-pub async fn update_shared_instance(
-    instance_id: String,
-    data: SharedInstanceInstallData,
-) -> crate::Result<InstallJobSnapshot> {
-    start(InstallRequest::UpdateSharedInstance { instance_id, data }).await
 }
 
 pub async fn import_instance(
@@ -551,55 +532,6 @@ async fn prepare_initial_instance(
             );
             set_instance_id(job_state, metadata.instance.id);
         }
-        InstallRequest::CreateSharedInstance { data } => {
-            let shared_link = shared_instance_link(data.modpack.as_ref());
-            let (game_version, loader, loader_version, icon_path) =
-                if let Some(modpack) = data.modpack.clone() {
-                    let preview = get_instance_from_pack(
-                        shared_instance_pack_location(modpack),
-                    )
-                    .await?;
-                    (
-                        preview.game_version,
-                        preview.modloader,
-                        preview.loader_version,
-                        data.instance_icon_url
-                            .clone()
-                            .or_else(|| {
-                                preview.icon.as_ref().map(|path| {
-                                    path.to_string_lossy().to_string()
-                                })
-                            })
-                            .or_else(|| preview.icon_url.clone()),
-                    )
-                } else {
-                    (
-                        data.game_version.clone(),
-                        data.loader,
-                        data.loader_version.clone(),
-                        data.instance_icon_url.clone(),
-                    )
-                };
-            let metadata = Box::pin(crate::api::instance::create(
-                data.name.clone(),
-                game_version,
-                loader,
-                loader_version,
-                icon_path,
-                None,
-                shared_link,
-            ))
-            .await?;
-            set_display(
-                job_state,
-                metadata.instance.name,
-                metadata.instance.icon_path,
-            );
-            let instance_id = metadata.instance.id;
-            set_instance_id(job_state, instance_id.clone());
-            attach_pending_shared_instance(&instance_id, &data, state).await?;
-            emit_instance(&instance_id, InstancePayloadType::Edited).await?;
-        }
         InstallRequest::ImportInstance {
             instance_folder, ..
         } => {
@@ -649,8 +581,7 @@ async fn prepare_initial_instance(
         InstallRequest::InstallExistingInstance { instance_id, .. }
         | InstallRequest::InstallPackToExistingInstance {
             instance_id, ..
-        }
-        | InstallRequest::UpdateSharedInstance { instance_id, .. } => {
+        } => {
             prepare_existing_rollback(job_state, state, &instance_id).await?;
         }
     }
@@ -997,28 +928,6 @@ async fn run_request(
             apply_post_install_edit(&instance_id, post_install_edit).await?;
             Ok(Some(instance_id))
         }
-        InstallRequest::CreateSharedInstance { data } => {
-            let Some(instance_id) = current_instance_id(job_state) else {
-                return Err(crate::ErrorKind::InputError(
-                    "Install job is missing its instance id".to_string(),
-                )
-                .into());
-            };
-            Box::pin(apply_shared_instance_content(
-                job_id,
-                job_state,
-                state,
-                &instance_id,
-                &data,
-            ))
-            .await?;
-
-            finalize_shared_instance_attachment(&instance_id, &data, state)
-                .await?;
-            emit_instance(&instance_id, InstancePayloadType::Edited).await?;
-
-            Ok(Some(instance_id))
-        }
         InstallRequest::ImportInstance {
             launcher_type,
             base_path,
@@ -1155,31 +1064,6 @@ async fn run_request(
             )
             .await?;
             apply_post_install_edit(&instance_id, post_install_edit).await?;
-            Ok(Some(instance_id))
-        }
-        InstallRequest::UpdateSharedInstance { instance_id, data } => {
-            prepare_existing_rollback(job_state, state, &instance_id).await?;
-            lock_instance(&instance_id, state).await?;
-            prepare_update_backup(job_id, job_state, state).await?;
-            let disabled_project_ids =
-                disabled_project_ids(&instance_id, state).await?;
-            Box::pin(apply_shared_instance_update(
-                job_id,
-                job_state,
-                state,
-                &instance_id,
-                &data,
-            ))
-            .await?;
-            restore_disabled_projects(
-                &instance_id,
-                disabled_project_ids,
-                state,
-            )
-            .await?;
-            finalize_shared_instance_attachment(&instance_id, &data, state)
-                .await?;
-            emit_instance(&instance_id, InstancePayloadType::Edited).await?;
             Ok(Some(instance_id))
         }
     }

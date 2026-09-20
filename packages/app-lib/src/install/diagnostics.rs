@@ -4,7 +4,7 @@ use super::model::{
     InstallPhaseDetails, InstallPhaseId, InstallProgress,
 };
 use super::store;
-use crate::state::{ModrinthCredentials, State};
+use crate::state::State;
 use regex::{Captures, Regex};
 use sqlx::Row;
 use std::fmt::Write as _;
@@ -602,14 +602,6 @@ async fn censor_support_text(
     mut text: String,
     state: &State,
 ) -> crate::Result<String> {
-    for credentials in ModrinthCredentials::get_all(&state.pool).await? {
-        replace_nonempty(
-            &mut text,
-            &credentials.session,
-            "{MODRINTH_ACCESS_TOKEN}",
-        );
-    }
-
     for token in minecraft_tokens(&state.pool).await? {
         replace_nonempty(&mut text, &token, "{MINECRAFT_TOKEN}");
     }
