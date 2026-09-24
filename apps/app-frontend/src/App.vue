@@ -21,6 +21,7 @@ import {
 	SettingsIcon,
 	ShirtIcon,
 } from '@modrinth/assets'
+import { productName, supportEmail } from '@modrinth/branding'
 import {
 	AccountSwitchOverlay,
 	Admonition,
@@ -77,7 +78,6 @@ import OnboardingChecklist from '@/components/ui/onboarding-checklist/index.vue'
 import QuickInstanceSwitcher from '@/components/ui/QuickInstanceSwitcher.vue'
 import SharedInstanceInviteHandler from '@/components/ui/shared-instances/shared-instance-invite-handler/index.vue'
 import SplashScreen from '@/components/ui/SplashScreen.vue'
-import SurveyPopup from '@/components/ui/SurveyPopup.vue'
 import SyncInstancesUpdateModal from '@/components/ui/sync-instances-update-modal/index.vue'
 import {
 	markSyncInstancesUpdateNotificationShown,
@@ -94,26 +94,13 @@ import { useQuickInstanceLimit } from '@/composables/use-quick-instance-limit.ts
 import { isDarkTheme, useTheme } from '@/composables/use-theme.ts'
 import { config } from '@/config'
 import { rememberAccountAppearance } from '@/helpers/account-appearance.ts'
-import {
-	hide_ads_window,
-	init_ads_window,
-	perform_ads_consent_action,
-	release_ads_window_hold,
-	should_show_ads_consent_popup,
-	take_ads_window_hold,
-} from '@/helpers/ads.js'
 import { debugAnalytics, initAnalytics, trackEvent } from '@/helpers/analytics'
 import { check_reachable } from '@/helpers/auth.js'
 import { get_user, get_user_many, get_version } from '@/helpers/cache.js'
 import { onCurseforgeSkippedFiles } from '@/helpers/curseforge'
 import { gameSettingsQueryOptions } from '@/helpers/game-options'
 import { install_create_modpack_instance, install_get_modpack_preview } from '@/helpers/install'
-import {
-	can_current_user_use_shared_instances,
-	get as getInstance,
-	run,
-	set_global_synced_option,
-} from '@/helpers/instance'
+import { get as getInstance, run, set_global_synced_option } from '@/helpers/instance'
 import { maxMemoryQueryOptions } from '@/helpers/jre.js'
 import { get as getCreds, getAll as getAllCreds, login, removeUser } from '@/helpers/mr_auth.ts'
 import { mergeUrlQuery, parseModrinthLink } from '@/helpers/project-links.ts'
@@ -133,7 +120,6 @@ import {
 	syncedServersQueryOptions,
 } from '@/helpers/synced-options'
 import { syncedPackQueryOptions } from '@/helpers/synced-packs'
-import { hasActivePride26Midas, hasMidasBadge } from '@/helpers/user-campaigns.ts'
 import { parse_modrinth_user_link } from '@/helpers/users'
 import {
 	areUpdatesEnabled,
@@ -146,11 +132,7 @@ import {
 } from '@/helpers/utils.js'
 import { start_join_server, start_join_singleplayer_world } from '@/helpers/worlds.ts'
 import i18n, { setLocale } from '@/i18n.config'
-import {
-	instanceKeys,
-	instanceListQueryOptions,
-	screenshotKeys,
-} from '@/pages/instance/query-options'
+import { instanceListQueryOptions, screenshotKeys } from '@/pages/instance/query-options'
 import {
 	appUpdateState,
 	downloadAvailableAppUpdate,
@@ -199,25 +181,6 @@ function updateHistoryNavigationState() {
 	const historyState = window.history.state
 	canNavigateBack.value = historyState?.back != null
 	canNavigateForward.value = historyState?.forward != null
-}
-
-let fullscreenAdsWindowHold = false
-
-async function handleFullscreenChange() {
-	const fullscreen = document.fullscreenElement !== null
-	if (fullscreen === fullscreenAdsWindowHold) return
-
-	fullscreenAdsWindowHold = fullscreen
-	try {
-		if (fullscreen) {
-			await take_ads_window_hold()
-		} else {
-			await release_ads_window_hold()
-		}
-	} catch (error) {
-		fullscreenAdsWindowHold = !fullscreen
-		handleError(error)
-	}
 }
 
 updateHistoryNavigationState()
@@ -281,12 +244,10 @@ onCurseforgeSkippedFiles((packName, files) =>
 const popupNotificationManager = new AppPopupNotificationManager()
 providePopupNotificationManager(popupNotificationManager)
 const { addPopupNotification } = popupNotificationManager
-let adsConsentPopupId = null
-useAppEvent('ads_consent_required', handleAdsConsentRequired, appEvents)
 
 const appVersion = getVersion()
 const tauriApiClient = new TauriModrinthClient({
-	userAgent: async () => `modrinth/theseus/${await appVersion} (support@modrinth.com)`,
+	userAgent: async () => `${productName}/${await appVersion} (${supportEmail})`,
 	labrinthBaseUrl: config.labrinthBaseUrl,
 	archonBaseUrl: config.archonBaseUrl,
 	sharedInstancesBaseUrl: config.sharedInstancesBaseUrl,
@@ -307,36 +268,8 @@ const tauriApiClient = new TauriModrinthClient({
 	],
 })
 provideModrinthClient(tauriApiClient)
-const { data: authenticatedModrinthUser } = useQuery({
-	queryKey: computed(() => ['authenticated-user', 'campaigns', credentials.value?.user?.id]),
-	queryFn: () => tauriApiClient.labrinth.users_v3.getAuthenticated(),
-	enabled: () => !!credentials.value?.session,
-	retry: false,
-})
-useQuery({
-	queryKey: computed(() => instanceKeys.sharedEligibility(credentials.value?.user?.id)),
-	queryFn: can_current_user_use_shared_instances,
-	enabled: () => !!credentials.value?.session && !!credentials.value?.user?.id,
-	retry: false,
-	staleTime: Infinity,
-	refetchOnMount: false,
-	refetchOnWindowFocus: false,
-	refetchOnReconnect: false,
-})
-const hasPlus = computed(
-	() =>
-		!!credentials.value?.user &&
-		(hasMidasBadge(credentials.value.user) ||
-			hasActivePride26Midas(authenticatedModrinthUser.value?.campaigns?.pride_26)),
-)
-const showAd = computed(
-	() => sidebarVisible.value && !hasPlus.value && credentials.value !== undefined,
-)
-const adConsentAvailable = computed(() => credentials.value !== undefined && !hasPlus.value)
 providePageContext({
 	hierarchicalSidebarAvailable: ref(true),
-	showAds: showAd,
-	adConsentAvailable,
 	floatingActionBarOffsets: {
 		left: leftBarWidth,
 		right: computed(() => (sidebarVisible.value ? `${APP_SIDEBAR_WIDTH}px` : '0px')),
@@ -350,8 +283,6 @@ providePageContext({
 })
 provideModalBehavior({
 	noblur: computed(() => !appTheme.advancedRendering),
-	onShow: () => take_ads_window_hold(),
-	onHide: () => release_ads_window_hold(),
 })
 
 const creationIconEditorModal = ref(null)
@@ -506,16 +437,9 @@ onMounted(async () => {
 	}
 
 	await useCheckDisableMouseover()
-	try {
-		handleAdsConsentRequired(await should_show_ads_consent_popup())
-	} catch (error) {
-		handleError(error)
-	}
-
 	document.querySelector('body').addEventListener('click', handleClick)
 	document.querySelector('body').addEventListener('auxclick', handleAuxClick)
 	document.querySelector('body').addEventListener('contextmenu', handleContextMenu)
-	document.addEventListener('fullscreenchange', handleFullscreenChange)
 
 	checkUpdates()
 })
@@ -524,14 +448,9 @@ onUnmounted(async () => {
 	document.querySelector('body').removeEventListener('click', handleClick)
 	document.querySelector('body').removeEventListener('auxclick', handleAuxClick)
 	document.querySelector('body').removeEventListener('contextmenu', handleContextMenu)
-	document.removeEventListener('fullscreenchange', handleFullscreenChange)
 	unlistenEditMenu?.()
 	clearDelayedUpdatePopup()
 
-	if (fullscreenAdsWindowHold) {
-		fullscreenAdsWindowHold = false
-		await release_ads_window_hold().catch(handleError)
-	}
 	await unlistenUpdateDownload?.()
 })
 
@@ -590,34 +509,9 @@ const messages = defineMessages({
 		defaultMessage:
 			'Minecraft authentication servers may be down right now. Check your internet connection and try again later.',
 	},
-	adsConsentTitle: {
-		id: 'app.ads-consent.title',
-		defaultMessage: 'Your privacy and how ads support Modrinth',
-	},
-	adsConsentBody: {
-		id: 'app.ads-consent.body',
-		defaultMessage:
-			'Ads make Modrinth possible and fund creator payouts. Our partners may store or access cookies in the app to personalize ads and measure performance.',
-	},
-	adsConsentManage: {
-		id: 'app.ads-consent.manage',
-		defaultMessage: 'Manage preferences',
-	},
-	adsConsentReject: {
-		id: 'app.ads-consent.reject',
-		defaultMessage: 'Reject all',
-	},
-	adsConsentAccept: {
-		id: 'app.ads-consent.accept',
-		defaultMessage: 'Accept all',
-	},
 	home: {
 		id: 'app.nav.home',
 		defaultMessage: 'Home',
-	},
-	signIn: {
-		id: 'app.nav.sign-in',
-		defaultMessage: 'Sign in',
 	},
 	collapseSidebar: {
 		id: 'app.nav.collapse-sidebar',
@@ -627,10 +521,6 @@ const messages = defineMessages({
 		id: 'app.nav.expand-sidebar',
 		defaultMessage: 'Expand sidebar',
 	},
-	modrinthHosting: {
-		id: 'app.nav.modrinth-hosting',
-		defaultMessage: 'Modrinth Hosting',
-	},
 	screenshots: {
 		id: 'app.nav.screenshots',
 		defaultMessage: 'Screenshots',
@@ -638,38 +528,6 @@ const messages = defineMessages({
 	createNewInstance: {
 		id: 'app.nav.create-new-instance',
 		defaultMessage: 'Create new instance',
-	},
-	modrinthAccount: {
-		id: 'app.nav.modrinth-account',
-		defaultMessage: 'Account',
-	},
-	viewProfile: {
-		id: 'app.nav.view-profile',
-		defaultMessage: 'View profile',
-	},
-	addFriend: {
-		id: 'friends.action.add-friend',
-		defaultMessage: 'Add a friend',
-	},
-	signInToModrinthAccount: {
-		id: 'app.nav.sign-in-to-modrinth-account',
-		defaultMessage: 'Sign in',
-	},
-	loadingProfile: {
-		id: 'app.nav.loading-profile',
-		defaultMessage: 'Loading profile...',
-	},
-	switchAccount: {
-		id: 'app.nav.switch-account',
-		defaultMessage: 'Switch account',
-	},
-	addAccount: {
-		id: 'app.nav.add-account',
-		defaultMessage: 'Add account',
-	},
-	removeAccount: {
-		id: 'app.nav.remove-account',
-		defaultMessage: 'Remove account',
 	},
 	restarting: {
 		id: 'app.restarting',
@@ -680,55 +538,6 @@ const messages = defineMessages({
 		defaultMessage: 'Playing as',
 	},
 })
-
-function handleAdsConsentRequired(required) {
-	if (!required) {
-		if (adsConsentPopupId !== null) {
-			popupNotificationManager.removeNotification(adsConsentPopupId)
-			adsConsentPopupId = null
-		}
-		return
-	}
-
-	if (
-		adsConsentPopupId !== null &&
-		popupNotificationManager.getNotifications().some((item) => item.id === adsConsentPopupId)
-	) {
-		return
-	}
-
-	const notification = addPopupNotification({
-		contentType: 'standard',
-		title: formatMessage(messages.adsConsentTitle),
-		text: formatMessage(messages.adsConsentBody),
-		type: 'info',
-		hideIcon: true,
-		autoCloseMs: null,
-		dismissible: false,
-		buttons: [
-			{
-				label: formatMessage(messages.adsConsentManage),
-				action: () => perform_ads_consent_action('manage').catch(handleError),
-				color: 'standard',
-				keepOpen: true,
-			},
-			{
-				label: formatMessage(messages.adsConsentReject),
-				action: () => perform_ads_consent_action('reject').catch(handleError),
-				color: 'brand',
-				keepOpen: true,
-			},
-			{
-				label: formatMessage(messages.adsConsentAccept),
-				action: () => perform_ads_consent_action('accept').catch(handleError),
-				color: 'brand',
-				keepOpen: true,
-			},
-		],
-	})
-
-	adsConsentPopupId = notification.id
-}
 
 async function setupApp() {
 	tags.initialize()
@@ -2158,7 +1967,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 		}"
 	>
 		<div class="app-viewport flex-grow router-view">
-			<SurveyPopup />
 			<div
 				class="loading-indicator-container h-8 fixed z-50 pointer-events-none"
 				:style="{

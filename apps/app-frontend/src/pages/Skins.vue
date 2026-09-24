@@ -14,8 +14,6 @@ import {
 	commonMessages,
 	ConfirmModal,
 	defineMessages,
-	injectAuth,
-	injectModrinthClient,
 	injectNotificationManager,
 	SkinPreviewRenderer,
 	Toggle,
@@ -53,7 +51,6 @@ import {
 	save_custom_skin,
 	set_custom_skin_order,
 } from '@/helpers/skins.ts'
-import { hasPride26Badge } from '@/helpers/user-campaigns.ts'
 import { useRootBreadcrumb } from '@/providers/breadcrumbs'
 import { appMessages } from '@/utils/app-messages'
 
@@ -71,22 +68,11 @@ type VirtualSkinSectionListExpose = {
 }
 
 const PENDING_SKIN_REFRESH_DELAY_MS = 11_000
-const DEFAULT_SKIN_SECTION_SORT_ORDER = ['Default skins', 'Modrinth Pride']
+// Skin sections branded as another product's are never shown.
+const HIDDEN_SKIN_SECTIONS = new Set(['Modrinth', 'Modrinth Pride'])
+const DEFAULT_SKIN_SECTION_SORT_ORDER = ['Default skins']
 const EARS_NOTICE_PLACEHOLDER = '__EARS_MOD_NAME__'
 const messages = defineMessages({
-	modrinthPrideSection: {
-		id: 'app.skins.section.modrinth-pride',
-		defaultMessage: 'Modrinth Pride',
-	},
-	modrinthPrideTooltip: {
-		id: 'app.skins.section.modrinth-pride.tooltip',
-		defaultMessage:
-			'You received these skins for donating to a Modrinth Pride fundraiser during Pride Month.',
-	},
-	modrinthSection: {
-		id: 'app.skins.section.modrinth',
-		defaultMessage: 'Modrinth',
-	},
 	defaultSkinsSection: {
 		id: 'app.skins.section.default-skins',
 		defaultMessage: 'Default skins',
@@ -209,8 +195,6 @@ const skinSectionList = useTemplateRef<VirtualSkinSectionListExpose>('skinSectio
 const { formatMessage } = useVIntl()
 const notifications = injectNotificationManager()
 const { addNotification, handleError } = notifications
-const auth = injectAuth()
-const client = injectModrinthClient()
 
 const appSettings = useAppSettings()
 const skins = ref<Skin[]>([])
@@ -267,18 +251,9 @@ const authServerQuery = useQuery({
 	retry: false,
 	refetchOnWindowFocus: false,
 })
-const { data: modrinthUser } = useQuery({
-	queryKey: computed(() => ['authenticated-user', 'campaigns', auth.user.value?.id]),
-	queryFn: () => client.labrinth.users_v3.getAuthenticated(),
-	enabled: () => !!auth.session_token.value,
-	retry: false,
-})
-const hasModrinthPrideCampaign = computed(
-	() => !!auth.session_token.value && hasPride26Badge(modrinthUser.value?.campaigns?.pride_26),
-)
 const defaultSkins = computed(() =>
 	filterDefaultSkins(skins.value).filter(
-		(skin) => skin.section !== 'Modrinth Pride' || hasModrinthPrideCampaign.value,
+		(skin) => !skin.section || !HIDDEN_SKIN_SECTIONS.has(skin.section),
 	),
 )
 const defaultSkinSections = computed(() => {
@@ -477,10 +452,6 @@ function isMinecraftSkinRateLimitError(error: unknown) {
 
 function getDefaultSkinSectionTitle(section?: string) {
 	switch (section) {
-		case 'Modrinth Pride':
-			return formatMessage(messages.modrinthPrideSection)
-		case 'Modrinth':
-			return formatMessage(messages.modrinthSection)
 		case 'MINECON Earth 2017':
 			return formatMessage(messages.mineconEarth2017Section)
 		case 'Builders & Biomes':
@@ -506,13 +477,8 @@ function getDefaultSkinSectionTitle(section?: string) {
 	}
 }
 
-function getDefaultSkinSectionInfoTooltip(section: string) {
-	switch (section) {
-		case 'Modrinth Pride':
-			return formatMessage(messages.modrinthPrideTooltip)
-		default:
-			return undefined
-	}
+function getDefaultSkinSectionInfoTooltip(_section: string): string | undefined {
+	return undefined
 }
 
 function getDefaultSkinSectionSortIndex(section: string) {
