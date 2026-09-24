@@ -131,21 +131,6 @@
   "app.action-bar.view-logs": {
     "message": "View logs"
   },
-  "app.ads-consent.accept": {
-    "message": "Accept all"
-  },
-  "app.ads-consent.body": {
-    "message": "Ads make Modrinth possible and fund creator payouts. Our partners may store or access cookies in the app to personalize ads and measure performance."
-  },
-  "app.ads-consent.manage": {
-    "message": "Manage preferences"
-  },
-  "app.ads-consent.reject": {
-    "message": "Reject all"
-  },
-  "app.ads-consent.title": {
-    "message": "Your privacy and how ads support Modrinth"
-  },
   "app.appearance-settings.compact-mode.description": {
     "message": "Display library instances in a compact row layout."
   },
@@ -251,6 +236,9 @@
   "app.browse.hide-installed-modpacks": {
     "message": "Hide already installed"
   },
+  "app.browse.open-in-curseforge": {
+    "message": "Open in CurseForge"
+  },
   "app.browse.project-actions.label": {
     "message": "Project actions"
   },
@@ -295,6 +283,12 @@
   },
   "app.content.sync-resource-packs-disabled": {
     "message": "Turn on resource pack syncing in app settings first."
+  },
+  "app.curseforge.skipped-files.text": {
+    "message": "The authors only allow downloading these from CurseForge’s website, so {pack} was installed without them: {files}. Download them from CurseForge and add them to the instance’s mods folder."
+  },
+  "app.curseforge.skipped-files.title": {
+    "message": "{count, plural, one {# mod needs} other {# mods need}} a manual download"
   },
   "app.download-manager.active": {
     "message": "Active"
@@ -485,18 +479,6 @@
   "app.home.jump-back-in.view-instance": {
     "message": "View instance"
   },
-  "app.hosting.update-required.description": {
-    "message": "You need to update to use Modrinth Hosting through {productName}"
-  },
-  "app.hosting.update-required.download": {
-    "message": "Download to update"
-  },
-  "app.hosting.update-required.rinthbot-alt": {
-    "message": "Excited Modrinth Bot"
-  },
-  "app.hosting.update-required.title": {
-    "message": "{productName} update required"
-  },
   "app.install.phase.downloading_content": {
     "message": "Downloading content"
   },
@@ -623,30 +605,6 @@
   "app.instance.admonitions.shared-instance.reviewing-button": {
     "message": "Reviewing..."
   },
-  "app.instance.card.icon-alt": {
-    "message": "Instance icon"
-  },
-  "app.instance.card.installing": {
-    "message": "Installing..."
-  },
-  "app.instance.card.loading": {
-    "message": "Instance is loading..."
-  },
-  "app.instance.card.never-played": {
-    "message": "Never played"
-  },
-  "app.instance.card.play": {
-    "message": "Play"
-  },
-  "app.instance.card.played": {
-    "message": "Played {relativeTime}"
-  },
-  "app.instance.card.repair": {
-    "message": "Repair"
-  },
-  "app.instance.card.stop": {
-    "message": "Stop"
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "All data for your instance will be permanently deleted, including your worlds, configs, and all installed content."
   },
@@ -727,87 +685,6 @@
   },
   "app.instance.navigation.back-to-instance": {
     "message": "Back to instance"
-  },
-  "app.instance.share.empty.description": {
-    "message": "You can share this instance with your friends!"
-  },
-  "app.instance.share.empty.heading": {
-    "message": "No friends invited"
-  },
-  "app.instance.share.empty.invite-friends-button": {
-    "message": "Invite friends"
-  },
-  "app.instance.share.invite-modal.heading": {
-    "message": "Share {name}"
-  },
-  "app.instance.share.invite-modal.user-limit-reached": {
-    "message": "This instance has reached the {limit}-user limit."
-  },
-  "app.instance.share.locked.empty-description-prefix": {
-    "message": "You need to sign in as"
-  },
-  "app.instance.share.locked.empty-description-suffix": {
-    "message": "to access this page."
-  },
-  "app.instance.share.locked.linked-account-fallback": {
-    "message": "the linked account"
-  },
-  "app.instance.share.locked.signed-out-heading": {
-    "message": "Not signed in"
-  },
-  "app.instance.share.locked.switch-account-button": {
-    "message": "Switch account"
-  },
-  "app.instance.share.locked.wrong-account-heading": {
-    "message": "Wrong account"
-  },
-  "app.instance.share.members.empty": {
-    "message": "No users have joined yet"
-  },
-  "app.instance.share.members.no-filter-results": {
-    "message": "No users match your filters."
-  },
-  "app.instance.share.remove-user-modal.effect-access": {
-    "message": "They will no longer receive updates for this shared instance"
-  },
-  "app.instance.share.remove-user-modal.effect-installed-copy": {
-    "message": "Any copy they already installed will stay on their device"
-  },
-  "app.instance.share.remove-user-modal.effect-invite-again": {
-    "message": "You can invite them again later"
-  },
-  "app.instance.share.remove-user-modal.effect-last-user": {
-    "message": "This is the last user, sharing will be turned off for this instance"
-  },
-  "app.instance.share.remove-user-modal.effects-label": {
-    "message": "What happens?"
-  },
-  "app.instance.share.remove-user-modal.header": {
-    "message": "Revoke access"
-  },
-  "app.instance.share.remove-user-modal.remove-button": {
-    "message": "Revoke access"
-  },
-  "app.instance.share.remove-user-modal.user-avatar-alt": {
-    "message": "{username}'s avatar"
-  },
-  "app.instance.share.remove-user-modal.warning-body": {
-    "message": "If you revoke {username}'s access to this shared instance, you'll need to invite them again before they can receive updates."
-  },
-  "app.instance.share.sign-in.button": {
-    "message": "Sign in"
-  },
-  "app.instance.share.unable-to-connect.description": {
-    "message": "The shared instances service is not accessible at the moment, please try again later"
-  },
-  "app.instance.share.unable-to-connect.heading": {
-    "message": "Unable to connect"
-  },
-  "app.instance.share.unlink.body": {
-    "message": "You must unlink this modpack to share your instance"
-  },
-  "app.instance.share.unlink.header": {
-    "message": "Sharing requires unlinking"
   },
   "app.instance.shared-instance-already-installed.body": {
     "message": "This shared instance is already installed as <bold>{instanceName}</bold>. Are you sure you want to install another copy?"
@@ -1349,41 +1226,20 @@
   "app.modal.update-to-play.update-required-description": {
     "message": "An update is required to play {name}. Please update to latest version to launch the game."
   },
-  "app.nav.add-account": {
-    "message": "Add account"
+  "app.nav.collapse-sidebar": {
+    "message": "Collapse sidebar"
   },
   "app.nav.create-new-instance": {
     "message": "Create new instance"
   },
+  "app.nav.expand-sidebar": {
+    "message": "Expand sidebar"
+  },
   "app.nav.home": {
     "message": "Home"
   },
-  "app.nav.loading-profile": {
-    "message": "Loading profile..."
-  },
-  "app.nav.modrinth-account": {
-    "message": "Account"
-  },
-  "app.nav.modrinth-hosting": {
-    "message": "Modrinth Hosting"
-  },
-  "app.nav.remove-account": {
-    "message": "Remove account"
-  },
   "app.nav.screenshots": {
     "message": "Screenshots"
-  },
-  "app.nav.sign-in-to-modrinth-account": {
-    "message": "Sign in"
-  },
-  "app.nav.switch-account": {
-    "message": "Switch account"
-  },
-  "app.nav.upgrade-to-modrinth-plus": {
-    "message": "Upgrade to Modrinth+"
-  },
-  "app.nav.view-profile": {
-    "message": "View profile"
   },
   "app.navigation.go-back": {
     "message": "Go back"
@@ -1396,12 +1252,6 @@
   },
   "app.navigation.next-image": {
     "message": "Next image"
-  },
-  "app.news.title": {
-    "message": "News"
-  },
-  "app.news.view-all": {
-    "message": "View all news"
   },
   "app.notification.warning": {
     "message": "Warning"
@@ -1429,6 +1279,9 @@
   },
   "app.project.more-options": {
     "message": "More options"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Open in CurseForge"
   },
   "app.project.tab.description": {
     "message": "Description"
@@ -2735,20 +2588,11 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
-  "app.settings.privacy.ads-consent.intro": {
-    "message": "Ads make Modrinth possible and fund creator payouts. Our partners may store or access cookies in the app to personalize ads and measure performance. You can opt out or manage your preferences below."
-  },
   "app.settings.privacy.discord-rich-presence.description": {
     "message": "Show {productName} as your current activity on Discord. This does not affect Rich Presence added to instances by mods. Requires an app restart."
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
-  },
-  "app.settings.privacy.telemetry.description": {
-    "message": "{productName} collects anonymized analytics and usage data to improve our user experience and customize your experience. By disabling this option, you opt out and your data will no longer be collected."
-  },
-  "app.settings.privacy.telemetry.title": {
-    "message": "Telemetry"
   },
   "app.settings.resource-management.always-show-copy-details.description": {
     "message": "Show the Copy details action while an install is queued or running. It is always available for failed or interrupted installs."
@@ -3251,15 +3095,6 @@
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
-  "app.skins.section.modrinth": {
-    "message": "Modrinth"
-  },
-  "app.skins.section.modrinth-pride": {
-    "message": "Modrinth Pride"
-  },
-  "app.skins.section.modrinth-pride.tooltip": {
-    "message": "You received these skins for donating to a Modrinth Pride fundraiser during Pride Month."
-  },
   "app.skins.section.mounts-of-mayhem": {
     "message": "Mounts of Mayhem"
   },
@@ -3289,21 +3124,6 @@
   },
   "app.skins.toggle-ears-features-on": {
     "message": "Toggle on"
-  },
-  "app.survey.body": {
-    "message": "Would you mind answering a few questions about your experience with {productName}?"
-  },
-  "app.survey.footer": {
-    "message": "This feedback will go directly to the {productName} team and help guide future updates!"
-  },
-  "app.survey.no-thanks": {
-    "message": "No thanks"
-  },
-  "app.survey.take-survey": {
-    "message": "Take survey"
-  },
-  "app.survey.title": {
-    "message": "Hey there {productName} user!"
   },
   "app.sync-instances-update.badge": {
     "message": "New this update"
@@ -3538,72 +3358,6 @@
   },
   "content.shared-instance.warning-header": {
     "message": "This is part of the shared instance"
-  },
-  "friends.action.add-friend": {
-    "message": "Add a friend"
-  },
-  "friends.action.view-friend-requests": {
-    "message": "{count} friend {count, plural, one {request} other {requests}}"
-  },
-  "friends.add-friend.submit": {
-    "message": "Send friend request"
-  },
-  "friends.add-friend.title": {
-    "message": "Adding a friend"
-  },
-  "friends.add-friend.username.description": {
-    "message": "It may be different from their Minecraft username!"
-  },
-  "friends.add-friend.username.placeholder": {
-    "message": "Enter Modrinth username..."
-  },
-  "friends.add-friend.username.title": {
-    "message": "What's your friend's Modrinth username?"
-  },
-  "friends.add-friends-to-share": {
-    "message": "<link>Add friends</link> to see what they're playing!"
-  },
-  "friends.friend.actions.label": {
-    "message": "Friend actions"
-  },
-  "friends.friend.cancel-request": {
-    "message": "Cancel request"
-  },
-  "friends.friend.remove-friend": {
-    "message": "Remove friend"
-  },
-  "friends.friend.request-sent": {
-    "message": "Friend request sent"
-  },
-  "friends.friend.view-profile": {
-    "message": "View profile"
-  },
-  "friends.heading": {
-    "message": "Friends"
-  },
-  "friends.heading.active": {
-    "message": "Active"
-  },
-  "friends.heading.offline": {
-    "message": "Offline"
-  },
-  "friends.heading.online": {
-    "message": "Online"
-  },
-  "friends.heading.pending": {
-    "message": "Pending"
-  },
-  "friends.no-friends-match": {
-    "message": "No friends matching ''{query}''"
-  },
-  "friends.search-friends-placeholder": {
-    "message": "Search friends..."
-  },
-  "friends.section.heading": {
-    "message": "{title} - {count}"
-  },
-  "friends.sign-in-to-add-friends": {
-    "message": "<link>Sign in to a Modrinth account</link> to add friends and see what they're playing!"
   },
   "installation-settings.shared-instance.linked-title": {
     "message": "Linked shared instance"
@@ -3923,9 +3677,6 @@
   "instance.icon-editor.symbol.tnt": {
     "message": "TNT"
   },
-  "instance.icon-editor.symbol.wrenth-rinth": {
-    "message": "Modrinth Wrench"
-  },
   "instance.icon-editor.symbol.zombie": {
     "message": "Zombie"
   },
@@ -4021,21 +3772,6 @@
   },
   "instance.settings.synced-options.resource-packs.disabled": {
     "message": "Resource pack syncing is turned off in app settings."
-  },
-  "instance.settings.tabs.behavior.description": {
-    "message": "Choose which tabs appear on this instance."
-  },
-  "instance.settings.tabs.behavior.files": {
-    "message": "Show Files tab"
-  },
-  "instance.settings.tabs.behavior.screenshots": {
-    "message": "Show Screenshots tab"
-  },
-  "instance.settings.tabs.behavior.screenshots.required": {
-    "message": "The Screenshots tab cannot be hidden while the global Screenshots page is turned off."
-  },
-  "instance.settings.tabs.behavior.worlds": {
-    "message": "Show Worlds tab"
   },
   "instance.settings.tabs.general": {
     "message": "General"
@@ -4519,9 +4255,6 @@
   },
   "onboarding-checklist.login-minecraft": {
     "message": "Sign in to Minecraft"
-  },
-  "onboarding-checklist.login-modrinth": {
-    "message": "Sign in to Modrinth"
   },
   "onboarding-checklist.title": {
     "message": "Getting started"

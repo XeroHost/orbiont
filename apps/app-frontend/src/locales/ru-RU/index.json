@@ -131,21 +131,6 @@
   "app.action-bar.view-logs": {
     "message": "Посмотреть журнал"
   },
-  "app.ads-consent.accept": {
-    "message": "Принять всё"
-  },
-  "app.ads-consent.body": {
-    "message": "Реклама обеспечивает работу Modrinth и выплаты авторам. Для персонализации и анализа рекламы наши партнёры могут использовать куки."
-  },
-  "app.ads-consent.manage": {
-    "message": "Настроить"
-  },
-  "app.ads-consent.reject": {
-    "message": "Отклонить всё"
-  },
-  "app.ads-consent.title": {
-    "message": "Конфиденциальность и реклама на Modrinth"
-  },
   "app.appearance-settings.compact-mode.description": {
     "message": "Отображать сборки в библиотеке компактным списком."
   },
@@ -404,18 +389,6 @@
   "app.home.jump-back-in.view-instance": {
     "message": "Посмотреть сборку"
   },
-  "app.hosting.update-required.description": {
-    "message": "Обновитесь, чтобы использовать Modrinth Hosting через {productName}"
-  },
-  "app.hosting.update-required.download": {
-    "message": "Скачать и обновить"
-  },
-  "app.hosting.update-required.rinthbot-alt": {
-    "message": "Восторженный Modrinth Bot"
-  },
-  "app.hosting.update-required.title": {
-    "message": "Обновите {productName}"
-  },
   "app.install.phase.downloading_content": {
     "message": "Скачивание контента"
   },
@@ -542,30 +515,6 @@
   "app.instance.admonitions.shared-instance.reviewing-button": {
     "message": "Проверка..."
   },
-  "app.instance.card.icon-alt": {
-    "message": "Иконка сборки"
-  },
-  "app.instance.card.installing": {
-    "message": "Установка..."
-  },
-  "app.instance.card.loading": {
-    "message": "Загрузка сборки..."
-  },
-  "app.instance.card.never-played": {
-    "message": "Не запускалась"
-  },
-  "app.instance.card.play": {
-    "message": "Запустить"
-  },
-  "app.instance.card.played": {
-    "message": "Сыграно {relativeTime}"
-  },
-  "app.instance.card.repair": {
-    "message": "Исправить"
-  },
-  "app.instance.card.stop": {
-    "message": "Остановить"
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Все данные сборки будут удалены навсегда, в том числе миры, настройки и весь установленный контент."
   },
@@ -634,84 +583,6 @@
   },
   "app.instance.navigation.back-to-instance": {
     "message": "Вернуться к сборке"
-  },
-  "app.instance.share.empty.description": {
-    "message": "Поделитесь сборкой со своими друзьями!"
-  },
-  "app.instance.share.empty.heading": {
-    "message": "Нет приглашённых друзей"
-  },
-  "app.instance.share.empty.invite-friends-button": {
-    "message": "Пригласить друзей"
-  },
-  "app.instance.share.invite-modal.heading": {
-    "message": "Доступ к {name}"
-  },
-  "app.instance.share.locked.empty-description-prefix": {
-    "message": "Необходимо войти как"
-  },
-  "app.instance.share.locked.empty-description-suffix": {
-    "message": "для доступа к этой странице."
-  },
-  "app.instance.share.locked.linked-account-fallback": {
-    "message": "связанный аккаунт"
-  },
-  "app.instance.share.locked.signed-out-heading": {
-    "message": "Вход не выполнен"
-  },
-  "app.instance.share.locked.switch-account-button": {
-    "message": "Сменить аккаунт"
-  },
-  "app.instance.share.locked.wrong-account-heading": {
-    "message": "Неверный аккаунт"
-  },
-  "app.instance.share.members.empty": {
-    "message": "Ни один пользователь ещё не присоединился"
-  },
-  "app.instance.share.members.no-filter-results": {
-    "message": "По заданным фильтрам пользователи не найдены."
-  },
-  "app.instance.share.remove-user-modal.effect-access": {
-    "message": "Пользователь больше не будет получать обновления совместной сборки"
-  },
-  "app.instance.share.remove-user-modal.effect-installed-copy": {
-    "message": "Любая уже установленная копия останется на устройстве"
-  },
-  "app.instance.share.remove-user-modal.effect-invite-again": {
-    "message": "Вы можете пригласить их снова позже"
-  },
-  "app.instance.share.remove-user-modal.effect-last-user": {
-    "message": "Это последний пользователь, в этом случае функция общего доступа будет отключена"
-  },
-  "app.instance.share.remove-user-modal.effects-label": {
-    "message": "Что произойдёт?"
-  },
-  "app.instance.share.remove-user-modal.header": {
-    "message": "Отзыв доступа"
-  },
-  "app.instance.share.remove-user-modal.remove-button": {
-    "message": "Отозвать доступ"
-  },
-  "app.instance.share.remove-user-modal.user-avatar-alt": {
-    "message": "Аватар {username}"
-  },
-  "app.instance.share.remove-user-modal.warning-body": {
-    "message": "Если вы отзовете доступ пользователя {username} к этому общему экземпляру, вам потребуется снова пригласить его, прежде чем он сможет получать обновления."
-  },
-  "app.instance.share.sign-in.button": {
-    "message": "Войти"
-  },
-  "app.instance.share.unable-to-connect.description": {
-    "message": "Сервис сборок недоступен, попробуйте позже"
-  },
-  "app.instance.share.unable-to-connect.heading": {
-    "message": "Не удалось подключиться"
-  },
-  "app.instance.share.unlink.body": {
-    "message": "Для предоставления доступа к вашему экземпляру игры необходимо отменить привязку этого модпака"
-  },
-  "app.instance.share.unlink.header": {
-    "message": "Для обмена необходимо отменить связь"
   },
   "app.instance.shared-instance-already-installed.body": {
     "message": "Совместный контент уже установлен в сборке <bold>{instanceName}</bold>. Создать копию?"
@@ -1247,35 +1118,14 @@
   "app.modal.update-to-play.update-required-description": {
     "message": "Обновите {name} до последней версии, чтобы запустить игру."
   },
-  "app.nav.add-account": {
-    "message": "Добавить аккаунт"
-  },
   "app.nav.create-new-instance": {
     "message": "Создать новую сборку"
   },
   "app.nav.home": {
     "message": "Главная"
   },
-  "app.nav.loading-profile": {
-    "message": "Загрузка профиля..."
-  },
-  "app.nav.modrinth-hosting": {
-    "message": "Modrinth Hosting"
-  },
-  "app.nav.remove-account": {
-    "message": "Удалить аккаунт"
-  },
   "app.nav.screenshots": {
     "message": "Скриншоты"
-  },
-  "app.nav.switch-account": {
-    "message": "Сменить аккаунт"
-  },
-  "app.nav.upgrade-to-modrinth-plus": {
-    "message": "Перейти на Modrinth+"
-  },
-  "app.nav.view-profile": {
-    "message": "Посмотреть профиль"
   },
   "app.navigation.go-back": {
     "message": "Назад"
@@ -1288,12 +1138,6 @@
   },
   "app.navigation.next-image": {
     "message": "Следующее изображение"
-  },
-  "app.news.title": {
-    "message": "Новости"
-  },
-  "app.news.view-all": {
-    "message": "Посмотреть все новости"
   },
   "app.notification.warning": {
     "message": "Внимание"
@@ -2624,20 +2468,11 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
-  "app.settings.privacy.ads-consent.intro": {
-    "message": "Реклама обеспечивает работу Modrinth и выплаты авторам. Для персонализации и анализа рекламы наши партнёры могут использовать куки. Отказаться и настроить куки можно ниже."
-  },
   "app.settings.privacy.discord-rich-presence.description": {
     "message": "Показывать Modrinth App в текущей активности Discord. Не влияет на Rich Presence модов. Требуется перезапуск."
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
-  },
-  "app.settings.privacy.telemetry.description": {
-    "message": "{productName} собирает анонимные данные об использовании для персонализации и улучшения сервиса. Отключите этот параметр, чтобы отказаться от сбора данных."
-  },
-  "app.settings.privacy.telemetry.title": {
-    "message": "Телеметрия"
   },
   "app.settings.resource-management.always-show-copy-details.description": {
     "message": "Показывать кнопку «Получить отчёт» во время установки. Для прерванных установок кнопка видна всегда."
@@ -3065,15 +2900,6 @@
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
-  "app.skins.section.modrinth": {
-    "message": "Modrinth"
-  },
-  "app.skins.section.modrinth-pride": {
-    "message": "Modrinth Pride"
-  },
-  "app.skins.section.modrinth-pride.tooltip": {
-    "message": "Эти скины получены за участие в сборе средств Modrinth Pride в месяц гордости."
-  },
   "app.skins.section.mounts-of-mayhem": {
     "message": "Mounts of Mayhem"
   },
@@ -3103,21 +2929,6 @@
   },
   "app.skins.toggle-ears-features-on": {
     "message": "Показать"
-  },
-  "app.survey.body": {
-    "message": "Не хотите ответить на несколько вопросов о вашем опыте с {productName}?"
-  },
-  "app.survey.footer": {
-    "message": "Этот отзыв будет доставлен напрямую команде {productName} и поможет разрабатывать будущие обновления!"
-  },
-  "app.survey.no-thanks": {
-    "message": "Нет, спасибо"
-  },
-  "app.survey.take-survey": {
-    "message": "Пройти опрос"
-  },
-  "app.survey.title": {
-    "message": "Привет, пользователь {productName}!"
   },
   "app.sync-instances-update.badge": {
     "message": "Новинка"
@@ -3349,72 +3160,6 @@
   },
   "content.shared-instance.warning-header": {
     "message": "Это часть сборки"
-  },
-  "friends.action.add-friend": {
-    "message": "Добавить в друзья"
-  },
-  "friends.action.view-friend-requests": {
-    "message": "{count} {count, plural, one {запрос} few {запроса} other {запросов}} дружбы"
-  },
-  "friends.add-friend.submit": {
-    "message": "Отправить запрос дружбы"
-  },
-  "friends.add-friend.title": {
-    "message": "Добавление в друзья"
-  },
-  "friends.add-friend.username.description": {
-    "message": "Оно может быть не таким, как в Minecraft!"
-  },
-  "friends.add-friend.username.placeholder": {
-    "message": "Введите имя с Modrinth..."
-  },
-  "friends.add-friend.username.title": {
-    "message": "Какое имя у друга на Modrinth?"
-  },
-  "friends.add-friends-to-share": {
-    "message": "<link>Добавьте друзей</link> и следите за ними!"
-  },
-  "friends.friend.actions.label": {
-    "message": "Действия с другом"
-  },
-  "friends.friend.cancel-request": {
-    "message": "Отменить запрос"
-  },
-  "friends.friend.remove-friend": {
-    "message": "Удалить из друзей"
-  },
-  "friends.friend.request-sent": {
-    "message": "Отправлен запрос дружбы"
-  },
-  "friends.friend.view-profile": {
-    "message": "Посмотреть профиль"
-  },
-  "friends.heading": {
-    "message": "Друзья"
-  },
-  "friends.heading.active": {
-    "message": "В игре"
-  },
-  "friends.heading.offline": {
-    "message": "Не в сети"
-  },
-  "friends.heading.online": {
-    "message": "В сети"
-  },
-  "friends.heading.pending": {
-    "message": "В ожидании"
-  },
-  "friends.no-friends-match": {
-    "message": "Нет друзей по запросу «{query}»"
-  },
-  "friends.search-friends-placeholder": {
-    "message": "Поиск по друзьям..."
-  },
-  "friends.section.heading": {
-    "message": "{title} — {count}"
-  },
-  "friends.sign-in-to-add-friends": {
-    "message": "<link>Войдите в аккаунт Modrinth</link>, чтобы добавлять друзей и следить за ними!"
   },
   "installation-settings.shared-instance.linked-title": {
     "message": "Отвязка совместной сборки"
@@ -3728,9 +3473,6 @@
   "instance.icon-editor.symbol.tnt": {
     "message": "Динамит"
   },
-  "instance.icon-editor.symbol.wrenth-rinth": {
-    "message": "Гаечный ключ Modrinth"
-  },
   "instance.icon-editor.symbol.zombie": {
     "message": "Зомби"
   },
@@ -3826,21 +3568,6 @@
   },
   "instance.settings.synced-options.resource-packs.disabled": {
     "message": "Синхронизация наборов ресурсов отключена в настройках приложения."
-  },
-  "instance.settings.tabs.behavior.description": {
-    "message": "Выберите вкладки, которые будут отображаться в этой сборке."
-  },
-  "instance.settings.tabs.behavior.files": {
-    "message": "Вкладка файлов"
-  },
-  "instance.settings.tabs.behavior.screenshots": {
-    "message": "Вкладка скриншотов"
-  },
-  "instance.settings.tabs.behavior.screenshots.required": {
-    "message": "Невозможно скрыть вкладку скриншотов, пока общий раздеь выключен."
-  },
-  "instance.settings.tabs.behavior.worlds": {
-    "message": "Вкладка миров"
   },
   "instance.settings.tabs.general": {
     "message": "Основные"
@@ -4324,9 +4051,6 @@
   },
   "onboarding-checklist.login-minecraft": {
     "message": "Войдите в Minecraft"
-  },
-  "onboarding-checklist.login-modrinth": {
-    "message": "Войдите в Modrinth"
   },
   "onboarding-checklist.title": {
     "message": "Начало работы"

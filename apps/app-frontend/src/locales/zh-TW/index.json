@@ -131,21 +131,6 @@
   "app.action-bar.view-logs": {
     "message": "查看紀錄"
   },
-  "app.ads-consent.accept": {
-    "message": "全部接受"
-  },
-  "app.ads-consent.body": {
-    "message": "廣告使 Modrinth 得以營運，並為創作者提供收益。我們的合作夥伴可能會在應用程式中儲存或存取 Cookie，以實現個人化廣告並衡量廣告成效。"
-  },
-  "app.ads-consent.manage": {
-    "message": "管理偏好設定"
-  },
-  "app.ads-consent.reject": {
-    "message": "全部拒絕"
-  },
-  "app.ads-consent.title": {
-    "message": "關於你的隱私，以及廣告如何幫助 Modrinth"
-  },
   "app.appearance-settings.compact-mode.description": {
     "message": "以密集的橫列版面顯示遊戲庫實例。"
   },
@@ -404,18 +389,6 @@
   "app.home.jump-back-in.view-instance": {
     "message": "查看實例"
   },
-  "app.hosting.update-required.description": {
-    "message": "你需要更新才能透過 {productName} 使用 Modrinth Hosting"
-  },
-  "app.hosting.update-required.download": {
-    "message": "下載即可更新"
-  },
-  "app.hosting.update-required.rinthbot-alt": {
-    "message": "興奮的 Modrinth Bot"
-  },
-  "app.hosting.update-required.title": {
-    "message": "需要更新 {productName}"
-  },
   "app.install.phase.downloading_content": {
     "message": "正在下載內容"
   },
@@ -542,30 +515,6 @@
   "app.instance.admonitions.shared-instance.reviewing-button": {
     "message": "正在檢視..."
   },
-  "app.instance.card.icon-alt": {
-    "message": "實例圖示"
-  },
-  "app.instance.card.installing": {
-    "message": "正在安裝..."
-  },
-  "app.instance.card.loading": {
-    "message": "正在載入實例..."
-  },
-  "app.instance.card.never-played": {
-    "message": "從未遊玩"
-  },
-  "app.instance.card.play": {
-    "message": "遊玩"
-  },
-  "app.instance.card.played": {
-    "message": "上次遊玩時間：{relativeTime}"
-  },
-  "app.instance.card.repair": {
-    "message": "修復"
-  },
-  "app.instance.card.stop": {
-    "message": "停止"
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "你實例中的所有資料將被永久刪除，包含你的世界、設定檔以及所有已安裝的內容。"
   },
@@ -646,87 +595,6 @@
   },
   "app.instance.navigation.back-to-instance": {
     "message": "回到實例"
-  },
-  "app.instance.share.empty.description": {
-    "message": "你可以與好友共用這個實例！"
-  },
-  "app.instance.share.empty.heading": {
-    "message": "未邀請任何好友"
-  },
-  "app.instance.share.empty.invite-friends-button": {
-    "message": "邀請好友"
-  },
-  "app.instance.share.invite-modal.heading": {
-    "message": "共用「{name}」"
-  },
-  "app.instance.share.invite-modal.user-limit-reached": {
-    "message": "這個實例已達到 {limit} 位使用者的上限。"
-  },
-  "app.instance.share.locked.empty-description-prefix": {
-    "message": "你需要以"
-  },
-  "app.instance.share.locked.empty-description-suffix": {
-    "message": "登入才能存取這個頁面。"
-  },
-  "app.instance.share.locked.linked-account-fallback": {
-    "message": "已連結的帳號"
-  },
-  "app.instance.share.locked.signed-out-heading": {
-    "message": "未登入"
-  },
-  "app.instance.share.locked.switch-account-button": {
-    "message": "切換帳號"
-  },
-  "app.instance.share.locked.wrong-account-heading": {
-    "message": "帳號錯誤"
-  },
-  "app.instance.share.members.empty": {
-    "message": "還沒有使用者加入"
-  },
-  "app.instance.share.members.no-filter-results": {
-    "message": "沒有找到使用者。"
-  },
-  "app.instance.share.remove-user-modal.effect-access": {
-    "message": "他不會再收到這個共用實例的更新"
-  },
-  "app.instance.share.remove-user-modal.effect-installed-copy": {
-    "message": "他已經安裝的複本仍會保留在他的裝置上"
-  },
-  "app.instance.share.remove-user-modal.effect-invite-again": {
-    "message": "你可以稍後再次邀請他"
-  },
-  "app.instance.share.remove-user-modal.effect-last-user": {
-    "message": "這是最後一位共用使用者，這個實例的共用功能將被關閉"
-  },
-  "app.instance.share.remove-user-modal.effects-label": {
-    "message": "會發生什麼事？"
-  },
-  "app.instance.share.remove-user-modal.header": {
-    "message": "撤銷存取權"
-  },
-  "app.instance.share.remove-user-modal.remove-button": {
-    "message": "撤銷存取權"
-  },
-  "app.instance.share.remove-user-modal.user-avatar-alt": {
-    "message": "{username} 的顯示圖片"
-  },
-  "app.instance.share.remove-user-modal.warning-body": {
-    "message": "如果你撤銷了 {username} 對這個共用實例的存取權，你需要重新邀請他，他才會收到更新。"
-  },
-  "app.instance.share.sign-in.button": {
-    "message": "登入"
-  },
-  "app.instance.share.unable-to-connect.description": {
-    "message": "目前無法存取共用實例服務，請稍後再試"
-  },
-  "app.instance.share.unable-to-connect.heading": {
-    "message": "無法連線"
-  },
-  "app.instance.share.unlink.body": {
-    "message": "你必須先與模組包取消連結才能共用實例"
-  },
-  "app.instance.share.unlink.header": {
-    "message": "共用前需要取消連結"
   },
   "app.instance.shared-instance-already-installed.body": {
     "message": "這個共用實例已經在本機安裝，名稱為「<bold>{instanceName}</bold>」。確定要再安裝一個複本嗎？"
@@ -1268,35 +1136,14 @@
   "app.modal.update-to-play.update-required-description": {
     "message": "需要更新才能遊玩「{name}」。請更新至最新版本以啟動遊戲。"
   },
-  "app.nav.add-account": {
-    "message": "新增帳號"
-  },
   "app.nav.create-new-instance": {
     "message": "建立新實例"
   },
   "app.nav.home": {
     "message": "首頁"
   },
-  "app.nav.loading-profile": {
-    "message": "正在載入個人檔案..."
-  },
-  "app.nav.modrinth-hosting": {
-    "message": "Modrinth Hosting"
-  },
-  "app.nav.remove-account": {
-    "message": "移除帳號"
-  },
   "app.nav.screenshots": {
     "message": "螢幕擷取畫面"
-  },
-  "app.nav.switch-account": {
-    "message": "切換帳號"
-  },
-  "app.nav.upgrade-to-modrinth-plus": {
-    "message": "升級至 Modrinth+"
-  },
-  "app.nav.view-profile": {
-    "message": "查看個人檔案"
   },
   "app.navigation.go-back": {
     "message": "上一頁"
@@ -1309,12 +1156,6 @@
   },
   "app.navigation.next-image": {
     "message": "下一張圖片"
-  },
-  "app.news.title": {
-    "message": "新聞"
-  },
-  "app.news.view-all": {
-    "message": "查看所有新聞"
   },
   "app.notification.warning": {
     "message": "警告"
@@ -2648,20 +2489,11 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
-  "app.settings.privacy.ads-consent.intro": {
-    "message": "廣告使 Modrinth 得以營運，並為創作者提供收益。我們的合作夥伴可能會在應用程式中儲存或存取 Cookie，以實現個人化廣告並衡量廣告成效。你可以在下方選擇退出或管理偏好設定。"
-  },
   "app.settings.privacy.discord-rich-presence.description": {
     "message": "在 Discord 上將 {productName} 顯示為目前活動。這不會影響模組為實例新增的豐富狀態。需要重新啟動應用程式。"
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord 豐富狀態"
-  },
-  "app.settings.privacy.telemetry.description": {
-    "message": "{productName} 會收集匿名化的分析與使用資料，以提升使用者體驗並提供客製化服務。若停用此選項，即表示你選擇退出，你的資料將不再被收集。"
-  },
-  "app.settings.privacy.telemetry.title": {
-    "message": "遙測"
   },
   "app.settings.resource-management.always-show-copy-details.description": {
     "message": "當安裝已排入佇列或正在執行時，顯示「複製詳細資訊」按鈕。這項設定僅適用於前述安裝情形，安裝失敗或中斷時一律顯示該按鈕。"
@@ -3089,15 +2921,6 @@
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
-  "app.skins.section.modrinth": {
-    "message": "Modrinth"
-  },
-  "app.skins.section.modrinth-pride": {
-    "message": "Modrinth 驕傲"
-  },
-  "app.skins.section.modrinth-pride.tooltip": {
-    "message": "這些外觀是你在驕傲月期間捐款給 Modrinth 驕傲月籌款活動所獲得的。"
-  },
   "app.skins.section.mounts-of-mayhem": {
     "message": "群騎紛爭"
   },
@@ -3127,21 +2950,6 @@
   },
   "app.skins.toggle-ears-features-on": {
     "message": "開啟"
-  },
-  "app.survey.body": {
-    "message": "你方便回答幾個關於 {productName} 使用體驗的問題嗎？"
-  },
-  "app.survey.footer": {
-    "message": "你的回覆將直接傳送給 {productName} 團隊，作為未來更新方向的指引！"
-  },
-  "app.survey.no-thanks": {
-    "message": "不用了，謝謝"
-  },
-  "app.survey.take-survey": {
-    "message": "填寫問卷調查"
-  },
-  "app.survey.title": {
-    "message": "你好啊，{productName} 使用者！"
   },
   "app.sync-instances-update.badge": {
     "message": "更新內容"
@@ -3373,72 +3181,6 @@
   },
   "content.shared-instance.warning-header": {
     "message": "這是共用實例的一部分"
-  },
-  "friends.action.add-friend": {
-    "message": "新增好友"
-  },
-  "friends.action.view-friend-requests": {
-    "message": "{count} 個好友{count, plural, other {邀請}}"
-  },
-  "friends.add-friend.submit": {
-    "message": "送出好友邀請"
-  },
-  "friends.add-friend.title": {
-    "message": "新增好友"
-  },
-  "friends.add-friend.username.description": {
-    "message": "這可能與對方的 Minecraft 使用者名稱不同！"
-  },
-  "friends.add-friend.username.placeholder": {
-    "message": "輸入 Modrinth 使用者名稱..."
-  },
-  "friends.add-friend.username.title": {
-    "message": "你好友的 Modrinth 使用者名稱是什麼？"
-  },
-  "friends.add-friends-to-share": {
-    "message": "<link>新增好友</link>即可查看他們正在玩什麼！"
-  },
-  "friends.friend.actions.label": {
-    "message": "好友動作"
-  },
-  "friends.friend.cancel-request": {
-    "message": "取消請求"
-  },
-  "friends.friend.remove-friend": {
-    "message": "移除好友"
-  },
-  "friends.friend.request-sent": {
-    "message": "已送出好友邀請"
-  },
-  "friends.friend.view-profile": {
-    "message": "查看個人檔案"
-  },
-  "friends.heading": {
-    "message": "好友"
-  },
-  "friends.heading.active": {
-    "message": "活躍中"
-  },
-  "friends.heading.offline": {
-    "message": "離線"
-  },
-  "friends.heading.online": {
-    "message": "線上"
-  },
-  "friends.heading.pending": {
-    "message": "待處理"
-  },
-  "friends.no-friends-match": {
-    "message": "找不到相符「{query}」的好友"
-  },
-  "friends.search-friends-placeholder": {
-    "message": "搜尋好友..."
-  },
-  "friends.section.heading": {
-    "message": "{title} - {count}"
-  },
-  "friends.sign-in-to-add-friends": {
-    "message": "<link>登入 Modrinth 帳號</link>即可新增好友並查看他們正在玩什麼！"
   },
   "installation-settings.shared-instance.linked-title": {
     "message": "已連結的共用實例"
@@ -3755,9 +3497,6 @@
   "instance.icon-editor.symbol.tnt": {
     "message": "TNT"
   },
-  "instance.icon-editor.symbol.wrenth-rinth": {
-    "message": "Modrinth 扳手"
-  },
   "instance.icon-editor.symbol.zombie": {
     "message": "殭屍"
   },
@@ -3853,21 +3592,6 @@
   },
   "instance.settings.synced-options.resource-packs.disabled": {
     "message": "應用程式設定中已停用資源包的同步功能。"
-  },
-  "instance.settings.tabs.behavior.description": {
-    "message": "選擇這個實例中要顯示哪些頁籤。"
-  },
-  "instance.settings.tabs.behavior.files": {
-    "message": "顯示「檔案」頁籤"
-  },
-  "instance.settings.tabs.behavior.screenshots": {
-    "message": "顯示「螢幕擷取畫面」頁籤"
-  },
-  "instance.settings.tabs.behavior.screenshots.required": {
-    "message": "當全域「螢幕擷取畫面」頁面設為關閉時，無法隱藏「螢幕擷取畫面」頁籤。"
-  },
-  "instance.settings.tabs.behavior.worlds": {
-    "message": "顯示「世界」頁籤"
   },
   "instance.settings.tabs.general": {
     "message": "一般"
@@ -4351,9 +4075,6 @@
   },
   "onboarding-checklist.login-minecraft": {
     "message": "登入 Minecraft"
-  },
-  "onboarding-checklist.login-modrinth": {
-    "message": "登入 Modrinth"
   },
   "onboarding-checklist.title": {
     "message": "開始使用"

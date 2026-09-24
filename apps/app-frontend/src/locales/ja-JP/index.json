@@ -131,21 +131,6 @@
   "app.action-bar.view-logs": {
     "message": "ログを表示"
   },
-  "app.ads-consent.accept": {
-    "message": "すべて受け入れる"
-  },
-  "app.ads-consent.body": {
-    "message": "Modrinthは広告収益によって運営され、クリエイターへの報酬もその収益から支払われています。当社のパートナーは、広告のパーソナライズや効果測定のために、アプリ内でCookieを保存・利用する場合があります。"
-  },
-  "app.ads-consent.manage": {
-    "message": "設定の管理"
-  },
-  "app.ads-consent.reject": {
-    "message": "すべて拒否する"
-  },
-  "app.ads-consent.title": {
-    "message": "プライバシーと広告がModrinthを支える仕組み"
-  },
   "app.appearance-settings.compact-mode.description": {
     "message": "ライブラリをコンパクトに表示します。"
   },
@@ -350,18 +335,6 @@
   "app.home.jump-back-in.view-instance": {
     "message": "インスタンスを表示"
   },
-  "app.hosting.update-required.description": {
-    "message": "Modrinth Hostingを利用するには、Modrinth Appを更新してください"
-  },
-  "app.hosting.update-required.download": {
-    "message": "ダウンロードして更新"
-  },
-  "app.hosting.update-required.rinthbot-alt": {
-    "message": "ワクワクしているModrinth Bot"
-  },
-  "app.hosting.update-required.title": {
-    "message": "Modrinth Appの更新が必要です"
-  },
   "app.install.phase.downloading_content": {
     "message": "コンテンツをダウンロード中"
   },
@@ -488,30 +461,6 @@
   "app.instance.admonitions.shared-instance.reviewing-button": {
     "message": "審査中…"
   },
-  "app.instance.card.icon-alt": {
-    "message": "インスタンスのアイコン"
-  },
-  "app.instance.card.installing": {
-    "message": "インストール中…"
-  },
-  "app.instance.card.loading": {
-    "message": "インスタンスを読み込み中…"
-  },
-  "app.instance.card.never-played": {
-    "message": "未プレイ"
-  },
-  "app.instance.card.play": {
-    "message": "プレイ"
-  },
-  "app.instance.card.played": {
-    "message": "プレイ済み: {relativeTime}"
-  },
-  "app.instance.card.repair": {
-    "message": "修復"
-  },
-  "app.instance.card.stop": {
-    "message": "停止"
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "インスタンス内のすべてのデータは、ワールド、設定、インストール済みのコンテンツを含め、完全に削除されます。"
   },
@@ -592,87 +541,6 @@
   },
   "app.instance.navigation.back-to-instance": {
     "message": "インスタンスに戻る"
-  },
-  "app.instance.share.empty.description": {
-    "message": "フレンドとこのインスタンスをシェアしましょう！"
-  },
-  "app.instance.share.empty.heading": {
-    "message": "まだ誰も招待していないようです"
-  },
-  "app.instance.share.empty.invite-friends-button": {
-    "message": "フレンドを招待"
-  },
-  "app.instance.share.invite-modal.heading": {
-    "message": "{name} をシェアする"
-  },
-  "app.instance.share.invite-modal.user-limit-reached": {
-    "message": "このインスタンスは上限の{limit}人に達しました。"
-  },
-  "app.instance.share.locked.empty-description-prefix": {
-    "message": "このページにアクセスするには"
-  },
-  "app.instance.share.locked.empty-description-suffix": {
-    "message": "としてサインインする必要があります。"
-  },
-  "app.instance.share.locked.linked-account-fallback": {
-    "message": "リンクされたアカウント"
-  },
-  "app.instance.share.locked.signed-out-heading": {
-    "message": "サインインしていません"
-  },
-  "app.instance.share.locked.switch-account-button": {
-    "message": "アカウントを切り替える"
-  },
-  "app.instance.share.locked.wrong-account-heading": {
-    "message": "アカウントが違います"
-  },
-  "app.instance.share.members.empty": {
-    "message": "まだ誰も参加していません"
-  },
-  "app.instance.share.members.no-filter-results": {
-    "message": "フィルターに一致するユーザーが見つかりません。"
-  },
-  "app.instance.share.remove-user-modal.effect-access": {
-    "message": "このインスタンスのアップデートは受信できなくなります"
-  },
-  "app.instance.share.remove-user-modal.effect-installed-copy": {
-    "message": "すでにインストール済みのコピーは、そのままデバイスに残ります"
-  },
-  "app.instance.share.remove-user-modal.effect-invite-again": {
-    "message": "後でもう一度招待することもできます"
-  },
-  "app.instance.share.remove-user-modal.effect-last-user": {
-    "message": "彼らがすでにインストールしたコピーは彼らのデバイスに残ります"
-  },
-  "app.instance.share.remove-user-modal.effects-label": {
-    "message": "この変更で何が起きるか？"
-  },
-  "app.instance.share.remove-user-modal.header": {
-    "message": "アクセスを取り消す"
-  },
-  "app.instance.share.remove-user-modal.remove-button": {
-    "message": "アクセスを取り消す"
-  },
-  "app.instance.share.remove-user-modal.user-avatar-alt": {
-    "message": "{username}のアバター"
-  },
-  "app.instance.share.remove-user-modal.warning-body": {
-    "message": "もし{username}のアクセス権を取り消した場合、彼らが再びアップデートを受け取れるようにするには、もう一度招待し直す必要があります。"
-  },
-  "app.instance.share.sign-in.button": {
-    "message": "サインイン"
-  },
-  "app.instance.share.unable-to-connect.description": {
-    "message": "インスタンスの共有は現在ご利用いただけません。しばらくしてからもう一度お試しください"
-  },
-  "app.instance.share.unable-to-connect.heading": {
-    "message": "接続エラー"
-  },
-  "app.instance.share.unlink.body": {
-    "message": "インスタンスを共有するには、このModパックのリンクを解除する必要があります"
-  },
-  "app.instance.share.unlink.header": {
-    "message": "共有にはリンクを解除する必要があります"
   },
   "app.instance.shared-instance-already-installed.body": {
     "message": "この共有インスタンスはすでに<bold> {instanceName} </bold>としてインストールされています。別のコピーをインストールしてもよろしいですか？"
@@ -1202,35 +1070,14 @@
   "app.modal.update-to-play.update-required-description": {
     "message": "{name}をプレイするにはアップデートが必要です。ゲームを起動するには最新バージョンにアップデートしてください。"
   },
-  "app.nav.add-account": {
-    "message": "アカウントを追加"
-  },
   "app.nav.create-new-instance": {
     "message": "新しいインスタンスを作成"
   },
   "app.nav.home": {
     "message": "ホーム"
   },
-  "app.nav.loading-profile": {
-    "message": "プロフィールを読み込み中…"
-  },
-  "app.nav.modrinth-hosting": {
-    "message": "Modrinth Hosting"
-  },
-  "app.nav.remove-account": {
-    "message": "アカウントを削除"
-  },
   "app.nav.screenshots": {
     "message": "スクリーンショット"
-  },
-  "app.nav.switch-account": {
-    "message": "アカウントの切り替え"
-  },
-  "app.nav.upgrade-to-modrinth-plus": {
-    "message": "Modrinth+にアップグレード"
-  },
-  "app.nav.view-profile": {
-    "message": "プロフィールを表示"
   },
   "app.navigation.go-back": {
     "message": "戻る"
@@ -1243,12 +1090,6 @@
   },
   "app.navigation.next-image": {
     "message": "次の画像"
-  },
-  "app.news.title": {
-    "message": "ニュース"
-  },
-  "app.news.view-all": {
-    "message": "全てのニュースを見る"
   },
   "app.notification.warning": {
     "message": "警告"
@@ -1574,20 +1415,11 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
-  "app.settings.privacy.ads-consent.intro": {
-    "message": "Modrinthは広告収益によって運営され、クリエイターへの報酬もその収益から支払われています。当社のパートナーは、広告のパーソナライズや効果測定のために、アプリ内でCookieを保存・利用する場合があります。この機能は下のボタンから個別に拒否や許可または変更することができます。"
-  },
   "app.settings.privacy.discord-rich-presence.description": {
     "message": "Discordの現在のプレイ中に {productName} を表示します。これはModによってインスタンスに追加されるRich Presenceには影響しません。適用にはアプリの再起動が必要です。"
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
-  },
-  "app.settings.privacy.telemetry.description": {
-    "message": "Modrinthはユーザー体験の向上および最適化のために、匿名化されたアナリティクスと利用データを収集しています。このオプションをオフにすることで無効化（オプトアウト）され、以降データの収集は行われません。"
-  },
-  "app.settings.privacy.telemetry.title": {
-    "message": "テレメトリ"
   },
   "app.settings.resource-management.always-show-copy-details.description": {
     "message": "インストールの保留中または実行中に「詳細をコピー」アクションを表示します。失敗または中断されたインストールでは常に利用可能です。"
@@ -1832,15 +1664,6 @@
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
-  "app.skins.section.modrinth": {
-    "message": "Modrinth"
-  },
-  "app.skins.section.modrinth-pride": {
-    "message": "Modrinth プライド"
-  },
-  "app.skins.section.modrinth-pride.tooltip": {
-    "message": "これらのスキンは、プライド月間中にModrinthのプライド募金活動に寄付したことで獲得したものです。"
-  },
   "app.skins.section.mounts-of-mayhem": {
     "message": "マウント・オブ・メイヘム"
   },
@@ -1870,21 +1693,6 @@
   },
   "app.skins.toggle-ears-features-on": {
     "message": "オンに切り替え"
-  },
-  "app.survey.body": {
-    "message": "{productName} の使用感についての簡単なアンケートにご協力いただけますか？"
-  },
-  "app.survey.footer": {
-    "message": "このフィードバックはModrinthチームに直接届けられ、今後のアップデートの改善に役立てられます！"
-  },
-  "app.survey.no-thanks": {
-    "message": "結構です"
-  },
-  "app.survey.take-survey": {
-    "message": "アンケートに回答"
-  },
-  "app.survey.title": {
-    "message": "Modrinthユーザーのみなさん、こんにちは！"
   },
   "app.update-popup.body.download-complete": {
     "message": "{productName} v{version} のダウンロードが完了しました。今すぐ更新するには再読み込みするか、Modrinth Appを閉じる際に自動更新されます。"
@@ -1987,72 +1795,6 @@
   },
   "content.shared-instance.warning-header": {
     "message": "これは共有インスタンスの一部です"
-  },
-  "friends.action.add-friend": {
-    "message": "フレンドを追加"
-  },
-  "friends.action.view-friend-requests": {
-    "message": "{count}件のフレンドリクエスト"
-  },
-  "friends.add-friend.submit": {
-    "message": "フレンド申請を送信"
-  },
-  "friends.add-friend.title": {
-    "message": "フレンドを追加中"
-  },
-  "friends.add-friend.username.description": {
-    "message": "これはMinecraftのユーザー名とは異なる可能性があります！"
-  },
-  "friends.add-friend.username.placeholder": {
-    "message": "Modrinthユーザー名を入力…"
-  },
-  "friends.add-friend.username.title": {
-    "message": "あなたのフレンドのModrinthユーザー名は何ですか？"
-  },
-  "friends.add-friends-to-share": {
-    "message": "<link>友達を追加</link>して、彼らが何をしているか見てみよう！"
-  },
-  "friends.friend.actions.label": {
-    "message": "フレンドのアクション"
-  },
-  "friends.friend.cancel-request": {
-    "message": "申請をキャンセル"
-  },
-  "friends.friend.remove-friend": {
-    "message": "フレンドを削除"
-  },
-  "friends.friend.request-sent": {
-    "message": "フレンド申請が送信されました"
-  },
-  "friends.friend.view-profile": {
-    "message": "プロフィールを表示"
-  },
-  "friends.heading": {
-    "message": "フレンド"
-  },
-  "friends.heading.active": {
-    "message": "活動中"
-  },
-  "friends.heading.offline": {
-    "message": "オフライン"
-  },
-  "friends.heading.online": {
-    "message": "オンライン"
-  },
-  "friends.heading.pending": {
-    "message": "保留中"
-  },
-  "friends.no-friends-match": {
-    "message": "フレンド「{query}」は見つかりませんでした"
-  },
-  "friends.search-friends-placeholder": {
-    "message": "フレンドを検索…"
-  },
-  "friends.section.heading": {
-    "message": "{title} - {count}"
-  },
-  "friends.sign-in-to-add-friends": {
-    "message": "<link>Modrinthアカウントにサインイン</link>して友達を追加し、彼らがプレイしているゲームをチェックしよう！"
   },
   "installation-settings.shared-instance.linked-title": {
     "message": "リンク済の共有インスタンス"
@@ -2369,9 +2111,6 @@
   "instance.icon-editor.symbol.tnt": {
     "message": "TNT"
   },
-  "instance.icon-editor.symbol.wrenth-rinth": {
-    "message": "Modrinthのレンチ"
-  },
   "instance.icon-editor.symbol.zombie": {
     "message": "ゾンビ"
   },
@@ -2440,21 +2179,6 @@
   },
   "instance.settings.sharing.revoke-invite.header": {
     "message": "招待を取り消す"
-  },
-  "instance.settings.tabs.behavior.description": {
-    "message": "このインスタンスに表示するタブを選択してください。"
-  },
-  "instance.settings.tabs.behavior.files": {
-    "message": "ファイルタブを表示"
-  },
-  "instance.settings.tabs.behavior.screenshots": {
-    "message": "スクリーンショットタブを表示"
-  },
-  "instance.settings.tabs.behavior.screenshots.required": {
-    "message": "グローバルなスクリーンショットページがオフの場合はスクリーンショットタブを非表示にすることができません。"
-  },
-  "instance.settings.tabs.behavior.worlds": {
-    "message": "ワールドタブを表示"
   },
   "instance.settings.tabs.general": {
     "message": "一般"
@@ -2926,9 +2650,6 @@
   },
   "onboarding-checklist.login-minecraft": {
     "message": "Minecraftにサインイン"
-  },
-  "onboarding-checklist.login-modrinth": {
-    "message": "Modrinthへサインイン"
   },
   "onboarding-checklist.title": {
     "message": "はじめる"

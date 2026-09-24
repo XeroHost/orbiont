@@ -131,21 +131,6 @@
   "app.action-bar.view-logs": {
     "message": "로그 보기"
   },
-  "app.ads-consent.accept": {
-    "message": "모두 수락"
-  },
-  "app.ads-consent.body": {
-    "message": "광고는 Modrinth가 운영될 수 있도록 하며, 크리에이터에게 지급되는 보상을 지원합니다. 우리의 파트너는 앱에서 광고를 개인 맞춤으로 제공하고 성과를 측정하기 위해 쿠키를 저장하거나 접근할 수 있습니다."
-  },
-  "app.ads-consent.manage": {
-    "message": "환경 설정 관리"
-  },
-  "app.ads-consent.reject": {
-    "message": "모두 거절"
-  },
-  "app.ads-consent.title": {
-    "message": "개인정보와 광고가 Modrinth를 지원하는 방식"
-  },
   "app.appearance-settings.compact-mode.description": {
     "message": "라이브러리 인스턴스를 간결한 행 형태의 레이아웃으로 표시합니다."
   },
@@ -332,15 +317,6 @@
   "app.home.jump-back-in.view-instance": {
     "message": "인스턴스 보기"
   },
-  "app.hosting.update-required.download": {
-    "message": "다운로드하여 업데이트"
-  },
-  "app.hosting.update-required.rinthbot-alt": {
-    "message": "신난 Modrinth Bot"
-  },
-  "app.hosting.update-required.title": {
-    "message": "{productName} 업데이트 필요"
-  },
   "app.install.phase.downloading_content": {
     "message": "콘텐츠 다운로드 중"
   },
@@ -461,27 +437,6 @@
   "app.instance.admonitions.shared-instance.reviewing-button": {
     "message": "검토중..."
   },
-  "app.instance.card.icon-alt": {
-    "message": "인스턴스 아이콘"
-  },
-  "app.instance.card.installing": {
-    "message": "설치 중..."
-  },
-  "app.instance.card.loading": {
-    "message": "인스턴스 로딩 중..."
-  },
-  "app.instance.card.never-played": {
-    "message": "플레이한 적 없음"
-  },
-  "app.instance.card.play": {
-    "message": "플레이"
-  },
-  "app.instance.card.repair": {
-    "message": "복구"
-  },
-  "app.instance.card.stop": {
-    "message": "중지"
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "인스턴스의 모든 데이터가 삭제됩니다. 세계 폴더, 설정 폴더 등 설치된 모든 컨텐츠가 포함됩니다."
   },
@@ -550,87 +505,6 @@
   },
   "app.instance.navigation.back-to-instance": {
     "message": "인스턴스로 돌아가기"
-  },
-  "app.instance.share.empty.description": {
-    "message": "친구들과 이 인스턴스를 공유할 수 있습니다!"
-  },
-  "app.instance.share.empty.heading": {
-    "message": "아직 초대된 친구가 없습니다"
-  },
-  "app.instance.share.empty.invite-friends-button": {
-    "message": "친구 초대"
-  },
-  "app.instance.share.invite-modal.heading": {
-    "message": "{name} 공유"
-  },
-  "app.instance.share.invite-modal.user-limit-reached": {
-    "message": "이 인스턴스는 {limit}명 사용자 제한에 도달했습니다."
-  },
-  "app.instance.share.locked.empty-description-prefix": {
-    "message": "이 페이지에 접근하려면"
-  },
-  "app.instance.share.locked.empty-description-suffix": {
-    "message": "계정으로 로그인해야 합니다."
-  },
-  "app.instance.share.locked.linked-account-fallback": {
-    "message": "연동된"
-  },
-  "app.instance.share.locked.signed-out-heading": {
-    "message": "로그인되지 않음"
-  },
-  "app.instance.share.locked.switch-account-button": {
-    "message": "계정 전환"
-  },
-  "app.instance.share.locked.wrong-account-heading": {
-    "message": "잘못된 계정"
-  },
-  "app.instance.share.members.empty": {
-    "message": "아직 참여한 사용자가 없습니다"
-  },
-  "app.instance.share.members.no-filter-results": {
-    "message": "필터에 일치하는 사용자가 없습니다."
-  },
-  "app.instance.share.remove-user-modal.effect-access": {
-    "message": "이들은 더 이상 해당 공유 인스턴스의 업데이트를 받지 않습니다"
-  },
-  "app.instance.share.remove-user-modal.effect-installed-copy": {
-    "message": "이미 설치한 사본은 해당 기기에 그대로 남아 있습니다"
-  },
-  "app.instance.share.remove-user-modal.effect-invite-again": {
-    "message": "나중에 다시 초대할 수 있습니다"
-  },
-  "app.instance.share.remove-user-modal.effect-last-user": {
-    "message": "마지막 사용자이며, 이 인스턴스의 공유가 비활성화됩니다"
-  },
-  "app.instance.share.remove-user-modal.effects-label": {
-    "message": "어떻게 되나요?"
-  },
-  "app.instance.share.remove-user-modal.header": {
-    "message": "액세스 권한 취소"
-  },
-  "app.instance.share.remove-user-modal.remove-button": {
-    "message": "액세스 권한 취소"
-  },
-  "app.instance.share.remove-user-modal.user-avatar-alt": {
-    "message": "{username}의 계정"
-  },
-  "app.instance.share.remove-user-modal.warning-body": {
-    "message": "{username} 님의 이 공유 인스턴스 액세스 권한을 취소하면, 해당 사용자가 업데이트를 받기 전에 다시 초대해야 합니다."
-  },
-  "app.instance.share.sign-in.button": {
-    "message": "로그인"
-  },
-  "app.instance.share.unable-to-connect.description": {
-    "message": "현재 공유 인스턴스 서비스를 이용할 수 없습니다. 잠시 후 다시 시도해 주세요"
-  },
-  "app.instance.share.unable-to-connect.heading": {
-    "message": "연결할 수 없습니다"
-  },
-  "app.instance.share.unlink.body": {
-    "message": "인스턴스를 공유하려면 이 모드팩 연동을 해제해야 합니다"
-  },
-  "app.instance.share.unlink.header": {
-    "message": "공유를 진행하려면 연동 해제가 필요합니다"
   },
   "app.instance.shared-instance-already-installed.body": {
     "message": "이 공유 인스턴스는 이미 <bold>{instanceName}</bold> 이름으로 설치되어 있습니다. 사본을 하나 더 설치하시겠습니까?"
@@ -1136,14 +1010,8 @@
   "app.nav.home": {
     "message": "홈"
   },
-  "app.nav.modrinth-hosting": {
-    "message": "Modrinth 호스팅"
-  },
   "app.nav.screenshots": {
     "message": "스크린샷들"
-  },
-  "app.nav.upgrade-to-modrinth-plus": {
-    "message": "Modrinth+ 로 업그레이드"
   },
   "app.navigation.go-back": {
     "message": "뒤로 가기"
@@ -1153,12 +1021,6 @@
   },
   "app.navigation.home": {
     "message": "홈"
-  },
-  "app.news.title": {
-    "message": "뉴스"
-  },
-  "app.news.view-all": {
-    "message": "모든 뉴스 보기"
   },
   "app.project.install-button.already-installed": {
     "message": "이미 설치되어 있음"
@@ -1289,20 +1151,11 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
-  "app.settings.privacy.ads-consent.intro": {
-    "message": "광고는 Modrinth가 운영될 수 있도록 하며, 크리에이터에게 지급되는 보상을 지원합니다. 우리의 파트너는 앱에서 광고를 개인 맞춤으로 제공하고 성과를 측정하기 위해 쿠키를 저장하거나 접근할 수 있습니다. 아래에서 거부하거나 환경 설정을 관리할 수 있습니다."
-  },
   "app.settings.privacy.discord-rich-presence.description": {
     "message": "Discord의 현재 활동 상태에 Modrinth App을 표시합니다. 모드가 인스턴스에 추가한 Rich Presence에는 영향을 미치지 않습니다. 앱 재시작이 필요합니다."
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord 활동 상태"
-  },
-  "app.settings.privacy.telemetry.description": {
-    "message": "Modrinth는 사용자 경험 향상 및 맞춤 설정을 위해 익명화된 분석 데이터와 사용 데이터를 수집합니다. 이 옵션을 비활성화하면 데이터 수집을 거부하게 되며, 더 이상 데이터가 수집되지 않습니다."
-  },
-  "app.settings.privacy.telemetry.title": {
-    "message": "원격 분석"
   },
   "app.settings.resource-management.always-show-copy-details.description": {
     "message": "설치가 대기 중이거나 진행 중일 때 '상세 정보 복사' 버튼을 표시합니다. 실패했거나 중단된 설치 건에서는 항상 사용할 수 있습니다."
@@ -1490,15 +1343,6 @@
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
-  "app.skins.section.modrinth": {
-    "message": "Modrinth"
-  },
-  "app.skins.section.modrinth-pride": {
-    "message": "Modrinth 프라이드"
-  },
-  "app.skins.section.modrinth-pride.tooltip": {
-    "message": "프라이드 월간 동안 Modrinth 프라이드 모금 행사에 기부하여 이 스킨들을 받았습니다."
-  },
   "app.skins.section.mounts-of-mayhem": {
     "message": "Mounts of Mayhem"
   },
@@ -1525,21 +1369,6 @@
   },
   "app.skins.toggle-ears-features-on": {
     "message": "켜기"
-  },
-  "app.survey.body": {
-    "message": "Modrinth 앱 이용 경험에 대한 몇 가지 질문에 답변해 주시겠습니까?"
-  },
-  "app.survey.footer": {
-    "message": "이 피드백은 {productName} 팀에 직접 전달되어 향후 업데이트에 반영됩니다!"
-  },
-  "app.survey.no-thanks": {
-    "message": "괜찮습니다"
-  },
-  "app.survey.take-survey": {
-    "message": "설문 참여하기"
-  },
-  "app.survey.title": {
-    "message": "안녕하세요, {productName} 사용자님!"
   },
   "app.update-popup.body.download-complete": {
     "message": "{productName} v{version} 다운로드가 완료되었습니다. 새로고침하거나 Modrinth App을 종료하면 자동으로 업데이트됩니다."
@@ -1615,69 +1444,6 @@
   },
   "content.shared-instance.warning-header": {
     "message": "공유 인스턴스의 일부입니다"
-  },
-  "friends.action.add-friend": {
-    "message": "친구 추가"
-  },
-  "friends.action.view-friend-requests": {
-    "message": "{count}건의 친구 요청"
-  },
-  "friends.add-friend.submit": {
-    "message": "친구 요청 보내기"
-  },
-  "friends.add-friend.title": {
-    "message": "친구 추가 중"
-  },
-  "friends.add-friend.username.description": {
-    "message": "Minecraft 사용자명과 다를 수 있습니다!"
-  },
-  "friends.add-friend.username.placeholder": {
-    "message": "Modrinth 사용자명 입력..."
-  },
-  "friends.add-friend.username.title": {
-    "message": "친구의 Modrinth 사용자명이 무엇인가요?"
-  },
-  "friends.add-friends-to-share": {
-    "message": "<link>친구 추가</link>를 통해 친구들이 무엇을 하는지 확인해 보세요!"
-  },
-  "friends.friend.cancel-request": {
-    "message": "요청 취소"
-  },
-  "friends.friend.remove-friend": {
-    "message": "친구 삭제"
-  },
-  "friends.friend.request-sent": {
-    "message": "친구 요청 전송됨"
-  },
-  "friends.friend.view-profile": {
-    "message": "프로필 보기"
-  },
-  "friends.heading": {
-    "message": "친구"
-  },
-  "friends.heading.active": {
-    "message": "활동 중"
-  },
-  "friends.heading.offline": {
-    "message": "오프라인"
-  },
-  "friends.heading.online": {
-    "message": "온라인"
-  },
-  "friends.heading.pending": {
-    "message": "대기 중"
-  },
-  "friends.no-friends-match": {
-    "message": "\"{query}\"과(와) 일치하는 친구 없음"
-  },
-  "friends.search-friends-placeholder": {
-    "message": "친구 검색 중..."
-  },
-  "friends.section.heading": {
-    "message": "{title} - {count}"
-  },
-  "friends.sign-in-to-add-friends": {
-    "message": "<link>Modrinth 계정으로 로그인</link>하여 친구를 추가하고 무엇을 플레이 중인지 확인하세요!"
   },
   "installation-settings.shared-instance.linked-title": {
     "message": "연동된 공유 인스턴스"

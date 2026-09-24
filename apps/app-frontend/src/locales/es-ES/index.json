@@ -131,21 +131,6 @@
   "app.action-bar.view-logs": {
     "message": "Ver registros"
   },
-  "app.ads-consent.accept": {
-    "message": "Aceptar todo"
-  },
-  "app.ads-consent.body": {
-    "message": "Los anuncios hacen que Modrinth sea posible y financian los pagos a los creadores. Nuestros socios pueden almacenar o acceder a cookies en la aplicación para personalizar los anuncios y medir el rendimiento."
-  },
-  "app.ads-consent.manage": {
-    "message": "Gestionar preferencias"
-  },
-  "app.ads-consent.reject": {
-    "message": "Rechazar todo"
-  },
-  "app.ads-consent.title": {
-    "message": "Tu privacidad y cómo los anuncios apoyan a Modrinth"
-  },
   "app.appearance-settings.compact-mode.description": {
     "message": "Muestra las instancias de la biblioteca en un diseño compacto de filas."
   },
@@ -404,18 +389,6 @@
   "app.home.jump-back-in.view-instance": {
     "message": "Ver instancia"
   },
-  "app.hosting.update-required.description": {
-    "message": "Necesitas actualizar para usar Modrinth Hosting a través de la aplicación Modrinth"
-  },
-  "app.hosting.update-required.download": {
-    "message": "Descargar para actualizar"
-  },
-  "app.hosting.update-required.rinthbot-alt": {
-    "message": "Modrinth Bot emocionado"
-  },
-  "app.hosting.update-required.title": {
-    "message": "Se requiere actualizar {productName}"
-  },
   "app.install.phase.downloading_content": {
     "message": "Descargando contenido"
   },
@@ -542,30 +515,6 @@
   "app.instance.admonitions.shared-instance.reviewing-button": {
     "message": "Revisando..."
   },
-  "app.instance.card.icon-alt": {
-    "message": "Icono de la instancia"
-  },
-  "app.instance.card.installing": {
-    "message": "Instalando..."
-  },
-  "app.instance.card.loading": {
-    "message": "La instancia está cargando..."
-  },
-  "app.instance.card.never-played": {
-    "message": "No se ha jugado"
-  },
-  "app.instance.card.play": {
-    "message": "Jugar"
-  },
-  "app.instance.card.played": {
-    "message": "Jugado {relativeTime}"
-  },
-  "app.instance.card.repair": {
-    "message": "Reparar"
-  },
-  "app.instance.card.stop": {
-    "message": "Detener"
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Todos los datos de su instancia se eliminarán permanentemente, incluidos sus mundos, configuraciones y todo el contenido instalado."
   },
@@ -646,87 +595,6 @@
   },
   "app.instance.navigation.back-to-instance": {
     "message": "Volver a la instancia"
-  },
-  "app.instance.share.empty.description": {
-    "message": "¡Puedes compartir esta instancia con tus amigos!"
-  },
-  "app.instance.share.empty.heading": {
-    "message": "No hay amigos invitados"
-  },
-  "app.instance.share.empty.invite-friends-button": {
-    "message": "Invita a tus amigos"
-  },
-  "app.instance.share.invite-modal.heading": {
-    "message": "Compartir {name}"
-  },
-  "app.instance.share.invite-modal.user-limit-reached": {
-    "message": "Esta instancia ha alcanzado el límite de usuarios: {limit}."
-  },
-  "app.instance.share.locked.empty-description-prefix": {
-    "message": "Necesitas iniciar sesión como"
-  },
-  "app.instance.share.locked.empty-description-suffix": {
-    "message": "para acceder a esta página."
-  },
-  "app.instance.share.locked.linked-account-fallback": {
-    "message": "la cuenta vinculada"
-  },
-  "app.instance.share.locked.signed-out-heading": {
-    "message": "No se ha iniciado sesión"
-  },
-  "app.instance.share.locked.switch-account-button": {
-    "message": "Cambiar cuenta"
-  },
-  "app.instance.share.locked.wrong-account-heading": {
-    "message": "Cuenta incorrecta"
-  },
-  "app.instance.share.members.empty": {
-    "message": "Ningún usuario se ha unido aún"
-  },
-  "app.instance.share.members.no-filter-results": {
-    "message": "No se han encontrado usuarios que coincidan con tus filtros."
-  },
-  "app.instance.share.remove-user-modal.effect-access": {
-    "message": "Ya no recibirán actualizaciones para esta instancia compartida"
-  },
-  "app.instance.share.remove-user-modal.effect-installed-copy": {
-    "message": "Cualquier copia que hayan instalado permanecerá en su dispositivo"
-  },
-  "app.instance.share.remove-user-modal.effect-invite-again": {
-    "message": "Puedes invitarlos de nuevo más tarde"
-  },
-  "app.instance.share.remove-user-modal.effect-last-user": {
-    "message": "Este es el último usuario, la opción de compartir se desactivará para esta instancia"
-  },
-  "app.instance.share.remove-user-modal.effects-label": {
-    "message": "¿Qué ocurre?"
-  },
-  "app.instance.share.remove-user-modal.header": {
-    "message": "Revocar acceso"
-  },
-  "app.instance.share.remove-user-modal.remove-button": {
-    "message": "Revocar acceso"
-  },
-  "app.instance.share.remove-user-modal.user-avatar-alt": {
-    "message": "Avatar de {username}"
-  },
-  "app.instance.share.remove-user-modal.warning-body": {
-    "message": "Si revocas el acceso de {username} a esta instancia compartida, tendrás que invitarlos de nuevo antes de que puedan recibir actualizaciones."
-  },
-  "app.instance.share.sign-in.button": {
-    "message": "Iniciar sesión"
-  },
-  "app.instance.share.unable-to-connect.description": {
-    "message": "El servicio de compartir instancias no está disponible por el momento, por favor inténtelo más tarde"
-  },
-  "app.instance.share.unable-to-connect.heading": {
-    "message": "No se ha podido conectar"
-  },
-  "app.instance.share.unlink.body": {
-    "message": "Debes desvincular este modpack para compartir tu instancia"
-  },
-  "app.instance.share.unlink.header": {
-    "message": "Compartir requiere desvincular"
   },
   "app.instance.shared-instance-already-installed.body": {
     "message": "Esta instancia compartida ya está instalada como <bold>{instanceName}</bold>. ¿Estás seguro de que quieres instalar otra copia?"
@@ -1268,35 +1136,14 @@
   "app.modal.update-to-play.update-required-description": {
     "message": "Se requiere actualizar para jugar a {name}. Por favor, actualiza a la última versión para poder iniciar el juego."
   },
-  "app.nav.add-account": {
-    "message": "Añadir cuenta"
-  },
   "app.nav.create-new-instance": {
     "message": "Crear nueva instancia"
   },
   "app.nav.home": {
     "message": "Inicio"
   },
-  "app.nav.loading-profile": {
-    "message": "Cargando perfil..."
-  },
-  "app.nav.modrinth-hosting": {
-    "message": "Modrinth Hosting"
-  },
-  "app.nav.remove-account": {
-    "message": "Eliminar cuenta"
-  },
   "app.nav.screenshots": {
     "message": "Capturas de pantalla"
-  },
-  "app.nav.switch-account": {
-    "message": "Cambiar cuenta"
-  },
-  "app.nav.upgrade-to-modrinth-plus": {
-    "message": "Actualizar a Modrinth+"
-  },
-  "app.nav.view-profile": {
-    "message": "Ver perfil"
   },
   "app.navigation.go-back": {
     "message": "Volver"
@@ -1309,12 +1156,6 @@
   },
   "app.navigation.next-image": {
     "message": "Siguiente imagen"
-  },
-  "app.news.title": {
-    "message": "Noticias"
-  },
-  "app.news.view-all": {
-    "message": "Ver todas las noticias"
   },
   "app.notification.warning": {
     "message": "Advertencia"
@@ -2576,20 +2417,11 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
-  "app.settings.privacy.ads-consent.intro": {
-    "message": "Los anuncios hacen Modrinth posible y financian los pagos a los creadores. Nuestros socios pueden almacenar o acceder a cookies en la aplicación para personalizar los anuncios y medir el rendimiento. Puedes desactivar esta opción o modificar tus preferencias a continuación."
-  },
   "app.settings.privacy.discord-rich-presence.description": {
     "message": "Mostrar {productName} como tu actividad actual en Discord.\nEsto no afecta tu Presencia Enriquecida añadida a instancias por mods. Requiere reiniciar la aplicación."
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Estado de la actividad en Discord"
-  },
-  "app.settings.privacy.telemetry.description": {
-    "message": "{productName} recopila análisis y datos de uso anónimos para mejorar la experiencia de usuario y personalizar tu experiencia. Deshabilitando esta opción sus datos dejarán de ser recopilados."
-  },
-  "app.settings.privacy.telemetry.title": {
-    "message": "Telemetría"
   },
   "app.settings.resource-management.always-show-copy-details.description": {
     "message": "Muestra la opción 'Copiar detalles' mientras haya una instalación en cola o instalando. Siempre está disponible para las instalaciones fallidas o interrumpidas."
@@ -3014,15 +2846,6 @@
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
-  "app.skins.section.modrinth": {
-    "message": "Modrinth"
-  },
-  "app.skins.section.modrinth-pride": {
-    "message": "Orgullo Modrinth"
-  },
-  "app.skins.section.modrinth-pride.tooltip": {
-    "message": "Has recibido estas skins por donar a la fundación Orgullo Modrinth durante el Mes del Orgullo."
-  },
   "app.skins.section.mounts-of-mayhem": {
     "message": "Monturas del Caos"
   },
@@ -3052,21 +2875,6 @@
   },
   "app.skins.toggle-ears-features-on": {
     "message": "Activar"
-  },
-  "app.survey.body": {
-    "message": "¿Te importaría responder a algunas preguntas sobre tu experiencia con {productName}?"
-  },
-  "app.survey.footer": {
-    "message": "¡Estos comentarios irán directamente al equipo de {productName} y ayudarán a guiar futuras actualizaciones!"
-  },
-  "app.survey.no-thanks": {
-    "message": "No, gracias"
-  },
-  "app.survey.take-survey": {
-    "message": "Completar la encuesta"
-  },
-  "app.survey.title": {
-    "message": "¡Hola, usuario {productName}!"
   },
   "app.sync-instances-update.badge": {
     "message": "Nueva actualización"
@@ -3295,72 +3103,6 @@
   },
   "content.shared-instance.warning-header": {
     "message": "Esto es parte de la instancia compartida"
-  },
-  "friends.action.add-friend": {
-    "message": "Agrega a un amigo"
-  },
-  "friends.action.view-friend-requests": {
-    "message": "{count} {count, plural, one {petición} other {peticiones}} de amistad"
-  },
-  "friends.add-friend.submit": {
-    "message": "Envía una petición de amistad"
-  },
-  "friends.add-friend.title": {
-    "message": "Agrega a un amigo"
-  },
-  "friends.add-friend.username.description": {
-    "message": "¡Puede ser diferente de su apodo en Minecraft!"
-  },
-  "friends.add-friend.username.placeholder": {
-    "message": "Escribe su apodo en Modrinth..."
-  },
-  "friends.add-friend.username.title": {
-    "message": "¿Cuál es el apodo de tu amigo en Modrinth?"
-  },
-  "friends.add-friends-to-share": {
-    "message": "<link>Añade amigos</link> para ver a qué están jugando!"
-  },
-  "friends.friend.actions.label": {
-    "message": "Acciones de amigos"
-  },
-  "friends.friend.cancel-request": {
-    "message": "Cancelar petición"
-  },
-  "friends.friend.remove-friend": {
-    "message": "Eliminar amigo"
-  },
-  "friends.friend.request-sent": {
-    "message": "Petición de amistad enviada"
-  },
-  "friends.friend.view-profile": {
-    "message": "Ver perfil"
-  },
-  "friends.heading": {
-    "message": "Amigos"
-  },
-  "friends.heading.active": {
-    "message": "Activos"
-  },
-  "friends.heading.offline": {
-    "message": "Desconectados"
-  },
-  "friends.heading.online": {
-    "message": "Conectados"
-  },
-  "friends.heading.pending": {
-    "message": "Pendientes"
-  },
-  "friends.no-friends-match": {
-    "message": "Ningún apodo concuerda con ''{query}''"
-  },
-  "friends.search-friends-placeholder": {
-    "message": "Buscando amigos..."
-  },
-  "friends.section.heading": {
-    "message": "{title}: {count}"
-  },
-  "friends.sign-in-to-add-friends": {
-    "message": "<link>Inicia sesión en una cuenta Modrinth</link> para añadir amigos y ver a qué están jugando!"
   },
   "installation-settings.shared-instance.linked-title": {
     "message": "Instancia compartida enlazada"
@@ -3677,9 +3419,6 @@
   "instance.icon-editor.symbol.tnt": {
     "message": "TNT"
   },
-  "instance.icon-editor.symbol.wrenth-rinth": {
-    "message": "Llave de Modrinth"
-  },
   "instance.icon-editor.symbol.zombie": {
     "message": "Zombi"
   },
@@ -3775,21 +3514,6 @@
   },
   "instance.settings.synced-options.resource-packs.disabled": {
     "message": "La sincronización de paquete de datos está desactivada en los ajustes de la aplicación."
-  },
-  "instance.settings.tabs.behavior.description": {
-    "message": "Elige que pestañas aparecerán en esta instancia."
-  },
-  "instance.settings.tabs.behavior.files": {
-    "message": "Mostrar pestaña de Archivos"
-  },
-  "instance.settings.tabs.behavior.screenshots": {
-    "message": "Mostrar pestaña de Screenshots"
-  },
-  "instance.settings.tabs.behavior.screenshots.required": {
-    "message": "La pestaña de Screenshots no puede ser oculta mientras la Página de screenshots global está desactivada."
-  },
-  "instance.settings.tabs.behavior.worlds": {
-    "message": "Mostrar pestaña de Mundos"
   },
   "instance.settings.tabs.general": {
     "message": "General"
@@ -4273,9 +3997,6 @@
   },
   "onboarding-checklist.login-minecraft": {
     "message": "Iniciar sesión en Minecraft"
-  },
-  "onboarding-checklist.login-modrinth": {
-    "message": "Iniciar sesión en Modrinth"
   },
   "onboarding-checklist.title": {
     "message": "Primeros pasos"

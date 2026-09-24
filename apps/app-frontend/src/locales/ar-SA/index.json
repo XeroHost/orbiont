@@ -131,21 +131,6 @@
   "app.action-bar.view-logs": {
     "message": "عرض السجلات"
   },
-  "app.ads-consent.accept": {
-    "message": "قبول الكل"
-  },
-  "app.ads-consent.body": {
-    "message": "تُتيح الإعلانات استمرارية Modrinth وتُمول مدفوعات المنشئين. قد يقوم شركاؤنا بتخزين أو الوصول إلى ملفات تعريف الارتباط (cookies) في التطبيق لتخصيص الإعلانات وقياس الأداء."
-  },
-  "app.ads-consent.manage": {
-    "message": "إدارة التفضيلات"
-  },
-  "app.ads-consent.reject": {
-    "message": "رفض الكل"
-  },
-  "app.ads-consent.title": {
-    "message": "خصوصيتك وكيف تساهم الإعلانات في دعم Modrinth"
-  },
   "app.appearance-settings.compact-mode.description": {
     "message": "عرض مثيلات المكتبة بتنسيق صفّي مضغوط."
   },
@@ -344,18 +329,6 @@
   "app.home.jump-back-in.view-instance": {
     "message": "عرض النسخة"
   },
-  "app.hosting.update-required.description": {
-    "message": "يجب عليك التحديث لاستخدام Modrinth Hosting بواسطة تطبيق Modrinth"
-  },
-  "app.hosting.update-required.download": {
-    "message": "نزّل للتحديث"
-  },
-  "app.hosting.update-required.rinthbot-alt": {
-    "message": "بوت Modrinth المتحمّس"
-  },
-  "app.hosting.update-required.title": {
-    "message": "يلزم تحديث تطبيق Modrinth"
-  },
   "app.install.phase.downloading_content": {
     "message": "جارٍ تنزيل المحتوى"
   },
@@ -482,30 +455,6 @@
   "app.instance.admonitions.shared-instance.reviewing-button": {
     "message": "مراجعة..."
   },
-  "app.instance.card.icon-alt": {
-    "message": "أيقونة نسخ"
-  },
-  "app.instance.card.installing": {
-    "message": "التثبيت..."
-  },
-  "app.instance.card.loading": {
-    "message": "يتم تحميل النسخة..."
-  },
-  "app.instance.card.never-played": {
-    "message": "لم تلعب من قبل"
-  },
-  "app.instance.card.play": {
-    "message": "تشغيل"
-  },
-  "app.instance.card.played": {
-    "message": "تم اللعب لمدة {relativeTime}"
-  },
-  "app.instance.card.repair": {
-    "message": "إصلاح"
-  },
-  "app.instance.card.stop": {
-    "message": "إيقاف"
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "سيتم حذف جميع البيانات الخاصة لنموذجك نهائيًا، بما في ذلك عوالمك والتكوينات وكل المحتوى المثبت."
   },
@@ -586,87 +535,6 @@
   },
   "app.instance.navigation.back-to-instance": {
     "message": "العودة إلى النسخة"
-  },
-  "app.instance.share.empty.description": {
-    "message": "يمكنك مشاركة هذه النسخة مع أصدقائك!"
-  },
-  "app.instance.share.empty.heading": {
-    "message": "لا يوجد أصدقاء مدعوين"
-  },
-  "app.instance.share.empty.invite-friends-button": {
-    "message": "دعوة الأصدقاء"
-  },
-  "app.instance.share.invite-modal.heading": {
-    "message": "شارك {name}"
-  },
-  "app.instance.share.invite-modal.user-limit-reached": {
-    "message": "وصلت هذه النسخة إلى الحد الأقصى المسموح به من المستخدمين ({limit})"
-  },
-  "app.instance.share.locked.empty-description-prefix": {
-    "message": "تحتاج إلى تسجيل الدخول كـ"
-  },
-  "app.instance.share.locked.empty-description-suffix": {
-    "message": "للوصول إلى هذه الصفحة."
-  },
-  "app.instance.share.locked.linked-account-fallback": {
-    "message": "الحساب المرتبط"
-  },
-  "app.instance.share.locked.signed-out-heading": {
-    "message": "لم يتم تسجيل الدخول"
-  },
-  "app.instance.share.locked.switch-account-button": {
-    "message": "تبديل الحسابات"
-  },
-  "app.instance.share.locked.wrong-account-heading": {
-    "message": "حساب خاطئ"
-  },
-  "app.instance.share.members.empty": {
-    "message": "لم ينضم أي مستخدمين حتى الآن"
-  },
-  "app.instance.share.members.no-filter-results": {
-    "message": "لا يوجد مستخدمون يطابقون الفلاتر الخاصة بك."
-  },
-  "app.instance.share.remove-user-modal.effect-access": {
-    "message": "لن يتلقوا أي تحديثات لهذه النسخة المشتركة بعد الآن."
-  },
-  "app.instance.share.remove-user-modal.effect-installed-copy": {
-    "message": "أي نسخة تم تثبيتها بالفعل ستبقى على جهازهم"
-  },
-  "app.instance.share.remove-user-modal.effect-invite-again": {
-    "message": "يمكنك دعوتهم لاحقاً"
-  },
-  "app.instance.share.remove-user-modal.effect-last-user": {
-    "message": "هذا هو آخر مستخدم، سيتم إيقاف المشاركة لهذه النسخة."
-  },
-  "app.instance.share.remove-user-modal.effects-label": {
-    "message": "ماذا حدث؟"
-  },
-  "app.instance.share.remove-user-modal.header": {
-    "message": "إلغاء الوصول"
-  },
-  "app.instance.share.remove-user-modal.remove-button": {
-    "message": "إلغاء الوصول"
-  },
-  "app.instance.share.remove-user-modal.user-avatar-alt": {
-    "message": "صورة {username}"
-  },
-  "app.instance.share.remove-user-modal.warning-body": {
-    "message": "إذا قمت بإلغاء وصول {username}إلى هذه النسخة المشتركة، سوف تحتاج إلى دعوتهم مرة أخرى قبل أن يتمكنوا من تلقي التحديثات."
-  },
-  "app.instance.share.sign-in.button": {
-    "message": "تسجيل الدخول"
-  },
-  "app.instance.share.unable-to-connect.description": {
-    "message": "تعذر الوصول إلى خدمة النسخ المُشاركة في الوقت الحالي، يُرجى المحاولة مرة أخرى لاحقاً."
-  },
-  "app.instance.share.unable-to-connect.heading": {
-    "message": "تعذر الاتصال "
-  },
-  "app.instance.share.unlink.body": {
-    "message": "يجب إلغاء ربط المودباك هذا لمشاركة نسختك"
-  },
-  "app.instance.share.unlink.header": {
-    "message": "تتطلب المشاركة إلغاء الربط"
   },
   "app.instance.shared-instance-already-installed.header": {
     "message": "النسخة المشتركة مثبّتة بالفعل"
@@ -1193,35 +1061,14 @@
   "app.modal.update-to-play.update-required-description": {
     "message": "يتطلب تحديث للعب {name}. يُرجى التحديث إلى أحدث إصدار لتشغيل اللعبة."
   },
-  "app.nav.add-account": {
-    "message": "إضافة حساب"
-  },
   "app.nav.create-new-instance": {
     "message": "إنشاء نسخة جديدة"
   },
   "app.nav.home": {
     "message": "الصفحة الرئيسية"
   },
-  "app.nav.loading-profile": {
-    "message": "جاري تحميل الملف الشخصي..."
-  },
-  "app.nav.modrinth-hosting": {
-    "message": "استضافة Modrinth"
-  },
-  "app.nav.remove-account": {
-    "message": "إزالة الحساب"
-  },
   "app.nav.screenshots": {
     "message": "لقطات الشاشة"
-  },
-  "app.nav.switch-account": {
-    "message": "تبديل الحساب"
-  },
-  "app.nav.upgrade-to-modrinth-plus": {
-    "message": "الترقية إلى Modrinth+"
-  },
-  "app.nav.view-profile": {
-    "message": "عرض الملف الشخصي"
   },
   "app.navigation.go-back": {
     "message": "العودة"
@@ -1234,12 +1081,6 @@
   },
   "app.navigation.next-image": {
     "message": "الصورة التالية"
-  },
-  "app.news.title": {
-    "message": "الأخبار"
-  },
-  "app.news.view-all": {
-    "message": "عرض كل الأخبار"
   },
   "app.notification.warning": {
     "message": "تحذير"
@@ -1598,20 +1439,11 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
-  "app.settings.privacy.ads-consent.intro": {
-    "message": "الإعلانات تجعل Modrinth ممكناً وتمول مدفوعات المنشئين. قد يقوم شركاؤنا بتخزين أو الوصول إلى ملفات تعريف الارتباط (cookies) في التطبيق لتخصيص الإعلانات وقياس الأداء. يمكنك إلغاء الاشتراك أو إدارة تفضيلاتك أدناه."
-  },
   "app.settings.privacy.discord-rich-presence.description": {
     "message": "إظهار تطبيق Modrinth كنشاطك الحالي على Discord. لا يؤثر هذا على الـ Rich Presence المُضاف للنسخ بواسطة المودات. يتطلب إعادة تشغيل التطبيق."
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
-  },
-  "app.settings.privacy.telemetry.description": {
-    "message": "يجمع {productName} بيانات تحليلات واستخدام مجهولة الهوية لتحسين تجربة المستخدم وتخصيص تجربتك. عند تعطيل هذا الخيار، فإنك تلغي الاشتراك ولن يتم جمع بياناتك بعد الآن."
-  },
-  "app.settings.privacy.telemetry.title": {
-    "message": "بيانات قياس الاستخدام"
   },
   "app.settings.resource-management.always-show-copy-details.description": {
     "message": "إظهار إجراء \"نسخ التفاصيل\" أثناء إدراج التثبيت في قائمة الانتظار أو تشغيله. يكون متاحاً دائماً للتثبيتات الفاشلة أو المقاطعة."
@@ -1856,15 +1688,6 @@
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
-  "app.skins.section.modrinth": {
-    "message": "Modrinth"
-  },
-  "app.skins.section.modrinth-pride": {
-    "message": "فخر Modrinth"
-  },
-  "app.skins.section.modrinth-pride.tooltip": {
-    "message": "لقد حصلت على هذه أشكال الشخصيات مقابل تبرعك لحملة جمع التبرعات التي نظمتها Modrinth Pride خلال شهر الفخر."
-  },
   "app.skins.section.mounts-of-mayhem": {
     "message": "جبال الفوضى"
   },
@@ -1894,21 +1717,6 @@
   },
   "app.skins.toggle-ears-features-on": {
     "message": "تشغيل"
-  },
-  "app.survey.body": {
-    "message": "هل تمانع في الإجابة على بضعة أسئلة حول تجربتك مع تطبيق Modrinth؟"
-  },
-  "app.survey.footer": {
-    "message": "ستنتقل هذه الملاحظات مباشرة إلى فريق {productName} وتساعد في توجيه التحديثات القادمة!أهلاً بك يا مستخدم {productName}!"
-  },
-  "app.survey.no-thanks": {
-    "message": "لا شكراً"
-  },
-  "app.survey.take-survey": {
-    "message": "شارك في الاستطلاع"
-  },
-  "app.survey.title": {
-    "message": "أهلاً بك يا مستخدم {productName}!"
   },
   "app.update-popup.body.download-complete": {
     "message": "انتهى تنزيل تطبيق Modrinth v{version}. أعد التحميل للتحديث الآن، أو تلقائيًا عند إغلاق تطبيق Modrinth."
@@ -2011,72 +1819,6 @@
   },
   "content.shared-instance.warning-header": {
     "message": "هذا جزء من النسخة المشتركة"
-  },
-  "friends.action.add-friend": {
-    "message": "إضافة صديق"
-  },
-  "friends.action.view-friend-requests": {
-    "message": "{count} {count, plural, one {طلب صداقة} other {طلبات صداقة}}"
-  },
-  "friends.add-friend.submit": {
-    "message": "إرسال طلب صداقة"
-  },
-  "friends.add-friend.title": {
-    "message": "جار إضافة صديق"
-  },
-  "friends.add-friend.username.description": {
-    "message": "قد يختلف عن اسم المستخدم الخاص بهم في ماينكرافت!"
-  },
-  "friends.add-friend.username.placeholder": {
-    "message": "أدخل اسم مستخدم Modrinth..."
-  },
-  "friends.add-friend.username.title": {
-    "message": "ما اسم مستخدم صديقك في Modrinth؟"
-  },
-  "friends.add-friends-to-share": {
-    "message": "<link>أضف أصدقاء</link> لمعرفة ما الذي يلعبونه!"
-  },
-  "friends.friend.actions.label": {
-    "message": "إجراءات الأصدقاء"
-  },
-  "friends.friend.cancel-request": {
-    "message": "إلغاء الطلب"
-  },
-  "friends.friend.remove-friend": {
-    "message": "إزالة صديق"
-  },
-  "friends.friend.request-sent": {
-    "message": "إرسال طلب الصداقة"
-  },
-  "friends.friend.view-profile": {
-    "message": "عرض الملف الشخصي"
-  },
-  "friends.heading": {
-    "message": "أصدقاء"
-  },
-  "friends.heading.active": {
-    "message": "نشط"
-  },
-  "friends.heading.offline": {
-    "message": "غير متصل"
-  },
-  "friends.heading.online": {
-    "message": "متصل"
-  },
-  "friends.heading.pending": {
-    "message": "قيد الانتظار"
-  },
-  "friends.no-friends-match": {
-    "message": "لا يوجد أصدقاء يطابقون ‎''{query}''‎"
-  },
-  "friends.search-friends-placeholder": {
-    "message": "ابحث عن الأصدقاء..."
-  },
-  "friends.section.heading": {
-    "message": "{title} - {count}"
-  },
-  "friends.sign-in-to-add-friends": {
-    "message": "<link>سجّل الدخول إلى حساب Modrinth</link> لإضافة الأصدقاء ومعرفة ما الذي يلعبونه!"
   },
   "installation-settings.shared-instance.linked-title": {
     "message": "النسخة المشتركة المرتبطة"
@@ -2393,9 +2135,6 @@
   "instance.icon-editor.symbol.tnt": {
     "message": "متفجراة"
   },
-  "instance.icon-editor.symbol.wrenth-rinth": {
-    "message": "مفتاح Modrinth"
-  },
   "instance.icon-editor.symbol.zombie": {
     "message": "زومبي"
   },
@@ -2464,21 +2203,6 @@
   },
   "instance.settings.sharing.revoke-invite.header": {
     "message": "إلغاء الدعوة"
-  },
-  "instance.settings.tabs.behavior.description": {
-    "message": "اختر علامات التبويب الذي يظهر في هذه النسخة."
-  },
-  "instance.settings.tabs.behavior.files": {
-    "message": "إظهار تبويب الملفات"
-  },
-  "instance.settings.tabs.behavior.screenshots": {
-    "message": "إظهار تبويب لقطات الشاشة"
-  },
-  "instance.settings.tabs.behavior.screenshots.required": {
-    "message": "لا يمكن إخفاء تبويب لقطات الشاشة خلال إيقاف تشغيل صفحة لقطات الشاشة العامة."
-  },
-  "instance.settings.tabs.behavior.worlds": {
-    "message": "إظهار تبويب العوالم"
   },
   "instance.settings.tabs.general": {
     "message": "عام"
@@ -2950,9 +2674,6 @@
   },
   "onboarding-checklist.login-minecraft": {
     "message": "تسجيل الدخول إلى ماين كرافت"
-  },
-  "onboarding-checklist.login-modrinth": {
-    "message": "تسجيل الدخول إلى Modrinth"
   },
   "onboarding-checklist.title": {
     "message": "ابدأ ألان"
