@@ -247,7 +247,11 @@ interface CfFile {
 	gameVersions: string[]
 	hashes: { value: string; algo: 1 | 2 }[]
 	isServerPack?: boolean
+	dependencies?: { modId: number; relationType: number }[]
 }
+
+// CurseForge FileRelationType: 3 = RequiredDependency.
+const REQUIRED_DEPENDENCY = 3
 
 interface CfFileIndex {
 	gameVersion: string
@@ -296,22 +300,27 @@ function getMod(modId: number): Promise<CfMod> {
 	return pending
 }
 
-const MAX_FILE_PAGES = 3
+const MAX_FILE_PAGES = 10
 const FILE_PAGE_SIZE = 50
 const filesCache = new Map<number, Promise<CfFile[]>>()
 function getFiles(modId: number): Promise<CfFile[]> {
 	let pending = filesCache.get(modId)
 	if (!pending) {
 		pending = (async () => {
-			const files: CfFile[] = []
-			for (let page = 0; page < MAX_FILE_PAGES; page++) {
-				const body = await api<{ data: CfFile[]; pagination: { totalCount: number } }>(
-					`mods/${modId}/files`,
-					{ index: String(page * FILE_PAGE_SIZE), pageSize: String(FILE_PAGE_SIZE) },
-				)
-				files.push(...body.data)
-				if (files.length >= body.pagination.totalCount || body.data.length < FILE_PAGE_SIZE) break
-			}
+			const page = (index: number) =>
+				api<{ data: CfFile[]; pagination: { totalCount: number } }>(`mods/${modId}/files`, {
+					index: String(index * FILE_PAGE_SIZE),
+					pageSize: String(FILE_PAGE_SIZE),
+				})
+			const first = await page(0)
+			const pages = Math.min(
+				MAX_FILE_PAGES,
+				Math.ceil(first.pagination.totalCount / FILE_PAGE_SIZE),
+			)
+			const rest = await Promise.all(
+				Array.from({ length: Math.max(0, pages - 1) }, (_, i) => page(i + 1)),
+			)
+			const files = [first, ...rest].flatMap((body) => body.data)
 			return files.sort((a, b) => Date.parse(b.fileDate) - Date.parse(a.fileDate))
 		})()
 		pending.catch(() => filesCache.delete(modId))
@@ -633,7 +642,14 @@ function toVersion(file: CfFile, projectType: CurseforgeProjectType): Labrinth.V
 				file_type: null,
 			},
 		],
-		dependencies: [],
+		dependencies: (file.dependencies ?? [])
+			.filter((dependency) => dependency.relationType === REQUIRED_DEPENDENCY)
+			.map((dependency) => ({
+				project_id: projectIdOf(dependency.modId),
+				version_id: null,
+				file_name: null,
+				dependency_type: 'required',
+			})),
 		game_versions: fileGameVersions(file),
 		loaders:
 			loaders.length > 0
@@ -722,19 +738,99 @@ async function downloadVersionFile(versionId: string): Promise<string> {
 	})
 }
 
-/** Adds a CurseForge version to an instance, for the native install flows. */
+const LOADER_TYPE_BY_NAME = Object.fromEntries(
+	Object.entries(LOADER_BY_TYPE).map(([type, name]) => [name, type]),
+) as Record<string, string>
+
+async function addFileToInstance(instanceId: string, versionId: string, projectType?: string) {
+	const path = await downloadVersionFile(versionId)
+	return await invoke<string>('plugin:instance|instance_add_project_from_path', {
+		instanceId,
+		projectPath: path,
+		projectType: projectType === 'shader' ? 'shaderpack' : projectType,
+	})
+}
+
+/** The newest file of `modId` that fits the instance, preferring releases. */
+async function latestCompatibleFile(
+	modId: number,
+	gameVersion: string,
+	loader: string,
+): Promise<CfFile | null> {
+	const body = await api<{ data: CfFile[] }>(`mods/${modId}/files`, {
+		gameVersion,
+		modLoaderType: LOADER_TYPE_BY_NAME[loader],
+		pageSize: '50',
+	})
+	const files = body.data
+		.filter((file) => file.downloadUrl)
+		.sort((a, b) => Date.parse(b.fileDate) - Date.parse(a.fileDate))
+	return files.find((file) => file.releaseType === 1) ?? files[0] ?? null
+}
+
+export interface CurseforgeInstallResult {
+	projectId: string
+	versionId: string
+	dependencies: { projectId: string; versionId: string }[]
+}
+
+/**
+ * Adds a CurseForge version to an instance, plus its required dependencies
+ * (newest file compatible with the instance's game version and loader),
+ * skipping files the instance already has.
+ */
 export async function installCurseforgeVersionToInstance(
 	instanceId: string,
 	versionId: string,
 	contentType?: string,
-): Promise<string> {
-	const path = await downloadVersionFile(versionId)
-	const projectType = contentType === 'shader' ? 'shaderpack' : contentType
-	return await invoke('plugin:instance|instance_add_project_from_path', {
+): Promise<CurseforgeInstallResult> {
+	const instance = await invoke<{ game_version: string; loader: string } | null>(
+		'plugin:instance|instance_get',
+		{ instanceId },
+	)
+	const existing = await invoke<Record<string, unknown>>('plugin:instance|instance_get_projects', {
 		instanceId,
-		projectPath: path,
-		projectType,
 	})
+	const existingNames = new Set(
+		Object.keys(existing).map((path) =>
+			path
+				.split('/')
+				.pop()
+				?.replace(/\.disabled$/, ''),
+		),
+	)
+
+	const { modId } = parseVersionId(versionId)
+	await addFileToInstance(instanceId, versionId, contentType)
+	const result: CurseforgeInstallResult = {
+		projectId: projectIdOf(modId),
+		versionId,
+		dependencies: [],
+	}
+	if (!instance) return result
+
+	const visited = new Set([modId])
+	const queue = [...(await getCurseforgeVersions([versionId]))[0].dependencies]
+	while (queue.length > 0) {
+		const dependency = queue.shift()!
+		const dependencyModId = parseProjectId(dependency.project_id!)
+		if (visited.has(dependencyModId)) continue
+		visited.add(dependencyModId)
+
+		const file = await latestCompatibleFile(dependencyModId, instance.game_version, instance.loader)
+		if (!file || existingNames.has(file.fileName)) continue
+
+		const dependencyVersionId = versionIdOf(dependencyModId, file.id)
+		const dependencyType = projectTypeOf(await getMod(dependencyModId))
+		await addFileToInstance(instanceId, dependencyVersionId, dependencyType)
+		existingNames.add(file.fileName)
+		result.dependencies.push({
+			projectId: projectIdOf(dependencyModId),
+			versionId: dependencyVersionId,
+		})
+		queue.push(...toVersion(file, dependencyType).dependencies)
+	}
+	return result
 }
 
 /** A modpack file left out because only curseforge.com may distribute it. */

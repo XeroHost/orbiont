@@ -463,7 +463,7 @@ export async function add_project_from_version(
 	dependentOnVersionId?: string,
 ): Promise<string> {
 	if (isCurseforgeId(versionId)) {
-		return await installCurseforgeVersionToInstance(instanceId, versionId)
+		return (await installCurseforgeVersionToInstance(instanceId, versionId)).versionId
 	}
 	return await invoke('plugin:instance|instance_add_project_from_version', {
 		instanceId,
@@ -478,15 +478,21 @@ export async function install_project_with_dependencies(
 	request: ResolveContentRequest,
 ): Promise<ResolveContentPlan> {
 	if (isCurseforgeId(request.project_id)) {
-		// CurseForge exposes no dependency resolution comparable to Modrinth's,
-		// so this installs the requested file only.
 		const versionId =
 			request.version_id ?? (await get_project(request.project_id)).versions[0] ?? null
 		if (!versionId) throw new Error('This project has no downloadable versions.')
-		await installCurseforgeVersionToInstance(instanceId, versionId, request.content_type)
+		const result = await installCurseforgeVersionToInstance(
+			instanceId,
+			versionId,
+			request.content_type,
+		)
 		return {
-			primary: { project_id: request.project_id, version_id: versionId },
-			dependencies: [],
+			primary: { project_id: result.projectId, version_id: result.versionId },
+			dependencies: result.dependencies.map((dependency) => ({
+				project_id: dependency.projectId,
+				version_id: dependency.versionId,
+				dependent_on_version_id: result.versionId,
+			})),
 			skipped: [],
 		}
 	}
