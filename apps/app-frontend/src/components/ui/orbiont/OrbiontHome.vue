@@ -1,51 +1,28 @@
 <script setup lang="ts">
-import { PlayIcon, SearchIcon } from '@modrinth/assets'
-import { Avatar, Button, ButtonLink } from '@modrinth/ui'
-import { useQuery } from '@tanstack/vue-query'
-import { computed, ref } from 'vue'
+import { SearchIcon } from '@modrinth/assets'
+import { Avatar, ButtonLink, defineMessages, useVIntl } from '@modrinth/ui'
+import { computed } from 'vue'
 
-import OrbiontServerStatus from '@/components/ui/orbiont/OrbiontServerStatus.vue'
-import { handleSevereError } from '@/composables/use-error.js'
-import type { Modpack, OrbiontServer } from '@/helpers/orbiont'
-import { getModpacks, getServers } from '@/helpers/orbiont'
-import { injectAppEvents } from '@/providers/app-events'
-import { playOrbiontServer } from '@/providers/orbiont-play'
+import OrbiontServerList from '@/components/ui/orbiont/OrbiontServerList.vue'
+import { useOrbiontCatalog } from '@/composables/use-orbiont-catalog'
 
-const appEvents = injectAppEvents()
+const HOME_SERVER_LIMIT = 3
 
-const modpacksQuery = useQuery({
-	queryKey: ['orbiont', 'modpacks'],
-	queryFn: getModpacks,
-	staleTime: 60_000,
+const { formatMessage } = useVIntl()
+const { modpacks, servers } = useOrbiontCatalog()
+
+// Featured servers first (the list is already sorted that way).
+const homeServers = computed(() => servers.value.slice(0, HOME_SERVER_LIMIT))
+
+const messages = defineMessages({
+	searchModpacks: { id: 'app.orbiont.home.search-modpacks', defaultMessage: 'Search modpacks' },
+	featuredModpacks: {
+		id: 'app.orbiont.home.featured-modpacks',
+		defaultMessage: 'Featured modpacks',
+	},
+	servers: { id: 'app.orbiont.home.servers', defaultMessage: 'Servers' },
+	seeAllServers: { id: 'app.orbiont.home.see-all-servers', defaultMessage: 'See all' },
 })
-const modpacks = computed(() => modpacksQuery.data.value ?? [])
-
-const serversQuery = useQuery({
-	queryKey: ['orbiont', 'servers'],
-	queryFn: getServers,
-	staleTime: 60_000,
-})
-const servers = computed(() =>
-	(serversQuery.data.value ?? []).slice().sort((a, b) => Number(b.featured) - Number(a.featured)),
-)
-
-function modpackFor(server: OrbiontServer): Modpack | null {
-	return modpacks.value.find((pack) => pack.id === server.modpackId) ?? null
-}
-
-const joiningServerId = ref<string | null>(null)
-
-async function onPlay(server: OrbiontServer) {
-	if (joiningServerId.value) return
-	joiningServerId.value = server.id
-	try {
-		await playOrbiontServer(server, modpackFor(server), appEvents)
-	} catch (err) {
-		handleSevereError(err, { serverId: server.id })
-	} finally {
-		joiningServerId.value = null
-	}
-}
 </script>
 
 <template>
@@ -53,12 +30,14 @@ async function onPlay(server: OrbiontServer) {
 		<div class="flex justify-end">
 			<ButtonLink type="outlined" :to="{ path: '/browse/modpack' }">
 				<SearchIcon />
-				Search modpacks
+				{{ formatMessage(messages.searchModpacks) }}
 			</ButtonLink>
 		</div>
 
 		<section v-if="modpacks.length > 0" class="flex flex-col gap-2">
-			<h2 class="m-0 text-lg font-extrabold text-contrast">Featured modpacks</h2>
+			<h2 class="m-0 text-lg font-extrabold text-contrast">
+				{{ formatMessage(messages.featuredModpacks) }}
+			</h2>
 			<div class="flex gap-3 overflow-x-auto pb-1">
 				<div
 					v-for="pack in modpacks"
@@ -77,38 +56,19 @@ async function onPlay(server: OrbiontServer) {
 		</section>
 
 		<section v-if="servers.length > 0" class="flex flex-col gap-2">
-			<h2 class="m-0 text-lg font-extrabold text-contrast">Servers</h2>
-			<div class="flex flex-col gap-2">
-				<div
-					v-for="server in servers"
-					:key="server.id"
-					class="flex items-center gap-3 rounded-2xl bg-bg-raised p-3"
+			<div class="flex items-center justify-between gap-2">
+				<h2 class="m-0 text-lg font-extrabold text-contrast">
+					{{ formatMessage(messages.servers) }}
+				</h2>
+				<ButtonLink
+					v-if="servers.length > HOME_SERVER_LIMIT"
+					type="transparent"
+					:to="{ path: '/servers' }"
 				>
-					<Avatar :src="server.icon" size="48px" class="rounded-xl" />
-					<div class="flex min-w-0 flex-1 flex-col gap-0.5">
-						<div class="flex items-center gap-2">
-							<span class="truncate font-bold text-contrast">{{ server.name }}</span>
-							<span
-								v-if="server.featured"
-								class="rounded-full bg-brand-highlight px-2 py-0.5 text-xs font-bold text-brand"
-							>
-								Featured
-							</span>
-						</div>
-						<OrbiontServerStatus :address="`${server.host}:${server.port}`" />
-					</div>
-					<Button
-						type="colored"
-						color="brand"
-						:disabled="joiningServerId !== null"
-						:aria-busy="joiningServerId === server.id"
-						@click="onPlay(server)"
-					>
-						<PlayIcon />
-						{{ joiningServerId === server.id ? 'Starting…' : 'Play' }}
-					</Button>
-				</div>
+					{{ formatMessage(messages.seeAllServers) }}
+				</ButtonLink>
 			</div>
+			<OrbiontServerList :servers="homeServers" :modpacks="modpacks" />
 		</section>
 	</div>
 </template>

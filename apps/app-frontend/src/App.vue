@@ -18,6 +18,7 @@ import {
 	PlusIcon,
 	RefreshCwIcon,
 	RightArrowIcon,
+	ServerIcon,
 	SettingsIcon,
 	ShirtIcon,
 } from '@modrinth/assets'
@@ -520,6 +521,10 @@ const messages = defineMessages({
 	expandSidebar: {
 		id: 'app.nav.expand-sidebar',
 		defaultMessage: 'Expand sidebar',
+	},
+	servers: {
+		id: 'app.nav.servers',
+		defaultMessage: 'Servers',
 	},
 	screenshots: {
 		id: 'app.nav.screenshots',
@@ -1849,6 +1854,9 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 				"
 			>
 				<CompassIcon />
+			</NavButton>
+			<NavButton :label="formatMessage(messages.servers)" to="/servers">
+				<ServerIcon />
 			</NavButton>
 			<NavButton
 				v-if="appSettings.showSkinSelectorInSidebar"
