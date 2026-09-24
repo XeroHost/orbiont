@@ -210,6 +210,8 @@ function getFilterOpenByDefault(filterId: string): boolean {
 			</label>
 		</div>
 
+		<slot name="filters-prepend" />
+
 		<template v-if="ctx.isServerType.value">
 			<SearchSidebarFilter
 				v-for="filterType in ctx.serverFilterTypes.value.filter(

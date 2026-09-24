@@ -11,8 +11,13 @@
 
 export const productName = 'Orbiont'
 
-/** Reverse-DNS app identifier used in tauri.conf.json and platform manifests. */
-export const bundleIdentifier = 'com.xerohost.orbiont'
+/**
+ * App identifier used in tauri.conf.json and platform manifests, and as the
+ * name of the app's data directory (see packages/app-lib/src/state/dirs.rs).
+ * Modrinth's own app uses a plain "ModrinthApp" here rather than a
+ * reverse-DNS id, so this follows the same pattern.
+ */
+export const bundleIdentifier = 'Orbiont'
 
 /** Custom URL scheme registered for deep links (e.g. orbiont://...). */
 export const deepLinkScheme = 'orbiont'
@@ -25,6 +30,7 @@ export const deepLinkScheme = 'orbiont'
 export const domain = 'orbiont.gg'
 export const siteUrl = `https://${domain}`
 export const supportEmail = `support@${domain}`
+export const supportUrl = `${siteUrl}/support`
 
 /**
  * Brand colors, mirroring the --color-cyan-* / --color-brand-* tokens in

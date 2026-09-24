@@ -158,11 +158,22 @@ export const NoMessagesIllustration = _NoMessagesIllustration
 export const NoSearchResultIllustration = _NoSearchResultIllustration
 export const NoTasksIllustration = _NoTasksIllustration
 
+// Extra category names (e.g. another content provider's taxonomy) mapped onto
+// an existing category icon key, so every category renders with the same icon set.
+const categoryIconAliases: Record<string, string> = {}
+
+export function registerCategoryIconAliases(aliases: Record<string, string>) {
+	for (const [name, iconKey] of Object.entries(aliases)) {
+		categoryIconAliases[name.toLowerCase()] = iconKey
+	}
+}
+
 export function getCategoryIcon(categoryName: string): IconComponent | undefined {
 	if (!categoryName) {
 		return undefined
 	}
-	return categoryIconMap[categoryName.toLowerCase()]
+	const key = categoryName.toLowerCase()
+	return categoryIconMap[key] ?? categoryIconMap[categoryIconAliases[key]]
 }
 
 export function getLoaderIcon(loaderName: string): IconComponent | undefined {

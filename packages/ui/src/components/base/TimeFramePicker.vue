@@ -128,12 +128,12 @@
 			>
 				<div
 					class="px-3 py-2"
-					:class="draftSelectedTimeframeMode === 'last' ? 'bg-highlight-green' : ''"
+					:class="draftSelectedTimeframeMode === 'last' ? 'bg-brand-highlight' : ''"
 				>
 					<div class="flex items-center gap-2.5 py-0.5 transition-colors">
 						<span
 							class="shrink-0 text-sm font-semibold"
-							:class="draftSelectedTimeframeMode === 'last' ? 'text-green' : 'text-primary'"
+							:class="draftSelectedTimeframeMode === 'last' ? 'text-brand' : 'text-primary'"
 						>
 							{{ formatMessage(messages.lastTimeframePrefix) }}
 						</span>

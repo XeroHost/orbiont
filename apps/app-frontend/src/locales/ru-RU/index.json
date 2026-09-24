@@ -405,7 +405,7 @@
     "message": "Посмотреть сборку"
   },
   "app.hosting.update-required.description": {
-    "message": "Обновитесь, чтобы использовать Modrinth Hosting через Modrinth App"
+    "message": "Обновитесь, чтобы использовать Modrinth Hosting через {productName}"
   },
   "app.hosting.update-required.download": {
     "message": "Скачать и обновить"
@@ -414,7 +414,7 @@
     "message": "Восторженный Modrinth Bot"
   },
   "app.hosting.update-required.title": {
-    "message": "Обновите Modrinth App"
+    "message": "Обновите {productName}"
   },
   "app.install.phase.downloading_content": {
     "message": "Скачивание контента"
@@ -1259,9 +1259,6 @@
   "app.nav.loading-profile": {
     "message": "Загрузка профиля..."
   },
-  "app.nav.modrinth-account": {
-    "message": "Аккаунт Modrinth"
-  },
   "app.nav.modrinth-hosting": {
     "message": "Modrinth Hosting"
   },
@@ -1270,9 +1267,6 @@
   },
   "app.nav.screenshots": {
     "message": "Скриншоты"
-  },
-  "app.nav.sign-in-to-modrinth-account": {
-    "message": "Вход в Modrinth"
   },
   "app.nav.switch-account": {
     "message": "Сменить аккаунт"
@@ -1494,7 +1488,7 @@
     "message": "Сохранить архив"
   },
   "app.screenshots.selection.global-export-filename": {
-    "message": "Скриншоты Modrinth.zip"
+    "message": "Скриншоты {productName}.zip"
   },
   "app.screenshots.selection.instance-export-filename": {
     "message": "Скриншоты {instance}.zip"
@@ -1521,7 +1515,7 @@
     "message": "Сначала старые"
   },
   "app.settings.app-version": {
-    "message": "Modrinth App {version}"
+    "message": "{productName} {version}"
   },
   "app.settings.default-instance-options.environment-variables.description": {
     "message": "Переменные среды при запуске игры."
@@ -1797,7 +1791,7 @@
     "message": "Некоторые из ваших сборок не могут использовать эту настройку"
   },
   "app.settings.game-options.compatibility.reason.launcher-controlled": {
-    "message": "Данный параметр может быть изменен настройками запуска Modrinth."
+    "message": "Данный параметр может быть изменен настройками запуска {productName}."
   },
   "app.settings.game-options.custom-value.placeholder": {
     "message": "Введите значение"
@@ -2640,7 +2634,7 @@
     "message": "Discord Rich Presence"
   },
   "app.settings.privacy.telemetry.description": {
-    "message": "Modrinth собирает анонимные данные об использовании для персонализации и улучшения сервиса. Отключите этот параметр, чтобы отказаться от сбора данных."
+    "message": "{productName} собирает анонимные данные об использовании для персонализации и улучшения сервиса. Отключите этот параметр, чтобы отказаться от сбора данных."
   },
   "app.settings.privacy.telemetry.title": {
     "message": "Телеметрия"
@@ -2656,9 +2650,6 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "Очистить кеш приложения?"
-  },
-  "app.settings.resource-management.app-cache.description": {
-    "message": "Удаляет кешированные данные и повторно скачивает их с Modrinth. Приложение может замедлиться, пока кеш не восстановится."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Очистить кеш"
@@ -2793,7 +2784,7 @@
     "message": "Настройки изменились где-то ещё"
   },
   "app.settings.synced-options.game-settings.custom-empty": {
-    "message": "Настройки, добавленные модами, появятся здесь после того, как Modrinth найдёт их в одной из сборок."
+    "message": "Настройки, добавленные модами, появятся здесь после того, как {productName} найдёт их в одной из сборок."
   },
   "app.settings.synced-options.game-settings.description": {
     "message": "Использовать одинаковые настройки игры в сборках."
@@ -3114,10 +3105,10 @@
     "message": "Показать"
   },
   "app.survey.body": {
-    "message": "Не хотите ответить на несколько вопросов о вашем опыте с Modrinth App?"
+    "message": "Не хотите ответить на несколько вопросов о вашем опыте с {productName}?"
   },
   "app.survey.footer": {
-    "message": "Этот отзыв будет доставлен напрямую команде Modrinth и поможет разрабатывать будущие обновления!"
+    "message": "Этот отзыв будет доставлен напрямую команде {productName} и поможет разрабатывать будущие обновления!"
   },
   "app.survey.no-thanks": {
     "message": "Нет, спасибо"
@@ -3126,7 +3117,7 @@
     "message": "Пройти опрос"
   },
   "app.survey.title": {
-    "message": "Привет, пользователь Modrinth!"
+    "message": "Привет, пользователь {productName}!"
   },
   "app.sync-instances-update.badge": {
     "message": "Новинка"
@@ -3309,10 +3300,7 @@
     "message": "Нажмите <shortcut>Т</shortcut> быстрого создания сборки"
   },
   "app.welcome-screen.title": {
-    "message": "Добро пожаловать в Modrinth"
-  },
-  "app.world.server-modal.placeholder-address": {
-    "message": "example.modrinth.gg"
+    "message": "Добро пожаловать в {productName}"
   },
   "app.world.server-modal.select-an-option": {
     "message": "Выберите вариант"

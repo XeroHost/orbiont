@@ -1,3 +1,4 @@
+import { productName } from '@modrinth/branding'
 import { invoke } from '@tauri-apps/api/core'
 import { save } from '@tauri-apps/plugin-dialog'
 
@@ -50,7 +51,7 @@ export async function showLauncherLogsFolder() {
 
 export async function createInstanceShortcut(instanceName, instanceId, options = {}) {
 	const outputPath = await save({
-		defaultPath: `Modrinth - ${instanceName}`,
+		defaultPath: `${productName} - ${instanceName}`,
 	})
 
 	if (!outputPath) return null

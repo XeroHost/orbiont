@@ -11,7 +11,9 @@ con marca propia, para clientes de XeroHost.
 - NUNCA reintroducir: anuncios, PostHog, Sentry, Intercom, Stripe,
   cuenta Modrinth (`mr_auth`), amigos, tunnel, instancias compartidas.
 - NUNCA añadir assets de marca de Modrinth ni el nombre Modrinth en la UI.
-  La única mención permitida está en el About y en NOTICE.md.
+  El crédito al proyecto original va solo en el repo (README/NOTICE.md),
+  nunca en la app. "Modrinth" solo aparece en la UI como fuente de
+  contenido (pestaña Modrinth/CurseForge, "Open in Modrinth").
 - Toda cadena de marca sale de `packages/branding`. No hardcodear
   "Orbiont" en componentes.
 - Toda URL de servicio sale de `packages/app-lib/.env.prod`. No hardcodear

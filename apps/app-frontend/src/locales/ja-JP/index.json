@@ -1214,9 +1214,6 @@
   "app.nav.loading-profile": {
     "message": "プロフィールを読み込み中…"
   },
-  "app.nav.modrinth-account": {
-    "message": "Modrinthアカウント"
-  },
   "app.nav.modrinth-hosting": {
     "message": "Modrinth Hosting"
   },
@@ -1225,9 +1222,6 @@
   },
   "app.nav.screenshots": {
     "message": "スクリーンショット"
-  },
-  "app.nav.sign-in-to-modrinth-account": {
-    "message": "Modrinthへサインイン"
   },
   "app.nav.switch-account": {
     "message": "アカウントの切り替え"
@@ -1446,7 +1440,7 @@
     "message": "ZIPをエクスポート"
   },
   "app.screenshots.selection.global-export-filename": {
-    "message": "Modrinth screenshots.zip"
+    "message": "{productName} screenshots.zip"
   },
   "app.screenshots.selection.instance-export-filename": {
     "message": "{instance} screenshots.zip"
@@ -1476,7 +1470,7 @@
     "message": "古い順"
   },
   "app.settings.app-version": {
-    "message": "Modrinth App {version}"
+    "message": "{productName} {version}"
   },
   "app.settings.default-instance-options.environment-variables.description": {
     "message": "インスタンス起動時に設定される環境変数"
@@ -1584,7 +1578,7 @@
     "message": "Modrinthは広告収益によって運営され、クリエイターへの報酬もその収益から支払われています。当社のパートナーは、広告のパーソナライズや効果測定のために、アプリ内でCookieを保存・利用する場合があります。この機能は下のボタンから個別に拒否や許可または変更することができます。"
   },
   "app.settings.privacy.discord-rich-presence.description": {
-    "message": "Discordの現在のプレイ中に Modrinth App を表示します。これはModによってインスタンスに追加されるRich Presenceには影響しません。適用にはアプリの再起動が必要です。"
+    "message": "Discordの現在のプレイ中に {productName} を表示します。これはModによってインスタンスに追加されるRich Presenceには影響しません。適用にはアプリの再起動が必要です。"
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
@@ -1606,9 +1600,6 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "アプリのキャッシュを破棄しますか？"
-  },
-  "app.settings.resource-management.app-cache.description": {
-    "message": "キャッシュデータを消去し、Modrinthから再ダウンロードします。キャッシュが再構築されるまで、アプリの読み込みが遅くなる場合があります。"
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "キャッシュを破棄"
@@ -1881,7 +1872,7 @@
     "message": "オンに切り替え"
   },
   "app.survey.body": {
-    "message": "Modrinth App の使用感についての簡単なアンケートにご協力いただけますか？"
+    "message": "{productName} の使用感についての簡単なアンケートにご協力いただけますか？"
   },
   "app.survey.footer": {
     "message": "このフィードバックはModrinthチームに直接届けられ、今後のアップデートの改善に役立てられます！"
@@ -1896,13 +1887,13 @@
     "message": "Modrinthユーザーのみなさん、こんにちは！"
   },
   "app.update-popup.body.download-complete": {
-    "message": "Modrinth App v{version} のダウンロードが完了しました。今すぐ更新するには再読み込みするか、Modrinth Appを閉じる際に自動更新されます。"
+    "message": "{productName} v{version} のダウンロードが完了しました。今すぐ更新するには再読み込みするか、Modrinth Appを閉じる際に自動更新されます。"
   },
   "app.update-popup.body.linux": {
-    "message": "Modrinth App v{version} が利用可能です。最新の機能と修正プログラムを入手するには、パッケージマネージャーを使用して更新してください！"
+    "message": "{productName} v{version} が利用可能です。最新の機能と修正プログラムを入手するには、パッケージマネージャーを使用して更新してください！"
   },
   "app.update-popup.body.metered": {
-    "message": "Modrinth App v{version} が利用可能になりました！お使いのネットワークが従量制のため、自動ダウンロードは行っておりません。"
+    "message": "{productName} v{version} が利用可能になりました！お使いのネットワークが従量制のため、自動ダウンロードは行っておりません。"
   },
   "app.update-popup.changelog": {
     "message": "更新履歴"
@@ -1948,9 +1939,6 @@
   },
   "app.welcome-screen.title": {
     "message": "Modrinthへようこそ"
-  },
-  "app.world.server-modal.placeholder-address": {
-    "message": "example.modrinth.gg"
   },
   "app.world.server-modal.select-an-option": {
     "message": "オプションを選択"

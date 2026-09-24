@@ -1,5 +1,5 @@
 {
-	"name": "@modrinth/app",
+	"name": "@orbiont/app",
 	"scripts": {
 		"tauri": "tauri",
 		"build": "tauri build",
@@ -14,7 +14,7 @@
 		"@tauri-apps/cli": "2.5.0"
 	},
 	"dependencies": {
-		"@modrinth/app-frontend": "workspace:*",
+		"@orbiont/app-frontend": "workspace:*",
 		"@modrinth/app-lib": "workspace:*",
 		"@modrinth/daedalus": "workspace:*"
 	}

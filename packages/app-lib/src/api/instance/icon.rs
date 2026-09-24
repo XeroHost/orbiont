@@ -104,7 +104,6 @@ pub async fn edit_generated_icon_if_empty(
         return Ok(None);
     }
 
-
     emit_instance(&instance.id, InstancePayloadType::Edited).await?;
 
     Ok(Some(icon_path))
@@ -275,7 +274,6 @@ async fn apply_instance_icon(
         &state.pool,
     )
     .await?;
-
 
     emit_instance(&instance.id, InstancePayloadType::Edited).await?;
 

@@ -42,7 +42,7 @@ function pillClass(active: boolean) {
 	return [
 		'cursor-pointer rounded-xl border border-solid px-3 py-1.5 text-sm font-medium leading-5 transition-all duration-100 active:scale-[0.97] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand-shadow',
 		active
-			? 'border-brand bg-brand-highlight text-brand'
+			? 'border-brand bg-brand-highlight text-contrast'
 			: 'border-surface-5 bg-transparent text-primary hover:bg-surface-3',
 	]
 }

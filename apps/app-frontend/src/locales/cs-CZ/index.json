@@ -339,7 +339,7 @@
     "message": "Zobrazit instanci"
   },
   "app.hosting.update-required.description": {
-    "message": "Musíte aktualizovat Modrinth Hosting přes Modrinth App"
+    "message": "Musíte aktualizovat Modrinth Hosting přes {productName}"
   },
   "app.hosting.update-required.download": {
     "message": "Stáhnout novou aktualizaci"
@@ -348,7 +348,7 @@
     "message": "Nadšený Modrinth Bot"
   },
   "app.hosting.update-required.title": {
-    "message": "Modrinth App potřebuje být aktualizovaná"
+    "message": "{productName} potřebuje být aktualizovaná"
   },
   "app.install.phase.downloading_content": {
     "message": "Stahování obsahu"
@@ -1157,9 +1157,6 @@
   "app.nav.loading-profile": {
     "message": "Načítání profilu..."
   },
-  "app.nav.modrinth-account": {
-    "message": "Modrinth účet"
-  },
   "app.nav.modrinth-hosting": {
     "message": "Modrinth Hosting"
   },
@@ -1168,9 +1165,6 @@
   },
   "app.nav.screenshots": {
     "message": "Screenshoty"
-  },
-  "app.nav.sign-in-to-modrinth-account": {
-    "message": "Přihlásit se do Modrinth"
   },
   "app.nav.switch-account": {
     "message": "Změnit účet"
@@ -1377,7 +1371,7 @@
     "message": "Exportovat ZIP"
   },
   "app.screenshots.selection.global-export-filename": {
-    "message": "Modrinth screenshots.zip"
+    "message": "{productName} screenshots.zip"
   },
   "app.screenshots.selection.instance-export-filename": {
     "message": "{instance} screenshots.zip"
@@ -1407,7 +1401,7 @@
     "message": "Nejstarší"
   },
   "app.settings.app-version": {
-    "message": "Modrinth App {version}"
+    "message": "{productName} {version}"
   },
   "app.settings.default-instance-options.environment-variables.description": {
     "message": "Nastavení proměnného prostředí při spuštění instance."
@@ -1683,7 +1677,7 @@
     "message": "Výběr skinu"
   },
   "app.survey.body": {
-    "message": "Mohli byste prosím odpovědět na pár otázek ohledně vašich zkušeností s Modrinth App?"
+    "message": "Mohli byste prosím odpovědět na pár otázek ohledně vašich zkušeností s {productName}?"
   },
   "app.survey.footer": {
     "message": "Tato zpětná vazba půjde přímo k týmu Modrinthu a pomůže při budoucích aktualizacích!"
@@ -1695,16 +1689,16 @@
     "message": "Zapoj se do ankety"
   },
   "app.survey.title": {
-    "message": "Ahoj Modrinth uživateli!"
+    "message": "Ahoj {productName} uživateli!"
   },
   "app.update-popup.body.download-complete": {
-    "message": "Stahování Modrinth App v{version} bylo dokončeno. Aktualizujte ji znovunačtením nebo se automaticky aktualizuje po zavření."
+    "message": "Stahování {productName} v{version} bylo dokončeno. Aktualizujte ji znovunačtením nebo se automaticky aktualizuje po zavření."
   },
   "app.update-popup.body.linux": {
-    "message": "Modrinth App v{version} je k dispozici. Aktualizujte ji pomocí svého správce balíčků, abyste získali nejnovější funkce a opravy!"
+    "message": "{productName} v{version} je k dispozici. Aktualizujte ji pomocí svého správce balíčků, abyste získali nejnovější funkce a opravy!"
   },
   "app.update-popup.body.metered": {
-    "message": "Modrinth App v{version} je nyní k dispozici! Protože jste v měřené síti, nebyla stažena automaticky."
+    "message": "{productName} v{version} je nyní k dispozici! Protože jste v měřené síti, nebyla stažena automaticky."
   },
   "app.update-popup.changelog": {
     "message": "Seznam změn"
@@ -1750,9 +1744,6 @@
   },
   "app.welcome-screen.title": {
     "message": "Vítejte v Modrinthu"
-  },
-  "app.world.server-modal.placeholder-address": {
-    "message": "priklad.modrinth.gg"
   },
   "app.world.server-modal.select-an-option": {
     "message": "Vybrat možnost"

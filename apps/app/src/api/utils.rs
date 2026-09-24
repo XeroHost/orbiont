@@ -125,7 +125,7 @@ pub async fn show_launcher_logs_folder<R: Runtime>(app: tauri::AppHandle<R>) {
 pub async fn show_app_db_backups_folder<R: Runtime>(
     app: tauri::AppHandle<R>,
 ) -> Result<()> {
-    let path = app_db_backup_dir()?;
+    let path = app_db_backup_dir(&app.config().identifier)?;
     tokio::fs::create_dir_all(&path).await?;
     open_path(app, path).await;
     Ok(())

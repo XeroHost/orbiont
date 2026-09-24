@@ -7,6 +7,7 @@ const CURRENT_APP_VERSION: &str = env!("CARGO_PKG_VERSION");
 
 pub(crate) async fn maybe_backup_existing_app_db(
     db_path: &Path,
+    app_identifier: &str,
 ) -> crate::Result<()> {
     if !db_path.try_exists()? {
         tracing::debug!(
@@ -66,7 +67,7 @@ pub(crate) async fn maybe_backup_existing_app_db(
     }
 
     let stored_version = stored_version.as_deref().unwrap_or("unknown");
-    let backup_dir = match app_db_backup_dir() {
+    let backup_dir = match app_db_backup_dir(app_identifier) {
         Ok(path) => path,
         Err(err) => {
             tracing::error!(
@@ -123,7 +124,9 @@ async fn open_read_only_db(db_path: &Path) -> crate::Result<SqliteConnection> {
     Ok(conn_options.connect().await?)
 }
 
-pub fn app_db_backup_dir() -> crate::Result<PathBuf> {
+/// Backups live under this app's own identifier, never a shared "Modrinth"
+/// folder, so this launcher can't mix its backups with another launcher's.
+pub fn app_db_backup_dir(app_identifier: &str) -> crate::Result<PathBuf> {
     if let Some(path) = std::env::var_os("THESEUS_DB_BACKUP_DIR") {
         return Ok(PathBuf::from(path));
     }
@@ -135,7 +138,7 @@ pub fn app_db_backup_dir() -> crate::Result<PathBuf> {
         ),
     )?;
 
-    Ok(base.join("Modrinth").join("Backups").join("app-db"))
+    Ok(base.join(app_identifier).join("Backups").join("app-db"))
 }
 
 async fn has_user_tables(conn: &mut SqliteConnection) -> crate::Result<bool> {

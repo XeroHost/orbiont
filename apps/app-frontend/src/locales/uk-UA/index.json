@@ -165,7 +165,7 @@
     "message": "Приховати ім'я"
   },
   "app.appearance-settings.minimize-launcher.description": {
-    "message": "Згортати Modrinth App під час запуску Minecraft."
+    "message": "Згортати {productName} під час запуску Minecraft."
   },
   "app.appearance-settings.minimize-launcher.title": {
     "message": "Згортати застосунок"
@@ -414,7 +414,7 @@
     "message": "Схвильований бот Modrinth"
   },
   "app.hosting.update-required.title": {
-    "message": "Потрібне оновлення Modrinth App"
+    "message": "Потрібне оновлення {productName}"
   },
   "app.install.phase.downloading_content": {
     "message": "Завантаження вмісту"
@@ -1271,9 +1271,6 @@
   "app.nav.loading-profile": {
     "message": "Завантаження профілю..."
   },
-  "app.nav.modrinth-account": {
-    "message": "Обліковий запис Modrinth"
-  },
   "app.nav.modrinth-hosting": {
     "message": "Modrinth Hosting"
   },
@@ -1282,9 +1279,6 @@
   },
   "app.nav.screenshots": {
     "message": "Знімки екрана"
-  },
-  "app.nav.sign-in-to-modrinth-account": {
-    "message": "Увійти до Modrinth"
   },
   "app.nav.switch-account": {
     "message": "Змінити обліковий запис"
@@ -1503,7 +1497,7 @@
     "message": "Експортувати ZIP"
   },
   "app.screenshots.selection.global-export-filename": {
-    "message": "Знімки екрана Modrinth.zip"
+    "message": "Знімки екрана {productName}.zip"
   },
   "app.screenshots.selection.instance-export-filename": {
     "message": "Знімки екрана {instance}.zip"
@@ -1533,7 +1527,7 @@
     "message": "Спочатку старі"
   },
   "app.settings.app-version": {
-    "message": "Modrinth App {version}"
+    "message": "{productName} {version}"
   },
   "app.settings.default-instance-options.environment-variables.description": {
     "message": "Змінні середовища встановлюються, коли примірник запускається."
@@ -1809,7 +1803,7 @@
     "message": "Деякі з ваших примірників не можуть використовувати цей параметр"
   },
   "app.settings.game-options.compatibility.reason.launcher-controlled": {
-    "message": "Цей параметр керується налаштуваннями запуску Modrinth."
+    "message": "Цей параметр керується налаштуваннями запуску {productName}."
   },
   "app.settings.game-options.custom-value.placeholder": {
     "message": "Уведіть значення"
@@ -2652,7 +2646,7 @@
     "message": "Discord Rich Presence"
   },
   "app.settings.privacy.telemetry.description": {
-    "message": "Modrinth збирає анонімізовану аналітику та дані про використання для покращення зручності та адаптації сервісу. Вимкнувши цю опцію, ви відмовляєтеся від збору, і ваші дані більше не збиратимуться."
+    "message": "{productName} збирає анонімізовану аналітику та дані про використання для покращення зручності та адаптації сервісу. Вимкнувши цю опцію, ви відмовляєтеся від збору, і ваші дані більше не збиратимуться."
   },
   "app.settings.privacy.telemetry.title": {
     "message": "Телеметрія"
@@ -2668,9 +2662,6 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "Очистити кеш?"
-  },
-  "app.settings.resource-management.app-cache.description": {
-    "message": "Очистити кешовані дані та завантажити їх знову з Modrinth. Застосунок може завантажуватися повільніше, поки кеш відновиться."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Очистити кеш"
@@ -2691,7 +2682,7 @@
     "message": "Оглянути каталог застосунку"
   },
   "app.settings.resource-management.app-directory.description": {
-    "message": "Де Modrinth App зберігає примірники й інші файли. Зміни набудуть чинності після перезапуску застосунку."
+    "message": "Де {productName} зберігає примірники й інші файли. Зміни набудуть чинності після перезапуску застосунку."
   },
   "app.settings.resource-management.app-directory.select": {
     "message": "Вибрати новий каталог застосунку"
@@ -2805,7 +2796,7 @@
     "message": "Ці налаштування змінились десь"
   },
   "app.settings.synced-options.game-settings.custom-empty": {
-    "message": "Додані модами налаштування з'являться тут після того, як Modrinth знайде їх в одному з ваших примірників."
+    "message": "Додані модами налаштування з'являться тут після того, як {productName} знайде їх в одному з ваших примірників."
   },
   "app.settings.synced-options.game-settings.description": {
     "message": "Використати ті ж налаштування гри між примірниками."
@@ -3126,10 +3117,10 @@
     "message": "Увімкнути"
   },
   "app.survey.body": {
-    "message": "Не бажаєте відповісти на кілька запитань про ваш досвід користування Modrinth App?"
+    "message": "Не бажаєте відповісти на кілька запитань про ваш досвід користування {productName}?"
   },
   "app.survey.footer": {
-    "message": "Цей відгук надійде безпосередньо команді Modrinth і допоможе у створенні майбутніх оновлень!"
+    "message": "Цей відгук надійде безпосередньо команді {productName} і допоможе у створенні майбутніх оновлень!"
   },
   "app.survey.no-thanks": {
     "message": "Ні, дякую"
@@ -3138,7 +3129,7 @@
     "message": "Пройти опитування"
   },
   "app.survey.title": {
-    "message": "Привіт, користувачу Modrinth!"
+    "message": "Привіт, користувачу {productName}!"
   },
   "app.sync-instances-update.badge": {
     "message": "У цьому оновленні"
@@ -3270,13 +3261,13 @@
     "message": "Синхронізовані пакети ресурсів"
   },
   "app.update-popup.body.download-complete": {
-    "message": "Modrinth App v{version} завантажено. Перезапустіть, щоб оновити зараз, або це відбудеться автоматично після закриття застосунку."
+    "message": "{productName} v{version} завантажено. Перезапустіть, щоб оновити зараз, або це відбудеться автоматично після закриття застосунку."
   },
   "app.update-popup.body.linux": {
-    "message": "Modrinth App v{version} вже доступно. Скористайтеся менеджером пакетів, щоб отримати найновіші функції та виправлення!"
+    "message": "{productName} v{version} вже доступно. Скористайтеся менеджером пакетів, щоб отримати найновіші функції та виправлення!"
   },
   "app.update-popup.body.metered": {
-    "message": "Modrinth App v{version} вже доступно! Оскільки ви використовуєте лімітне підключення, ми не завантажили його автоматично."
+    "message": "{productName} v{version} вже доступно! Оскільки ви використовуєте лімітне підключення, ми не завантажили його автоматично."
   },
   "app.update-popup.changelog": {
     "message": "Список змін"
@@ -3321,10 +3312,7 @@
     "message": "Натисніть <shortcut>N</shortcut> для швидкого створення примірника"
   },
   "app.welcome-screen.title": {
-    "message": "Вітаємо в Modrinth"
-  },
-  "app.world.server-modal.placeholder-address": {
-    "message": "example.modrinth.gg"
+    "message": "Вітаємо в {productName}"
   },
   "app.world.server-modal.select-an-option": {
     "message": "Виберіть опцію"
@@ -3474,7 +3462,7 @@
     "message": "Відв'язати спільний примірник"
   },
   "installation-settings.unpublish-shared-instance.modal.admonition-body": {
-    "message": "Це видалить спільний примірник із серверів Modrinth. Користувачі Modrinth App припинять отримувати оновлення, але ваш локальний примірник і його вміст залишаться на цьому пристрої."
+    "message": "Це видалить спільний примірник із серверів Modrinth. Користувачі {productName} припинять отримувати оновлення, але ваш локальний примірник і його вміст залишаться на цьому пристрої."
   },
   "installation-settings.unpublish-shared-instance.modal.admonition-header": {
     "message": "Скасування публікації спільного примірника"

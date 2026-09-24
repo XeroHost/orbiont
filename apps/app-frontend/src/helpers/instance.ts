@@ -7,6 +7,8 @@ import type { Labrinth } from '@modrinth/api-client'
 import type { ContentItem, ContentOwner } from '@modrinth/ui'
 import { convertFileSrc, invoke } from '@tauri-apps/api/core'
 
+import { get_project } from './cache.js'
+import { installCurseforgeVersionToInstance, isCurseforgeId } from './curseforge'
 import type { InstallJobSnapshot, SharedInstanceUpdateDiff } from './install'
 import type {
 	CacheBehaviour,
@@ -460,6 +462,9 @@ export async function add_project_from_version(
 	reason: DownloadReason,
 	dependentOnVersionId?: string,
 ): Promise<string> {
+	if (isCurseforgeId(versionId)) {
+		return await installCurseforgeVersionToInstance(instanceId, versionId)
+	}
 	return await invoke('plugin:instance|instance_add_project_from_version', {
 		instanceId,
 		versionId,
@@ -472,6 +477,19 @@ export async function install_project_with_dependencies(
 	instanceId: string,
 	request: ResolveContentRequest,
 ): Promise<ResolveContentPlan> {
+	if (isCurseforgeId(request.project_id)) {
+		// CurseForge exposes no dependency resolution comparable to Modrinth's,
+		// so this installs the requested file only.
+		const versionId =
+			request.version_id ?? (await get_project(request.project_id)).versions[0] ?? null
+		if (!versionId) throw new Error('This project has no downloadable versions.')
+		await installCurseforgeVersionToInstance(instanceId, versionId, request.content_type)
+		return {
+			primary: { project_id: request.project_id, version_id: versionId },
+			dependencies: [],
+			skipped: [],
+		}
+	}
 	return await invoke('plugin:instance|instance_install_project_with_dependencies', {
 		instanceId,
 		request,

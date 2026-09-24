@@ -10,6 +10,7 @@ import {
 	WrenchIcon,
 	XIcon,
 } from '@modrinth/assets'
+import { productName, supportUrl } from '@modrinth/branding'
 import {
 	Button,
 	ButtonLink,
@@ -47,7 +48,7 @@ const errorCollapsed = ref(false)
 
 const title = ref('An error occurred')
 const errorType = ref('unknown')
-const supportLink = ref('https://support.modrinth.com')
+const supportLink = ref(supportUrl)
 const metadata = ref({})
 
 defineExpose({
@@ -58,8 +59,7 @@ defineExpose({
 		if (errorVal.message && errorVal.message.includes('Minecraft authentication error:')) {
 			title.value = 'Unable to sign in to Minecraft'
 			errorType.value = 'minecraft_auth'
-			supportLink.value =
-				'https://support.modrinth.com/en/articles/9038231-minecraft-sign-in-issues'
+			supportLink.value = supportUrl
 
 			if (
 				errorVal.message.includes('existing connection was forcibly closed') ||
@@ -73,7 +73,7 @@ defineExpose({
 		} else if (errorVal.message && errorVal.message.includes('Move directory error:')) {
 			title.value = 'Could not change app directory'
 			errorType.value = 'directory_move'
-			supportLink.value = 'https://support.modrinth.com'
+			supportLink.value = supportUrl
 
 			if (errorVal.message.includes('directory is not writable')) {
 				metadata.value.readOnly = true
@@ -85,16 +85,16 @@ defineExpose({
 		} else if (errorVal.message && errorVal.message.includes('No loader version selected for')) {
 			title.value = 'No loader selected'
 			errorType.value = 'no_loader_version'
-			supportLink.value = 'https://support.modrinth.com'
+			supportLink.value = supportUrl
 			metadata.value.instanceId = context.instanceId
 		} else if (source === 'state_init') {
-			title.value = 'Error initializing Modrinth App'
+			title.value = `Error initializing ${productName}`
 			errorType.value = 'state_init'
-			supportLink.value = 'https://support.modrinth.com'
+			supportLink.value = supportUrl
 		} else {
 			title.value = 'An error occurred'
 			errorType.value = 'unknown'
-			supportLink.value = 'https://support.modrinth.com'
+			supportLink.value = supportUrl
 			metadata.value = {}
 		}
 
@@ -180,28 +180,20 @@ async function copyToClipboard(text) {
 					<template v-if="metadata.network">
 						<h3>Network issues</h3>
 						<p>
-							It looks like there were issues with the Modrinth App connecting to Microsoft's
+							It looks like there were issues with {{ productName }} connecting to Microsoft's
 							servers. This is often the result of a poor connection, so we recommend trying again
 							to see if it works. If issues continue to persist, follow the steps in
-							<a
-								href="https://support.modrinth.com/en/articles/9038231-minecraft-sign-in-issues#h_e71a5f805f"
-							>
-								our support article
-							</a>
+							<a :href="supportUrl"> our support article </a>
 							to troubleshoot.
 						</p>
 					</template>
 					<template v-else-if="metadata.hostsFile">
 						<h3>Network issues</h3>
 						<p>
-							The Modrinth App tried to connect to Microsoft / Xbox / Minecraft services, but the
+							{{ productName }} tried to connect to Microsoft / Xbox / Minecraft services, but the
 							remote server rejected the connection. This may indicate that these services are
 							blocked by the hosts file. Please visit
-							<a
-								href="https://support.modrinth.com/en/articles/9038231-minecraft-sign-in-issues#h_d694a29256"
-							>
-								our support article
-							</a>
+							<a :href="supportUrl"> our support article </a>
 							for steps on how to fix the issue.
 						</p>
 					</template>
@@ -233,7 +225,7 @@ async function copyToClipboard(text) {
 					<template v-if="metadata.readOnly">
 						<h3>Change directory permissions</h3>
 						<p>
-							It looks like the Modrinth App is unable to write to the directory you selected.
+							It looks like {{ productName }} is unable to write to the directory you selected.
 							Please adjust the permissions of the directory and try again or cancel the directory
 							change.
 						</p>
@@ -247,7 +239,7 @@ async function copyToClipboard(text) {
 					</template>
 					<template v-else>
 						<p>
-							The Modrinth App is unable to migrate to the new directory you selected. Please
+							{{ productName }} is unable to migrate to the new directory you selected. Please
 							contact support for help or cancel the directory change.
 						</p>
 					</template>
@@ -263,7 +255,7 @@ async function copyToClipboard(text) {
 				</template>
 				<template v-else-if="errorType === 'state_init'">
 					<p>
-						Modrinth App failed to load correctly. This may be because of a corrupted file, or
+						{{ productName }} failed to load correctly. This may be because of a corrupted file, or
 						because the app is missing crucial files.
 					</p>
 					<p>You may be able to fix it through one of the following ways:</p>
@@ -273,7 +265,7 @@ async function copyToClipboard(text) {
 					</ul>
 				</template>
 				<template v-else-if="errorType === 'no_loader_version'">
-					<p>The Modrinth App failed to find the loader version for this instance.</p>
+					<p>{{ productName }} failed to find the loader version for this instance.</p>
 					<p>To resolve this, you need to repair the instance. Click the button below to do so.</p>
 					<div class="cta-button">
 						<button class="btn btn-primary" :disabled="loadingRepair" @click="repairInstance">
@@ -289,8 +281,8 @@ async function copyToClipboard(text) {
 					<p>
 						If nothing is working and you need help, visit
 						<a :href="supportLink">our support page</a>
-						and start a chat using the widget in the bottom right and we will be more than happy to
-						assist! Make sure to provide the following debug information to the agent:
+						and we will be more than happy to assist! Make sure to include the following debug
+						information:
 					</p>
 				</template>
 			</div>

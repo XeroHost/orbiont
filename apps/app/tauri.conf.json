@@ -1,8 +1,8 @@
 {
 	"$schema": "https://schema.tauri.app/config/2",
 	"build": {
-		"beforeDevCommand": "pnpm -w i18n:coverage && pnpm turbo run dev --filter=@modrinth/app-frontend",
-		"beforeBuildCommand": "pnpm turbo run build --filter=@modrinth/app-frontend",
+		"beforeDevCommand": "pnpm -w i18n:coverage && pnpm turbo run dev --filter=@orbiont/app-frontend",
+		"beforeBuildCommand": "pnpm turbo run build --filter=@orbiont/app-frontend",
 		"frontendDist": "../app-frontend/dist",
 		"devUrl": "http://localhost:1420"
 	},
@@ -58,7 +58,7 @@
 	"productName": "Orbiont",
 	"version": "../app-frontend/package.json",
 	"mainBinaryName": "Orbiont",
-	"identifier": "com.xerohost.orbiont",
+	"identifier": "Orbiont",
 	"plugins": {
 		"deep-link": {
 			"desktop": {

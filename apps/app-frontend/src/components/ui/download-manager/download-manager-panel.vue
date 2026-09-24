@@ -84,8 +84,8 @@ defineExpose({ focus: () => panel.value?.focus() })
 			</span>
 			<span
 				v-if="activeJobs.length"
-				class="flex h-6 min-w-6 items-center justify-center rounded-full border border-solid border-brand px-1 text-sm font-semibold leading-[18px] text-brand tabular-nums"
-				style="background-color: var(--color-green-highlight)"
+				class="flex h-6 min-w-6 items-center justify-center rounded-full bg-brand-highlight px-1 text-sm font-semibold leading-[18px] text-contrast tabular-nums"
+				style="background-color: var(--color-brand-highlight)"
 			>
 				{{ formatNumber(activeJobs.length) }}
 			</span>

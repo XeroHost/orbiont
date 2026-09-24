@@ -45,7 +45,7 @@ const messages = defineMessages({
 	},
 	placeholderAddress: {
 		id: 'app.world.server-modal.placeholder-address',
-		defaultMessage: 'example.modrinth.gg',
+		defaultMessage: 'play.example.com',
 	},
 	selectAnOption: {
 		id: 'app.world.server-modal.select-an-option',

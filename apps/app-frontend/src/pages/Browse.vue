@@ -2,6 +2,7 @@
 import type { Labrinth } from '@modrinth/api-client'
 import {
 	CheckIcon,
+	ClipboardCopyIcon,
 	CompassIcon,
 	ExternalIcon,
 	GlobeIcon,
@@ -22,6 +23,7 @@ import {
 	getSelectedInstallPreferences,
 	getTargetInstallPreferences,
 	injectNotificationManager,
+	NavTabs,
 	preferencesDiffer,
 	provideBrowseManager,
 	requestInstall,
@@ -33,6 +35,7 @@ import {
 	useVIntl,
 } from '@modrinth/ui'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
+import { openUrl } from '@tauri-apps/plugin-opener'
 import type { Ref } from 'vue'
 import { computed, onBeforeUnmount, ref, shallowRef, watch } from 'vue'
 import type { LocationQuery } from 'vue-router'
@@ -42,6 +45,15 @@ import { useAppServerBrowse } from '@/composables/browse/use-app-server-browse'
 import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { get_project, get_search_results_v3, get_version_many } from '@/helpers/cache.js'
+import type { CurseforgeProjectType, CurseforgeSearchHit } from '@/helpers/curseforge'
+import {
+	CURSEFORGE_LOADERS,
+	CURSEFORGE_MAX_RESULTS_OPTIONS,
+	getCurseforgeCategoryTags,
+	isCurseforgeId,
+	isCurseforgeSupportedFilterType,
+	searchCurseforge,
+} from '@/helpers/curseforge'
 import {
 	get_installed_project_ids as getInstalledProjectIds,
 	getInstanceIconUrl,
@@ -261,11 +273,54 @@ const [categories, loaders, availableGameVersions] = await Promise.all([
 		.then(ref<Labrinth.Tags.v2.GameVersion[]>),
 ])
 
-const tags: Ref<Tags> = computed(() => ({
-	gameVersions: availableGameVersions.value ?? [],
-	loaders: loaders.value ?? [],
-	categories: categories.value ?? [],
-}))
+const projectType = ref<ProjectType>(route.params.projectType as ProjectType)
+
+// Content source (see the build plan, Fase 4). The browse UI is the same for
+// every source; the source only decides where search results, categories and
+// project data come from (see helpers/curseforge.ts).
+const CURSEFORGE_PROJECT_TYPES: string[] = ['modpack', 'mod', 'resourcepack', 'datapack', 'shader']
+const contentSource = ref<'modrinth' | 'curseforge'>(
+	route.query.src === 'curseforge' ? 'curseforge' : 'modrinth',
+)
+const curseforgeCategories = ref<Labrinth.Tags.v2.Category[]>([])
+let curseforgeCategoriesFor: string | null = null
+
+async function loadCurseforgeCategories(type: string) {
+	if (curseforgeCategoriesFor === type) return
+	curseforgeCategoriesFor = type
+	const loaded = await getCurseforgeCategoryTags(type as CurseforgeProjectType).catch(handleError)
+	if (curseforgeCategoriesFor === type) curseforgeCategories.value = loaded ?? []
+}
+
+if (
+	contentSource.value === 'curseforge' &&
+	CURSEFORGE_PROJECT_TYPES.includes(String(route.params.projectType))
+) {
+	await loadCurseforgeCategories(String(route.params.projectType))
+}
+
+// Server flows install Modrinth-hosted server content, so they stay native-only.
+const supportsCurseforge = computed(
+	() => !isServerContext.value && CURSEFORGE_PROJECT_TYPES.includes(projectType.value),
+)
+const useCurseforge = computed(
+	() => supportsCurseforge.value && contentSource.value === 'curseforge',
+)
+
+const tags: Ref<Tags> = computed(() => {
+	if (useCurseforge.value) {
+		return {
+			gameVersions: availableGameVersions.value ?? [],
+			loaders: (loaders.value ?? []).filter((loader) => CURSEFORGE_LOADERS.includes(loader.name)),
+			categories: curseforgeCategories.value,
+		}
+	}
+	return {
+		gameVersions: availableGameVersions.value ?? [],
+		loaders: loaders.value ?? [],
+		categories: categories.value ?? [],
+	}
+})
 
 if (isFromWorlds.value && route.params.projectType !== 'server') {
 	router.replace({
@@ -613,9 +668,11 @@ const messages = defineMessages({
 		id: 'search.filter.locked.instance.sync',
 		defaultMessage: 'Sync with instance',
 	},
+	openInCurseforge: {
+		id: 'app.browse.open-in-curseforge',
+		defaultMessage: 'Open in CurseForge',
+	},
 })
-
-const projectType = ref<ProjectType>(route.params.projectType as ProjectType)
 
 function resetInstanceContext() {
 	debugLog('instance context removed, resetting')
@@ -1073,7 +1130,54 @@ function onSearchResultsInstalled(ids: string[]) {
 	newlyInstalled.value = Array.from(new Set([...newlyInstalled.value, ...ids]))
 }
 
+function markInstalled<T extends Labrinth.Search.v3.ResultSearchProject>(hit: T) {
+	const mapped: T & { installed?: boolean } = { ...hit }
+	if (instance.value || isServerContext.value || projectType.value === 'modpack') {
+		const installedIds =
+			isServerContext.value && projectType.value !== 'modpack'
+				? serverContentProjectIds.value
+				: new Set([...newlyInstalled.value, ...(installedProjectIds.value ?? [])])
+		mapped.installed = installedIds.has(hit.project_id)
+	}
+	return mapped
+}
+
+async function searchCurseforgeSource() {
+	const overridden = searchState.overriddenProvidedFilterTypes.value
+	const provided = combinedProvidedFilters.value.filter(
+		(filter) => !overridden.includes(filter.type),
+	)
+	const params = {
+		projectType: projectType.value as CurseforgeProjectType,
+		query: searchState.query.value,
+		sort: searchState.effectiveCurrentSortType.value.name,
+		limit: searchState.maxResults.value,
+		page: searchState.currentPage.value,
+		filters: [
+			...searchState.currentFilters.value.filter(
+				(filter) => !provided.some((providedFilter) => providedFilter.type === filter.type),
+			),
+			...provided,
+		],
+	}
+	const result = await queryClient.fetchQuery({
+		queryKey: ['search', 'curseforge', params],
+		queryFn: () => searchCurseforge(params),
+		staleTime: 30_000,
+	})
+	return {
+		projectHits: result.hits.map(markInstalled),
+		serverHits: [],
+		total_hits: result.totalHits,
+		per_page: params.limit,
+	}
+}
+
 async function search(requestParams: string) {
+	if (useCurseforge.value) {
+		debugLog('searching curseforge', requestParams)
+		return await searchCurseforgeSource()
+	}
 	debugLog('searching v3', requestParams)
 	const isServer = projectType.value === 'server'
 
@@ -1116,21 +1220,7 @@ async function search(requestParams: string) {
 		}
 	}
 
-	const hits = rawResults.result.hits.map((hit) => {
-		const mapped: Labrinth.Search.v3.ResultSearchProject & { installed?: boolean } = {
-			...hit,
-		}
-
-		if (instance.value || isServerContext.value || projectType.value === 'modpack') {
-			const installedIds =
-				isServerContext.value && projectType.value !== 'modpack'
-					? serverContentProjectIds.value
-					: new Set([...newlyInstalled.value, ...(installedProjectIds.value ?? [])])
-			mapped.installed = installedIds.has(hit.project_id)
-		}
-
-		return mapped
-	})
+	const hits = rawResults.result.hits.map(markInstalled)
 
 	return {
 		projectHits: hits,
@@ -1148,20 +1238,88 @@ const lockedFilterMessages = computed(() => ({
 	providedBy: formatMessage(messages.providedByInstance),
 }))
 
+const maxResultsOptions = computed(() =>
+	useCurseforge.value ? CURSEFORGE_MAX_RESULTS_OPTIONS : [5, 10, 15, 20, 50, 100],
+)
+
 const searchState = useBrowseSearch({
 	projectType,
 	tags,
 	active: browseRouteActive,
 	providedFilters: combinedProvidedFilters,
 	search,
-	persistentQueryParams: ['i', 'ai', 'shi', 'sid', 'wid', 'from'],
+	persistentQueryParams: ['i', 'ai', 'shi', 'sid', 'wid', 'from', 'src'],
+	maxResultsOptions,
 	getExtraQueryParams: () => ({
+		src: useCurseforge.value ? 'curseforge' : undefined,
 		sid: serverIdQuery.value || undefined,
 		wid: effectiveServerWorldId.value || undefined,
 		ai: instanceHideInstalled.value ? 'true' : undefined,
 		shi: serverHideInstalled.value ? 'true' : undefined,
 	}),
 })
+
+// The source switch is NavTabs itself (local, non-routing mode) — the exact
+// same component as the project-type tabs next to it.
+const contentSourceLinks = [
+	{ label: 'Modrinth', href: 'modrinth' },
+	{ label: 'CurseForge', href: 'curseforge' },
+]
+const contentSourceIndex = computed(() => (contentSource.value === 'curseforge' ? 1 : 0))
+
+function clearSourceSpecificFilters() {
+	// Category options differ per source; loaders and game versions carry over.
+	searchState.currentFilters.value = searchState.currentFilters.value.filter(
+		(filter) => !filter.type.startsWith('category_'),
+	)
+}
+
+async function onContentSourceTabClick(_index: number, link: { href: string }) {
+	const next = link.href === 'curseforge' ? 'curseforge' : 'modrinth'
+	if (next === contentSource.value) return
+	if (next === 'curseforge') await loadCurseforgeCategories(projectType.value)
+	contentSource.value = next
+	clearSourceSpecificFilters()
+	searchState.currentPage.value = 1
+	void searchState.refreshSearch()
+}
+
+watch(projectType, (type) => {
+	if (useCurseforge.value) void loadCurseforgeCategories(type)
+})
+watch(supportsCurseforge, (supported) => {
+	if (!supported && contentSource.value === 'curseforge') {
+		contentSource.value = 'modrinth'
+		clearSourceSpecificFilters()
+		void searchState.refreshSearch()
+	}
+})
+
+function handleResultContextMenu(
+	event: MouseEvent,
+	result: Labrinth.Search.v3.ResultSearchProject,
+) {
+	if (!isCurseforgeId(result.project_id)) {
+		handleRightClick(event, result)
+		return
+	}
+	const url = (result as CurseforgeSearchHit).page_url
+	if (!url) return
+	contextMenuRef.value?.open(event, [
+		{
+			id: 'open_link',
+			label: formatMessage(messages.openInCurseforge),
+			icon: GlobeIcon,
+			action: () => void openUrl(url),
+		},
+		{
+			id: 'copy_link',
+			label: formatMessage(commonMessages.copyLinkButton),
+			icon: ClipboardCopyIcon,
+			action: () => void navigator.clipboard.writeText(url),
+		},
+	])
+}
 
 watch(
 	[
@@ -1262,6 +1420,20 @@ provideBrowseManager({
 	...searchState,
 	advancedFiltersCollapsed,
 	dismissedPhotosensitivityFilterWarning,
+	// Orbiont doesn't use Modrinth's content-disclosure taxonomy (AI content,
+	// telemetry, paid features, etc.), so that group is always noise. Other
+	// sources only hide the native filters they can't serve.
+	hiddenFilterTypes: computed(() =>
+		useCurseforge.value
+			? searchState.filters.value
+					.map((filter) => filter.id)
+					.filter((id) => !isCurseforgeSupportedFilterType(id))
+			: ['advanced'],
+	),
+	maxResultsOptions,
+	// Author names are shown but not clickable: author profiles only exist per
+	// provider, and fetching them isn't worth the extra API traffic.
+	getAuthorLink: () => '',
 	getProjectLink: (result: Labrinth.Search.v3.ResultSearchProject) => ({
 		path: `/project/${result.project_id ?? result.slug}`,
 		query: getProjectBrowseQuery(),
@@ -1323,7 +1495,7 @@ provideBrowseManager({
 	onInstalled: onSearchResultInstalled,
 	serverPings,
 	getServerModpackContent,
-	onContextMenu: handleRightClick,
+	onContextMenu: handleResultContextMenu,
 	offline,
 	lockedFilterMessages,
 })
@@ -1332,6 +1504,14 @@ provideBrowseManager({
 <template>
 	<div class="flex flex-col gap-2 p-6">
 		<BrowsePageLayout>
+			<template v-if="supportsCurseforge" #nav-tabs-suffix>
+				<NavTabs
+					mode="local"
+					:links="contentSourceLinks"
+					:active-index="contentSourceIndex"
+					@tab-click="onContentSourceTabClick"
+				/>
+			</template>
 			<template #after>
 				<ContextMenu ref="contextMenuRef" :label="formatMessage(messages.projectActionsLabel)">
 					<template #open_link="{ option }">

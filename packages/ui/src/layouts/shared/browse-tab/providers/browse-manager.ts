@@ -53,6 +53,8 @@ export interface BrowseManagerContext {
 	getServerProjectLink: (
 		result: Labrinth.Search.v3.ResultSearchProject,
 	) => string | RouteLocationRaw
+	/** Overrides a project card's author link: undefined uses the default, '' shows no link. */
+	getAuthorLink?: (result: Labrinth.Search.v3.ResultSearchProject) => string | undefined
 
 	selectableProjectTypes: ComputedRef<{ label: string; href: string; shown?: boolean }[]>
 	showProjectTypeTabs: ComputedRef<boolean>

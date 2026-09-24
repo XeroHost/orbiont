@@ -1,9 +1,12 @@
+import { productName } from '@modrinth/branding'
 import IntlMessageFormat from 'intl-messageformat'
 import type { Ref } from 'vue'
 import type { CompileError, MessageCompiler, MessageContext } from 'vue-i18n'
 
 import { injectI18n } from '../providers/i18n'
 import { injectI18nDebug } from './i18n-debug'
+
+const BRAND_MESSAGE_VALUES = { productName }
 
 export interface MessageDescriptor {
 	id: string
@@ -309,7 +312,10 @@ export function useVIntl(): VIntlFormatters & { locale: Ref<string> } {
 		void locale.value
 
 		const key = descriptor.id
-		const translation = t(key, values ?? {})
+		// Brand names are always available to messages as placeholders (e.g.
+		// "{productName}"), so no message ever hardcodes the product's name.
+		values = { ...BRAND_MESSAGE_VALUES, ...values }
+		const translation = t(key, values)
 
 		let result: string
 		if (translation && translation !== key) {
@@ -319,7 +325,7 @@ export function useVIntl(): VIntlFormatters & { locale: Ref<string> } {
 			const defaultMsg = descriptor.defaultMessage ?? key
 			try {
 				const formatter = new IntlMessageFormat(defaultMsg, locale.value)
-				result = formatter.format(values ?? {}) as string
+				result = formatter.format(values) as string
 			} catch {
 				result = defaultMsg
 			}

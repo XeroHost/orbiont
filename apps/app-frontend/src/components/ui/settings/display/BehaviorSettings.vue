@@ -70,7 +70,7 @@ const messages = defineMessages({
 	},
 	minimizeLauncherDescription: {
 		id: 'app.appearance-settings.minimize-launcher.description',
-		defaultMessage: 'Minimize Modrinth App when Minecraft starts.',
+		defaultMessage: 'Minimize {productName} when Minecraft starts.',
 	},
 	defaultLandingPageHome: {
 		id: 'app.appearance-settings.default-landing-page.home',

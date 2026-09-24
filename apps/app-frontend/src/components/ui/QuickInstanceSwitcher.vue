@@ -16,6 +16,7 @@ import { useRouter } from 'vue-router'
 import NavButton from '@/components/ui/NavButton.vue'
 import { useAppEvent } from '@/composables/use-app-event'
 import { handleSevereError } from '@/composables/use-error.js'
+import { useNavExpanded } from '@/composables/use-nav-expanded'
 import {
 	QUICK_INSTANCE_LIMIT_MAX,
 	useQuickInstanceLimit,
@@ -34,6 +35,7 @@ const instanceOptions = ref()
 const runningInstances = ref([])
 
 const { formatMessage } = useVIntl()
+const { navExpanded } = useNavExpanded()
 
 const container = ref()
 const footer = ref()
@@ -296,15 +298,20 @@ function openContextMenu(event, instance) {
 				v-if="recentInstances.length > 0"
 				class="top-divider shrink-0 flex items-center justify-center overflow-hidden"
 			>
-				<div class="h-px w-8 bg-surface-5 shrink-0"></div>
+				<div class="h-px bg-surface-5 shrink-0" :class="navExpanded ? 'w-full' : 'w-8'"></div>
 			</div>
 		</Transition>
 		<div :aria-label="formatMessage(messages.title)">
-			<TransitionGroup name="quick-instance" tag="div" class="flex shrink-0 flex-col items-center">
+			<TransitionGroup
+				name="quick-instance"
+				tag="div"
+				class="flex shrink-0 flex-col"
+				:class="navExpanded ? 'items-stretch' : 'items-center'"
+			>
 				<NavButton
 					v-for="instance in recentInstances"
 					:key="instance.id"
-					v-tooltip.right="instance.name"
+					:label="instance.name"
 					class="quick-instance-item relative"
 					:to="`/instance/${encodeURIComponent(instance.id)}`"
 					@contextmenu.prevent.stop="(event) => openContextMenu(event, instance)"
@@ -344,17 +351,22 @@ function openContextMenu(event, instance) {
 			@keydown.down.prevent="nudgeLimit(1)"
 		>
 			<div
-				class="h-px w-8 transition-colors duration-200"
-				:class="
+				class="h-px transition-colors duration-200"
+				:class="[
+					navExpanded ? 'w-full' : 'w-8',
 					showOverdrag
 						? 'bg-red'
 						: canDrag
 							? 'bg-surface-5 group-hover:bg-secondary group-focus-visible:bg-secondary'
-							: 'bg-surface-5'
-				"
+							: 'bg-surface-5',
+				]"
 			></div>
 		</div>
-		<div ref="footer" class="flex shrink-0 flex-col items-center">
+		<div
+			ref="footer"
+			class="flex shrink-0 flex-col"
+			:class="navExpanded ? 'items-stretch' : 'items-center'"
+		>
 			<slot />
 		</div>
 	</div>

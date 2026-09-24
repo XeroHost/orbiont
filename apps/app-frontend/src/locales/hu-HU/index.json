@@ -165,7 +165,7 @@
     "message": "Névcímke eltüntetése"
   },
   "app.appearance-settings.minimize-launcher.description": {
-    "message": "A Modrinth App bezáródik a Minecraft indításakor"
+    "message": "A {productName} bezáródik a Minecraft indításakor"
   },
   "app.appearance-settings.minimize-launcher.title": {
     "message": "Alkalmazás bezárása"
@@ -1280,9 +1280,6 @@
   "app.nav.loading-profile": {
     "message": "Profil betöltése..."
   },
-  "app.nav.modrinth-account": {
-    "message": "Modrinth fiók"
-  },
   "app.nav.modrinth-hosting": {
     "message": "Modrinth Hosting"
   },
@@ -1291,9 +1288,6 @@
   },
   "app.nav.screenshots": {
     "message": "Képernyőképek"
-  },
-  "app.nav.sign-in-to-modrinth-account": {
-    "message": "Bejelentkezés a Modrinthba"
   },
   "app.nav.switch-account": {
     "message": "Fiókváltás"
@@ -1512,7 +1506,7 @@
     "message": "ZIP fájl exportálása"
   },
   "app.screenshots.selection.global-export-filename": {
-    "message": "Modrinth képernyőképek.zip"
+    "message": "{productName} képernyőképek.zip"
   },
   "app.screenshots.selection.instance-export-filename": {
     "message": "{instance} képernyőképek.zip"
@@ -1542,7 +1536,7 @@
     "message": "Legrégibb"
   },
   "app.settings.app-version": {
-    "message": "Modrinth App {version}"
+    "message": "{productName} {version}"
   },
   "app.settings.default-instance-options.environment-variables.description": {
     "message": "A példány indításakor beállított környezeti változók."
@@ -1818,7 +1812,7 @@
     "message": "Pár példányod nem tudja ezt a beállítást alkalmazni"
   },
   "app.settings.game-options.compatibility.reason.launcher-controlled": {
-    "message": "Ezt a beállítást a Modrinth indítási beállításai kezelik."
+    "message": "Ezt a beállítást a {productName} indítási beállításai kezelik."
   },
   "app.settings.game-options.custom-value.placeholder": {
     "message": "Adj meg egy értéket"
@@ -2655,13 +2649,13 @@
     "message": "A hirdetések teszik lehetővé a Modrinth működését, és biztosítják a tartalomkészítők juttatásait. Partnereink sütiket tárolhatnak vagy érhetnek el az alkalmazásban a hirdetések személyre szabása és a teljesítmény mérése céljából. Alább leiratkozhatsz erről, illetve beállíthatod a preferenciáidat."
   },
   "app.settings.privacy.discord-rich-presence.description": {
-    "message": "A Modrinth App megjelenítése aktuális tevékenységként a Discordon. Ez nem érinti a modok által a példányokhoz hozzáadott Rich Presence-t. Az alkalmazás újraindítását igényli."
+    "message": "A {productName} megjelenítése aktuális tevékenységként a Discordon. Ez nem érinti a modok által a példányokhoz hozzáadott Rich Presence-t. Az alkalmazás újraindítását igényli."
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
   },
   "app.settings.privacy.telemetry.description": {
-    "message": "A Modrinth névtelen használati és telemetriai adatokat gyűjt a felhasználói élmény javítása és személyre szabása érdekében. Ha kikapcsolod ezt a beállítást, leiratkozol erről, és a rendszer többé nem gyűjti az adataidat."
+    "message": "A {productName} névtelen használati és telemetriai adatokat gyűjt a felhasználói élmény javítása és személyre szabása érdekében. Ha kikapcsolod ezt a beállítást, leiratkozol erről, és a rendszer többé nem gyűjti az adataidat."
   },
   "app.settings.privacy.telemetry.title": {
     "message": "Telemetria"
@@ -2677,9 +2671,6 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "Törlöd az alkalmazás gyorsítótárát?"
-  },
-  "app.settings.resource-management.app-cache.description": {
-    "message": "Letörli a gyorsítótárban tárolt adatokat, majd újra letölti azokat a Modrinthról. Az alkalmazás betöltése lassabb lehet, amíg a gyorsítótár újra nem települ."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Gyorsítótár törlése"
@@ -2700,7 +2691,7 @@
     "message": "Alkalmazáskönyvtár tallózása"
   },
   "app.settings.resource-management.app-directory.description": {
-    "message": "A Modrinth App ebben a mappában tárolja a példányokat és az egyéb fájlokat. A módosítások az alkalmazás újraindítása után lépnek érvénybe."
+    "message": "A {productName} ebben a mappában tárolja a példányokat és az egyéb fájlokat. A módosítások az alkalmazás újraindítása után lépnek érvénybe."
   },
   "app.settings.resource-management.app-directory.select": {
     "message": "Új alkalmazáskönyvtár kiválasztása"
@@ -2814,7 +2805,7 @@
     "message": "Ezek a beállítások valahol máshol módosultak"
   },
   "app.settings.synced-options.game-settings.custom-empty": {
-    "message": "A modok által regisztrált beállítások itt fognak megjelenni amint a Modrinth érzékeli őket az egyik példányodban."
+    "message": "A modok által regisztrált beállítások itt fognak megjelenni amint a {productName} érzékeli őket az egyik példányodban."
   },
   "app.settings.synced-options.game-settings.description": {
     "message": "Használd ugyanazokat a játékbeállításokat az összes példányodban."
@@ -3135,10 +3126,10 @@
     "message": "Bekapcsolás"
   },
   "app.survey.body": {
-    "message": "Megosztanád velünk a tapasztalataidat a Modrinth App használatáról néhány kérdés megválaszolásával?"
+    "message": "Megosztanád velünk a tapasztalataidat a {productName} használatáról néhány kérdés megválaszolásával?"
   },
   "app.survey.footer": {
-    "message": "A visszajelzésed közvetlenül a Modrinth csapatához kerül, és segít a jövőbeli frissítések alakításában!"
+    "message": "A visszajelzésed közvetlenül a {productName} csapatához kerül, és segít a jövőbeli frissítések alakításában!"
   },
   "app.survey.no-thanks": {
     "message": "Nem, köszönöm"
@@ -3147,7 +3138,7 @@
     "message": "Kérdőív kitöltése"
   },
   "app.survey.title": {
-    "message": "Hali, Modrinth-felhasználó!"
+    "message": "Hali, {productName}-felhasználó!"
   },
   "app.sync-instances-update.badge": {
     "message": "Új ebben a frissítésben"
@@ -3279,13 +3270,13 @@
     "message": "Szinkronizált erőforráscsomagok"
   },
   "app.update-popup.body.download-complete": {
-    "message": "A Modrinth App v{version} letöltése befejeződött. Válaszd a Frissítés lehetőséget a frissítéshez, vagy az alkalmazás bezárásakor automatikusan frissül."
+    "message": "A {productName} v{version} letöltése befejeződött. Válaszd a Frissítés lehetőséget a frissítéshez, vagy az alkalmazás bezárásakor automatikusan frissül."
   },
   "app.update-popup.body.linux": {
-    "message": "A Modrinth App v{version} elérhető. A legújabb funkciókért és javításokért frissíts a csomagkezelőddel!"
+    "message": "A {productName} v{version} elérhető. A legújabb funkciókért és javításokért frissíts a csomagkezelőddel!"
   },
   "app.update-popup.body.metered": {
-    "message": "A Modrinth App v{version} már elérhető! Mivel korlátozott adatforgalmú hálózaton vagy, nem töltöttük le automatikusan."
+    "message": "A {productName} v{version} már elérhető! Mivel korlátozott adatforgalmú hálózaton vagy, nem töltöttük le automatikusan."
   },
   "app.update-popup.changelog": {
     "message": "Változásnapló"
@@ -3331,9 +3322,6 @@
   },
   "app.welcome-screen.title": {
     "message": "Üdvözlünk a Modrinthon"
-  },
-  "app.world.server-modal.placeholder-address": {
-    "message": "pelda.modrinth.gg"
   },
   "app.world.server-modal.select-an-option": {
     "message": "Válassz egy lehetőséget"

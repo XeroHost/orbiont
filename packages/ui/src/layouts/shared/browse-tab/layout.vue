@@ -138,11 +138,13 @@ function getProjectCardTags(result: Labrinth.Search.v3.ResultSearchProject, disp
 	</template>
 	<SelectedProjectsFloatingBar v-if="ctx.installContext?.value && ctx.variant !== 'web'" />
 
-	<NavTabs
+	<div
 		v-if="ctx.showProjectTypeTabs.value"
-		:links="ctx.selectableProjectTypes.value"
-		:replace="ctx.variant === 'app'"
-	/>
+		class="flex flex-wrap items-center justify-between gap-2"
+	>
+		<NavTabs :links="ctx.selectableProjectTypes.value" :replace="ctx.variant === 'app'" />
+		<slot name="nav-tabs-suffix" />
+	</div>
 
 	<Input
 		v-model="ctx.query.value"
@@ -346,11 +348,12 @@ function getProjectCardTags(result: Labrinth.Search.v3.ResultSearchProject, disp
 					:author="{
 						name: result.organization == null ? result.author : result.organization,
 						link:
-							result.organization_id == null
+							ctx.getAuthorLink?.(result) ??
+							(result.organization_id == null
 								? `/user/${encodeURIComponent(result.author_id ?? result.author)}`
 								: ctx.variant === 'web'
 									? `/organization/${result.organization_id}`
-									: `https://modrinth.com/organization/${result.organization_id}`,
+									: `https://modrinth.com/organization/${result.organization_id}`),
 					}"
 					:date-updated="result.date_modified"
 					:date-published="result.date_created"
@@ -363,7 +366,7 @@ function getProjectCardTags(result: Labrinth.Search.v3.ResultSearchProject, disp
 					:all-tags="getProjectCardTags(result, false)"
 					:deprioritized-tags="ctx.deprioritizedTags.value"
 					:exclude-loaders="ctx.excludeLoaders.value"
-					:followers="result.follows"
+					:followers="result.follows ?? undefined"
 					:banner="result.featured_gallery ?? undefined"
 					:color="result.color ?? undefined"
 					:environment="

@@ -128,22 +128,6 @@ fn main() {
                     ),
             )
             .plugin(
-                "mr-auth",
-                InlinedPlugin::new()
-                    .commands(&[
-                        "modrinth_login",
-                        "logout",
-                        "get",
-                        "get_all",
-                        "set_active",
-                        "remove_account",
-                        "cancel_modrinth_login",
-                    ])
-                    .default_permission(
-                        DefaultPermissionRule::AllowAllCommands,
-                    ),
-            )
-            .plugin(
                 "onboarding-checklist",
                 InlinedPlugin::new()
                     .commands(&["get_onboarding_checklist"])
@@ -387,27 +371,6 @@ fn main() {
                     ),
             )
             .plugin(
-                "ads",
-                InlinedPlugin::new()
-                    .commands(&[
-                        "init_ads_window",
-                        "hide_ads_window",
-                        "update_ads_window_hold",
-                        "show_ads_consent_ui",
-                        "expand_ads_consent_webview",
-                        "open_ads_consent_preferences",
-                        "finish_ads_consent_flow",
-                        "should_show_ads_consent_popup",
-                        "perform_ads_consent_action",
-                        "record_ads_click",
-                        "open_link",
-                        "get_ads_personalization",
-                    ])
-                    .default_permission(
-                        DefaultPermissionRule::AllowAllCommands,
-                    ),
-            )
-            .plugin(
                 "files",
                 InlinedPlugin::new()
                     .commands(&[
@@ -426,13 +389,18 @@ fn main() {
                     ),
             )
             .plugin(
-                "friends",
+                "orbiont",
                 InlinedPlugin::new()
                     .commands(&[
-                        "friends",
-                        "friend_statuses",
-                        "add_friend",
-                        "remove_friend",
+                        "orbiont_get_modpacks",
+                        "orbiont_get_servers",
+                        "orbiont_search",
+                        "orbiont_get_curseforge_categories",
+                        "orbiont_get_curseforge_mod_detail",
+                        "orbiont_curseforge_api",
+                        "orbiont_download_modpack",
+                        "orbiont_download_search_result",
+                        "orbiont_save_dropped_file",
                     ])
                     .default_permission(
                         DefaultPermissionRule::AllowAllCommands,

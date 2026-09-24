@@ -30,10 +30,6 @@
 			<ProjectSidebarCreators
 				:organization="organization"
 				:members="members"
-				:org-link="(slug) => `https://modrinth.com/organization/${slug}`"
-				:user-link="(username) => `/user/${encodeURIComponent(username)}`"
-				link-target="_blank"
-				:user-link-target="null"
 				class="project-sidebar-section"
 			/>
 			<ProjectSidebarDetails
@@ -297,6 +293,7 @@ import {
 	get_version,
 	get_version_many,
 } from '@/helpers/cache.js'
+import { isCurseforgeId } from '@/helpers/curseforge'
 import {
 	get as getInstance,
 	get_projects as getInstanceProjects,
@@ -371,6 +368,10 @@ const messages = defineMessages({
 	switchVersion: {
 		id: 'app.project.install-button.switch-version',
 		defaultMessage: 'Switch version',
+	},
+	openInCurseforge: {
+		id: 'app.project.open-in-curseforge',
+		defaultMessage: 'Open in CurseForge',
 	},
 })
 
@@ -585,10 +586,18 @@ const installButtonIcon = computed(() => {
 const installButtonIconClass = computed(() =>
 	installButtonLoading.value && !installButtonInstalled.value ? 'animate-spin' : undefined,
 )
+// Content can come from more than one provider (see helpers/curseforge.ts);
+// the page itself is the same, only the external links differ.
+const isCurseforgeProject = computed(() => isCurseforgeId(data.value?.id))
+const openInProviderLabel = computed(() =>
+	formatMessage(
+		isCurseforgeProject.value ? messages.openInCurseforge : commonMessages.openInModrinthButton,
+	),
+)
 const serverProjectHeaderMoreActions = computed(() => [
 	{
 		id: 'open-in-browser',
-		label: formatMessage(commonMessages.openInModrinthButton),
+		label: openInProviderLabel.value,
 		icon: ExternalIcon,
 		action: openProjectInBrowser,
 	},
@@ -622,20 +631,26 @@ const projectHeaderMoreActions = computed(() => [
 	},
 	{
 		id: 'open-in-browser',
-		label: formatMessage(commonMessages.openInModrinthButton),
+		label: openInProviderLabel.value,
 		icon: ExternalIcon,
 		action: openProjectInBrowser,
 	},
-	{
-		type: 'divider',
-	},
-	{
-		id: 'report',
-		label: formatMessage(commonMessages.reportButton),
-		icon: ReportIcon,
-		tone: 'red',
-		action: reportProject,
-	},
+	// Reporting goes through the provider's own site; only Modrinth has a
+	// direct report link.
+	...(isCurseforgeProject.value
+		? []
+		: [
+				{
+					type: 'divider',
+				},
+				{
+					id: 'report',
+					label: formatMessage(commonMessages.reportButton),
+					icon: ReportIcon,
+					tone: 'red',
+					action: reportProject,
+				},
+			]),
 ])
 const projectSearchUrl = computed(
 	() => `/browse/${isServerProject.value ? 'server' : data.value?.project_type}`,
@@ -687,8 +702,7 @@ function handleAddServerToInstance() {
 
 function openProjectInBrowser() {
 	if (!data.value) return
-	const type = isServerProject.value ? 'project' : data.value.project_type
-	void openUrl(`https://modrinth.com/${type}/${data.value.slug}`)
+	void openUrl(getProjectLink(data.value))
 }
 
 function reportProject() {
@@ -932,7 +946,7 @@ const handleRightClick = (event) => {
 		{ type: 'divider' },
 		{
 			id: 'open_link',
-			label: formatMessage(commonMessages.openInModrinthButton),
+			label: openInProviderLabel.value,
 			icon: GlobeIcon,
 			action: () => openProjectLink(project),
 		},
@@ -944,7 +958,10 @@ const handleRightClick = (event) => {
 		},
 	])
 }
-const getProjectLink = (project) => `https://modrinth.com/${project.project_type}/${project.slug}`
+const getProjectLink = (project) =>
+	isCurseforgeId(project.id)
+		? project.page_url
+		: `https://modrinth.com/${isServerProject.value ? 'project' : project.project_type}/${project.slug}`
 const openProjectLink = (project) => openUrl(getProjectLink(project))
 const copyProjectLink = (project) => navigator.clipboard.writeText(getProjectLink(project))
 </script>

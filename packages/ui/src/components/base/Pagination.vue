@@ -66,7 +66,10 @@
 					:color="page === item ? 'brand' : undefined"
 					:interaction="page === item ? 'filled' : undefined"
 					:aria-current="page === item ? 'page' : undefined"
-					:class="['!min-w-9 !rounded-full', page === item ? '!bg-brand-highlight' : '']"
+					:class="[
+						'!min-w-9 !rounded-full',
+						page === item ? '!bg-brand-highlight !text-contrast' : '',
+					]"
 					@click.prevent="page !== item ? switchPage(item) : null"
 				>
 					{{ item }}
@@ -77,7 +80,10 @@
 					:color="page === item ? 'brand' : undefined"
 					:interaction="page === item ? 'filled' : undefined"
 					:aria-current="page === item ? 'page' : undefined"
-					:class="['!min-w-9 !rounded-full', page === item ? '!bg-brand-highlight' : '']"
+					:class="[
+						'!min-w-9 !rounded-full',
+						page === item ? '!bg-brand-highlight !text-contrast' : '',
+					]"
 					@click="page !== item ? switchPage(item) : null"
 				>
 					{{ item }}

@@ -1280,9 +1280,6 @@
   "app.nav.loading-profile": {
     "message": "Cargando perfil..."
   },
-  "app.nav.modrinth-account": {
-    "message": "Cuenta Modrinth"
-  },
   "app.nav.modrinth-hosting": {
     "message": "Modrinth Hosting"
   },
@@ -1291,9 +1288,6 @@
   },
   "app.nav.screenshots": {
     "message": "Screenshots"
-  },
-  "app.nav.sign-in-to-modrinth-account": {
-    "message": "Inicia sesión en Modrinth"
   },
   "app.nav.switch-account": {
     "message": "Cambiar de cuenta"
@@ -1512,7 +1506,7 @@
     "message": "Exportar a ZIP"
   },
   "app.screenshots.selection.global-export-filename": {
-    "message": "Screenshots de Modrinth.zip"
+    "message": "Screenshots de {productName}.zip"
   },
   "app.screenshots.selection.instance-export-filename": {
     "message": "Screenshots de {instance}.zip"
@@ -1818,7 +1812,7 @@
     "message": "Algunas de tus instancias no pueden usar esta configuración"
   },
   "app.settings.game-options.compatibility.reason.launcher-controlled": {
-    "message": "Este ajuste es administrado por los ajustes de lanzamiento de Modrinth."
+    "message": "Este ajuste es administrado por los ajustes de lanzamiento de {productName}."
   },
   "app.settings.game-options.custom-value.placeholder": {
     "message": "Introducir un valor"
@@ -2619,7 +2613,7 @@
     "message": "Discord Rich Presence"
   },
   "app.settings.privacy.telemetry.description": {
-    "message": "Modrinth recolecta datos analíticos anónimos y datos de uso para mejorar la experiencia de nuestros usuarios y para personalizar tu experiencia. Al desactivar esta opción, tus datos dejarán de ser recolectados."
+    "message": "{productName} recolecta datos analíticos anónimos y datos de uso para mejorar la experiencia de nuestros usuarios y para personalizar tu experiencia. Al desactivar esta opción, tus datos dejarán de ser recolectados."
   },
   "app.settings.privacy.telemetry.title": {
     "message": "Telemetría"
@@ -2635,9 +2629,6 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "¿Limpiar el caché?"
-  },
-  "app.settings.resource-management.app-cache.description": {
-    "message": "Borra todos los datos en caché y los redescarga de Modrinth. La app cargará más lento hasta que se reconstruya completamente el caché."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Limpiar caché"
@@ -2772,7 +2763,7 @@
     "message": "Estos ajustes han cambiado en otro lugar"
   },
   "app.settings.synced-options.game-settings.custom-empty": {
-    "message": "Los ajustes añadidos por mods aparecerán aquí después de que Modrinth los encuentre en una de tus instancias."
+    "message": "Los ajustes añadidos por mods aparecerán aquí después de que {productName} los encuentre en una de tus instancias."
   },
   "app.settings.synced-options.game-settings.description": {
     "message": "Usar el mismo paquete de datos entre todas tus instancias."
@@ -3093,7 +3084,7 @@
     "message": "¿Te importaría responder unas cuantas preguntas sobre tu experiencia con la aplicación de Modrinth?"
   },
   "app.survey.footer": {
-    "message": "¡Tus comentarios llegarán directamente al equipo de Modrinth, y los ayudará a hacer mejores actualizaciones!"
+    "message": "¡Tus comentarios llegarán directamente al equipo de {productName}, y los ayudará a hacer mejores actualizaciones!"
   },
   "app.survey.no-thanks": {
     "message": "No, gracias"
@@ -3102,7 +3093,7 @@
     "message": "Aceptar encuesta"
   },
   "app.survey.title": {
-    "message": "¡Hola, usuario de Modrinth!"
+    "message": "¡Hola, usuario de {productName}!"
   },
   "app.sync-instances-update.badge": {
     "message": "Nueva actualización"
@@ -3231,13 +3222,13 @@
     "message": "Paquetes de recursos sincronizados"
   },
   "app.update-popup.body.download-complete": {
-    "message": "La descarga de la Modrinth App v{version} ha finalizado. Actualiza ahora o automáticamente al cerrar la Modrinth App."
+    "message": "La descarga de la {productName} v{version} ha finalizado. Actualiza ahora o automáticamente al cerrar la {productName}."
   },
   "app.update-popup.body.linux": {
-    "message": "La Modrinth App v{version} está disponible. ¡Usa tu gestor de paquetes para actualizarla y tener las últimas funciones y corrección de errores!"
+    "message": "La {productName} v{version} está disponible. ¡Usa tu gestor de paquetes para actualizarla y tener las últimas funciones y corrección de errores!"
   },
   "app.update-popup.body.metered": {
-    "message": "¡La Modrinth App v{version} ya está disponible! Al estar usando una red de datos límitada, no la hemos descargado automáticamente."
+    "message": "¡La {productName} v{version} ya está disponible! Al estar usando una red de datos límitada, no la hemos descargado automáticamente."
   },
   "app.update-popup.changelog": {
     "message": "Registro de cambios"
@@ -3282,10 +3273,7 @@
     "message": "Presiona <shortcut>N</shortcut> para crear rápidamente una instancia"
   },
   "app.welcome-screen.title": {
-    "message": "Bienvenido a Modrinth"
-  },
-  "app.world.server-modal.placeholder-address": {
-    "message": "ejemplo.modrinth.gg"
+    "message": "Bienvenido a {productName}"
   },
   "app.world.server-modal.select-an-option": {
     "message": "Selecciona una opción"

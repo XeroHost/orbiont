@@ -1,3 +1,5 @@
+import { productName } from '@modrinth/branding'
+
 export interface MinecraftAuthError {
 	errorCode?: string
 	errorMatchers?: string[]
@@ -9,10 +11,9 @@ export interface MinecraftAuthError {
 export const minecraftAuthErrors: MinecraftAuthError[] = [
 	{
 		errorMatchers: ['Failed to deserialize response to JSON during step RefreshOAuthToken:'],
-		whatHappened:
-			'Your saved Microsoft sign-in token has expired or was revoked, so Modrinth App cannot refresh your Minecraft session.',
+		whatHappened: `Your saved Microsoft sign-in token has expired or was revoked, so ${productName} cannot refresh your Minecraft session.`,
 		stepsToFix: [
-			'Sign out of the affected Minecraft account in Modrinth App',
+			`Sign out of the affected Minecraft account in ${productName}`,
 			'Sign in to the account again',
 			'Once the new sign-in finishes, try launching Minecraft again',
 		],
@@ -25,7 +26,7 @@ export const minecraftAuthErrors: MinecraftAuthError[] = [
 			'Open your system date and time settings',
 			'Turn on automatic time zone and automatic time, if available',
 			'Use the sync option in your system settings to synchronize the clock',
-			'Restart Modrinth App',
+			`Restart ${productName}`,
 			'Try signing in again',
 		],
 	},
@@ -37,7 +38,7 @@ export const minecraftAuthErrors: MinecraftAuthError[] = [
 			'Microsoft or Minecraft temporarily blocked the sign-in request because there were too many recent attempts.',
 		stepsToFix: [
 			'Wait about an hour before trying again',
-			'Restart Modrinth App after waiting',
+			`Restart ${productName} after waiting`,
 			'Try signing in once more',
 			'If the same message appears, wait longer before retrying so the temporary limit can clear',
 		],
@@ -46,8 +47,7 @@ export const minecraftAuthErrors: MinecraftAuthError[] = [
 		matches: (message) =>
 			message.includes('Failed to deserialize response to JSON during step MinecraftToken:') &&
 			/Status Code: 5\d\d/.test(message),
-		whatHappened:
-			"Minecraft's authentication service is returning a server error, so Modrinth App cannot finish signing you in right now.",
+		whatHappened: `Minecraft's authentication service is returning a server error, so ${productName} cannot finish signing you in right now.`,
 		stepsToFix: [
 			'Wait a few minutes and try signing in again',
 			'Check <a href="https://support.xbox.com/xbox-live-status">Xbox Status</a> for current service issues',
@@ -64,7 +64,7 @@ export const minecraftAuthErrors: MinecraftAuthError[] = [
 			'Launch Minecraft: Java Edition once from the official launcher',
 			'Wait up to an hour if the purchase or profile setup was recent',
 			'Make sure you are using the Microsoft account that owns Minecraft. See <a href="https://support.modrinth.com/en/articles/9409136-finding-the-right-xbox-account">Finding the right Xbox account</a> for help',
-			'Try signing in to Modrinth App again',
+			`Try signing in to ${productName} again`,
 		],
 	},
 	{
@@ -78,12 +78,11 @@ export const minecraftAuthErrors: MinecraftAuthError[] = [
 				'xboxlive.com',
 				'live.com',
 			].some((domain) => message.includes(domain)),
-		whatHappened:
-			'Modrinth App could not connect to a Microsoft, Xbox, or Minecraft service needed for sign-in. This is usually caused by a local network, DNS, proxy, firewall, hosts file, VPN, or antivirus issue.',
+		whatHappened: `${productName} could not connect to a Microsoft, Xbox, or Minecraft service needed for sign-in. This is usually caused by a local network, DNS, proxy, firewall, hosts file, VPN, or antivirus issue.`,
 		stepsToFix: [
-			'Restart Modrinth App and try signing in again',
+			`Restart ${productName} and try signing in again`,
 			'Check that your internet connection is working',
-			'Allow Modrinth App through your firewall, antivirus, proxy, VPN, and hosts file rules',
+			`Allow ${productName} through your firewall, antivirus, proxy, VPN, and hosts file rules`,
 			'Try a different network or temporarily disable VPN/proxy software if you use one',
 			'If routing or DNS is the issue, a service like Cloudflare WARP can sometimes help',
 		],
@@ -172,12 +171,11 @@ export const minecraftAuthErrors: MinecraftAuthError[] = [
 	},
 	{
 		errorMatchers: ['Failed to deserialize response to JSON during step XstsAuthorize:'],
-		whatHappened:
-			'Xbox services rejected the request to authorize this account for Minecraft services, but did not return a specific account restriction that Modrinth App recognizes.',
+		whatHappened: `Xbox services rejected the request to authorize this account for Minecraft services, but did not return a specific account restriction that ${productName} recognizes.`,
 		stepsToFix: [
 			'Sign in with the <a href="https://www.minecraft.net/en-us/download">official Minecraft Launcher</a>',
 			'Complete any prompts shown by Microsoft, Xbox, or Minecraft',
-			'Try signing in to Modrinth App again',
+			`Try signing in to ${productName} again`,
 			'If the official launcher also fails, follow the error shown there or contact Xbox Support',
 		],
 	},

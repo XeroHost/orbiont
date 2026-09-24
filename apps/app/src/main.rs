@@ -141,7 +141,7 @@ fn main() {
 
     let _log_guard = theseus::start_logger(&tauri_context.config().identifier);
 
-    tracing::info!("Initialized tracing subscriber. Loading Modrinth App!");
+    tracing::info!("Initialized tracing subscriber. Loading app!");
 
     let mut builder = tauri::Builder::default();
 
@@ -267,6 +267,7 @@ fn main() {
         .plugin(api::utils::init())
         .plugin(api::cache::init())
         .plugin(api::files::init())
+        .plugin(api::orbiont::init())
         .plugin(api::worlds::init())
         .manage(PendingUpdateData::default())
         .invoke_handler(tauri::generate_handler![

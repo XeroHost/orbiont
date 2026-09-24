@@ -106,7 +106,7 @@ const messages = defineMessages({
 	},
 	noServersDescription: {
 		id: 'servers.list-empty.no-servers-description',
-		defaultMessage: 'Install mods, invite friends, and play together all from the Modrinth App.',
+		defaultMessage: 'Install mods, invite friends, and play together all from {productName}.',
 	},
 	oneClickModInstallsTitle: {
 		id: 'servers.list-empty.one-click-mod-installs-title',
@@ -130,7 +130,7 @@ const messages = defineMessages({
 	},
 	playWithFriendsDescription: {
 		id: 'servers.list-empty.play-with-friends-description',
-		defaultMessage: 'Invite friends to play your server with one-click play from the Modrinth App.',
+		defaultMessage: 'Invite friends to play your server with one-click play from {productName}.',
 	},
 	newServerButton: {
 		id: 'servers.list-empty.new-server-button',

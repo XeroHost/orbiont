@@ -18,12 +18,12 @@
 				<template v-if="organization">
 					<AutoLink
 						class="flex gap-2 items-center w-fit text-primary leading-[1.2] group"
-						:to="orgLink(organization.slug)"
-						:target="linkTarget ?? null"
+						:to="orgLink?.(organization.slug)"
+						:target="orgLink ? (linkTarget ?? null) : null"
 					>
 						<Avatar :src="organization.icon_url" :alt="organization.name" size="32px" />
 						<div class="flex flex-col flex-nowrap justify-center">
-							<span class="group-hover:underline font-medium">
+							<span class="font-medium" :class="{ 'group-hover:underline': orgLink }">
 								{{ organization.name }}
 							</span>
 							<span class="text-sm font-normal text-secondary flex items-center gap-1"
@@ -37,19 +37,22 @@
 					v-for="member in sortedMembers"
 					:key="`member-${member.id}`"
 					class="flex gap-2 items-center w-fit text-primary leading-[1.2] group"
-					:to="userLink(member.user.username)"
-					:target="resolveLinkTarget(userLinkTarget)"
+					:to="userLink?.(member.user.username)"
+					:target="userLink ? resolveLinkTarget(userLinkTarget) : null"
 				>
 					<Avatar :src="member.user.avatar_url" :alt="member.user.username" size="32px" circle />
 					<div class="flex flex-col">
-						<span class="flex w-full flex-nowrap items-center gap-1 group-hover:underline">
+						<span
+							class="flex w-full flex-nowrap items-center gap-1"
+							:class="{ 'group-hover:underline': userLink }"
+						>
 							<span class="min-w-0 overflow-hidden truncate">{{ member.user.username }}</span>
 							<CrownIcon
 								v-if="member.is_owner"
 								v-tooltip="formatMessage(messages.owner)"
 								class="text-brand-orange"
 							/>
-							<ExternalIcon v-if="resolveLinkTarget(userLinkTarget) === '_blank'" />
+							<ExternalIcon v-if="userLink && resolveLinkTarget(userLinkTarget) === '_blank'" />
 						</span>
 						<span class="text-sm font-normal text-secondary">{{ member.role }}</span>
 					</div>
@@ -90,8 +93,10 @@ const props = defineProps<{
 		members: TeamMember[]
 	} | null
 	members: TeamMember[]
-	orgLink: (slug: string) => string
-	userLink: (username: string) => string
+	/** Omit to show creators as plain, non-clickable entries. */
+	orgLink?: (slug: string) => string
+	/** Omit to show creators as plain, non-clickable entries. */
+	userLink?: (username: string) => string
 	linkTarget?: string
 	userLinkTarget?: string | null
 	loading?: boolean

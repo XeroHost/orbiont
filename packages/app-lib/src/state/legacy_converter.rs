@@ -10,8 +10,8 @@ use crate::state::{
     CacheValue, CachedEntry, CachedFile, CachedFileHash, CachedFileUpdate,
     Credentials, DefaultPage, DependencyType, DeviceToken, DeviceTokenKey,
     DeviceTokenPair, FileType, Hooks, InstanceInstallStage,
-    LauncherFeatureVersion, MemorySettings,
-    ReleaseChannel, TeamMember, Theme, VersionFile, WindowSize,
+    LauncherFeatureVersion, MemorySettings, ReleaseChannel, TeamMember, Theme,
+    VersionFile, WindowSize,
 };
 use crate::util::fetch::{IoSemaphore, read_json};
 use chrono::{DateTime, Utc};
@@ -677,8 +677,10 @@ struct LegacySettings {
     pub loaded_config_dir: Option<PathBuf>,
 }
 
+// Orbiont never imports another launcher's data (the pre-2023 Modrinth
+// launcher lived in `com.modrinth.theseus`), so there is no legacy root.
 fn default_settings_dir() -> Option<PathBuf> {
-    Some(dirs::config_dir()?.join("com.modrinth.theseus"))
+    None
 }
 
 #[derive(Debug, Clone, Copy, Deserialize)]

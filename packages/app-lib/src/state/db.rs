@@ -18,11 +18,15 @@ pub(crate) async fn connect(
 
     let db_path = settings_dir.join("app.db");
 
-    connect_app_db(&db_path).await
+    connect_app_db(&db_path, app_identifier).await
 }
 
-async fn connect_app_db(db_path: &Path) -> crate::Result<Pool<Sqlite>> {
-    super::db_backup::maybe_backup_existing_app_db(db_path).await?;
+async fn connect_app_db(
+    db_path: &Path,
+    app_identifier: &str,
+) -> crate::Result<Pool<Sqlite>> {
+    super::db_backup::maybe_backup_existing_app_db(db_path, app_identifier)
+        .await?;
     open_migrated_app_db(db_path).await
 }
 

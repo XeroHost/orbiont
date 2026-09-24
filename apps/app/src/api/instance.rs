@@ -1390,4 +1390,3 @@ pub async fn instance_get_recent_icon_configs()
 -> Result<Vec<theseus::data::InstanceIconConfig>> {
     Ok(theseus::instance::get_recent_icon_configs().await?)
 }
-

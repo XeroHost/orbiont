@@ -10,6 +10,7 @@ import type { InstallProgressSecondary } from '@/generated/app-events/InstallPro
 import type { SharedInstanceUnavailableReason } from '@/generated/app-events/SharedInstanceUnavailableReason'
 import type { AppEvents } from '@/providers/app-events'
 
+import { downloadCurseforgeModpack, isCurseforgeId } from './curseforge'
 import type { InstanceIconConfig, InstanceLink, InstanceLoader } from './types'
 
 export type {
@@ -155,7 +156,16 @@ export function getErrorMessage(error: unknown): string {
 	return 'Unknown error'
 }
 
+/** CurseForge modpack versions install from their downloaded file. */
+async function resolvePackLocation(location: CreatePackLocation): Promise<CreatePackLocation> {
+	if (location.type === 'fromVersionId' && isCurseforgeId(location.version_id)) {
+		return { type: 'fromFile', path: await downloadCurseforgeModpack(location.version_id) }
+	}
+	return location
+}
+
 export async function install_get_modpack_preview(location: CreatePackLocation) {
+	location = await resolvePackLocation(location)
 	return await invoke<InstallModpackPreview>('plugin:install|install_get_modpack_preview', {
 		location,
 	})
@@ -169,6 +179,10 @@ export async function install_create_modpack_instance(
 	location: CreatePackLocation,
 	postInstallEdit?: InstallPostInstallEdit | null,
 ) {
+	if (location.type === 'fromVersionId' && isCurseforgeId(location.version_id)) {
+		postInstallEdit ??= { name: location.title }
+		location = await resolvePackLocation(location)
+	}
 	return await invoke<InstallJobSnapshot>('plugin:install|install_create_modpack_instance', {
 		location,
 		postInstallEdit,
