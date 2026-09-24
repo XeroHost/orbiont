@@ -737,9 +737,40 @@ export async function installCurseforgeVersionToInstance(
 	})
 }
 
-/** Downloads a CurseForge modpack version for the native modpack install flow. */
-export async function downloadCurseforgeModpack(versionId: string): Promise<string> {
-	return await downloadVersionFile(versionId)
+/** A modpack file left out because only curseforge.com may distribute it. */
+export interface CurseforgeSkippedFile {
+	name: string
+	pageUrl: string | null
+}
+
+type SkippedFilesListener = (packName: string, files: CurseforgeSkippedFile[]) => void
+const skippedFilesListeners = new Set<SkippedFilesListener>()
+
+/** Notified when a converted modpack had to leave files out. */
+export function onCurseforgeSkippedFiles(listener: SkippedFilesListener) {
+	skippedFilesListeners.add(listener)
+	return () => skippedFilesListeners.delete(listener)
+}
+
+/**
+ * Downloads a CurseForge modpack version and converts it into an `.mrpack`
+ * (see `theseus::curseforge_pack`), so it installs through the native
+ * modpack installer like any other pack. Returns the `.mrpack` path.
+ */
+export async function downloadCurseforgeModpack(
+	versionId: string,
+	/** Omit to skip reporting left-out files (e.g. for a preview). */
+	packName?: string,
+): Promise<string> {
+	const zipPath = await downloadVersionFile(versionId)
+	const converted = await invoke<{ path: string; skipped: CurseforgeSkippedFile[] }>(
+		'plugin:orbiont|orbiont_convert_curseforge_pack',
+		{ path: zipPath },
+	)
+	if (packName !== undefined && converted.skipped.length > 0) {
+		for (const listener of skippedFilesListeners) listener(packName, converted.skipped)
+	}
+	return converted.path
 }
 
 /** The author disabled third-party downloads; only curseforge.com can serve the file. */

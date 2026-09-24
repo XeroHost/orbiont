@@ -394,13 +394,10 @@ fn main() {
                     .commands(&[
                         "orbiont_get_modpacks",
                         "orbiont_get_servers",
-                        "orbiont_search",
-                        "orbiont_get_curseforge_categories",
-                        "orbiont_get_curseforge_mod_detail",
                         "orbiont_curseforge_api",
+                        "orbiont_convert_curseforge_pack",
                         "orbiont_download_modpack",
                         "orbiont_download_search_result",
-                        "orbiont_save_dropped_file",
                     ])
                     .default_permission(
                         DefaultPermissionRule::AllowAllCommands,

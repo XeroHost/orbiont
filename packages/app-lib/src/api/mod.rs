@@ -1,5 +1,6 @@
 //! API for interacting with Theseus
 pub mod cache;
+pub mod curseforge_pack;
 pub mod handler;
 pub mod instance;
 pub mod jre;

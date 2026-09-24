@@ -105,6 +105,7 @@ import {
 import { debugAnalytics, initAnalytics, trackEvent } from '@/helpers/analytics'
 import { check_reachable } from '@/helpers/auth.js'
 import { get_user, get_user_many, get_version } from '@/helpers/cache.js'
+import { onCurseforgeSkippedFiles } from '@/helpers/curseforge'
 import { gameSettingsQueryOptions } from '@/helpers/game-options'
 import { install_create_modpack_instance, install_get_modpack_preview } from '@/helpers/install'
 import {
@@ -262,6 +263,19 @@ useAppEvent(
 			type: 'warning',
 		}),
 	appEvents,
+)
+
+// CurseForge modpacks can list files their authors only allow downloading
+// from curseforge.com; the pack still installs, and this says what's missing.
+onCurseforgeSkippedFiles((packName, files) =>
+	addNotification({
+		title: formatMessage(messages.curseforgeSkippedTitle, { count: files.length }),
+		text: formatMessage(messages.curseforgeSkippedText, {
+			pack: packName,
+			files: files.map((file) => file.name).join(', '),
+		}),
+		type: 'warning',
+	}),
 )
 
 const popupNotificationManager = new AppPopupNotificationManager()
@@ -525,6 +539,15 @@ const { formatMessage } = useVIntl()
 const formatBytes = useFormatBytes()
 
 const messages = defineMessages({
+	curseforgeSkippedTitle: {
+		id: 'app.curseforge.skipped-files.title',
+		defaultMessage: '{count, plural, one {# mod needs} other {# mods need}} a manual download',
+	},
+	curseforgeSkippedText: {
+		id: 'app.curseforge.skipped-files.text',
+		defaultMessage:
+			'The authors only allow downloading these from CurseForge’s website, so {pack} was installed without them: {files}. Download them from CurseForge and add them to the instance’s mods folder.',
+	},
 	syncUpdateTitle: {
 		id: 'app.sync-instances-update.notification.title',
 		defaultMessage: 'Sync your instances',

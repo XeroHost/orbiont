@@ -10,7 +10,6 @@
 use crate::util::fetch::{self, INSECURE_REQWEST_CLIENT};
 use reqwest::{Method, StatusCode};
 use serde::{Deserialize, Serialize};
-use std::collections::HashMap;
 use std::sync::LazyLock;
 use std::time::{Duration, Instant};
 use tokio::sync::RwLock;
@@ -54,84 +53,6 @@ pub struct OrbiontServer {
     pub modpack_id: Option<String>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct SearchResult {
-    pub id: String,
-    pub source: CatalogSource,
-    pub name: String,
-    pub description: String,
-    pub icon: Option<String>,
-    pub downloads: Option<u64>,
-    pub game_versions: Vec<String>,
-    pub loaders: Vec<String>,
-    pub download_url: Option<String>,
-    pub allow_mod_distribution: Option<bool>,
-    pub page_url: Option<String>,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct CurseforgeCategory {
-    pub id: u32,
-    pub name: String,
-    pub slug: String,
-    pub icon_url: Option<String>,
-}
-
-#[derive(Debug, Clone, Deserialize)]
-struct CurseforgeCategoriesResponse {
-    categories: Vec<CurseforgeCategory>,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct CurseforgeScreenshot {
-    pub url: String,
-    pub thumbnail_url: String,
-    pub title: String,
-}
-
-/// Full detail for a single CurseForge mod/modpack — everything a search
-/// result doesn't carry (full description, screenshots, authors), for the
-/// search UI's "view content" detail view.
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct CurseforgeModDetail {
-    pub id: String,
-    pub source: CatalogSource,
-    pub name: String,
-    pub summary: String,
-    pub description: String,
-    pub icon: Option<String>,
-    pub downloads: Option<u64>,
-    pub game_versions: Vec<String>,
-    pub categories: Vec<String>,
-    pub authors: Vec<String>,
-    pub screenshots: Vec<CurseforgeScreenshot>,
-    pub download_url: Option<String>,
-    pub allow_mod_distribution: Option<bool>,
-    pub page_url: Option<String>,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct SearchError {
-    pub source: CatalogSource,
-    pub message: String,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct SearchResponse {
-    pub results: Vec<SearchResult>,
-    pub index: u32,
-    pub page_size: u32,
-    pub total_count: Option<u64>,
-    #[serde(default)]
-    pub errors: Vec<SearchError>,
-}
-
 const CACHE_TTL: Duration = Duration::from_secs(60);
 
 struct CacheEntry<T> {
@@ -144,12 +65,6 @@ static MODPACKS_CACHE: LazyLock<RwLock<Option<CacheEntry<Vec<Modpack>>>>> =
     LazyLock::new(|| RwLock::new(None));
 static SERVERS_CACHE: LazyLock<RwLock<Option<CacheEntry<Vec<OrbiontServer>>>>> =
     LazyLock::new(|| RwLock::new(None));
-// Categories barely ever change, so this is keyed by project type ("modpack"
-// / "mod") rather than sharing a single slot like the caches above.
-const CATEGORIES_CACHE_TTL: Duration = Duration::from_secs(60 * 60);
-static CURSEFORGE_CATEGORIES_CACHE: LazyLock<
-    RwLock<HashMap<String, (Vec<CurseforgeCategory>, Instant)>>,
-> = LazyLock::new(|| RwLock::new(HashMap::new()));
 
 async fn fetch_cached<T>(
     path: &str,
@@ -225,125 +140,6 @@ pub async fn get_servers() -> crate::Result<Vec<OrbiontServer>> {
     fetch_cached("/v1/servers", &SERVERS_CACHE).await
 }
 
-/// GET /v1/search — not cached, since results are paginated and dynamic.
-#[allow(clippy::too_many_arguments)]
-pub async fn search(
-    query: Option<&str>,
-    source: Option<CatalogSource>,
-    game_version: Option<&str>,
-    project_type: Option<&str>,
-    category_id: Option<u32>,
-    mod_loader_type: Option<&str>,
-    index: u32,
-    page_size: u32,
-) -> crate::Result<SearchResponse> {
-    let mut url = reqwest::Url::parse(&format!("{}/v1/search", base_url()))
-        .map_err(|error| crate::ErrorKind::OtherError(error.to_string()))?;
-    {
-        let mut pairs = url.query_pairs_mut();
-        if let Some(query) = query {
-            pairs.append_pair("query", query);
-        }
-        if let Some(source) = source {
-            let source_str = match source {
-                CatalogSource::Xerohost => "xerohost",
-                CatalogSource::Modrinth => "modrinth",
-                CatalogSource::Curseforge => "curseforge",
-            };
-            pairs.append_pair("source", source_str);
-        }
-        if let Some(game_version) = game_version {
-            pairs.append_pair("gameVersion", game_version);
-        }
-        if let Some(project_type) = project_type {
-            pairs.append_pair("projectType", project_type);
-        }
-        if let Some(category_id) = category_id {
-            pairs.append_pair("categoryId", &category_id.to_string());
-        }
-        if let Some(mod_loader_type) = mod_loader_type {
-            pairs.append_pair("modLoaderType", mod_loader_type);
-        }
-        pairs.append_pair("index", &index.to_string());
-        pairs.append_pair("pageSize", &page_size.to_string());
-    }
-
-    let response = INSECURE_REQWEST_CLIENT.get(url).send().await?;
-    if !response.status().is_success() {
-        return Err(crate::ErrorKind::OtherError(format!(
-            "Orbiont catalog search failed: {}",
-            response.status()
-        ))
-        .into());
-    }
-
-    Ok(response.json().await?)
-}
-
-/// GET /v1/curseforge/categories, cached in-memory per project type for
-/// [`CATEGORIES_CACHE_TTL`] — CurseForge's own category taxonomy changes
-/// rarely enough that a short-lived ETag revalidation like the other caches
-/// isn't worth the extra round-trip.
-pub async fn get_curseforge_categories(
-    project_type: &str,
-) -> crate::Result<Vec<CurseforgeCategory>> {
-    {
-        let cache = CURSEFORGE_CATEGORIES_CACHE.read().await;
-        if let Some((categories, fetched_at)) = cache.get(project_type)
-            && fetched_at.elapsed() < CATEGORIES_CACHE_TTL
-        {
-            return Ok(categories.clone());
-        }
-    }
-
-    let mut url = reqwest::Url::parse(&format!(
-        "{}/v1/curseforge/categories",
-        base_url()
-    ))
-    .map_err(|error| crate::ErrorKind::OtherError(error.to_string()))?;
-    url.query_pairs_mut()
-        .append_pair("projectType", project_type);
-
-    let response = INSECURE_REQWEST_CLIENT.get(url).send().await?;
-    if !response.status().is_success() {
-        return Err(crate::ErrorKind::OtherError(format!(
-            "Orbiont catalog CurseForge categories request failed: {}",
-            response.status()
-        ))
-        .into());
-    }
-
-    let body: CurseforgeCategoriesResponse = response.json().await?;
-
-    CURSEFORGE_CATEGORIES_CACHE.write().await.insert(
-        project_type.to_owned(),
-        (body.categories.clone(), Instant::now()),
-    );
-
-    Ok(body.categories)
-}
-
-/// GET /v1/curseforge/mods/:modId — not cached, since this is only fetched
-/// on-demand when the user opens a search result's detail view.
-/// `mod_id` is the numeric CurseForge id (strip the "curseforge:" prefix
-/// from a [`SearchResult::id`] before calling this).
-pub async fn get_curseforge_mod_detail(
-    mod_id: &str,
-) -> crate::Result<CurseforgeModDetail> {
-    let url = format!("{}/v1/curseforge/mods/{mod_id}", base_url());
-
-    let response = INSECURE_REQWEST_CLIENT.get(url).send().await?;
-    if !response.status().is_success() {
-        return Err(crate::ErrorKind::OtherError(format!(
-            "Orbiont catalog CurseForge mod detail request failed: {}",
-            response.status()
-        ))
-        .into());
-    }
-
-    Ok(response.json().await?)
-}
-
 /// GET /v1/curseforge/api/{path} — the catalog's allowlisted, read-only
 /// pass-through to the CurseForge API. Returns CurseForge's JSON untouched;
 /// the frontend maps it onto the launcher's native data model, so CurseForge
@@ -379,6 +175,33 @@ pub async fn curseforge_api(
     if !response.status().is_success() {
         return Err(crate::ErrorKind::OtherError(format!(
             "CurseForge request to {path} failed: {}",
+            response.status()
+        ))
+        .into());
+    }
+
+    Ok(response.json().await?)
+}
+
+/// POST /v1/curseforge/api/{path} — the catalog's batch lookups
+/// (`mods/files` with `fileIds`, `mods` with `modIds`), used to resolve a
+/// whole modpack manifest in a couple of requests.
+pub async fn curseforge_api_post(
+    path: &str,
+    body: &serde_json::Value,
+) -> crate::Result<serde_json::Value> {
+    if !matches!(path, "mods/files" | "mods") {
+        return Err(crate::ErrorKind::InputError(format!(
+            "Unsupported CurseForge batch path: {path}"
+        ))
+        .into());
+    }
+
+    let url = format!("{}/v1/curseforge/api/{path}", base_url());
+    let response = INSECURE_REQWEST_CLIENT.post(url).json(body).send().await?;
+    if !response.status().is_success() {
+        return Err(crate::ErrorKind::OtherError(format!(
+            "CurseForge batch request to {path} failed: {}",
             response.status()
         ))
         .into());
@@ -462,21 +285,5 @@ pub async fn download_search_result_file(
 
     crate::util::io::write(&path, &bytes).await?;
 
-    Ok(path)
-}
-
-/// Saves a manually-downloaded modpack file the user dropped onto the
-/// launcher (the fallback for a CurseForge result whose author disabled
-/// third-party distribution — see the build plan, Fase 4) to a temp cache
-/// path, ready for `CreatePackLocation::FromFile`.
-pub async fn save_dropped_file(
-    bytes: &[u8],
-    file_name_hint: &str,
-) -> crate::Result<std::path::PathBuf> {
-    let state = crate::State::get().await?;
-    let dir = state.directories.caches_dir().join("orbiont-search");
-    crate::util::io::create_dir_all(&dir).await?;
-    let path = dir.join(sanitize_filename(file_name_hint));
-    crate::util::io::write(&path, bytes).await?;
     Ok(path)
 }

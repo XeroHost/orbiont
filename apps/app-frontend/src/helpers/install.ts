@@ -156,16 +156,26 @@ export function getErrorMessage(error: unknown): string {
 	return 'Unknown error'
 }
 
-/** CurseForge modpack versions install from their downloaded file. */
-async function resolvePackLocation(location: CreatePackLocation): Promise<CreatePackLocation> {
+/**
+ * CurseForge modpack versions install from their downloaded file, converted
+ * to an .mrpack. Only the real install reports files that had to be left out.
+ */
+async function resolvePackLocation(
+	location: CreatePackLocation,
+	reportSkipped: boolean,
+): Promise<CreatePackLocation> {
 	if (location.type === 'fromVersionId' && isCurseforgeId(location.version_id)) {
-		return { type: 'fromFile', path: await downloadCurseforgeModpack(location.version_id) }
+		const path = await downloadCurseforgeModpack(
+			location.version_id,
+			reportSkipped ? location.title : undefined,
+		)
+		return { type: 'fromFile', path }
 	}
 	return location
 }
 
 export async function install_get_modpack_preview(location: CreatePackLocation) {
-	location = await resolvePackLocation(location)
+	location = await resolvePackLocation(location, false)
 	return await invoke<InstallModpackPreview>('plugin:install|install_get_modpack_preview', {
 		location,
 	})
@@ -181,7 +191,7 @@ export async function install_create_modpack_instance(
 ) {
 	if (location.type === 'fromVersionId' && isCurseforgeId(location.version_id)) {
 		postInstallEdit ??= { name: location.title }
-		location = await resolvePackLocation(location)
+		location = await resolvePackLocation(location, true)
 	}
 	return await invoke<InstallJobSnapshot>('plugin:install|install_create_modpack_instance', {
 		location,
