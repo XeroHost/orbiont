@@ -1188,24 +1188,6 @@ async function fetchStoredModrinthAccounts() {
 
 const isSwitchingAccount = ref(false)
 
-watch(
-	[stateInitialized, showAd, adConsentAvailable],
-	async ([ready, showAds, canManageConsent]) => {
-		if (!ready) return
-
-		if (showAds) {
-			await init_ads_window(true)
-			return
-		}
-
-		await hide_ads_window(true)
-		if (canManageConsent) {
-			await init_ads_window()
-		}
-	},
-	{ immediate: true },
-)
-
 onMounted(() => {
 	invoke('show_window')
 

@@ -682,7 +682,7 @@ function resetInstanceContext() {
 	hiddenInstanceProjectIds.value = new Set()
 	hiddenInstanceProjectIdsInitialized.value = false
 	isServerInstance.value = false
-	browseBreadcrumb.reset()
+	syncBreadcrumbs()
 	void refreshInstalledProjectIds()
 }
 
