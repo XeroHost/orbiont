@@ -25,8 +25,6 @@ pub mod cache;
 pub mod files;
 pub mod worlds;
 
-mod oauth_utils;
-
 pub type Result<T> = std::result::Result<T, TheseusSerializableError>;
 
 // // Main returnable Theseus GUI error

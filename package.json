@@ -15,8 +15,6 @@
 		"prepr": "turbo run prepr --continue",
 		"prepr:frontend:lib": "turbo run prepr --filter=@modrinth/ui --filter=@modrinth/assets --filter=@modrinth/api-client --filter=@modrinth/utils --filter=@modrinth/tooling-config",
 		"prepr:frontend:app": "turbo run prepr --filter=@orbiont/app-frontend",
-		"storybook": "pnpm i18n:coverage && pnpm --filter @modrinth/ui storybook",
-		"build-storybook": "pnpm i18n:coverage && pnpm --filter @modrinth/ui build-storybook",
 		"icons:add": "pnpm --filter @modrinth/assets icons:add",
 		"i18n:coverage": "node scripts/run.mjs coverage-i18n --write packages/ui/src/layouts/wrapped/settings/language-settings/language-settings-coverage.generated.ts --quiet",
 		"changelog:collect": "node scripts/run.mjs collect-changelog",
@@ -46,9 +44,6 @@
 		"node": ">=24.15.0"
 	},
 	"pnpm": {
-		"patchedDependencies": {
-			"readable-stream@2.3.8": "patches/readable-stream@2.3.8.patch"
-		},
 		"peerDependencyRules": {
 			"allowedVersions": {
 				"vite": "8",

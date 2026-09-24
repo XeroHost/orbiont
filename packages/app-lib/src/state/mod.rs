@@ -126,19 +126,6 @@ impl State {
         lock.lock_owned().await
     }
 
-    pub(crate) async fn lock_shared_instance(
-        &self,
-        instance_id: &str,
-    ) -> OwnedMutexGuard<()> {
-        let lock = self
-            .shared_instance_locks
-            .entry(instance_id.to_string())
-            .or_insert_with(|| Arc::new(Mutex::new(())))
-            .clone();
-
-        lock.lock_owned().await
-    }
-
     pub(crate) async fn lock_instance_screenshots(
         &self,
         instance_id: &str,

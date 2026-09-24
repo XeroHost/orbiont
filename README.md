@@ -1,39 +1,39 @@
-# ![Modrinth Monorepo Cover](/.github/assets/monorepo_cover.png)
+# Orbiont
 
-![Issues](https://img.shields.io/github/issues-raw/Modrinth/code?color=c78aff&label=issues&style=for-the-badge)
-![Pull Requests](https://img.shields.io/github/issues-pr-raw/Modrinth/code?color=c78aff&label=PRs&style=for-the-badge)
-![Contributors](https://img.shields.io/github/contributors/Modrinth/code?color=c78aff&label=contributors&style=for-the-badge)
-![Lines of Code](https://img.shields.io/endpoint?url=https://loctopus.creeperkatze.dev/github/modrinth/code/badge?style=flat&logoColor=white&color=c78aff&style=for-the-badge)
-![Commit Activity](https://img.shields.io/github/commit-activity/m/Modrinth/code?color=c78aff&label=commits&style=for-the-badge)
-![Last Commit](https://img.shields.io/github/last-commit/Modrinth/code?color=c78aff&label=last%20commit&style=for-the-badge)
+Launcher de Minecraft **solo premium** para clientes de XeroHost.
 
-## Modrinth Monorepo
+## Desarrollo
 
-Welcome to the Modrinth Monorepo, the primary codebase for the Modrinth web interface and app. It contains ![Lines of code](https://img.shields.io/endpoint?url=https://loctopus.creeperkatze.dev/github/modrinth/code/badge%3Fformat%3Dhuman&logoColor=white&color=black&label=) lines of code and has ![Contributors](https://img.shields.io/github/contributors/Modrinth/code?color=black&label=) contributors!
+Requisitos: Node (con pnpm), Rust (`rust-toolchain.toml`), CMake y NASM.
 
-If you're not a developer and you've stumbled upon this repository, you can access the web interface on the [Modrinth website](https://modrinth.com) and download the latest release of the app [here](https://modrinth.com/app).
+```bash
+pnpm install
+pnpm app:dev
+```
 
-## Development
+`pnpm app:build` genera el instalador. Antes de cada commit:
+`cargo check --workspace` y `pnpm lint`.
 
-This repository contains two primary packages. For detailed development information, please refer to their respective guides:
+El catálogo de modpacks/servidores y el proxy de CurseForge viven en otro
+repo (`orbiont-catalog`); en local el launcher lo espera en
+`http://localhost:3010` (`packages/app-lib/.env.local`).
 
-- [Website frontend](https://docs.modrinth.com/contributing/knossos/)
-- [Desktop app](https://docs.modrinth.com/contributing/theseus/)
+## Estructura
 
-## Contributing
+| Ruta                   | Qué es                                            |
+| ---------------------- | ------------------------------------------------- |
+| `apps/app`             | Shell de Tauri (Rust): ventana, comandos, updater |
+| `apps/app-frontend`    | UI del launcher (Vue 3)                           |
+| `packages/app-lib`     | Núcleo (Rust): instancias, instalación, auth      |
+| `packages/ui`          | Componentes Vue compartidos                       |
+| `packages/assets`      | Iconos y estilos                                  |
+| `packages/branding`    | Nombre, identificadores y colores de la marca     |
+| `packages/api-client`  | Cliente tipado de la API de contenido             |
+| `packages/daedalus`    | Tipos de metadata de Minecraft/loaders            |
+| `packages/*` (resto)   | Librerías Rust que usa `app-lib`                  |
 
-We welcome contributions! Before submitting any contributions, please read our [contributing guidelines](https://docs.modrinth.com/contributing/getting-started/).
+## Créditos y licencia
 
-If you plan to fork this repository for your own purposes, please review our [copying guidelines](COPYING.md).
-
-## Security
-
-If you discover a security vulnerability within our codebase, please follow our [responsible disclosure guidelines](https://modrinth.com/legal/security).
-
-## Support
-
-If you need help with the Modrinth web interface or app, please visit our [support page](https://support.modrinth.com). For general inquiries, you can also join our [Discord server](https://discord.modrinth.com).
-
-## License
-
-All packages in this repository are licensed under their respective licenses. Refer to the LICENSE file in each package for more information.
+Orbiont es un fork del [Modrinth App](https://github.com/modrinth/code)
+(GPL-3.0-only), de Rinth, Inc. No está afiliado a Modrinth. Ver
+[NOTICE.md](NOTICE.md) y [COPYING.md](COPYING.md).

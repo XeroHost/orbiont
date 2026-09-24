@@ -6,3 +6,6 @@ java/build
 # Migrations existing before Prettier formatted them shall always be ignored,
 # as any changes to them will break existing deployments
 migrations/**
+
+# TOML is formatted by tombi (see tombi.toml), not prettier.
+Cargo.toml

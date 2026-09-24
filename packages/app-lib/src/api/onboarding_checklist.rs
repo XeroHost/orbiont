@@ -19,10 +19,6 @@ pub(crate) async fn mark_logged_into_minecraft() -> crate::Result<()> {
     mark(OnboardingChecklistItem::LoggedIntoMinecraft).await
 }
 
-pub(crate) async fn mark_logged_into_modrinth() -> crate::Result<()> {
-    mark(OnboardingChecklistItem::LoggedIntoModrinth).await
-}
-
 async fn mark(item: OnboardingChecklistItem) -> crate::Result<()> {
     let state = State::get().await?;
     if let Some(checklist) =

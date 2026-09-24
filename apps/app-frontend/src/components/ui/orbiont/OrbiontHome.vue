@@ -51,7 +51,7 @@ async function onPlay(server: OrbiontServer) {
 <template>
 	<div v-if="modpacks.length > 0 || servers.length > 0" class="flex flex-col gap-4">
 		<div class="flex justify-end">
-			<ButtonLink type="outlined" :to="{ path: '/orbiont/search' }">
+			<ButtonLink type="outlined" :to="{ path: '/browse/modpack' }">
 				<SearchIcon />
 				Search modpacks
 			</ButtonLink>

@@ -7,7 +7,7 @@ use futures::stream::{self, StreamExt};
 use serde_json::Value as JsonValue;
 use std::collections::{HashMap, HashSet};
 use std::fs::File;
-use std::io::{Cursor, Read, Seek};
+use std::io::{Read, Seek};
 use std::path::Path;
 use toml::Value as TomlValue;
 use zip::ZipArchive;
@@ -45,17 +45,6 @@ pub(crate) async fn infer_project_type_path(
         infer_project_type(&mut archive)
     })
     .await?
-}
-
-pub(crate) fn infer_project_type_bytes(
-    bytes: &Bytes,
-) -> crate::Result<ProjectType> {
-    let mut archive = ZipArchive::new(Cursor::new(&**bytes)).map_err(|_| {
-        crate::ErrorKind::InputError(
-            "Unable to infer project type for input file".to_string(),
-        )
-    })?;
-    infer_project_type(&mut archive)
 }
 
 fn inspect_content_file(

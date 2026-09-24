@@ -9,7 +9,6 @@ use crate::state::{
 use crate::util::fetch::{self, DownloadMeta, DownloadReason};
 use crate::util::io;
 use async_trait::async_trait;
-use bytes::Bytes;
 use modrinth_content_management::{
     ContentMetadataProvider, ContentType, Error as ResolveError,
     ResolutionPreferences, ResolveContentPlan, ResolveContentRequest,
@@ -532,67 +531,6 @@ pub(crate) async fn add_project_from_path(
             project_type,
             source_kind: ContentSourceKind::Local,
             origin: None,
-            enabled_override: None,
-            previous_path: None,
-        },
-        state,
-    )
-    .await
-}
-
-pub(crate) async fn add_project_bytes(
-    instance_id: &str,
-    file_name: &str,
-    bytes: Bytes,
-    hash: Option<&str>,
-    project_type: Option<ProjectType>,
-    source_kind: ContentSourceKind,
-    project_id: Option<&str>,
-    version_id: Option<&str>,
-    state: &State,
-) -> crate::Result<String> {
-    if !path_util::is_safe_file_name(file_name) {
-        return Err(crate::state::content_store::input(
-            "Invalid project filename",
-        ));
-    }
-    let project_type = match project_type {
-        Some(project_type) => project_type,
-        None => {
-            super::embedded_content_metadata::infer_project_type_bytes(&bytes)?
-        }
-    };
-    if let Some(expected) = hash {
-        crate::state::content_store::validate_digest(expected, 40)?;
-        if sha1_smol::Sha1::from(&bytes[..]).hexdigest() != expected {
-            return Err(crate::state::content_store::input(
-                "Content bytes do not match the expected hash",
-            ));
-        }
-    }
-    let (mut output, temporary) = state.content_store.temporary().await?;
-    tokio::io::AsyncWriteExt::write_all(&mut output, &bytes).await?;
-    output.sync_all().await?;
-    drop(output);
-    let stored_file =
-        state.content_store.import_file(&temporary, state).await?;
-    install_stored_file(
-        instance_id,
-        InstallContent {
-            requested_path: &format!(
-                "{}/{}",
-                project_type.get_folder(),
-                file_name
-            ),
-            stored_file: &stored_file,
-            project_type,
-            source_kind,
-            origin: project_id.zip(version_id).map(
-                |(project_id, version_id)| ContentOrigin {
-                    project_id,
-                    version_id,
-                },
-            ),
             enabled_override: None,
             previous_path: None,
         },

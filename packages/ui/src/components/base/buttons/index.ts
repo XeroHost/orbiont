@@ -7,7 +7,6 @@ export { default as FileButton } from './FileButton.vue'
 export { default as IconButton } from './IconButton.vue'
 export { default as SplitButton } from './SplitButton.vue'
 export { default as TeleportOverflowMenu } from './TeleportOverflowMenu.vue'
-export { default as TeleportPopoutMenu } from './TeleportPopoutMenu.vue'
 export type {
 	ButtonColor,
 	ButtonElementHandle,

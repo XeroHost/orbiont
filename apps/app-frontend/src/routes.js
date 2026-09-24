@@ -21,11 +21,6 @@ export default new createRouter({
 			component: () => import('@/pages/Skins.vue'),
 		},
 		{
-			path: '/orbiont/search',
-			name: 'Orbiont search',
-			component: () => import('@/pages/OrbiontSearch.vue'),
-		},
-		{
 			path: '/screenshots',
 			name: 'Screenshots',
 			component: () => import('@/pages/Screenshots.vue'),

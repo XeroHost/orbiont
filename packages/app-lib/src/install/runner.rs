@@ -3,7 +3,7 @@ use super::model::{
     InstallCleanup, InstallErrorContext, InstallErrorView, InstallJobDisplay,
     InstallJobEventKind, InstallJobSnapshot, InstallJobState, InstallJobStatus,
     InstallPhaseDetails, InstallPhaseId, InstallPostInstallEdit,
-    InstallProgress, InstallRequest, InstallRollbackState, InstallTarget,
+    InstallRequest, InstallRollbackState, InstallTarget,
 };
 use super::{diagnostics, recovery, store};
 use crate::ErrorKind;
@@ -1107,20 +1107,6 @@ async fn apply_post_install_edit(
     Ok(())
 }
 
-async fn disabled_project_ids(
-    instance_id: &str,
-    state: &State,
-) -> crate::Result<HashSet<String>> {
-    Ok(crate::state::instances::commands::list_project_files(
-        instance_id,
-        state,
-    )
-    .await?
-    .into_iter()
-    .filter_map(|file| (!file.enabled).then_some(file.project_id?))
-    .collect())
-}
-
 async fn remove_existing_pack_content(
     job_id: Uuid,
     job_state: &InstallJobState,
@@ -1421,26 +1407,6 @@ pub(super) async fn update_progress(
 ) -> crate::Result<()> {
     super::control::checkpoint(job_id).await?;
     job_state.set_progress(phase, None, details);
-    let record = store::update_state(job_id, job_state, state).await?;
-    emit_install_job(&record.snapshot()).await?;
-    Ok(())
-}
-
-pub(super) async fn update_content_progress(
-    job_id: Uuid,
-    job_state: &mut InstallJobState,
-    state: &State,
-    current: u64,
-    total: u64,
-) -> crate::Result<()> {
-    super::control::checkpoint(job_id).await?;
-    job_state.progress.phase = InstallPhaseId::DownloadingContent;
-    job_state.progress.progress = Some(InstallProgress {
-        current,
-        total,
-        secondary: None,
-    });
-    job_state.progress.details = InstallPhaseDetails::Empty;
     let record = store::update_state(job_id, job_state, state).await?;
     emit_install_job(&record.snapshot()).await?;
     Ok(())

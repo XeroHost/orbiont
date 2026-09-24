@@ -4,7 +4,6 @@ export { default as VersionChannelIndicator } from './VersionChannelIndicator.vu
 export { default as VersionDependencyItem } from './VersionDependencyItem.vue'
 export { default as VersionFilterControl } from './VersionFilterControl.vue'
 export { default as VersionPage } from './VersionPage.vue'
-export { default as VersionSummary } from './VersionSummary.vue'
 
 export type DependencyContext = {
 	dependency: Labrinth.Versions.v3.Dependency

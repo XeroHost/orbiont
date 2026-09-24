@@ -4,7 +4,7 @@ import {
 	wait_for_install_job,
 } from '@/helpers/install'
 import { get, list } from '@/helpers/instance'
-import type { Modpack, OrbiontServer, SearchResult } from '@/helpers/orbiont'
+import type { Modpack, OrbiontServer } from '@/helpers/orbiont'
 import { downloadModpack } from '@/helpers/orbiont'
 import type { GameInstance } from '@/helpers/types'
 import { ensureManagedServerWorldExists, start_join_server } from '@/helpers/worlds'
@@ -81,28 +81,4 @@ export async function playOrbiontServer(
 	await start_join_server(instance.id, address)
 
 	return { instanceId: instance.id }
-}
-
-/**
- * Installs a modpack file already saved to a local cache path (via
- * `downloadSearchResult` or `saveDroppedFile`) as a new instance. Used by the
- * search UI's install buttons — see the build plan, Fase 4.
- */
-export async function installSearchResultFile(
-	result: SearchResult,
-	filePath: string,
-	appEvents: AppEvents,
-): Promise<{ instanceId: string }> {
-	const job = await install_create_modpack_instance(
-		{ type: 'fromFile', path: filePath },
-		{ name: result.name },
-	)
-	const instanceId = installJobInstanceId(job)
-	if (!instanceId) {
-		throw new Error(`Installing ${result.name} didn't produce an instance.`)
-	}
-
-	await wait_for_install_job(appEvents, job.job_id)
-
-	return { instanceId }
 }

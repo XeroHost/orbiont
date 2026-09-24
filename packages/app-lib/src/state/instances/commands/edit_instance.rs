@@ -125,13 +125,6 @@ pub(crate) async fn edit_instance(
     };
     let modifies_content =
         patch.link.is_some() || patch.content_set_patch.is_some();
-    let should_mark_shared_instance_stale = patch.link.is_some()
-        || patch.content_set_patch.as_ref().is_some_and(|patch| {
-            patch.source_kind.is_some()
-                || patch.game_version.is_some()
-                || patch.loader.is_some()
-                || patch.loader_version.is_some()
-        });
     let mut instance = instance_rows::get_instance_by_id(instance_id, pool)
         .await?
         .ok_or_else(|| {
