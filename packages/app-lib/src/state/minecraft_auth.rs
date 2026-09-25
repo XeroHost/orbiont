@@ -1,16 +1,12 @@
 use crate::ErrorKind;
 use crate::util::fetch::INSECURE_REQWEST_CLIENT;
 use base64::Engine;
-use base64::prelude::{BASE64_STANDARD, BASE64_URL_SAFE_NO_PAD};
+use base64::prelude::BASE64_URL_SAFE_NO_PAD;
 use chrono::{DateTime, Duration, TimeZone, Utc};
 use dashmap::DashMap;
 use futures::TryStreamExt;
 use heck::ToTitleCase;
-use p256::ecdsa::signature::Signer;
-use p256::ecdsa::{Signature, SigningKey, VerifyingKey};
-use p256::pkcs8::{DecodePrivateKey, EncodePrivateKey, LineEnding};
 use rand::Rng;
-use rand::rngs::OsRng;
 use reqwest::header::HeaderMap;
 use reqwest::{Response, StatusCode};
 use serde::de::DeserializeOwned;
@@ -34,11 +30,9 @@ use uuid::Uuid;
 
 #[derive(Debug, Clone, Copy)]
 pub enum MinecraftAuthStep {
-    GetDeviceToken,
-    SisuAuthenticate,
     GetOAuthToken,
     RefreshOAuthToken,
-    SisuAuthorize,
+    XboxUserAuthenticate,
     XstsAuthorize,
     MinecraftToken,
     MinecraftEntitlements,
@@ -47,16 +41,6 @@ pub enum MinecraftAuthStep {
 
 #[derive(thiserror::Error, Debug)]
 pub enum MinecraftAuthenticationError {
-    #[error("Error reading public key during generation")]
-    ReadingPublicKey,
-    #[error("Failed to serialize private key to PEM: {0}")]
-    PEMSerialize(#[from] p256::pkcs8::Error),
-    #[error("Failed to serialize body to JSON during step {step:?}: {source}")]
-    SerializeBody {
-        step: MinecraftAuthStep,
-        #[source]
-        source: serde_json::Error,
-    },
     #[error(
         "Failed to deserialize response to JSON during step {step:?}: {source}. Status Code: {status_code} Body: {raw}"
     )]
@@ -73,8 +57,6 @@ pub enum MinecraftAuthenticationError {
         #[source]
         source: reqwest::Error,
     },
-    #[error("Error reading XBOX Session ID header")]
-    NoSessionId,
     #[error("Error reading user hash")]
     NoUserHash,
 }
@@ -94,7 +76,10 @@ impl MinecraftAuthenticationError {
                 status_code: StatusCode::BAD_REQUEST,
                 ..
             } if serde_json::from_str::<OAuthErrorResponse>(raw)
-                .is_ok_and(|response| response.error == "invalid_grant")
+                .is_ok_and(|response| matches!(
+                    response.error.as_str(),
+                    "invalid_grant" | "unauthorized_client"
+                ))
         )
     }
 }
@@ -102,40 +87,45 @@ impl MinecraftAuthenticationError {
 #[derive(Serialize, Deserialize, Debug)]
 pub struct MinecraftLoginFlow {
     pub verifier: String,
-    pub challenge: String,
-    pub session_id: String,
+    pub state: String,
     pub auth_request_uri: String,
+    /// Where Microsoft sends the browser back with `?code=` (or `?error=`).
+    pub redirect_uri: String,
 }
 
+/// Builds the Microsoft sign-in URL (authorization code flow with PKCE, for a
+/// public client: there is no client secret).
 #[tracing::instrument]
-pub async fn login_begin(
-    exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
-) -> crate::Result<MinecraftLoginFlow> {
-    let (pair, current_date) =
-        DeviceTokenPair::refresh_and_get_device_token(Utc::now(), exec).await?;
-
+pub async fn login_begin() -> crate::Result<MinecraftLoginFlow> {
     let verifier = generate_oauth_challenge();
-    let result = sha2::Sha256::digest(&verifier);
-    let challenge = BASE64_URL_SAFE_NO_PAD.encode(result);
+    let challenge =
+        BASE64_URL_SAFE_NO_PAD.encode(sha2::Sha256::digest(&verifier));
+    let state = generate_oauth_challenge();
 
-    match sisu_authenticate(
-        &pair.token.token,
-        &challenge,
-        &pair.key,
-        current_date,
+    let auth_request_uri = Url::parse_with_params(
+        MICROSOFT_AUTHORIZE_URL,
+        &[
+            ("client_id", MICROSOFT_CLIENT_ID),
+            ("response_type", "code"),
+            ("redirect_uri", AUTH_REPLY_URL),
+            ("scope", REQUESTED_SCOPE),
+            ("code_challenge", challenge.as_str()),
+            ("code_challenge_method", "S256"),
+            ("state", state.as_str()),
+            ("prompt", "select_account"),
+        ],
     )
-    .await
-    {
-        Ok((session_id, redirect_uri)) => {
-            return Ok(MinecraftLoginFlow {
-                verifier,
-                challenge,
-                session_id,
-                auth_request_uri: redirect_uri.value.msa_oauth_redirect,
-            });
-        }
-        Err(err) => return Err(crate::ErrorKind::from(err).into()),
-    }
+    .map_err(|error| {
+        ErrorKind::OtherError(format!("Invalid Microsoft sign-in URL: {error}"))
+    })?
+    .to_string();
+
+    Ok(MinecraftLoginFlow {
+        verifier,
+        state,
+        auth_request_uri,
+        redirect_uri: AUTH_REPLY_URL.to_string(),
+    })
 }
 
 #[tracing::instrument]
@@ -144,27 +134,9 @@ pub async fn login_finish(
     flow: MinecraftLoginFlow,
     exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
 ) -> crate::Result<Credentials> {
-    let (pair, _) =
-        DeviceTokenPair::refresh_and_get_device_token(Utc::now(), exec).await?;
-
     let oauth_token = oauth_token(code, &flow.verifier).await?;
-    let sisu_authorize = sisu_authorize(
-        Some(&flow.session_id),
-        &oauth_token.value.access_token,
-        &pair.token.token,
-        &pair.key,
-        oauth_token.date,
-    )
-    .await?;
-
-    let xbox_token = xsts_authorize(
-        sisu_authorize.value,
-        &pair.token.token,
-        &pair.key,
-        sisu_authorize.date,
-    )
-    .await?;
-    let minecraft_token = minecraft_token(xbox_token.value).await?;
+    let minecraft_token =
+        minecraft_token_from_microsoft(&oauth_token.value.access_token).await?;
 
     minecraft_entitlements(&minecraft_token.access_token).await?;
 
@@ -279,31 +251,9 @@ impl Credentials {
         }
 
         let oauth_token = oauth_refresh(&self.refresh_token).await?;
-        let (pair, current_date) =
-            DeviceTokenPair::refresh_and_get_device_token(
-                oauth_token.date,
-                exec,
-            )
-            .await?;
-
-        let sisu_authorize = sisu_authorize(
-            None,
-            &oauth_token.value.access_token,
-            &pair.token.token,
-            &pair.key,
-            current_date,
-        )
-        .await?;
-
-        let xbox_token = xsts_authorize(
-            sisu_authorize.value,
-            &pair.token.token,
-            &pair.key,
-            sisu_authorize.date,
-        )
-        .await?;
-
-        let minecraft_token = minecraft_token(xbox_token.value).await?;
+        let minecraft_token =
+            minecraft_token_from_microsoft(&oauth_token.value.access_token)
+                .await?;
 
         self.access_token = minecraft_token.access_token;
         self.refresh_token = oauth_token.value.refresh_token;
@@ -692,136 +642,15 @@ impl Serialize for Credentials {
     }
 }
 
-pub struct DeviceTokenPair {
-    pub token: DeviceToken,
-    pub key: DeviceTokenKey,
-}
-
-impl DeviceTokenPair {
-    #[tracing::instrument(skip(exec))]
-    async fn refresh_and_get_device_token(
-        current_date: DateTime<Utc>,
-        exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
-    ) -> crate::Result<(Self, DateTime<Utc>)> {
-        let pair = Self::get(exec).await?;
-
-        if let Some(mut pair) = pair {
-            if pair.token.not_after > current_date {
-                Ok((pair, current_date))
-            } else {
-                let res = device_token(&pair.key, current_date).await?;
-
-                pair.token = res.value;
-                pair.upsert(exec).await?;
-
-                Ok((pair, res.date))
-            }
-        } else {
-            let key = generate_key()?;
-            let res = device_token(&key, current_date).await?;
-
-            let pair = Self {
-                key,
-                token: res.value,
-            };
-
-            pair.upsert(exec).await?;
-
-            Ok((pair, res.date))
-        }
-    }
-
-    async fn get(
-        exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite>,
-    ) -> crate::Result<Option<Self>> {
-        let res = sqlx::query!(
-            r#"
-            SELECT
-                uuid, private_key, x, y, issue_instant, not_after, token, json(display_claims) as "display_claims!: serde_json::Value"
-            FROM minecraft_device_tokens
-            "#
-        )
-            .fetch_optional(exec)
-            .await?;
-
-        if let Some(x) = res
-            && let Ok(uuid) = Uuid::parse_str(&x.uuid)
-            && let Ok(private_key) = SigningKey::from_pkcs8_pem(&x.private_key)
-        {
-            return Ok(Some(Self {
-                token: DeviceToken {
-                    issue_instant: Utc
-                        .timestamp_opt(x.issue_instant, 0)
-                        .single()
-                        .unwrap_or_else(Utc::now),
-                    not_after: Utc
-                        .timestamp_opt(x.not_after, 0)
-                        .single()
-                        .unwrap_or_else(Utc::now),
-                    token: x.token,
-                    display_claims: serde_json::from_value(x.display_claims)
-                        .unwrap_or_default(),
-                },
-                key: DeviceTokenKey {
-                    id: uuid,
-                    key: private_key,
-                    x: x.x,
-                    y: x.y,
-                },
-            }));
-        }
-
-        Ok(None)
-    }
-
-    pub async fn upsert(
-        &self,
-        exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite>,
-    ) -> crate::Result<()> {
-        let uuid = self.key.id.as_hyphenated().to_string();
-        let issue_instant = self.token.issue_instant.timestamp();
-        let not_after = self.token.not_after.timestamp();
-        let key = self
-            .key
-            .key
-            .to_pkcs8_pem(LineEnding::default())
-            .map_err(MinecraftAuthenticationError::PEMSerialize)?
-            .to_string();
-        let display_claims = serde_json::to_string(&self.token.display_claims)?;
-
-        sqlx::query!(
-            "
-            INSERT INTO minecraft_device_tokens (id, uuid, private_key, x, y, issue_instant, not_after, token, display_claims)
-            VALUES (0, $1, $2, $3, $4, $5, $6, $7, $8)
-            ON CONFLICT (id) DO UPDATE SET
-                uuid = $1,
-                private_key = $2,
-                x = $3,
-                y = $4,
-                issue_instant = $5,
-                not_after = $6,
-                token = $7,
-                display_claims = jsonb($8)
-            ",
-            uuid,
-            key,
-            self.key.x,
-            self.key.y,
-            issue_instant,
-            not_after,
-            self.token.token,
-            display_claims,
-        )
-            .execute(exec)
-            .await?;
-
-        Ok(())
-    }
-}
-
 const MICROSOFT_CLIENT_ID: &str = env!("MICROSOFT_CLIENT_ID");
-const AUTH_REPLY_URL: &str = "https://login.live.com/oauth20_desktop.srf";
-const REQUESTED_SCOPE: &str = "service::user.auth.xboxlive.com::MBI_SSL";
+// Personal Microsoft accounts only: Minecraft can't be owned by work/school ones.
+const MICROSOFT_AUTHORIZE_URL: &str =
+    "https://login.microsoftonline.com/consumers/oauth2/v2.0/authorize";
+const MICROSOFT_TOKEN_URL: &str =
+    "https://login.microsoftonline.com/consumers/oauth2/v2.0/token";
+const AUTH_REPLY_URL: &str =
+    "https://login.microsoftonline.com/common/oauth2/nativeclient";
+const REQUESTED_SCOPE: &str = "XboxLive.signin offline_access";
 pub const MINECRAFT_SERVICES_USER_AGENT: &str =
     "Orbiont (support@orbiont.gg; https://orbiont.gg)";
 
@@ -833,108 +662,11 @@ pub struct RequestWithDate<T> {
 // flow steps
 #[derive(Serialize, Deserialize, Clone, Debug)]
 #[serde(rename_all = "PascalCase")]
-pub struct DeviceToken {
+pub struct XboxToken {
     pub issue_instant: DateTime<Utc>,
     pub not_after: DateTime<Utc>,
     pub token: String,
     pub display_claims: HashMap<String, serde_json::Value>,
-}
-
-#[tracing::instrument(skip(key))]
-pub async fn device_token(
-    key: &DeviceTokenKey,
-    current_date: DateTime<Utc>,
-) -> Result<RequestWithDate<DeviceToken>, MinecraftAuthenticationError> {
-    let res = send_signed_request(
-        None,
-        "https://device.auth.xboxlive.com/device/authenticate",
-        "/device/authenticate",
-        json!({
-            "Properties": {
-                "AuthMethod": "ProofOfPossession",
-                "Id": format!("{{{}}}", key.id.to_string().to_uppercase()),
-                "DeviceType": "Win32",
-                "Version": "10.16.0",
-                "ProofKey": {
-                    "kty": "EC",
-                    "x": key.x,
-                    "y": key.y,
-                    "crv": "P-256",
-                    "alg": "ES256",
-                    "use": "sig"
-                }
-            },
-            "RelyingParty": "http://auth.xboxlive.com",
-            "TokenType": "JWT"
-
-        }),
-        key,
-        MinecraftAuthStep::GetDeviceToken,
-        current_date,
-    )
-    .await?;
-
-    Ok(RequestWithDate {
-        date: res.current_date,
-        value: res.body,
-    })
-}
-
-#[derive(Deserialize)]
-#[serde(rename_all = "PascalCase")]
-struct RedirectUri {
-    pub msa_oauth_redirect: String,
-}
-
-#[tracing::instrument(skip(key))]
-async fn sisu_authenticate(
-    token: &str,
-    challenge: &str,
-    key: &DeviceTokenKey,
-    current_date: DateTime<Utc>,
-) -> Result<(String, RequestWithDate<RedirectUri>), MinecraftAuthenticationError>
-{
-    let res = send_signed_request::<RedirectUri>(
-        None,
-        "https://sisu.xboxlive.com/authenticate",
-        "/authenticate",
-        json!({
-          "AppId": MICROSOFT_CLIENT_ID,
-          "DeviceToken": token,
-          "Offers": [
-            REQUESTED_SCOPE
-          ],
-          "Query": {
-            "code_challenge": challenge,
-            "code_challenge_method": "S256",
-            "state": generate_oauth_challenge(),
-            "prompt": "select_account"
-          },
-          "RedirectUri": AUTH_REPLY_URL,
-          "Sandbox": "RETAIL",
-          "TokenType": "code",
-          "TitleId": "1794566092",
-        }),
-        key,
-        MinecraftAuthStep::SisuAuthenticate,
-        current_date,
-    )
-    .await?;
-
-    let session_id = res
-        .headers
-        .get("X-SessionId")
-        .and_then(|x| x.to_str().ok())
-        .ok_or_else(|| MinecraftAuthenticationError::NoSessionId)?
-        .to_string();
-
-    Ok((
-        session_id,
-        RequestWithDate {
-            date: res.current_date,
-            value: res.body,
-        },
-    ))
 }
 
 #[derive(Deserialize)]
@@ -963,7 +695,7 @@ async fn oauth_token(
 
     let res = auth_retry(|| {
         INSECURE_REQWEST_CLIENT
-            .post("https://login.live.com/oauth20_token.srf")
+            .post(MICROSOFT_TOKEN_URL)
             .header("Accept", "application/json")
             .form(&query)
             .send()
@@ -1006,12 +738,11 @@ async fn oauth_refresh(
     query.insert("client_id", MICROSOFT_CLIENT_ID);
     query.insert("refresh_token", refresh_token);
     query.insert("grant_type", "refresh_token");
-    query.insert("redirect_uri", AUTH_REPLY_URL);
     query.insert("scope", REQUESTED_SCOPE);
 
     let res = auth_retry(|| {
         INSECURE_REQWEST_CLIENT
-            .post("https://login.live.com/oauth20_token.srf")
+            .post(MICROSOFT_TOKEN_URL)
             .header("Accept", "application/json")
             .form(&query)
             .send()
@@ -1046,90 +777,56 @@ async fn oauth_refresh(
     })
 }
 
-#[derive(Deserialize, Debug)]
-#[serde(rename_all = "PascalCase")]
-struct SisuAuthorize {
-    // pub authorization_token: DeviceToken,
-    // pub device_token: String,
-    // pub sandbox: String,
-    pub title_token: DeviceToken,
-    pub user_token: DeviceToken,
-    // pub web_page: String,
+/// Microsoft access token -> Xbox Live user token -> XSTS token -> Minecraft
+/// access token (the flow for launchers with their own, Mojang-approved
+/// Microsoft client ID).
+async fn minecraft_token_from_microsoft(
+    microsoft_access_token: &str,
+) -> Result<MinecraftToken, MinecraftAuthenticationError> {
+    let user_token = xbox_user_authenticate(microsoft_access_token).await?;
+    let xsts_token = xsts_authorize(&user_token.value.token).await?;
+    login_with_xbox(xsts_token.value).await
 }
 
-#[tracing::instrument(skip(key))]
-async fn sisu_authorize(
-    session_id: Option<&str>,
-    access_token: &str,
-    device_token: &str,
-    key: &DeviceTokenKey,
-    current_date: DateTime<Utc>,
-) -> Result<RequestWithDate<SisuAuthorize>, MinecraftAuthenticationError> {
-    let res = send_signed_request(
-        None,
-        "https://sisu.xboxlive.com/authorize",
-        "/authorize",
+#[tracing::instrument(skip(microsoft_access_token))]
+async fn xbox_user_authenticate(
+    microsoft_access_token: &str,
+) -> Result<RequestWithDate<XboxToken>, MinecraftAuthenticationError> {
+    post_json(
+        "https://user.auth.xboxlive.com/user/authenticate",
         json!({
-            "AccessToken": format!("t={access_token}"),
-            "AppId": MICROSOFT_CLIENT_ID,
-            "DeviceToken": device_token,
-            "ProofKey": {
-                "kty": "EC",
-                "x": key.x,
-                "y": key.y,
-                "crv": "P-256",
-                "alg": "ES256",
-                "use": "sig"
+            "Properties": {
+                "AuthMethod": "RPS",
+                "SiteName": "user.auth.xboxlive.com",
+                "RpsTicket": format!("d={microsoft_access_token}"),
             },
-            "Sandbox": "RETAIL",
-            "SessionId": session_id,
-            "SiteName": "user.auth.xboxlive.com",
-            "RelyingParty": "http://xboxlive.com",
-            "UseModernGamertag": true
+            "RelyingParty": "http://auth.xboxlive.com",
+            "TokenType": "JWT",
         }),
-        key,
-        MinecraftAuthStep::SisuAuthorize,
-        current_date,
+        MinecraftAuthStep::XboxUserAuthenticate,
     )
-    .await?;
-
-    Ok(RequestWithDate {
-        date: res.current_date,
-        value: res.body,
-    })
+    .await
 }
 
-#[tracing::instrument(skip(key))]
+#[tracing::instrument(skip(user_token))]
 async fn xsts_authorize(
-    authorize: SisuAuthorize,
-    device_token: &str,
-    key: &DeviceTokenKey,
-    current_date: DateTime<Utc>,
-) -> Result<RequestWithDate<DeviceToken>, MinecraftAuthenticationError> {
-    let res = send_signed_request(
-        None,
+    user_token: &str,
+) -> Result<RequestWithDate<XboxToken>, MinecraftAuthenticationError> {
+    // On failure Xbox answers 401 with an `XErr` code (no Xbox profile, child
+    // account, region...), which ends up in the error for the UI to explain.
+    post_json(
         "https://xsts.auth.xboxlive.com/xsts/authorize",
-        "/xsts/authorize",
         json!({
-            "RelyingParty": "rp://api.minecraftservices.com/",
-            "TokenType": "JWT",
             "Properties": {
                 "SandboxId": "RETAIL",
-                "UserTokens": [authorize.user_token.token],
-                "DeviceToken": device_token,
-                "TitleToken": authorize.title_token.token,
+                "UserTokens": [user_token],
             },
+            "RelyingParty": "rp://api.minecraftservices.com/",
+            "TokenType": "JWT",
         }),
-        key,
         MinecraftAuthStep::XstsAuthorize,
-        current_date,
     )
-    .await?;
-
-    Ok(RequestWithDate {
-        date: res.current_date,
-        value: res.body,
-    })
+    .await
 }
 
 #[derive(Deserialize)]
@@ -1140,11 +837,11 @@ struct MinecraftToken {
     // pub expires_in: u64,
 }
 
-#[tracing::instrument]
-async fn minecraft_token(
-    token: DeviceToken,
+#[tracing::instrument(skip(xsts_token))]
+async fn login_with_xbox(
+    xsts_token: XboxToken,
 ) -> Result<MinecraftToken, MinecraftAuthenticationError> {
-    let uhs = token
+    let uhs = xsts_token
         .display_claims
         .get("xui")
         .and_then(|x| x.get(0))
@@ -1152,41 +849,16 @@ async fn minecraft_token(
         .and_then(|x| x.as_str().map(String::from))
         .ok_or_else(|| MinecraftAuthenticationError::NoUserHash)?;
 
-    let token = token.token;
+    let res = post_json::<MinecraftToken>(
+        "https://api.minecraftservices.com/authentication/login_with_xbox",
+        json!({
+            "identityToken": format!("XBL3.0 x={uhs};{}", xsts_token.token),
+        }),
+        MinecraftAuthStep::MinecraftToken,
+    )
+    .await?;
 
-    let res = auth_retry(|| {
-        INSECURE_REQWEST_CLIENT
-            .post("https://api.minecraftservices.com/launcher/login")
-            .header("Accept", "application/json")
-            .header("User-Agent", MINECRAFT_SERVICES_USER_AGENT)
-            .json(&json!({
-                "platform": "PC_LAUNCHER",
-                "xtoken": format!("XBL3.0 x={uhs};{token}"),
-            }))
-            .send()
-    })
-    .await
-    .map_err(|source| MinecraftAuthenticationError::Request {
-        source,
-        step: MinecraftAuthStep::MinecraftToken,
-    })?;
-
-    let status = res.status();
-    let text = res.text().await.map_err(|source| {
-        MinecraftAuthenticationError::Request {
-            source,
-            step: MinecraftAuthStep::MinecraftToken,
-        }
-    })?;
-
-    serde_json::from_str(&text).map_err(|source| {
-        MinecraftAuthenticationError::DeserializeResponse {
-            source,
-            raw: text,
-            step: MinecraftAuthStep::MinecraftToken,
-            status_code: status,
-        }
-    })
+    Ok(res.value)
 }
 
 #[derive(
@@ -1500,127 +1172,41 @@ where
     resp
 }
 
-pub struct DeviceTokenKey {
-    pub id: Uuid,
-    pub key: SigningKey,
-    pub x: String,
-    pub y: String,
-}
-
-#[tracing::instrument]
-fn generate_key() -> Result<DeviceTokenKey, MinecraftAuthenticationError> {
-    let uuid = Uuid::new_v4();
-
-    let signing_key = SigningKey::random(&mut OsRng);
-    let public_key = VerifyingKey::from(&signing_key);
-
-    let encoded_point = public_key.to_encoded_point(false);
-
-    Ok(DeviceTokenKey {
-        id: uuid,
-        key: signing_key,
-        x: BASE64_URL_SAFE_NO_PAD.encode(
-            encoded_point.x().ok_or_else(|| {
-                MinecraftAuthenticationError::ReadingPublicKey
-            })?,
-        ),
-        y: BASE64_URL_SAFE_NO_PAD.encode(
-            encoded_point.y().ok_or_else(|| {
-                MinecraftAuthenticationError::ReadingPublicKey
-            })?,
-        ),
-    })
-}
-
-struct SignedRequestResponse<T> {
-    pub headers: HeaderMap,
-    pub current_date: DateTime<Utc>,
-    pub body: T,
-}
-
-#[tracing::instrument(skip(key))]
-async fn send_signed_request<T: DeserializeOwned>(
-    authorization: Option<&str>,
+#[tracing::instrument(skip(body))]
+async fn post_json<T: DeserializeOwned>(
     url: &str,
-    url_path: &str,
-    raw_body: serde_json::Value,
-    key: &DeviceTokenKey,
+    body: serde_json::Value,
     step: MinecraftAuthStep,
-    current_date: DateTime<Utc>,
-) -> Result<SignedRequestResponse<T>, MinecraftAuthenticationError> {
-    let auth = authorization.map_or(Vec::new(), |v| v.as_bytes().to_vec());
-
-    let body = serde_json::to_vec(&raw_body).map_err(|source| {
-        MinecraftAuthenticationError::SerializeBody { source, step }
-    })?;
-    let time: u128 =
-        { ((current_date.timestamp() as u128) + 11644473600) * 10000000 };
-
-    let mut buffer = Vec::new();
-    buffer.extend_from_slice(&1_u32.to_be_bytes()[..]);
-    buffer.push(0_u8);
-    buffer.extend_from_slice(&(time as u64).to_be_bytes()[..]);
-    buffer.push(0_u8);
-    buffer.extend_from_slice("POST".as_bytes());
-    buffer.push(0_u8);
-    buffer.extend_from_slice(url_path.as_bytes());
-    buffer.push(0_u8);
-    buffer.extend_from_slice(&auth);
-    buffer.push(0_u8);
-    buffer.extend_from_slice(&body);
-    buffer.push(0_u8);
-
-    let ecdsa_sig: Signature = key.key.sign(&buffer);
-
-    let mut sig_buffer = Vec::new();
-    sig_buffer.extend_from_slice(&1_i32.to_be_bytes()[..]);
-    sig_buffer.extend_from_slice(&(time as u64).to_be_bytes()[..]);
-    sig_buffer.extend_from_slice(&ecdsa_sig.r().to_bytes());
-    sig_buffer.extend_from_slice(&ecdsa_sig.s().to_bytes());
-
-    let signature = BASE64_STANDARD.encode(&sig_buffer);
-
+) -> Result<RequestWithDate<T>, MinecraftAuthenticationError> {
     let res = auth_retry(|| {
-        let mut request = INSECURE_REQWEST_CLIENT
+        INSECURE_REQWEST_CLIENT
             .post(url)
-            .header("Content-Type", "application/json; charset=utf-8")
             .header("Accept", "application/json")
-            .header("Signature", &signature);
-
-        if url != "https://sisu.xboxlive.com/authorize" {
-            request = request.header("x-xbl-contract-version", "1");
-        }
-
-        if let Some(auth) = authorization {
-            request = request.header("Authorization", auth);
-        }
-
-        request.body(body.clone()).send()
+            .header("User-Agent", MINECRAFT_SERVICES_USER_AGENT)
+            .json(&body)
+            .send()
     })
     .await
     .map_err(|source| MinecraftAuthenticationError::Request { source, step })?;
 
     let status = res.status();
-    let headers = res.headers().clone();
-
-    let current_date = get_date_header(&headers);
-
-    let body = res.text().await.map_err(|source| {
+    let current_date = get_date_header(res.headers());
+    let text = res.text().await.map_err(|source| {
         MinecraftAuthenticationError::Request { source, step }
     })?;
 
-    let body = serde_json::from_str(&body).map_err(|source| {
+    let value = serde_json::from_str(&text).map_err(|source| {
         MinecraftAuthenticationError::DeserializeResponse {
             source,
-            raw: body,
+            raw: text,
             step,
             status_code: status,
         }
     })?;
-    Ok(SignedRequestResponse {
-        headers,
-        current_date,
-        body,
+
+    Ok(RequestWithDate {
+        date: current_date,
+        value,
     })
 }
 

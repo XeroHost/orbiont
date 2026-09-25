@@ -19,15 +19,13 @@ export const minecraftAuthErrors: MinecraftAuthError[] = [
 		],
 	},
 	{
-		errorMatchers: ['Failed to deserialize response to JSON during step SisuAuthenticate:'],
+		errorMatchers: ['Failed to deserialize response to JSON during step XboxUserAuthenticate:'],
 		whatHappened:
-			'Xbox services rejected the first sign-in response. This is most often caused by your system clock or time zone being out of sync.',
+			'Xbox Live did not accept the Microsoft sign-in. This usually means the Microsoft account has never signed in to Xbox or needs to accept updated terms.',
 		stepsToFix: [
-			'Open your system date and time settings',
-			'Turn on automatic time zone and automatic time, if available',
-			'Use the sync option in your system settings to synchronize the clock',
-			`Restart ${productName}`,
-			'Try signing in again',
+			'Sign in once at <a href="https://www.xbox.com">Xbox.com</a> with the same Microsoft account',
+			'Accept any terms or complete any profile setup that is shown',
+			`Try signing in to ${productName} again`,
 		],
 	},
 	{
@@ -63,7 +61,7 @@ export const minecraftAuthErrors: MinecraftAuthError[] = [
 			'Sign in with the <a href="https://www.minecraft.net/en-us/download">official Minecraft Launcher</a>',
 			'Launch Minecraft: Java Edition once from the official launcher',
 			'Wait up to an hour if the purchase or profile setup was recent',
-			'Make sure you are using the Microsoft account that owns Minecraft. See <a href="https://support.modrinth.com/en/articles/9409136-finding-the-right-xbox-account">Finding the right Xbox account</a> for help',
+			'Make sure you are using the Microsoft account that owns Minecraft. You can check which account owns it at <a href="https://www.minecraft.net/en-us/login">minecraft.net</a>',
 			`Try signing in to ${productName} again`,
 		],
 	},
@@ -77,6 +75,7 @@ export const minecraftAuthErrors: MinecraftAuthError[] = [
 				'xbox.com',
 				'xboxlive.com',
 				'live.com',
+				'microsoftonline.com',
 			].some((domain) => message.includes(domain)),
 		whatHappened: `${productName} could not connect to a Microsoft, Xbox, or Minecraft service needed for sign-in. This is usually caused by a local network, DNS, proxy, firewall, hosts file, VPN, or antivirus issue.`,
 		stepsToFix: [

@@ -8,15 +8,12 @@ use crate::state::instances::{
 };
 use crate::state::{
     CacheValue, CachedEntry, CachedFile, CachedFileHash, CachedFileUpdate,
-    Credentials, DefaultPage, DependencyType, DeviceToken, DeviceTokenKey,
-    DeviceTokenPair, FileType, Hooks, InstanceInstallStage,
-    LauncherFeatureVersion, MemorySettings, ReleaseChannel, TeamMember, Theme,
-    VersionFile, WindowSize,
+    Credentials, DefaultPage, DependencyType, FileType, Hooks,
+    InstanceInstallStage, LauncherFeatureVersion, MemorySettings,
+    ReleaseChannel, TeamMember, Theme, VersionFile, WindowSize,
 };
 use crate::util::fetch::{IoSemaphore, read_json};
 use chrono::{DateTime, Utc};
-use p256::ecdsa::SigningKey;
-use p256::pkcs8::DecodePrivateKey;
 use serde::Deserialize;
 use std::collections::HashMap;
 use std::path::PathBuf;
@@ -115,29 +112,6 @@ where
                     expires: legacy_credentials.expires,
                     active: minecraft_auth.default_user == Some(uuid)
                         || minecraft_users_len == 1,
-                }
-                .upsert(exec)
-                .await?;
-            }
-
-            if let Some(device_token) = minecraft_auth.token
-                && let Ok(private_key) =
-                    SigningKey::from_pkcs8_pem(&device_token.private_key)
-                && let Ok(uuid) = Uuid::parse_str(&device_token.id)
-            {
-                DeviceTokenPair {
-                    token: DeviceToken {
-                        issue_instant: device_token.token.issue_instant,
-                        not_after: device_token.token.not_after,
-                        token: device_token.token.token,
-                        display_claims: device_token.token.display_claims,
-                    },
-                    key: DeviceTokenKey {
-                        id: uuid,
-                        key: private_key,
-                        x: device_token.x,
-                        y: device_token.y,
-                    },
                 }
                 .upsert(exec)
                 .await?;
@@ -744,7 +718,6 @@ struct LegacyModrinthCredentials {
 #[derive(Deserialize, Debug)]
 struct LegacyMinecraftAuthStore {
     pub users: HashMap<Uuid, LegacyCredentials>,
-    pub token: Option<LegacySaveDeviceToken>,
     pub default_user: Option<Uuid>,
 }
 
@@ -755,24 +728,6 @@ struct LegacyCredentials {
     pub access_token: String,
     pub refresh_token: String,
     pub expires: DateTime<Utc>,
-}
-
-#[derive(Deserialize, Debug)]
-struct LegacySaveDeviceToken {
-    pub id: String,
-    pub private_key: String,
-    pub x: String,
-    pub y: String,
-    pub token: LegacyDeviceToken,
-}
-
-#[derive(Deserialize, Clone, Debug)]
-#[serde(rename_all = "PascalCase")]
-struct LegacyDeviceToken {
-    pub issue_instant: DateTime<Utc>,
-    pub not_after: DateTime<Utc>,
-    pub token: String,
-    pub display_claims: HashMap<String, serde_json::Value>,
 }
 
 #[derive(Deserialize, Clone, Debug)]

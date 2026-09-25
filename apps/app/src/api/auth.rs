@@ -69,17 +69,42 @@ pub async fn login<R: Runtime>(
             return Ok(None);
         }
 
-        if window
-            .url()?
-            .as_str()
-            .starts_with("https://login.live.com/oauth20_desktop.srf")
-            && let Some((_, code)) =
-                window.url()?.query_pairs().find(|x| x.0 == "code")
-        {
-            window.close()?;
-            let val = minecraft_auth::finish_login(&code.clone(), flow).await?;
+        let url = window.url()?;
+        if url.as_str().starts_with(&flow.redirect_uri) {
+            let param = |name: &str| {
+                url.query_pairs()
+                    .find(|(key, _)| key == name)
+                    .map(|(_, value)| value.into_owned())
+            };
 
-            return Ok(Some(val));
+            if let Some(error) = param("error") {
+                window.close()?;
+                // The user backed out of the Microsoft sign-in page.
+                if error == "access_denied" {
+                    return Ok(None);
+                }
+                let description = param("error_description").unwrap_or(error);
+                return Err(theseus::ErrorKind::OtherError(format!(
+                    "Microsoft sign-in failed: {description}"
+                ))
+                .as_error()
+                .into());
+            }
+
+            if let Some(code) = param("code") {
+                window.close()?;
+                if param("state").as_deref() != Some(flow.state.as_str()) {
+                    return Err(theseus::ErrorKind::OtherError(
+                        "Microsoft sign-in returned an unexpected state"
+                            .to_string(),
+                    )
+                    .as_error()
+                    .into());
+                }
+                let val = minecraft_auth::finish_login(&code, flow).await?;
+
+                return Ok(Some(val));
+            }
         }
 
         tokio::time::sleep(std::time::Duration::from_millis(50)).await;

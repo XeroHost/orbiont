@@ -21,9 +21,7 @@ pub async fn check_reachable() -> crate::Result<()> {
 
 #[tracing::instrument]
 pub async fn begin_login() -> crate::Result<MinecraftLoginFlow> {
-    let state = State::get().await?;
-
-    crate::state::login_begin(&state.pool).await
+    crate::state::login_begin().await
 }
 
 #[tracing::instrument]
