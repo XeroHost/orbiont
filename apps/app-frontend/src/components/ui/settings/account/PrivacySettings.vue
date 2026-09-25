@@ -17,7 +17,7 @@ const messages = defineMessages({
 	discordRichPresenceDescription: {
 		id: 'app.settings.privacy.discord-rich-presence.description',
 		defaultMessage:
-			'Show {productName} as your current activity on Discord. This does not affect Rich Presence added to instances by mods. Requires an app restart.',
+			'Show {productName} as your current activity on Discord. This does not affect Rich Presence added to instances by mods.',
 	},
 })
 

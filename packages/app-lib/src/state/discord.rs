@@ -8,8 +8,15 @@ use tokio::sync::RwLock;
 
 use crate::State;
 
+// The Discord application (Developer Portal) decides the name and icon shown
+// on the user's profile. Empty until Orbiont has its own application, in which
+// case Rich Presence stays off instead of showing another app's name.
+const DISCORD_CLIENT_ID: &str = env!("DISCORD_CLIENT_ID");
+// Key of the art asset uploaded to that application (Rich Presence > Art Assets).
+const LARGE_IMAGE_KEY: &str = "orbiont";
+
 pub struct DiscordGuard {
-    client: Arc<RwLock<DiscordIpcClient>>,
+    client: Option<Arc<RwLock<DiscordIpcClient>>>,
     connected: Arc<AtomicBool>,
 }
 
@@ -17,10 +24,12 @@ impl DiscordGuard {
     /// Initialize discord IPC client, and attempt to connect to it
     /// If it fails, it will still return a DiscordGuard, but the client will be unconnected
     pub fn init() -> crate::Result<DiscordGuard> {
-        let dipc = DiscordIpcClient::new("1123683254248148992");
+        let client_id = DISCORD_CLIENT_ID.trim();
+        let client = (!client_id.is_empty())
+            .then(|| Arc::new(RwLock::new(DiscordIpcClient::new(client_id))));
 
         Ok(DiscordGuard {
-            client: Arc::new(RwLock::new(dipc)),
+            client,
             connected: Arc::new(AtomicBool::new(false)),
         })
     }
@@ -29,7 +38,10 @@ impl DiscordGuard {
     /// This MUST be called first in any client method that requires a connection, because those can PANIC if the client is not connected
     /// (No connection is different than a failed connection, the latter will not panic and can be retried)
     pub async fn retry_if_not_ready(&self) -> bool {
-        let mut client = self.client.write().await;
+        let Some(client) = &self.client else {
+            return false;
+        };
+        let mut client = client.write().await;
         if !self.connected.load(std::sync::atomic::Ordering::Relaxed) {
             if client.connect().is_ok() {
                 self.connected
@@ -70,16 +82,17 @@ impl DiscordGuard {
             return Ok(());
         }
 
-        let activity = Activity::new().state(msg).assets(
-            Assets::new()
-                .large_image("modrinth_simple")
-                .large_text("Modrinth Logo"),
-        );
+        let Some(client) = &self.client else {
+            return Ok(());
+        };
+        let activity = Activity::new()
+            .state(msg)
+            .assets(Assets::new().large_image(LARGE_IMAGE_KEY));
 
         // Attempt to set the activity
         // If the existing connection fails, attempt to reconnect and try again
         let mut client: tokio::sync::RwLockWriteGuard<'_, DiscordIpcClient> =
-            self.client.write().await;
+            client.write().await;
         let res = client.set_activity(activity.clone());
 
         if reconnect_if_fail {
@@ -104,9 +117,12 @@ impl DiscordGuard {
             return Ok(());
         }
 
+        let Some(client) = &self.client else {
+            return Ok(());
+        };
         // Attempt to clear the activity
         // If the existing connection fails, attempt to reconnect and try again
-        let mut client = self.client.write().await;
+        let mut client = client.write().await;
         let res = client.clear_activity();
 
         if reconnect_if_fail {
@@ -129,7 +145,6 @@ impl DiscordGuard {
 
         let settings = crate::state::Settings::get(&state.pool).await?;
         if !settings.discord_rpc {
-            println!("Discord is disabled, clearing activity");
             return self.clear_activity(true).await;
         }
 

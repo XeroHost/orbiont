@@ -102,7 +102,17 @@ pub async fn set(settings: Settings) -> crate::Result<()> {
         } else {
             false
         };
+    let discord_rpc_changed =
+        current_settings.discord_rpc != settings.discord_rpc;
     settings.update(&state.pool).await?;
+
+    // Apply the Rich Presence toggle right away (clear_to_default reads the
+    // setting just saved: it clears the activity, or shows it again).
+    if discord_rpc_changed
+        && let Err(error) = state.discord_rpc.clear_to_default(true).await
+    {
+        tracing::warn!("Couldn't update Discord Rich Presence: {error}");
+    }
 
     if shared_fullscreen_changed {
         let result =
