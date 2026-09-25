@@ -13,7 +13,7 @@ use crate::State;
 // case Rich Presence stays off instead of showing another app's name.
 const DISCORD_CLIENT_ID: &str = env!("DISCORD_CLIENT_ID");
 // Key of the art asset uploaded to that application (Rich Presence > Art Assets).
-const LARGE_IMAGE_KEY: &str = "orbiont";
+const LARGE_IMAGE_KEY: &str = "orbiont-icon-cyan-512x";
 
 pub struct DiscordGuard {
     client: Option<Arc<RwLock<DiscordIpcClient>>>,
