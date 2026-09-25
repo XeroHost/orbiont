@@ -1099,22 +1099,6 @@ pub async fn fetch_mirrors(
     unreachable!()
 }
 
-/// Posts a JSON to a URL
-#[tracing::instrument(skip(json_body, semaphore))]
-pub async fn post_json(
-    url: &str,
-    json_body: serde_json::Value,
-    semaphore: &FetchSemaphore,
-    exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite>,
-) -> crate::Result<()> {
-    let _permit = semaphore.0.acquire().await?;
-
-    let req = INSECURE_REQWEST_CLIENT.post(url).json(&json_body);
-
-    req.send().await?.error_for_status()?;
-    Ok(())
-}
-
 pub async fn read_json<T>(
     path: &Path,
     semaphore: &IoSemaphore,
