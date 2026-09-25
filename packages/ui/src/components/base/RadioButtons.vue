@@ -10,7 +10,7 @@
 			}"
 			@click="selected = item"
 		>
-			<RadioButtonCheckedIcon v-if="selected === item" class="text-brand h-5 w-5" />
+			<RadioButtonCheckedIcon v-if="selected === item" class="text-contrast h-5 w-5" />
 			<RadioButtonIcon v-else class="h-5 w-5" />
 			<slot :item="item" />
 		</button>

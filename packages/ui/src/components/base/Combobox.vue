@@ -156,19 +156,21 @@
 														:is="item.icon"
 														v-if="item.icon"
 														class="h-5 w-5"
-														:class="item.value === modelValue ? 'text-brand' : 'text-primary'"
+														:class="item.value === modelValue ? 'text-contrast' : 'text-primary'"
 													/>
 													<div class="flex flex-col gap-1.5">
 														<span
 															class="font-semibold leading-tight"
-															:class="item.value === modelValue ? 'text-brand' : 'text-primary'"
+															:class="item.value === modelValue ? 'text-contrast' : 'text-primary'"
 														>
 															{{ item.label }}
 														</span>
 														<span
 															v-if="item.subLabel"
 															class="text-sm"
-															:class="item.value === modelValue ? 'text-brand' : 'text-secondary'"
+															:class="
+																item.value === modelValue ? 'text-contrast' : 'text-secondary'
+															"
 														>
 															{{ item.subLabel }}
 														</span>

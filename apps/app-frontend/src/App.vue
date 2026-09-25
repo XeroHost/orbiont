@@ -203,13 +203,9 @@ const forceSidebar = computed(
 		route.path.startsWith('/project') ||
 		route.path.startsWith('/user'),
 )
-// Force-sidebar routes always teleport real content in; elsewhere the only
-// thing the sidebar can show is the logged-in Minecraft account card, so
-// there's no point reserving space for it (or letting it be toggled open)
-// when there's nothing to show — see the build plan's UI cleanup pass.
-const hasSidebarContent = computed(
-	() => forceSidebar.value || onboardingChecklist.hasLoggedIntoMinecraft.value,
-)
+// Only force-sidebar routes teleport content into the sidebar (the account
+// lives in the top bar), so elsewhere there's nothing to reserve space for.
+const hasSidebarContent = computed(() => forceSidebar.value)
 const sidebarVisible = computed(
 	() => forceSidebar.value || (sidebarToggled.value && hasSidebarContent.value),
 )
@@ -311,7 +307,14 @@ const {
 	(iconPath) =>
 		creationGeneratedIcon.value?.path === iconPath ? creationGeneratedIcon.value.config : null,
 )
-const { hasLoggedIntoMinecraft } = onboardingChecklist
+const { hasCreatedInstance, hasLoggedIntoMinecraft, isReady, showChecklist } = onboardingChecklist
+// Getting-started steps show inside the account menu until they're all done.
+const gettingStartedPending = computed(
+	() =>
+		isReady.value &&
+		showChecklist.value &&
+		(!hasCreatedInstance.value || !hasLoggedIntoMinecraft.value),
+)
 
 async function randomizeCreationIcon() {
 	const generated = await creationIconEditorModal.value?.randomizeAndSave()
@@ -537,10 +540,6 @@ const messages = defineMessages({
 	restarting: {
 		id: 'app.restarting',
 		defaultMessage: 'Restarting...',
-	},
-	playingAs: {
-		id: 'app.sidebar.playing-as',
-		defaultMessage: 'Playing as',
 	},
 })
 
@@ -1938,11 +1937,17 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 						<AppActionBar />
 					</Suspense>
 				</div>
-				<OnboardingChecklist
-					class="mr-3"
-					@create-instance="installationModal?.show()"
-					@login-minecraft="accounts?.login()"
-				/>
+				<Suspense>
+					<AccountsCard ref="accounts" class="mr-3">
+						<template v-if="gettingStartedPending" #extra="{ hide }">
+							<OnboardingChecklist
+								@done="hide()"
+								@create-instance="installationModal?.show()"
+								@login-minecraft="accounts?.login()"
+							/>
+						</template>
+					</AccountsCard>
+				</Suspense>
 				<WindowControls />
 			</section>
 		</div>
@@ -2016,19 +2021,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 				data-overlayscrollbars-initialize
 			>
 				<div id="sidebar-teleport-target" class="sidebar-teleport-content"></div>
-				<div class="sidebar-default-content" :class="{ 'sidebar-enabled': sidebarVisible }">
-					<div
-						v-show="hasLoggedIntoMinecraft"
-						class="p-4 border-0 border-b-[1px] border-[--brand-gradient-border] border-solid"
-					>
-						<h3 class="text-base text-primary font-medium m-0">
-							{{ formatMessage(messages.playingAs) }}
-						</h3>
-						<suspense>
-							<AccountsCard ref="accounts" />
-						</suspense>
-					</div>
-				</div>
+				<div class="sidebar-default-content" :class="{ 'sidebar-enabled': sidebarVisible }"></div>
 			</div>
 		</div>
 	</div>

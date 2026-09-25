@@ -17,7 +17,7 @@
 		>
 			<CheckIcon
 				v-if="selected === item && !hideCheckmarkIcon"
-				class="!text-brand"
+				class="!text-contrast"
 				aria-hidden="true"
 			/>
 			<span>{{ formatLabel(item) }}</span>
@@ -95,7 +95,7 @@ function toggleItem(item: T) {
 	}
 
 	.selected {
-		color: var(--color-brand);
+		color: var(--color-contrast);
 		background-color: var(--color-brand-highlight);
 		border: 1px solid var(--color-brand);
 	}

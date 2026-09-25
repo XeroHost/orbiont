@@ -186,7 +186,7 @@
 									</span>
 									<span
 										v-if="checkboxPosition === 'right'"
-										class="flex items-center justify-center shrink-0 text-brand"
+										class="flex items-center justify-center shrink-0 text-contrast"
 									>
 										<MinusIcon v-if="isIndeterminate" aria-hidden="true" class="size-5" />
 										<CheckIcon v-else-if="isAllSelected" aria-hidden="true" class="size-5" />
@@ -339,7 +339,7 @@
 											</slot>
 											<span
 												v-if="checkboxPosition === 'right'"
-												class="flex shrink-0 items-center justify-center text-brand"
+												class="flex shrink-0 items-center justify-center text-contrast"
 											>
 												<CheckIcon v-if="item.selected" aria-hidden="true" class="size-5" />
 											</span>
