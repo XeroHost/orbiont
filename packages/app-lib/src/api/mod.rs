@@ -30,8 +30,7 @@ pub mod data {
         JavaVersion, LinkedModpackInfo, MemorySettings, ModLoader,
         OnboardingChecklist, Organization, OwnerType, ProcessMetadata, Project,
         ProjectType, ProjectV3, SearchResult, SearchResults, SearchResultsV3,
-        Settings, TeamMember,
-        Theme, User, Version, WindowSize,
+        Settings, TeamMember, Theme, User, Version, WindowSize,
     };
     pub use content_management::{
         ContentType, ResolutionPreferences, ResolveContentPlan,

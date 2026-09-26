@@ -358,6 +358,8 @@ pub(crate) async fn remove_file(
     #[cfg(windows)]
     if metadata.is_file() && metadata.permissions().readonly() {
         let mut permissions = metadata.permissions();
+        // Windows only: there `set_readonly(false)` just clears the read-only attribute.
+        #[allow(clippy::permissions_set_readonly_false)]
         permissions.set_readonly(false);
         tokio::fs::set_permissions(path, permissions).await?;
     }

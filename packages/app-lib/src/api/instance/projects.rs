@@ -1,9 +1,7 @@
 use crate::event::emit::{emit_instance, emit_loading, init_loading};
 use crate::event::{InstancePayloadType, LoadingBarType};
 use crate::state::instances::adapters::sqlite::instance_rows;
-use crate::state::{
-    CacheBehaviour, CachedEntry, ProjectType, State,
-};
+use crate::state::{CacheBehaviour, CachedEntry, ProjectType, State};
 use crate::util::fetch;
 use content_management::{
     ContentType, ResolutionPreferences, ResolveContentPlan,
@@ -61,12 +59,7 @@ pub async fn update_project(
     skip_send_event: Option<bool>,
 ) -> crate::Result<String> {
     let state = State::get().await?;
-    ensure_project_modifiable(
-        instance_id,
-        project_path,
-        &state,
-    )
-    .await?;
+    ensure_project_modifiable(instance_id, project_path, &state).await?;
     ensure_project_not_frozen(instance_id, project_path, &state).await?;
     let path = crate::state::instances::commands::update_project(
         instance_id,
@@ -210,12 +203,7 @@ pub async fn switch_project_version_with_dependencies(
     version_id: &str,
 ) -> crate::Result<String> {
     let state = State::get().await?;
-    ensure_project_modifiable(
-        instance_id,
-        project_path,
-        &state,
-    )
-    .await?;
+    ensure_project_modifiable(instance_id, project_path, &state).await?;
     ensure_project_not_frozen(instance_id, project_path, &state).await?;
     let metadata = super::get::get(instance_id).await?.ok_or_else(|| {
         crate::ErrorKind::InputError("Unknown instance".to_string())
@@ -282,8 +270,7 @@ pub async fn toggle_disable_project(
     desired_enabled: Option<bool>,
 ) -> crate::Result<String> {
     let state = State::get().await?;
-    ensure_project_modifiable(instance_id, project, &state)
-        .await?;
+    ensure_project_modifiable(instance_id, project, &state).await?;
     let res = crate::state::instances::commands::toggle_disable_project(
         instance_id,
         project,
@@ -305,8 +292,7 @@ pub async fn remove_project(
     project: &str,
 ) -> crate::Result<()> {
     let state = State::get().await?;
-    ensure_project_modifiable(instance_id, project, &state)
-        .await?;
+    ensure_project_modifiable(instance_id, project, &state).await?;
     crate::state::instances::commands::remove_project(
         instance_id,
         project,
@@ -328,8 +314,7 @@ pub async fn set_project_locked(
     locked: bool,
 ) -> crate::Result<()> {
     let state = State::get().await?;
-    ensure_project_modifiable(instance_id, project, &state)
-        .await?;
+    ensure_project_modifiable(instance_id, project, &state).await?;
     crate::state::instances::commands::set_project_locked(
         instance_id,
         project,

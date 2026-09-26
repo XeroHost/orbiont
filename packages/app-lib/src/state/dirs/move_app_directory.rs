@@ -585,6 +585,15 @@ pub(crate) async fn remove_migrated_tree(root: &Path) -> crate::Result<()> {
                 }
             } else if metadata.is_file() && metadata.permissions().readonly() {
                 let mut permissions = metadata.permissions();
+                // Owner write only: `set_readonly(false)` on Unix would make
+                // the file writable by everyone.
+                #[cfg(unix)]
+                {
+                    use std::os::unix::fs::PermissionsExt;
+                    permissions.set_mode(permissions.mode() | 0o200);
+                }
+                #[cfg(not(unix))]
+                #[allow(clippy::permissions_set_readonly_false)]
                 permissions.set_readonly(false);
                 fs::set_permissions(path, permissions).await?;
             }

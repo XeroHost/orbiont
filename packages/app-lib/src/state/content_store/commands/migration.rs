@@ -343,6 +343,8 @@ fn replace_file_copy(
             .open(destination)?;
         let permissions = file.metadata()?.permissions();
         let mut writable = permissions.clone();
+        // Windows only: there `set_readonly(false)` just clears the read-only attribute.
+        #[allow(clippy::permissions_set_readonly_false)]
         writable.set_readonly(false);
         file.set_permissions(writable)?;
         (file, permissions)

@@ -1,11 +1,10 @@
 #![allow(dead_code)]
 
 use crate::state::instances::{
-    ContentSet, ContentSetStatus, ContentSourceKind,
-    Instance, InstanceIconBackground, InstanceIconConfig,
-    InstanceLaunchContext, InstanceLaunchOverrides,
-    InstanceLaunchOverridesData, InstanceLink, InstanceSyncedOption,
-    InstanceSyncedOptions, playtime_to_storage,
+    ContentSet, ContentSetStatus, ContentSourceKind, Instance,
+    InstanceIconBackground, InstanceIconConfig, InstanceLaunchContext,
+    InstanceLaunchOverrides, InstanceLaunchOverridesData, InstanceLink,
+    InstanceSyncedOption, InstanceSyncedOptions, playtime_to_storage,
 };
 use crate::state::{
     InstanceInstallStage, LauncherFeatureVersion, ModLoader, ReleaseChannel,

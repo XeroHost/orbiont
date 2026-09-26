@@ -2,8 +2,7 @@
 
 use crate::state::instances::{
     ContentEntry, ContentRequirement, ContentSet, ContentSetStatus,
-    ContentSourceKind,
-    ContentUpdateCheck, InstanceFile,
+    ContentSourceKind, ContentUpdateCheck, InstanceFile,
 };
 use crate::state::{ModLoader, ProjectType, ReleaseChannel};
 use chrono::{DateTime, TimeZone, Utc};

@@ -8,9 +8,7 @@ use super::store;
 use crate::event::InstancePayloadType;
 use crate::event::emit::emit_instance;
 use crate::state::instances::adapters::sqlite::{content_rows, instance_rows};
-use crate::state::{
-    ContentEntry, InstanceFile, InstanceMetadata, State,
-};
+use crate::state::{ContentEntry, InstanceFile, InstanceMetadata, State};
 use async_walkdir::WalkDir;
 use futures::StreamExt;
 use serde::{Deserialize, Serialize};
@@ -160,17 +158,16 @@ async fn recover_unrecorded_instance_update_backup(
     if !tokio::fs::try_exists(&staging_dir).await? {
         return Ok(());
     }
-    let snapshot = match crate::util::io::read(
-        staging_dir.join(UPDATE_ROLLBACK_FILE),
-    )
-    .await
-    {
-        Ok(bytes) => {
-            serde_json::from_slice::<InstanceUpdateRollback>(&bytes).ok()
-        }
-        Err(error) if error.kind() == std::io::ErrorKind::NotFound => None,
-        Err(error) => return Err(error.into()),
-    };
+    let snapshot =
+        match crate::util::io::read(staging_dir.join(UPDATE_ROLLBACK_FILE))
+            .await
+        {
+            Ok(bytes) => {
+                serde_json::from_slice::<InstanceUpdateRollback>(&bytes).ok()
+            }
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => None,
+            Err(error) => return Err(error.into()),
+        };
     if snapshot.is_some() {
         job.state.paths.staging_dir = Some(staging_dir);
     } else {
@@ -223,8 +220,7 @@ async fn restore_instance_update(
     }
     state.content_store.recover(Some(instance_id)).await?;
     let snapshot = serde_json::from_slice::<InstanceUpdateRollback>(
-        &crate::util::io::read(staging_dir.join(UPDATE_ROLLBACK_FILE))
-            .await?,
+        &crate::util::io::read(staging_dir.join(UPDATE_ROLLBACK_FILE)).await?,
     )?;
     let instance_path = state
         .directories

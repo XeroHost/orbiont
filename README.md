@@ -20,17 +20,17 @@ repo (`orbiont-catalog`); en local el launcher lo espera en
 
 ## Estructura
 
-| Ruta                   | Qué es                                            |
-| ---------------------- | ------------------------------------------------- |
-| `apps/app`             | Shell de Tauri (Rust): ventana, comandos, updater |
-| `apps/app-frontend`    | UI del launcher (Vue 3)                           |
-| `packages/app-lib`     | Núcleo (Rust): instancias, instalación, auth      |
-| `packages/ui`          | Componentes Vue compartidos                       |
-| `packages/assets`      | Iconos y estilos                                  |
-| `packages/branding`    | Nombre, identificadores y colores de la marca     |
-| `packages/api-client`  | Cliente tipado de la API de contenido             |
-| `packages/daedalus`    | Tipos de metadata de Minecraft/loaders            |
-| `packages/*` (resto)   | Librerías Rust que usa `app-lib`                  |
+| Ruta                  | Qué es                                            |
+| --------------------- | ------------------------------------------------- |
+| `apps/app`            | Shell de Tauri (Rust): ventana, comandos, updater |
+| `apps/app-frontend`   | UI del launcher (Vue 3)                           |
+| `packages/app-lib`    | Núcleo (Rust): instancias, instalación, auth      |
+| `packages/ui`         | Componentes Vue compartidos                       |
+| `packages/assets`     | Iconos y estilos                                  |
+| `packages/branding`   | Nombre, identificadores y colores de la marca     |
+| `packages/api-client` | Cliente tipado de la API de contenido             |
+| `packages/daedalus`   | Tipos de metadata de Minecraft/loaders            |
+| `packages/*` (resto)  | Librerías Rust que usa `app-lib`                  |
 
 ## Créditos y licencia
 

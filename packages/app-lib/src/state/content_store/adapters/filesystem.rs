@@ -97,6 +97,7 @@ async fn make_writable(destination: &Path) -> crate::Result<()> {
         permissions.set_mode(permissions.mode() | 0o200);
     }
     #[cfg(not(unix))]
+    #[allow(clippy::permissions_set_readonly_false)]
     permissions.set_readonly(false);
     fs::set_permissions(destination, permissions).await?;
     Ok(())
@@ -172,6 +173,8 @@ pub(crate) async fn remove_instance_file(path: &Path) -> crate::Result<()> {
                 .open(&path)?;
             let original = file.metadata()?.permissions();
             let mut writable = original.clone();
+            // Windows only: there `set_readonly(false)` just clears the read-only attribute.
+            #[allow(clippy::permissions_set_readonly_false)]
             writable.set_readonly(false);
             file.set_permissions(writable)?;
             let removed = std::fs::remove_file(path);

@@ -56,8 +56,7 @@ impl ContentMetadataProvider for CachedEntryContentProvider<'_> {
     async fn get_version(
         &mut self,
         version_id: &str,
-    ) -> Result<Option<content_management::Version>, ResolveError>
-    {
+    ) -> Result<Option<content_management::Version>, ResolveError> {
         let version = CachedEntry::get_version(
             version_id,
             self.cache_behaviour,
@@ -99,9 +98,7 @@ fn resolver_error(error: ResolveError) -> crate::Error {
     crate::ErrorKind::InputError(error.to_string()).into()
 }
 
-fn version_to_resolver(
-    version: Version,
-) -> content_management::Version {
+fn version_to_resolver(version: Version) -> content_management::Version {
     content_management::Version {
         id: version.id,
         project_id: version.project_id,

@@ -5,66 +5,15 @@ on:
     branches: [main]
   pull_request:
     types: [opened, synchronize]
-  merge_group:
-    types: [checks_requested]
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/prod' }}
+  cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
-  skip-if-clean:
-    name: Skip if merge_queue produces no diff
-    runs-on: ubuntu-latest
-    outputs:
-      skip: ${{ steps.check.outputs.skip }}
-      internal: ${{ steps.check-internal.outputs.internal }}
-    if: ${{ always() }}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Check if workflow runs on an internal branch
-        id: check-internal
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          HEAD_REPO: ${{ github.event.pull_request.head.repo.full_name }}
-          REPO: ${{ github.repository }}
-        run: |
-          if [ "$EVENT_NAME" != "pull_request" ] || [ "$HEAD_REPO" = "$REPO" ]; then
-            echo "internal=true" >> $GITHUB_OUTPUT
-          else
-            echo "internal=false" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Merge Queue CI Check Skipper
-        id: merge-queue-ci-skipper
-        uses: ./.github/merge-queue-ci-skipper
-        with:
-          secret: ${{ secrets.GH_ACCESS_TOKEN }}
-
-      - name: Check merge_group synthetic commit
-        id: check
-        env:
-          EVENT_NAME: ${{ github.event_name }}
-          SKIP_CHECK: ${{ steps.merge-queue-ci-skipper.outputs.skip-check }}
-        run: |
-          if [ "$EVENT_NAME" != "merge_group" ]; then
-            echo "skip=false" >> $GITHUB_OUTPUT
-            exit 0
-          fi
-
-          if [ "$SKIP_CHECK" = "true" ]; then
-            echo "skip=true" >> $GITHUB_OUTPUT
-          else
-            echo "skip=false" >> $GITHUB_OUTPUT
-          fi
-
   build:
     name: Lint and Test
-    runs-on: ${{ needs.skip-if-clean.outputs.internal == 'true' && 'namespace-profile-modrinth-turbo' || 'ubuntu-latest' }}
-    needs: [skip-if-clean]
-    if: ${{ needs.skip-if-clean.outputs.skip != 'true' }}
+    runs-on: ubuntu-latest
 
     env:
       # Ensure pnpm output is colored in GitHub Actions logs
@@ -76,10 +25,7 @@ jobs:
       # since we don't want warnings to become errors
       # while developing)
       RUSTFLAGS: -Dwarnings
-      # Redis config for tests
-      REDIS_TOPOLOGY: cluster
-      REDIS_CONNECTION_TYPE: multiplexed
-      REDIS_URL: redis://127.0.0.1:7000,redis://127.0.0.1:7001,redis://127.0.0.1:7002,redis://127.0.0.1:7003,redis://127.0.0.1:7004,redis://127.0.0.1:7005
+      SQLX_OFFLINE: true
       # Avoid stack overflows in tests
       RUST_MIN_STACK: 134217728
 
@@ -97,19 +43,6 @@ jobs:
       - name: Enable Corepack
         run: corepack enable
 
-      - name: Set up caches
-        if: needs.skip-if-clean.outputs.internal == 'true'
-        uses: namespacelabs/nscloud-cache-action@c5f8dab7560444c4bf8dbc64f1b203431873c547 # v1.6.1
-        with:
-          cache: |
-            rust
-            pnpm
-            apt
-
-      - name: Set up Turborepo caching
-        if: needs.skip-if-clean.outputs.internal == 'true'
-        uses: namespace-actions/setup-turbocache@f96bd6befa13ae74b2858a5be49573640d4636f5 # v0.0.2
-
       - name: Install apt dependencies
         run: |
           sudo apt-get update
@@ -120,26 +53,18 @@ jobs:
         with:
           rustflags: ''
           components: clippy, rustfmt
-          cache: false
 
-      - name: Setup mold
-        uses: rui314/setup-mold@9c9c13bf4c3f1adef0cc596abc155580bcb04444 # v1 / Mold 2.41.0
+      - name: Setup Java
+        uses: actions/setup-java@03ad4de0992f5dab5e18fcb136590ce7c4a0ac95 # v5.6.0
+        with:
+          distribution: temurin
+          java-version: 17
 
       - name: Setup binstall
         uses: cargo-bins/cargo-binstall@ead08b90bd7b2e6d81963fb9cf0b7239f66d5db4 # v1.21.0
 
       - name: Setup nextest
         run: cargo binstall --no-confirm --secure --locked cargo-nextest@0.9.133
-
-      # cargo-binstall does not have pre-built binaries for sqlx-cli, so we fall
-      # back to a cached cargo install
-      - name: Setup cargo-sqlx
-        uses: taiki-e/cache-cargo-install-action@417450f3c33ee20393705369577571770643d4c7 # v3.0.7
-        with:
-          tool: sqlx-cli@0.8.6
-          locked: false
-          no-default-features: true
-          features: rustls,postgres
 
       - name: Install dependencies
         run: pnpm install

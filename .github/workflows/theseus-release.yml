@@ -5,8 +5,12 @@ on:
     types: [completed]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: ${{ github.ref != 'refs/heads/main' && github.ref != 'refs/heads/prod' }}
+  group: ${{ github.workflow }}-${{ github.event.workflow_run.head_branch }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  actions: read
 
 jobs:
   release:
@@ -15,34 +19,34 @@ jobs:
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.event == 'push' &&
       startsWith(github.event.workflow_run.head_branch, 'v')
-    runs-on: namespace-profile-medium-amd64
+    runs-on: ubuntu-latest
     env:
       VERSION_TAG: ${{ github.event.workflow_run.head_branch }}
-      LINUX_X64_BUNDLE_ARTIFACT_NAME: App bundle (x86_64-unknown-linux-gnu)
-      WINDOWS_X64_BUNDLE_ARTIFACT_NAME: App bundle (x86_64-pc-windows-msvc)
-      MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME: App bundle (universal-apple-darwin)
-      LAUNCHER_FILES_BUCKET_BASE_URL: https://xerohost.net/orbiont
+      LINUX: App bundle (x86_64-unknown-linux-gnu)
+      WINDOWS: App bundle (x86_64-pc-windows-msvc)
+      MACOS: App bundle (universal-apple-darwin)
+      # Installers and update bundles are published as GitHub release assets.
+      DOWNLOAD_BASE_URL: https://github.com/${{ github.repository }}/releases/download/${{ github.event.workflow_run.head_branch }}
 
     steps:
       - name: Check out code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
 
       - name: Verify ref is a tag
         env:
           GH_TOKEN: ${{ github.token }}
           HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
         run: |
-          tag_sha=$(gh api "repos/${{ github.repository }}/git/refs/tags/${VERSION_TAG}" --jq '.object.sha' 2>/dev/null || true)
-          if [ -z "$tag_sha" ]; then
+          commit_sha=$(git rev-list -n 1 "refs/tags/${VERSION_TAG}" 2>/dev/null || true)
+          if [ -z "$commit_sha" ]; then
             echo "::error::${VERSION_TAG} is not a git tag in this repo"
             exit 1
           fi
-          if [ "$tag_sha" != "$HEAD_SHA" ]; then
-            commit_sha=$(gh api "repos/${{ github.repository }}/git/tags/${tag_sha}" --jq '.object.sha' 2>/dev/null || echo "$tag_sha")
-            if [ "$commit_sha" != "$HEAD_SHA" ]; then
-              echo "::error::Tag ${VERSION_TAG} (${commit_sha}) does not match build head_sha (${HEAD_SHA})"
-              exit 1
-            fi
+          if [ "$commit_sha" != "$HEAD_SHA" ]; then
+            echo "::error::Tag ${VERSION_TAG} (${commit_sha}) does not match build head_sha (${HEAD_SHA})"
+            exit 1
           fi
           echo "Verified ${VERSION_TAG} is a tag pointing at ${HEAD_SHA}"
 
@@ -50,110 +54,101 @@ jobs:
         uses: dawidd6/action-download-artifact@b6e2e70617bc3265edd6dab6c906732b2f1ae151 # v21
         with:
           workflow: theseus-build.yml
-          workflow_conclusion: success
-          event: push
-          branch: ${{ env.VERSION_TAG }}
+          run_id: ${{ github.event.workflow_run.id }}
           use_unzip: true
 
-      - name: Extract app changelog
-        env:
-          GH_TOKEN: ${{ github.token }}
-          VERSION: ${{ env.VERSION_TAG }}
+      - name: Collect release files
+        shell: bash
         run: |
-          LAST_GITHUB_RELEASE_PUBLISHED_AT=$(gh api "repos/${{ github.repository }}/releases/latest" --jq '.published_at // ""' 2>/dev/null || true)
-          LAST_GITHUB_RELEASE_PUBLISHED_AT="$LAST_GITHUB_RELEASE_PUBLISHED_AT" npx --yes tsx scripts/build-theseus-release-notes.ts
+          set -euo pipefail
+          shopt -s nullglob
+          mkdir -p dist
 
-      - name: Generate version manifest
+          # Exactly one file must match each pattern.
+          pick() {
+            local matches=( $1 )
+            if [ "${#matches[@]}" -ne 1 ]; then
+              echo "::error::Expected one file for '$1', found ${#matches[@]}"
+              exit 1
+            fi
+            cp "${matches[0]}" dist/
+            basename "${matches[0]}"
+          }
+
+          echo "WINDOWS_SETUP=$(pick "${WINDOWS}/release/bundle/nsis/Orbiont_*_x64-setup.exe")" >> "$GITHUB_ENV"
+          echo "WINDOWS_UPDATE=$(pick "${WINDOWS}/release/bundle/nsis/Orbiont_*_x64-setup.nsis.zip")" >> "$GITHUB_ENV"
+          pick "${WINDOWS}/release/bundle/nsis/Orbiont_*_x64-setup.nsis.zip.sig" > /dev/null
+          echo "MACOS_DMG=$(pick "${MACOS}/universal-apple-darwin/release/bundle/dmg/Orbiont_*.dmg")" >> "$GITHUB_ENV"
+          echo "MACOS_UPDATE=$(pick "${MACOS}/universal-apple-darwin/release/bundle/macos/Orbiont.app.tar.gz")" >> "$GITHUB_ENV"
+          pick "${MACOS}/universal-apple-darwin/release/bundle/macos/Orbiont.app.tar.gz.sig" > /dev/null
+          echo "LINUX_APPIMAGE=$(pick "${LINUX}/release/bundle/appimage/Orbiont_*.AppImage")" >> "$GITHUB_ENV"
+          echo "LINUX_UPDATE=$(pick "${LINUX}/release/bundle/appimage/Orbiont_*.AppImage.tar.gz")" >> "$GITHUB_ENV"
+          pick "${LINUX}/release/bundle/appimage/Orbiont_*.AppImage.tar.gz.sig" > /dev/null
+          echo "LINUX_DEB=$(pick "${LINUX}/release/bundle/deb/Orbiont_*.deb")" >> "$GITHUB_ENV"
+          echo "LINUX_RPM=$(pick "${LINUX}/release/bundle/rpm/Orbiont-*.rpm")" >> "$GITHUB_ENV"
+          ls -la dist
+
+      - name: Write release notes
+        run: |
+          # Release notes are the tag's annotation message.
+          git tag -l --format='%(contents)' "${VERSION_TAG}" | sed '/-----BEGIN PGP SIGNATURE-----/,$d' > release-notes.md
+          if [ ! -s release-notes.md ]; then
+            echo "Orbiont ${VERSION_TAG#v}" > release-notes.md
+          fi
+          cat release-notes.md
+
+      - name: Generate update manifest
         run: |
           # Reference: https://tauri.app/plugin/updater/#server-support
           jq -nc \
-            --arg versionTag "${VERSION_TAG#v}" \
-            --rawfile releaseNotes release-notes.md \
-            --rawfile macOsAarch64UpdateArtifactSignature "${MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME}/universal-apple-darwin/release/bundle/macos/Orbiont.app.tar.gz.sig" \
-            --rawfile macOsX64UpdateArtifactSignature "${MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME}/universal-apple-darwin/release/bundle/macos/Orbiont.app.tar.gz.sig" \
-            --rawfile linuxX64UpdateArtifactSignature "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/appimage/Orbiont_${VERSION_TAG#v}_amd64.AppImage.tar.gz.sig" \
-            --rawfile windowsX64UpdateArtifactSignature "${WINDOWS_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/nsis/Orbiont_${VERSION_TAG#v}_x64-setup.nsis.zip.sig" \
+            --arg version "${VERSION_TAG#v}" \
+            --arg base "${DOWNLOAD_BASE_URL}" \
+            --arg macUpdate "${MACOS_UPDATE}" --arg macDmg "${MACOS_DMG}" \
+            --arg linuxUpdate "${LINUX_UPDATE}" --arg linuxAppImage "${LINUX_APPIMAGE}" \
+            --arg linuxDeb "${LINUX_DEB}" --arg linuxRpm "${LINUX_RPM}" \
+            --arg winUpdate "${WINDOWS_UPDATE}" --arg winSetup "${WINDOWS_SETUP}" \
+            --rawfile notes release-notes.md \
+            --rawfile macSig "dist/${MACOS_UPDATE}.sig" \
+            --rawfile linuxSig "dist/${LINUX_UPDATE}.sig" \
+            --rawfile winSig "dist/${WINDOWS_UPDATE}.sig" \
           '{
-            "version": $versionTag,
-            "notes": $releaseNotes,
+            "version": $version,
+            "notes": $notes,
             "pub_date": now | todateiso8601,
             "platforms": {
               "darwin-aarch64": {
-                "signature": $macOsAarch64UpdateArtifactSignature,
-                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Orbiont.app.tar.gz")",
-                "install_urls": [@uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Orbiont_" + $versionTag + "_universal.dmg")"]
+                "signature": $macSig,
+                "url": "\($base)/\($macUpdate)",
+                "install_urls": ["\($base)/\($macDmg)"]
               },
               "darwin-x86_64": {
-                "signature": $macOsX64UpdateArtifactSignature,
-                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Orbiont.app.tar.gz")",
-                "install_urls": [@uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Orbiont_" + $versionTag + "_universal.dmg")"]
+                "signature": $macSig,
+                "url": "\($base)/\($macUpdate)",
+                "install_urls": ["\($base)/\($macDmg)"]
               },
               "linux-x86_64": {
-                "signature": $linuxX64UpdateArtifactSignature,
-                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Orbiont_" + $versionTag + "_amd64.AppImage.tar.gz")",
-                "install_urls": [
-                  @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Orbiont_" + $versionTag + "_amd64.deb")",
-                  @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Orbiont_" + $versionTag + "_amd64.AppImage")",
-                  @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Orbiont-" + $versionTag + "-1.x86_64.rpm")"
-                ]
+                "signature": $linuxSig,
+                "url": "\($base)/\($linuxUpdate)",
+                "install_urls": ["\($base)/\($linuxDeb)", "\($base)/\($linuxAppImage)", "\($base)/\($linuxRpm)"]
               },
               "windows-x86_64": {
-                "signature": $windowsX64UpdateArtifactSignature,
-                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/windows/\("Orbiont_" + $versionTag + "_x64-setup.nsis.zip")",
-                "install_urls": [@uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/windows/\("Orbiont_" + $versionTag + "_x64-setup.exe")"]
+                "signature": $winSig,
+                "url": "\($base)/\($winUpdate)",
+                "install_urls": ["\($base)/\($winSetup)"]
               }
             }
-          }' > updates.json
+          }' > dist/updates.json
 
-          echo "Generated manifest for version ${VERSION_TAG}:"
-          cat updates.json
-
-      - name: Upload release artifacts
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.LAUNCHER_FILES_BUCKET_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.LAUNCHER_FILES_BUCKET_SECRET_ACCESS_KEY }}
-          AWS_BUCKET: ${{ secrets.LAUNCHER_FILES_BUCKET_NAME }}
-          AWS_REGION: ${{ secrets.LAUNCHER_FILES_BUCKET_REGION }}
-          AWS_ENDPOINT_URL: ${{ secrets.LAUNCHER_FILES_BUCKET_ENDPOINT_URL }}
-          AWS_PAGER: ''
-          # Work around incompatible checksum behavior with some S3-like object storage providers,
-          # such as Cloudflare R2. See:
-          # - https://developers.cloudflare.com/r2/examples/aws/aws-cli/
-          # - https://developers.cloudflare.com/r2/examples/aws/aws-sdk-java/
-          AWS_REQUEST_CHECKSUM_CALCULATION: when_required
-          AWS_RESPONSE_CHECKSUM_VALIDATION: when_required
-        run: |
-          for macosBundleType in 'macos' 'dmg'; do
-            aws s3 cp --recursive \
-              "${MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME}/universal-apple-darwin/release/bundle/${macosBundleType}" \
-              "s3://${AWS_BUCKET}/versions/${VERSION_TAG#v}/macos"
-          done
-
-          for linuxBundleType in 'appimage' 'deb' 'rpm'; do
-            aws s3 cp --recursive \
-              "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/${linuxBundleType}" \
-              "s3://${AWS_BUCKET}/versions/${VERSION_TAG#v}/linux"
-          done
-
-          for windowsBundleType in 'nsis'; do
-            aws s3 cp --recursive \
-              "${WINDOWS_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/${windowsBundleType}" \
-              "s3://${AWS_BUCKET}/versions/${VERSION_TAG#v}/windows"
-          done
-
-          aws s3 cp updates.json "s3://${AWS_BUCKET}"
+          cat dist/updates.json
 
       - name: Create GitHub release
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          VERSION="${VERSION_TAG#v}"
-
+          # The newest release is marked "latest" so that
+          # releases/latest/download/updates.json always serves the current manifest.
           gh release create "$VERSION_TAG" \
-            --title "Orbiont ${VERSION}" \
+            --title "Orbiont ${VERSION_TAG#v}" \
             --notes-file release-notes.md \
-            "${WINDOWS_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/nsis/Orbiont_${VERSION}_x64-setup.exe" \
-            "${MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME}/universal-apple-darwin/release/bundle/dmg/Orbiont_${VERSION}_universal.dmg" \
-            "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/appimage/Orbiont_${VERSION}_amd64.AppImage" \
-            "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/deb/Orbiont_${VERSION}_amd64.deb" \
-            "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/rpm/Orbiont-${VERSION}-1.x86_64.rpm"
+            --latest \
+            dist/*
