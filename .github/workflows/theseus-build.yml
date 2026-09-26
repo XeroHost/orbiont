@@ -21,14 +21,6 @@ on:
         type: boolean
         default: false
         required: false
-      environment:
-        description: Environment
-        type: choice
-        options:
-          - prod
-          - staging
-        default: prod
-        required: false
       app-version-override:
         description: Temporary app version override for updater testing
         type: string
@@ -42,7 +34,6 @@ jobs:
   build:
     name: Build
     env:
-      VITE_STRIPE_PUBLISHABLE_KEY: pk_live_51JbFxJJygY5LJFfKLVVldb10HlLt24p421OWRsTOWc5sXYFOnFUXWieSc6HD3PHo25ktx8db1WcHr36XGFvZFVUz00V9ixrCs5
       RUSTC_WRAPPER: 'sccache'
     strategy:
       fail-fast: false
@@ -136,21 +127,19 @@ jobs:
           rename-to: ${{ contains(matrix.artifact-target-name, 'windows') && 'dasel.exe' || 'dasel' }}
           chmod: 0755
 
-      - name: Set application version and environment
+      - name: Set application version
         shell: bash
         run: |
           APP_VERSION="${{ inputs.app-version-override }}"
           if [ -z "$APP_VERSION" ]; then
             APP_VERSION="$(git describe --tags --always | sed -E 's/-([0-9]+)-(g[0-9a-fA-F]+)$/-canary+\1.\2/')"
           fi
-          BUILD_ENVIRONMENT="${{ inputs.environment || 'prod' }}"
           echo "Setting application version to $APP_VERSION"
-          echo "Using environment $BUILD_ENVIRONMENT"
           dasel put -f apps/app/Cargo.toml -t string -v "${APP_VERSION#v}" 'package.version'
           dasel put -f packages/app-lib/Cargo.toml -t string -v "${APP_VERSION#v}" 'package.version'
           dasel put -f apps/app-frontend/package.json -t string -v "${APP_VERSION#v}" 'version'
 
-          cp "packages/app-lib/.env.${BUILD_ENVIRONMENT}" packages/app-lib/.env
+          cp packages/app-lib/.env.prod packages/app-lib/.env
 
       - name: Install dependencies
         run: pnpm install

@@ -2,7 +2,6 @@
 	<div
 		class="vue-notification-group"
 		:class="{
-			'intercom-present': isIntercomPresent,
 			'location-left': notificationLocation === 'left',
 			'location-right': notificationLocation === 'right',
 			'has-sidebar': hasSidebar && !hasModalActive,
@@ -130,7 +129,7 @@ import {
 	XCircleIcon,
 	XIcon,
 } from '@modrinth/assets'
-import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
+import { computed, ref } from 'vue'
 
 import { Button, IconButton } from '#ui/components/base/buttons'
 import { useModalStack } from '#ui/composables/modal-stack.ts'
@@ -145,7 +144,6 @@ const notificationManager = injectNotificationManager()
 const notifications = computed<WebNotification[]>(() => notificationManager.getNotifications())
 const notificationLocation = computed(() => notificationManager.getNotificationLocation())
 
-const isIntercomPresent = ref<boolean>(false)
 const copied = ref<Record<string, boolean>>({})
 
 const stopTimer = (n: WebNotification) => notificationManager.stopNotificationTimer(n)
@@ -167,10 +165,6 @@ function getCopyKey(notif: WebNotification): string {
 	return notif.supportData ? `support-${notif.id}` : createNotifText(notif)
 }
 
-function checkIntercomPresence(): void {
-	isIntercomPresent.value = !!document.querySelector('.intercom-lightweight-app')
-}
-
 function copyToClipboard(notif: WebNotification): void {
 	// If supportData is present, copy the full JSON for support; otherwise copy plain text
 	const text = notif.supportData
@@ -186,23 +180,6 @@ function copyToClipboard(notif: WebNotification): void {
 		copied.value = rest
 	}, 2000)
 }
-
-onMounted(() => {
-	checkIntercomPresence()
-
-	const observer = new MutationObserver(() => {
-		checkIntercomPresence()
-	})
-
-	observer.observe(document.body, {
-		childList: true,
-		subtree: true,
-	})
-
-	onBeforeUnmount(() => {
-		observer.disconnect()
-	})
-})
 
 const { hasModal: hasModalActive } = useModalStack()
 
@@ -250,10 +227,6 @@ withDefaults(
 			left: 0.75rem;
 			right: auto;
 		}
-	}
-
-	&.intercom-present {
-		bottom: 5rem;
 	}
 
 	.vue-notification-wrapper {

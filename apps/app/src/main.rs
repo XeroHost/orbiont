@@ -409,7 +409,11 @@ fn main() {
                     DialogBuilder::message()
                         .set_level(MessageLevel::Error)
                         .set_title("Initialization error")
-                        .set_text("Your Microsoft Edge WebView2 installation is corrupt.\n\nMicrosoft Edge WebView2 is required to run Modrinth App.\n\nLearn how to repair it at https://support.modrinth.com/en/articles/8797765-corrupted-microsoft-edge-webview2-installation")
+                        .set_text(format!(
+                            "Your Microsoft Edge WebView2 installation is corrupt.\n\nMicrosoft Edge WebView2 is required to run {}.\n\nReinstall WebView2 from Microsoft, or contact support at {}.",
+                            theseus::orbiont::PRODUCT_NAME,
+                            theseus::orbiont::SUPPORT_EMAIL,
+                        ))
                         .alert()
                         .show()
                         .unwrap();

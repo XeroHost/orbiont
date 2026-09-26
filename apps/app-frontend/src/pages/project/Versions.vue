@@ -36,7 +36,7 @@
 				<ButtonLink
 					v-tooltip="formatMessage(commonMessages.openInBrowserButton)"
 					type="quiet"
-					:href="`https://modrinth.com/${project.project_type}/${project.slug}/version/${version.id}`"
+					:href="`${config.siteUrl}/${project.project_type}/${project.slug}/version/${version.id}`"
 					target="_blank"
 					class="!w-9 !px-0 !rounded-full"
 				>
@@ -63,6 +63,7 @@ import { useRoute } from 'vue-router'
 
 import { SwapIcon } from '@/assets/icons/index.js'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
+import { config } from '@/config'
 import { get_game_versions, get_loaders } from '@/helpers/tags.js'
 
 const { formatMessage } = useVIntl()

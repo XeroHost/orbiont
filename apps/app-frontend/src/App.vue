@@ -14,7 +14,7 @@ import {
 	SettingsIcon,
 	ShirtIcon,
 } from '@modrinth/assets'
-import { productName, supportEmail } from '@modrinth/branding'
+import { changelogUrl, productName, supportEmail } from '@modrinth/branding'
 import {
 	Admonition,
 	commonMessages,
@@ -1222,7 +1222,7 @@ async function installUpdate() {
 setAppUpdateActions({
 	download: downloadAvailableUpdate,
 	install: installUpdate,
-	changelog: () => openUrl('https://modrinth.com/news/changelog?filter=app'),
+	changelog: () => openUrl(changelogUrl),
 })
 
 async function openModrinthProjectLinkInApp(parsed) {

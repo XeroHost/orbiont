@@ -19,12 +19,6 @@
 					alt=""
 					class="absolute w-full h-full inset-0 object-cover object-center"
 				/>
-				<img
-					v-else
-					src="https://cdn.modrinth.com/landing-new/landing.webp"
-					alt=""
-					class="absolute w-full h-full inset-0 object-cover object-center placeholder-banner scale-[200%]"
-				/>
 			</div>
 			<div class="p-4 flex flex-col gap-3 grow">
 				<div class="flex gap-3">
@@ -416,9 +410,5 @@ const cssColor = computed(() => {
 	}
 	background-color: var(--_gradient-start);
 	background-image: linear-gradient(to bottom right, var(--_gradient-start), var(--_gradient-end));
-}
-
-.placeholder-banner {
-	opacity: 0.7;
 }
 </style>

@@ -4,7 +4,7 @@
 			:user-id="userId"
 			:project-type="projectType"
 			variant="app"
-			site-url="https://modrinth.com"
+			:site-url="config.siteUrl"
 			project-link-mode="app"
 			:edit-profile-link="openProfileSettings"
 			external-navigation
@@ -51,6 +51,7 @@ import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, inject, ref, watch } from 'vue'
 import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router'
 
+import { config } from '@/config'
 import {
 	get_user_collections,
 	get_user_organizations,

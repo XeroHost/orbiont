@@ -115,6 +115,7 @@ import { useManagedContentPolicy } from '@/composables/instances/use-managed-con
 import { useSyncedPackActions } from '@/composables/instances/use-synced-pack-actions'
 import { useAppEvent } from '@/composables/use-app-event'
 import { type FeatureFlag, useAppSettings } from '@/composables/use-app-settings.ts'
+import { config } from '@/config'
 import { get_project_versions, get_version, get_version_many } from '@/helpers/cache.js'
 import {
 	add_project_from_path,
@@ -206,7 +207,7 @@ let savedModalState: ManagedContentModalState | null = null
 function contentOwnerLink(owner: ContentOwner): NonNullable<ContentOwner['link']> {
 	if (owner.type === 'user') return `/user/${encodeURIComponent(owner.id)}`
 	return () => {
-		void openUrl(`https://modrinth.com/organization/${owner.id}`)
+		void openUrl(`${config.siteUrl}/organization/${owner.id}`)
 	}
 }
 
@@ -1366,7 +1367,7 @@ async function handleShareItems(
 		case 'urls':
 			text = source
 				.filter((x) => x.project?.slug)
-				.map((x) => `https://modrinth.com/${x.project_type}/${x.project?.slug}`)
+				.map((x) => `${config.siteUrl}/${x.project_type}/${x.project?.slug}`)
 				.join('\n')
 			break
 		case 'markdown':
@@ -1374,7 +1375,7 @@ async function handleShareItems(
 				.map((x) => {
 					const name = x.project?.title ?? x.file_name
 					if (x.project?.slug) {
-						return `[${name}](https://modrinth.com/${x.project_type}/${x.project.slug})`
+						return `[${name}](${config.siteUrl}/${x.project_type}/${x.project.slug})`
 					}
 					return name
 				})
@@ -1406,7 +1407,7 @@ function getOverflowOptions(item: ContentItem): ButtonMenuOption[] {
 			icon: ClipboardCopyIcon,
 			action: async () => {
 				await navigator.clipboard.writeText(
-					`https://modrinth.com/${item.project_type}/${item.project?.slug}`,
+					`${config.siteUrl}/${item.project_type}/${item.project?.slug}`,
 				)
 			},
 		})

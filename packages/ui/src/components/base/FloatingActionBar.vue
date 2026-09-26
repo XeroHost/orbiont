@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
+import { computed, nextTick, onUnmounted, ref, watch } from 'vue'
 
 import {
 	getModalStackZBase,
@@ -29,8 +29,6 @@ const props = withDefaults(
 	},
 )
 
-const INTERCOM_BUBBLE_GAP = 8
-
 const barEl = ref<HTMLElement | null>(null)
 const toolbarEl = ref<HTMLElement | null>(null)
 const compact = ref(false)
@@ -40,7 +38,6 @@ const { stackCount } = useModalStack()
 const pageContext = injectPageContext(null)
 const shown = computed(() => props.shown && (!props.hideWhenModalOpen || stackCount.value === 0))
 const floatingActionBarId = Symbol('floating-action-bar')
-const intercomBubbleClearanceRequestId = Symbol('floating-action-bar')
 const BELOW_MODAL_Z_OFFSET = 8
 const zIndex = computed(() => {
 	if (props.belowModal || stackCount.value === 0) {
@@ -83,44 +80,6 @@ function checkCompact() {
 	compact.value = needsCompact
 }
 
-function clearIntercomBubbleClearance() {
-	pageContext?.intercomBubble?.requestVerticalClearance(intercomBubbleClearanceRequestId, null)
-}
-
-function updateIntercomBubbleClearance() {
-	const intercomBubble = pageContext?.intercomBubble
-	if (!intercomBubble) return
-
-	if (
-		typeof window === 'undefined' ||
-		props.inline ||
-		!shown.value ||
-		stackCount.value > 0 ||
-		!barEl.value ||
-		!toolbarEl.value
-	) {
-		clearIntercomBubbleClearance()
-		return
-	}
-
-	const barRect = barEl.value.getBoundingClientRect()
-	const toolbarRight = barRect.left + toolbarEl.value.offsetLeft + toolbarEl.value.offsetWidth
-	const bubbleLeft =
-		window.innerWidth - intercomBubble.horizontalPadding.value - intercomBubble.width.value
-
-	if (toolbarRight + INTERCOM_BUBBLE_GAP <= bubbleLeft) {
-		clearIntercomBubbleClearance()
-		return
-	}
-
-	const barStyle = window.getComputedStyle(barEl.value)
-	const bottomOffset = Number.parseFloat(barStyle.bottom) || 0
-	intercomBubble.requestVerticalClearance(
-		intercomBubbleClearanceRequestId,
-		Math.ceil(bottomOffset + barEl.value.offsetHeight + INTERCOM_BUBBLE_GAP),
-	)
-}
-
 function updateBodyState(isShown = shown.value) {
 	if (typeof document === 'undefined') return
 
@@ -131,38 +90,18 @@ function updateBodyState(isShown = shown.value) {
 	}
 
 	updateFloatingActionBarBodyClass()
-	if (!isShown) {
-		clearIntercomBubbleClearance()
-	}
 }
 
 let observer: ResizeObserver | null = null
-let updateFrame: number | null = null
-
-function scheduleIntercomBubbleClearanceUpdate() {
-	if (typeof window === 'undefined') return
-	if (updateFrame !== null) {
-		window.cancelAnimationFrame(updateFrame)
-	}
-
-	updateFrame = window.requestAnimationFrame(() => {
-		updateFrame = null
-		updateIntercomBubbleClearance()
-	})
-}
 
 watch(
 	toolbarEl,
 	(el) => {
 		observer?.disconnect()
 		if (!el) return
-		observer = new ResizeObserver(() => {
-			checkCompact()
-			scheduleIntercomBubbleClearanceUpdate()
-		})
+		observer = new ResizeObserver(() => checkCompact())
 		observer.observe(el.parentElement!)
 		checkCompact()
-		scheduleIntercomBubbleClearanceUpdate()
 	},
 	{ immediate: true },
 )
@@ -172,36 +111,12 @@ watch(
 	async (isShown) => {
 		await nextTick()
 		updateBodyState(isShown[0])
-		scheduleIntercomBubbleClearanceUpdate()
 	},
 	{ immediate: true },
 )
 
-watch(
-	[
-		shown,
-		leftOffset,
-		rightOffset,
-		stackCount,
-		() => pageContext?.intercomBubble?.horizontalPadding.value,
-		() => pageContext?.intercomBubble?.width.value,
-	],
-	() => scheduleIntercomBubbleClearanceUpdate(),
-	{ immediate: true },
-)
-
-onMounted(() => {
-	window.addEventListener('resize', scheduleIntercomBubbleClearanceUpdate)
-	scheduleIntercomBubbleClearanceUpdate()
-})
-
 onUnmounted(() => {
 	observer?.disconnect()
-	window.removeEventListener('resize', scheduleIntercomBubbleClearanceUpdate)
-	if (updateFrame !== null) {
-		window.cancelAnimationFrame(updateFrame)
-	}
-	clearIntercomBubbleClearance()
 	visibleFloatingActionBars.delete(floatingActionBarId)
 	if (typeof document === 'undefined') return
 	updateFloatingActionBarBodyClass()

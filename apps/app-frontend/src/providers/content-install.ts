@@ -14,6 +14,7 @@ import { nextTick, type Ref, ref } from 'vue'
 import type { Router } from 'vue-router'
 
 import { useAppSettings } from '@/composables/use-app-settings.ts'
+import { config } from '@/config'
 import {
 	get_organization,
 	get_project,
@@ -459,7 +460,7 @@ export function createContentInstall(opts: {
 									name: org.name,
 									iconUrl: org.icon_url,
 									circle: false,
-									link: () => openUrl(`https://modrinth.com/organization/${orgSlug}`),
+									link: () => openUrl(`${config.siteUrl}/organization/${orgSlug}`),
 								},
 							}
 						}

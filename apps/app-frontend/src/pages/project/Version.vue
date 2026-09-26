@@ -45,7 +45,7 @@
 							id: 'open-in-browser',
 							label: formatMessage(commonMessages.openInBrowserButton),
 							type: 'link',
-							href: `https://modrinth.com/${project.project_type}/${project.slug}/version/${version.id}`,
+							href: `${config.siteUrl}/${project.project_type}/${project.slug}/version/${version.id}`,
 							target: '_blank',
 						},
 						{
@@ -53,7 +53,7 @@
 							label: formatMessage(commonMessages.reportButton),
 							type: 'link',
 							tone: 'red',
-							href: `https://modrinth.com/report?item=version&itemID=${version.id}`,
+							href: `${config.siteUrl}/report?item=version&itemID=${version.id}`,
 							target: '_blank',
 						},
 					]"
@@ -101,6 +101,7 @@ import { computed, ref, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import { SwapIcon } from '@/assets/icons'
+import { config } from '@/config'
 import { get_project_many, get_version_many } from '@/helpers/cache.js'
 import { useBreadcrumb } from '@/providers/breadcrumbs'
 

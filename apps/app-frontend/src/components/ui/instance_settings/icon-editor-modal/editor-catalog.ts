@@ -26,7 +26,6 @@ import globe from '@/assets/instance-icons/globe.png'
 import grassBlock from '@/assets/instance-icons/grass-block.png'
 import lantern from '@/assets/instance-icons/lantern.png'
 import moobloom from '@/assets/instance-icons/moobloom.png'
-import mrPack from '@/assets/instance-icons/mr-pack.png'
 import neoForge from '@/assets/instance-icons/neoforge.png'
 import orb from '@/assets/instance-icons/orb.png'
 import oxygenDistributor from '@/assets/instance-icons/oxygen-distributor.png'
@@ -155,7 +154,6 @@ const names = defineMessages({
 	},
 	lantern: { id: 'instance.icon-editor.symbol.lantern', defaultMessage: 'Lantern' },
 	moobloom: { id: 'instance.icon-editor.symbol.moobloom', defaultMessage: 'Moobloom' },
-	mrPack: { id: 'instance.icon-editor.symbol.mr-pack', defaultMessage: 'Mr Pack' },
 	orb: { id: 'instance.icon-editor.symbol.orb', defaultMessage: 'Orb' },
 	oxygenDistributor: {
 		id: 'instance.icon-editor.symbol.oxygen-distributor',
@@ -435,7 +433,6 @@ export const symbolOptions = [
 	{ id: 'terminal', name: names.terminal, asset: terminal, category: 'modded' },
 
 	// Miscellaneous: Modrinth Wrench, Mr Pack
-	{ id: 'mr_pack', name: names.mrPack, asset: mrPack, category: 'modded' },
 
 	/////////////////////////
 	// vanilla ones
@@ -499,7 +496,6 @@ export const RANDOM_CONFIG_BLACKLIST = [
 	{ background: 'orange', symbol: 'space_helmet' },
 	{ background: 'rose', symbol: 'tnt' },
 	{ background: 'yellow', symbol: 'moobloom' },
-	{ background: 'lime', symbol: 'mr_pack' },
 	{ background: 'light_gray', symbol: 'skillet' },
 	{ background: 'light_gray', symbol: 'cooking_pot' },
 ] satisfies readonly { background: BackgroundId; symbol: SymbolId }[]

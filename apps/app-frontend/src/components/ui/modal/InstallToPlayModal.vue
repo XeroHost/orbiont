@@ -169,6 +169,7 @@ import {
 import { openUrl } from '@tauri-apps/plugin-opener'
 import { computed, nextTick, ref } from 'vue'
 
+import { config } from '@/config'
 import { get_project, get_project_many, get_version, get_version_many } from '@/helpers/cache.js'
 import { injectServerInstall } from '@/providers/server-install'
 
@@ -264,7 +265,7 @@ function handleDecline() {
 
 function handleReport() {
 	if (project.value?.id) {
-		openUrl(`https://modrinth.com/report?item=project&itemID=${project.value.id}`)
+		openUrl(`${config.siteUrl}/report?item=project&itemID=${project.value.id}`)
 	}
 }
 

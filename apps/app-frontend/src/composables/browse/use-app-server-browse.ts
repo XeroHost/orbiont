@@ -21,6 +21,7 @@ import {
 	getFreshCachedServerStatus,
 } from '@/composables/instances/use-server-status-query'
 import { useAppEvent } from '@/composables/use-app-event'
+import { config } from '@/config'
 import { kill, list as listInstances } from '@/helpers/instance'
 import { get_by_instance_id } from '@/helpers/process'
 import type { GameInstance } from '@/helpers/types'
@@ -320,5 +321,5 @@ export function useAppServerBrowse(options: UseAppServerBrowseOptions) {
 
 function getProjectUrl(item: Labrinth.Search.v3.ResultSearchProject) {
 	const projectType = item.project_types?.[0]
-	return `https://modrinth.com/${projectType ?? 'project'}/${item.slug ?? item.project_id}`
+	return `${config.siteUrl}/${projectType ?? 'project'}/${item.slug ?? item.project_id}`
 }

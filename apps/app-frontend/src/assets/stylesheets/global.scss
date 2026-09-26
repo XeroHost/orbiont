@@ -5,39 +5,15 @@
 @import '@modrinth/ui/src/styles/tailwind-utilities.css';
 
 @font-face {
-	font-family: 'bundled-minecraft-font-mrapp';
+	font-family: 'bundled-minecraft-font';
 	font-style: normal;
 	font-display: swap;
 	font-weight: 400;
-	src: url('https://cdn.modrinth.com/fonts/minecraft/regular.otf') format('opentype');
-}
-
-@font-face {
-	font-family: 'bundled-minecraft-font-mrapp';
-	font-style: italic;
-	font-display: swap;
-	font-weight: 400;
-	src: url('https://cdn.modrinth.com/fonts/minecraft/italic.otf') format('opentype');
-}
-
-@font-face {
-	font-family: 'bundled-minecraft-font-mrapp';
-	font-style: normal;
-	font-display: swap;
-	font-weight: 600;
-	src: url('https://cdn.modrinth.com/fonts/minecraft/bold.otf') format('opentype');
-}
-
-@font-face {
-	font-family: 'bundled-minecraft-font-mrapp';
-	font-style: italic;
-	font-display: swap;
-	font-weight: 600;
-	src: url('https://cdn.modrinth.com/fonts/minecraft/bold-italic.otf') format('opentype');
+	src: url('../font/minecraft_font.ttf') format('truetype');
 }
 
 .font-minecraft {
-	font-family: 'bundled-minecraft-font-mrapp', monospace;
+	font-family: 'bundled-minecraft-font', monospace;
 }
 
 :root {

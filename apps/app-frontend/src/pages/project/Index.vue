@@ -260,6 +260,7 @@ import {
 } from '@/composables/instances/use-server-status-query'
 import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
+import { config } from '@/config'
 import {
 	get_organization,
 	get_project,
@@ -626,7 +627,7 @@ function openProjectInBrowser() {
 
 function reportProject() {
 	if (!data.value) return
-	void openUrl(`https://modrinth.com/report?item=project&itemID=${data.value.id}`)
+	void openUrl(`${config.siteUrl}/report?item=project&itemID=${data.value.id}`)
 }
 
 async function fetchProjectData() {
@@ -831,7 +832,7 @@ const handleRightClick = (event) => {
 const getProjectLink = (project) =>
 	isCurseforgeId(project.id)
 		? project.page_url
-		: `https://modrinth.com/${isServerProject.value ? 'project' : project.project_type}/${project.slug}`
+		: `${config.siteUrl}/${isServerProject.value ? 'project' : project.project_type}/${project.slug}`
 const openProjectLink = (project) => openUrl(getProjectLink(project))
 const copyProjectLink = (project) => navigator.clipboard.writeText(getProjectLink(project))
 </script>

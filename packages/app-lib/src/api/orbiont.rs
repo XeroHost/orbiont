@@ -9,6 +9,11 @@ use std::sync::LazyLock;
 use std::time::{Duration, Instant};
 use tokio::sync::RwLock;
 
+/// Product name, for text the Tauri shell shows before the UI is up.
+pub const PRODUCT_NAME: &str = env!("ORBIONT_PRODUCT_NAME");
+/// Support address, for the same kind of early error messages.
+pub const SUPPORT_EMAIL: &str = env!("ORBIONT_SUPPORT_EMAIL");
+
 fn base_url() -> &'static str {
     env!("ORBIONT_CATALOG_BASE_URL")
 }

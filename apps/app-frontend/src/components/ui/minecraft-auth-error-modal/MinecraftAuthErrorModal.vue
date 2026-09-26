@@ -7,6 +7,7 @@ import {
 	MessagesSquareIcon,
 	WrenchIcon,
 } from '@modrinth/assets'
+import { supportUrl } from '@modrinth/branding'
 import { Admonition, Button, ButtonLink, Collapsible, IconButton, NewModal } from '@modrinth/ui'
 import { computed, ref } from 'vue'
 
@@ -130,7 +131,7 @@ async function copyToClipboard(text: string) {
 
 			<!-- Action buttons -->
 			<div class="flex items-center gap-1">
-				<ButtonLink href="https://support.modrinth.com" class="flex-1" @click="modal?.hide()">
+				<ButtonLink :href="supportUrl" class="flex-1" @click="modal?.hide()">
 					<MessagesSquareIcon /> Contact support
 				</ButtonLink>
 				<Button

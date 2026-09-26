@@ -31,6 +31,7 @@ export const domain = 'xerohost.net'
 export const siteUrl = `https://${domain}/orbiont`
 export const supportEmail = `support@${domain}`
 export const supportUrl = `${siteUrl}/support`
+export const changelogUrl = `${siteUrl}/changelog`
 
 /**
  * Brand colors, mirroring the --color-cyan-* / --color-brand-* tokens in

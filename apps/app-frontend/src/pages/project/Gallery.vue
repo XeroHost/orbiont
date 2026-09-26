@@ -57,7 +57,7 @@ const galleryViewer = ref()
 const galleryViewerItems = computed(() =>
 	filteredGallery.value.map((image) => ({
 		id: image.url,
-		src: image.raw_url ?? 'https://cdn.modrinth.com/placeholder-banner.svg',
+		src: image.raw_url ?? image.url,
 		alt: image.title || 'Gallery image',
 		title: image.title,
 		description: image.description,
