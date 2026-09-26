@@ -9,7 +9,7 @@ import { convertFileSrc, invoke } from '@tauri-apps/api/core'
 
 import { get_project } from './cache.js'
 import { installCurseforgeVersionToInstance, isCurseforgeId } from './curseforge'
-import type { InstallJobSnapshot, SharedInstanceUpdateDiff } from './install'
+import type { InstallJobSnapshot } from './install'
 import type {
 	CacheBehaviour,
 	ContentFile,
@@ -17,7 +17,6 @@ import type {
 	GameInstance,
 	InstanceIconConfig,
 	InstanceLoader,
-	SharedInstanceAttachment,
 } from './types'
 
 export function getInstanceIconUrl(iconPath: string | null | undefined): string | null {
@@ -687,104 +686,3 @@ export async function cache_generated_icon(
 export async function get_recent_icon_configs(): Promise<InstanceIconConfig[]> {
 	return await invoke('plugin:instance|instance_get_recent_icon_configs')
 }
-
-export type SharedInstanceUsers = {
-	user_ids: string[]
-	users: SharedInstanceUser[]
-	tokens: number
-}
-
-export type SharedInstanceJoinType = 'owner' | 'invite' | 'link'
-
-export type SharedInstanceUser = {
-	id: string
-	joined_at?: string | null
-	join_type: SharedInstanceJoinType
-	last_played?: string | null
-}
-
-export interface SharedInstancePublishPreview {
-	sharedInstanceId: string
-	latestVersion: number
-	diffs: SharedInstanceUpdateDiff[]
-	configFiles: string[]
-}
-
-export interface SharedInstanceInviteLink {
-	inviteId: string
-	expiresAt: string
-	maxUses: number
-}
-
-export interface SharedInstanceInvite {
-	id: string
-	expiration: string
-	maxUses: number
-	uses: number
-}
-
-// Orbiont doesn't ship shared instances (see Fase 1 of the build plan:
-// packages/app-lib/src/api/instance/shared/** is gone). These stay as
-// no-ops so call sites throughout the app don't need to change.
-
-export async function can_current_user_use_shared_instances(): Promise<boolean> {
-	return false
-}
-
-export async function get_shared_instance_users(_instanceId: string): Promise<SharedInstanceUsers> {
-	return { user_ids: [], users: [], tokens: 0 }
-}
-
-export async function invite_shared_instance_users(
-	_instanceId: string,
-	_userIds: string[],
-): Promise<SharedInstanceUsers> {
-	throw new Error('Shared instances are not available')
-}
-
-export async function create_shared_instance_invite_link(
-	_instanceId: string,
-	_options: {
-		maxAgeSeconds?: number
-		maxUses?: number
-		replaceInviteId?: string
-	} = {},
-): Promise<SharedInstanceInviteLink> {
-	throw new Error('Shared instances are not available')
-}
-
-export async function get_shared_instance_invites(
-	_instanceId: string,
-): Promise<SharedInstanceInvite[]> {
-	return []
-}
-
-export async function revoke_shared_instance_invite(
-	_instanceId: string,
-	_inviteId: string,
-): Promise<void> {}
-
-export async function remove_shared_instance_users(
-	_instanceId: string,
-	_userIds: string[],
-	_hasPendingRecipients: boolean,
-): Promise<SharedInstanceUsers> {
-	throw new Error('Shared instances are not available')
-}
-
-export async function get_shared_instance_publish_preview(
-	_instanceId: string,
-): Promise<SharedInstancePublishPreview | null> {
-	return null
-}
-
-export async function publish_shared_instance(
-	_instanceId: string,
-	_configPaths: string[],
-): Promise<SharedInstanceAttachment> {
-	throw new Error('Shared instances are not available')
-}
-
-export async function unlink_shared_instance(_instanceId: string): Promise<void> {}
-
-export async function unpublish_shared_instance(_instanceId: string): Promise<void> {}

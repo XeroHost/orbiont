@@ -14,7 +14,7 @@
 			<div class="flex flex-col gap-2.5">
 				<div class="flex items-center justify-between">
 					<span class="font-semibold text-contrast">
-						{{ formatMessage(messages.sharedInstance) }}
+						{{ formatMessage(messages.serverContent) }}
 					</span>
 
 					<Button type="quiet" @click="openViewContents">
@@ -370,13 +370,13 @@ const messages = defineMessages({
 		defaultMessage: 'Install to play',
 	},
 	inviteWarning: {
-		id: 'app.modal.install-to-play.invite-warning',
+		id: 'app.modal.install-to-play.server-warning',
 		defaultMessage:
-			'This invite was created by another Modrinth user, not Modrinth. Only accept invites from people you trust.',
+			'This content is chosen by the server, not by {productName}. Only install it for servers you trust.',
 	},
-	sharedInstance: {
-		id: 'app.modal.install-to-play.shared-instance',
-		defaultMessage: 'Shared instance',
+	serverContent: {
+		id: 'app.modal.install-to-play.server-content',
+		defaultMessage: 'Server content',
 	},
 	modCount: {
 		id: 'app.modal.install-to-play.mod-count',

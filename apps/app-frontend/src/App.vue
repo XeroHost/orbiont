@@ -66,7 +66,6 @@ import UpdateToPlayModal from '@/components/ui/modal/UpdateToPlayModal.vue'
 import NavButton from '@/components/ui/NavButton.vue'
 import OnboardingChecklist from '@/components/ui/onboarding-checklist/index.vue'
 import QuickInstanceSwitcher from '@/components/ui/QuickInstanceSwitcher.vue'
-import SharedInstanceInviteHandler from '@/components/ui/shared-instances/shared-instance-invite-handler/index.vue'
 import SplashScreen from '@/components/ui/SplashScreen.vue'
 import SyncInstancesUpdateModal from '@/components/ui/sync-instances-update-modal/index.vue'
 import {
@@ -260,13 +259,8 @@ const {
 	handleModpackDuplicateGoToInstance,
 	onboardingChecklist,
 	tags,
-} = setupProviders(
-	tauriApiClient,
-	notificationManager,
-	popupNotificationManager,
-	appEvents,
-	(iconPath) =>
-		creationGeneratedIcon.value?.path === iconPath ? creationGeneratedIcon.value.config : null,
+} = setupProviders(notificationManager, popupNotificationManager, appEvents, (iconPath) =>
+	creationGeneratedIcon.value?.path === iconPath ? creationGeneratedIcon.value.config : null,
 )
 const { hasCreatedInstance, hasLoggedIntoMinecraft, isReady, showChecklist } = onboardingChecklist
 // Getting-started steps show inside the account menu until they're all done.
@@ -697,39 +691,6 @@ watch(stateInitialized, (ready) => {
 			loading.end(routerToken)
 			routerToken = null
 		}
-
-		queryClient.prefetchQuery({
-			queryKey: ['servers'],
-			queryFn: async () => {
-				const response = await tauriApiClient.archon.servers_v0.list({ limit: 100 })
-				const hasMedalServers = response.servers.some((s) => s.is_medal)
-				if (hasMedalServers) {
-					const subscriptions = await tauriApiClient.labrinth.billing_internal.getSubscriptions()
-					for (const server of response.servers) {
-						if (server.is_medal) {
-							const sub = subscriptions.find((s) => s.metadata?.id === server.server_id)
-							if (sub) {
-								server.medal_expires = new Date(
-									new Date(sub.created).getTime() + 5 * 86400000,
-								).toISOString()
-							}
-						}
-					}
-				}
-				return response
-			},
-			staleTime: 30_000,
-		})
-		queryClient.prefetchQuery({
-			queryKey: ['billing', 'subscriptions'],
-			queryFn: () => tauriApiClient.labrinth.billing_internal.getSubscriptions(),
-			staleTime: 30_000,
-		})
-		queryClient.prefetchQuery({
-			queryKey: ['billing', 'payments'],
-			queryFn: () => tauriApiClient.labrinth.billing_internal.getPayments(),
-			staleTime: 30_000,
-		})
 	}
 })
 
@@ -822,7 +783,6 @@ const contentInstallModpackAlreadyInstalledModal = ref()
 const addServerToInstanceModal = ref()
 const incompatibilityWarningModal = ref()
 const installToPlayModal = ref()
-const sharedInstanceInviteHandler = ref()
 const updateToPlayModal = ref()
 
 const appSettingsModal = ref()
@@ -942,8 +902,6 @@ async function handleCommand(e) {
 		} else {
 			await run(e.id).catch(handleError)
 		}
-	} else if (e.event === 'InstallSharedInstanceInvite') {
-		await sharedInstanceInviteHandler.value?.installFromInviteId(e.invite_id)
 	} else if (e.event === 'InstallServer') {
 		await router.push(`/project/${e.id}`)
 		await playServerProject(e.id).catch(handleError)
@@ -1663,7 +1621,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 		@create-anyway="handleContentInstallModpackDuplicateCreateAnyway"
 		@go-to-instance="handleContentInstallModpackDuplicateGoToInstance"
 	/>
-	<SharedInstanceInviteHandler ref="sharedInstanceInviteHandler" />
 	<InstallToPlayModal ref="installToPlayModal" :show-external-warnings="false" />
 	<UpdateToPlayModal ref="updateToPlayModal" :show-external-warnings="false" />
 </template>

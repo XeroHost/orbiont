@@ -4,12 +4,6 @@ const siteUrl = trimTrailingSlash(import.meta.env.MODRINTH_URL || 'https://modri
 const labrinthBaseUrl = trimTrailingSlash(
 	import.meta.env.MODRINTH_API_BASE_URL || 'https://api.modrinth.com',
 )
-const archonBaseUrl = trimTrailingSlash(
-	import.meta.env.MODRINTH_ARCHON_BASE_URL || 'https://archon.modrinth.com',
-)
-const sharedInstancesBaseUrl = trimTrailingSlash(
-	import.meta.env.SHARED_INSTANCES_API_BASE_URL || 'https://shared-instances.modrinth.com',
-)
 
 // Update manifest for the Linux "new version" notice (other platforms use
 // Tauri's updater, configured in apps/app/tauri-release.conf.json).
@@ -20,6 +14,4 @@ export const config = {
 	updatesUrl,
 	siteUrl,
 	labrinthBaseUrl,
-	archonBaseUrl,
-	sharedInstancesBaseUrl,
 }

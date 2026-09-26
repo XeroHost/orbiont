@@ -1,6 +1,6 @@
 import { invoke } from '@tauri-apps/api/core'
 
-export type ReportItemType = 'project' | 'version' | 'user' | 'shared-instance'
+export type ReportItemType = 'project' | 'version' | 'user'
 
 export interface CreateReportRequest {
 	report_type: string

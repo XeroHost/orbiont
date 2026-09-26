@@ -30,11 +30,6 @@ export const instanceKeys = {
 	linkedContent: (instanceId: string) => ['linkedModpackContent', instanceId] as const,
 	worlds: (instanceId: string) => ['worlds', instanceId] as const,
 	linkedProject: (projectId: string) => ['project', 'v3', projectId] as const,
-	sharedEligibility: (userId: string | null | undefined) =>
-		['shared-instance-eligibility', userId] as const,
-	sharedUpdatePreview: (instanceId: string, userId: string | null | undefined) =>
-		[...instanceKeys.detail(instanceId), 'shared-update-preview', userId] as const,
-	sharedMembers: (instanceId: string) => ['sharedInstanceUsers', instanceId] as const,
 }
 
 export const screenshotKeys = {
