@@ -121,18 +121,6 @@
 			<slot name="additional-content" />
 		</div>
 
-		<div
-			v-if="showBackupCreator"
-			class="p-4 border-t border-solid border-surface-5 border-b-0 border-l-0 border-r-0"
-		>
-			<InlineBackupCreator
-				ref="backupCreator"
-				backup-name="Before version change"
-				hide-shift-click-hint
-				@update:buttons-disabled="buttonsDisabled = $event"
-			/>
-		</div>
-
 		<template #actions>
 			<div v-if="hasExternalDiffs" class="flex flex-col gap-6 p-2">
 				<p class="m-0 text-primary">{{ formatMessage(messages.reviewedFiles) }}</p>
@@ -149,12 +137,7 @@
 						</Button>
 					</div>
 					<div class="flex gap-2">
-						<Button
-							type="quiet"
-							color="orange"
-							:disabled="buttonsDisabled || confirmDisabled"
-							@click="handleConfirm"
-						>
+						<Button type="quiet" color="orange" :disabled="confirmDisabled" @click="handleConfirm">
 							{{ formatMessage(messages.installAnyway) }}
 						</Button>
 						<Button type="colored" color="brand" @click="handleCancel">
@@ -180,12 +163,7 @@
 						<XIcon />
 						{{ formatMessage(commonMessages.cancelButton) }}
 					</Button>
-					<Button
-						type="colored"
-						color="brand"
-						:disabled="buttonsDisabled || confirmDisabled"
-						@click="handleConfirm"
-					>
+					<Button type="colored" color="brand" :disabled="confirmDisabled" @click="handleConfirm">
 						<component :is="confirmIcon" v-if="confirmIcon" />
 						{{ confirmLabel || formatMessage(commonMessages.confirmButton) }}
 					</Button>
@@ -213,7 +191,6 @@ import NewModal from '#ui/components/modal/NewModal.vue'
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
 import { commonMessages } from '#ui/utils/common-messages'
 
-import InlineBackupCreator from '../../content-tab/components/modals/InlineBackupCreator.vue'
 import type { ContentDiffItem } from '../types'
 
 const props = defineProps<{
@@ -225,7 +202,6 @@ const props = defineProps<{
 	confirmLabel?: string
 	confirmIcon?: Component
 	showReportButton?: boolean
-	showBackupCreator?: boolean
 	addedLabel?: string
 	removedLabel?: string
 	confirmDisabled?: boolean
@@ -244,8 +220,6 @@ const emit = defineEmits<{
 const { formatMessage } = useVIntl()
 
 const modal = ref<InstanceType<typeof NewModal>>()
-const backupCreator = ref<InstanceType<typeof InlineBackupCreator>>()
-const buttonsDisabled = ref(false)
 const closingFromAction = ref(false)
 
 const removedCount = computed(

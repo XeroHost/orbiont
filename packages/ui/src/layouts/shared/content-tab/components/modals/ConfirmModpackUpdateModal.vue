@@ -24,7 +24,6 @@
 			</Admonition>
 			<InlineBackupCreator
 				ref="backupCreator"
-				:backup-name="backupName"
 				@update:buttons-disabled="buttonsDisabled = $event"
 			/>
 		</div>
@@ -54,7 +53,7 @@
 
 <script setup lang="ts">
 import { DownloadIcon, XIcon } from '@modrinth/assets'
-import { computed, ref } from 'vue'
+import { ref } from 'vue'
 
 import Admonition from '#ui/components/base/Admonition.vue'
 import { Button } from '#ui/components/base/buttons'
@@ -67,19 +66,11 @@ import InlineBackupCreator from './InlineBackupCreator.vue'
 const props = defineProps<{
 	downgrade?: boolean
 	managedWarning?: { header: string; body: string } | null
-	backupTip?: string
 	actionDisabled?: boolean
 	actionDisabledTooltip?: string
 }>()
 
 const { formatMessage } = useVIntl()
-
-const backupName = computed(() => {
-	const action = props.downgrade ? 'downgrade' : 'update'
-	return props.backupTip
-		? `Before modpack ${action} (${props.backupTip})`
-		: `Before modpack ${action}`
-})
 
 const messages = defineMessages({
 	header: {

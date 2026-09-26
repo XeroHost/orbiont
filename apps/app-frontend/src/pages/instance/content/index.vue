@@ -32,11 +32,6 @@
 				<ConfirmModpackUpdateModal
 					ref="modpackUpdateConfirmModal"
 					:downgrade="isModpackUpdateDowngrade"
-					:backup-tip="
-						[displayedModpackProject?.title, pendingModpackUpdateVersion?.version_number]
-							.filter(Boolean)
-							.join(' ')
-					"
 					@confirm="handleModpackUpdateConfirm"
 					@cancel="handleModpackUpdateCancel"
 				/>

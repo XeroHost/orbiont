@@ -28,9 +28,6 @@
 
 			<InlineBackupCreator
 				ref="backupCreator"
-				:backup-name="
-					variant === 'loader-change' ? 'Before loader change' : 'Before version change'
-				"
 				hide-shift-click-hint
 				@update:buttons-disabled="buttonsDisabled = $event"
 			/>

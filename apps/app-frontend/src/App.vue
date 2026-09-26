@@ -1348,7 +1348,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 		<SyncInstancesUpdateModal ref="syncInstancesUpdateModal" />
 		<CreationFlowModal
 			ref="installationModal"
-			type="instance"
 			show-snapshot-toggle
 			:fetch-existing-instance-names="fetchExistingInstanceNames"
 			:search-projects="searchProjects"

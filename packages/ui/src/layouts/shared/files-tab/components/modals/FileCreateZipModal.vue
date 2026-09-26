@@ -26,7 +26,7 @@
 </template>
 
 <script setup lang="ts">
-import { type Kyros, ModrinthApiError } from '@modrinth/api-client'
+import { ModrinthApiError } from '@modrinth/api-client'
 import { FolderArchiveIcon, XIcon } from '@modrinth/assets'
 import { computed, nextTick, ref, watch } from 'vue'
 
@@ -35,6 +35,8 @@ import Input from '#ui/components/base/inputs/Input.vue'
 import NewModal from '#ui/components/modal/NewModal.vue'
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
 import { commonMessages } from '#ui/utils/common-messages'
+
+import type { FileStat } from '../../types'
 
 const { formatMessage } = useVIntl()
 const messages = defineMessages({
@@ -57,7 +59,7 @@ const messages = defineMessages({
 })
 const props = defineProps<{
 	parent: string
-	statFile?: (path: string) => Promise<Kyros.Files.v1.FileStatResponse>
+	statFile?: (path: string) => Promise<FileStat>
 }>()
 const emit = defineEmits<{ create: [target: string] }>()
 const modal = ref<InstanceType<typeof NewModal>>()

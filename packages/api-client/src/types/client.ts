@@ -43,20 +43,6 @@ export interface ClientConfig {
 	labrinthBaseUrl?: BaseUrlConfig
 
 	/**
-	 * Base URL for Archon API (Modrinth Hosting API)
-	 * Can be a callback so apps can drive this from runtime feature flags.
-	 *
-	 * @default 'https://archon.modrinth.com'
-	 */
-	archonBaseUrl?: BaseUrlConfig
-
-	/**
-	 * Base URL for the Shared Instances API
-	 * @default 'https://shared-instances.modrinth.com'
-	 */
-	sharedInstancesBaseUrl?: BaseUrlConfig
-
-	/**
 	 * Default request timeout in milliseconds
 	 * @default 10000
 	 */
@@ -66,14 +52,6 @@ export interface ClientConfig {
 	 * Additional default headers to include in all requests
 	 */
 	headers?: Record<string, string>
-
-	/**
-	 * Whether to attach `modrinth-sentry-capture: 1` to Archon requests.
-	 * Can be a callback so apps can drive this from runtime feature flags.
-	 *
-	 * @default false
-	 */
-	archonSentryCapture?: boolean | (() => boolean)
 
 	/**
 	 * Features to enable for this client

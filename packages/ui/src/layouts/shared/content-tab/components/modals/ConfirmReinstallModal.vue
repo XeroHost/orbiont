@@ -12,7 +12,6 @@
 			</Admonition>
 			<InlineBackupCreator
 				ref="backupCreator"
-				:backup-name="backupTip ? `Before reinstall (${backupTip})` : 'Before reinstall'"
 				@update:buttons-disabled="buttonsDisabled = $event"
 			/>
 		</div>
@@ -67,11 +66,6 @@ const messages = defineMessages({
 		defaultMessage: 'Reinstall modpack',
 	},
 })
-
-defineProps<{
-	server?: boolean
-	backupTip?: string
-}>()
 
 const emit = defineEmits<{
 	(e: 'reinstall'): void

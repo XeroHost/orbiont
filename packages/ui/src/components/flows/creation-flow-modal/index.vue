@@ -17,7 +17,6 @@ import MultiStageModal from '../../base/MultiStageModal.vue'
 import {
 	createCreationFlowContext,
 	type CreationFlowContextValue,
-	type FlowType,
 	type LoaderManifestResolver,
 	type ProjectInstallCreateData,
 	type ProjectInstallSelection,
@@ -27,11 +26,9 @@ import {
 
 const props = withDefaults(
 	defineProps<{
-		type?: FlowType
 		availableLoaders?: string[]
 		showSnapshotToggle?: boolean
 		disableClose?: boolean
-		isInitialSetup?: boolean
 		initialLoader?: string
 		initialGameVersion?: string
 		fetchExistingInstanceNames?: () => Promise<string[]>
@@ -43,7 +40,6 @@ const props = withDefaults(
 			projectType: string,
 		) => Promise<ProjectInstallSelection | null>
 		createProjectInstall?: (data: ProjectInstallCreateData) => Promise<void>
-		getProjectVersions?: (projectId: string) => Promise<{ id: string }[]>
 		getLoaderManifest?: LoaderManifestResolver
 		randomizeInstanceIcon?: () => Promise<{ path: string; previewUrl: string } | null>
 		customizeInstanceIcon?: () => void
@@ -51,11 +47,9 @@ const props = withDefaults(
 		finishDisabledTooltip?: string
 	}>(),
 	{
-		type: 'world',
 		availableLoaders: () => ['fabric', 'neoforge', 'forge', 'quilt'],
 		showSnapshotToggle: false,
 		disableClose: false,
-		isInitialSetup: false,
 		initialLoader: undefined,
 		initialGameVersion: undefined,
 		fetchExistingInstanceNames: undefined,
@@ -74,7 +68,6 @@ const modal = useTemplateRef<ComponentExposed<typeof MultiStageModal>>('modal')
 
 const ctx = createCreationFlowContext(
 	modal,
-	props.type,
 	{
 		browseModpacks: () => emit('browse-modpacks'),
 		create: (config) => emit('create', config),
@@ -83,7 +76,6 @@ const ctx = createCreationFlowContext(
 		availableLoaders: props.availableLoaders,
 		showSnapshotToggle: props.showSnapshotToggle,
 		disableClose: props.disableClose,
-		isInitialSetup: props.isInitialSetup,
 		initialLoader: props.initialLoader,
 		initialGameVersion: props.initialGameVersion,
 		fetchExistingInstanceNames: props.fetchExistingInstanceNames,
@@ -91,7 +83,6 @@ const ctx = createCreationFlowContext(
 		searchProjects: props.searchProjects,
 		prepareProjectInstall: props.prepareProjectInstall,
 		createProjectInstall: props.createProjectInstall,
-		getProjectVersions: props.getProjectVersions,
 		getLoaderManifest: props.getLoaderManifest,
 		randomizeInstanceIcon: props.randomizeInstanceIcon,
 		customizeInstanceIcon: props.customizeInstanceIcon,
@@ -113,7 +104,6 @@ function hide() {
 }
 
 function handleHide() {
-	ctx.cancelBackup.value?.()
 	emit('hide')
 }
 

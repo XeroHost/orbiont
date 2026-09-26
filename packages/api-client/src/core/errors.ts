@@ -60,7 +60,7 @@ export class ModrinthApiError extends Error {
 }
 
 /**
- * Error class for Modrinth server errors (kyros/archon)
+ * Error class for structured (V1) API error responses
  * Extends ModrinthApiError with V1 error response parsing
  */
 export class ModrinthServerError extends ModrinthApiError {

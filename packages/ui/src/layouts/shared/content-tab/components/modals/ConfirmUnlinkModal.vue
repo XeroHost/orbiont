@@ -12,7 +12,6 @@
 			</Admonition>
 			<InlineBackupCreator
 				ref="backupCreator"
-				:backup-name="props.backupTip ? `Before unlink (${props.backupTip})` : 'Before unlink'"
 				@update:buttons-disabled="buttonsDisabled = $event"
 			/>
 		</div>
@@ -54,8 +53,6 @@ import InlineBackupCreator from './InlineBackupCreator.vue'
 const props = defineProps<{
 	header?: string
 	warning?: { header: string; body: string } | null
-	server?: boolean
-	backupTip?: string
 	actionDisabled?: boolean
 	actionDisabledTooltip?: string
 }>()
@@ -98,7 +95,7 @@ const admonitionBody = computed(() => {
 	if (props.warning) return props.warning.body
 	return formatMessage(messages.admonitionBody)
 })
-const actionMessage = computed(() => (props.server ? messages.header : messages.unlinkButton))
+const actionMessage = computed(() => messages.unlinkButton)
 
 function show() {
 	debug('show: called', {

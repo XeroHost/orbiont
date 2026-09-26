@@ -31,8 +31,6 @@ export interface LoaderVersionEntry {
 	stable?: boolean
 	/** Shown in the loader-version combobox when set; defaults to `id` */
 	label?: string
-	/** Paper build channel for optional UI (e.g. combobox pill); not used by Combobox itself */
-	channelTag?: 'ALPHA' | 'BETA'
 }
 
 export interface ContentDiffItem {

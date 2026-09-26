@@ -9,12 +9,6 @@
 		@create="handleZipSelection"
 	/>
 	<FileUploadConflictModal ref="uploadConflictModal" @proceed="handleExtractConfirm" />
-	<FileUploadZipUrlModal
-		v-if="ctx.showInstallFromUrl"
-		ref="uploadZipUrlModal"
-		:disabled="isBusy"
-		:disabled-tooltip="busyTooltip"
-	/>
 	<FileRenameItemModal ref="renameItemModal" :item="selectedItem" @rename="handleRenameItem" />
 	<FileMoveItemModal
 		ref="moveItemModal"
@@ -36,7 +30,6 @@
 					:is-editor-find-open="fileEditorRef?.isFindOpen"
 					:search-query="searchQuery"
 					:show-refresh-button="showRefreshButton"
-					:show-install-from-url="ctx.showInstallFromUrl"
 					:base-id="baseId"
 					:disabled="isBusy"
 					:disabled-tooltip="busyTooltip"
@@ -47,7 +40,6 @@
 					@create="showCreateModal"
 					@upload="initiateFileUpload"
 					@upload-zip="() => {}"
-					@unzip-from-url="showUnzipFromUrlModal"
 					@refresh="ctx.refresh"
 					@share="() => fileEditorRef?.shareToMclogs()"
 					@find="() => fileEditorRef?.toggleFind()"
@@ -235,7 +227,6 @@ import FileMoveItemModal from './components/modals/FileMoveItemModal.vue'
 import FileRenameItemModal from './components/modals/FileRenameItemModal.vue'
 import FileUnsavedChangesModal from './components/modals/FileUnsavedChangesModal.vue'
 import FileUploadConflictModal from './components/modals/FileUploadConflictModal.vue'
-import FileUploadZipUrlModal from './components/modals/FileUploadZipUrlModal.vue'
 import FileUploadDragAndDrop from './components/upload/FileUploadDragAndDrop.vue'
 import { useFileSearch } from './composables/file-search'
 import { useFileSelection } from './composables/file-selection'
@@ -378,7 +369,6 @@ const renameItemModal = ref<InstanceType<typeof FileRenameItemModal>>()
 const moveItemModal = ref<InstanceType<typeof FileMoveItemModal>>()
 const deleteItemModal = ref<InstanceType<typeof FileDeleteItemModal>>()
 const uploadConflictModal = ref<InstanceType<typeof FileUploadConflictModal>>()
-const uploadZipUrlModal = ref<InstanceType<typeof FileUploadZipUrlModal>>()
 const contextMenuRef = ref<InstanceType<typeof ContextMenu>>()
 
 const newItemType = ref<'file' | 'directory'>('file')
@@ -573,11 +563,6 @@ function showCreateModal(type: 'file' | 'directory') {
 	if (isBusy.value) return
 	newItemType.value = type
 	createItemModal.value?.show()
-}
-
-function showUnzipFromUrlModal(cf: boolean) {
-	if (isBusy.value) return
-	uploadZipUrlModal.value?.show(cf)
 }
 
 function showRenameModal(item: FileItem) {

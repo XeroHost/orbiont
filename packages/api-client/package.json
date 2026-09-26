@@ -39,10 +39,6 @@
 		"lint": "eslint . && prettier --check .",
 		"fix": "eslint . --fix && prettier --write ."
 	},
-	"dependencies": {
-		"mitt": "^3.0.1",
-		"ofetch": "^1.4.1"
-	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.58.9",
 		"@modrinth/tooling-config": "workspace:*",

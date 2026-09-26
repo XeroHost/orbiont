@@ -1,10 +1,8 @@
+import { AbstractModrinthClient } from '../core/abstract-client'
 import type { ModrinthApiError } from '../core/errors'
 import type { ClientConfig } from '../types/client'
 import type { RequestOptions } from '../types/request'
 import { appendRequestParams, parseResponseErrorData, toFetchBody } from '../utils/fetch'
-import { GenericSyncClient } from './sync-generic'
-import { GenericWebSocketClient } from './websocket-generic'
-import { XHRUploadClient } from './xhr-upload-client'
 
 /**
  * Tauri-specific configuration
@@ -23,41 +21,19 @@ interface HttpError extends Error {
 /**
  * Tauri platform client using Tauri v2 HTTP plugin
  *
- * Extends XHRUploadClient to provide upload with progress tracking.
- *
  * @example
  * ```typescript
  * import { getVersion } from '@tauri-apps/api/app'
  *
  * const client = new TauriModrinthClient({
- *   userAgent: async () => `modrinth/theseus/${await getVersion()} (support@modrinth.com)`,
- *   features: [
- *     new AuthFeature({ token: async () => getOAuthToken() })
- *   ]
+ *   userAgent: async () => `my-launcher/${await getVersion()}`,
  * })
  *
  * const project = await client.request('/project/sodium', { api: 'labrinth', version: 2 })
  * ```
  */
-export class TauriModrinthClient extends XHRUploadClient {
+export class TauriModrinthClient extends AbstractModrinthClient {
 	declare protected config: TauriClientConfig
-
-	constructor(config: TauriClientConfig) {
-		super(config)
-
-		Object.defineProperty(this.archon, 'sockets', {
-			value: new GenericWebSocketClient(this),
-			writable: false,
-			enumerable: true,
-			configurable: false,
-		})
-		Object.defineProperty(this.archon, 'sync', {
-			value: new GenericSyncClient(this),
-			writable: false,
-			enumerable: true,
-			configurable: false,
-		})
-	}
 
 	protected async executeRequest<T>(url: string, options: RequestOptions): Promise<T> {
 		try {
@@ -90,11 +66,8 @@ export class TauriModrinthClient extends XHRUploadClient {
 				throw error
 			}
 
-			// Handle binary downloads (e.g. kyros fs files) before JSON parsing.
+			// Handle binary responses before JSON parsing.
 			const contentType = response.headers.get('content-type')?.toLowerCase() ?? ''
-			if (fullUrl.includes('/fs/download')) {
-				return (await response.blob()) as T
-			}
 			if (
 				contentType.startsWith('image/') ||
 				contentType.startsWith('audio/') ||

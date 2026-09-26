@@ -15,6 +15,15 @@ export interface EditingFile {
 	path: string
 }
 
+export interface FileStat {
+	name: string
+	full_path: string
+	size_bytes: number
+	type: 'regular' | 'directory' | 'symlink' | 'other'
+	mtime: string
+	ctime: string
+}
+
 export type FileSortField = 'name' | 'size' | 'created' | 'modified'
 
 export type FileViewFilter = 'all' | 'filesOnly' | 'foldersOnly'
@@ -58,4 +67,12 @@ export interface ExtractDryRunResult {
 	conflicting_files: string[]
 }
 
-export type { UploadState } from '@modrinth/api-client'
+export interface UploadState {
+	isUploading: boolean
+	currentFileName: string | null
+	currentFileProgress: number
+	uploadedBytes: number
+	totalBytes: number
+	completedFiles: number
+	totalFiles: number
+}

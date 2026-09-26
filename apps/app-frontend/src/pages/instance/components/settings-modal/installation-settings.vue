@@ -420,7 +420,6 @@ provideInstallationSettings({
 		currentLoader: instance.value.loader,
 	})),
 
-	isServer: false,
 	isApp: true,
 	showModpackVersionActions: computed(
 		() => isModrinthLinkedModpack.value && !isMinecraftServer.value,

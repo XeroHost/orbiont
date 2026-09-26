@@ -22,7 +22,6 @@ import Avatar from '#ui/components/base/Avatar.vue'
 import { Button } from '#ui/components/base/buttons'
 import Chips from '#ui/components/base/Chips.vue'
 import Combobox from '#ui/components/base/Combobox.vue'
-import PaperChannelBadge from '#ui/components/base/PaperChannelBadge.vue'
 import ConfirmLeaveModal from '#ui/components/modal/ConfirmLeaveModal.vue'
 import { useDebugLogger } from '#ui/composables/debug-logger'
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
@@ -39,7 +38,6 @@ import ContentDiffModal from './components/ContentDiffModal.vue'
 import IncompatibleContentModal from './components/IncompatibleContentModal.vue'
 import { useInstallationForm } from './composables'
 import { injectInstallationSettings } from './providers/installation-settings'
-import type { LoaderVersionEntry } from './types'
 
 const { formatMessage } = useVIntl()
 const ctx = injectInstallationSettings()
@@ -128,23 +126,6 @@ watch(
 		debug('state watch:', { oldValue, value, snapshot: stateSnapshot() })
 	},
 )
-
-function paperLoaderChannelTag(index: number): LoaderVersionEntry['channelTag'] | null {
-	if (form.selectedPlatform.value !== 'paper') return null
-	const entries = ctx.resolveLoaderVersions(
-		form.selectedPlatform.value,
-		form.selectedGameVersion.value,
-	)
-	const tag = entries[index]?.channelTag
-	debug('paperLoaderChannelTag:', {
-		index,
-		selectedPlatform: form.selectedPlatform.value,
-		selectedGameVersion: form.selectedGameVersion.value,
-		entries: entries.length,
-		tag,
-	})
-	return tag === 'ALPHA' || tag === 'BETA' ? tag : null
-}
 
 function handleBeforeUnload(e: BeforeUnloadEvent) {
 	if (form.isSaving.value) {
@@ -471,15 +452,6 @@ const messages = defineMessages({
 		defaultMessage:
 			'Reinstalls Minecraft dependencies and checks for corruption. This may resolve issues if your game is not launching due to launcher-related errors.',
 	},
-	repairServerTitle: {
-		id: 'installation-settings.repair.server-title',
-		defaultMessage: 'Repair server',
-	},
-	repairServerDescription: {
-		id: 'installation-settings.repair.server-description',
-		defaultMessage:
-			'Reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your server is not starting correctly.',
-	},
 	editWarningInstance: {
 		id: 'installation-settings.edit.warning-instance',
 		defaultMessage:
@@ -501,18 +473,9 @@ const messages = defineMessages({
 		id: 'installation-settings.type.instance',
 		defaultMessage: 'instance',
 	},
-	serverPossessiveLabel: {
-		id: 'installation-settings.type.server-possessive',
-		defaultMessage: "server's",
-	},
 	instancePossessiveLabel: {
 		id: 'installation-settings.type.instance-possessive',
 		defaultMessage: "instance's",
-	},
-	editWarningServer: {
-		id: 'installation-settings.edit.warning-server',
-		defaultMessage:
-			"We don't recommend editing your installation settings after installing content. If you want to edit them reset your server.",
 	},
 	loaderVersionLabel: {
 		id: 'installation-settings.loader-version',
@@ -716,7 +679,7 @@ const messages = defineMessages({
 					<span class="text-primary">
 						{{
 							formatMessage(messages.unlinkDescription, {
-								type: formatMessage(ctx.isServer ? messages.serverLabel : messages.instanceLabel),
+								type: formatMessage(messages.instanceLabel),
 								projectType: formatMessage(
 									isLinkedModpack ? messages.modpackLabel : messages.serverLabel,
 								),
@@ -750,9 +713,7 @@ const messages = defineMessages({
 					<span class="text-primary">
 						{{
 							formatMessage(messages.reinstallModpackDescription, {
-								type: formatMessage(
-									ctx.isServer ? messages.serverPossessiveLabel : messages.instancePossessiveLabel,
-								),
+								type: formatMessage(messages.instancePossessiveLabel),
 							})
 						}}
 					</span>
@@ -761,11 +722,7 @@ const messages = defineMessages({
 				<!-- Repair (hidden for local file modpacks — reinstall covers this) -->
 				<div v-if="!isLocalFile" class="flex flex-col gap-2.5">
 					<span class="text-lg font-semibold text-contrast">
-						{{
-							formatMessage(
-								ctx.isServer ? messages.repairServerTitle : messages.repairInstanceTitle,
-							)
-						}}
+						{{ formatMessage(messages.repairInstanceTitle) }}
 					</span>
 					<div>
 						<Button
@@ -783,13 +740,7 @@ const messages = defineMessages({
 						</Button>
 					</div>
 					<span class="text-primary">
-						{{
-							formatMessage(
-								ctx.isServer
-									? messages.repairServerDescription
-									: messages.repairInstanceDescription,
-							)
-						}}
+						{{ formatMessage(messages.repairInstanceDescription) }}
 					</span>
 				</div>
 			</template>
@@ -889,33 +840,7 @@ const messages = defineMessages({
 									})
 								"
 								:disabled="ctx.isBusy.value"
-							>
-								<template
-									v-if="form.selectedPlatform.value === 'paper'"
-									#option="{ item, isSelected }"
-								>
-									<div class="flex w-full items-center justify-between gap-2">
-										<div class="flex flex-wrap items-center gap-2">
-											<span
-												class="font-semibold leading-tight"
-												:class="isSelected ? 'text-contrast' : 'text-primary'"
-											>
-												{{ item.label }}
-											</span>
-											<PaperChannelBadge :channel="paperLoaderChannelTag(item.value)" />
-										</div>
-									</div>
-								</template>
-								<template
-									v-if="form.selectedPlatform.value === 'paper'"
-									#search-selection-affix="{ option }"
-								>
-									<PaperChannelBadge
-										affix
-										:channel="option ? paperLoaderChannelTag(option.value) : null"
-									/>
-								</template>
-							</Combobox>
+							/>
 						</div>
 
 						<div class="flex flex-wrap gap-2">
@@ -980,11 +905,7 @@ const messages = defineMessages({
 					<div class="flex items-start gap-2">
 						<CircleAlertIcon class="mt-0.5 size-5 shrink-0 text-orange" />
 						<span class="text-primary">
-							{{
-								formatMessage(
-									ctx.isServer ? messages.editWarningServer : messages.editWarningInstance,
-								)
-							}}
+							{{ formatMessage(messages.editWarningInstance) }}
 						</span>
 					</div>
 				</div>
@@ -992,11 +913,7 @@ const messages = defineMessages({
 				<!-- Repair section -->
 				<div v-if="ctx.currentPlatform.value !== 'vanilla'" class="flex flex-col gap-2.5">
 					<span class="text-lg font-semibold text-contrast">
-						{{
-							formatMessage(
-								ctx.isServer ? messages.repairServerTitle : messages.repairInstanceTitle,
-							)
-						}}
+						{{ formatMessage(messages.repairInstanceTitle) }}
 					</span>
 					<div>
 						<Button
@@ -1014,13 +931,7 @@ const messages = defineMessages({
 						</Button>
 					</div>
 					<span class="text-primary">
-						{{
-							formatMessage(
-								ctx.isServer
-									? messages.repairServerDescription
-									: messages.repairInstanceDescription,
-							)
-						}}
+						{{ formatMessage(messages.repairInstanceDescription) }}
 					</span>
 				</div>
 			</template>
@@ -1061,25 +972,12 @@ const messages = defineMessages({
 							}
 						: null
 				"
-				:backup-tip="
-					[ctx.modpack.value?.title, pendingUpdateVersion?.version_number].filter(Boolean).join(' ')
-				"
 				@confirm="handleModpackUpdateConfirm"
 				@cancel="handleModpackUpdateCancel"
 			/>
-			<ConfirmRepairModal ref="repairModal" :server="ctx.isServer" @repair="handleRepair" />
-			<ConfirmReinstallModal
-				ref="reinstallModal"
-				:server="ctx.isServer"
-				:backup-tip="ctx.modpack.value?.title"
-				@reinstall="handleReinstall"
-			/>
-			<ConfirmUnlinkModal
-				ref="unlinkModal"
-				:server="ctx.isServer"
-				:backup-tip="ctx.modpack.value?.title"
-				@unlink="handleUnlink"
-			/>
+			<ConfirmRepairModal ref="repairModal" @repair="handleRepair" />
+			<ConfirmReinstallModal ref="reinstallModal" @reinstall="handleReinstall" />
+			<ConfirmUnlinkModal ref="unlinkModal" @unlink="handleUnlink" />
 			<IncompatibleContentModal
 				v-if="form.incompatibleContentVariant.value"
 				ref="incompatibleContentModal"
@@ -1107,7 +1005,6 @@ const messages = defineMessages({
 				:confirm-label="formatMessage(messages.confirmVersionChange)"
 				:confirm-icon="SaveIcon"
 				:removed-label="formatMessage(messages.removedIncompatible)"
-				:show-backup-creator="ctx.isServer"
 				@confirm="form.confirmSave()"
 				@cancel="form.cancelPreview()"
 			/>

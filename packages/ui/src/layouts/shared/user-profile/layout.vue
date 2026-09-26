@@ -189,7 +189,6 @@
 					@open-billing="openPath(`/admin/billing/${user.id}`)"
 					@toggle-affiliate="toggleAffiliate"
 					@open-info="openUserDetails"
-					@open-shared-instances="openPath(`/admin/shared-instances/${user.id}`)"
 					@open-analytics="
 						openPath(`/dashboard/analytics?user=${encodeURIComponent(user.username)}`)
 					"

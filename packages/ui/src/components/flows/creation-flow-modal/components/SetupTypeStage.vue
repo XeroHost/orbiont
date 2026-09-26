@@ -45,73 +45,41 @@
 		</div>
 
 		<span class="font-semibold text-contrast">
-			{{ setupTypeTitle }}
+			{{ formatMessage(messages.instanceTypeTitle) }}
 		</span>
 
-		<template v-if="ctx.flowType === 'instance'">
-			<div class="flex flex-col gap-3">
-				<BigOptionButton
-					:icon="BoxesIcon"
-					:title="formatMessage(messages.customSetupTitle)"
-					:description="formatMessage(messages.customSetupDescription)"
-					@click="setSetupType('custom')"
-				/>
-				<BigOptionButton
-					:icon="CompassIcon"
-					:title="formatMessage(messages.modpackBaseTitle)"
-					:description="formatMessage(messages.modpackBaseDescription)"
-					@click="browseModpacks"
-				/>
-				<BigOptionButton
-					:icon="UploadIcon"
-					:title="formatMessage(messages.uploadModpackTitle)"
-					:description="formatMessage(messages.uploadModpackDescription)"
-					@click="triggerFileInput"
-				/>
-				<BigOptionButton
-					:icon="BoxImportIcon"
-					:title="formatMessage(messages.importInstanceTitle)"
-					:description="formatMessage(messages.importInstanceDescription)"
-					@click="ctx.setImportMode()"
-				/>
-			</div>
-		</template>
-
-		<template v-else>
-			<div class="flex flex-col gap-3">
-				<BigOptionButton
-					:icon="CompassIcon"
-					:title="formatMessage(messages.modpackBaseTitle)"
-					:description="formatMessage(messages.modpackBaseDescription)"
-					@click="browseModpacks"
-				/>
-				<BigOptionButton
-					:icon="UploadIcon"
-					:title="formatMessage(messages.uploadModpackTitle)"
-					:description="formatMessage(messages.uploadModpackDescription)"
-					@click="triggerFileInput"
-				/>
-				<BigOptionButton
-					:icon="BoxesIcon"
-					:title="formatMessage(messages.customSetupTitle)"
-					:description="formatMessage(messages.customSetupDescription)"
-					@click="setSetupType('custom')"
-				/>
-				<BigOptionButton
-					:icon="BoxIcon"
-					:title="formatMessage(messages.vanillaMinecraftTitle)"
-					:description="formatMessage(messages.vanillaMinecraftDescription)"
-					@click="setSetupType('vanilla')"
-				/>
-			</div>
-		</template>
+		<div class="flex flex-col gap-3">
+			<BigOptionButton
+				:icon="BoxesIcon"
+				:title="formatMessage(messages.customSetupTitle)"
+				:description="formatMessage(messages.customSetupDescription)"
+				@click="setSetupType('custom')"
+			/>
+			<BigOptionButton
+				:icon="CompassIcon"
+				:title="formatMessage(messages.modpackBaseTitle)"
+				:description="formatMessage(messages.modpackBaseDescription)"
+				@click="browseModpacks"
+			/>
+			<BigOptionButton
+				:icon="UploadIcon"
+				:title="formatMessage(messages.uploadModpackTitle)"
+				:description="formatMessage(messages.uploadModpackDescription)"
+				@click="triggerFileInput"
+			/>
+			<BigOptionButton
+				:icon="BoxImportIcon"
+				:title="formatMessage(messages.importInstanceTitle)"
+				:description="formatMessage(messages.importInstanceDescription)"
+				@click="ctx.setImportMode()"
+			/>
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
 import {
 	BoxesIcon,
-	BoxIcon,
 	BoxImportIcon,
 	CompassIcon,
 	DownloadIcon,
@@ -119,7 +87,7 @@ import {
 	UploadIcon,
 } from '@modrinth/assets'
 import { commonMessages, defineMessages, useVIntl } from '@modrinth/ui'
-import { computed, defineAsyncComponent, h, onMounted, ref, watch } from 'vue'
+import { defineAsyncComponent, h, onMounted, ref, watch } from 'vue'
 
 import { useDebugLogger } from '#ui/composables/debug-logger'
 
@@ -162,14 +130,6 @@ const messages = defineMessages({
 		id: 'creation-flow.modal.setup-type.title.instance',
 		defaultMessage: 'Choose instance type',
 	},
-	installationTypeTitle: {
-		id: 'creation-flow.modal.setup-type.title.installation',
-		defaultMessage: 'Select installation type',
-	},
-	worldTypeTitle: {
-		id: 'creation-flow.modal.setup-type.title.world',
-		defaultMessage: 'Select world type',
-	},
 	customSetupTitle: {
 		id: 'creation-flow.modal.setup-type.option.custom-setup.title',
 		defaultMessage: 'Custom setup',
@@ -202,31 +162,13 @@ const messages = defineMessages({
 		id: 'creation-flow.modal.setup-type.option.import-instance.description',
 		defaultMessage: 'Import an instance from Prism, CurseForge, or similar.',
 	},
-	vanillaMinecraftTitle: {
-		id: 'creation-flow.modal.setup-type.option.vanilla-minecraft.title',
-		defaultMessage: 'Vanilla Minecraft',
-	},
-	vanillaMinecraftDescription: {
-		id: 'creation-flow.modal.setup-type.option.vanilla-minecraft.description',
-		defaultMessage: 'Classic Minecraft with no mods or plugins.',
-	},
-})
-
-const setupTypeTitle = computed(() => {
-	if (ctx.flowType === 'instance') {
-		return formatMessage(messages.instanceTypeTitle)
-	}
-	if (ctx.flowType === 'server-onboarding' || ctx.flowType === 'reset-server') {
-		return formatMessage(messages.installationTypeTitle)
-	}
-	return formatMessage(messages.worldTypeTitle)
 })
 
 function isModpackOption(projectId: string) {
 	return ctx.projectSearchHits.value[projectId]?.projectType === 'modpack'
 }
 
-function setSetupType(type: 'custom' | 'vanilla') {
+function setSetupType(type: 'custom') {
 	debug('selected:', type)
 	_setSetupType(type)
 }
@@ -239,11 +181,7 @@ function selectModpack() {
 function proceedWithModpack() {
 	if (ctx.finishDisabled.value) return
 
-	if (ctx.flowType === 'instance') {
-		ctx.finish()
-	} else {
-		ctx.modal.value?.setStage('final-config')
-	}
+	ctx.finish()
 }
 
 function browseModpacks() {
@@ -256,9 +194,7 @@ function browseModpacks() {
 async function triggerFileInput() {
 	if (ctx.finishDisabled.value) return
 
-	const picked = await filePicker.pickModpackFile({
-		readFile: ctx.flowType !== 'instance',
-	})
+	const picked = await filePicker.pickModpackFile({ readFile: false })
 	if (!picked) return
 
 	selectModpack()
@@ -328,26 +264,7 @@ watch(
 		if (!projectId) return
 		const hit = ctx.projectSearchHits.value[projectId]
 
-		if (ctx.flowType === 'instance') {
-			void ctx.selectProject(projectId, hit?.projectType ?? 'mod')
-			return
-		}
-
-		try {
-			const versions = await ctx.getProjectVersions(projectId)
-			if (ctx.projectSearchProjectId.value !== projectId || versions.length === 0) return
-
-			selectModpack()
-			ctx.modpackSelection.value = {
-				projectId,
-				versionId: versions[0].id,
-				name: hit?.title ?? '',
-				iconUrl: hit?.iconUrl,
-			}
-			proceedWithModpack()
-		} catch (error) {
-			debug('failed to load project versions:', error)
-		}
+		void ctx.selectProject(projectId, hit?.projectType ?? 'mod')
 	},
 )
 </script>

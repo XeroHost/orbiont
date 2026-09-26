@@ -32,7 +32,7 @@ export interface InstallationSettingsContext {
 	resolveLoaderVersions: (loader: string, gameVersion: string) => LoaderVersionEntry[]
 	resolveHasSnapshots: (loader: string) => boolean
 
-	/** Prefetch loader build lists when the user hovers a game version (e.g. Paper/Purpur). */
+	/** Prefetch loader build lists when the user hovers a game version. */
 	onGameVersionHover?: (option: GameVersionOption) => void
 
 	save: (platform: string, gameVersion: string, loaderVersionId: string | null) => Promise<void>
@@ -55,7 +55,6 @@ export interface InstallationSettingsContext {
 		currentLoader: string
 	}>
 
-	isServer: boolean
 	isApp: boolean
 
 	/** When false, hides change-version and reinstall buttons in linked state (default: true) */
@@ -111,7 +110,7 @@ export interface InstallationSettingsContext {
 	/**
 	 * Optional refs for the editing form state. When provided, the composable
 	 * uses these instead of creating its own. This lets the wrapper observe
-	 * editing state for reactive query dependencies (e.g. paper/purpur builds).
+	 * editing state for reactive query dependencies.
 	 */
 	editingPlatformRef?: Ref<string>
 	editingGameVersionRef?: Ref<string>

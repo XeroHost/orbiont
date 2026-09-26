@@ -12,9 +12,6 @@
 			</Admonition>
 			<InlineBackupCreator
 				ref="backupCreator"
-				:backup-name="
-					visibleBackupTip ? `Before bulk update (${visibleBackupTip})` : 'Before bulk update'
-				"
 				:shift-click-hint-override="formatMessage(messages.shiftClickHint)"
 				@update:buttons-disabled="buttonsDisabled = $event"
 			/>
@@ -82,8 +79,6 @@ const messages = defineMessages({
 
 const props = defineProps<{
 	count: number
-	server?: boolean
-	backupTip?: string
 	actionDisabled?: boolean
 	actionDisabledTooltip?: string
 }>()
@@ -96,12 +91,10 @@ const modal = ref<InstanceType<typeof NewModal>>()
 const backupCreator = ref<InstanceType<typeof InlineBackupCreator>>()
 const buttonsDisabled = ref(false)
 const visibleCount = ref(props.count)
-const visibleBackupTip = ref(props.backupTip)
 
 async function show() {
 	await nextTick()
 	visibleCount.value = props.count
-	visibleBackupTip.value = props.backupTip
 	modal.value?.show()
 }
 

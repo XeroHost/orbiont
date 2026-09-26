@@ -159,7 +159,6 @@
 				</div>
 				<InlineBackupCreator
 					ref="backupCreator"
-					:backup-name="backupName"
 					hide-shift-click-hint
 					@update:buttons-disabled="buttonsDisabled = $event"
 				/>
@@ -214,7 +213,6 @@ const props = withDefaults(
 		dependents?: ContentDependencyWarningDependent[]
 		itemType: string
 		variant?: 'instance' | 'server'
-		backupTip?: string
 		actionDisabled?: boolean
 		actionDisabledTooltip?: string
 	}>(),
@@ -222,7 +220,6 @@ const props = withDefaults(
 		items: () => [],
 		dependents: () => [],
 		variant: 'instance',
-		backupTip: undefined,
 		actionDisabled: false,
 		actionDisabledTooltip: undefined,
 	},
@@ -320,10 +317,6 @@ const {
 
 const contextLabel = computed(() =>
 	formatMessage(props.variant === 'server' ? messages.serverContext : messages.instanceContext),
-)
-
-const backupName = computed(() =>
-	props.backupTip ? `Before deletion (${props.backupTip})` : 'Before deletion',
 )
 
 const deleteButtonLabel = computed(() => {

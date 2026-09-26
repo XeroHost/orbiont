@@ -1,4 +1,3 @@
-import type { Kyros } from '@modrinth/api-client'
 import type { ComputedRef, Ref } from 'vue'
 
 import { createContext } from '#ui/providers/create-context'
@@ -8,6 +7,7 @@ import type {
 	ExtractDryRunResult,
 	FileItem,
 	FileOperation,
+	FileStat,
 	UploadState,
 } from '../types'
 
@@ -32,7 +32,7 @@ export interface FileManagerContext {
 	readFileAsBlob: (path: string) => Promise<Blob>
 	writeFile: (path: string, content: string) => Promise<void>
 	downloadFile: (path: string, fileName: string) => Promise<void>
-	statFile?: (path: string) => Promise<Kyros.Files.v1.FileStatResponse>
+	statFile?: (path: string) => Promise<FileStat>
 	zipFolder?: (path: string) => Promise<void>
 	zipPaths?: (parent: string, include: string[], target: string) => Promise<void>
 
@@ -59,7 +59,6 @@ export interface FileManagerContext {
 	prefetchDirectory?: (path: string) => void
 	prefetchFile?: (path: string) => void
 
-	showInstallFromUrl?: boolean
 	basePath?: Ref<string> | ComputedRef<string>
 	openInFolder?: (path: string) => void
 

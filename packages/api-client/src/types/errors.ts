@@ -24,8 +24,7 @@ export type ApiErrorData = {
 }
 
 /**
- * Modrinth V1 error response format
- * Used by kyros + archon APIs
+ * V1 error response format
  */
 export type ModrinthErrorResponse = {
 	/**

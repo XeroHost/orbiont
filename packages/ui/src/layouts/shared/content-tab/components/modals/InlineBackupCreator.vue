@@ -1,27 +1,14 @@
 <template>
 	<div class="flex flex-col gap-3">
 		<span class="text-primary">
-			{{
-				formatMessage(messages.warningBody, {
-					type: formatMessage(backup.isServer ? messages.worldLabel : messages.instanceLabel),
-				})
-			}}
+			{{ formatMessage(messages.warningBody, { type: formatMessage(messages.instanceLabel) }) }}
 		</span>
 
 		<div v-if="backup.available" class="flex items-center gap-2">
 			<!-- Button / Loading state -->
 			<Button
 				v-if="!backup.backupComplete.value && !backup.backupFailed.value"
-				v-tooltip="
-					!canManageBackups
-						? permissionDeniedMessage
-						: backup.externalBackupInProgress.value
-							? formatMessage(messages.backupInProgress)
-							: undefined
-				"
-				:disabled="
-					!canManageBackups || backup.isBackingUp.value || backup.externalBackupInProgress.value
-				"
+				:disabled="backup.isBackingUp.value"
 				@click="startBackup"
 			>
 				<SpinnerIcon v-if="backup.isBackingUp.value" class="size-5 animate-spin" />
@@ -42,12 +29,6 @@
 			<div v-else-if="backup.backupFailed.value" class="text-sm text-red">
 				{{ formatMessage(messages.backupFailed) }}
 			</div>
-
-			<TriangleAlertIcon
-				v-if="backup.isServer"
-				v-tooltip="formatMessage(messages.backupTakesAWhile)"
-				class="size-5 shrink-0 text-brand-orange hover:brightness-110"
-			/>
 		</div>
 		<span v-if="!props.hideShiftClickHint" class="text-secondary">
 			{{ props.shiftClickHintOverride ?? formatMessage(messages.shiftClickHint) }}
@@ -56,19 +37,15 @@
 </template>
 
 <script setup lang="ts">
-import { CheckCircleIcon, PlusIcon, SpinnerIcon, TriangleAlertIcon } from '@modrinth/assets'
-import { computed, watch } from 'vue'
+import { CheckCircleIcon, PlusIcon, SpinnerIcon } from '@modrinth/assets'
+import { watch } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
-import { hasServerPermission } from '#ui/composables/server-permissions'
-import { injectModrinthServerContext } from '#ui/providers'
-import { commonMessages } from '#ui/utils/common-messages'
 
 import { useInlineBackup } from '../../composables/use-inline-backup'
 
 const props = defineProps<{
-	backupName: string
 	hideShiftClickHint?: boolean
 	shiftClickHintOverride?: string
 }>()
@@ -78,22 +55,11 @@ const emit = defineEmits<{
 }>()
 
 const { formatMessage } = useVIntl()
-const serverCtx = injectModrinthServerContext(null)
-const canManageBackups = computed(
-	() => !serverCtx || hasServerPermission(serverCtx.currentUserPermissions.value, 'BACKUPS'),
-)
-const permissionDeniedMessage = computed(() => formatMessage(commonMessages.noPermissionAction))
 
-const backup = useInlineBackup(() => props.backupName)
+const backup = useInlineBackup()
 
 function startBackup() {
-	if (
-		!canManageBackups.value ||
-		backup.externalBackupInProgress.value ||
-		backup.isBackingUp.value
-	) {
-		return
-	}
+	if (backup.isBackingUp.value) return
 	backup.startBackup()
 }
 
@@ -115,10 +81,6 @@ const messages = defineMessages({
 		defaultMessage:
 			'We recommend creating a backup before proceeding so you can restore your {type} if anything breaks.',
 	},
-	worldLabel: {
-		id: 'content.inline-backup.world-label',
-		defaultMessage: 'world',
-	},
 	instanceLabel: {
 		id: 'content.inline-backup.instance-label',
 		defaultMessage: 'instance',
@@ -138,16 +100,6 @@ const messages = defineMessages({
 	backupFailed: {
 		id: 'content.inline-backup.backup-failed',
 		defaultMessage: 'Backup creation failed. You can still proceed.',
-	},
-	backupTakesAWhile: {
-		id: 'content.inline-backup.backup-takes-a-while',
-		defaultMessage:
-			'Creating a backup may take several minutes depending on the size of your server.',
-	},
-	backupInProgress: {
-		id: 'content.inline-backup.backup-in-progress',
-		defaultMessage:
-			"A backup is in progress, it's recommended to wait for it to finish before performing this action.",
 	},
 	shiftClickHint: {
 		id: 'content.inline-backup.shift-click-hint',

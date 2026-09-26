@@ -16,7 +16,6 @@
 			</Admonition>
 			<InlineBackupCreator
 				ref="backupCreator"
-				:backup-name="props.backupTip ? `Before deletion (${props.backupTip})` : 'Before deletion'"
 				@update:buttons-disabled="buttonsDisabled = $event"
 			/>
 		</div>
@@ -83,14 +82,12 @@ const props = withDefaults(
 		itemType: string
 		warning?: ContentActionWarning | null
 		variant?: 'instance' | 'server'
-		backupTip?: string
 		actionDisabled?: boolean
 		actionDisabledTooltip?: string
 	}>(),
 	{
 		warning: null,
 		variant: 'instance',
-		backupTip: undefined,
 		actionDisabled: false,
 		actionDisabledTooltip: undefined,
 	},

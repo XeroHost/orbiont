@@ -3,13 +3,13 @@
 		ref="modal"
 		:header="
 			formatMessage(messages.header, {
-				type: formatMessage(server ? messages.serverLabel : messages.instanceLabel),
+				type: formatMessage(messages.instanceLabel),
 			})
 		"
 		max-width="500px"
 	>
 		<span class="text-primary">
-			{{ formatMessage(server ? messages.serverBody : messages.instanceBody) }}
+			{{ formatMessage(messages.instanceBody) }}
 		</span>
 
 		<template #actions>
@@ -37,10 +37,6 @@ import { useDebugLogger } from '#ui/composables/debug-logger'
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
 import { commonMessages } from '#ui/utils/common-messages'
 
-defineProps<{
-	server?: boolean
-}>()
-
 const { formatMessage } = useVIntl()
 const debug = useDebugLogger('ConfirmRepairModal')
 
@@ -54,11 +50,6 @@ const messages = defineMessages({
 		defaultMessage:
 			'Repairing reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your game is not launching due to launcher-related errors.',
 	},
-	serverBody: {
-		id: 'instance.confirm-repair.body.server',
-		defaultMessage:
-			'Repairing reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your server is not starting correctly.',
-	},
 	repairButton: {
 		id: 'instance.confirm-repair.repair-button',
 		defaultMessage: 'Repair',
@@ -66,10 +57,6 @@ const messages = defineMessages({
 	instanceLabel: {
 		id: 'instance.confirm-repair.instance-label',
 		defaultMessage: 'instance',
-	},
-	serverLabel: {
-		id: 'instance.confirm-repair.server-label',
-		defaultMessage: 'server',
 	},
 })
 

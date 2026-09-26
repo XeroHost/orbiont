@@ -41,7 +41,7 @@
 		</div>
 
 		<!-- Instance-specific: Icon upload -->
-		<div v-if="ctx.flowType === 'instance'" class="flex items-center gap-2.5">
+		<div class="flex items-center gap-2.5">
 			<div class="group relative size-[7.75rem] shrink-0">
 				<Avatar
 					:src="ctx.instanceIconUrl.value ?? undefined"
@@ -86,7 +86,7 @@
 		</div>
 
 		<!-- Instance-specific: Name field -->
-		<div v-if="ctx.flowType === 'instance'" class="flex flex-col gap-2">
+		<div class="flex flex-col gap-2">
 			<span class="font-semibold text-contrast">{{ formatMessage(messages.nameLabel) }}</span>
 			<Input
 				v-model="ctx.instanceName.value"
@@ -96,11 +96,7 @@
 
 		<!-- Loader chips -->
 		<div v-if="!hideLoaderChips" class="flex flex-col gap-2">
-			<span class="font-semibold text-contrast">{{
-				ctx.flowType === 'instance'
-					? formatMessage(messages.loaderLabel)
-					: formatMessage(messages.contentLoaderLabel)
-			}}</span>
+			<span class="font-semibold text-contrast">{{ formatMessage(messages.loaderLabel) }}</span>
 			<Chips
 				v-model="selectedLoader"
 				:items="effectiveLoaders"
@@ -126,7 +122,6 @@
 				sync-with-selection
 				:placeholder="formatMessage(messages.selectGameVersion)"
 				:search-placeholder="formatMessage(messages.searchGameVersion)"
-				@option-hover="handleGameVersionHover"
 			>
 				<template v-if="ctx.showSnapshotToggle" #dropdown-footer>
 					<button
@@ -151,19 +146,16 @@
 			<Collapsible :collapsed="!selectedLoader || !selectedGameVersion" overflow-visible>
 				<div class="flex flex-col gap-2">
 					<span class="font-semibold text-contrast">{{
-						isPaperLike
-							? formatMessage(messages.buildNumberLabel)
-							: formatMessage(messages.loaderVersionLabel)
+						formatMessage(messages.loaderVersionLabel)
 					}}</span>
 					<Chips
-						v-if="!isPaperLike"
 						v-model="loaderVersionType"
 						:items="loaderVersionTypeItems"
 						:disabled-items="loaderVersionTypeDisabledItems"
 						:disabled-tooltip="'No such versions available'"
 						:format-label="formatLoaderVersionTypeLabel"
 					/>
-					<div v-if="isPaperLike || loaderVersionType === 'other'">
+					<div v-if="loaderVersionType === 'other'">
 						<Combobox
 							v-model="selectedLoaderVersion"
 							:options="loaderVersionOptions"
@@ -174,38 +166,9 @@
 							"
 							searchable
 							sync-with-selection
-							:placeholder="
-								isPaperLike
-									? formatMessage(messages.selectBuildNumber)
-									: formatMessage(messages.selectLoaderVersion)
-							"
-							:search-placeholder="
-								isPaperLike
-									? formatMessage(messages.searchBuildNumber)
-									: formatMessage(messages.searchLoaderVersion)
-							"
-						>
-							<!-- When not Paper, this scoped slot is omitted and Combobox uses default option markup. -->
-							<template v-if="selectedLoader === 'paper'" #option="{ item, isSelected }">
-								<div class="flex w-full items-center justify-between gap-2">
-									<div class="flex flex-wrap items-center gap-2">
-										<span
-											class="font-semibold leading-tight"
-											:class="isSelected ? 'text-contrast' : 'text-primary'"
-										>
-											{{ item.label }}
-										</span>
-										<PaperChannelBadge :channel="paperBuildChannelTag(String(item.value))" />
-									</div>
-								</div>
-							</template>
-							<template v-if="selectedLoader === 'paper'" #search-selection-affix="{ option }">
-								<PaperChannelBadge
-									affix
-									:channel="option ? paperBuildChannelTag(String(option.value)) : null"
-								/>
-							</template>
-						</Combobox>
+							:placeholder="formatMessage(messages.selectLoaderVersion)"
+							:search-placeholder="formatMessage(messages.searchLoaderVersion)"
+						/>
 					</div>
 				</div>
 			</Collapsible>
@@ -214,7 +177,6 @@
 </template>
 
 <script setup lang="ts">
-import type { Paper } from '@modrinth/api-client'
 import {
 	EyeIcon,
 	EyeOffIcon,
@@ -230,19 +192,17 @@ import { computed, onMounted, ref, watch } from 'vue'
 import { Button } from '#ui/components/base/buttons'
 import { useDebugLogger } from '#ui/composables/debug-logger'
 
-import { injectFilePicker, injectModrinthClient, injectTags } from '../../../../providers'
+import { injectFilePicker, injectTags } from '../../../../providers'
 import Avatar from '../../../base/Avatar.vue'
 import Chips from '../../../base/Chips.vue'
 import Collapsible from '../../../base/Collapsible.vue'
 import Combobox, { type ComboboxOption } from '../../../base/Combobox.vue'
 import Input from '../../../base/inputs/Input.vue'
-import PaperChannelBadge from '../../../base/PaperChannelBadge.vue'
 import type { LoaderVersionEntry, LoaderVersionType } from '../creation-flow-context'
 import { injectCreationFlowContext } from '../creation-flow-context'
 import { formatLoaderLabel } from '../shared'
 
 const debug = useDebugLogger('CustomSetupStage')
-const client = injectModrinthClient()
 const ctx = injectCreationFlowContext()
 const { formatMessage } = useVIntl()
 const {
@@ -279,10 +239,6 @@ const messages = defineMessages({
 		id: 'creation-flow.modal.custom-setup.loader.label',
 		defaultMessage: 'Loader',
 	},
-	contentLoaderLabel: {
-		id: 'creation-flow.modal.custom-setup.content-loader.label',
-		defaultMessage: 'Content loader',
-	},
 	noVersionsAvailable: {
 		id: 'creation-flow.modal.custom-setup.options.no-versions-available',
 		defaultMessage: 'No versions available',
@@ -295,25 +251,13 @@ const messages = defineMessages({
 		id: 'creation-flow.modal.custom-setup.game-version.search-placeholder',
 		defaultMessage: 'Search game version...',
 	},
-	buildNumberLabel: {
-		id: 'creation-flow.modal.custom-setup.build-number.label',
-		defaultMessage: 'Build number',
-	},
 	loaderVersionLabel: {
 		id: 'creation-flow.modal.custom-setup.loader-version.label',
 		defaultMessage: 'Loader version',
 	},
-	selectBuildNumber: {
-		id: 'creation-flow.modal.custom-setup.build-number.placeholder',
-		defaultMessage: 'Select build number',
-	},
 	selectLoaderVersion: {
 		id: 'creation-flow.modal.custom-setup.loader-version.placeholder',
 		defaultMessage: 'Select loader version',
-	},
-	searchBuildNumber: {
-		id: 'creation-flow.modal.custom-setup.build-number.search-placeholder',
-		defaultMessage: 'Search build number...',
 	},
 	searchLoaderVersion: {
 		id: 'creation-flow.modal.custom-setup.loader-version.search-placeholder',
@@ -344,27 +288,18 @@ function formatLoaderVersionTypeLabel(type: LoaderVersionType): string {
 	}
 }
 
-// For instance flow, prepend 'vanilla' to available loaders.
-// For server flows, vanilla is a separate option in the setup type stage, so exclude it here.
+// Vanilla is offered as a loader chip, ahead of the mod loaders.
 const effectiveLoaders = computed(() => {
 	if (ctx.projectInstall.value) {
 		return ctx.projectInstall.value.compatibleLoaders
 	}
-	if (ctx.flowType === 'instance') {
-		return ['vanilla', ...ctx.availableLoaders.filter((l) => l !== 'vanilla')]
-	}
-	if (ctx.flowType === 'server-onboarding' || ctx.flowType === 'reset-server') {
-		return ctx.availableLoaders.filter((l) => l !== 'vanilla')
-	}
-	return ctx.availableLoaders
+	return ['vanilla', ...ctx.availableLoaders.filter((l) => l !== 'vanilla')]
 })
 
 // Pre-select loader and game version from initial values
 onMounted(() => {
 	debug('mounted, initialLoader:', ctx.initialLoader, 'initialGameVersion:', ctx.initialGameVersion)
-	if (ctx.flowType === 'instance') {
-		void randomizeIcon()
-	}
+	void randomizeIcon()
 	if (!selectedLoader.value) {
 		if (ctx.initialLoader) {
 			selectedLoader.value = ctx.initialLoader
@@ -386,10 +321,6 @@ const loaderVersionTypeDisabledItems = computed<LoaderVersionType[]>(() => {
 	const noStableVersions = !loaderVersionsData.value.some((v: LoaderVersionEntry) => v.stable)
 	return noStableVersions ? ['stable'] : []
 })
-
-const isPaperLike = computed(
-	() => selectedLoader.value === 'paper' || selectedLoader.value === 'purpur',
-)
 
 // Icon upload handling
 const filePicker = injectFilePicker()
@@ -429,10 +360,6 @@ async function randomizeIcon() {
 const loaderVersionsLoading = ref(false)
 const loaderVersionsData = ref<LoaderVersionEntry[]>([])
 
-// Paper/Purpur build caches
-const paperVersions = ref<Record<string, Paper.Versions.v3.Build[]>>({})
-const purpurVersions = ref<Record<string, string[]>>({})
-
 function toApiLoaderName(loader: string): string {
 	return loader === 'neoforge' ? 'neo' : loader
 }
@@ -441,8 +368,6 @@ const gameVersionsLoading = computed(() => {
 	if (ctx.projectInstall.value) return false
 	const loader = selectedLoader.value
 	if (!loader || loader === 'vanilla') return false
-	if (loader === 'paper') return ctx.paperSupportedVersions.value === null
-	if (loader === 'purpur') return ctx.purpurSupportedVersions.value === null
 	return ctx.loaderVersionsCache.value[toApiLoaderName(loader)] === undefined
 })
 
@@ -464,20 +389,6 @@ const gameVersionOptions = computed<ComboboxOption<string>[]>(() => {
 
 	// For loaders with per-version data, only show game versions that have builds
 	if (selectedLoader.value && selectedLoader.value !== 'vanilla') {
-		if (selectedLoader.value === 'paper') {
-			if (!ctx.paperSupportedVersions.value) return []
-			return versions
-				.filter((v) => ctx.paperSupportedVersions.value!.has(v.version))
-				.map((v) => ({ value: v.version, label: v.version }))
-		}
-
-		if (selectedLoader.value === 'purpur') {
-			if (!ctx.purpurSupportedVersions.value) return []
-			return versions
-				.filter((v) => ctx.purpurSupportedVersions.value!.has(v.version))
-				.map((v) => ({ value: v.version, label: v.version }))
-		}
-
 		const apiLoader = toApiLoaderName(selectedLoader.value)
 		const manifest = ctx.loaderVersionsCache.value[apiLoader]
 		if (!manifest) return []
@@ -530,43 +441,6 @@ async function fetchLoaderManifest(loader: string) {
 
 async function fetchLoaderMetadata(loader?: string | null) {
 	await ctx.fetchLoaderMetadata(loader)
-}
-
-function paperBuildChannelTag(buildId: string): 'ALPHA' | 'BETA' | null {
-	const gv = selectedGameVersion.value
-	if (!gv || selectedLoader.value !== 'paper') return null
-	const b = paperVersions.value[gv]?.find((x) => String(x.id) === buildId)
-	if (!b) return null
-	const u = String(b.channel).toUpperCase()
-	if (u === 'ALPHA' || u === 'BETA') return u
-	return null
-}
-
-async function fetchPaperVersions(mcVersion: string) {
-	if (paperVersions.value[mcVersion]) return
-	try {
-		const data = await client.paper.versions_v3.getBuilds(mcVersion)
-		paperVersions.value[mcVersion] = data.builds.toSorted((a, b) => b.id - a.id)
-	} catch {
-		paperVersions.value[mcVersion] = []
-	}
-}
-
-function handleGameVersionHover(option: ComboboxOption<string | null>) {
-	const v = option.value
-	if (v == null || v === '') return
-	if (selectedLoader.value === 'paper') void fetchPaperVersions(v)
-	else if (selectedLoader.value === 'purpur') void fetchPurpurVersions(v)
-}
-
-async function fetchPurpurVersions(mcVersion: string) {
-	if (purpurVersions.value[mcVersion]) return
-	try {
-		const data = await client.purpur.versions_v2.getBuilds(mcVersion)
-		purpurVersions.value[mcVersion] = data.builds.all.sort((a, b) => parseInt(b) - parseInt(a))
-	} catch {
-		purpurVersions.value[mcVersion] = []
-	}
 }
 
 function getLoaderVersionsForGameVersion(
@@ -643,28 +517,6 @@ watch(
 
 		loaderVersionsLoading.value = true
 
-		if (loader === 'paper') {
-			await fetchPaperVersions(gameVersion)
-			if (watchId !== loaderVersionWatchId) return
-			loaderVersionsLoading.value = false
-			const builds = paperVersions.value[gameVersion]
-			if (builds?.length) {
-				selectedLoaderVersion.value = `${builds[0].id}`
-			}
-			return
-		}
-
-		if (loader === 'purpur') {
-			await fetchPurpurVersions(gameVersion)
-			if (watchId !== loaderVersionWatchId) return
-			loaderVersionsLoading.value = false
-			const builds = purpurVersions.value[gameVersion]
-			if (builds?.length) {
-				selectedLoaderVersion.value = builds[0]
-			}
-			return
-		}
-
 		await fetchLoaderManifest(loader)
 		if (watchId !== loaderVersionWatchId) {
 			debug('watch [loader, gameVersion]: stale execution, skipping', {
@@ -720,19 +572,6 @@ function autoSelectLoaderVersion() {
 }
 
 const loaderVersionOptions = computed<ComboboxOption<string>[]>(() => {
-	if (selectedLoader.value === 'paper' && selectedGameVersion.value) {
-		const builds = paperVersions.value[selectedGameVersion.value] ?? []
-		return builds.map((b) => ({
-			value: `${b.id}`,
-			label: `Build ${b.id}`,
-		}))
-	}
-
-	if (selectedLoader.value === 'purpur' && selectedGameVersion.value) {
-		const builds = purpurVersions.value[selectedGameVersion.value] ?? []
-		return builds.map((b) => ({ value: b, label: `Build ${b}` }))
-	}
-
 	return loaderVersionsData.value.map((v) => ({
 		value: v.id,
 		label: v.stable ? `${v.id} (stable)` : v.id,

@@ -9,12 +9,10 @@ export type HttpMethod = 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
 export type RequestOptions = {
 	/**
 	 * API to use for this request
-	 * - 'labrinth': Main Modrinth API (resolves to labrinthBaseUrl)
-	 * - 'archon': Modrinth Hosting API (resolves to archonBaseUrl)
-	 * - 'sharedinstances': Shared Instances API (resolves to sharedInstancesBaseUrl)
+	 * - 'labrinth': Modrinth content API (resolves to labrinthBaseUrl)
 	 * - string: Custom base URL (e.g., 'https://custom-api.com')
 	 */
-	api: 'labrinth' | 'archon' | string
+	api: 'labrinth' | string
 
 	/**
 	 * API version to use
@@ -114,13 +112,6 @@ export type RequestContext = {
 
 	/**
 	 * Additional metadata that features can attach
-	 *
-	 * For uploads, this contains:
-	 * - isUpload: true
-	 * - file: File | Blob being uploaded
-	 * - onProgress: progress callback (if provided)
-	 *
-	 * Features can check `context.metadata?.isUpload` to detect uploads.
 	 */
 	metadata?: Record<string, unknown>
 }

@@ -2,23 +2,14 @@ import type { InferredClientModules } from '../modules'
 import { buildModuleStructure } from '../modules'
 import type { BaseUrlConfig, ClientConfig } from '../types/client'
 import type { RequestContext, RequestOptions } from '../types/request'
-import type { UploadMetadata, UploadProgress, UploadRequestOptions } from '../types/upload'
 import type { AbstractFeature } from './abstract-feature'
 import type { AbstractModule } from './abstract-module'
-import type { AbstractSyncClient } from './abstract-sync'
-import { AbstractUploadClient } from './abstract-upload-client'
-import type { AbstractWebSocketClient } from './abstract-websocket'
 import { ModrinthApiError, ModrinthServerError } from './errors'
-
-type ArchonClientModules = Omit<InferredClientModules['archon'], 'backups_v1'> & {
-	/** @deprecated Use `backups_queue_v1` for the Backups Queue API. */
-	backups_v1: InferredClientModules['archon']['backups_v1']
-}
 
 /**
  * Abstract base client for Modrinth APIs
  */
-export abstract class AbstractModrinthClient extends AbstractUploadClient {
+export abstract class AbstractModrinthClient {
 	protected config: ClientConfig
 	protected features: AbstractFeature[]
 
@@ -33,25 +24,13 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 	private _moduleNamespaces: Map<string, Record<string, AbstractModule>> = new Map()
 
 	public readonly labrinth!: InferredClientModules['labrinth']
-	public readonly archon!: ArchonClientModules & {
-		sockets: AbstractWebSocketClient
-		sync: AbstractSyncClient
-	}
-	public readonly kyros!: InferredClientModules['kyros']
-	public readonly iso3166!: InferredClientModules['iso3166']
 	public readonly mclogs!: InferredClientModules['mclogs']
 	public readonly launchermeta!: InferredClientModules['launchermeta']
-	public readonly paper!: InferredClientModules['paper']
-	public readonly purpur!: InferredClientModules['purpur']
-	public readonly sharedinstances!: InferredClientModules['sharedinstances']
 
 	constructor(config: ClientConfig) {
-		super()
 		this.config = {
 			timeout: 10000,
 			labrinthBaseUrl: 'https://api.modrinth.com',
-			archonBaseUrl: 'https://archon.modrinth.com',
-			sharedInstancesBaseUrl: 'https://shared-instances.modrinth.com',
 			...config,
 		}
 		this.features = config.features ?? []
@@ -120,18 +99,7 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 	 * @throws {ModrinthApiError} When the request fails or features throw errors
 	 */
 	async request<T>(path: string, options: RequestOptions): Promise<T> {
-		let baseUrl: string
-		if (options.api === 'labrinth') {
-			baseUrl = this.resolveBaseUrl(this.config.labrinthBaseUrl!)
-		} else if (options.api === 'archon') {
-			baseUrl = this.resolveBaseUrl(this.config.archonBaseUrl!)
-		} else if (options.api === 'sharedinstances') {
-			baseUrl = this.resolveBaseUrl(this.config.sharedInstancesBaseUrl!)
-		} else {
-			baseUrl = options.api
-		}
-
-		const url = this.buildUrl(path, baseUrl, options.version)
+		const url = this.buildUrl(path, this.baseUrlFor(options.api), options.version)
 
 		const defaultHeaders = await this.buildDefaultHeaders()
 
@@ -145,8 +113,6 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 				...options.headers,
 			},
 		}
-		this.attachArchonSentryCaptureHeader(mergedOptions)
-
 		const headers = mergedOptions.headers
 		if (headers && 'Content-Type' in headers && headers['Content-Type'] === '') {
 			delete headers['Content-Type']
@@ -169,18 +135,7 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 	}
 
 	async stream(path: string, options: RequestOptions): Promise<ReadableStream<Uint8Array>> {
-		let baseUrl: string
-		if (options.api === 'labrinth') {
-			baseUrl = this.resolveBaseUrl(this.config.labrinthBaseUrl!)
-		} else if (options.api === 'archon') {
-			baseUrl = this.resolveBaseUrl(this.config.archonBaseUrl!)
-		} else if (options.api === 'sharedinstances') {
-			baseUrl = this.resolveBaseUrl(this.config.sharedInstancesBaseUrl!)
-		} else {
-			baseUrl = options.api
-		}
-
-		const url = this.buildUrl(path, baseUrl, options.version)
+		const url = this.buildUrl(path, this.baseUrlFor(options.api), options.version)
 		const defaultHeaders = await this.buildDefaultHeaders()
 		const mergedOptions: RequestOptions = {
 			method: 'GET',
@@ -193,8 +148,6 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 				...options.headers,
 			},
 		}
-		this.attachArchonSentryCaptureHeader(mergedOptions)
-
 		const context = this.buildContext(url, path, mergedOptions)
 
 		try {
@@ -244,35 +197,6 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 	}
 
 	/**
-	 * Execute the feature chain for an upload
-	 *
-	 * Similar to executeFeatureChain but calls executeXHRUpload at the end.
-	 * This allows features (auth, retry, etc.) to wrap the upload execution.
-	 */
-	protected async executeUploadFeatureChain<T>(
-		context: RequestContext,
-		progressCallbacks: Array<(p: UploadProgress) => void>,
-		abortController: AbortController,
-	): Promise<T> {
-		const applicableFeatures = this.features.filter((feature) => feature.shouldApply(context))
-
-		let index = applicableFeatures.length
-
-		const next = async (): Promise<T> => {
-			index--
-
-			if (index >= 0) {
-				return applicableFeatures[index].execute(next, context)
-			} else {
-				await this.config.hooks?.onRequest?.(context)
-				return this.executeXHRUpload<T>(context, progressCallbacks, abortController)
-			}
-		}
-
-		return next()
-	}
-
-	/**
 	 * Build the full URL for a request
 	 */
 	protected buildUrl(path: string, baseUrl: string, version: number | 'internal' | string): string {
@@ -299,6 +223,11 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 		return typeof baseUrl === 'function' ? baseUrl() : baseUrl
 	}
 
+	/** `'labrinth'` maps to the configured Modrinth API; anything else is a base URL. */
+	private baseUrlFor(api: string): string {
+		return api === 'labrinth' ? this.resolveBaseUrl(this.config.labrinthBaseUrl!) : api
+	}
+
 	/**
 	 * Build the request context
 	 */
@@ -309,52 +238,6 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 			options,
 			attempt: 1,
 			startTime: Date.now(),
-		}
-	}
-
-	/**
-	 * Build context for an upload request
-	 *
-	 * Sets metadata.isUpload = true so features can detect uploads.
-	 * Supports both single file uploads and FormData uploads.
-	 */
-	protected buildUploadContext(
-		url: string,
-		path: string,
-		options: UploadRequestOptions,
-	): RequestContext {
-		let metadata: UploadMetadata
-		let body: File | Blob | FormData
-
-		if ('formData' in options && options.formData) {
-			metadata = {
-				isUpload: true,
-				formData: options.formData,
-				onProgress: options.onProgress,
-			}
-			body = options.formData
-		} else if ('file' in options && options.file) {
-			metadata = {
-				isUpload: true,
-				file: options.file,
-				onProgress: options.onProgress,
-			}
-			body = options.file
-		} else {
-			throw new Error('Upload options must include either file or formData')
-		}
-
-		return {
-			url,
-			path,
-			options: {
-				...options,
-				method: 'POST',
-				body,
-			},
-			attempt: 1,
-			startTime: Date.now(),
-			metadata,
 		}
 	}
 
@@ -383,21 +266,6 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 		return typeof userAgent === 'function' ? await userAgent() : userAgent
 	}
 
-	protected attachArchonSentryCaptureHeader(options: RequestOptions): void {
-		if (options.api !== 'archon' || !options.headers || !this.shouldCaptureArchonRequests()) {
-			return
-		}
-
-		options.headers['modrinth-sentry-capture'] = '1'
-	}
-
-	private shouldCaptureArchonRequests(): boolean {
-		const archonSentryCapture = this.config.archonSentryCapture
-		return typeof archonSentryCapture === 'function'
-			? archonSentryCapture()
-			: archonSentryCapture === true
-	}
-
 	/**
 	 * Execute the actual HTTP request
 	 *
@@ -416,27 +284,10 @@ export abstract class AbstractModrinthClient extends AbstractUploadClient {
 	): Promise<ReadableStream<Uint8Array>>
 
 	/**
-	 * Execute the actual XHR upload
-	 *
-	 * This must be implemented by platform clients that support uploads.
-	 * Called at the end of the upload feature chain.
-	 *
-	 * @param context - Request context with upload metadata
-	 * @param progressCallbacks - Callbacks to invoke on progress events
-	 * @param abortController - Controller for cancellation
-	 * @returns Promise resolving to the response data
-	 */
-	protected abstract executeXHRUpload<T>(
-		context: RequestContext,
-		progressCallbacks: Array<(p: UploadProgress) => void>,
-		abortController: AbortController,
-	): Promise<T>
-
-	/**
 	 * Normalize an error into a ModrinthApiError
 	 *
 	 * Platform implementations should override this to handle platform-specific errors
-	 * (e.g., FetchError from ofetch, Tauri HTTP errors)
+	 * (e.g., Tauri HTTP errors)
 	 */
 	protected normalizeError(error: unknown, context?: RequestContext): ModrinthApiError {
 		if (error instanceof ModrinthApiError) {
