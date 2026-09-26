@@ -23,12 +23,12 @@ export const bundleIdentifier = 'Orbiont'
 export const deepLinkScheme = 'orbiont'
 
 /**
- * Placeholder domain — not purchased yet. The build plan calls for five
- * checks (domain, Modrinth/CurseForge, GitHub, trademark/USPTO, socials)
- * before the name and domain are final in Fase 5.
+ * Orbiont has no infrastructure of its own: its site, API and updates live
+ * under XeroHost's domain (xerohost.net/orbiont). Keep in sync with the
+ * ORBIONT_* values in packages/app-lib/.env.* (read by the Rust side).
  */
-export const domain = 'orbiont.gg'
-export const siteUrl = `https://${domain}`
+export const domain = 'xerohost.net'
+export const siteUrl = `https://${domain}/orbiont`
 export const supportEmail = `support@${domain}`
 export const supportUrl = `${siteUrl}/support`
 

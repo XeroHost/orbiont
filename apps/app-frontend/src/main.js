@@ -1,5 +1,6 @@
 import 'overlayscrollbars/overlayscrollbars.css'
 
+import { productName } from '@modrinth/branding'
 import { installTooltipDirective } from '@modrinth/ui'
 import { VueQueryPlugin } from '@tanstack/vue-query'
 import { createApp } from 'vue'
@@ -12,6 +13,7 @@ import i18nDebugPlugin from '@/plugins/i18n-debug'
 import router from '@/routes'
 
 debugStartup('Frontend entry module evaluated')
+document.title = productName
 const app = createApp(App)
 
 app.use(VueQueryPlugin)

@@ -1,4 +1,4 @@
-name: Modrinth App build
+name: Orbiont build
 on:
   push:
     branches:
@@ -106,9 +106,9 @@ jobs:
           GIT_HASH=$(git rev-parse --short HEAD)
           cat > apps/app/tauri-dev.conf.json <<EOF
           {
-            "productName": "Modrinth App (dev-${GIT_HASH})",
-            "mainBinaryName": "Modrinth App (dev-${GIT_HASH})",
-            "identifier": "ModrinthApp-dev-${GIT_HASH}",
+            "productName": "Orbiont (dev-${GIT_HASH})",
+            "mainBinaryName": "Orbiont (dev-${GIT_HASH})",
+            "identifier": "Orbiont-dev-${GIT_HASH}",
             "bundle": {
               "fileAssociations": []
             }
@@ -207,16 +207,16 @@ jobs:
         with:
           name: App bundle (${{ matrix.artifact-target-name }})
           path: |
-            target/release/bundle/appimage/Modrinth App_*.AppImage*
-            target/release/bundle/deb/Modrinth App_*.deb*
-            target/release/bundle/rpm/Modrinth App-*.rpm*
-            target/release/bundle/appimage/Modrinth App (dev-*)_*.AppImage*
-            target/release/bundle/deb/Modrinth App (dev-*)_*.deb*
-            target/release/bundle/rpm/Modrinth App (dev-*)-*.rpm*
-            target/universal-apple-darwin/release/bundle/macos/Modrinth App.app.tar.gz*
-            target/universal-apple-darwin/release/bundle/macos/Modrinth App (dev-*)*.app.tar.gz
-            target/universal-apple-darwin/release/bundle/dmg/Modrinth App (dev-*)*.dmg
-            target/universal-apple-darwin/release/bundle/dmg/Modrinth App_*.dmg*
-            target/release/bundle/nsis/Modrinth App_*-setup.exe*
-            target/release/bundle/nsis/Modrinth App (dev-*)_*-setup.exe*
-            target/release/bundle/nsis/Modrinth App_*-setup.nsis.zip*
+            target/release/bundle/appimage/Orbiont_*.AppImage*
+            target/release/bundle/deb/Orbiont_*.deb*
+            target/release/bundle/rpm/Orbiont-*.rpm*
+            target/release/bundle/appimage/Orbiont (dev-*)_*.AppImage*
+            target/release/bundle/deb/Orbiont (dev-*)_*.deb*
+            target/release/bundle/rpm/Orbiont (dev-*)-*.rpm*
+            target/universal-apple-darwin/release/bundle/macos/Orbiont.app.tar.gz*
+            target/universal-apple-darwin/release/bundle/macos/Orbiont (dev-*)*.app.tar.gz
+            target/universal-apple-darwin/release/bundle/dmg/Orbiont (dev-*)*.dmg
+            target/universal-apple-darwin/release/bundle/dmg/Orbiont_*.dmg*
+            target/release/bundle/nsis/Orbiont_*-setup.exe*
+            target/release/bundle/nsis/Orbiont (dev-*)_*-setup.exe*
+            target/release/bundle/nsis/Orbiont_*-setup.nsis.zip*

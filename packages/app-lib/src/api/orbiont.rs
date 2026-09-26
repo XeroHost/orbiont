@@ -1,6 +1,6 @@
-//! Client for the Orbiont catalog backend (orbiont-catalog, a separate
-//! service — see the build plan, Fase 3). Serves the modpack catalog, the
-//! XeroHost server list, and a unified search proxy over three sources.
+//! Clients for Orbiont's backend (the orbiont-catalog repo, two services):
+//! the catalog (XeroHost modpacks and servers) and the CurseForge facade,
+//! which holds the CurseForge API key so the launcher never does.
 
 // The catalog's base URL is compile-time env config (ORBIONT_CATALOG_BASE_URL),
 // not user input, and is plain http:// in local dev (https:// in prod) — so
@@ -16,6 +16,10 @@ use tokio::sync::RwLock;
 
 fn base_url() -> &'static str {
     env!("ORBIONT_CATALOG_BASE_URL")
+}
+
+fn curseforge_api_url() -> &'static str {
+    env!("ORBIONT_CURSEFORGE_API_URL")
 }
 
 #[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
@@ -140,7 +144,7 @@ pub async fn get_servers() -> crate::Result<Vec<OrbiontServer>> {
     fetch_cached("/v1/servers", &SERVERS_CACHE).await
 }
 
-/// GET /v1/curseforge/api/{path} — the catalog's allowlisted, read-only
+/// GET {ORBIONT_CURSEFORGE_API_URL}/{path} — the facade's allowlisted, read-only
 /// pass-through to the CurseForge API. Returns CurseForge's JSON untouched;
 /// the frontend maps it onto the launcher's native data model, so CurseForge
 /// stays a data source only. `path` is relative to the CurseForge API root
@@ -163,8 +167,8 @@ pub async fn curseforge_api(
     }
 
     let mut url = reqwest::Url::parse(&format!(
-        "{}/v1/curseforge/api/{path}",
-        base_url()
+        "{}/{path}",
+        curseforge_api_url()
     ))
     .map_err(|error| crate::ErrorKind::OtherError(error.to_string()))?;
     if !query.is_empty() {
@@ -183,7 +187,7 @@ pub async fn curseforge_api(
     Ok(response.json().await?)
 }
 
-/// POST /v1/curseforge/api/{path} — the catalog's batch lookups
+/// POST {ORBIONT_CURSEFORGE_API_URL}/{path} — the facade's batch lookups
 /// (`mods/files` with `fileIds`, `mods` with `modIds`), used to resolve a
 /// whole modpack manifest in a couple of requests.
 pub async fn curseforge_api_post(
@@ -197,7 +201,7 @@ pub async fn curseforge_api_post(
         .into());
     }
 
-    let url = format!("{}/v1/curseforge/api/{path}", base_url());
+    let url = format!("{}/{path}", curseforge_api_url());
     let response = INSECURE_REQWEST_CLIENT.post(url).json(body).send().await?;
     if !response.status().is_success() {
         return Err(crate::ErrorKind::OtherError(format!(

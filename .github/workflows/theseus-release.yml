@@ -1,7 +1,7 @@
-name: Modrinth App release
+name: Orbiont release
 on:
   workflow_run:
-    workflows: ['Modrinth App build']
+    workflows: ['Orbiont build']
     types: [completed]
 
 concurrency:
@@ -10,7 +10,7 @@ concurrency:
 
 jobs:
   release:
-    name: Release Modrinth App
+    name: Release Orbiont
     if: >-
       github.event.workflow_run.conclusion == 'success' &&
       github.event.workflow_run.event == 'push' &&
@@ -21,7 +21,7 @@ jobs:
       LINUX_X64_BUNDLE_ARTIFACT_NAME: App bundle (x86_64-unknown-linux-gnu)
       WINDOWS_X64_BUNDLE_ARTIFACT_NAME: App bundle (x86_64-pc-windows-msvc)
       MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME: App bundle (universal-apple-darwin)
-      LAUNCHER_FILES_BUCKET_BASE_URL: https://launcher-files.modrinth.com
+      LAUNCHER_FILES_BUCKET_BASE_URL: https://xerohost.net/orbiont
 
     steps:
       - name: Check out code
@@ -46,7 +46,7 @@ jobs:
           fi
           echo "Verified ${VERSION_TAG} is a tag pointing at ${HEAD_SHA}"
 
-      - name: Download Modrinth App artifacts
+      - name: Download Orbiont artifacts
         uses: dawidd6/action-download-artifact@b6e2e70617bc3265edd6dab6c906732b2f1ae151 # v21
         with:
           workflow: theseus-build.yml
@@ -69,10 +69,10 @@ jobs:
           jq -nc \
             --arg versionTag "${VERSION_TAG#v}" \
             --rawfile releaseNotes release-notes.md \
-            --rawfile macOsAarch64UpdateArtifactSignature "${MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME}/universal-apple-darwin/release/bundle/macos/Modrinth App.app.tar.gz.sig" \
-            --rawfile macOsX64UpdateArtifactSignature "${MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME}/universal-apple-darwin/release/bundle/macos/Modrinth App.app.tar.gz.sig" \
-            --rawfile linuxX64UpdateArtifactSignature "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/appimage/Modrinth App_${VERSION_TAG#v}_amd64.AppImage.tar.gz.sig" \
-            --rawfile windowsX64UpdateArtifactSignature "${WINDOWS_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/nsis/Modrinth App_${VERSION_TAG#v}_x64-setup.nsis.zip.sig" \
+            --rawfile macOsAarch64UpdateArtifactSignature "${MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME}/universal-apple-darwin/release/bundle/macos/Orbiont.app.tar.gz.sig" \
+            --rawfile macOsX64UpdateArtifactSignature "${MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME}/universal-apple-darwin/release/bundle/macos/Orbiont.app.tar.gz.sig" \
+            --rawfile linuxX64UpdateArtifactSignature "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/appimage/Orbiont_${VERSION_TAG#v}_amd64.AppImage.tar.gz.sig" \
+            --rawfile windowsX64UpdateArtifactSignature "${WINDOWS_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/nsis/Orbiont_${VERSION_TAG#v}_x64-setup.nsis.zip.sig" \
           '{
             "version": $versionTag,
             "notes": $releaseNotes,
@@ -80,27 +80,27 @@ jobs:
             "platforms": {
               "darwin-aarch64": {
                 "signature": $macOsAarch64UpdateArtifactSignature,
-                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Modrinth App.app.tar.gz")",
-                "install_urls": [@uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Modrinth App_" + $versionTag + "_universal.dmg")"]
+                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Orbiont.app.tar.gz")",
+                "install_urls": [@uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Orbiont_" + $versionTag + "_universal.dmg")"]
               },
               "darwin-x86_64": {
                 "signature": $macOsX64UpdateArtifactSignature,
-                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Modrinth App.app.tar.gz")",
-                "install_urls": [@uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Modrinth App_" + $versionTag + "_universal.dmg")"]
+                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Orbiont.app.tar.gz")",
+                "install_urls": [@uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/macos/\("Orbiont_" + $versionTag + "_universal.dmg")"]
               },
               "linux-x86_64": {
                 "signature": $linuxX64UpdateArtifactSignature,
-                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Modrinth App_" + $versionTag + "_amd64.AppImage.tar.gz")",
+                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Orbiont_" + $versionTag + "_amd64.AppImage.tar.gz")",
                 "install_urls": [
-                  @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Modrinth App_" + $versionTag + "_amd64.deb")",
-                  @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Modrinth App_" + $versionTag + "_amd64.AppImage")",
-                  @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Modrinth App-" + $versionTag + "-1.x86_64.rpm")"
+                  @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Orbiont_" + $versionTag + "_amd64.deb")",
+                  @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Orbiont_" + $versionTag + "_amd64.AppImage")",
+                  @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/linux/\("Orbiont-" + $versionTag + "-1.x86_64.rpm")"
                 ]
               },
               "windows-x86_64": {
                 "signature": $windowsX64UpdateArtifactSignature,
-                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/windows/\("Modrinth App_" + $versionTag + "_x64-setup.nsis.zip")",
-                "install_urls": [@uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/windows/\("Modrinth App_" + $versionTag + "_x64-setup.exe")"]
+                "url": @uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/windows/\("Orbiont_" + $versionTag + "_x64-setup.nsis.zip")",
+                "install_urls": [@uri "${{ env.LAUNCHER_FILES_BUCKET_BASE_URL }}/versions/\($versionTag)/windows/\("Orbiont_" + $versionTag + "_x64-setup.exe")"]
               }
             }
           }' > updates.json
@@ -150,10 +150,10 @@ jobs:
           VERSION="${VERSION_TAG#v}"
 
           gh release create "$VERSION_TAG" \
-            --title "Modrinth App ${VERSION}" \
+            --title "Orbiont ${VERSION}" \
             --notes-file release-notes.md \
-            "${WINDOWS_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/nsis/Modrinth App_${VERSION}_x64-setup.exe" \
-            "${MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME}/universal-apple-darwin/release/bundle/dmg/Modrinth App_${VERSION}_universal.dmg" \
-            "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/appimage/Modrinth App_${VERSION}_amd64.AppImage" \
-            "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/deb/Modrinth App_${VERSION}_amd64.deb" \
-            "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/rpm/Modrinth App-${VERSION}-1.x86_64.rpm"
+            "${WINDOWS_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/nsis/Orbiont_${VERSION}_x64-setup.exe" \
+            "${MACOS_UNIVERSAL_BUNDLE_ARTIFACT_NAME}/universal-apple-darwin/release/bundle/dmg/Orbiont_${VERSION}_universal.dmg" \
+            "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/appimage/Orbiont_${VERSION}_amd64.AppImage" \
+            "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/deb/Orbiont_${VERSION}_amd64.deb" \
+            "${LINUX_X64_BUNDLE_ARTIFACT_NAME}/release/bundle/rpm/Orbiont-${VERSION}-1.x86_64.rpm"

@@ -1574,7 +1574,7 @@ async function checkUpdates() {
 async function checkLinuxUpdates() {
 	try {
 		const [response, currentVersion] = await Promise.all([
-			fetch('https://launcher-files.modrinth.com/updates.json'),
+			fetch(config.updatesUrl),
 			getVersion(),
 		])
 		const updates = await response.json()

@@ -651,8 +651,14 @@ const MICROSOFT_TOKEN_URL: &str =
 const AUTH_REPLY_URL: &str =
     "https://login.microsoftonline.com/common/oauth2/nativeclient";
 const REQUESTED_SCOPE: &str = "XboxLive.signin offline_access";
-pub const MINECRAFT_SERVICES_USER_AGENT: &str =
-    "Orbiont (support@orbiont.gg; https://orbiont.gg)";
+pub const MINECRAFT_SERVICES_USER_AGENT: &str = concat!(
+    env!("ORBIONT_PRODUCT_NAME"),
+    " (",
+    env!("ORBIONT_SUPPORT_EMAIL"),
+    "; ",
+    env!("ORBIONT_SITE_URL"),
+    ")"
+);
 
 pub struct RequestWithDate<T> {
     pub date: DateTime<Utc>,
