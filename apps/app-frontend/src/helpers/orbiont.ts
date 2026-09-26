@@ -33,7 +33,10 @@ export async function getServers(): Promise<OrbiontServer[]> {
 	return await invoke('plugin:orbiont|orbiont_get_servers')
 }
 
-/** Downloads a catalog modpack's .mrpack to a local cache path for installing. */
+/**
+ * Downloads a catalog modpack's .mrpack to a local cache path for installing.
+ * Only the id is sent: the core takes the URL and hash from the catalog.
+ */
 export async function downloadModpack(modpack: Modpack): Promise<string> {
-	return await invoke('plugin:orbiont|orbiont_download_modpack', { modpack })
+	return await invoke('plugin:orbiont|orbiont_download_modpack', { modpackId: modpack.id })
 }

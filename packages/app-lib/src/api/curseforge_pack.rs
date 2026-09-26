@@ -8,7 +8,7 @@
 //! download URL: they're left out and reported back so the UI can point the
 //! user at CurseForge for them.
 
-use crate::api::orbiont::curseforge_api_post;
+use crate::api::orbiont::{curseforge_api_post, is_curseforge_cdn_url};
 use async_zip::tokio::read::fs::ZipFileReader;
 use async_zip::tokio::write::ZipFileWriter;
 use async_zip::{Compression, ZipEntryBuilder};
@@ -183,8 +183,11 @@ pub async fn convert_curseforge_pack(
             skipped.push(SkippedFile { name, page_url });
             continue;
         };
+        // Only CurseForge's own CDN (https) and a SHA-1 the installer can check.
         let (Some(url), Some(sha1)) = (
-            file.download_url.as_deref(),
+            file.download_url
+                .as_deref()
+                .filter(|url| is_curseforge_cdn_url(url)),
             file.hashes.iter().find(|h| h.algo == 1),
         ) else {
             skipped.push(SkippedFile { name, page_url });

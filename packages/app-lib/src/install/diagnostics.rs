@@ -6,7 +6,6 @@ use super::model::{
 use super::store;
 use crate::state::State;
 use regex::{Captures, Regex};
-use sqlx::Row;
 use std::fmt::Write as _;
 use std::io::{Read, Seek, SeekFrom};
 use std::net::{Ipv4Addr, Ipv6Addr};
@@ -614,18 +613,8 @@ async fn censor_support_text(
 async fn minecraft_tokens(
     pool: &sqlx::SqlitePool,
 ) -> crate::Result<Vec<String>> {
-    let rows =
-        sqlx::query("SELECT access_token, refresh_token FROM minecraft_users")
-            .fetch_all(pool)
-            .await?;
-    let mut tokens = Vec::with_capacity(rows.len() * 2);
-
-    for row in rows {
-        tokens.push(row.try_get("access_token")?);
-        tokens.push(row.try_get("refresh_token")?);
-    }
-
-    Ok(tokens)
+    // Stored encrypted: decrypt them so the report can scrub the real values.
+    crate::state::Credentials::stored_tokens(pool).await
 }
 
 fn replace_nonempty(text: &mut String, value: &str, replacement: &str) {

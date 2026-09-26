@@ -71,6 +71,7 @@ import MinecraftAuthErrorModal from '@/components/ui/minecraft-auth-error-modal/
 import MinecraftRequiredModal from '@/components/ui/minecraft-required-modal/MinecraftRequiredModal.vue'
 import AppSettingsModal from '@/components/ui/modal/AppSettingsModal.vue'
 import InstallToPlayModal from '@/components/ui/modal/InstallToPlayModal.vue'
+import LaunchLinkConfirmModal from '@/components/ui/modal/LaunchLinkConfirmModal.vue'
 import ModpackAlreadyInstalledModal from '@/components/ui/modal/ModpackAlreadyInstalledModal.vue'
 import ModrinthAccountRequiredModal from '@/components/ui/modal/ModrinthAccountRequiredModal.vue'
 import UpdateToPlayModal from '@/components/ui/modal/UpdateToPlayModal.vue'
@@ -894,6 +895,7 @@ const {
 } = serverInstall
 
 const modInstallModal = ref()
+const launchLinkConfirmModal = ref()
 const modpackAlreadyInstalledModal = ref()
 const contentInstallModpackAlreadyInstalledModal = ref()
 const addServerToInstanceModal = ref()
@@ -1331,6 +1333,16 @@ async function handleCommand(e) {
 		const instance = await getInstance(e.id).catch(handleError)
 		if (!instance || instance.quarantined) return
 
+		// Any website can open an orbiont:// link: never start the game or
+		// join a server from one without asking.
+		const target = e.server
+			? { kind: 'server', name: e.server }
+			: e.singleplayer_world
+				? { kind: 'world', name: e.singleplayer_world }
+				: null
+		const confirmed = await launchLinkConfirmModal.value?.ask(instance.name, target)
+		if (!confirmed) return
+
 		if (e.server) {
 			await start_join_server(e.id, e.server).catch(handleError)
 		} else if (e.singleplayer_world) {
@@ -1573,10 +1585,7 @@ async function checkUpdates() {
 
 async function checkLinuxUpdates() {
 	try {
-		const [response, currentVersion] = await Promise.all([
-			fetch(config.updatesUrl),
-			getVersion(),
-		])
+		const [response, currentVersion] = await Promise.all([fetch(config.updatesUrl), getVersion()])
 		const updates = await response.json()
 		const latestVersion = updates?.version
 
@@ -2029,6 +2038,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 	<NotificationPanel :has-sidebar="sidebarVisible" />
 	<PopupNotificationPanel :has-sidebar="sidebarVisible" />
 	<ErrorModal ref="errorModal" />
+	<LaunchLinkConfirmModal ref="launchLinkConfirmModal" />
 	<MinecraftAuthErrorModal ref="minecraftAuthErrorModal" />
 	<MinecraftRequiredModal ref="minecraftRequiredModal" />
 	<ContentInstallModal

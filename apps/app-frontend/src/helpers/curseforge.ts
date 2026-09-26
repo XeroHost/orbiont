@@ -730,12 +730,15 @@ export async function getCurseforgeVersionFile(versionId: string) {
 	return { url: file.url, filename: file.filename }
 }
 
+/**
+ * Downloads a CurseForge file. The core resolves it by id through the facade,
+ * only accepts CurseForge's CDN over https and verifies the file's SHA-1.
+ */
 async function downloadVersionFile(versionId: string): Promise<string> {
-	const { url, filename } = await getCurseforgeVersionFile(versionId)
-	return await invoke('plugin:orbiont|orbiont_download_search_result', {
-		url,
-		fileNameHint: filename,
-	})
+	// Surfaces "only downloadable from CurseForge's website" with the page link.
+	await getCurseforgeVersionFile(versionId)
+	const { modId, fileId } = parseVersionId(versionId)
+	return await invoke('plugin:orbiont|orbiont_download_curseforge_file', { modId, fileId })
 }
 
 const LOADER_TYPE_BY_NAME = Object.fromEntries(

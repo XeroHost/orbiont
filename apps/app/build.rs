@@ -397,7 +397,7 @@ fn main() {
                         "orbiont_curseforge_api",
                         "orbiont_convert_curseforge_pack",
                         "orbiont_download_modpack",
-                        "orbiont_download_search_result",
+                        "orbiont_download_curseforge_file",
                     ])
                     .default_permission(
                         DefaultPermissionRule::AllowAllCommands,

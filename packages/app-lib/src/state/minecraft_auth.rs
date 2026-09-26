@@ -1,10 +1,12 @@
 use crate::ErrorKind;
-use crate::util::fetch::INSECURE_REQWEST_CLIENT;
+use crate::state::session_crypto;
+// Every sign-in and Minecraft services request is https: the https-only client
+// refuses to follow anything else (e.g. a redirect to plain http).
+use crate::util::fetch::REQWEST_CLIENT as AUTH_CLIENT;
 use base64::Engine;
 use base64::prelude::BASE64_URL_SAFE_NO_PAD;
 use chrono::{DateTime, Duration, TimeZone, Utc};
 use dashmap::DashMap;
-use futures::TryStreamExt;
 use heck::ToTitleCase;
 use rand::Rng;
 use reqwest::header::HeaderMap;
@@ -59,6 +61,8 @@ pub enum MinecraftAuthenticationError {
     },
     #[error("Error reading user hash")]
     NoUserHash,
+    #[error("This Microsoft account does not own Minecraft: Java Edition")]
+    NoMinecraftLicense,
 }
 
 #[derive(Deserialize)]
@@ -477,77 +481,140 @@ impl Credentials {
         .fetch_optional(exec)
         .await?;
 
-        Ok(match res {
-            Some(x) => {
-                let mut credentials = Self {
-                    offline_profile: MinecraftProfile {
-                        id: Uuid::parse_str(&x.uuid).unwrap_or_default(),
-                        name: x.username,
-                        ..MinecraftProfile::default()
-                    },
-                    access_token: x.access_token,
-                    refresh_token: x.refresh_token,
-                    expires: Utc
-                        .timestamp_opt(x.expires, 0)
-                        .single()
-                        .unwrap_or_else(Utc::now),
-                    active: x.active == 1,
-                };
-                credentials.refresh(exec).await.ok();
-                Some(credentials)
-            }
-            None => None,
-        })
+        let Some(x) = res else {
+            return Ok(None);
+        };
+        let Some(mut credentials) = Self::from_stored(
+            &x.uuid,
+            x.username,
+            &x.access_token,
+            &x.refresh_token,
+            x.expires,
+            x.active == 1,
+            exec,
+        )
+        .await?
+        else {
+            return Ok(None);
+        };
+        credentials.refresh(exec).await.ok();
+        Ok(Some(credentials))
     }
 
     pub async fn get_all(
         exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
     ) -> crate::Result<DashMap<Uuid, Self>> {
-        let res = sqlx::query!(
+        let rows = sqlx::query!(
             "
             SELECT
                 uuid, active, username, access_token, refresh_token, expires
             FROM minecraft_users
             "
         )
-        .fetch(exec)
-        .try_fold(DashMap::new(), |acc, x| {
-            let uuid = Uuid::parse_str(&x.uuid).unwrap_or_default();
-            let mut credentials = Self {
-                offline_profile: MinecraftProfile {
-                    id: uuid,
-                    name: x.username,
-                    ..MinecraftProfile::default()
-                },
-                access_token: x.access_token,
-                refresh_token: x.refresh_token,
-                expires: Utc
-                    .timestamp_opt(x.expires, 0)
-                    .single()
-                    .unwrap_or_else(Utc::now),
-                active: x.active == 1,
-            };
-
-            async move {
-                credentials.refresh(exec).await.ok();
-                acc.insert(uuid, credentials);
-
-                Ok(acc)
-            }
-        })
+        .fetch_all(exec)
         .await?;
 
-        Ok(res)
+        let all = DashMap::new();
+        for x in rows {
+            let Some(mut credentials) = Self::from_stored(
+                &x.uuid,
+                x.username,
+                &x.access_token,
+                &x.refresh_token,
+                x.expires,
+                x.active == 1,
+                exec,
+            )
+            .await?
+            else {
+                continue;
+            };
+            credentials.refresh(exec).await.ok();
+            all.insert(credentials.offline_profile.id, credentials);
+        }
+
+        Ok(all)
+    }
+
+    /// Every stored token, decrypted, without refreshing anything. Only for
+    /// scrubbing them out of logs and support reports.
+    pub async fn stored_tokens(
+        exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
+    ) -> crate::Result<Vec<String>> {
+        use sqlx::Row;
+
+        let rows = sqlx::query(
+            "SELECT access_token, refresh_token FROM minecraft_users",
+        )
+        .fetch_all(exec)
+        .await?;
+
+        let mut tokens = Vec::with_capacity(rows.len() * 2);
+        for row in rows {
+            let pair: [String; 2] =
+                [row.try_get("access_token")?, row.try_get("refresh_token")?];
+            for stored in pair {
+                if let Ok(token) = session_crypto::decrypt(&stored).await {
+                    tokens.push(token.value);
+                }
+            }
+        }
+        Ok(tokens)
+    }
+
+    /// Builds credentials from a stored row, decrypting its tokens. A session
+    /// saved before encryption is re-saved encrypted; one that can't be
+    /// decrypted (another device's key) is dropped, so that account just has
+    /// to sign in again.
+    #[allow(clippy::too_many_arguments)]
+    async fn from_stored(
+        uuid: &str,
+        username: String,
+        access_token: &str,
+        refresh_token: &str,
+        expires: i64,
+        active: bool,
+        exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
+    ) -> crate::Result<Option<Self>> {
+        let id = Uuid::parse_str(uuid).unwrap_or_default();
+        let (access, refresh) = match (
+            session_crypto::decrypt(access_token).await,
+            session_crypto::decrypt(refresh_token).await,
+        ) {
+            (Ok(access), Ok(refresh)) => (access, refresh),
+            (Err(err), _) | (_, Err(err)) => {
+                tracing::warn!(
+                    "Dropping the saved session of {username}: {err}"
+                );
+                Self::remove(id, exec).await?;
+                return Ok(None);
+            }
+        };
+
+        let credentials = Self {
+            offline_profile: MinecraftProfile {
+                id,
+                name: username,
+                ..MinecraftProfile::default()
+            },
+            access_token: access.value,
+            refresh_token: refresh.value,
+            expires: Utc
+                .timestamp_opt(expires, 0)
+                .single()
+                .unwrap_or_else(Utc::now),
+            active,
+        };
+        if access.was_plaintext || refresh.was_plaintext {
+            credentials.store(exec).await?;
+        }
+        Ok(Some(credentials))
     }
 
     pub async fn upsert(
         &self,
         exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
     ) -> crate::Result<()> {
-        let profile = self.maybe_online_profile().await;
-        let expires = self.expires.timestamp();
-        let uuid = profile.id.as_hyphenated().to_string();
-
         if self.active {
             sqlx::query!(
                 "
@@ -558,6 +625,21 @@ impl Credentials {
             .execute(exec)
             .await?;
         }
+
+        self.store(exec).await
+    }
+
+    /// Writes this row with its tokens encrypted (see `session_crypto`).
+    async fn store(
+        &self,
+        exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
+    ) -> crate::Result<()> {
+        let profile = self.maybe_online_profile().await;
+        let expires = self.expires.timestamp();
+        let uuid = profile.id.as_hyphenated().to_string();
+        let access_token = session_crypto::encrypt(&self.access_token).await?;
+        let refresh_token =
+            session_crypto::encrypt(&self.refresh_token).await?;
 
         sqlx::query!(
             "
@@ -573,8 +655,8 @@ impl Credentials {
             uuid,
             self.active,
             profile.name,
-            self.access_token,
-            self.refresh_token,
+            access_token,
+            refresh_token,
             expires,
         )
             .execute(exec)
@@ -632,10 +714,9 @@ impl Serialize for Credentials {
                 ),
         };
 
-        let mut ser = serializer.serialize_struct("Credentials", 5)?;
+        // Tokens stay in the core: the UI only needs who is signed in.
+        let mut ser = serializer.serialize_struct("Credentials", 3)?;
         ser.serialize_field("profile", &*profile)?;
-        ser.serialize_field("access_token", &self.access_token)?;
-        ser.serialize_field("refresh_token", &self.refresh_token)?;
         ser.serialize_field("expires", &self.expires)?;
         ser.serialize_field("active", &self.active)?;
         ser.end()
@@ -700,7 +781,7 @@ async fn oauth_token(
     query.insert("scope", REQUESTED_SCOPE);
 
     let res = auth_retry(|| {
-        INSECURE_REQWEST_CLIENT
+        AUTH_CLIENT
             .post(MICROSOFT_TOKEN_URL)
             .header("Accept", "application/json")
             .form(&query)
@@ -747,7 +828,7 @@ async fn oauth_refresh(
     query.insert("scope", REQUESTED_SCOPE);
 
     let res = auth_retry(|| {
-        INSECURE_REQWEST_CLIENT
+        AUTH_CLIENT
             .post(MICROSOFT_TOKEN_URL)
             .header("Accept", "application/json")
             .form(&query)
@@ -1062,7 +1143,7 @@ async fn minecraft_profile(
     token: &str,
 ) -> Result<MinecraftProfile, MinecraftAuthenticationError> {
     let res = auth_retry(|| {
-        INSECURE_REQWEST_CLIENT
+        AUTH_CLIENT
             .get("https://api.minecraftservices.com/minecraft/profile")
             .header("Accept", "application/json")
             .header("User-Agent", MINECRAFT_SERVICES_USER_AGENT)
@@ -1105,16 +1186,28 @@ async fn minecraft_profile(
     Ok(profile)
 }
 
+/// Licenses Mojang reports for an account that can play Java Edition (bought
+/// or through Game Pass).
+const MINECRAFT_LICENSES: &[&str] = &["product_minecraft", "game_minecraft"];
+
 #[derive(Deserialize)]
 #[serde(rename_all = "camelCase")]
-struct MinecraftEntitlements {}
+struct MinecraftEntitlements {
+    #[serde(default)]
+    items: Vec<MinecraftEntitlement>,
+}
+
+#[derive(Deserialize)]
+struct MinecraftEntitlement {
+    name: String,
+}
 
 #[tracing::instrument]
 async fn minecraft_entitlements(
     token: &str,
 ) -> Result<MinecraftEntitlements, MinecraftAuthenticationError> {
     let res = auth_retry(|| {
-		INSECURE_REQWEST_CLIENT
+		AUTH_CLIENT
 			.get(format!("https://api.minecraftservices.com/entitlements/license?requestId={}", Uuid::new_v4()))
 			.header("Accept", "application/json")
 			.header("User-Agent", MINECRAFT_SERVICES_USER_AGENT)
@@ -1131,14 +1224,26 @@ async fn minecraft_entitlements(
         }
     })?;
 
-    serde_json::from_str(&text).map_err(|source| {
-        MinecraftAuthenticationError::DeserializeResponse {
-            source,
-            raw: text,
-            step: MinecraftAuthStep::MinecraftEntitlements,
-            status_code: status,
-        }
-    })
+    let entitlements: MinecraftEntitlements = serde_json::from_str(&text)
+        .map_err(|source| {
+            MinecraftAuthenticationError::DeserializeResponse {
+                source,
+                raw: text,
+                step: MinecraftAuthStep::MinecraftEntitlements,
+                status_code: status,
+            }
+        })?;
+
+    // Premium only: the account must actually hold a Minecraft license.
+    if !entitlements
+        .items
+        .iter()
+        .any(|item| MINECRAFT_LICENSES.contains(&item.name.as_str()))
+    {
+        return Err(MinecraftAuthenticationError::NoMinecraftLicense);
+    }
+
+    Ok(entitlements)
 }
 
 // auth utils
@@ -1185,7 +1290,7 @@ async fn post_json<T: DeserializeOwned>(
     step: MinecraftAuthStep,
 ) -> Result<RequestWithDate<T>, MinecraftAuthenticationError> {
     let res = auth_retry(|| {
-        INSECURE_REQWEST_CLIENT
+        AUTH_CLIENT
             .post(url)
             .header("Accept", "application/json")
             .header("User-Agent", MINECRAFT_SERVICES_USER_AGENT)

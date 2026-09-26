@@ -37,6 +37,7 @@ mod java_globals;
 pub use self::java_globals::*;
 
 mod discord;
+pub(crate) mod session_crypto;
 pub use self::discord::*;
 
 mod minecraft_auth;

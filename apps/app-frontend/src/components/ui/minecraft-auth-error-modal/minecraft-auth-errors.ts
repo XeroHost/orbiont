@@ -54,6 +54,15 @@ export const minecraftAuthErrors: MinecraftAuthError[] = [
 		],
 	},
 	{
+		errorMatchers: ['does not own Minecraft: Java Edition'],
+		whatHappened: `This Microsoft account doesn't own Minecraft: Java Edition, and ${productName} only works with premium accounts.`,
+		stepsToFix: [
+			'Make sure you are signing in with the Microsoft account that bought Minecraft (or has an active Game Pass with PC access)',
+			'You can check which account owns it at <a href="https://www.minecraft.net/en-us/login">minecraft.net</a>',
+			`Try signing in to ${productName} again with that account`,
+		],
+	},
+	{
 		errorMatchers: ['Failed to fetch player profile'],
 		whatHappened:
 			'Minecraft services could not return a Java Edition profile for this account. This most often happens when the game was purchased recently, the Java profile has not finished being created, or the wrong Microsoft account is being used.',

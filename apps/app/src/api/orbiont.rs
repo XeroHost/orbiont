@@ -9,7 +9,7 @@ pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
             orbiont_curseforge_api,
             orbiont_convert_curseforge_pack,
             orbiont_download_modpack,
-            orbiont_download_search_result,
+            orbiont_download_curseforge_file,
         ])
         .build()
 }
@@ -52,21 +52,19 @@ pub async fn orbiont_convert_curseforge_pack(
 /// Downloads a catalog modpack's .mrpack to a local cache path, ready to
 /// install via `install_create_modpack_instance` with a `fromFile` location.
 #[tauri::command]
-pub async fn orbiont_download_modpack(modpack: Modpack) -> Result<String> {
-    let path = theseus::orbiont::download_modpack_file(&modpack).await?;
+pub async fn orbiont_download_modpack(modpack_id: String) -> Result<String> {
+    let path = theseus::orbiont::download_modpack_file(&modpack_id).await?;
     Ok(path.to_string_lossy().into_owned())
 }
 
-/// Downloads a search result's file (e.g. a CurseForge `downloadUrl`) to a
-/// local cache path, for results that don't come from our own catalog and so
-/// have no hash to verify against.
+/// Downloads a CurseForge file by id (resolved and verified in the core; see
+/// `theseus::orbiont::download_curseforge_file`).
 #[tauri::command]
-pub async fn orbiont_download_search_result(
-    url: String,
-    file_name_hint: String,
+pub async fn orbiont_download_curseforge_file(
+    mod_id: u32,
+    file_id: u32,
 ) -> Result<String> {
     let path =
-        theseus::orbiont::download_search_result_file(&url, &file_name_hint)
-            .await?;
+        theseus::orbiont::download_curseforge_file(mod_id, file_id).await?;
     Ok(path.to_string_lossy().into_owned())
 }
