@@ -1,7 +1,7 @@
 # Handoff — Orbiont
 
 Estado del proyecto para el siguiente agente o persona que lo retome.
-Última actualización: **2026-09-25**. Léelo junto con [CLAUDE.md](CLAUDE.md)
+Última actualización: **2026-09-26**. Léelo junto con [CLAUDE.md](CLAUDE.md)
 (las reglas duras están ahí y mandan sobre todo lo de aquí).
 
 El usuario habla **español**: todas las respuestas, en español claro y sin
@@ -31,7 +31,7 @@ Hace tres cosas propias sobre el Modrinth App:
 | Repo            | Ruta local                                            | Qué es                                                                                     |
 | --------------- | ----------------------------------------------------- | ------------------------------------------------------------------------------------------ |
 | launcher        | `C:\Users\Raimond\Documents\XeroHost\launcher`        | Este fork                                                                                  |
-| orbiont-catalog | `C:\Users\Raimond\Documents\XeroHost\orbiont-catalog` | Backend Node/Express (catálogo, servidores, proxy de CurseForge). Corre con PM2 en `:3010` |
+| orbiont-catalog | `C:\Users\Raimond\Documents\XeroHost\orbiont-catalog` | Backend Node/Express con dos servicios en PM2: catálogo (`:3010`, modpacks y servidores de XeroHost) y **fachada de CurseForge** (`:3011`, la única con la API key; límites por IP y globales) |
 
 **⚠ El remote `origin` del launcher apunta a `https://github.com/modrinth/code.git`
 (el upstream de Modrinth).** El destino real es `XeroHost/launcher`, que no
@@ -43,16 +43,35 @@ mergeado nada a `main`:
 
 ```
 main
- └ fase-0-terreno-limpio → fase-1-desmarcado → fase-2-identidad-propia
-   → fase-4-catalogo-curseforge → limpieza-monorepo → curseforge-modpacks
-   → quitar-restos-modrinth → login-microsoft-propio   ← rama actual (HEAD)
+ └ fase-0-terreno-limpio → … → login-microsoft-propio
+   → fase-a-seguridad-grave → fase-b-seguridad-media
+   → fase-c-limpieza   ← rama actual (HEAD), contiene todo
 ```
 
-`login-microsoft-propio` contiene todo. Catálogo: rama `curseforge-proxy`.
+Catálogo: rama `fachada-curseforge`.
 
-Archivos sin commitear a propósito: `Plan.md` (plan de build original),
-`.serena/*` (config local). `.claude/docs/CHANGELOG.md` es un registro
-técnico detallado pero está en `.gitignore` (solo local).
+Sin commitear a propósito: `Plan.md`, `.serena/*` (config local) y un cambio
+en `.gitignore` que no es del agente (ignora `.claude`, `.serena`,
+`CLAUDE.md`, `HANDOFF.md`, `Plan.md`). **Pregunta al usuario antes de
+commitearlo**: dejaría de versionar CLAUDE.md/HANDOFF.md para quien clone.
+
+### Fases hechas (auditoría de 2026-09)
+
+- **A (grave)**: updater propio (`https://xerohost.net/orbiont/updates.json`,
+  clave de firma en `C:\Users\Raimond\.orbiont-signing\`), todo bajo
+  `xerohost.net/orbiont` (no hay centro de datos de Orbiont), fuera el script
+  de Tally, fachada de CurseForge en `api-curseforge.xerohost.net`.
+- **B (media)**: descargas de CurseForge y modpacks del catálogo verificadas
+  (SHA-1, https, hosts del CDN), sesiones cifradas (AES-256-GCM, clave en el
+  llavero de Windows), login solo https, CSP y permisos de red recortados,
+  confirmación antes de lanzar desde un enlace `orbiont://`, licencia de
+  Minecraft obligatoria.
+- **C (limpieza)**: fuera cuenta de Modrinth, estadísticas, Hosting,
+  instancias compartidas, amigos/sockets, Intercom, reportes y la marca de
+  Modrinth (logo, Rinthbot, Mr Pack, fuentes de su CDN). Paquetes internos
+  `@orbiont/*`; agente Java `net.xerohost.launcher` (`launcher-agent.jar`);
+  User-Agent y `launcher_name` de Orbiont; enlaces `orbiont://` en todas
+  partes (antes el núcleo solo aceptaba `modrinth://`).
 
 ## 3. Cómo arrancarlo (Windows)
 
@@ -65,9 +84,16 @@ pnpm app:dev
 - Necesita CMake y NASM en el PATH (los pide una dependencia de Rust).
 - El catálogo tiene que estar corriendo (`npx pm2 list` en `orbiont-catalog`);
   en local el launcher lo busca en `http://localhost:3010`
+  y la fachada de CurseForge en `http://localhost:3011/v1`
   (`packages/app-lib/.env.local`).
 - La configuración se lee de `packages/app-lib/.env` (copia de `.env.local`
   o `.env.prod`) **al compilar**: cambiar un valor obliga a recompilar Rust.
+  El shell (`apps/app`) no carga `.env`: si necesita un valor, que lo exponga
+  el núcleo (p. ej. `theseus::orbiont::PRODUCT_NAME`).
+- Si cambias SQL (`sqlx::query!`), regenera la caché `.sqlx`: base temporal,
+  `sqlx migrate run` y `cargo sqlx prepare` en `packages/app-lib` con
+  `DATABASE_URL` apuntando a ella (no la dejes en `.env`).
+- Si el disco se llena, `target/debug/incremental` es caché regenerable.
 - **Memoria**: la máquina tiene 16 GB. Si compilas dos cosas de Rust a la vez
   (p. ej. `cargo check` mientras corre `app:dev`), el enlazado falla con
   "El archivo de paginación es demasiado pequeño". No es un error del código:
@@ -86,8 +112,15 @@ pnpm app:dev
   `%APPDATA%\ModrinthApp`**.
 
 Verificación antes de cada commit (ver CLAUDE.md): `cargo check --workspace`,
-`pnpm lint`, y que `pnpm app:dev` arranque tras cambios estructurales. Para el
-frontend, además: `npx vue-tsc --noEmit` en `apps/app-frontend`.
+`npx eslint .` en cada paquete y que `pnpm app:dev` arranque tras cambios
+estructurales.
+
+Ojo con `vue-tsc`: en `apps/app-frontend` el `tsconfig.json` tiene
+`"files": []` y **no comprueba nada**. Lo fiable es: (1) el build de Vite
+(`node scripts/used-modules.mjs "$TEMP/used.json"` en `apps/app-frontend`,
+imprime "N modules with rendered code"), (2) eslint con `no-undef`, (3)
+`vue-tsc -p tsconfig.json` en `packages/ui`, que tiene ~119 errores previos:
+compara el número antes y después, no esperes 0.
 
 ## 4. Mapa del código
 
@@ -96,8 +129,10 @@ frontend, además: `npx vue-tsc --noEmit` en `apps/app-frontend`.
 | `apps/app`          | Shell de Tauri (Rust): comandos, ventana de login, updater. `build.rs` lista los comandos permitidos de cada plugin: **un comando nuevo hay que añadirlo ahí** |
 | `apps/app-frontend` | UI (Vue 3 + Vite)                                                                                                                                              |
 | `packages/app-lib`  | Núcleo Rust (`theseus`): instancias, instalación, auth, Discord, catálogo                                                                                      |
-| `packages/ui`       | Componentes Vue compartidos (`@modrinth/ui`, conserva el nombre)                                                                                               |
+| `packages/ui`       | Componentes Vue compartidos (`@orbiont/ui`)                                                                                                                   |
 | `packages/branding` | Nombre, identificadores, dominio, colores                                                                                                                      |
+| `packages/api-client` | Cliente HTTP del frontend: solo API de contenido de Modrinth, mclo.gs y manifiesto de loaders (`TauriApiClient`, `injectApiClient`) |
+| `packages/app-lib/java` | Agente Java que corre con el juego (`net.xerohost.launcher`, `launcher-agent.jar`) |
 | `packages/assets`   | Iconos y estilos (`styles/variables.scss` = colores)                                                                                                           |
 
 Piezas propias de Orbiont:
@@ -113,8 +148,11 @@ Piezas propias de Orbiont:
   `app-lib/src/api/curseforge_pack.rs` convierte un modpack de CurseForge
   (`manifest.json`) en `.mrpack` para el instalador nativo; los archivos que
   el autor solo deja bajar desde curseforge.com se omiten y la app avisa.
-  La API key de CurseForge vive **solo** en `orbiont-catalog` (proxy con
-  allowlist en `/v1/curseforge/api/*`, GET y dos POST batch).
+  La API key de CurseForge vive **solo** en `orbiont-catalog`, en la
+  fachada (`src/facade/index.js`, `:3011`, dominio público
+  `api-curseforge.xerohost.net`). Las descargas de CurseForge las hace el
+  núcleo (`orbiont::download_curseforge_file`): pide el archivo a la fachada,
+  exige https, host de `forgecdn.net` y SHA-1.
 - **Login**: `app-lib/src/state/minecraft_auth.rs`. Flujo: Microsoft OAuth
   (`/consumers/oauth2/v2.0`, PKCE, cliente público sin secret) → Xbox Live
   `user/authenticate` (RpsTicket `d=<token>`) → XSTS →
@@ -138,8 +176,11 @@ En `packages/app-lib/.env.*` (leídos con `env!()` al compilar):
 | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `MICROSOFT_CLIENT_ID`                               | `1596fe11-fe4c-4f81-b517-d15200a5d955` — propio, **aprobado por Mojang**                                                           |
 | `DISCORD_CLIENT_ID`                                 | `1552901927375732847` — aplicación "Orbiont"                                                                                       |
-| `ORBIONT_CATALOG_BASE_URL`                          | local `http://localhost:3010`; prod `https://catalog.orbiont.gg` es **placeholder** (el catálogo aún no está desplegado)           |
-| `MODRINTH_API_URL`, `MODRINTH_LAUNCHER_META_URL`, … | Modrinth como **fuente de contenido** (búsqueda, mods) y metadata de versiones de Minecraft/loaders (`launcher-meta.modrinth.com`) |
+| `ORBIONT_PRODUCT_NAME`, `ORBIONT_SITE_URL`, `ORBIONT_SUPPORT_EMAIL`, `ORBIONT_DEEP_LINK_SCHEME` | Marca para el lado Rust (mismos valores que `packages/branding`) |
+| `ORBIONT_CATALOG_BASE_URL` | local `http://localhost:3010`; prod `https://xerohost.net/orbiont/api` (**aún no desplegado**) |
+| `ORBIONT_CURSEFORGE_API_URL` | local `http://localhost:3011/v1`; prod `https://api-curseforge.xerohost.net/v1` (**aún no desplegado**) |
+| `ORBIONT_UPDATES_URL` | `https://xerohost.net/orbiont/updates.json` (manifiesto firmado del updater) |
+| `MODRINTH_URL`, `MODRINTH_API_URL(_V3)`, `MODRINTH_LAUNCHER_META_URL` | Modrinth solo como **fuente de contenido** y metadata de loaders |
 
 La API key de CurseForge está en el `.env` de `orbiont-catalog` (no en el
 launcher). No subas `.env` a ningún sitio.
@@ -154,8 +195,9 @@ launcher). No subas `.env` a ningún sitio.
   (Jugar, Instalar): no lo cambies a cian.
 - **Discord Rich Presence se queda** (con la app de Orbiont).
 - **Nada de estadísticas a terceros**: se quitó el envío de tiempo de juego y
-  de "server play" a Modrinth. Las llamadas `trackEvent` del frontend son
-  stubs vacíos a propósito.
+  de "server play" a Modrinth, y todo `trackEvent`.
+- **Solo premium, con licencia**: `minecraft_entitlements()` exige
+  `product_minecraft` o `game_minecraft` (aprobado por el usuario).
 - El crédito a Modrinth va solo en README/NOTICE.md, nunca en la app.
 
 ## 7. Pendiente
@@ -171,27 +213,33 @@ launcher). No subas `.env` a ningún sitio.
 
 ### Técnico
 
-- **Fase 5 (release)**: firma de código, instalador y **updater**. Ojo: en
-  `apps/app/tauri-release.conf.json` el updater todavía apunta a
-  `https://launcher-files.modrinth.com/updates.json` con la clave pública de
-  Modrinth; hay que cambiarlo por un endpoint y una clave propios antes de
-  publicar nada.
-- **CSP** (`apps/app/tauri.conf.json`, `connect-src`): sigue permitiendo
-  dominios de Modrinth Hosting (`*.nodes.modrinth.com`) y un dominio de
-  Tailscale (`*.taila228c5.ts.net`) que venían del upstream. Revisar y dejar
-  solo lo necesario.
-- **Servidores del cliente**: el plan pide mostrar también los servidores del
-  propio cliente de XeroHost cuando inicia sesión. Necesita una cuenta de
-  XeroHost en el launcher (no existe todavía).
-- Metadata de versiones propia con Daedalus en vez de `launcher-meta.modrinth.com`
-  (opcional, recomendado en el plan).
-- `minecraft_entitlements()` deserializa a un struct vacío: cualquier
-  respuesta JSON válida pasa. En la práctica una cuenta sin Minecraft falla
-  después, al pedir el perfil. **No lo toques sin hablar con el usuario**
-  (regla dura de CLAUDE.md).
-- Warnings conocidos de `cargo check`: `LegacyModrinthCredentials` y
-  `LoggedIntoModrinth` (datos antiguos que se conservan a propósito).
+- **Fase D (publicar 1.0.0 beta en `main`)**: falta el repo `XeroHost/launcher`
+  como remote (hoy solo existe `origin` = modrinth/code, **no hacer push ahí**).
+  Los workflows (`theseus-build.yml`, `theseus-release.yml`, `turbo-ci.yml`)
+  aún usan los runners privados de Modrinth (`namespace-profile-*`) y su caché
+  (`nscloud-cache-action`): hay que pasarlos a runners de GitHub antes de que
+  un tag compile. Firmar con la clave del updater y subir `updates.json` a
+  `xerohost.net/orbiont`.
+- **Perfil de usuario** (`packages/ui/src/layouts/shared/user-profile`,
+  ~1000 líneas): es la página de perfil de la web de Modrinth con
+  herramientas de staff (facturación, afiliados, bloquear, reportar). En la
+  app están ocultas (no hay cuenta), pero el código sigue. Reescribirla con
+  prueba visual.
+- `packages/api-client/src/modules/labrinth/types.ts` conserva tipos de la
+  API de Modrinth que ya no se usan (facturación, payouts…). Solo tipos.
+- El crate del núcleo se sigue llamando `theseus` (nombre en clave del
+  upstream) y el shell `theseus_gui`; renombrarlo toca todos los `theseus::`.
+- Traducciones: `intl:extract` regeneró el inglés; los demás idiomas
+  conservan claves de textos ya borrados (inofensivo).
+- **Panel de XeroHost**: administrar el servidor del cliente (mods, plugins,
+  modpacks) desde Orbiont. Necesita cuenta de XeroHost en el launcher.
+- Metadata de versiones propia con Daedalus en vez de
+  `launcher-meta.modrinth.com` (opcional).
+- Warnings conocidos de clippy: 7 en `theseus` (`set_readonly(false)`,
+  punteros crudos), anteriores a este trabajo.
 - "Hide already installed" no reconoce instalaciones hechas desde CurseForge.
+- De la auditoría, el usuario dejó para después "Falta por implementar" y
+  "Malas prácticas".
 
 ## 8. Cómo se ha trabajado (y conviene seguir)
 

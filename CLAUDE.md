@@ -49,6 +49,8 @@ sin jerga innecesaria. Commits también en español.
 - `pnpm app:dev` debe arrancar después de cada cambio estructural (y la
   ventana debe verse: si `App.vue` falla al montar, queda oculta).
 - `cargo check --workspace` y `pnpm lint` antes de cada commit; en el
-  frontend también `npx vue-tsc --noEmit`.
+  frontend, el build de Vite (`node scripts/used-modules.mjs` en
+  `apps/app-frontend`). Ojo: `vue-tsc` en `apps/app-frontend` no comprueba
+  nada (`"files": []`); ver HANDOFF.md §3.
 - No compilar dos cosas de Rust a la vez (la máquina se queda sin memoria).
 - Di siempre qué no pudiste probar (p. ej. un login real o algo visual).
