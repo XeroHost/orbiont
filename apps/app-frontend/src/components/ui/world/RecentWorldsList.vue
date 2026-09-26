@@ -24,7 +24,6 @@ import WorldItem from '@/components/ui/world/WorldItem.vue'
 import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { handleSevereError } from '@/composables/use-error.js'
-import { trackEvent } from '@/helpers/analytics'
 import { kill, run } from '@/helpers/instance'
 import { get_all } from '@/helpers/process'
 import { traceStartupStep } from '@/helpers/startup-debug'
@@ -335,13 +334,6 @@ async function joinWorld(world: WorldWithInstance, instance?: GameInstance) {
 	console.log(`Joining world ${getWorldIdentifier(world)}`)
 	if (world.type === 'server') {
 		await start_join_server(world.instance_id, world.address).catch(handleError)
-		if (instance) {
-			trackEvent('InstanceStart', {
-				loader: instance.loader,
-				game_version: instance.game_version,
-				source: 'WorldItem',
-			})
-		}
 	} else if (world.type === 'singleplayer') {
 		await start_join_singleplayer_world(world.instance_id, world.path).catch(handleError)
 	}
@@ -351,20 +343,11 @@ async function playInstance(instance: GameInstance) {
 	if (instance.quarantined) return
 	await run(instance.id)
 		.catch((err) => handleSevereError(err, { instanceId: instance.id }))
-		.finally(() => {
-			trackEvent('InstanceStart', {
-				loader: instance.loader,
-				game_version: instance.game_version,
-				source: 'WorldItem',
-			})
-		})
+		.finally(() => {})
 }
 
 async function stopInstance(path: string) {
 	await kill(path).catch(handleError)
-	trackEvent('InstanceStop', {
-		source: 'RecentWorldsList',
-	})
 }
 
 const currentInstance = ref<string>()

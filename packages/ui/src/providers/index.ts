@@ -21,5 +21,4 @@ export {
 	type TooltipProps,
 } from './tooltip'
 export * from './user-country'
-export * from './user-preferences'
 export * from './web-notifications'

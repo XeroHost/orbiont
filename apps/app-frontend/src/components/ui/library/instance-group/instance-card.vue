@@ -10,7 +10,6 @@ import InstanceCardView from '@/components/ui/library/instance-group/instance-ca
 import { getLibraryInstanceSelectionKey, useLibrary } from '@/components/ui/library/use-library'
 import { useAppEvent } from '@/composables/use-app-event'
 import { handleSevereError } from '@/composables/use-error.js'
-import { trackEvent } from '@/helpers/analytics'
 import { install_existing_instance, install_pack_to_existing_instance } from '@/helpers/install'
 import { kill, run } from '@/helpers/instance'
 import { get_by_instance_id } from '@/helpers/process'
@@ -175,33 +174,21 @@ const checkProcess = async () => {
 	playing.value = runningProcesses.length > 0
 }
 
-const play = async (event: MouseEvent | null, context: string) => {
+const play = async (event: MouseEvent | null) => {
 	event?.stopPropagation()
 	if (props.instance.quarantined || installing.value || modLoading.value) return
 	loading.value = true
-	await run(props.instance.id)
-		.catch((err) => handleSevereError(err, { instanceId: props.instance.id }))
-		.finally(() => {
-			trackEvent('InstanceStart', {
-				loader: props.instance.loader,
-				game_version: props.instance.game_version,
-				source: context,
-			})
-		})
+	await run(props.instance.id).catch((err) =>
+		handleSevereError(err, { instanceId: props.instance.id }),
+	)
 	loading.value = false
 }
 
-const stop = async (event: MouseEvent | null, context: string) => {
+const stop = async (event: MouseEvent | null) => {
 	event?.stopPropagation()
 	playing.value = false
 
 	await kill(props.instance.id).catch(handleError)
-
-	trackEvent('InstanceStop', {
-		loader: props.instance.loader,
-		game_version: props.instance.game_version,
-		source: context,
-	})
 }
 
 const repair = async (event: MouseEvent) => {
@@ -316,7 +303,7 @@ onMounted(() => {
 						type="colored"
 						color="red"
 						:size="compact ? 'md' : 'lg'"
-						@click="(e) => stop(e, 'InstanceCard')"
+						@click="(e) => stop(e)"
 						@mouseenter="checkProcess"
 					>
 						<StopCircleIcon />
@@ -352,7 +339,7 @@ onMounted(() => {
 						color="brand"
 						:size="compact ? 'md' : 'lg'"
 						class="origin-bottom scale-75 opacity-0 transition-opacity group-hover/card:scale-100 group-hover/card:opacity-100"
-						@click="(e) => play(e, 'InstanceCard')"
+						@click="(e) => play(e)"
 						@mouseenter="checkProcess"
 					>
 						<PlayIcon class="translate-x-px" />

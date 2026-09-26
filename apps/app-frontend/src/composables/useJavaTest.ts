@@ -1,6 +1,5 @@
 import { ref } from 'vue'
 
-import { trackEvent } from '@/helpers/analytics'
 import { test_jre } from '@/helpers/jre.js'
 
 export default function useJavaTest() {
@@ -8,7 +7,7 @@ export default function useJavaTest() {
 	const javaTestResult = ref<boolean | null>(null)
 	let testDebounceTimer: ReturnType<typeof setTimeout> | null = null
 
-	async function runJavaTest(path: string, version: number, track = true) {
+	async function runJavaTest(path: string, version: number) {
 		if (testDebounceTimer) {
 			clearTimeout(testDebounceTimer)
 			testDebounceTimer = null
@@ -24,10 +23,6 @@ export default function useJavaTest() {
 			javaTestResult.value = false
 		}
 		testingJava.value = false
-
-		if (track) {
-			trackEvent('JavaTest', { path, success: javaTestResult.value })
-		}
 	}
 
 	function testJavaInstallationDebounced(path: string, version: number, delay = 600) {
@@ -36,11 +31,11 @@ export default function useJavaTest() {
 			javaTestResult.value = null
 			return
 		}
-		testDebounceTimer = setTimeout(() => runJavaTest(path, version, false), delay)
+		testDebounceTimer = setTimeout(() => runJavaTest(path, version), delay)
 	}
 
-	async function testJavaInstallation(path: string, version: number, track = false) {
-		await runJavaTest(path, version, track)
+	async function testJavaInstallation(path: string, version: number) {
+		await runJavaTest(path, version)
 	}
 
 	return {

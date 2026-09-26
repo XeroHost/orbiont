@@ -1,13 +1,5 @@
 <script setup>
-import {
-	AuthFeature,
-	ModrinthApiError,
-	NodeAuthFeature,
-	nodeAuthState,
-	PanelVersionFeature,
-	TauriModrinthClient,
-	VerboseLoggingFeature,
-} from '@modrinth/api-client'
+import { ModrinthApiError, TauriModrinthClient, VerboseLoggingFeature } from '@modrinth/api-client'
 import {
 	ChevronLeftIcon,
 	ChevronRightIcon,
@@ -24,7 +16,6 @@ import {
 } from '@modrinth/assets'
 import { productName, supportEmail } from '@modrinth/branding'
 import {
-	AccountSwitchOverlay,
 	Admonition,
 	commonMessages,
 	ContentInstallModal,
@@ -46,13 +37,11 @@ import {
 	useFormatBytes,
 	useVIntl,
 } from '@modrinth/ui'
-import { renderString } from '@modrinth/utils/parse'
 import { useQueries, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { getVersion } from '@tauri-apps/api/app'
 import { convertFileSrc, invoke } from '@tauri-apps/api/core'
 import { listen } from '@tauri-apps/api/event'
 import { getCurrentWindow } from '@tauri-apps/api/window'
-import { fetch as tauriFetch } from '@tauri-apps/plugin-http'
 import { openUrl } from '@tauri-apps/plugin-opener'
 import { type } from '@tauri-apps/plugin-os'
 import { saveWindowState, StateFlags } from '@tauri-apps/plugin-window-state'
@@ -73,7 +62,6 @@ import AppSettingsModal from '@/components/ui/modal/AppSettingsModal.vue'
 import InstallToPlayModal from '@/components/ui/modal/InstallToPlayModal.vue'
 import LaunchLinkConfirmModal from '@/components/ui/modal/LaunchLinkConfirmModal.vue'
 import ModpackAlreadyInstalledModal from '@/components/ui/modal/ModpackAlreadyInstalledModal.vue'
-import ModrinthAccountRequiredModal from '@/components/ui/modal/ModrinthAccountRequiredModal.vue'
 import UpdateToPlayModal from '@/components/ui/modal/UpdateToPlayModal.vue'
 import NavButton from '@/components/ui/NavButton.vue'
 import OnboardingChecklist from '@/components/ui/onboarding-checklist/index.vue'
@@ -92,22 +80,17 @@ import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { useError } from '@/composables/use-error.js'
 import { useInstanceMetadataRefresh } from '@/composables/use-instance-metadata-refresh'
 import { useNavExpanded } from '@/composables/use-nav-expanded'
-import { useQuickInstanceLimit } from '@/composables/use-quick-instance-limit.ts'
-import { isDarkTheme, useTheme } from '@/composables/use-theme.ts'
+import { useTheme } from '@/composables/use-theme.ts'
 import { config } from '@/config'
-import { rememberAccountAppearance } from '@/helpers/account-appearance.ts'
-import { debugAnalytics, initAnalytics, trackEvent } from '@/helpers/analytics'
 import { check_reachable } from '@/helpers/auth.js'
-import { get_user, get_user_many, get_version } from '@/helpers/cache.js'
+import { get_version } from '@/helpers/cache.js'
 import { onCurseforgeSkippedFiles } from '@/helpers/curseforge'
 import { gameSettingsQueryOptions } from '@/helpers/game-options'
 import { install_create_modpack_instance, install_get_modpack_preview } from '@/helpers/install'
-import { get as getInstance, run, set_global_synced_option } from '@/helpers/instance'
+import { get as getInstance, run } from '@/helpers/instance'
 import { maxMemoryQueryOptions } from '@/helpers/jre.js'
-import { get as getCreds, getAll as getAllCreds, login, removeUser } from '@/helpers/mr_auth.ts'
 import { mergeUrlQuery, parseModrinthLink } from '@/helpers/project-links.ts'
 import {
-	appSettingsKeys,
 	appSettingsQueryOptions,
 	get as getSettings,
 	set as setSettings,
@@ -118,7 +101,6 @@ import {
 	gameOptionsSyncSourcesQueryOptions,
 	globalSyncedOptionsQueryOptions,
 	initializedSyncedOptionsQueryOptions,
-	syncedOptionsKeys,
 	syncedServersQueryOptions,
 } from '@/helpers/synced-options'
 import { syncedPackQueryOptions } from '@/helpers/synced-packs'
@@ -133,8 +115,8 @@ import {
 	setRestartAfterPendingUpdate,
 } from '@/helpers/utils.js'
 import { start_join_server, start_join_singleplayer_world } from '@/helpers/worlds.ts'
-import i18n, { setLocale } from '@/i18n.config'
-import { instanceListQueryOptions, screenshotKeys } from '@/pages/instance/query-options'
+import { setLocale } from '@/i18n.config'
+import { instanceListQueryOptions } from '@/pages/instance/query-options'
 import {
 	appUpdateState,
 	downloadAvailableAppUpdate,
@@ -154,9 +136,7 @@ import {
 import { createServerInstall, provideServerInstall } from '@/providers/server-install'
 import { setupProviders } from '@/providers/setup'
 import { setupAppEventsProvider } from '@/providers/setup/app-events'
-import { setupAuthProvider } from '@/providers/setup/auth'
 import { setupLoadingStateProvider } from '@/providers/setup/loading-state'
-import { setupAppUserPreferencesProvider } from '@/providers/setup/user-preferences.ts'
 import { appMessages } from '@/utils/app-messages'
 
 import { AppNotificationManager } from './providers/app-notifications'
@@ -169,7 +149,6 @@ const { navExpanded, toggleNavExpanded } = useNavExpanded()
 const leftBarWidth = computed(() => (navExpanded.value ? '14rem' : '4rem'))
 const leftBarStyle = computed(() => ({ '--left-bar-width': leftBarWidth.value }))
 const appTheme = useTheme()
-const quickInstances = useQuickInstanceLimit()
 const router = useRouter()
 const route = useRoute()
 const { channel: appEventChannel, events: appEvents } = setupAppEventsProvider()
@@ -188,9 +167,6 @@ function updateHistoryNavigationState() {
 updateHistoryNavigationState()
 
 const APP_SIDEBAR_WIDTH = 300
-const credentials = ref()
-const storedModrinthAccounts = ref([])
-let credentialsRefreshId = 0
 const sidebarToggled = ref(true)
 watch(
 	() => appSettings.toggleSidebar,
@@ -247,23 +223,7 @@ const appVersion = getVersion()
 const tauriApiClient = new TauriModrinthClient({
 	userAgent: async () => `${productName}/${await appVersion} (${supportEmail})`,
 	labrinthBaseUrl: config.labrinthBaseUrl,
-	archonBaseUrl: config.archonBaseUrl,
-	sharedInstancesBaseUrl: config.sharedInstancesBaseUrl,
-	features: [
-		new NodeAuthFeature({
-			getAuth: () => nodeAuthState.getAuth?.() ?? null,
-			refreshAuth: async () => {
-				if (nodeAuthState.refreshAuth) {
-					await nodeAuthState.refreshAuth()
-				}
-			},
-		}),
-		new AuthFeature({
-			token: async () => (await getCreds())?.session,
-		}),
-		new PanelVersionFeature(),
-		new VerboseLoggingFeature(),
-	],
+	features: [new VerboseLoggingFeature()],
 })
 provideModrinthClient(tauriApiClient)
 providePageContext({
@@ -353,11 +313,6 @@ function onCreationIconSaved(iconPath, config) {
 	context.instanceIconPath.value = iconPath
 }
 
-const displayedServerInviteNotifications = new Set()
-const serverInvitePopupNotificationIds = new Set()
-let liveNotificationGeneration = 0
-let liveNotificationsEnabled = true
-
 const offline = ref(!navigator.onLine)
 window.addEventListener('offline', () => {
 	offline.value = true
@@ -392,8 +347,6 @@ useQueries({
 		})),
 	),
 })
-
-const criticalErrorMessage = ref()
 
 const isMaximized = ref(false)
 const isFullscreen = ref(false)
@@ -552,13 +505,9 @@ async function setupApp() {
 		native_decorations,
 		theme,
 		locale,
-		telemetry,
 		hide_nametag_skins_page,
 		advanced_rendering,
 		toggle_sidebar,
-		sync_theme_across_devices,
-		sync_behavior_across_devices,
-		sync_features_across_devices,
 		show_files_tab_in_instances,
 		show_worlds_tab_in_instances,
 		show_screenshots_tab_in_instances,
@@ -593,9 +542,6 @@ async function setupApp() {
 
 	appTheme.preferred = theme
 	appTheme.advancedRendering = advanced_rendering
-	appTheme.syncAcrossDevices = sync_theme_across_devices
-	appSettings.syncBehaviorAcrossDevices = sync_behavior_across_devices
-	appSettings.syncFeaturesAcrossDevices = sync_features_across_devices
 	appSettings.hideNametagSkinsPage = hide_nametag_skins_page
 	appSettings.toggleSidebar = toggle_sidebar
 	appSettings.showFilesTabInInstances = show_files_tab_in_instances
@@ -630,12 +576,6 @@ async function setupApp() {
 		}),
 	)
 
-	if (telemetry) {
-		initAnalytics()
-		if (dev) debugAnalytics()
-		trackEvent('Launched', { version, dev })
-	}
-
 	const osType = await traceStartupStep('Read operating system type', async () => type())
 	if (osType === 'macos') {
 		document.getElementsByTagName('html')[0].classList.add('mac')
@@ -643,21 +583,7 @@ async function setupApp() {
 		document.getElementsByTagName('html')[0].classList.add('windows')
 	}
 
-	fetch(`https://api.modrinth.com/appCriticalAnnouncement.json?version=${version}`)
-		.then((response) => response.json())
-		.then((res) => {
-			if (res && res.header && res.body) {
-				criticalErrorMessage.value = res
-			}
-		})
-		.catch(() => {
-			console.log(
-				`No critical announcement found at https://api.modrinth.com/appCriticalAnnouncement.json?version=${version}`,
-			)
-		})
-
 	traceStartupStep('Read opening command', get_opening_command).then(handleCommand)
-	traceStartupStep('Refresh startup credentials', fetchCredentials)
 
 	if (pending_update_toast_for_version !== null) {
 		const settings = await traceStartupStep(
@@ -720,11 +646,6 @@ router.beforeEach((to, from) => {
 router.afterEach((to, from, failure) => {
 	debugStartup('Route navigation settled', { to: to.path, failed: !!failure })
 	updateHistoryNavigationState()
-	trackEvent('PageView', {
-		path: to.path,
-		fromPath: from.path,
-		failed: failure,
-	})
 	setTimeout(() => {
 		debugStartup('Route loading release check', {
 			route: to.path,
@@ -904,7 +825,6 @@ const installToPlayModal = ref()
 const sharedInstanceInviteHandler = ref()
 const updateToPlayModal = ref()
 
-const modrinthLoginModal = ref()
 const appSettingsModal = ref()
 const syncInstancesUpdateModal = ref()
 let syncInstancesUpdateNotificationId = null
@@ -960,235 +880,6 @@ watch(incompatibilityWarningModal, (modal) => {
 	}
 })
 
-const authProvider = setupAuthProvider(credentials, async (_redirectPath, flow, options) => {
-	if (options?.showModal === false) {
-		await signIn(flow)
-	} else {
-		await requestSignIn(flow)
-	}
-})
-
-const userPreferences = setupAppUserPreferencesProvider(authProvider, notificationManager)
-let userPreferencesSync = Promise.resolve()
-
-watch(
-	[userPreferences.preferences, stateInitialized],
-	([preferences, initialized]) => {
-		if (!preferences || !initialized) return
-
-		userPreferencesSync = userPreferencesSync
-			.then(async () => {
-				const settings = await getSettings()
-				const selectedTheme = preferences.appearance.auto ? 'system' : preferences.appearance.theme
-				const userId = credentials.value?.user_id ?? credentials.value?.user?.id
-				if (userId) {
-					rememberAccountAppearance(userId, preferences.appearance)
-				}
-				if (appTheme.syncAcrossDevices && isDarkTheme(preferences.appearance.theme)) {
-					appTheme.preferredDark = preferences.appearance.theme
-				}
-				const locale = preferences.localization.locale
-				const behavior = preferences.behavior
-				let settingsChanged = false
-
-				if (appTheme.syncAcrossDevices && appTheme.preferred !== selectedTheme) {
-					appTheme.preferred = selectedTheme
-				}
-				if (i18n.global.locale.value !== locale) {
-					await setLocale(locale)
-				}
-
-				if (appTheme.syncAcrossDevices && settings.theme !== selectedTheme) {
-					settings.theme = selectedTheme
-					settingsChanged = true
-				}
-				if (settings.locale !== locale) {
-					settings.locale = locale
-					settingsChanged = true
-				}
-
-				if (behavior && appSettings.syncBehaviorAcrossDevices) {
-					const behaviorFeatureFlags = {
-						compact_instance_cards: behavior.compact_instance_cards,
-						show_instance_play_time: behavior.show_play_time,
-						skip_unknown_pack_warning: !behavior.warn_on_unknown_modpacks,
-						skip_non_essential_warnings: behavior.skip_non_essential_warnings,
-					}
-
-					appSettings.toggleSidebar = behavior.hide_right_sidebar
-					appSettings.hideNametagSkinsPage = behavior.hide_nametag
-					Object.assign(appSettings.featureFlags, behaviorFeatureFlags)
-
-					if (settings.hide_on_process_start !== behavior.minimize_app) {
-						settings.hide_on_process_start = behavior.minimize_app
-						settingsChanged = true
-					}
-					if (settings.toggle_sidebar !== behavior.hide_right_sidebar) {
-						settings.toggle_sidebar = behavior.hide_right_sidebar
-						settingsChanged = true
-					}
-					if (settings.hide_nametag_skins_page !== behavior.hide_nametag) {
-						settings.hide_nametag_skins_page = behavior.hide_nametag
-						settingsChanged = true
-					}
-
-					for (const [flag, value] of Object.entries(behaviorFeatureFlags)) {
-						if (settings.feature_flags[flag] !== value) {
-							settings.feature_flags[flag] = value
-							settingsChanged = true
-						}
-					}
-				}
-
-				if (behavior && appSettings.syncFeaturesAcrossDevices) {
-					const featureFlags = {
-						worlds_in_home: behavior.show_jump_in,
-					}
-					const featureSettings = {
-						show_files_tab_in_instances: 'showFilesTabInInstances',
-						show_worlds_tab_in_instances: 'showWorldsTabInInstances',
-						show_screenshots_tab_in_instances: 'showScreenshotsTabInInstances',
-						show_skin_selector_in_sidebar: 'showSkinSelectorInSidebar',
-					}
-					for (const [key, stateKey] of Object.entries(featureSettings)) {
-						const value = behavior[key] ?? settings[key]
-						appSettings[stateKey] = value
-						if (settings[key] !== value) {
-							settings[key] = value
-							settingsChanged = true
-						}
-					}
-					Object.assign(appSettings.featureFlags, featureFlags)
-					if (typeof behavior.quick_instance_count === 'number') {
-						quickInstances.setLimit(behavior.quick_instance_count)
-					}
-
-					const showAllScreenshots = behavior.show_all_screenshots
-					if (typeof showAllScreenshots === 'boolean') {
-						const globalSyncedOptions =
-							globalSyncedOptionsQuery.data.value ??
-							(await queryClient.fetchQuery(globalSyncedOptionsQueryOptions()))
-						if (globalSyncedOptions.screenshots !== showAllScreenshots) {
-							const updatedGlobalSyncedOptions = await set_global_synced_option(
-								'screenshots',
-								showAllScreenshots,
-							)
-							queryClient.setQueryData(syncedOptionsKeys.global, updatedGlobalSyncedOptions)
-							await queryClient.invalidateQueries({ queryKey: screenshotKeys.all })
-						}
-					}
-
-					for (const [flag, value] of Object.entries(featureFlags)) {
-						if (settings.feature_flags[flag] !== value) {
-							settings.feature_flags[flag] = value
-							settingsChanged = true
-						}
-					}
-				}
-
-				if (settingsChanged) {
-					await setSettings(settings)
-					queryClient.setQueryData(appSettingsKeys.all, settings)
-				}
-			})
-			.catch(handleError)
-	},
-	{ immediate: true },
-)
-
-async function validateSession(sessionToken) {
-	try {
-		const response = await tauriFetch(`${config.labrinthBaseUrl}/v2/user`, {
-			method: 'GET',
-			headers: { Authorization: sessionToken },
-		})
-		if (response.status === 401) return false
-		return true
-	} catch {
-		return true
-	}
-}
-
-async function fetchCredentials() {
-	const hadSession = !!credentials.value?.session
-	const refreshId = ++credentialsRefreshId
-	credentials.value = undefined
-
-	const creds = await traceStartupStep('Read stored credentials', getCreds).catch(handleError)
-	if (refreshId !== credentialsRefreshId) return
-	if (!creds && hadSession) clearLiveNotifications()
-
-	if (creds && creds.user_id) {
-		if (
-			creds.session &&
-			!(await traceStartupStep('Validate stored session', () => validateSession(creds.session)))
-		) {
-			if (refreshId !== credentialsRefreshId) return
-
-			clearLiveNotifications()
-			await removeUser(creds.user_id).catch(handleError)
-			if (refreshId !== credentialsRefreshId) return
-
-			credentials.value = null
-			liveNotificationsEnabled = false
-			await fetchStoredModrinthAccounts()
-			return
-		}
-		creds.user = await traceStartupStep('Fetch signed-in user', () =>
-			get_user(creds.user_id, 'bypass'),
-		).catch(handleError)
-		if (refreshId !== credentialsRefreshId) return
-	}
-	credentials.value = creds ?? null
-	liveNotificationsEnabled = !!creds?.session
-	await traceStartupStep('Load stored account profiles', fetchStoredModrinthAccounts)
-}
-
-async function signIn(flow = 'sign-in', addAccount = false) {
-	try {
-		await login(flow, addAccount)
-		await fetchCredentials()
-	} catch (error) {
-		if (
-			typeof error === 'object' &&
-			typeof error['message'] === 'string' &&
-			error.message.includes('Login canceled')
-		) {
-			// user closed the login window
-		} else {
-			handleError(error)
-		}
-	}
-}
-
-async function requestSignIn(flow = 'sign-in', addAccount = false) {
-	await modrinthLoginModal.value?.showSigningIn(flow, addAccount)
-}
-
-async function requestModrinthAuth(flow = 'sign-in', addAccount = false) {
-	await signIn(flow, addAccount)
-	return !!credentials.value?.session
-}
-
-async function fetchStoredModrinthAccounts() {
-	const all = (await getAllCreds().catch(handleError)) ?? []
-	const ids = all.map((account) => account.user_id)
-	const users = ids.length ? ((await get_user_many(ids).catch(handleError)) ?? []) : []
-	const usersById = new Map(users.map((user) => [user.id, user]))
-
-	storedModrinthAccounts.value = all.map((account) => ({
-		...account,
-		user: usersById.get(account.user_id) ?? {
-			id: account.user_id,
-			username: account.user_id,
-			avatar_url: null,
-			role: 'developer',
-		},
-	}))
-}
-
-const isSwitchingAccount = ref(false)
-
 onMounted(() => {
 	invoke('show_window')
 
@@ -1209,102 +900,6 @@ const accounts = ref(null)
 provide('accountsCard', accounts)
 
 useAppEvent('command', handleCommand, appEvents)
-useAppEvent('notification', handleLiveNotification, appEvents)
-
-async function markLiveNotificationRead(notification) {
-	try {
-		await tauriApiClient.labrinth.notifications_v2.markAsRead(notification.id)
-	} catch (error) {
-		if (error instanceof ModrinthApiError && error.statusCode === 404) {
-			console.warn(`notification ${notification.id} could not be marked as read`, error)
-			return
-		}
-		throw error
-	}
-}
-
-async function respondToServerInvite(notification, action) {
-	const serverId = notification.body?.server_id
-	if (typeof serverId !== 'string') {
-		throw new Error('Missing server ID for invite notification.')
-	}
-
-	await tauriApiClient.request(`/servers/${serverId}/invites/${action}`, {
-		api: 'archon',
-		version: 1,
-		method: 'POST',
-	})
-	await markLiveNotificationRead(notification)
-
-	return serverId
-}
-
-async function acceptServerInviteNotification(notification) {
-	try {
-		const serverId = await respondToServerInvite(notification, 'accept')
-		await router.push(`/hosting/manage/${encodeURIComponent(serverId)}`)
-		queryClient.invalidateQueries({ queryKey: ['servers'] })
-	} catch (error) {
-		handleError(error)
-	}
-}
-
-async function declineServerInviteNotification(notification) {
-	try {
-		await respondToServerInvite(notification, 'decline')
-	} catch (error) {
-		handleError(error)
-	}
-}
-
-function openServerInviteInviterProfile(inviterName) {
-	if (!inviterName) return
-	void router.push(`/user/${encodeURIComponent(inviterName)}`)
-}
-
-async function handleLiveNotification(notification) {
-	if (!liveNotificationsEnabled || !notification?.body || notification.read) return
-	if (await sharedInstanceInviteHandler.value?.handleNotification(notification)) return
-
-	if (notification.body.type === 'server_invite') {
-		if (displayedServerInviteNotifications.has(notification.id)) return
-
-		const generation = liveNotificationGeneration
-		displayedServerInviteNotifications.add(notification.id)
-
-		const serverName =
-			typeof notification.body.server_name === 'string' ? notification.body.server_name : 'a server'
-		const inviterId = notification.body.invited_by
-		const invitedBy =
-			typeof inviterId === 'string' ? await get_user(inviterId, 'bypass').catch(() => null) : null
-		if (generation !== liveNotificationGeneration) return
-
-		const popupNotification = addPopupNotification({
-			contentType: 'toast',
-			title: serverName,
-			type: 'server-invite',
-			actorName: invitedBy?.username ?? null,
-			actorAvatarUrl: invitedBy?.avatar_url ?? null,
-			entityName: serverName,
-			autoCloseMs: null,
-			onAccept: () => acceptServerInviteNotification(notification),
-			onDecline: () => declineServerInviteNotification(notification),
-			onOpenActor: () => openServerInviteInviterProfile(invitedBy?.username ?? null),
-		})
-		serverInvitePopupNotificationIds.add(popupNotification.id)
-	}
-}
-
-function clearLiveNotifications() {
-	liveNotificationGeneration++
-	liveNotificationsEnabled = false
-	for (const id of serverInvitePopupNotificationIds) {
-		popupNotificationManager.removeNotification(id)
-	}
-	displayedServerInviteNotifications.clear()
-	serverInvitePopupNotificationIds.clear()
-	sharedInstanceInviteHandler.value?.clearNotifications()
-}
 
 async function handleCommand(e) {
 	if (!e) return
@@ -1325,9 +920,6 @@ async function handleCommand(e) {
 			} else {
 				await install_create_modpack_instance(location).catch(handleError)
 			}
-			trackEvent('InstanceCreate', {
-				source: 'CreationModalFileDrop',
-			})
 		}
 	} else if (e.event === 'LaunchInstance') {
 		const instance = await getInstance(e.id).catch(handleError)
@@ -1773,7 +1365,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 	<TooltipDirective />
 	<SplashScreen v-if="!stateFailed" ref="splashScreen" data-tauri-drag-region />
 	<div id="teleports"></div>
-	<AccountSwitchOverlay :show="isSwitchingAccount" />
 	<div
 		v-if="stateInitialized"
 		class="app-grid-layout relative"
@@ -1797,9 +1388,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 		</Transition>
 		<AppSettingsModal ref="appSettingsModal" />
 		<SyncInstancesUpdateModal ref="syncInstancesUpdateModal" />
-		<Suspense>
-			<ModrinthAccountRequiredModal ref="modrinthLoginModal" :request-auth="requestModrinthAuth" />
-		</Suspense>
 		<CreationFlowModal
 			ref="installationModal"
 			type="instance"
@@ -1994,17 +1582,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 					width: 'calc(100% - var(--right-bar-width))',
 				}"
 			></div>
-			<Admonition
-				v-if="criticalErrorMessage"
-				type="critical"
-				:header="criticalErrorMessage.header"
-				class="m-6 mb-0"
-			>
-				<div
-					class="markdown-body text-primary"
-					v-html="renderString(criticalErrorMessage.body ?? '')"
-				></div>
-			</Admonition>
 			<Admonition
 				v-if="authUnreachable"
 				type="warning"

@@ -16,7 +16,7 @@ import { nextTick, ref } from 'vue'
 import ModrinthAccountRequiredModal from '@/components/ui/modal/ModrinthAccountRequiredModal.vue'
 import SharedInstanceInstallModal from '@/components/ui/shared-instances/shared-instance-install-modal/index.vue'
 import SharedInstanceAlreadyInstalledModal from '@/components/ui/shared-instances/SharedInstanceAlreadyInstalledModal.vue'
-import type { ModrinthAuthFlow } from '@/helpers/mr_auth'
+type ModrinthAuthFlow = 'sign-in' | 'sign-up'
 
 import type { SharedInstanceInviteHandler } from './shared-instance-invite-types'
 import { useSharedInstanceInviteHandler } from './use-shared-instance-invite-handler'

@@ -52,7 +52,6 @@ const preferred = ref<ColorTheme>(loadPreferredTheme())
 const preview = ref<ColorTheme | null>(null)
 const preferredDark = ref<DarkTheme>(loadPreferredDarkTheme())
 const advancedRendering = ref(true)
-const syncAcrossDevices = ref(false)
 const nativeThemeQuery = window.matchMedia('(prefers-color-scheme: dark)')
 const native = ref<NativeTheme>(nativeThemeQuery.matches ? 'dark' : 'light')
 const active = computed<Theme>(() => {
@@ -132,7 +131,6 @@ const theme = reactive({
 	preferredDark,
 	active,
 	native,
-	syncAcrossDevices,
 	advancedRendering,
 	options: THEME_OPTIONS,
 	applyAccountAppearance,

@@ -49,7 +49,6 @@ import { Button, defineMessages, injectNotificationManager, Table, useVIntl } fr
 import { computed, ref } from 'vue'
 
 import ModalWrapper from '@/components/ui/modal/ModalWrapper.vue'
-import { trackEvent } from '@/helpers/analytics'
 import { find_filtered_jres } from '@/helpers/jre.js'
 
 const { handleError } = injectNotificationManager()
@@ -122,9 +121,5 @@ const emit = defineEmits(['submit'])
 function setJavaInstall(javaInstall) {
 	emit('submit', javaInstall)
 	detectJavaModal.value.hide()
-	trackEvent('JavaAutoDetect', {
-		path: javaInstall.path,
-		version: javaInstall.version,
-	})
 }
 </script>

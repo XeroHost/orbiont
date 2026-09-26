@@ -14,12 +14,7 @@
 			</span>
 		</Card>
 	</div>
-	<ImageViewerEditor
-		ref="galleryViewer"
-		:items="galleryViewerItems"
-		editor="disabled"
-		@navigate="trackGalleryNavigation"
-	>
+	<ImageViewerEditor ref="galleryViewer" :items="galleryViewerItems" editor="disabled">
 		<template #actions="{ item }">
 			<Button
 				type="quiet"
@@ -38,8 +33,6 @@ import { CalendarIcon, ExternalIcon } from '@modrinth/assets'
 import { Button, Card, ImageViewerEditor, useFormatDateTime } from '@modrinth/ui'
 import { openUrl } from '@tauri-apps/plugin-opener'
 import { computed, ref } from 'vue'
-
-import { trackEvent } from '@/helpers/analytics'
 
 const MC_SERVER_BANNER_NAME = '__mc_server_banner__'
 
@@ -73,17 +66,6 @@ const galleryViewerItems = computed(() =>
 
 const expandImage = (item, index) => {
 	galleryViewer.value?.show(index)
-	trackEvent('GalleryImageExpand', {
-		project_id: props.project.id,
-		url: item.url,
-	})
-}
-
-function trackGalleryNavigation(item, _index, direction) {
-	trackEvent(direction === 'next' ? 'GalleryImageNext' : 'GalleryImagePrevious', {
-		project_id: props.project.id,
-		url: item.id,
-	})
 }
 </script>
 

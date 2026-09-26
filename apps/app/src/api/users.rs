@@ -27,56 +27,6 @@ pub async fn get_user_collections(user_id: &str) -> Result<Value> {
     Ok(theseus::users::get_user_collections(user_id).await?)
 }
 
-#[tauri::command]
-pub async fn get_user_preferences(user_id: &str) -> Result<Value> {
-    Ok(theseus::users::get_user_preferences(user_id).await?)
-}
-
-#[tauri::command]
-pub async fn patch_user_preferences(
-    user_id: &str,
-    preferences: Value,
-) -> Result<Value> {
-    Ok(theseus::users::patch_user_preferences(user_id, preferences).await?)
-}
-
-#[tauri::command]
-pub async fn patch_user(user_id: &str, patch: Value) -> Result<()> {
-    Ok(theseus::users::patch_user(user_id, patch).await?)
-}
-
-#[tauri::command]
-pub async fn change_user_avatar(
-    user_id: &str,
-    image: Vec<u8>,
-    extension: &str,
-) -> Result<()> {
-    Ok(
-        theseus::users::change_user_avatar(user_id, image.into(), extension)
-            .await?,
-    )
-}
-
-#[tauri::command]
-pub async fn delete_user_avatar(user_id: &str) -> Result<()> {
-    Ok(theseus::users::delete_user_avatar(user_id).await?)
-}
-
-#[tauri::command]
-pub async fn block_user(user_id: &str) -> Result<()> {
-    Ok(theseus::users::block_user(user_id).await?)
-}
-
-#[tauri::command]
-pub async fn unblock_user(user_id: &str) -> Result<()> {
-    Ok(theseus::users::unblock_user(user_id).await?)
-}
-
-#[tauri::command]
-pub async fn get_blocked_users() -> Result<Vec<String>> {
-    Ok(theseus::users::get_blocked_users().await?)
-}
-
 pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
     tauri::plugin::Builder::new("users")
         .invoke_handler(tauri::generate_handler![
@@ -85,14 +35,6 @@ pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
             get_user_projects,
             get_user_organizations,
             get_user_collections,
-            get_user_preferences,
-            patch_user_preferences,
-            patch_user,
-            change_user_avatar,
-            delete_user_avatar,
-            block_user,
-            unblock_user,
-            get_blocked_users,
         ])
         .build()
 }

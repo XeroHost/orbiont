@@ -273,15 +273,15 @@ async function save(): Promise<void> {
 			patch.role = form.value.role
 		}
 		if (Object.keys(patch).length > 0) {
-			await userProfile.patchUser(props.user.id, patch)
+			await userProfile.patchUser?.(props.user.id, patch)
 		}
 
 		if (pendingAvatarDeletion.value) {
-			await userProfile.deleteAvatar(props.user.id)
+			await userProfile.deleteAvatar?.(props.user.id)
 		} else if (avatarFile.value) {
 			const extension = avatarFile.value.type.split('/').at(-1)
 			if (!extension) throw new Error('The selected image does not have a valid file type.')
-			await userProfile.changeAvatar(props.user.id, avatarFile.value, extension)
+			await userProfile.changeAvatar?.(props.user.id, avatarFile.value, extension)
 		}
 
 		await queryClient.invalidateQueries({ queryKey: ['user', props.userId] })

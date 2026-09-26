@@ -131,7 +131,6 @@ import { useManagedContentPolicy } from '@/composables/instances/use-managed-con
 import { useSyncedPackActions } from '@/composables/instances/use-synced-pack-actions'
 import { useAppEvent } from '@/composables/use-app-event'
 import { type FeatureFlag, useAppSettings } from '@/composables/use-app-settings.ts'
-import { trackEvent } from '@/helpers/analytics'
 import { get_project_versions, get_version, get_version_many } from '@/helpers/cache.js'
 import {
 	add_project_from_path,
@@ -864,15 +863,6 @@ async function toggleDisableMod(
 			enabled,
 		})
 
-		trackEvent('InstanceProjectDisable', {
-			loader: instance.value.loader,
-			game_version: instance.value.game_version,
-			id: mod.project?.id,
-			name: mod.project?.title ?? mod.file_name,
-			project_type: mod.project_type,
-			disabled: !enabled,
-		})
-
 		if (reconcileSharedState) {
 			await reconcileSharedInstancePublishState()
 		}
@@ -901,14 +891,6 @@ async function removeMod(mod: ContentItem) {
 		} else {
 			projects.value = projects.value.filter((x) => removedPath !== x.file_path)
 		}
-
-		trackEvent('InstanceProjectRemove', {
-			loader: instance.value.loader,
-			game_version: instance.value.game_version,
-			id: mod.project?.id,
-			name: mod.project?.title ?? mod.file_name,
-			project_type: mod.project_type,
-		})
 	} catch (err) {
 		handleError(err as Error)
 	} finally {
@@ -1035,14 +1017,6 @@ async function updateProject(mod: ContentItem) {
 			mod.file_path,
 			updateVersionId,
 		)
-
-		trackEvent('InstanceProjectUpdate', {
-			loader: instance.value.loader,
-			game_version: instance.value.game_version,
-			id: mod.project?.id,
-			name: mod.project?.title ?? mod.file_name,
-			project_type: mod.project_type,
-		})
 	} catch (err) {
 		handleError(err as Error)
 		throw err
@@ -1062,14 +1036,6 @@ async function switchProjectVersion(mod: ContentItem, version: Labrinth.Versions
 
 	try {
 		await switch_project_version_with_dependencies(instance.value.id, oldPath, version.id)
-
-		trackEvent('InstanceProjectUpdate', {
-			loader: instance.value.loader,
-			game_version: instance.value.game_version,
-			id: mod.project?.id,
-			name: mod.project?.title ?? mod.file_name,
-			project_type: mod.project_type,
-		})
 	} catch (err) {
 		handleError(err as Error)
 	} finally {

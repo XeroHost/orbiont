@@ -128,7 +128,6 @@ import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { handleSevereError } from '@/composables/use-error.js'
 import { useInstanceConsole } from '@/composables/useInstanceConsole'
-import { trackEvent } from '@/helpers/analytics'
 import { toError } from '@/helpers/errors'
 import {
 	getSharedInstanceUnavailableReason,
@@ -551,11 +550,6 @@ const launchInstance = async (context: string) => {
 	loading.value = false
 
 	if (!instance.value) return
-	trackEvent('InstanceStart', {
-		loader: instance.value.loader,
-		game_version: instance.value.game_version,
-		source: context,
-	})
 }
 
 async function handleSharedInstanceUnavailable(
@@ -654,12 +648,6 @@ const stopInstance = async (context: string) => {
 	await kill(currentInstance.id).catch((error) => handleError(toError(error)))
 	stopping.value = false
 	queryClient.setQueryData(instanceKeys.processes(currentInstance.id), [])
-
-	trackEvent('InstanceStop', {
-		loader: currentInstance.loader,
-		game_version: currentInstance.game_version,
-		source: context,
-	})
 }
 
 const handlePlayServer = async () => {
@@ -768,10 +756,6 @@ async function deleteSelectedInstance() {
 	selectedInstanceToDelete.value = null
 	if (!selectedInstance) return
 
-	trackEvent('InstanceRemove', {
-		loader: selectedInstance.loader,
-		game_version: selectedInstance.game_version,
-	})
 	await router.push({ path: '/' })
 	await remove(selectedInstance.id).catch((error) => handleError(toError(error)))
 }

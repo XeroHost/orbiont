@@ -64,7 +64,7 @@ watch(
 	(newPath) => {
 		if (newPath && optimalJava?.parsed_version) {
 			if (!hasInitialized) {
-				testJavaInstallation(newPath, optimalJava?.parsed_version, false)
+				testJavaInstallation(newPath, optimalJava?.parsed_version)
 				hasInitialized = true
 			} else {
 				testJavaInstallationDebounced(newPath, optimalJava?.parsed_version)

@@ -17,7 +17,6 @@ import { computed, ref } from 'vue'
 
 import { useManagedContentPolicy } from '@/composables/instances/use-managed-content-policy'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
-import { trackEvent } from '@/helpers/analytics'
 import { get_project_versions, get_version } from '@/helpers/cache'
 import {
 	install_existing_instance,
@@ -363,10 +362,6 @@ provideInstallationSettings({
 	afterSave: async () => {
 		debug('afterSave: installing', { instanceId: instance.value.id })
 		await install_existing_instance(instance.value.id, false).catch(handleError)
-		trackEvent('InstanceRepair', {
-			loader: instance.value.loader,
-			game_version: instance.value.game_version,
-		})
 		debug('afterSave: done')
 	},
 
@@ -375,10 +370,6 @@ provideInstallationSettings({
 		repairing.value = true
 		await install_existing_instance(instance.value.id, true).catch(handleError)
 		repairing.value = false
-		trackEvent('InstanceRepair', {
-			loader: instance.value.loader,
-			game_version: instance.value.game_version,
-		})
 		debug('repair: done')
 	},
 
@@ -397,10 +388,6 @@ provideInstallationSettings({
 			reinstalling.value = false
 		}
 		if (shouldTrack) {
-			trackEvent('InstanceRepair', {
-				loader: instance.value.loader,
-				game_version: instance.value.game_version,
-			})
 		}
 		debug('reinstallModpack: done')
 	},
@@ -411,10 +398,6 @@ provideInstallationSettings({
 		try {
 			const installed = await installLocalModpackFromPicker()
 			if (installed) {
-				trackEvent('InstanceRepair', {
-					loader: instance.value.loader,
-					game_version: instance.value.game_version,
-				})
 			}
 		} finally {
 			reinstalling.value = false

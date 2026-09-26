@@ -766,35 +766,6 @@ pub async fn fetch_advanced(
     .await
 }
 
-#[tracing::instrument(skip(body, semaphore))]
-#[allow(clippy::too_many_arguments)]
-pub async fn fetch_advanced_bytes(
-    method: Method,
-    url: &str,
-    body: Bytes,
-    header: Option<(&str, &str)>,
-    uri_path: Option<&'static str>,
-    semaphore: &FetchSemaphore,
-    exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite>,
-) -> crate::Result<Bytes> {
-    fetch_advanced_with_client_and_progress(
-        method,
-        url,
-        None,
-        None,
-        Some(body),
-        header,
-        None,
-        None,
-        uri_path,
-        semaphore,
-        exec,
-        &INSECURE_REQWEST_CLIENT,
-        None,
-    )
-    .await
-}
-
 #[tracing::instrument(skip(json_body, semaphore, progress))]
 #[allow(clippy::too_many_arguments)]
 pub async fn fetch_advanced_with_progress(

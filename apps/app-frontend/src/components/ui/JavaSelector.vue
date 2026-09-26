@@ -104,7 +104,6 @@ import { ref, watch } from 'vue'
 
 import JavaDetectionModal from '@/components/ui/JavaDetectionModal.vue'
 import useJavaTest from '@/composables/useJavaTest'
-import { trackEvent } from '@/helpers/analytics'
 import { auto_install_java, find_filtered_jres, get_jre } from '@/helpers/jre.js'
 
 const { handleError } = injectNotificationManager()
@@ -189,7 +188,7 @@ const hoveringTest = ref(false)
 let hasInitialized = false
 
 async function runTest(path) {
-	await testJavaInstallation(path, props.version, true)
+	await testJavaInstallation(path, props.version)
 }
 
 watch(
@@ -197,7 +196,7 @@ watch(
 	(newPath) => {
 		if (newPath) {
 			if (!hasInitialized) {
-				testJavaInstallation(newPath, props.version, false)
+				testJavaInstallation(newPath, props.version)
 				hasInitialized = true
 			} else {
 				testJavaInstallationDebounced(newPath, props.version)
@@ -220,10 +219,6 @@ async function handleJavaFileInput() {
 				architecture: 'x86',
 			}
 		}
-
-		trackEvent('JavaManualSelect', {
-			version: props.version,
-		})
 
 		emit('update:modelValue', result)
 	}
@@ -254,11 +249,6 @@ async function reinstallJava() {
 			architecture: 'x86',
 		}
 	}
-
-	trackEvent('JavaReInstall', {
-		path: path,
-		version: props.version,
-	})
 
 	emit('update:modelValue', result)
 	installingJava.value = false

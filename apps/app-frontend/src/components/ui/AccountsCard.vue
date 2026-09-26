@@ -106,7 +106,6 @@ import { computed, onUnmounted, ref, useSlots } from 'vue'
 
 import { useAppEvent } from '@/composables/use-app-event'
 import { handleSevereError } from '@/composables/use-error.js'
-import { trackEvent } from '@/helpers/analytics'
 import {
 	get_default_user,
 	login as login_flow,
@@ -255,7 +254,6 @@ async function login() {
 		await setAccount(loggedIn)
 	}
 
-	trackEvent('AccountLogIn')
 	loginDisabled.value = false
 }
 
@@ -267,7 +265,6 @@ async function logout(id: string) {
 	} else {
 		emit('change')
 	}
-	trackEvent('AccountLogOut')
 }
 
 useAppEvent('process', async (e) => {

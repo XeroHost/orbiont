@@ -9,19 +9,6 @@ export const appearanceSettingsMessages = defineMessages({
 		id: 'settings.display.theme.description',
 		defaultMessage: 'Select your preferred color theme across Modrinth.',
 	},
-	syncAcrossDevicesTitle: {
-		id: 'settings.display.theme.sync-across-devices',
-		defaultMessage: 'Sync theme across devices',
-	},
-	syncAcrossDevicesDescription: {
-		id: 'settings.display.theme.sync-across-devices.description',
-		defaultMessage:
-			"Use this theme everywhere you're signed in. Turn this off to keep a separate theme on this device.",
-	},
-	syncAcrossDevicesSignedOutTooltip: {
-		id: 'settings.display.theme.sync-across-devices.sign-in-tooltip',
-		defaultMessage: 'Sign into Modrinth to sync theme',
-	},
 	projectListLayoutsTitle: {
 		id: 'settings.display.project-list-layouts.title',
 		defaultMessage: 'Project list layouts',

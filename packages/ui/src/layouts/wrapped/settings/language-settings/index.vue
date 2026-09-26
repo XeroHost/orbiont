@@ -33,11 +33,11 @@
 </template>
 
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref, watch } from 'vue'
+import { computed, onBeforeUnmount, ref } from 'vue'
 
 import { Admonition, AutoLink, IntlFormatted } from '#ui/components/base'
 import { LOCALES, useVIntl } from '#ui/composables'
-import { injectI18n, injectUserPreferences } from '#ui/providers'
+import { injectI18n } from '#ui/providers'
 import { commonSettingsMessages, languageSelectorMessages, useSavable } from '#ui/utils'
 
 import { languageCoverage } from './language-settings-coverage.generated'
@@ -50,7 +50,6 @@ const props = defineProps<{
 
 const { formatMessage } = useVIntl()
 const { locale, setLocale } = injectI18n()
-const { preferences, updatePreferences } = injectUserPreferences()
 const platform = computed(() =>
 	formatMessage(
 		props.product === 'app'
@@ -64,7 +63,6 @@ let localeChangeQueue = Promise.resolve()
 const { saved, current, changes, saving, hasChanges, reset, save } = useSavable(
 	() => ({ locale: persistedLocale.value }),
 	async () => {
-		await updatePreferences({ localization: { locale: current.value.locale } })
 		await queueLocaleChange(current.value.locale, true)
 		await props.persistLocale?.(current.value.locale)
 		persistedLocale.value = current.value.locale
@@ -94,15 +92,6 @@ async function saveLanguageSettings(): Promise<void> {
 		return
 	}
 }
-
-watch(
-	preferences,
-	(value) => {
-		if (!value || hasChanges.value) return
-		persistedLocale.value = value.localization.locale
-	},
-	{ immediate: true, flush: 'sync' },
-)
 
 onBeforeUnmount(() => {
 	if (hasChanges.value || locale.value !== persistedLocale.value) {

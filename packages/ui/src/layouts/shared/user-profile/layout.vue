@@ -168,7 +168,7 @@
 				<UserPageHeader
 					:user="user"
 					:summary="isModrinthUser ? null : profileHeaderSummary"
-					:auth-user="auth.user.value"
+					:auth-user="authUser.value"
 					:edit-profile-link="editProfileLink"
 					:is-modrinth-user="isModrinthUser"
 					:is-official-account="isOfficialAccount"
@@ -489,7 +489,10 @@ const props = withDefaults(
 )
 
 const userProfile = injectUserProfile()
-const auth = injectAuth()
+// Hosts without Modrinth accounts (the launcher) provide no auth: then
+// nothing that needs a signed-in user (blocking, reporting, own profile) shows.
+const auth = injectAuth(null)
+const authUser = computed(() => auth?.user.value ?? null)
 const pageContext = injectPageContext()
 const notificationManager = injectNotificationManager()
 const client = injectModrinthClient()
@@ -698,21 +701,21 @@ const collectionsQuery = useQuery({
 	staleTime: 30_000,
 })
 const blockedUsersQuery = useQuery({
-	queryKey: computed(() => blockedUsersQueryKey(auth.user.value?.id)),
-	queryFn: userProfile.getBlockedUsers,
-	enabled: computed(() => Boolean(auth.user.value)),
+	queryKey: computed(() => blockedUsersQueryKey(authUser.value?.id)),
+	queryFn: () => userProfile.getBlockedUsers?.() ?? Promise.resolve([]),
+	enabled: computed(() => Boolean(authUser.value && userProfile.getBlockedUsers)),
 	staleTime: 30_000,
 })
 const viewerProjectsQuery = useQuery({
-	queryKey: computed(() => ['user', auth.user.value?.id, 'projects']),
-	queryFn: () => userProfile.getProjects(auth.user.value!.id),
+	queryKey: computed(() => ['user', authUser.value?.id, 'projects']),
+	queryFn: () => userProfile.getProjects(authUser.value!.id),
 	enabled: computed(
 		() =>
-			Boolean(auth.user.value?.id) &&
+			Boolean(authUser.value?.id) &&
 			Boolean(userQuery.data.value?.id) &&
-			auth.user.value?.id !== userQuery.data.value?.id &&
-			auth.user.value?.role !== 'admin' &&
-			auth.user.value?.role !== 'moderator',
+			authUser.value?.id !== userQuery.data.value?.id &&
+			authUser.value?.role !== 'admin' &&
+			authUser.value?.role !== 'moderator',
 	),
 	staleTime: 30_000,
 })
@@ -805,10 +808,10 @@ const earliestProjectByType = computed(() => {
 
 const isModrinthUser = computed(() => checkIsModrinthUser(user.value?.id))
 const isOfficialAccount = computed(() => checkIsOfficialAccount(user.value?.id))
-const isSelf = computed(() => auth.user.value?.id === user.value?.id)
-const isAdminViewing = computed(() => auth.user.value?.role === 'admin')
+const isSelf = computed(() => authUser.value?.id === user.value?.id)
+const isAdminViewing = computed(() => authUser.value?.role === 'admin')
 const isStaffViewing = computed(
-	() => auth.user.value?.role === 'admin' || auth.user.value?.role === 'moderator',
+	() => authUser.value?.role === 'admin' || authUser.value?.role === 'moderator',
 )
 const viewerMemberProjectIds = computed(
 	() => new Set((viewerProjectsQuery.data.value ?? []).map((project) => project.id)),
@@ -933,10 +936,10 @@ function reportProfile(): void {
 	const reportPath = `/report?item=user&itemID=${encodeURIComponent(user.value.id)}`
 	if (props.externalNavigation) {
 		pageContext.openExternalUrl(externalUrl(reportPath))
-	} else if (auth.user.value) {
+	} else if (authUser.value) {
 		void router.push(reportPath)
 	} else {
-		void auth.requestSignIn(route.fullPath)
+		void auth?.requestSignIn(route.fullPath)
 	}
 }
 
@@ -976,8 +979,8 @@ function openUserDetails(): void {
 }
 
 async function handleBlockAction(): Promise<void> {
-	if (!auth.user.value) {
-		await auth.requestSignIn(route.fullPath)
+	if (!authUser.value) {
+		await auth?.requestSignIn(route.fullPath)
 		return
 	}
 
@@ -993,10 +996,10 @@ async function confirmBlockUser(): Promise<void> {
 	if (!user.value || isBlockingUser.value) return
 
 	const blockedUser = user.value
-	const authUserId = auth.user.value?.id
+	const authUserId = authUser.value?.id
 	isBlockingUser.value = true
 	try {
-		await userProfile.blockUser(blockedUser.id)
+		await userProfile.blockUser?.(blockedUser.id)
 		queryClient.setQueryData<Labrinth.BlockedUsers.v3.BlockedUserId[]>(
 			blockedUsersQueryKey(authUserId),
 			(blockedUsers = []) =>
@@ -1025,10 +1028,10 @@ async function unblockCurrentUser(): Promise<void> {
 	if (!user.value || isUnblockingUser.value) return
 
 	const blockedUser = user.value
-	const authUserId = auth.user.value?.id
+	const authUserId = authUser.value?.id
 	isUnblockingUser.value = true
 	try {
-		await userProfile.unblockUser(blockedUser.id)
+		await userProfile.unblockUser?.(blockedUser.id)
 		queryClient.setQueryData<Labrinth.BlockedUsers.v3.BlockedUserId[]>(
 			blockedUsersQueryKey(authUserId),
 			(blockedUsers = []) => blockedUsers.filter((userId) => userId !== blockedUser.id),
@@ -1053,7 +1056,7 @@ async function unblockCurrentUser(): Promise<void> {
 
 async function toggleAffiliate(): Promise<void> {
 	if (!user.value) return
-	await userProfile.patchUser(user.value.id, {
+	await userProfile.patchUser?.(user.value.id, {
 		badges: user.value.badges ^ UserBadge.AFFILIATE,
 	})
 	await queryClient.invalidateQueries({ queryKey: ['user', props.userId] })

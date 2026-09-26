@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import {
 	defineMessages,
-	injectAuth,
 	injectNotificationManager,
-	injectUserPreferences,
 	Slider,
 	Toggle,
 	useSavable,
@@ -35,9 +33,7 @@ import { appSettingsModalContextKey } from '@/providers/app-settings-modal'
 
 const appSettings = useAppSettings()
 const { formatMessage } = useVIntl()
-const auth = injectAuth()
 const { handleError } = injectNotificationManager()
-const { updatePreferences } = injectUserPreferences()
 const settingsModal = inject(appSettingsModalContextKey, null)
 const quickInstances = useQuickInstanceLimit()
 const queryClient = useQueryClient()
@@ -45,19 +41,6 @@ const queryClient = useQueryClient()
 const showJumpInFlag: FeatureFlag = 'worlds_in_home'
 
 const messages = defineMessages({
-	syncAcrossDevicesTitle: {
-		id: 'app.features-settings.sync-across-devices.title',
-		defaultMessage: 'Sync features across devices',
-	},
-	syncAcrossDevicesDescription: {
-		id: 'app.features-settings.sync-across-devices.description',
-		defaultMessage:
-			"Use these feature settings everywhere you're signed in. Turn this off to keep separate settings on this device.",
-	},
-	syncAcrossDevicesSignedOutTooltip: {
-		id: 'app.features-settings.sync-across-devices.signed-out-tooltip',
-		defaultMessage: 'Sign into a Modrinth account to sync settings.',
-	},
 	instancePagesTitle: {
 		id: 'app.features-settings.instance-pages.title',
 		defaultMessage: 'Instances',
@@ -119,7 +102,6 @@ const messages = defineMessages({
 })
 
 type FeaturesSettingsState = {
-	syncFeaturesAcrossDevices: boolean
 	showFilesTab: boolean
 	showWorldsTab: boolean
 	showScreenshotsTab: boolean
@@ -138,7 +120,6 @@ function getFeaturesSettingsState(
 	globalSyncedOptions: GlobalSyncedOptions,
 ): FeaturesSettingsState {
 	return {
-		syncFeaturesAcrossDevices: settings.sync_features_across_devices,
 		showFilesTab: settings.show_files_tab_in_instances,
 		showWorldsTab: settings.show_worlds_tab_in_instances,
 		showScreenshotsTab: settings.show_screenshots_tab_in_instances,
@@ -159,24 +140,9 @@ const settingsMutation = useMutation({
 		value: FeaturesSettingsState
 		updateQuickInstanceCount: boolean
 	}) => {
-		if (value.syncFeaturesAcrossDevices && auth.user.value) {
-			await updatePreferences({
-				behavior: {
-					show_jump_in: value.showJumpIn,
-					show_files_tab_in_instances: value.showFilesTab,
-					show_worlds_tab_in_instances: value.showWorldsTab,
-					show_screenshots_tab_in_instances: value.showScreenshotsTab,
-					show_all_screenshots: value.showAllScreenshots,
-					show_skin_selector_in_sidebar: value.showSkinSelector,
-					quick_instance_count: value.quickInstanceCount,
-				},
-			})
-		}
-
 		const latestSettings = await get()
 		const nextSettings: AppSettings = {
 			...latestSettings,
-			sync_features_across_devices: value.syncFeaturesAcrossDevices,
 			show_files_tab_in_instances: value.showFilesTab,
 			show_worlds_tab_in_instances: value.showWorldsTab,
 			show_screenshots_tab_in_instances: value.showScreenshotsTab,
@@ -200,7 +166,6 @@ const settingsMutation = useMutation({
 		if (screenshotsChanged) {
 			await queryClient.invalidateQueries({ queryKey: screenshotKeys.all })
 		}
-		appSettings.setFeaturesSyncAcrossDevices(value.syncFeaturesAcrossDevices)
 		appSettings.showFilesTabInInstances = value.showFilesTab
 		appSettings.showWorldsTabInInstances = value.showWorldsTab
 		appSettings.showScreenshotsTabInInstances = value.showScreenshotsTab
@@ -258,34 +223,7 @@ onBeforeUnmount(() => {
 </script>
 
 <template>
-	<section class="border-0 border-b border-solid border-surface-4 pb-6">
-		<div class="flex items-center justify-between gap-4">
-			<div>
-				<h2 id="sync-features-across-devices-label" class="m-0 text-lg font-semibold text-contrast">
-					{{ formatMessage(messages.syncAcrossDevicesTitle) }}
-				</h2>
-				<p class="m-0 mt-1 text-secondary">
-					{{ formatMessage(messages.syncAcrossDevicesDescription) }}
-				</p>
-			</div>
-			<span
-				v-tooltip="
-					!auth.user.value ? formatMessage(messages.syncAcrossDevicesSignedOutTooltip) : undefined
-				"
-				class="inline-flex shrink-0"
-			>
-				<Toggle
-					id="sync-features-across-devices"
-					:model-value="Boolean(auth.user.value) && current.syncFeaturesAcrossDevices"
-					:disabled="!auth.user.value"
-					aria-labelledby="sync-features-across-devices-label"
-					@update:model-value="current.syncFeaturesAcrossDevices = $event"
-				/>
-			</span>
-		</div>
-	</section>
-
-	<section class="mt-6">
+	<section>
 		<h2 class="m-0 text-xl font-semibold text-contrast">
 			{{ formatMessage(messages.instancePagesTitle) }}
 		</h2>

@@ -708,13 +708,6 @@ struct LegacyModrinthUser {
     pub role: String,
 }
 
-#[derive(Deserialize, Clone, Debug)]
-struct LegacyModrinthCredentials {
-    pub session: String,
-    pub expires_at: DateTime<Utc>,
-    pub user: LegacyModrinthUser,
-}
-
 #[derive(Deserialize, Debug)]
 struct LegacyMinecraftAuthStore {
     pub users: HashMap<Uuid, LegacyCredentials>,

@@ -21,7 +21,6 @@ import {
 	QUICK_INSTANCE_LIMIT_MAX,
 	useQuickInstanceLimit,
 } from '@/composables/use-quick-instance-limit.ts'
-import { trackEvent } from '@/helpers/analytics'
 import { getInstanceIconUrl, kill, run } from '@/helpers/instance'
 import { get_all } from '@/helpers/process'
 import { showInstanceInFolder } from '@/helpers/utils'
@@ -236,22 +235,11 @@ async function playInstance(instance) {
 	if (instance.quarantined || instance.install_stage !== 'installed') return
 	await run(instance.id)
 		.catch((err) => handleSevereError(err, { instanceId: instance.id }))
-		.finally(() => {
-			trackEvent('InstanceStart', {
-				loader: instance.loader,
-				game_version: instance.game_version,
-				source: 'QuickInstanceSwitcher',
-			})
-		})
+		.finally(() => {})
 }
 
 async function stopInstance(instance) {
 	await kill(instance.id).catch(handleError)
-	trackEvent('InstanceStop', {
-		loader: instance.loader,
-		game_version: instance.game_version,
-		source: 'QuickInstanceSwitcher',
-	})
 }
 
 function openContextMenu(event, instance) {
