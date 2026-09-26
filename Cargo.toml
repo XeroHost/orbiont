@@ -3,7 +3,6 @@ resolver = "2"
 members = [
   "apps/app",
   "packages/app-lib",
-  "packages/ariadne",
   "packages/daedalus",
   "packages/modrinth-content-management",
   "packages/path-util",
@@ -26,7 +25,6 @@ actix-web-prom = "0.10.0"
 actix-ws = "0.3.0"
 arc-swap = "1.7.1"
 argon2 = { version = "0.5.3", features = ["std"] }
-ariadne = { path = "packages/ariadne" }
 async-minecraft-ping = { path = "packages/async-minecraft-ping" }
 async-recursion = "1.1.1"
 async-stripe = { version = "0.41.0", default-features = false, features = [

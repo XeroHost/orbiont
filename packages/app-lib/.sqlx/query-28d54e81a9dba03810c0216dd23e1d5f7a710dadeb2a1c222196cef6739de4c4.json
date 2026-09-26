@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "\n\t\tINSERT INTO instance_links (\n\t\t\tinstance_id,\n\t\t\tlink_kind,\n\t\t\tmodrinth_project_id,\n\t\t\tmodrinth_version_id,\n\t\t\tserver_project_id,\n\t\t\tcontent_project_id,\n\t\t\tcontent_version_id,\n\t\t\timported_name,\n\t\t\timported_version_number,\n\t\t\timported_filename\n\t\t)\n\t\tVALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)\n\t\tON CONFLICT (instance_id) DO UPDATE SET\n\t\t\tlink_kind = excluded.link_kind,\n\t\t\tmodrinth_project_id = excluded.modrinth_project_id,\n\t\t\tmodrinth_version_id = excluded.modrinth_version_id,\n\t\t\tserver_project_id = excluded.server_project_id,\n\t\t\tcontent_project_id = excluded.content_project_id,\n\t\t\tcontent_version_id = excluded.content_version_id,\n\t\t\timported_name = excluded.imported_name,\n\t\t\timported_version_number = excluded.imported_version_number,\n\t\t\timported_filename = excluded.imported_filename\n\t\t",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 10
+    },
+    "nullable": []
+  },
+  "hash": "28d54e81a9dba03810c0216dd23e1d5f7a710dadeb2a1c222196cef6739de4c4"
+}

@@ -254,7 +254,7 @@ export function useContentMetadataFilters(
 						label: formatMessage(messages.sharedContent),
 						direct: true,
 						values: (item: ContentItem) =>
-							['server_project', 'shared_instance'].includes(item.source_kind ?? '')
+							item.source_kind === 'server_project'
 								? [option('shared_content', formatMessage(messages.sharedContent))]
 								: [],
 					},

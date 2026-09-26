@@ -121,12 +121,7 @@ pub enum AppEvent {
     InstallJob(std::sync::Arc<InstallJobSnapshot>),
     Command(CommandPayload),
     Warning(WarningPayload),
-    Friend(FriendPayload),
-    Notification(
-        #[cfg_attr(feature = "export-ts", ts(type = "unknown"))] String,
-    ),
     Log(LogPayload),
-    AdsConsentRequired(bool),
 }
 
 #[cfg(feature = "export-ts")]
@@ -166,8 +161,6 @@ pub fn export_app_event_bindings(
             InstancePayloadType,
             InstanceGroupsChangedPayload,
             crate::state::OnboardingChecklist,
-            FriendPayload,
-            FriendStatusPayload,
             LogEvent,
             LogPayload,
             crate::state::Log4jEvent,
@@ -185,8 +178,7 @@ pub fn export_app_event_bindings(
             crate::install::model::InstallApiErrorDetails,
             crate::install::InstallErrorContext,
             crate::api::pack::import::ImportLauncherType,
-            crate::state::ModLoader,
-            crate::SharedInstanceUnavailableReason
+            crate::state::ModLoader
         ),
     )?;
     fix_postcard_javascript_utf8(&output.join("postcard/index.js"))?;
@@ -488,43 +480,6 @@ pub enum InstancePayloadType {
         message: String,
     },
     Removed,
-}
-
-#[derive(Clone)]
-#[cfg_attr(
-    feature = "export-ts",
-    derive(ts_rs::TS, postcard_bindgen::PostcardBindings)
-)]
-#[serde_binhum::serde_binhum]
-#[serde(rename_all = "snake_case")]
-#[serde(tag = "event")]
-#[cfg_attr(feature = "export-ts", ts(tag = "event", rename_all = "snake_case"))]
-pub enum FriendPayload {
-    FriendRequest { from: String },
-    UserOffline { id: String },
-    StatusUpdate { user_status: FriendStatusPayload },
-    StatusSync,
-}
-
-#[derive(Serialize, Deserialize, Clone)]
-#[cfg_attr(
-    feature = "export-ts",
-    derive(ts_rs::TS, postcard_bindgen::PostcardBindings)
-)]
-pub struct FriendStatusPayload {
-    pub user_id: String,
-    pub profile_name: Option<String>,
-    pub last_update: String,
-}
-
-impl From<ariadne::users::UserStatus> for FriendStatusPayload {
-    fn from(status: ariadne::users::UserStatus) -> Self {
-        Self {
-            user_id: status.user_id.to_string(),
-            profile_name: status.profile_name,
-            last_update: status.last_update.to_rfc3339(),
-        }
-    }
 }
 
 pub use self::log_types::*;

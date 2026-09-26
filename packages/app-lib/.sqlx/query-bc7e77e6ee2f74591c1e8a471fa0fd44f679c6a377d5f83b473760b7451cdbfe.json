@@ -1,6 +1,6 @@
 {
   "db_name": "SQLite",
-  "query": "\n            SELECT\n                max_concurrent_writes, max_concurrent_downloads,\n                theme, locale, default_page, collapsed_navigation, hide_nametag_skins_page, advanced_rendering, native_decorations,\n                discord_rpc, developer_mode, telemetry, personalized_ads,\n                json(extra_launch_args) extra_launch_args, json(custom_env_vars) custom_env_vars,\n                mc_memory_max, mc_force_fullscreen, mc_game_resolution_x, mc_game_resolution_y, hide_on_process_start,\n                hook_pre_launch, hook_wrapper, hook_post_exit,\n                custom_dir, prev_custom_dir, migrated, json(feature_flags) feature_flags, toggle_sidebar,\n                skipped_update, pending_update_toast_for_version, auto_download_updates,\n\t\t\t\tsync_theme_across_devices, sync_behavior_across_devices, sync_features_across_devices,\n\t\t\t\tshow_files_tab_in_instances, show_worlds_tab_in_instances,\n\t\t\t\tshow_screenshots_tab_in_instances, show_skin_selector_in_sidebar,\n                version\n            FROM settings\n            ",
+  "query": "\n            SELECT\n                max_concurrent_writes, max_concurrent_downloads,\n                theme, locale, default_page, collapsed_navigation, hide_nametag_skins_page, advanced_rendering, native_decorations,\n                discord_rpc, developer_mode,\n                json(extra_launch_args) extra_launch_args, json(custom_env_vars) custom_env_vars,\n                mc_memory_max, mc_force_fullscreen, mc_game_resolution_x, mc_game_resolution_y, hide_on_process_start,\n                hook_pre_launch, hook_wrapper, hook_post_exit,\n                custom_dir, prev_custom_dir, migrated, json(feature_flags) feature_flags, toggle_sidebar,\n                skipped_update, pending_update_toast_for_version, auto_download_updates,\n\t\t\t\tshow_files_tab_in_instances, show_worlds_tab_in_instances,\n\t\t\t\tshow_screenshots_tab_in_instances, show_skin_selector_in_sidebar,\n                version\n            FROM settings\n            ",
   "describe": {
     "columns": [
       {
@@ -59,143 +59,118 @@
         "type_info": "Integer"
       },
       {
-        "name": "telemetry",
-        "ordinal": 11,
-        "type_info": "Integer"
-      },
-      {
-        "name": "personalized_ads",
-        "ordinal": 12,
-        "type_info": "Integer"
-      },
-      {
         "name": "extra_launch_args",
-        "ordinal": 13,
+        "ordinal": 11,
         "type_info": "Text"
       },
       {
         "name": "custom_env_vars",
-        "ordinal": 14,
+        "ordinal": 12,
         "type_info": "Text"
       },
       {
         "name": "mc_memory_max",
-        "ordinal": 15,
+        "ordinal": 13,
         "type_info": "Integer"
       },
       {
         "name": "mc_force_fullscreen",
-        "ordinal": 16,
+        "ordinal": 14,
         "type_info": "Integer"
       },
       {
         "name": "mc_game_resolution_x",
-        "ordinal": 17,
+        "ordinal": 15,
         "type_info": "Integer"
       },
       {
         "name": "mc_game_resolution_y",
-        "ordinal": 18,
+        "ordinal": 16,
         "type_info": "Integer"
       },
       {
         "name": "hide_on_process_start",
-        "ordinal": 19,
+        "ordinal": 17,
         "type_info": "Integer"
       },
       {
         "name": "hook_pre_launch",
-        "ordinal": 20,
+        "ordinal": 18,
         "type_info": "Text"
       },
       {
         "name": "hook_wrapper",
-        "ordinal": 21,
+        "ordinal": 19,
         "type_info": "Text"
       },
       {
         "name": "hook_post_exit",
-        "ordinal": 22,
+        "ordinal": 20,
         "type_info": "Text"
       },
       {
         "name": "custom_dir",
-        "ordinal": 23,
+        "ordinal": 21,
         "type_info": "Text"
       },
       {
         "name": "prev_custom_dir",
-        "ordinal": 24,
+        "ordinal": 22,
         "type_info": "Text"
       },
       {
         "name": "migrated",
-        "ordinal": 25,
+        "ordinal": 23,
         "type_info": "Integer"
       },
       {
         "name": "feature_flags",
-        "ordinal": 26,
+        "ordinal": 24,
         "type_info": "Text"
       },
       {
         "name": "toggle_sidebar",
-        "ordinal": 27,
+        "ordinal": 25,
         "type_info": "Integer"
       },
       {
         "name": "skipped_update",
-        "ordinal": 28,
+        "ordinal": 26,
         "type_info": "Text"
       },
       {
         "name": "pending_update_toast_for_version",
-        "ordinal": 29,
+        "ordinal": 27,
         "type_info": "Text"
       },
       {
         "name": "auto_download_updates",
-        "ordinal": 30,
-        "type_info": "Integer"
-      },
-      {
-        "name": "sync_theme_across_devices",
-        "ordinal": 31,
-        "type_info": "Integer"
-      },
-      {
-        "name": "sync_behavior_across_devices",
-        "ordinal": 32,
-        "type_info": "Integer"
-      },
-      {
-        "name": "sync_features_across_devices",
-        "ordinal": 33,
+        "ordinal": 28,
         "type_info": "Integer"
       },
       {
         "name": "show_files_tab_in_instances",
-        "ordinal": 34,
+        "ordinal": 29,
         "type_info": "Integer"
       },
       {
         "name": "show_worlds_tab_in_instances",
-        "ordinal": 35,
+        "ordinal": 30,
         "type_info": "Integer"
       },
       {
         "name": "show_screenshots_tab_in_instances",
-        "ordinal": 36,
+        "ordinal": 31,
         "type_info": "Integer"
       },
       {
         "name": "show_skin_selector_in_sidebar",
-        "ordinal": 37,
+        "ordinal": 32,
         "type_info": "Integer"
       },
       {
         "name": "version",
-        "ordinal": 38,
+        "ordinal": 33,
         "type_info": "Integer"
       }
     ],
@@ -214,8 +189,6 @@
       false,
       false,
       false,
-      false,
-      false,
       null,
       null,
       false,
@@ -234,9 +207,6 @@
       true,
       true,
       true,
-      false,
-      false,
-      false,
       false,
       false,
       false,
@@ -244,5 +214,5 @@
       false
     ]
   },
-  "hash": "a37f3c9cc8c1d8aa620f83569633db30d98573c1ac04705da186d0cf88b20ca7"
+  "hash": "bc7e77e6ee2f74591c1e8a471fa0fd44f679c6a377d5f83b473760b7451cdbfe"
 }

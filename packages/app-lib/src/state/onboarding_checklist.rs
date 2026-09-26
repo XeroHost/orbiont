@@ -9,14 +9,12 @@ use sqlx::{Executor, Sqlite};
 pub struct OnboardingChecklist {
     pub has_created_instance: bool,
     pub has_logged_into_minecraft: bool,
-    pub has_logged_into_modrinth: bool,
     pub show_checklist: bool,
 }
 
 pub(crate) enum OnboardingChecklistItem {
     CreatedInstance,
     LoggedIntoMinecraft,
-    LoggedIntoModrinth,
 }
 
 pub(crate) async fn get_onboarding_checklist(
@@ -27,7 +25,6 @@ pub(crate) async fn get_onboarding_checklist(
         SELECT
             has_created_instance,
             has_logged_into_minecraft,
-            has_logged_into_modrinth,
             show_checklist
         FROM onboarding_checklist
         WHERE id = 0
@@ -39,7 +36,6 @@ pub(crate) async fn get_onboarding_checklist(
     Ok(OnboardingChecklist {
         has_created_instance: row.has_created_instance == 1,
         has_logged_into_minecraft: row.has_logged_into_minecraft == 1,
-        has_logged_into_modrinth: row.has_logged_into_modrinth == 1,
         show_checklist: row.show_checklist == 1,
     })
 }
@@ -71,17 +67,6 @@ pub(crate) async fn mark_onboarding_checklist_item(
             .execute(pool)
             .await?
         }
-        OnboardingChecklistItem::LoggedIntoModrinth => {
-            sqlx::query!(
-                "
-                UPDATE onboarding_checklist
-                SET has_logged_into_modrinth = TRUE
-                WHERE id = 0 AND has_logged_into_modrinth = FALSE
-                ",
-            )
-            .execute(pool)
-            .await?
-        }
     };
 
     if result.rows_affected() == 0 {
@@ -96,7 +81,6 @@ pub(crate) async fn mark_onboarding_checklist_item(
             AND show_checklist = TRUE
             AND has_created_instance = TRUE
             AND has_logged_into_minecraft = TRUE
-            AND has_logged_into_modrinth = TRUE
         "
     )
     .execute(pool)

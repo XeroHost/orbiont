@@ -202,7 +202,6 @@ pub(super) fn is_modpack_link(link: &InstanceLink) -> bool {
         link,
         InstanceLink::ModrinthModpack { .. }
             | InstanceLink::ImportedModpack { .. }
-            | InstanceLink::SharedInstance { .. }
     )
 }
 
@@ -214,10 +213,6 @@ fn modpack_version_id(link: &InstanceLink) -> Option<&str> {
         } => Some(content_version_id),
         InstanceLink::ImportedModpack {
             version_id: Some(version_id),
-            ..
-        } => Some(version_id),
-        InstanceLink::SharedInstance {
-            modpack_version_id: Some(version_id),
             ..
         } => Some(version_id),
         _ => None,

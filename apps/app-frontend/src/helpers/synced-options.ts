@@ -55,7 +55,5 @@ export function commandHistoryQueryOptions() {
 }
 
 export function canSourceMultiplayerServers(instance: GameInstance): boolean {
-	return !['server_project', 'server_project_modpack', 'modrinth_hosting'].includes(
-		instance.link?.type ?? '',
-	)
+	return !['server_project', 'server_project_modpack'].includes(instance.link?.type ?? '')
 }

@@ -1,9 +1,8 @@
 #![allow(dead_code)]
 
 use crate::state::instances::{
-    ContentEntry, ContentRequirement, ContentSet, ContentSetRemoteRef,
-    ContentSetRemoteRefType, ContentSetStatus, ContentSetSyncProvider,
-    ContentSetSyncState, ContentSetSyncStatus, ContentSourceKind,
+    ContentEntry, ContentRequirement, ContentSet, ContentSetStatus,
+    ContentSourceKind,
     ContentUpdateCheck, InstanceFile,
 };
 use crate::state::{ModLoader, ProjectType, ReleaseChannel};
@@ -43,50 +42,6 @@ impl TryFrom<ContentSetRow> for ContentSet {
             loader_version: row.loader_version,
             created: timestamp(row.created),
             modified: timestamp(row.modified),
-        })
-    }
-}
-
-#[derive(Debug, sqlx::FromRow)]
-pub(crate) struct ContentSetRemoteRefRow {
-    pub content_set_id: String,
-    pub ref_type: String,
-    pub ref_id: String,
-}
-
-impl TryFrom<ContentSetRemoteRefRow> for ContentSetRemoteRef {
-    type Error = crate::Error;
-
-    fn try_from(row: ContentSetRemoteRefRow) -> crate::Result<Self> {
-        Ok(Self {
-            content_set_id: row.content_set_id,
-            ref_type: ContentSetRemoteRefType::from_str(&row.ref_type)?,
-            ref_id: row.ref_id,
-        })
-    }
-}
-
-#[derive(Debug, sqlx::FromRow)]
-pub(crate) struct ContentSetSyncStateRow {
-    pub content_set_id: String,
-    pub provider: String,
-    pub applied_update_id: Option<String>,
-    pub latest_available_update_id: Option<String>,
-    pub checked_at: Option<i64>,
-    pub status: String,
-}
-
-impl TryFrom<ContentSetSyncStateRow> for ContentSetSyncState {
-    type Error = crate::Error;
-
-    fn try_from(row: ContentSetSyncStateRow) -> crate::Result<Self> {
-        Ok(Self {
-            content_set_id: row.content_set_id,
-            provider: ContentSetSyncProvider::from_str(&row.provider)?,
-            applied_update_id: row.applied_update_id,
-            latest_available_update_id: row.latest_available_update_id,
-            checked_at: row.checked_at.and_then(optional_timestamp),
-            status: ContentSetSyncStatus::from_str(&row.status)?,
         })
     }
 }
@@ -345,161 +300,6 @@ pub(crate) async fn update_content_set(
         loader_version,
         modified,
         id,
-    )
-    .execute(&mut **tx)
-    .await?;
-
-    Ok(())
-}
-
-pub(crate) async fn get_content_set_remote_refs<'e, E>(
-    content_set_id: &str,
-    exec: E,
-) -> crate::Result<Vec<ContentSetRemoteRef>>
-where
-    E: Executor<'e, Database = Sqlite>,
-{
-    let rows = sqlx::query_as!(
-        ContentSetRemoteRefRow,
-        "
-		SELECT *
-		FROM instance_content_set_remote_refs
-		WHERE content_set_id = ?
-		ORDER BY ref_type ASC
-		",
-        content_set_id,
-    )
-    .fetch_all(exec)
-    .await?;
-
-    rows.into_iter().map(TryInto::try_into).collect()
-}
-
-pub(crate) async fn upsert_content_set_remote_ref(
-    remote_ref: &ContentSetRemoteRef,
-    tx: &mut Transaction<'_, Sqlite>,
-) -> crate::Result<()> {
-    let content_set_id = remote_ref.content_set_id.as_str();
-    let ref_type = remote_ref.ref_type.as_str();
-    let ref_id = remote_ref.ref_id.as_str();
-
-    sqlx::query!(
-        "
-		INSERT INTO instance_content_set_remote_refs (
-			content_set_id,
-			ref_type,
-			ref_id
-		)
-		VALUES (?, ?, ?)
-		ON CONFLICT (content_set_id, ref_type) DO UPDATE SET
-			ref_id = excluded.ref_id
-		",
-        content_set_id,
-        ref_type,
-        ref_id,
-    )
-    .execute(&mut **tx)
-    .await?;
-
-    Ok(())
-}
-
-pub(crate) async fn delete_content_set_remote_ref(
-    content_set_id: &str,
-    ref_type: ContentSetRemoteRefType,
-    tx: &mut Transaction<'_, Sqlite>,
-) -> crate::Result<()> {
-    let ref_type = ref_type.as_str();
-
-    sqlx::query!(
-        "
-		DELETE FROM instance_content_set_remote_refs
-		WHERE content_set_id = ? AND ref_type = ?
-		",
-        content_set_id,
-        ref_type,
-    )
-    .execute(&mut **tx)
-    .await?;
-
-    Ok(())
-}
-
-pub(crate) async fn get_content_set_sync_state<'e, E>(
-    content_set_id: &str,
-    exec: E,
-) -> crate::Result<Option<ContentSetSyncState>>
-where
-    E: Executor<'e, Database = Sqlite>,
-{
-    let row = sqlx::query_as!(
-        ContentSetSyncStateRow,
-        "
-		SELECT *
-		FROM instance_content_set_sync_state
-		WHERE content_set_id = ?
-		",
-        content_set_id,
-    )
-    .fetch_optional(exec)
-    .await?;
-
-    row.map(TryInto::try_into).transpose()
-}
-
-pub(crate) async fn upsert_content_set_sync_state(
-    sync_state: &ContentSetSyncState,
-    tx: &mut Transaction<'_, Sqlite>,
-) -> crate::Result<()> {
-    let content_set_id = sync_state.content_set_id.as_str();
-    let provider = sync_state.provider.as_str();
-    let applied_update_id = sync_state.applied_update_id.as_deref();
-    let latest_available_update_id =
-        sync_state.latest_available_update_id.as_deref();
-    let checked_at = sync_state.checked_at.map(|value| value.timestamp());
-    let status = sync_state.status.as_str();
-
-    sqlx::query!(
-        "
-		INSERT INTO instance_content_set_sync_state (
-			content_set_id,
-			provider,
-			applied_update_id,
-			latest_available_update_id,
-			checked_at,
-			status
-		)
-		VALUES (?, ?, ?, ?, ?, ?)
-		ON CONFLICT (content_set_id) DO UPDATE SET
-			provider = excluded.provider,
-			applied_update_id = excluded.applied_update_id,
-			latest_available_update_id = excluded.latest_available_update_id,
-			checked_at = excluded.checked_at,
-			status = excluded.status
-		",
-        content_set_id,
-        provider,
-        applied_update_id,
-        latest_available_update_id,
-        checked_at,
-        status,
-    )
-    .execute(&mut **tx)
-    .await?;
-
-    Ok(())
-}
-
-pub(crate) async fn delete_content_set_sync_state(
-    content_set_id: &str,
-    tx: &mut Transaction<'_, Sqlite>,
-) -> crate::Result<()> {
-    sqlx::query!(
-        "
-		DELETE FROM instance_content_set_sync_state
-		WHERE content_set_id = ?
-		",
-        content_set_id,
     )
     .execute(&mut **tx)
     .await?;

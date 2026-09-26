@@ -27,7 +27,6 @@ export type GameInstance = {
 	}
 
 	link?: InstanceLink | null
-	shared_instance?: SharedInstanceAttachment | null
 	quarantined: boolean
 	update_channel: ReleaseChannel
 
@@ -111,37 +110,7 @@ export type InstanceLink = InstanceLinkIdentity &
 				version_number?: string | null
 				filename?: string | null
 		  }
-		| {
-				type: 'modrinth_hosting'
-				server_id: string
-				instance_ids: string[]
-				active_instance_id?: string | null
-		  }
-		| {
-				type: 'shared_instance'
-				modpack_project_id?: ModrinthId | null
-				modpack_version_id?: ModrinthId | null
-		  }
 	)
-
-export type SharedInstanceAttachment = {
-	id: string
-	role: 'owner' | 'member'
-	manager_id?: string | null
-	server_manager_name?: string | null
-	server_manager_icon_url?: string | null
-	linked_user_id?: string | null
-	status:
-		| 'unknown'
-		| 'up_to_date'
-		| 'update_available'
-		| 'applying'
-		| 'stale'
-		| 'not_ready'
-		| 'error'
-	applied_version?: number | null
-	latest_version?: number | null
-}
 
 export type Instance = GameInstance
 
@@ -149,13 +118,7 @@ type ReleaseChannel = 'release' | 'beta' | 'alpha'
 
 export type InstanceLoader = 'vanilla' | 'forge' | 'fabric' | 'quilt' | 'neoforge'
 
-export type ContentSourceKind =
-	| 'local'
-	| 'modrinth_modpack'
-	| 'server_project'
-	| 'modrinth_hosting'
-	| 'imported_modpack'
-	| 'shared_instance'
+export type ContentSourceKind = 'local' | 'modrinth_modpack' | 'server_project' | 'imported_modpack'
 
 type ContentFile = {
 	enabled: boolean
@@ -224,18 +187,13 @@ type AppSettings = {
 	advanced_rendering: boolean
 	native_decorations: boolean
 	worlds_in_home: boolean
-	sync_theme_across_devices: boolean
-	sync_behavior_across_devices: boolean
-	sync_features_across_devices: boolean
 	show_files_tab_in_instances: boolean
 	show_worlds_tab_in_instances: boolean
 	show_screenshots_tab_in_instances: boolean
 	show_skin_selector_in_sidebar: boolean
 
-	telemetry: boolean
 	discord_rpc: boolean
 	developer_mode: boolean
-	personalized_ads: boolean
 
 	extra_launch_args: string[]
 	custom_env_vars: [string, string][]

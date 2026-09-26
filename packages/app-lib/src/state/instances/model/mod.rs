@@ -6,12 +6,6 @@ pub use self::content_entry::*;
 mod content_set;
 pub use self::content_set::*;
 
-mod content_set_remote_ref;
-pub use self::content_set_remote_ref::*;
-
-mod content_set_sync_state;
-pub use self::content_set_sync_state::*;
-
 mod file;
 pub use self::file::*;
 

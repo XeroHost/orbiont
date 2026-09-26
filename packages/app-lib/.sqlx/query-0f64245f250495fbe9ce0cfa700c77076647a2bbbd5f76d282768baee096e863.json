@@ -1,6 +1,6 @@
 {
   "db_name": "SQLite",
-  "query": "\n        SELECT\n            has_created_instance,\n            has_logged_into_minecraft,\n            has_logged_into_modrinth,\n            show_checklist\n        FROM onboarding_checklist\n        WHERE id = 0\n        ",
+  "query": "\n        SELECT\n            has_created_instance,\n            has_logged_into_minecraft,\n            show_checklist\n        FROM onboarding_checklist\n        WHERE id = 0\n        ",
   "describe": {
     "columns": [
       {
@@ -14,13 +14,8 @@
         "type_info": "Integer"
       },
       {
-        "name": "has_logged_into_modrinth",
-        "ordinal": 2,
-        "type_info": "Integer"
-      },
-      {
         "name": "show_checklist",
-        "ordinal": 3,
+        "ordinal": 2,
         "type_info": "Integer"
       }
     ],
@@ -30,9 +25,8 @@
     "nullable": [
       false,
       false,
-      false,
       false
     ]
   },
-  "hash": "baa15329484896237f57ee6b585c4c7b4a5c56ddb12b7fbe2d8d63936853312e"
+  "hash": "0f64245f250495fbe9ce0cfa700c77076647a2bbbd5f76d282768baee096e863"
 }

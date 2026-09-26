@@ -9,22 +9,19 @@ use crate::event::InstancePayloadType;
 use crate::event::emit::emit_instance;
 use crate::state::instances::adapters::sqlite::{content_rows, instance_rows};
 use crate::state::{
-    ContentEntry, ContentSetRemoteRef, ContentSetRemoteRefType,
-    ContentSetSyncProvider, ContentSetSyncState, InstanceFile,
-    InstanceMetadata, State,
+    ContentEntry, InstanceFile, InstanceMetadata, State,
 };
 use async_walkdir::WalkDir;
-use chrono::Utc;
 use futures::StreamExt;
 use serde::{Deserialize, Serialize};
 use std::path::{Path, PathBuf};
 use uuid::Uuid;
 
-const SHARED_INSTANCE_ROLLBACK_FILE: &str = "rollback.json";
-const SHARED_INSTANCE_ROLLBACK_INSTANCE_DIR: &str = "instance";
+const UPDATE_ROLLBACK_FILE: &str = "rollback.json";
+const UPDATE_ROLLBACK_INSTANCE_DIR: &str = "instance";
 
 #[derive(Deserialize, Serialize)]
-struct SharedInstanceUpdateRollback {
+struct InstanceUpdateRollback {
     files: Vec<InstanceFile>,
     entries: Vec<ContentEntry>,
     #[serde(default)]
@@ -102,7 +99,7 @@ pub(super) async fn prepare_instance_update_backup(
             .iter()
             .map(|binding| binding.blob_sha512.clone())
             .collect::<Vec<_>>();
-        let snapshot = SharedInstanceUpdateRollback {
+        let snapshot = InstanceUpdateRollback {
             files,
             entries,
             bindings,
@@ -113,13 +110,13 @@ pub(super) async fn prepare_instance_update_backup(
             .join(&metadata.instance.path);
         copy_directory(
             &instance_path,
-            &staging_dir.join(SHARED_INSTANCE_ROLLBACK_INSTANCE_DIR),
+            &staging_dir.join(UPDATE_ROLLBACK_INSTANCE_DIR),
             &skipped,
             state,
         )
         .await?;
         crate::util::io::write(
-            staging_dir.join(SHARED_INSTANCE_ROLLBACK_FILE),
+            staging_dir.join(UPDATE_ROLLBACK_FILE),
             serde_json::to_vec(&snapshot)?,
         )
         .await?;
@@ -164,12 +161,12 @@ async fn recover_unrecorded_instance_update_backup(
         return Ok(());
     }
     let snapshot = match crate::util::io::read(
-        staging_dir.join(SHARED_INSTANCE_ROLLBACK_FILE),
+        staging_dir.join(UPDATE_ROLLBACK_FILE),
     )
     .await
     {
         Ok(bytes) => {
-            serde_json::from_slice::<SharedInstanceUpdateRollback>(&bytes).ok()
+            serde_json::from_slice::<InstanceUpdateRollback>(&bytes).ok()
         }
         Err(error) if error.kind() == std::io::ErrorKind::NotFound => None,
         Err(error) => return Err(error.into()),
@@ -225,15 +222,15 @@ async fn restore_instance_update(
         ));
     }
     state.content_store.recover(Some(instance_id)).await?;
-    let snapshot = serde_json::from_slice::<SharedInstanceUpdateRollback>(
-        &crate::util::io::read(staging_dir.join(SHARED_INSTANCE_ROLLBACK_FILE))
+    let snapshot = serde_json::from_slice::<InstanceUpdateRollback>(
+        &crate::util::io::read(staging_dir.join(UPDATE_ROLLBACK_FILE))
             .await?,
     )?;
     let instance_path = state
         .directories
         .instances_dir()
         .join(&rollback.instance.instance.path);
-    let backup_path = staging_dir.join(SHARED_INSTANCE_ROLLBACK_INSTANCE_DIR);
+    let backup_path = staging_dir.join(UPDATE_ROLLBACK_INSTANCE_DIR);
     if !tokio::fs::symlink_metadata(&backup_path).await?.is_dir() {
         return Err(crate::state::content_store::input(
             "The instance backup is missing or is not a directory",
@@ -285,7 +282,6 @@ async fn restore_instance_metadata(
     metadata: &InstanceMetadata,
     state: &State,
 ) -> crate::Result<()> {
-    let content_set_id = metadata.applied_content_set.id.as_str();
     let mut tx = state.pool.begin().await?;
     instance_rows::update_instance(&metadata.instance, &mut tx).await?;
     content_rows::update_content_set(&metadata.applied_content_set, &mut tx)
@@ -293,12 +289,6 @@ async fn restore_instance_metadata(
     instance_rows::upsert_instance_link(
         &metadata.instance.id,
         &metadata.link,
-        &mut tx,
-    )
-    .await?;
-    instance_rows::set_shared_instance_attachment(
-        &metadata.instance.id,
-        metadata.shared_instance.as_ref(),
         &mut tx,
     )
     .await?;
@@ -313,41 +303,6 @@ async fn restore_instance_metadata(
         &mut tx,
     )
     .await?;
-    content_rows::delete_content_set_remote_ref(
-        content_set_id,
-        ContentSetRemoteRefType::SharedContentSet,
-        &mut tx,
-    )
-    .await?;
-    content_rows::delete_content_set_sync_state(content_set_id, &mut tx)
-        .await?;
-    if let Some(attachment) = &metadata.shared_instance {
-        content_rows::upsert_content_set_remote_ref(
-            &ContentSetRemoteRef {
-                content_set_id: content_set_id.to_string(),
-                ref_type: ContentSetRemoteRefType::SharedContentSet,
-                ref_id: attachment.id.clone(),
-            },
-            &mut tx,
-        )
-        .await?;
-        content_rows::upsert_content_set_sync_state(
-            &ContentSetSyncState {
-                content_set_id: content_set_id.to_string(),
-                provider: ContentSetSyncProvider::SharedInstance,
-                applied_update_id: attachment
-                    .applied_version
-                    .map(|value| value.to_string()),
-                latest_available_update_id: attachment
-                    .latest_version
-                    .map(|value| value.to_string()),
-                checked_at: Some(Utc::now()),
-                status: attachment.status,
-            },
-            &mut tx,
-        )
-        .await?;
-    }
     tx.commit().await?;
 
     Ok(())

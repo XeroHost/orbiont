@@ -10,19 +10,13 @@ pub enum ContentSourceKind {
     Local,
     ModrinthModpack,
     ServerProject,
-    ModrinthHosting,
     ImportedModpack,
-    SharedInstance,
 }
 
 impl ContentSourceKind {
-    pub fn is_shared_instance_managed(self) -> bool {
-        matches!(
-            self,
-            Self::SharedInstance
-                | Self::ModrinthModpack
-                | Self::ImportedModpack
-        )
+    /// Content that came from the instance's modpack.
+    pub fn is_modpack_managed(self) -> bool {
+        matches!(self, Self::ModrinthModpack | Self::ImportedModpack)
     }
 
     pub fn as_str(self) -> &'static str {
@@ -30,9 +24,7 @@ impl ContentSourceKind {
             Self::Local => "local",
             Self::ModrinthModpack => "modrinth_modpack",
             Self::ServerProject => "server_project",
-            Self::ModrinthHosting => "modrinth_hosting",
             Self::ImportedModpack => "imported_modpack",
-            Self::SharedInstance => "shared_instance",
         }
     }
 
@@ -41,9 +33,7 @@ impl ContentSourceKind {
             "local" => Ok(Self::Local),
             "modrinth_modpack" => Ok(Self::ModrinthModpack),
             "server_project" => Ok(Self::ServerProject),
-            "modrinth_hosting" => Ok(Self::ModrinthHosting),
             "imported_modpack" => Ok(Self::ImportedModpack),
-            "shared_instance" => Ok(Self::SharedInstance),
             other => Err(unknown_value("content source kind", other)),
         }
     }

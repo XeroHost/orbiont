@@ -1,0 +1,12 @@
+{
+  "db_name": "SQLite",
+  "query": "\n            UPDATE settings\n            SET\n                max_concurrent_writes = $1,\n                max_concurrent_downloads = $2,\n\n                theme = $3,\n                locale = $4,\n                default_page = $5,\n                collapsed_navigation = $6,\n                advanced_rendering = $7,\n                native_decorations = $8,\n\n                discord_rpc = $9,\n                developer_mode = $10,\n\n                extra_launch_args = jsonb($11),\n                custom_env_vars = jsonb($12),\n                mc_memory_max = $13,\n                mc_force_fullscreen = $14,\n                mc_game_resolution_x = $15,\n                mc_game_resolution_y = $16,\n                hide_on_process_start = $17,\n\n                hook_pre_launch = $18,\n                hook_wrapper = $19,\n                hook_post_exit = $20,\n\n                custom_dir = $21,\n                prev_custom_dir = $22,\n                migrated = $23,\n\n                toggle_sidebar = $24,\n                feature_flags = $25,\n                hide_nametag_skins_page = $26,\n\n                skipped_update = $27,\n                pending_update_toast_for_version = $28,\n                auto_download_updates = $29,\n\t\t\t\tshow_files_tab_in_instances = $30,\n\t\t\t\tshow_worlds_tab_in_instances = $31,\n\t\t\t\tshow_screenshots_tab_in_instances = $32,\n\t\t\t\tshow_skin_selector_in_sidebar = $33,\n\n\t\t\t\tversion = $34\n            ",
+  "describe": {
+    "columns": [],
+    "parameters": {
+      "Right": 34
+    },
+    "nullable": []
+  },
+  "hash": "fe475322b621033428996cf24cc0b54b1f1ba7fd258e4d3fce05e15804001a45"
+}

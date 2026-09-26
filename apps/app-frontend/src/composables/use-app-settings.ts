@@ -18,10 +18,6 @@ export const DEFAULT_FEATURE_FLAGS = {
 	advanced_filters_collapsed: true,
 	always_show_copy_details: false,
 	hide_installed_modpacks: false,
-	friends_active_collapsed: false,
-	friends_online_collapsed: false,
-	friends_offline_collapsed: true,
-	friends_pending_collapsed: true,
 	dismissed_photosensitivity_filter_warning: false,
 	localhost_sign_in: false,
 }

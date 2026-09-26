@@ -83,8 +83,6 @@ pub struct State {
     instance_content_locks: DashMap<String, Arc<Mutex<()>>>,
     /// Serializes screenshot filesystem reconciliation per instance.
     instance_screenshot_locks: DashMap<String, Arc<Mutex<()>>>,
-    /// Serializes shared instance attachment and recipient mutations per instance.
-    shared_instance_locks: DashMap<String, Arc<Mutex<()>>>,
     /// Serializes canonical synced-option mutations and checkpoint updates.
     synced_options_lock: Mutex<()>,
     pub(crate) game_locale_indexer: crate::api::instance::GameLocaleIndexer,
@@ -143,7 +141,6 @@ impl State {
     pub(crate) fn remove_instance_locks(&self, instance_id: &str) {
         let _ = self.instance_content_locks.remove(instance_id);
         let _ = self.instance_screenshot_locks.remove(instance_id);
-        let _ = self.shared_instance_locks.remove(instance_id);
     }
 
     pub async fn init(app_identifier: String) -> crate::Result<()> {
@@ -348,7 +345,6 @@ impl State {
             install_db_semaphore: Semaphore::new(1),
             instance_content_locks: DashMap::new(),
             instance_screenshot_locks: DashMap::new(),
-            shared_instance_locks: DashMap::new(),
             synced_options_lock: Mutex::new(()),
             game_locale_indexer:
                 crate::api::instance::GameLocaleIndexer::default(),

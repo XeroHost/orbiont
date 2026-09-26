@@ -601,9 +601,7 @@ pub async fn set_instance_information(
     let link = match existing_link {
         Some(
             link @ (InstanceLink::ServerProject { .. }
-            | InstanceLink::ServerProjectModpack { .. }
-            | InstanceLink::ModrinthHosting { .. }
-            | InstanceLink::SharedInstance { .. }),
+            | InstanceLink::ServerProjectModpack { .. }),
         ) => Some(link),
         _ => pack_link,
     };
@@ -615,14 +613,8 @@ pub async fn set_instance_information(
             InstanceLink::ServerProject { .. }
             | InstanceLink::ServerProjectModpack { .. },
         ) => Some(ContentSourceKind::ServerProject),
-        Some(InstanceLink::ModrinthHosting { .. }) => {
-            Some(ContentSourceKind::ModrinthHosting)
-        }
         Some(InstanceLink::ImportedModpack { .. }) => {
             Some(ContentSourceKind::ImportedModpack)
-        }
-        Some(InstanceLink::SharedInstance { .. }) => {
-            Some(ContentSourceKind::SharedInstance)
         }
         _ => None,
     };

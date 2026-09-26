@@ -1454,7 +1454,6 @@ fn is_linked_server_project(link: &InstanceLink) -> bool {
         link,
         InstanceLink::ServerProject { .. }
             | InstanceLink::ServerProjectModpack { .. }
-            | InstanceLink::ModrinthHosting { .. }
     )
 }
 

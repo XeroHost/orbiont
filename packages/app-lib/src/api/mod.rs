@@ -12,7 +12,6 @@ pub mod onboarding_checklist;
 pub mod orbiont;
 pub mod pack;
 pub mod process;
-pub mod reports;
 pub mod server_address;
 pub mod settings;
 pub mod tags;
@@ -31,10 +30,9 @@ pub mod data {
         JavaVersion, LinkedModpackInfo, MemorySettings, ModLoader,
         OnboardingChecklist, Organization, OwnerType, ProcessMetadata, Project,
         ProjectType, ProjectV3, SearchResult, SearchResults, SearchResultsV3,
-        Settings, SharedInstanceAttachment, SharedInstanceRole, TeamMember,
+        Settings, TeamMember,
         Theme, User, Version, WindowSize,
     };
-    pub use ariadne::users::UserStatus;
     pub use modrinth_content_management::{
         ContentType, ResolutionPreferences, ResolveContentPlan,
         ResolveContentRequest,

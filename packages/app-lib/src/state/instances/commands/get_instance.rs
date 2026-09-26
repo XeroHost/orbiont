@@ -1,6 +1,6 @@
 use crate::state::instances::{
     ContentSet, Instance, InstanceIconConfig, InstanceLaunchOverrides,
-    InstanceLink, InstanceSyncedOptions, SharedInstanceAttachment,
+    InstanceLink, InstanceSyncedOptions,
     adapters::sqlite::instance_rows,
 };
 use serde::{Deserialize, Serialize};
@@ -13,7 +13,6 @@ pub struct InstanceMetadata {
     pub icon_config: Option<InstanceIconConfig>,
     pub applied_content_set: ContentSet,
     pub link: InstanceLink,
-    pub shared_instance: Option<SharedInstanceAttachment>,
     #[serde(default)]
     pub quarantined: bool,
     pub group_ids: Vec<String>,
@@ -86,7 +85,6 @@ fn instance_metadata(
         icon_config: record.icon_config,
         applied_content_set: record.applied_content_set,
         link: record.link,
-        shared_instance: record.shared_instance,
         quarantined,
         group_ids: record.group_ids,
         synced_options: record.synced_options,

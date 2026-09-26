@@ -806,9 +806,7 @@ fn link_project_and_version(
             version_id,
             ..
         } => (project_id.as_ref(), version_id.as_ref()),
-        InstanceLink::Unmanaged
-        | InstanceLink::ModrinthHosting { .. }
-        | InstanceLink::SharedInstance { .. } => (None, None),
+        InstanceLink::Unmanaged => (None, None),
     }
 }
 

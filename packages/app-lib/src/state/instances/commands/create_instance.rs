@@ -58,7 +58,6 @@ pub(crate) async fn create_instance(
 
         let icon_path = resolve_icon_path(
             input.icon_path.as_deref(),
-            matches!(&input.link, InstanceLink::SharedInstance { .. }),
             state,
         )
         .await?;
@@ -198,7 +197,6 @@ async fn path_available(
 
 pub(crate) async fn resolve_icon_path(
     icon_path: Option<&str>,
-    ignore_missing_remote_icon: bool,
     state: &State,
 ) -> crate::Result<Option<String>> {
     let Some(icon) = icon_path else {
@@ -217,10 +215,6 @@ pub(crate) async fn resolve_icon_path(
         .await
         {
             Ok(bytes) => bytes,
-            Err(error) if ignore_missing_remote_icon => {
-                tracing::warn!("Error while getting instance icon: {error}");
-                return Ok(None);
-            }
             Err(error) => return Err(error),
         };
         crate::api::instance::cache_icon(bytes, state).await?
@@ -245,14 +239,8 @@ fn content_source_kind(link: &InstanceLink) -> ContentSourceKind {
         | InstanceLink::ServerProjectModpack { .. } => {
             ContentSourceKind::ServerProject
         }
-        InstanceLink::ModrinthHosting { .. } => {
-            ContentSourceKind::ModrinthHosting
-        }
         InstanceLink::ImportedModpack { .. } => {
             ContentSourceKind::ImportedModpack
-        }
-        InstanceLink::SharedInstance { .. } => {
-            ContentSourceKind::SharedInstance
         }
     }
 }

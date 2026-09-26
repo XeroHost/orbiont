@@ -19,10 +19,6 @@ pub struct Settings {
     pub advanced_rendering: bool,
     pub native_decorations: bool,
     pub toggle_sidebar: bool,
-    pub sync_theme_across_devices: bool,
-    pub sync_behavior_across_devices: bool,
-    #[serde(default = "default_true")]
-    pub sync_features_across_devices: bool,
     #[serde(default = "default_true")]
     pub show_files_tab_in_instances: bool,
     #[serde(default = "default_true")]
@@ -32,9 +28,7 @@ pub struct Settings {
     #[serde(default = "default_true")]
     pub show_skin_selector_in_sidebar: bool,
 
-    pub telemetry: bool,
     pub discord_rpc: bool,
-    pub personalized_ads: bool,
 
     pub extra_launch_args: Vec<String>,
     pub custom_env_vars: Vec<(String, String)>,
@@ -82,12 +76,21 @@ pub enum FeatureFlag {
     AdvancedFiltersCollapsed,
     AlwaysShowCopyDetails,
     HideInstalledModpacks,
-    FriendsActiveCollapsed,
-    FriendsOnlineCollapsed,
-    FriendsOfflineCollapsed,
-    FriendsPendingCollapsed,
     DismissedPhotosensitivityFilterWarning,
     LocalhostSignIn,
+}
+
+/// Parses stored feature flags, skipping flags this version no longer has.
+fn parse_feature_flags(json: &str) -> HashMap<FeatureFlag, bool> {
+    serde_json::from_str::<HashMap<String, bool>>(json)
+        .unwrap_or_default()
+        .into_iter()
+        .filter_map(|(name, value)| {
+            serde_json::from_value(serde_json::Value::String(name))
+                .ok()
+                .map(|flag| (flag, value))
+        })
+        .collect()
 }
 
 impl Settings {
@@ -101,13 +104,12 @@ impl Settings {
             SELECT
                 max_concurrent_writes, max_concurrent_downloads,
                 theme, locale, default_page, collapsed_navigation, hide_nametag_skins_page, advanced_rendering, native_decorations,
-                discord_rpc, developer_mode, telemetry, personalized_ads,
+                discord_rpc, developer_mode,
                 json(extra_launch_args) extra_launch_args, json(custom_env_vars) custom_env_vars,
                 mc_memory_max, mc_force_fullscreen, mc_game_resolution_x, mc_game_resolution_y, hide_on_process_start,
                 hook_pre_launch, hook_wrapper, hook_post_exit,
                 custom_dir, prev_custom_dir, migrated, json(feature_flags) feature_flags, toggle_sidebar,
                 skipped_update, pending_update_toast_for_version, auto_download_updates,
-				sync_theme_across_devices, sync_behavior_across_devices, sync_features_across_devices,
 				show_files_tab_in_instances, show_worlds_tab_in_instances,
 				show_screenshots_tab_in_instances, show_skin_selector_in_sidebar,
                 version
@@ -128,10 +130,8 @@ impl Settings {
             advanced_rendering: res.advanced_rendering == 1,
             native_decorations: res.native_decorations == 1,
             toggle_sidebar: res.toggle_sidebar == 1,
-            telemetry: res.telemetry == 1,
             discord_rpc: res.discord_rpc == 1,
             developer_mode: res.developer_mode == 1,
-            personalized_ads: res.personalized_ads == 1,
             extra_launch_args: res
                 .extra_launch_args
                 .as_ref()
@@ -161,16 +161,13 @@ impl Settings {
             migrated: res.migrated == 1,
             feature_flags: res
                 .feature_flags
-                .as_ref()
-                .and_then(|x| serde_json::from_str(x).ok())
+                .as_deref()
+                .map(parse_feature_flags)
                 .unwrap_or_default(),
             skipped_update: res.skipped_update,
             pending_update_toast_for_version: res
                 .pending_update_toast_for_version,
             auto_download_updates: res.auto_download_updates.map(|x| x == 1),
-            sync_theme_across_devices: res.sync_theme_across_devices == 1,
-            sync_behavior_across_devices: res.sync_behavior_across_devices == 1,
-            sync_features_across_devices: res.sync_features_across_devices == 1,
             show_files_tab_in_instances: res.show_files_tab_in_instances == 1,
             show_worlds_tab_in_instances: res.show_worlds_tab_in_instances == 1,
             show_screenshots_tab_in_instances: res
@@ -211,42 +208,36 @@ impl Settings {
 
                 discord_rpc = $9,
                 developer_mode = $10,
-                telemetry = $11,
-                personalized_ads = $12,
 
-                extra_launch_args = jsonb($13),
-                custom_env_vars = jsonb($14),
-                mc_memory_max = $15,
-                mc_force_fullscreen = $16,
-                mc_game_resolution_x = $17,
-                mc_game_resolution_y = $18,
-                hide_on_process_start = $19,
+                extra_launch_args = jsonb($11),
+                custom_env_vars = jsonb($12),
+                mc_memory_max = $13,
+                mc_force_fullscreen = $14,
+                mc_game_resolution_x = $15,
+                mc_game_resolution_y = $16,
+                hide_on_process_start = $17,
 
-                hook_pre_launch = $20,
-                hook_wrapper = $21,
-                hook_post_exit = $22,
+                hook_pre_launch = $18,
+                hook_wrapper = $19,
+                hook_post_exit = $20,
 
-                custom_dir = $23,
-                prev_custom_dir = $24,
-                migrated = $25,
+                custom_dir = $21,
+                prev_custom_dir = $22,
+                migrated = $23,
 
-                toggle_sidebar = $26,
-                feature_flags = $27,
-                hide_nametag_skins_page = $28,
+                toggle_sidebar = $24,
+                feature_flags = $25,
+                hide_nametag_skins_page = $26,
 
-                skipped_update = $29,
-                pending_update_toast_for_version = $30,
-                auto_download_updates = $31,
+                skipped_update = $27,
+                pending_update_toast_for_version = $28,
+                auto_download_updates = $29,
+				show_files_tab_in_instances = $30,
+				show_worlds_tab_in_instances = $31,
+				show_screenshots_tab_in_instances = $32,
+				show_skin_selector_in_sidebar = $33,
 
-                sync_theme_across_devices = $32,
-                sync_behavior_across_devices = $33,
-				sync_features_across_devices = $34,
-				show_files_tab_in_instances = $35,
-				show_worlds_tab_in_instances = $36,
-				show_screenshots_tab_in_instances = $37,
-				show_skin_selector_in_sidebar = $38,
-
-				version = $39
+				version = $34
             ",
             max_concurrent_writes,
             max_concurrent_downloads,
@@ -258,8 +249,6 @@ impl Settings {
             self.native_decorations,
             self.discord_rpc,
             self.developer_mode,
-            self.telemetry,
-            self.personalized_ads,
             extra_launch_args,
             custom_env_vars,
             self.memory.maximum,
@@ -279,9 +268,6 @@ impl Settings {
             self.skipped_update,
             self.pending_update_toast_for_version,
             self.auto_download_updates,
-            self.sync_theme_across_devices,
-            self.sync_behavior_across_devices,
-            self.sync_features_across_devices,
             self.show_files_tab_in_instances,
             self.show_worlds_tab_in_instances,
             self.show_screenshots_tab_in_instances,

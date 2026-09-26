@@ -14,8 +14,6 @@ use theseus::data::{
     InstanceInstallTarget, InstanceLaunchOverridesPatch,
     InstanceLink as CoreInstanceLink, InstanceMetadata, InstanceTabVisibility,
     LinkedModpackInfo,
-    SharedInstanceAttachment as CoreSharedInstanceAttachment,
-    SharedInstanceRole,
 };
 use theseus::instance::InstallProjectWithDependenciesRequest;
 use theseus::instance::QuickPlayType;
@@ -131,7 +129,6 @@ pub struct Instance {
     pub group_ids: Vec<String>,
     pub synced_options: InstanceSyncedOptions,
     pub link: Option<InstanceLink>,
-    pub shared_instance: Option<SharedInstanceAttachment>,
     pub quarantined: bool,
     pub update_channel: ReleaseChannel,
     pub created: chrono::DateTime<chrono::Utc>,
@@ -186,44 +183,6 @@ pub enum InstanceLink {
         version_number: Option<String>,
         filename: Option<String>,
     },
-    ModrinthHosting {
-        server_id: String,
-        instance_ids: Vec<String>,
-        active_instance_id: Option<String>,
-    },
-    SharedInstance {
-        modpack_project_id: Option<String>,
-        modpack_version_id: Option<String>,
-    },
-}
-
-#[derive(Serialize, Debug, Clone)]
-pub struct SharedInstanceAttachment {
-    pub id: String,
-    pub role: SharedInstanceRole,
-    pub manager_id: Option<String>,
-    pub server_manager_name: Option<String>,
-    pub server_manager_icon_url: Option<String>,
-    pub linked_user_id: Option<String>,
-    pub status: String,
-    pub applied_version: Option<i32>,
-    pub latest_version: Option<i32>,
-}
-
-impl From<CoreSharedInstanceAttachment> for SharedInstanceAttachment {
-    fn from(attachment: CoreSharedInstanceAttachment) -> Self {
-        Self {
-            id: attachment.id.to_string(),
-            role: attachment.role,
-            manager_id: attachment.manager_id,
-            server_manager_name: attachment.server_manager_name,
-            server_manager_icon_url: attachment.server_manager_icon_url,
-            linked_user_id: attachment.linked_user_id,
-            status: attachment.status.as_str().to_string(),
-            applied_version: attachment.applied_version,
-            latest_version: attachment.latest_version,
-        }
-    }
 }
 
 #[derive(Serialize, Deserialize, Debug, Clone)]
@@ -311,7 +270,6 @@ impl From<InstanceMetadata> for Instance {
             group_ids: metadata.group_ids,
             synced_options: metadata.synced_options,
             link: InstanceLink::from_core(metadata.link),
-            shared_instance: metadata.shared_instance.map(Into::into),
             quarantined: metadata.quarantined,
             update_channel: metadata.instance.update_channel,
             created: metadata.instance.created,
@@ -369,25 +327,6 @@ impl InstanceLink {
                 version_number,
                 filename,
             }),
-            CoreInstanceLink::ModrinthHosting {
-                server_id,
-                instance_ids,
-                active_instance_id,
-            } => Some(Self::ModrinthHosting {
-                server_id: server_id.to_string(),
-                instance_ids: instance_ids
-                    .into_iter()
-                    .map(|id| id.to_string())
-                    .collect(),
-                active_instance_id: active_instance_id.map(|id| id.to_string()),
-            }),
-            CoreInstanceLink::SharedInstance {
-                modpack_project_id,
-                modpack_version_id,
-            } => Some(Self::SharedInstance {
-                modpack_project_id,
-                modpack_version_id,
-            }),
         }
     }
 
@@ -425,47 +364,6 @@ impl InstanceLink {
                 name,
                 version_number,
                 filename,
-            }),
-            Self::ModrinthHosting {
-                server_id,
-                instance_ids,
-                active_instance_id,
-            } => Ok(CoreInstanceLink::ModrinthHosting {
-                server_id: server_id.parse().map_err(|err| {
-                    theseus::Error::from(theseus::ErrorKind::InputError(
-                        format!("Invalid server id: {err}"),
-                    ))
-                })?,
-                instance_ids: instance_ids
-                    .into_iter()
-                    .map(|id| {
-                        id.parse().map_err(|err| {
-                            theseus::Error::from(
-                                theseus::ErrorKind::InputError(format!(
-                                    "Invalid hosted instance id: {err}"
-                                )),
-                            )
-                        })
-                    })
-                    .collect::<std::result::Result<Vec<_>, _>>()?,
-                active_instance_id: active_instance_id
-                    .map(|id| {
-                        id.parse().map_err(|err| {
-                            theseus::Error::from(
-                                theseus::ErrorKind::InputError(format!(
-                                    "Invalid active instance id: {err}"
-                                )),
-                            )
-                        })
-                    })
-                    .transpose()?,
-            }),
-            Self::SharedInstance {
-                modpack_project_id,
-                modpack_version_id,
-            } => Ok(CoreInstanceLink::SharedInstance {
-                modpack_project_id,
-                modpack_version_id,
             }),
         }
     }

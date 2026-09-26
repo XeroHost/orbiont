@@ -9,7 +9,6 @@ name = "export_app_events"
 required-features = ["export-ts"]
 
 [dependencies]
-ariadne = { workspace = true }
 async-minecraft-ping = { workspace = true, features = ["srv"] }
 async-recursion = { workspace = true }
 async-trait = { workspace = true }

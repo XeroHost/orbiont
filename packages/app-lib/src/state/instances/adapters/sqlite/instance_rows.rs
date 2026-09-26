@@ -1,12 +1,11 @@
 #![allow(dead_code)]
 
 use crate::state::instances::{
-    ContentSet, ContentSetStatus, ContentSetSyncStatus, ContentSourceKind,
+    ContentSet, ContentSetStatus, ContentSourceKind,
     Instance, InstanceIconBackground, InstanceIconConfig,
     InstanceLaunchContext, InstanceLaunchOverrides,
     InstanceLaunchOverridesData, InstanceLink, InstanceSyncedOption,
-    InstanceSyncedOptions, SharedInstanceAttachment, SharedInstanceRole,
-    playtime_to_storage,
+    InstanceSyncedOptions, playtime_to_storage,
 };
 use crate::state::{
     InstanceInstallStage, LauncherFeatureVersion, ModLoader, ReleaseChannel,
@@ -73,13 +72,6 @@ pub(crate) struct InstanceLinkRow {
     pub server_project_id: Option<String>,
     pub content_project_id: Option<String>,
     pub content_version_id: Option<String>,
-    pub hosting_server_id: Option<String>,
-    pub hosting_instance_ids: Option<String>,
-    pub hosting_active_instance_id: Option<String>,
-    pub shared_instance_id: Option<String>,
-    pub shared_instance_role: Option<String>,
-    pub shared_instance_manager_id: Option<String>,
-    pub shared_instance_linked_user_id: Option<String>,
     pub imported_name: Option<String>,
     pub imported_version_number: Option<String>,
     pub imported_filename: Option<String>,
@@ -121,31 +113,12 @@ impl TryFrom<InstanceLinkRow> for InstanceLink {
                     "content_version_id",
                 )?,
             }),
-            "modrinth_hosting" => Ok(Self::ModrinthHosting {
-                server_id: parse_uuid(
-                    row.hosting_server_id,
-                    "hosting_server_id",
-                )?,
-                instance_ids: parse_optional_json(
-                    row.hosting_instance_ids,
-                    "hosting_instance_ids",
-                )?
-                .unwrap_or_default(),
-                active_instance_id: parse_optional_uuid(
-                    row.hosting_active_instance_id,
-                    "hosting_active_instance_id",
-                )?,
-            }),
             "imported_modpack" => Ok(Self::ImportedModpack {
                 project_id: row.modrinth_project_id,
                 version_id: row.modrinth_version_id,
                 name: row.imported_name,
                 version_number: row.imported_version_number,
                 filename: row.imported_filename,
-            }),
-            "shared_instance" => Ok(Self::SharedInstance {
-                modpack_project_id: row.modrinth_project_id,
-                modpack_version_id: row.modrinth_version_id,
             }),
             other => Err(crate::ErrorKind::InputError(format!(
                 "Unknown instance link kind {other}"
@@ -167,7 +140,6 @@ pub(crate) struct InstanceMetadataRecord {
     pub icon_config: Option<InstanceIconConfig>,
     pub applied_content_set: ContentSet,
     pub link: InstanceLink,
-    pub shared_instance: Option<SharedInstanceAttachment>,
     pub group_ids: Vec<String>,
     pub synced_options: InstanceSyncedOptions,
     pub launch_overrides: InstanceLaunchOverrides,
@@ -220,18 +192,6 @@ struct InstanceMetadataRow {
     server_project_id: Option<String>,
     content_project_id: Option<String>,
     content_version_id: Option<String>,
-    hosting_server_id: Option<String>,
-    hosting_instance_ids: Option<String>,
-    hosting_active_instance_id: Option<String>,
-    shared_instance_id: Option<String>,
-    shared_instance_role: Option<String>,
-    shared_instance_manager_id: Option<String>,
-    shared_instance_server_manager_name: Option<String>,
-    shared_instance_server_manager_icon_url: Option<String>,
-    shared_instance_linked_user_id: Option<String>,
-    shared_sync_applied_update_id: Option<String>,
-    shared_sync_latest_available_update_id: Option<String>,
-    shared_sync_status: Option<String>,
     imported_name: Option<String>,
     imported_version_number: Option<String>,
     imported_filename: Option<String>,
@@ -322,31 +282,11 @@ impl InstanceMetadataRow {
             server_project_id: self.server_project_id,
             content_project_id: self.content_project_id,
             content_version_id: self.content_version_id,
-            hosting_server_id: self.hosting_server_id,
-            hosting_instance_ids: self.hosting_instance_ids,
-            hosting_active_instance_id: self.hosting_active_instance_id,
-            shared_instance_id: self.shared_instance_id.clone(),
-            shared_instance_role: self.shared_instance_role.clone(),
-            shared_instance_manager_id: self.shared_instance_manager_id.clone(),
-            shared_instance_linked_user_id: self
-                .shared_instance_linked_user_id
-                .clone(),
             imported_name: self.imported_name,
             imported_version_number: self.imported_version_number,
             imported_filename: self.imported_filename,
         }
         .try_into()?;
-        let shared_instance = shared_instance_attachment(
-            self.shared_instance_id,
-            self.shared_instance_role,
-            self.shared_instance_manager_id,
-            self.shared_instance_server_manager_name,
-            self.shared_instance_server_manager_icon_url,
-            self.shared_instance_linked_user_id,
-            self.shared_sync_status,
-            self.shared_sync_applied_update_id,
-            self.shared_sync_latest_available_update_id,
-        )?;
         let group_ids = parse_group_ids(self.group_ids)?;
         let launch_overrides =
             launch_overrides_from_json(instance_id, self.launch_overrides)?;
@@ -370,7 +310,6 @@ impl InstanceMetadataRow {
             icon_config,
             applied_content_set,
             link,
-            shared_instance,
             group_ids,
             synced_options: InstanceSyncedOptions::default(),
             launch_overrides,
@@ -695,18 +634,6 @@ macro_rules! query_instance_metadata {
                     link.server_project_id AS "server_project_id?: String",
                     link.content_project_id AS "content_project_id?: String",
                     link.content_version_id AS "content_version_id?: String",
-                    link.hosting_server_id AS "hosting_server_id?: String",
-                    json(link.hosting_instance_ids) AS "hosting_instance_ids?: String",
-                    link.hosting_active_instance_id AS "hosting_active_instance_id?: String",
-                    link.shared_instance_id AS "shared_instance_id?: String",
-                    link.shared_instance_role AS "shared_instance_role?: String",
-                    link.shared_instance_manager_id AS "shared_instance_manager_id?: String",
-                    link.shared_instance_server_manager_name AS "shared_instance_server_manager_name?: String",
-                    link.shared_instance_server_manager_icon_url AS "shared_instance_server_manager_icon_url?: String",
-                    link.shared_instance_linked_user_id AS "shared_instance_linked_user_id?: String",
-                    sync.applied_update_id AS "shared_sync_applied_update_id?: String",
-                    sync.latest_available_update_id AS "shared_sync_latest_available_update_id?: String",
-                    sync.status AS "shared_sync_status?: String",
                     link.imported_name AS "imported_name?: String",
                     link.imported_version_number AS "imported_version_number?: String",
                     link.imported_filename AS "imported_filename?: String",
@@ -730,9 +657,6 @@ macro_rules! query_instance_metadata {
                     AND cs.instance_id = i.id
                 LEFT JOIN instance_links link
                     ON link.instance_id = i.id
-                LEFT JOIN instance_content_set_sync_state sync
-                    ON sync.content_set_id = cs.id
-                    AND sync.provider = 'shared_instance'
                 LEFT JOIN instance_launch_overrides overrides
                     ON overrides.instance_id = i.id
                 LEFT JOIN instance_icon_configs config
@@ -1015,13 +939,6 @@ where
             server_project_id,
             content_project_id,
             content_version_id,
-            hosting_server_id,
-            json(hosting_instance_ids) AS "hosting_instance_ids?: String",
-            hosting_active_instance_id,
-            shared_instance_id,
-            shared_instance_role,
-            shared_instance_manager_id,
-            shared_instance_linked_user_id,
             imported_name,
             imported_version_number,
             imported_filename
@@ -1391,10 +1308,6 @@ pub(crate) async fn upsert_instance_link(
     let server_project_id = columns.server_project_id.as_deref();
     let content_project_id = columns.content_project_id.as_deref();
     let content_version_id = columns.content_version_id.as_deref();
-    let hosting_server_id = columns.hosting_server_id.as_deref();
-    let hosting_instance_ids = columns.hosting_instance_ids.as_deref();
-    let hosting_active_instance_id =
-        columns.hosting_active_instance_id.as_deref();
     let imported_name = columns.imported_name.as_deref();
     let imported_version_number = columns.imported_version_number.as_deref();
     let imported_filename = columns.imported_filename.as_deref();
@@ -1409,14 +1322,11 @@ pub(crate) async fn upsert_instance_link(
 			server_project_id,
 			content_project_id,
 			content_version_id,
-			hosting_server_id,
-			hosting_instance_ids,
-			hosting_active_instance_id,
 			imported_name,
 			imported_version_number,
 			imported_filename
 		)
-		VALUES (?, ?, ?, ?, ?, ?, ?, ?, jsonb(?), ?, ?, ?, ?)
+		VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
 		ON CONFLICT (instance_id) DO UPDATE SET
 			link_kind = excluded.link_kind,
 			modrinth_project_id = excluded.modrinth_project_id,
@@ -1424,9 +1334,6 @@ pub(crate) async fn upsert_instance_link(
 			server_project_id = excluded.server_project_id,
 			content_project_id = excluded.content_project_id,
 			content_version_id = excluded.content_version_id,
-			hosting_server_id = excluded.hosting_server_id,
-			hosting_instance_ids = excluded.hosting_instance_ids,
-			hosting_active_instance_id = excluded.hosting_active_instance_id,
 			imported_name = excluded.imported_name,
 			imported_version_number = excluded.imported_version_number,
 			imported_filename = excluded.imported_filename
@@ -1438,70 +1345,9 @@ pub(crate) async fn upsert_instance_link(
         server_project_id,
         content_project_id,
         content_version_id,
-        hosting_server_id,
-        hosting_instance_ids,
-        hosting_active_instance_id,
         imported_name,
         imported_version_number,
         imported_filename,
-    )
-    .execute(&mut **tx)
-    .await?;
-
-    Ok(())
-}
-
-pub(crate) async fn set_shared_instance_attachment(
-    instance_id: &str,
-    attachment: Option<&SharedInstanceAttachment>,
-    tx: &mut Transaction<'_, Sqlite>,
-) -> crate::Result<()> {
-    let shared_instance_id = attachment.map(|value| value.id.to_string());
-    let shared_instance_role =
-        attachment.map(|value| value.role.as_str().to_string());
-    let shared_instance_manager_id =
-        attachment.and_then(|value| value.manager_id.as_deref());
-    let shared_instance_linked_user_id =
-        attachment.and_then(|value| value.linked_user_id.as_deref());
-    let shared_instance_server_manager_name =
-        attachment.and_then(|value| value.server_manager_name.as_deref());
-    let shared_instance_server_manager_icon_url =
-        attachment.and_then(|value| value.server_manager_icon_url.as_deref());
-
-    sqlx::query!(
-        "
-		INSERT INTO instance_links (
-			instance_id,
-			link_kind,
-			shared_instance_id,
-			shared_instance_role,
-			shared_instance_manager_id,
-			shared_instance_server_manager_name,
-			shared_instance_server_manager_icon_url,
-			shared_instance_linked_user_id
-		)
-		VALUES (?, 'unmanaged', ?, ?, ?, ?, ?, ?)
-		ON CONFLICT (instance_id) DO UPDATE SET
-			link_kind = CASE
-				WHEN excluded.shared_instance_id IS NULL
-					AND instance_links.link_kind = 'shared_instance'
-					THEN 'unmanaged'
-				ELSE instance_links.link_kind
-			END,
-			shared_instance_id = excluded.shared_instance_id,
-			shared_instance_role = excluded.shared_instance_role,
-			shared_instance_manager_id = excluded.shared_instance_manager_id,
-			shared_instance_server_manager_name = excluded.shared_instance_server_manager_name,
-			shared_instance_server_manager_icon_url = excluded.shared_instance_server_manager_icon_url,
-			shared_instance_linked_user_id = excluded.shared_instance_linked_user_id
-		",
-        instance_id,
-        shared_instance_id,
-        shared_instance_role,
-        shared_instance_manager_id,
-        shared_instance_server_manager_name,
-        shared_instance_server_manager_icon_url,
-        shared_instance_linked_user_id,
     )
     .execute(&mut **tx)
     .await?;
@@ -1594,9 +1440,6 @@ struct InstanceLinkColumns {
     server_project_id: Option<String>,
     content_project_id: Option<String>,
     content_version_id: Option<String>,
-    hosting_server_id: Option<String>,
-    hosting_instance_ids: Option<String>,
-    hosting_active_instance_id: Option<String>,
     imported_name: Option<String>,
     imported_version_number: Option<String>,
     imported_filename: Option<String>,
@@ -1613,9 +1456,6 @@ fn instance_link_columns(
             server_project_id: None,
             content_project_id: None,
             content_version_id: None,
-            hosting_server_id: None,
-            hosting_instance_ids: None,
-            hosting_active_instance_id: None,
             imported_name: None,
             imported_version_number: None,
             imported_filename: None,
@@ -1630,9 +1470,6 @@ fn instance_link_columns(
             server_project_id: None,
             content_project_id: None,
             content_version_id: None,
-            hosting_server_id: None,
-            hosting_instance_ids: None,
-            hosting_active_instance_id: None,
             imported_name: None,
             imported_version_number: None,
             imported_filename: None,
@@ -1644,9 +1481,6 @@ fn instance_link_columns(
             server_project_id: Some(project_id.clone()),
             content_project_id: None,
             content_version_id: None,
-            hosting_server_id: None,
-            hosting_instance_ids: None,
-            hosting_active_instance_id: None,
             imported_name: None,
             imported_version_number: None,
             imported_filename: None,
@@ -1662,28 +1496,6 @@ fn instance_link_columns(
             server_project_id: Some(server_project_id.clone()),
             content_project_id: Some(content_project_id.clone()),
             content_version_id: Some(content_version_id.clone()),
-            hosting_server_id: None,
-            hosting_instance_ids: None,
-            hosting_active_instance_id: None,
-            imported_name: None,
-            imported_version_number: None,
-            imported_filename: None,
-        }),
-        InstanceLink::ModrinthHosting {
-            server_id,
-            instance_ids,
-            active_instance_id,
-        } => Ok(InstanceLinkColumns {
-            link_kind: "modrinth_hosting",
-            modrinth_project_id: None,
-            modrinth_version_id: None,
-            server_project_id: None,
-            content_project_id: None,
-            content_version_id: None,
-            hosting_server_id: Some(server_id.to_string()),
-            hosting_instance_ids: Some(serde_json::to_string(instance_ids)?),
-            hosting_active_instance_id: active_instance_id
-                .map(|value| value.to_string()),
             imported_name: None,
             imported_version_number: None,
             imported_filename: None,
@@ -1701,29 +1513,9 @@ fn instance_link_columns(
             server_project_id: None,
             content_project_id: None,
             content_version_id: None,
-            hosting_server_id: None,
-            hosting_instance_ids: None,
-            hosting_active_instance_id: None,
             imported_name: name.clone(),
             imported_version_number: version_number.clone(),
             imported_filename: filename.clone(),
-        }),
-        InstanceLink::SharedInstance {
-            modpack_project_id,
-            modpack_version_id,
-        } => Ok(InstanceLinkColumns {
-            link_kind: "shared_instance",
-            modrinth_project_id: modpack_project_id.clone(),
-            modrinth_version_id: modpack_version_id.clone(),
-            server_project_id: None,
-            content_project_id: None,
-            content_version_id: None,
-            hosting_server_id: None,
-            hosting_instance_ids: None,
-            hosting_active_instance_id: None,
-            imported_name: None,
-            imported_version_number: None,
-            imported_filename: None,
         }),
     }
 }
@@ -1767,46 +1559,6 @@ fn launch_overrides_from_json(
         .try_into(),
         _ => Ok(InstanceLaunchOverrides::empty(instance_id)),
     }
-}
-
-fn shared_instance_attachment(
-    shared_instance_id: Option<String>,
-    shared_instance_role: Option<String>,
-    shared_instance_manager_id: Option<String>,
-    shared_instance_server_manager_name: Option<String>,
-    shared_instance_server_manager_icon_url: Option<String>,
-    shared_instance_linked_user_id: Option<String>,
-    shared_sync_status: Option<String>,
-    applied_update_id: Option<String>,
-    latest_available_update_id: Option<String>,
-) -> crate::Result<Option<SharedInstanceAttachment>> {
-    let Some(id) = shared_instance_id else {
-        return Ok(None);
-    };
-
-    let role = match shared_instance_role {
-        Some(role) => SharedInstanceRole::from_stored_str(&role)?,
-        None => SharedInstanceRole::Member,
-    };
-    let status = match shared_sync_status {
-        Some(status) => ContentSetSyncStatus::from_str(&status)?,
-        None => ContentSetSyncStatus::Unknown,
-    };
-
-    Ok(Some(SharedInstanceAttachment {
-        id,
-        role,
-        manager_id: shared_instance_manager_id,
-        server_manager_name: shared_instance_server_manager_name,
-        server_manager_icon_url: shared_instance_server_manager_icon_url,
-        linked_user_id: shared_instance_linked_user_id,
-        status,
-        applied_version: optional_i32(applied_update_id, "applied_update_id")?,
-        latest_version: optional_i32(
-            latest_available_update_id,
-            "latest_available_update_id",
-        )?,
-    }))
 }
 
 fn optional_i32(

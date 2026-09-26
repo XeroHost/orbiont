@@ -1085,7 +1085,7 @@ async fn apply_post_install_edit(
         let icon_path = match icon_path {
             Some(icon_path) => {
                 let state = State::get().await?;
-                resolve_icon_path(Some(&icon_path), false, &state).await?
+                resolve_icon_path(Some(&icon_path), &state).await?
             }
             None => None,
         };
@@ -1476,16 +1476,12 @@ fn install_error_view(
     error: &crate::Error,
     context: Option<InstallErrorContext>,
 ) -> InstallErrorView {
-    let mut view = InstallErrorView::from_error(
+    InstallErrorView::from_error(
         install_error_code(phase, error),
         phase,
         error,
         context,
-    );
-    if let ErrorKind::SharedInstanceUnavailable(reason) = error.raw.as_ref() {
-        view.reason = Some(*reason);
-    }
-    view
+    )
 }
 
 fn install_error_code(
@@ -1495,10 +1491,6 @@ fn install_error_code(
     use InstallPhaseId::*;
 
     match error.raw.as_ref() {
-        ErrorKind::SharedInstanceUnavailable(_) => {
-            "shared_instance_unavailable"
-        }
-        ErrorKind::SharedInstancesApiError(_) => "shared_instances_api_error",
         ErrorKind::InputError(_) => match phase {
             PreparingInstance | Finalizing => "instance_error",
             ResolvingPack | DownloadingPackFile | ReadingPackManifest => {
