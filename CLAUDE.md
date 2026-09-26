@@ -33,8 +33,11 @@ sin jerga innecesaria. Commits también en español.
   propias.
 - La API key de CurseForge vive solo en `orbiont-catalog` (proxy). Nunca en
   el launcher.
-- NO hacer push a `origin`: apunta al upstream `modrinth/code`. El push y el
-  merge a `main` los decide el usuario.
+- Remotes: `origin` = `https://github.com/XeroHost/orbiont.git` (el nuestro,
+  **público**); `upstream` = `modrinth/code`, con el push desactivado. NUNCA
+  hagas push a `upstream`. Push y merge a `main` los decide el usuario.
+- El repo es público: nada de secretos en commits (la API key de CurseForge
+  vive en `orbiont-catalog`; la clave de firma, fuera del repo).
 - No tocar `%APPDATA%\ModrinthApp` (la Modrinth App real del usuario).
 
 ## Estilo visual

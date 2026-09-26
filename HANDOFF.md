@@ -33,10 +33,10 @@ Hace tres cosas propias sobre el Modrinth App:
 | launcher        | `C:\Users\Raimond\Documents\XeroHost\launcher`        | Este fork                                                                                  |
 | orbiont-catalog | `C:\Users\Raimond\Documents\XeroHost\orbiont-catalog` | Backend Node/Express con dos servicios en PM2: catálogo (`:3010`, modpacks y servidores de XeroHost) y **fachada de CurseForge** (`:3011`, la única con la API key; límites por IP y globales) |
 
-**⚠ El remote `origin` del launcher apunta a `https://github.com/modrinth/code.git`
-(el upstream de Modrinth).** El destino real es `XeroHost/launcher`, que no
-está configurado. **No hagas push a `origin`.** Hasta ahora no se ha hecho push
-de nada (ni del launcher ni del catálogo).
+Remotes del launcher: **`origin` = `https://github.com/XeroHost/orbiont.git`**
+(repo **público** de XeroHost) y `upstream` = `https://github.com/modrinth/code.git`
+con el push desactivado a propósito. `main` está publicado en `origin`. El
+catálogo (`orbiont-catalog`) no se ha subido a ningún sitio.
 
 Las ramas están **encadenadas** (cada una sale de la anterior); no se ha
 mergeado nada a `main`:
@@ -213,13 +213,20 @@ launcher). No subas `.env` a ningún sitio.
 
 ### Técnico
 
-- **Fase D (publicar 1.0.0 beta en `main`)**: falta el repo `XeroHost/launcher`
-  como remote (hoy solo existe `origin` = modrinth/code, **no hacer push ahí**).
-  Los workflows (`theseus-build.yml`, `theseus-release.yml`, `turbo-ci.yml`)
-  aún usan los runners privados de Modrinth (`namespace-profile-*`) y su caché
-  (`nscloud-cache-action`): hay que pasarlos a runners de GitHub antes de que
-  un tag compile. Firmar con la clave del updater y subir `updates.json` a
-  `xerohost.net/orbiont`.
+- **Releases** (fase D): un tag `v*` compila en GitHub (Windows, macOS,
+  Linux) y `theseus-release.yml` crea el GitHub Release con instaladores,
+  bundles de actualización y `updates.json`. Las notas salen del mensaje del
+  tag anotado. Necesita los secretos `TAURI_PRIVATE_KEY` (contenido de
+  `C:\Users\Raimond\.orbiont-signing\orbiont-updater.key`) y
+  `TAURI_KEY_PASSWORD` en el repo; sin ellos el build del tag falla. Los
+  pushes a `main` hacen builds de desarrollo sin firmar.
+- El updater prueba primero `https://xerohost.net/orbiont/updates.json` y
+  luego `…/releases/latest/download/updates.json` de GitHub. Para usar el
+  primero, hay que servir (o redirigir) ese archivo desde xerohost.net.
+- Sin firma de código de Windows/macOS: Windows mostrará SmartScreen y macOS
+  pedirá abrirlo a mano. Los secretos de Apple son opcionales en el workflow.
+- CI no probado en local: `typos`, `tombi` y `cargo shear` (check-generic y
+  check-rust); pueden salir avisos en el primer push.
 - **Perfil de usuario** (`packages/ui/src/layouts/shared/user-profile`,
   ~1000 líneas): es la página de perfil de la web de Modrinth con
   herramientas de staff (facturación, afiliados, bloquear, reportar). En la
