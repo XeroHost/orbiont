@@ -40,12 +40,10 @@ const copyStages: readonly Stage[] = [
 const stagesByKind: Record<InstallJobSnapshot['kind'], readonly Stage[]> = {
 	create_instance: instanceStages,
 	create_modpack_instance: packStages,
-	create_shared_instance: packStages,
 	import_instance: copyStages,
 	duplicate_instance: copyStages,
 	install_existing_instance: instanceStages,
 	install_pack_to_existing_instance: packStages,
-	update_shared_instance: packStages,
 }
 
 /** Estimates whole-job progress from stage counters, preserving progress within an attempt. */

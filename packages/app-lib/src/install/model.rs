@@ -257,12 +257,10 @@ impl InstallRequest {
 pub enum InstallJobKind {
     CreateInstance,
     CreateModpackInstance,
-    CreateSharedInstance,
     ImportInstance,
     DuplicateInstance,
     InstallExistingInstance,
     InstallPackToExistingInstance,
-    UpdateSharedInstance,
 }
 
 impl InstallJobKind {
@@ -270,28 +268,24 @@ impl InstallJobKind {
         match self {
             Self::CreateInstance => "create_instance",
             Self::CreateModpackInstance => "create_modpack_instance",
-            Self::CreateSharedInstance => "create_shared_instance",
             Self::ImportInstance => "import_instance",
             Self::DuplicateInstance => "duplicate_instance",
             Self::InstallExistingInstance => "install_existing_instance",
             Self::InstallPackToExistingInstance => {
                 "install_pack_to_existing_instance"
             }
-            Self::UpdateSharedInstance => "update_shared_instance",
         }
     }
 
     pub fn from_stored_str(value: &str) -> Self {
         match value {
             "create_modpack_instance" => Self::CreateModpackInstance,
-            "create_shared_instance" => Self::CreateSharedInstance,
             "import_instance" => Self::ImportInstance,
             "duplicate_instance" => Self::DuplicateInstance,
             "install_existing_instance" => Self::InstallExistingInstance,
             "install_pack_to_existing_instance" => {
                 Self::InstallPackToExistingInstance
             }
-            "update_shared_instance" => Self::UpdateSharedInstance,
             _ => Self::CreateInstance,
         }
     }

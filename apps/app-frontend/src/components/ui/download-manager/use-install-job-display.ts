@@ -10,19 +10,11 @@ const messages = defineMessages({
 		id: 'app.action-bar.install.unknown-instance',
 		defaultMessage: 'Unknown instance',
 	},
-	updatingSharedContent: {
-		id: 'app.action-bar.install.updating-shared-content',
-		defaultMessage: 'Updating shared content',
-	},
 })
 
 const kindMessages = defineMessages({
 	create_instance: { id: 'app.download-manager.new-instance', defaultMessage: 'New instance' },
 	create_modpack_instance: { id: 'app.download-manager.modpack', defaultMessage: 'Modpack' },
-	create_shared_instance: {
-		id: 'app.download-manager.shared-instance',
-		defaultMessage: 'Shared instance',
-	},
 	import_instance: {
 		id: 'app.download-manager.imported-instance',
 		defaultMessage: 'Imported instance',
@@ -38,10 +30,6 @@ const kindMessages = defineMessages({
 	install_pack_to_existing_instance: {
 		id: 'app.download-manager.modpack-installation',
 		defaultMessage: 'Modpack installation',
-	},
-	update_shared_instance: {
-		id: 'app.download-manager.shared-instance-update',
-		defaultMessage: 'Shared instance update',
 	},
 })
 
@@ -298,9 +286,6 @@ export function useInstallJobDisplay() {
 			return formatMessage(javaStepMessages[job.details.step], {
 				version: job.details.major_version,
 			})
-		}
-		if (job.kind === 'update_shared_instance' && job.phase === 'downloading_content') {
-			return formatMessage(messages.updatingSharedContent)
 		}
 		return formatMessage(phaseMessages[job.phase])
 	}
