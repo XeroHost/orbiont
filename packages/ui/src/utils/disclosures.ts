@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 
 export const PROJECT_DISCLOSURE_TYPES = [
 	'ai_content',

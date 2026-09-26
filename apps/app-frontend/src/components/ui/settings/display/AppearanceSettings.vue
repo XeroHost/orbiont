@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { AppearanceSettingsLayout, provideAppearanceSettings, useSavable } from '@modrinth/ui'
+import { AppearanceSettingsLayout, provideAppearanceSettings, useSavable } from '@orbiont/ui'
 import { platform } from '@tauri-apps/plugin-os'
 import { computed, inject, onBeforeUnmount, onMounted, watch } from 'vue'
 

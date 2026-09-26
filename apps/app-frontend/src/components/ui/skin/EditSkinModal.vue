@@ -131,7 +131,7 @@
 </template>
 
 <script setup lang="ts">
-import { CheckIcon, SaveIcon, SpinnerIcon, UploadIcon, XIcon } from '@modrinth/assets'
+import { CheckIcon, SaveIcon, SpinnerIcon, UploadIcon, XIcon } from '@orbiont/assets'
 import {
 	Button,
 	CapeButton,
@@ -144,8 +144,8 @@ import {
 	SkinPreviewRenderer,
 	useScrollIndicator,
 	useVIntl,
-} from '@modrinth/ui'
-import { arrayBufferToBase64 } from '@modrinth/utils'
+} from '@orbiont/ui'
+import { arrayBufferToBase64 } from '@orbiont/utils'
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 
 import {

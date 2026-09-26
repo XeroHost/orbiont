@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { BoxIcon, BracesIcon, GlassesIcon, PaintbrushIcon, PlugIcon } from '@modrinth/assets'
+import { BoxIcon, BracesIcon, GlassesIcon, PaintbrushIcon, PlugIcon } from '@orbiont/assets'
 import { type Component, computed, onBeforeUnmount, ref, watch } from 'vue'
 
 import BulletDivider from '#ui/components/base/BulletDivider.vue'

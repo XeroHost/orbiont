@@ -32,7 +32,7 @@ import {
 	NoMessagesIllustration,
 	NoSearchResultIllustration,
 	NoTasksIllustration,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import type { Component } from 'vue'
 import { computed } from 'vue'
 

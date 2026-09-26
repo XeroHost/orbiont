@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from '@modrinth/ui'
+import { Button } from '@orbiont/ui'
 
 defineProps<{
 	modelValue?: boolean

@@ -99,10 +99,10 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { CopyIcon, getLoaderIcon } from '@modrinth/assets'
-import { SERVER_LANGUAGES } from '@modrinth/ui'
-import { formatVersionsForDisplay, type GameVersionTag, type PlatformTag } from '@modrinth/utils'
+import type { Labrinth } from '@orbiont/api-client'
+import { CopyIcon, getLoaderIcon } from '@orbiont/assets'
+import { SERVER_LANGUAGES } from '@orbiont/ui'
+import { formatVersionsForDisplay, type GameVersionTag, type PlatformTag } from '@orbiont/utils'
 import { computed } from 'vue'
 
 import { defineMessages, useVIntl } from '../../composables'

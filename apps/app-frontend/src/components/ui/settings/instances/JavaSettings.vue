@@ -1,5 +1,5 @@
 <script setup>
-import { defineMessages, injectNotificationManager, useVIntl } from '@modrinth/ui'
+import { defineMessages, injectNotificationManager, useVIntl } from '@orbiont/ui'
 import { ref } from 'vue'
 
 import JavaSelector from '@/components/ui/JavaSelector.vue'

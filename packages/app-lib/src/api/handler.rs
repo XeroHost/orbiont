@@ -13,7 +13,7 @@ use urlencoding::decode;
 /// Handles external functions (such as through URL deep linkage)
 /// Link is extracted value (link) in somewhat URL format, such as
 /// subdomain1/subdomain2
-/// (Does not include modrinth://)
+/// (Does not include the `orbiont://` scheme)
 pub async fn handle_url(sublink: &str) -> crate::Result<CommandPayload> {
     Ok(match sublink.split_once('/') {
         // /mod/{id}   -    Installs a mod of mod id
@@ -95,9 +95,12 @@ pub async fn parse_command(
 ) -> crate::Result<CommandPayload> {
     tracing::debug!("Parsing external command");
 
-    // modrinth://some-command
+    // orbiont://some-command
     // This occurs when following a web redirect link
-    if let Some(sublink) = command_string.strip_prefix("modrinth://") {
+    if let Some(sublink) = command_string
+        .strip_prefix(crate::orbiont::DEEP_LINK_SCHEME)
+        .and_then(|rest| rest.strip_prefix("://"))
+    {
         Ok(handle_url(sublink).await?)
     } else {
         // We assume anything else is a filepath to an .mrpack file

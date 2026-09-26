@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PlayIcon, PlusIcon } from '@modrinth/assets'
-import { ContextMenu, defineMessages, injectNotificationManager, useVIntl } from '@modrinth/ui'
+import { PlayIcon, PlusIcon } from '@orbiont/assets'
+import { ContextMenu, defineMessages, injectNotificationManager, useVIntl } from '@orbiont/ui'
 import { useQuery } from '@tanstack/vue-query'
 import dayjs from 'dayjs'
 import { computed, inject, ref } from 'vue'

@@ -1,4 +1,4 @@
-import type { ComboboxOption } from '@modrinth/ui'
+import type { ComboboxOption } from '@orbiont/ui'
 
 /** Java Edition language names and regions from https://github.com/misode/mcmeta/blob/assets/pack.mcmeta. */
 const languageNames: Record<string, string> = {

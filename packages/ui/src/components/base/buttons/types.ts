@@ -9,7 +9,7 @@ export type ButtonSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 
 export type ButtonInteraction = 'surface' | 'filled' | 'none'
 
-// TODO: Standardized color string enum props across @modrinth/ui
+// TODO: Standardized color string enum props across @orbiont/ui
 export type ButtonColor =
 	| 'brand'
 	| 'red'

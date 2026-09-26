@@ -1,4 +1,4 @@
-import { createContext } from '@modrinth/ui'
+import { createContext } from '@orbiont/ui'
 import type { ComputedRef, Ref } from 'vue'
 
 import type { GameInstance } from '@/helpers/types'

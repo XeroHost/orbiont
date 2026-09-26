@@ -6,7 +6,7 @@ import {
 	SpinnerIcon,
 	TrashIcon,
 	UploadIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	Avatar,
 	Button,
@@ -16,7 +16,7 @@ import {
 	Input,
 	TeleportOverflowMenu,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useQueryClient } from '@tanstack/vue-query'
 import { open } from '@tauri-apps/plugin-dialog'
 import { computed, type Ref, ref, watch } from 'vue'

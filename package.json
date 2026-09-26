@@ -1,5 +1,5 @@
 {
-	"name": "@modrinth/monorepo",
+	"name": "@orbiont/monorepo",
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
@@ -13,9 +13,9 @@
 		"fix:ancillary": "prettier --write .github *.*",
 		"ci": "turbo run lint test --continue",
 		"prepr": "turbo run prepr --continue",
-		"prepr:frontend:lib": "turbo run prepr --filter=@modrinth/ui --filter=@modrinth/assets --filter=@modrinth/api-client --filter=@modrinth/utils --filter=@modrinth/tooling-config",
+		"prepr:frontend:lib": "turbo run prepr --filter=@orbiont/ui --filter=@orbiont/assets --filter=@orbiont/api-client --filter=@orbiont/utils --filter=@orbiont/tooling-config",
 		"prepr:frontend:app": "turbo run prepr --filter=@orbiont/app-frontend",
-		"icons:add": "pnpm --filter @modrinth/assets icons:add",
+		"icons:add": "pnpm --filter @orbiont/assets icons:add",
 		"i18n:coverage": "node scripts/run.mjs coverage-i18n --write packages/ui/src/layouts/wrapped/settings/language-settings/language-settings-coverage.generated.ts --quiet",
 		"changelog:collect": "node scripts/run.mjs collect-changelog",
 		"changelog:combine-for-app": "node scripts/run.mjs build-theseus-release-notes",
@@ -25,7 +25,7 @@
 		"@clack/prompts": "^1.0.0",
 		"@crowdin/crowdin-api-client": "^1.55.2",
 		"@formatjs/icu-messageformat-parser": "^2.11.4",
-		"@modrinth/tooling-config": "workspace:*",
+		"@orbiont/tooling-config": "workspace:*",
 		"@tailwindcss/container-queries": "^0.1.1",
 		"@types/node": "^24",
 		"@typescript-eslint/typescript-estree": "^8.64.0",
@@ -62,5 +62,5 @@
 			"workerd"
 		]
 	},
-	"prettier": "@modrinth/tooling-config/prettier.config.cjs"
+	"prettier": "@orbiont/tooling-config/prettier.config.cjs"
 }

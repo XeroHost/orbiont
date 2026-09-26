@@ -23,8 +23,8 @@
 </template>
 
 <script setup lang="ts">
-import { DownloadIcon, RefreshCwIcon } from '@modrinth/assets'
-import { Button, defineMessages, useVIntl } from '@modrinth/ui'
+import { DownloadIcon, RefreshCwIcon } from '@orbiont/assets'
+import { Button, defineMessages, useVIntl } from '@orbiont/ui'
 import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 
 import {

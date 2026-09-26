@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CircleSlashIcon, RefreshCwIcon, RightArrowIcon, XIcon } from '@modrinth/assets'
+import { CircleSlashIcon, RefreshCwIcon, RightArrowIcon, XIcon } from '@orbiont/assets'
 import {
 	Button,
 	commonMessages,
@@ -8,7 +8,7 @@ import {
 	NewModal,
 	Toggle,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed, nextTick, useTemplateRef } from 'vue'
 
 import SyncSourceModal from '@/components/ui/settings/instances/SyncSourceModal.vue'

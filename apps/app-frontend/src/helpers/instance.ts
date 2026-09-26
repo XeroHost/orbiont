@@ -3,8 +3,8 @@
  * So, for example, addDefaultInstance creates a blank instance object, where the Rust struct is serialized,
  *  and deserialized into a usable JS object.
  */
-import type { Labrinth } from '@modrinth/api-client'
-import type { ContentItem, ContentOwner } from '@modrinth/ui'
+import type { Labrinth } from '@orbiont/api-client'
+import type { ContentItem, ContentOwner } from '@orbiont/ui'
 import { convertFileSrc, invoke } from '@tauri-apps/api/core'
 
 import { get_project } from './cache.js'

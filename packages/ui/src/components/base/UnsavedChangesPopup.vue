@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T">
-import { HistoryIcon, SaveIcon, SpinnerIcon } from '@modrinth/assets'
+import { HistoryIcon, SaveIcon, SpinnerIcon } from '@orbiont/assets'
 import { isEqual } from 'es-toolkit'
 import { type Component, computed, ref } from 'vue'
 

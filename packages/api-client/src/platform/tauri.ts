@@ -1,5 +1,5 @@
-import { AbstractModrinthClient } from '../core/abstract-client'
-import type { ModrinthApiError } from '../core/errors'
+import { AbstractApiClient } from '../core/abstract-client'
+import type { ApiError } from '../core/errors'
 import type { ClientConfig } from '../types/client'
 import type { RequestOptions } from '../types/request'
 import { appendRequestParams, parseResponseErrorData, toFetchBody } from '../utils/fetch'
@@ -25,14 +25,14 @@ interface HttpError extends Error {
  * ```typescript
  * import { getVersion } from '@tauri-apps/api/app'
  *
- * const client = new TauriModrinthClient({
+ * const client = new TauriApiClient({
  *   userAgent: async () => `my-launcher/${await getVersion()}`,
  * })
  *
  * const project = await client.request('/project/sodium', { api: 'labrinth', version: 2 })
  * ```
  */
-export class TauriModrinthClient extends AbstractModrinthClient {
+export class TauriApiClient extends AbstractApiClient {
 	declare protected config: TauriClientConfig
 
 	protected async executeRequest<T>(url: string, options: RequestOptions): Promise<T> {
@@ -135,7 +135,7 @@ export class TauriModrinthClient extends AbstractModrinthClient {
 		}
 	}
 
-	protected normalizeError(error: unknown): ModrinthApiError {
+	protected normalizeError(error: unknown): ApiError {
 		if (error instanceof Error) {
 			const httpError = error as HttpError
 			const statusCode = httpError.statusCode

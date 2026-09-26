@@ -5,8 +5,8 @@ import {
 	DownloadIcon,
 	LoaderSpinnerIcon,
 	PauseIcon,
-} from '@modrinth/assets'
-import { defineMessages, truncatedTooltip, useFormatNumber, useVIntl } from '@modrinth/ui'
+} from '@orbiont/assets'
+import { defineMessages, truncatedTooltip, useFormatNumber, useVIntl } from '@orbiont/ui'
 import {
 	refDebounced,
 	usePreferredReducedMotion,

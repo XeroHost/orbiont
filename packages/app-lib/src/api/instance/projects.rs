@@ -5,7 +5,7 @@ use crate::state::{
     CacheBehaviour, CachedEntry, ProjectType, State,
 };
 use crate::util::fetch;
-use modrinth_content_management::{
+use content_management::{
     ContentType, ResolutionPreferences, ResolveContentPlan,
 };
 use std::collections::HashMap;

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { LinkIcon, TrashIcon, XIcon } from '@modrinth/assets'
-import { Button, commonMessages, defineMessages, NewModal, useVIntl } from '@modrinth/ui'
+import { LinkIcon, TrashIcon, XIcon } from '@orbiont/assets'
+import { Button, commonMessages, defineMessages, NewModal, useVIntl } from '@orbiont/ui'
 import { ref } from 'vue'
 
 import type { DesyncServerMode, ServerWorld } from '@/helpers/worlds'

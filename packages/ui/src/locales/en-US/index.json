@@ -488,12 +488,6 @@
   "content.inline-backup.backup-failed": {
     "defaultMessage": "Backup creation failed. You can still proceed."
   },
-  "content.inline-backup.backup-in-progress": {
-    "defaultMessage": "A backup is in progress, it's recommended to wait for it to finish before performing this action."
-  },
-  "content.inline-backup.backup-takes-a-while": {
-    "defaultMessage": "Creating a backup may take several minutes depending on the size of your server."
-  },
   "content.inline-backup.create-backup": {
     "defaultMessage": "Create backup"
   },
@@ -505,9 +499,6 @@
   },
   "content.inline-backup.warning-body": {
     "defaultMessage": "We recommend creating a backup before proceeding so you can restore your {type} if anything breaks."
-  },
-  "content.inline-backup.world-label": {
-    "defaultMessage": "world"
   },
   "content.managed-card.modpack-content": {
     "defaultMessage": "Modpack content"
@@ -719,32 +710,11 @@
   "creation-flow.button.create-instance": {
     "defaultMessage": "Create instance"
   },
-  "creation-flow.button.create-world": {
-    "defaultMessage": "Create world"
-  },
-  "creation-flow.button.finish": {
-    "defaultMessage": "Finish"
-  },
   "creation-flow.button.import": {
     "defaultMessage": "Import"
   },
   "creation-flow.button.import-instances": {
     "defaultMessage": "Import {count, plural, one {# instance} other {# instances}}"
-  },
-  "creation-flow.button.setup-server": {
-    "defaultMessage": "Setup server"
-  },
-  "creation-flow.modal.custom-setup.build-number.label": {
-    "defaultMessage": "Build number"
-  },
-  "creation-flow.modal.custom-setup.build-number.placeholder": {
-    "defaultMessage": "Select build number"
-  },
-  "creation-flow.modal.custom-setup.build-number.search-placeholder": {
-    "defaultMessage": "Search build number..."
-  },
-  "creation-flow.modal.custom-setup.content-loader.label": {
-    "defaultMessage": "Content loader"
   },
   "creation-flow.modal.custom-setup.game-version.placeholder": {
     "defaultMessage": "Select game version"
@@ -790,105 +760,6 @@
   },
   "creation-flow.modal.custom-setup.options.no-versions-available": {
     "defaultMessage": "No versions available"
-  },
-  "creation-flow.modal.final-config.additional-settings.title": {
-    "defaultMessage": "Additional settings"
-  },
-  "creation-flow.modal.final-config.backup.before-reset-server.name": {
-    "defaultMessage": "Before reset server"
-  },
-  "creation-flow.modal.final-config.difficulty.easy": {
-    "defaultMessage": "Easy"
-  },
-  "creation-flow.modal.final-config.difficulty.hard": {
-    "defaultMessage": "Hard"
-  },
-  "creation-flow.modal.final-config.difficulty.label": {
-    "defaultMessage": "Difficulty"
-  },
-  "creation-flow.modal.final-config.difficulty.normal": {
-    "defaultMessage": "Normal"
-  },
-  "creation-flow.modal.final-config.difficulty.peaceful": {
-    "defaultMessage": "Peaceful"
-  },
-  "creation-flow.modal.final-config.game-version.placeholder": {
-    "defaultMessage": "Select game version"
-  },
-  "creation-flow.modal.final-config.gamemode.creative": {
-    "defaultMessage": "Creative"
-  },
-  "creation-flow.modal.final-config.gamemode.hardcore": {
-    "defaultMessage": "Hardcore"
-  },
-  "creation-flow.modal.final-config.gamemode.label": {
-    "defaultMessage": "Gamemode"
-  },
-  "creation-flow.modal.final-config.gamemode.survival": {
-    "defaultMessage": "Survival"
-  },
-  "creation-flow.modal.final-config.generate-structures.description": {
-    "defaultMessage": "Controls whether villages, strongholds, and other structures generate in new chunks."
-  },
-  "creation-flow.modal.final-config.generate-structures.label": {
-    "defaultMessage": "Generate structures"
-  },
-  "creation-flow.modal.final-config.generator-settings-json.placeholder": {
-    "defaultMessage": "Enter generator settings JSON"
-  },
-  "creation-flow.modal.final-config.generator-settings.custom": {
-    "defaultMessage": "Custom"
-  },
-  "creation-flow.modal.final-config.generator-settings.default": {
-    "defaultMessage": "Default"
-  },
-  "creation-flow.modal.final-config.generator-settings.description": {
-    "defaultMessage": "Used for advanced world customization such as custom Superflat layers."
-  },
-  "creation-flow.modal.final-config.generator-settings.flat": {
-    "defaultMessage": "Flat"
-  },
-  "creation-flow.modal.final-config.generator-settings.label": {
-    "defaultMessage": "Generator settings"
-  },
-  "creation-flow.modal.final-config.generator-settings.placeholder": {
-    "defaultMessage": "Select generator settings"
-  },
-  "creation-flow.modal.final-config.world-name.label": {
-    "defaultMessage": "World name"
-  },
-  "creation-flow.modal.final-config.world-name.placeholder": {
-    "defaultMessage": "Enter world name"
-  },
-  "creation-flow.modal.final-config.world-seed.description": {
-    "defaultMessage": "Leave blank for a random seed."
-  },
-  "creation-flow.modal.final-config.world-seed.label-with-optional": {
-    "defaultMessage": "World seed <optional>(Optional)</optional>"
-  },
-  "creation-flow.modal.final-config.world-seed.placeholder": {
-    "defaultMessage": "Enter world seed"
-  },
-  "creation-flow.modal.final-config.world-type.amplified": {
-    "defaultMessage": "Amplified"
-  },
-  "creation-flow.modal.final-config.world-type.default": {
-    "defaultMessage": "Default"
-  },
-  "creation-flow.modal.final-config.world-type.label": {
-    "defaultMessage": "World type"
-  },
-  "creation-flow.modal.final-config.world-type.large-biomes": {
-    "defaultMessage": "Large Biomes"
-  },
-  "creation-flow.modal.final-config.world-type.placeholder": {
-    "defaultMessage": "Select world type"
-  },
-  "creation-flow.modal.final-config.world-type.single-biome": {
-    "defaultMessage": "Single Biome"
-  },
-  "creation-flow.modal.final-config.world-type.superflat": {
-    "defaultMessage": "Superflat"
   },
   "creation-flow.modal.import-instance.action.add": {
     "defaultMessage": "Add"
@@ -959,35 +830,14 @@
   "creation-flow.modal.setup-type.option.upload-modpack.title": {
     "defaultMessage": "Upload a modpack"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
-    "defaultMessage": "Classic Minecraft with no mods or plugins."
-  },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "Vanilla Minecraft"
-  },
-  "creation-flow.modal.setup-type.title.installation": {
-    "defaultMessage": "Select installation type"
-  },
   "creation-flow.modal.setup-type.title.instance": {
     "defaultMessage": "Choose instance type"
-  },
-  "creation-flow.modal.setup-type.title.world": {
-    "defaultMessage": "Select world type"
   },
   "creation-flow.title.create-instance": {
     "defaultMessage": "Create instance"
   },
-  "creation-flow.title.create-world": {
-    "defaultMessage": "Create world"
-  },
   "creation-flow.title.import-instance": {
     "defaultMessage": "Import instance"
-  },
-  "creation-flow.title.reset-server": {
-    "defaultMessage": "Reset server"
-  },
-  "creation-flow.title.set-up-server": {
-    "defaultMessage": "Set up server"
   },
   "empty-state.upload-versions.description": {
     "defaultMessage": "Come back once you've uploaded your versions."
@@ -1238,9 +1088,6 @@
   "files.navbar.home": {
     "defaultMessage": "Home"
   },
-  "files.navbar.install-curseforge-pack": {
-    "defaultMessage": "Install CurseForge pack"
-  },
   "files.navbar.new-file": {
     "defaultMessage": "New file"
   },
@@ -1258,9 +1105,6 @@
   },
   "files.navbar.upload-from-zip": {
     "defaultMessage": "Upload from .zip file"
-  },
-  "files.navbar.upload-from-zip-url": {
-    "defaultMessage": "Upload from .zip URL"
   },
   "files.rename-modal.header": {
     "defaultMessage": "Rename {name}"
@@ -1312,63 +1156,6 @@
   },
   "files.validation.name-required": {
     "defaultMessage": "Name is required."
-  },
-  "files.zip-url-modal.backup-name": {
-    "defaultMessage": "CurseForge modpack install"
-  },
-  "files.zip-url-modal.cf-header": {
-    "defaultMessage": "Install a CurseForge modpack"
-  },
-  "files.zip-url-modal.cf-not-found-text": {
-    "defaultMessage": "Could not find CurseForge modpack at that URL."
-  },
-  "files.zip-url-modal.cf-not-found-title": {
-    "defaultMessage": "CurseForge modpack not found"
-  },
-  "files.zip-url-modal.enter-link": {
-    "defaultMessage": "Enter link"
-  },
-  "files.zip-url-modal.error-cf-url": {
-    "defaultMessage": "URL must be a CurseForge modpack version URL."
-  },
-  "files.zip-url-modal.error-url-invalid": {
-    "defaultMessage": "URL must be valid."
-  },
-  "files.zip-url-modal.error-url-required": {
-    "defaultMessage": "URL is required."
-  },
-  "files.zip-url-modal.install-button": {
-    "defaultMessage": "Install"
-  },
-  "files.zip-url-modal.install-failed-title": {
-    "defaultMessage": "Installation failed"
-  },
-  "files.zip-url-modal.step-copy-description": {
-    "defaultMessage": "Copy the version page URL and paste it below."
-  },
-  "files.zip-url-modal.step-copy-title": {
-    "defaultMessage": "Copy the URL"
-  },
-  "files.zip-url-modal.step-find-description": {
-    "defaultMessage": "Browse CurseForge and locate the modpack you want."
-  },
-  "files.zip-url-modal.step-find-title": {
-    "defaultMessage": "Find the modpack"
-  },
-  "files.zip-url-modal.step-select-description": {
-    "defaultMessage": "Go to the \"Files\" tab and pick the version to install."
-  },
-  "files.zip-url-modal.step-select-title": {
-    "defaultMessage": "Select a version"
-  },
-  "files.zip-url-modal.unknown-error": {
-    "defaultMessage": "An unknown error occurred"
-  },
-  "files.zip-url-modal.zip-description": {
-    "defaultMessage": "Copy and paste the direct download URL of a .zip file."
-  },
-  "files.zip-url-modal.zip-header": {
-    "defaultMessage": "Uploading .zip contents from URL"
   },
   "filter-bar.add": {
     "defaultMessage": "Add"
@@ -1655,9 +1442,6 @@
   "installation-settings.edit.warning-instance": {
     "defaultMessage": "We don't recommend editing your installation settings after installing content. If you want to edit them, be cautious as it may cause issues."
   },
-  "installation-settings.edit.warning-server": {
-    "defaultMessage": "We don't recommend editing your installation settings after installing content. If you want to edit them reset your server."
-  },
   "installation-settings.incompatible-content.auto-fix-button": {
     "defaultMessage": "Auto-fix"
   },
@@ -1715,12 +1499,6 @@
   "installation-settings.repair.instance-title": {
     "defaultMessage": "Repair instance"
   },
-  "installation-settings.repair.server-description": {
-    "defaultMessage": "Reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your server is not starting correctly."
-  },
-  "installation-settings.repair.server-title": {
-    "defaultMessage": "Repair server"
-  },
   "installation-settings.saving": {
     "defaultMessage": "Saving..."
   },
@@ -1735,9 +1513,6 @@
   },
   "installation-settings.type.server": {
     "defaultMessage": "server"
-  },
-  "installation-settings.type.server-possessive": {
-    "defaultMessage": "server's"
   },
   "installation-settings.unlink": {
     "defaultMessage": "Unlink"
@@ -1763,9 +1538,6 @@
   "instance.confirm-repair.body.instance": {
     "defaultMessage": "Repairing reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your game is not launching due to launcher-related errors."
   },
-  "instance.confirm-repair.body.server": {
-    "defaultMessage": "Repairing reinstalls the loader and Minecraft dependencies without deleting your content. This may resolve issues if your server is not starting correctly."
-  },
   "instance.confirm-repair.header": {
     "defaultMessage": "Repair {type}"
   },
@@ -1774,9 +1546,6 @@
   },
   "instance.confirm-repair.repair-button": {
     "defaultMessage": "Repair"
-  },
-  "instance.confirm-repair.server-label": {
-    "defaultMessage": "server"
   },
   "instance.worlds.game_mode.adventure": {
     "defaultMessage": "Adventure mode"
@@ -2213,9 +1982,6 @@
   "label.yes": {
     "defaultMessage": "Yes"
   },
-  "layout.account-switcher.switching": {
-    "defaultMessage": "Switching accounts..."
-  },
   "locale.cs-CZ": {
     "defaultMessage": "Czech"
   },
@@ -2312,150 +2078,6 @@
   "locale.zh-TW": {
     "defaultMessage": "Chinese (Traditional)"
   },
-  "markdown-editor.default-image-alt-text": {
-    "defaultMessage": "Replace this with a description"
-  },
-  "markdown-editor.error-label": {
-    "defaultMessage": "Error"
-  },
-  "markdown-editor.image-modal.description-field.description": {
-    "defaultMessage": "Describe the image completely as you would to someone who could not see the image."
-  },
-  "markdown-editor.image-modal.description-field.placeholder": {
-    "defaultMessage": "Describe the image..."
-  },
-  "markdown-editor.image-modal.description-field.title": {
-    "defaultMessage": "Description (alt text)"
-  },
-  "markdown-editor.image-modal.header": {
-    "defaultMessage": "Insert image"
-  },
-  "markdown-editor.image-modal.upload-mode.label": {
-    "defaultMessage": "Image source"
-  },
-  "markdown-editor.image-modal.upload-mode.link": {
-    "defaultMessage": "Link"
-  },
-  "markdown-editor.image-modal.upload-mode.upload": {
-    "defaultMessage": "Upload"
-  },
-  "markdown-editor.image-modal.upload.prompt": {
-    "defaultMessage": "Drag and drop to upload or click to select file"
-  },
-  "markdown-editor.image-modal.url-field.placeholder": {
-    "defaultMessage": "Enter the image URL..."
-  },
-  "markdown-editor.insert-button": {
-    "defaultMessage": "Insert"
-  },
-  "markdown-editor.link-modal.header": {
-    "defaultMessage": "Insert link"
-  },
-  "markdown-editor.link-modal.label-field.placeholder": {
-    "defaultMessage": "Enter label..."
-  },
-  "markdown-editor.link-modal.label-field.title": {
-    "defaultMessage": "Label"
-  },
-  "markdown-editor.link-modal.url-field.placeholder": {
-    "defaultMessage": "Enter the link's URL..."
-  },
-  "markdown-editor.markdown-formatting-support": {
-    "defaultMessage": "This editor supports <markdown-link>Markdown formatting</markdown-link>."
-  },
-  "markdown-editor.max-length.label": {
-    "defaultMessage": "Max length:"
-  },
-  "markdown-editor.max-length.unlimited": {
-    "defaultMessage": "Unlimited"
-  },
-  "markdown-editor.max-length.value": {
-    "defaultMessage": "{currentLength}/{maxLength}"
-  },
-  "markdown-editor.placeholder": {
-    "defaultMessage": "Write something..."
-  },
-  "markdown-editor.preview-label": {
-    "defaultMessage": "Preview"
-  },
-  "markdown-editor.preview-toggle.label": {
-    "defaultMessage": "Preview"
-  },
-  "markdown-editor.toolbar.bold": {
-    "defaultMessage": "Bold"
-  },
-  "markdown-editor.toolbar.bulleted-list": {
-    "defaultMessage": "Bulleted list"
-  },
-  "markdown-editor.toolbar.code": {
-    "defaultMessage": "Code"
-  },
-  "markdown-editor.toolbar.heading-1": {
-    "defaultMessage": "Heading 1"
-  },
-  "markdown-editor.toolbar.heading-2": {
-    "defaultMessage": "Heading 2"
-  },
-  "markdown-editor.toolbar.heading-3": {
-    "defaultMessage": "Heading 3"
-  },
-  "markdown-editor.toolbar.image": {
-    "defaultMessage": "Image"
-  },
-  "markdown-editor.toolbar.italic": {
-    "defaultMessage": "Italic"
-  },
-  "markdown-editor.toolbar.link": {
-    "defaultMessage": "Link"
-  },
-  "markdown-editor.toolbar.ordered-list": {
-    "defaultMessage": "Ordered list"
-  },
-  "markdown-editor.toolbar.quote": {
-    "defaultMessage": "Quote"
-  },
-  "markdown-editor.toolbar.spoiler": {
-    "defaultMessage": "Spoiler"
-  },
-  "markdown-editor.toolbar.strikethrough": {
-    "defaultMessage": "Strikethrough"
-  },
-  "markdown-editor.toolbar.video": {
-    "defaultMessage": "Video"
-  },
-  "markdown-editor.upload-error.no-file": {
-    "defaultMessage": "No file provided"
-  },
-  "markdown-editor.upload-error.no-handler": {
-    "defaultMessage": "No image upload handler provided"
-  },
-  "markdown-editor.url-label": {
-    "defaultMessage": "URL"
-  },
-  "markdown-editor.url-validation-error.blocked-domain": {
-    "defaultMessage": "Invalid URL. This domain is not allowed."
-  },
-  "markdown-editor.url-validation-error.malformed": {
-    "defaultMessage": "Invalid URL. Make sure the URL is well-formed."
-  },
-  "markdown-editor.url-validation-error.unsupported-protocol": {
-    "defaultMessage": "Unsupported protocol. Use http or https."
-  },
-  "markdown-editor.video-embed.title": {
-    "defaultMessage": "YouTube video player"
-  },
-  "markdown-editor.video-modal.header": {
-    "defaultMessage": "Insert YouTube video"
-  },
-  "markdown-editor.video-modal.url-field.description": {
-    "defaultMessage": "Enter a valid link to a YouTube video."
-  },
-  "markdown-editor.video-modal.url-field.placeholder": {
-    "defaultMessage": "Enter YouTube video URL"
-  },
-  "markdown-editor.video-modal.url-field.title": {
-    "defaultMessage": "YouTube video URL"
-  },
   "notification.error.title": {
     "defaultMessage": "An error occurred"
   },
@@ -2491,9 +2113,6 @@
   },
   "notifications.server-invite.body": {
     "defaultMessage": "<actor>{actor}</actor> invited you to manage the server <entity>{entity}</entity>."
-  },
-  "omorphia.component.copy.action.copy": {
-    "defaultMessage": "Copy code to clipboard"
   },
   "payment-method.amazon_pay": {
     "defaultMessage": "Amazon Pay"
@@ -2611,9 +2230,6 @@
   },
   "profile.button.set-affiliate": {
     "defaultMessage": "Set as affiliate"
-  },
-  "profile.button.shared-instances": {
-    "defaultMessage": "View shared instances"
   },
   "profile.button.unblock": {
     "defaultMessage": "Unblock"
@@ -3725,12 +3341,6 @@
   "search.server_content_type.vanilla": {
     "defaultMessage": "Vanilla"
   },
-  "servers.busy.backup-creating": {
-    "defaultMessage": "Backup creation in progress"
-  },
-  "servers.busy.backup-restoring": {
-    "defaultMessage": "Backup restore in progress"
-  },
   "settings.account.title": {
     "defaultMessage": "Account and security"
   },
@@ -3827,15 +3437,6 @@
   "settings.display.theme.retro": {
     "defaultMessage": "Retro"
   },
-  "settings.display.theme.sync-across-devices": {
-    "defaultMessage": "Sync theme across devices"
-  },
-  "settings.display.theme.sync-across-devices.description": {
-    "defaultMessage": "Use this theme everywhere you're signed in. Turn this off to keep a separate theme on this device."
-  },
-  "settings.display.theme.sync-across-devices.sign-in-tooltip": {
-    "defaultMessage": "Sign into Modrinth to sync theme"
-  },
   "settings.display.theme.system": {
     "defaultMessage": "Sync with system"
   },
@@ -3886,12 +3487,6 @@
   },
   "settings.pats.title": {
     "defaultMessage": "Personal access tokens"
-  },
-  "settings.preferences.update-failed.description": {
-    "defaultMessage": "Your settings could not be saved to your Modrinth account. Please try again."
-  },
-  "settings.preferences.update-failed.title": {
-    "defaultMessage": "Failed to sync settings"
   },
   "settings.profile.navigation-title": {
     "defaultMessage": "Profile"

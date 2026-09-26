@@ -79,7 +79,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import {
 	CheckIcon,
 	DownloadIcon,
@@ -87,8 +87,8 @@ import {
 	MoreVerticalIcon,
 	ReportIcon,
 	VersionIcon,
-} from '@modrinth/assets'
-import { BackToParentLink, Button, ButtonLink, TeleportOverflowMenu } from '@modrinth/ui'
+} from '@orbiont/assets'
+import { BackToParentLink, Button, ButtonLink, TeleportOverflowMenu } from '@orbiont/ui'
 import {
 	commonMessages,
 	defineMessages,
@@ -96,7 +96,7 @@ import {
 	useFormatBytes,
 	useVIntl,
 	VersionPage,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed, ref, shallowRef, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 

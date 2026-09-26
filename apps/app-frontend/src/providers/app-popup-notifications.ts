@@ -1,4 +1,4 @@
-import { AbstractPopupNotificationManager, type PopupNotification } from '@modrinth/ui'
+import { AbstractPopupNotificationManager, type PopupNotification } from '@orbiont/ui'
 import { type Ref, ref } from 'vue'
 
 export class AppPopupNotificationManager extends AbstractPopupNotificationManager {

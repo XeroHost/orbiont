@@ -9,8 +9,8 @@ import {
 	Settings2Icon,
 	ShieldIcon,
 	ToggleRightIcon,
-} from '@modrinth/assets'
-import { productName } from '@modrinth/branding'
+} from '@orbiont/assets'
+import { productName } from '@orbiont/branding'
 import {
 	commonMessages,
 	commonSettingsMessages,
@@ -21,7 +21,7 @@ import {
 	TabbedModal,
 	UnsavedChangesPopup,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { getVersion } from '@tauri-apps/api/app'
 import { platform as getOsPlatform, version as getOsVersion } from '@tauri-apps/plugin-os'

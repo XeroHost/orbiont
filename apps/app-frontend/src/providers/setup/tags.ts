@@ -1,4 +1,4 @@
-import { type AbstractWebNotificationManager, provideTags } from '@modrinth/ui'
+import { type AbstractWebNotificationManager, provideTags } from '@orbiont/ui'
 import { ref } from 'vue'
 
 import { get_game_versions, get_loaders } from '@/helpers/tags'

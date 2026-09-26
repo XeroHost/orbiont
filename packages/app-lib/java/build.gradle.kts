@@ -40,14 +40,14 @@ tasks.jar {
 }
 
 tasks.shadowJar {
-    archiveFileName = "theseus.jar"
+    archiveFileName = "launcher-agent.jar"
     manifest {
-        attributes["Premain-Class"] = "com.modrinth.theseus.agent.TheseusAgent"
+        attributes["Premain-Class"] = "net.xerohost.launcher.agent.LauncherAgent"
     }
 
     addMultiReleaseAttribute = false
     enableAutoRelocation = true
-    relocationPrefix = "com.modrinth.theseus.shadow"
+    relocationPrefix = "net.xerohost.launcher.shadow"
 }
 
 tasks.named<Test>("test") {

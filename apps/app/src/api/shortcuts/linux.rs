@@ -17,12 +17,13 @@ pub(super) async fn create_shortcut(
 			Type=Application\n\
 			Name={}\n\
 			Exec={} {}\n\
-			Icon=ModrinthApp\n\
+			Icon={}\n\
 			Terminal=false\n\
 			Categories=Game;\n",
             escape_desktop_entry_value(&format!("Launch {profile_name}")),
             quote_desktop_exec_arg(&target_path.to_string_lossy()),
             quote_desktop_exec_arg(launch_url.as_str()),
+            theseus::orbiont::PRODUCT_NAME,
         ),
     )
     .await?;

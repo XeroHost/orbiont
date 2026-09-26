@@ -1,4 +1,4 @@
-import type { ContentItem } from '@modrinth/ui'
+import type { ContentItem } from '@orbiont/ui'
 import { queryOptions } from '@tanstack/vue-query'
 import { invoke } from '@tauri-apps/api/core'
 

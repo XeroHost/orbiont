@@ -1,5 +1,5 @@
 <script setup>
-import { ModrinthApiError, TauriModrinthClient, VerboseLoggingFeature } from '@modrinth/api-client'
+import { ApiError, TauriApiClient, VerboseLoggingFeature } from '@orbiont/api-client'
 import {
 	ChevronLeftIcon,
 	ChevronRightIcon,
@@ -13,8 +13,8 @@ import {
 	ServerIcon,
 	SettingsIcon,
 	ShirtIcon,
-} from '@modrinth/assets'
-import { changelogUrl, productName, supportEmail } from '@modrinth/branding'
+} from '@orbiont/assets'
+import { changelogUrl, productName, supportEmail } from '@orbiont/branding'
 import {
 	Admonition,
 	commonMessages,
@@ -27,8 +27,8 @@ import {
 	LoadingBar,
 	NotificationPanel,
 	PopupNotificationPanel,
+	provideApiClient,
 	provideModalBehavior,
-	provideModrinthClient,
 	provideNotificationManager,
 	providePageContext,
 	providePopupNotificationManager,
@@ -36,7 +36,7 @@ import {
 	useDebugLogger,
 	useFormatBytes,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useQueries, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { getVersion } from '@tauri-apps/api/app'
 import { convertFileSrc, invoke } from '@tauri-apps/api/core'
@@ -219,12 +219,12 @@ providePopupNotificationManager(popupNotificationManager)
 const { addPopupNotification } = popupNotificationManager
 
 const appVersion = getVersion()
-const tauriApiClient = new TauriModrinthClient({
+const tauriApiClient = new TauriApiClient({
 	userAgent: async () => `${productName}/${await appVersion} (${supportEmail})`,
 	labrinthBaseUrl: config.labrinthBaseUrl,
 	features: [new VerboseLoggingFeature()],
 })
-provideModrinthClient(tauriApiClient)
+provideApiClient(tauriApiClient)
 providePageContext({
 	hierarchicalSidebarAvailable: ref(true),
 	floatingActionBarOffsets: {
@@ -1237,7 +1237,7 @@ async function openModrinthProjectLinkInApp(parsed) {
 			hash: url.hash || undefined,
 		})
 	} catch (err) {
-		if (err instanceof ModrinthApiError && err.statusCode === 404) {
+		if (err instanceof ApiError && err.statusCode === 404) {
 			openUrl(url.href)
 		} else {
 			handleError(err)

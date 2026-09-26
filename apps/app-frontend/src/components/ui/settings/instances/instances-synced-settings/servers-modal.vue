@@ -10,7 +10,7 @@ import {
 	SignalIcon,
 	TrashIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	Avatar,
 	Button,
@@ -25,7 +25,7 @@ import {
 	type TableColumn,
 	TeleportOverflowMenu,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, nextTick, ref } from 'vue'
 

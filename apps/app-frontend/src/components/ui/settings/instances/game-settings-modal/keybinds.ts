@@ -1,4 +1,4 @@
-import { defineMessages, type MessageDescriptor, type VIntlFormatters } from '@modrinth/ui'
+import { defineMessages, type MessageDescriptor, type VIntlFormatters } from '@orbiont/ui'
 
 type FormatMessage = VIntlFormatters['formatMessage']
 

@@ -1,5 +1,5 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { type AbstractPopupNotificationManager, createContext } from '@modrinth/ui'
+import type { Labrinth } from '@orbiont/api-client'
+import { type AbstractPopupNotificationManager, createContext } from '@orbiont/ui'
 import { type Ref, ref } from 'vue'
 import type { Router } from 'vue-router'
 

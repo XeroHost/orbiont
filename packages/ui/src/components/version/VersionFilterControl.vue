@@ -75,9 +75,9 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { ChevronLeftIcon, FilterIcon, XIcon } from '@modrinth/assets'
-import type { GameVersionTag } from '@modrinth/utils'
+import type { Labrinth } from '@orbiont/api-client'
+import { ChevronLeftIcon, FilterIcon, XIcon } from '@orbiont/assets'
+import type { GameVersionTag } from '@orbiont/utils'
 import { computed, ref } from 'vue'
 import type { LocationQueryValue } from 'vue-router'
 import { useRoute } from 'vue-router'

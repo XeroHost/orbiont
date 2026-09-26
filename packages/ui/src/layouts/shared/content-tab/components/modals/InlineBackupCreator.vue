@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { CheckCircleIcon, PlusIcon, SpinnerIcon } from '@modrinth/assets'
+import { CheckCircleIcon, PlusIcon, SpinnerIcon } from '@orbiont/assets'
 import { watch } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'

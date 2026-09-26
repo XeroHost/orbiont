@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import {
 	AlphaBadge,
 	BetaBadge,
@@ -21,15 +21,15 @@ import {
 	PlusBadge,
 	PrideBadge,
 	StaffBadge,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	defineMessage,
 	defineMessages,
 	type MessageDescriptor,
 	useFormatNumber,
 	useVIntl,
-} from '@modrinth/ui'
-import { UserBadge as BadgeBitflag } from '@modrinth/utils'
+} from '@orbiont/ui'
+import { UserBadge as BadgeBitflag } from '@orbiont/utils'
 import { type Component, computed } from 'vue'
 
 import UserBadge from './UserBadge.vue'

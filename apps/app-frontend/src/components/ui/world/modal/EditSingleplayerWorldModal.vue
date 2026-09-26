@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronRightIcon, SaveIcon, UndoIcon, XIcon } from '@modrinth/assets'
+import { ChevronRightIcon, SaveIcon, UndoIcon, XIcon } from '@orbiont/assets'
 import {
 	Avatar,
 	Button,
@@ -8,7 +8,7 @@ import {
 	injectNotificationManager,
 	Input,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed, ref } from 'vue'
 
 import ModalWrapper from '@/components/ui/modal/ModalWrapper.vue'

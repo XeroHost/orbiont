@@ -96,7 +96,7 @@
 </template>
 
 <script setup lang="ts">
-import { SearchIcon, TrashIcon, XIcon } from '@modrinth/assets'
+import { SearchIcon, TrashIcon, XIcon } from '@orbiont/assets'
 import type { Terminal } from '@xterm/xterm'
 import { computed, isRef, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
@@ -110,7 +110,7 @@ import Input from '#ui/components/base/inputs/Input.vue'
 import NewModal from '#ui/components/modal/NewModal.vue'
 import ShareModal from '#ui/components/modal/ShareModal.vue'
 import { useModalStack } from '#ui/composables/modal-stack'
-import { injectModrinthClient } from '#ui/providers'
+import { injectApiClient } from '#ui/providers'
 import { injectModalBehavior } from '#ui/providers/modal-behavior'
 import { injectNotificationManager } from '#ui/providers/web-notifications.ts'
 
@@ -129,7 +129,7 @@ import { injectConsoleManager } from './providers'
 import type { LogLevel, LogLine } from './types'
 
 const ctx = injectConsoleManager()
-const client = injectModrinthClient()
+const client = injectApiClient()
 const modalBehavior = injectModalBehavior()
 const { addNotification } = injectNotificationManager()
 const { hasModal } = useModalStack()

@@ -1025,7 +1025,7 @@ pub async fn launch_minecraft(
     }
 
     let (main_class_keep_alive, main_class_path) =
-        get_resource_file!(env "JAVA_JARS_DIR" / "theseus.jar")?;
+        get_resource_file!(env "JAVA_JARS_DIR" / "launcher-agent.jar")?;
 
     let rpc_server = RpcServerBuilder::new().launch().await?;
 
@@ -1071,7 +1071,7 @@ pub async fn launch_minecraft(
     }
 
     command
-        .arg("com.modrinth.theseus.MinecraftLaunch")
+        .arg("net.xerohost.launcher.MinecraftLaunch")
         .arg(version_info.main_class.clone())
         .args(
             args::get_minecraft_arguments(
@@ -1193,16 +1193,16 @@ pub async fn launch_minecraft(
                 let (link_project_id, link_version_id) =
                     link_project_and_version(&context.link);
                 let system_properties = [
-                    ("modrinth.process.startTime", Some(&process_start_time)),
-                    ("modrinth.profile.created", Some(&instance_created_time)),
-                    ("modrinth.profile.icon", instance.icon_path.as_ref()),
-                    ("modrinth.profile.link.project", link_project_id),
-                    ("modrinth.profile.link.version", link_version_id),
+                    ("launcher.process.startTime", Some(&process_start_time)),
+                    ("launcher.profile.created", Some(&instance_created_time)),
+                    ("launcher.profile.icon", instance.icon_path.as_ref()),
+                    ("launcher.profile.link.project", link_project_id),
+                    ("launcher.profile.link.version", link_version_id),
                     (
-                        "modrinth.profile.modified",
+                        "launcher.profile.modified",
                         Some(&instance_modified_time),
                     ),
-                    ("modrinth.profile.name", Some(&instance.name)),
+                    ("launcher.profile.name", Some(&instance.name)),
                 ];
                 for (key, value) in system_properties {
                     let Some(value) = value else {

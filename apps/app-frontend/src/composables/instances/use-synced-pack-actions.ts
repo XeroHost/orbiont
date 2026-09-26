@@ -1,11 +1,11 @@
-import { LinkIcon, XIcon } from '@modrinth/assets'
+import { LinkIcon, XIcon } from '@orbiont/assets'
 import {
 	type ButtonMenuOption,
 	type ContentItem,
 	defineMessages,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { type Ref, watch } from 'vue'
 

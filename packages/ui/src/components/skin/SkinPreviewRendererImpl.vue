@@ -101,7 +101,7 @@
 </template>
 
 <script setup lang="ts">
-import { ClassicPlayerModel, SlimPlayerModel, UnfoldHorizontalIcon } from '@modrinth/assets'
+import { ClassicPlayerModel, SlimPlayerModel, UnfoldHorizontalIcon } from '@orbiont/assets'
 import { TresCanvas } from '@tresjs/core'
 import * as THREE from 'three'
 import {

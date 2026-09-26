@@ -185,8 +185,8 @@ import {
 	SpinnerIcon,
 	UploadIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { commonMessages, defineMessages, useVIntl } from '@modrinth/ui'
+} from '@orbiont/assets'
+import { commonMessages, defineMessages, useVIntl } from '@orbiont/ui'
 import { computed, onMounted, ref, watch } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'

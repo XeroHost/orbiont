@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ChevronRightIcon } from '@modrinth/assets'
+import { ChevronRightIcon } from '@orbiont/assets'
 import { computed, ref, toRef, useId } from 'vue'
 
 import { useAnchoredTeleport } from '../../../../utils/use-anchored-teleport'

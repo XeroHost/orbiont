@@ -13,6 +13,8 @@ use tokio::sync::RwLock;
 pub const PRODUCT_NAME: &str = env!("ORBIONT_PRODUCT_NAME");
 /// Support address, for the same kind of early error messages.
 pub const SUPPORT_EMAIL: &str = env!("ORBIONT_SUPPORT_EMAIL");
+/// Deep-link scheme the app registers (`orbiont://...`).
+pub const DEEP_LINK_SCHEME: &str = env!("ORBIONT_DEEP_LINK_SCHEME");
 
 fn base_url() -> &'static str {
     env!("ORBIONT_CATALOG_BASE_URL")

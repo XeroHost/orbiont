@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { SearchIcon } from '@modrinth/assets'
-import { Button, Input, Toggle } from '@modrinth/ui'
+import { SearchIcon } from '@orbiont/assets'
+import { Button, Input, Toggle } from '@orbiont/ui'
 import Fuse from 'fuse.js'
 import { computed, ref, watch } from 'vue'
 

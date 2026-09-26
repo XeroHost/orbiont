@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { OnlineIndicatorIcon } from '@modrinth/assets'
+import { OnlineIndicatorIcon } from '@orbiont/assets'
 
 import { useCompactNumber, useFormatNumber, useVIntl } from '../../../composables'
 import { commonMessages } from '../../../utils'

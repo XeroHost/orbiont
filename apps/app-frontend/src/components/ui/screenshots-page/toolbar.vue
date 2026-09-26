@@ -1,13 +1,6 @@
 <script setup lang="ts">
-import { ArrowUpDownIcon, LayoutGridIcon, SearchIcon, SquarePlusIcon } from '@modrinth/assets'
-import {
-	Button,
-	Combobox,
-	type ComboboxOption,
-	defineMessages,
-	Input,
-	useVIntl,
-} from '@modrinth/ui'
+import { ArrowUpDownIcon, LayoutGridIcon, SearchIcon, SquarePlusIcon } from '@orbiont/assets'
+import { Button, Combobox, type ComboboxOption, defineMessages, Input, useVIntl } from '@orbiont/ui'
 
 const search = defineModel<string>('search', { required: true })
 const sort = defineModel<string>('sort', { required: true })

@@ -97,8 +97,8 @@ import {
 	SearchIcon,
 	SpinnerIcon,
 	XCircleIcon,
-} from '@modrinth/assets'
-import { Button, defineMessages, injectNotificationManager, Input, useVIntl } from '@modrinth/ui'
+} from '@orbiont/assets'
+import { Button, defineMessages, injectNotificationManager, Input, useVIntl } from '@orbiont/ui'
 import { open } from '@tauri-apps/plugin-dialog'
 import { ref, watch } from 'vue'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DropdownIcon } from '@modrinth/assets'
+import { DropdownIcon } from '@orbiont/assets'
 import {
 	Button,
 	Collapsible,
@@ -7,7 +7,7 @@ import {
 	useFormatNumber,
 	useScrollIndicator,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useResizeObserver } from '@vueuse/core'
 import { computed, ref, useId, useTemplateRef } from 'vue'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts" generic="T extends string">
-import { MoonIcon, RadioButtonCheckedIcon, RadioButtonIcon, SunIcon } from '@modrinth/assets'
+import { MoonIcon, RadioButtonCheckedIcon, RadioButtonIcon, SunIcon } from '@orbiont/assets'
 
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
 

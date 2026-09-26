@@ -117,8 +117,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { SaveIcon, SpinnerIcon, TrashIcon, UndoIcon, UploadIcon, XIcon } from '@modrinth/assets'
+import type { Labrinth } from '@orbiont/api-client'
+import { SaveIcon, SpinnerIcon, TrashIcon, UndoIcon, UploadIcon, XIcon } from '@orbiont/assets'
 import { useQueryClient } from '@tanstack/vue-query'
 import { computed, onBeforeUnmount, ref, shallowRef } from 'vue'
 import { useRouter } from 'vue-router'

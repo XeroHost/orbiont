@@ -3,8 +3,8 @@ import {
 	createMessageCompiler,
 	type CrowdinMessages,
 	LOCALES,
-} from '@modrinth/ui'
-import englishUi from '@modrinth/ui/src/locales/en-US/index.json'
+} from '@orbiont/ui'
+import englishUi from '@orbiont/ui/src/locales/en-US/index.json'
 import { createI18n } from 'vue-i18n'
 
 import englishApp from './locales/en-US/index.json'

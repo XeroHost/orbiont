@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import {
 	CheckIcon,
 	ClipboardCopyIcon,
@@ -8,8 +8,8 @@ import {
 	GlobeIcon,
 	PlusIcon,
 	SpinnerIcon,
-} from '@modrinth/assets'
-import type { BrowseInstallContentType, CardAction, ProjectType, Tags } from '@modrinth/ui'
+} from '@orbiont/assets'
+import type { BrowseInstallContentType, CardAction, ProjectType, Tags } from '@orbiont/ui'
 import {
 	BrowsePageLayout,
 	BrowseSidebar,
@@ -28,7 +28,7 @@ import {
 	useBrowseSearch,
 	useDebugLogger,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { openUrl } from '@tauri-apps/plugin-opener'
 import type { Ref } from 'vue'

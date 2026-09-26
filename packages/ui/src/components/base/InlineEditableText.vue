@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EditIcon } from '@modrinth/assets'
+import { EditIcon } from '@orbiont/assets'
 import { computed, nextTick, onUnmounted, ref, watch } from 'vue'
 
 const model = defineModel<string>({ default: '' })

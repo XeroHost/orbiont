@@ -5,7 +5,7 @@
 	</TagItem>
 </template>
 <script setup lang="ts">
-import { getTagIcon } from '@modrinth/assets'
+import { getTagIcon } from '@orbiont/assets'
 import { computed } from 'vue'
 
 import { getTagMessage } from '../../utils'

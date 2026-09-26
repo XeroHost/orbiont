@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { KeyboardSensor, PointerSensor, useDraggable } from '@dnd-kit/vue'
-import { CheckIcon, DownloadIcon, PlayIcon, SpinnerIcon, StopCircleIcon } from '@modrinth/assets'
-import { defineMessages, IconButton, injectNotificationManager, useVIntl } from '@modrinth/ui'
+import { CheckIcon, DownloadIcon, PlayIcon, SpinnerIcon, StopCircleIcon } from '@orbiont/assets'
+import { defineMessages, IconButton, injectNotificationManager, useVIntl } from '@orbiont/ui'
 import { useEventListener, useMagicKeys } from '@vueuse/core'
 import { computed, onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'

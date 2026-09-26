@@ -8,7 +8,7 @@ import {
 	PaintbrushIcon,
 	SearchIcon,
 	SpinnerIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import Fuse from 'fuse.js'
 import { computed, nextTick, ref, watchSyncEffect } from 'vue'
 

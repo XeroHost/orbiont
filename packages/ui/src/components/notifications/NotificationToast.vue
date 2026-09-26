@@ -192,7 +192,7 @@
 </template>
 
 <script setup lang="ts">
-import { CheckIcon, SpinnerIcon, XIcon } from '@modrinth/assets'
+import { CheckIcon, SpinnerIcon, XIcon } from '@orbiont/assets'
 import { computed, ref } from 'vue'
 
 import { Button, type ButtonColor, IconButton } from '#ui/components/base/buttons'

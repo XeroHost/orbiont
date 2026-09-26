@@ -15,7 +15,7 @@ import {
 	UnlinkIcon,
 	WrenchIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	Button,
 	commonMessages,
@@ -26,7 +26,7 @@ import {
 	TabbedModal,
 	type TabbedModalTab,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import type { Component } from 'vue'
 import { computed, inject, ref, watch } from 'vue'
 import { type RouteLocationRaw, useRouter } from 'vue-router'

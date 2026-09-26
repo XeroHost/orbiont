@@ -4,12 +4,12 @@ import type { BaseUrlConfig, ClientConfig } from '../types/client'
 import type { RequestContext, RequestOptions } from '../types/request'
 import type { AbstractFeature } from './abstract-feature'
 import type { AbstractModule } from './abstract-module'
-import { ModrinthApiError, ModrinthServerError } from './errors'
+import { ApiError, ApiServerError } from './errors'
 
 /**
  * Abstract base client for Modrinth APIs
  */
-export abstract class AbstractModrinthClient {
+export abstract class AbstractApiClient {
 	protected config: ClientConfig
 	protected features: AbstractFeature[]
 
@@ -96,7 +96,7 @@ export abstract class AbstractModrinthClient {
 	 * @param path - API path (e.g., '/project/sodium')
 	 * @param options - Request options
 	 * @returns Promise resolving to the response data
-	 * @throws {ModrinthApiError} When the request fails or features throw errors
+	 * @throws {ApiError} When the request fails or features throw errors
 	 */
 	async request<T>(path: string, options: RequestOptions): Promise<T> {
 		const url = this.buildUrl(path, this.baseUrlFor(options.api), options.version)
@@ -284,17 +284,17 @@ export abstract class AbstractModrinthClient {
 	): Promise<ReadableStream<Uint8Array>>
 
 	/**
-	 * Normalize an error into a ModrinthApiError
+	 * Normalize an error into a ApiError
 	 *
 	 * Platform implementations should override this to handle platform-specific errors
 	 * (e.g., Tauri HTTP errors)
 	 */
-	protected normalizeError(error: unknown, context?: RequestContext): ModrinthApiError {
-		if (error instanceof ModrinthApiError) {
+	protected normalizeError(error: unknown, context?: RequestContext): ApiError {
+		if (error instanceof ApiError) {
 			return error
 		}
 
-		return ModrinthApiError.fromUnknown(error, context?.path)
+		return ApiError.fromUnknown(error, context?.path)
 	}
 
 	/**
@@ -304,12 +304,12 @@ export abstract class AbstractModrinthClient {
 		error: Error,
 		statusCode: number | undefined,
 		responseData: unknown,
-	): ModrinthApiError {
+	): ApiError {
 		if (statusCode && responseData) {
-			return ModrinthServerError.fromResponse(statusCode, responseData)
+			return ApiServerError.fromResponse(statusCode, responseData)
 		}
 
-		return new ModrinthApiError(error.message, {
+		return new ApiError(error.message, {
 			statusCode,
 			originalError: error,
 			responseData,
@@ -323,7 +323,7 @@ export abstract class AbstractModrinthClient {
 	 *
 	 * @example
 	 * ```typescript
-	 * const client = new GenericModrinthClient()
+	 * const client = new GenericApiClient()
 	 * client.addFeature(new AuthFeature({ token: async () => getOAuthToken() }))
 	 * client.addFeature(new RetryFeature({ maxAttempts: 3 }))
 	 * ```

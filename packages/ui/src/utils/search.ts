@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import {
 	ArchiveIcon,
 	BrainCogIcon,
@@ -13,8 +13,8 @@ import {
 	RadioTowerIcon,
 	ServerIcon,
 	SparklesIcon,
-} from '@modrinth/assets'
-import { sortedCategories } from '@modrinth/utils'
+} from '@orbiont/assets'
+import { sortedCategories } from '@orbiont/utils'
 import { type Component, computed, readonly, type Ref, ref } from 'vue'
 import { type LocationQueryRaw, type LocationQueryValue, useRoute } from 'vue-router'
 

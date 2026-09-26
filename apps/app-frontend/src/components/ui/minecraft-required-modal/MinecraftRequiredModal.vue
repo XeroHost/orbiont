@@ -57,9 +57,9 @@
 </template>
 
 <script setup lang="ts">
-import { MessagesSquareIcon, SpinnerIcon } from '@modrinth/assets'
-import { supportUrl } from '@modrinth/branding'
-import { Button, ButtonLink, defineMessages, NewModal, useVIntl } from '@modrinth/ui'
+import { MessagesSquareIcon, SpinnerIcon } from '@orbiont/assets'
+import { supportUrl } from '@orbiont/branding'
+import { Button, ButtonLink, defineMessages, NewModal, useVIntl } from '@orbiont/ui'
 import { inject, type Ref, ref } from 'vue'
 
 import steveImage from '@/assets/steve-look-up-left.webp'

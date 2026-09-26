@@ -37,7 +37,7 @@
 </template>
 
 <script setup lang="ts">
-import { SlashIcon, XIcon } from '@modrinth/assets'
+import { SlashIcon, XIcon } from '@orbiont/assets'
 import { nextTick, ref } from 'vue'
 
 import Admonition from '#ui/components/base/Admonition.vue'

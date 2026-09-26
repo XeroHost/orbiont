@@ -158,7 +158,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import {
 	ClockIcon,
 	DownloadIcon,
@@ -171,8 +171,8 @@ import {
 	SettingsIcon,
 	StopCircleIcon,
 	TimerIcon,
-} from '@modrinth/assets'
-import { Button, IconButton, SplitButton, TeleportOverflowMenu } from '@modrinth/ui'
+} from '@orbiont/assets'
+import { Button, IconButton, SplitButton, TeleportOverflowMenu } from '@orbiont/ui'
 import {
 	Avatar,
 	type ButtonMenuOption,
@@ -188,7 +188,7 @@ import {
 	type ServerLoader,
 	TagIcon,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed } from 'vue'
 
 import type { GameInstance } from '@/helpers/types'

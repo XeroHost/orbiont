@@ -7,7 +7,7 @@
 </template>
 
 <script setup lang="ts">
-import { StackedAdmonitions } from '@modrinth/ui'
+import { StackedAdmonitions } from '@orbiont/ui'
 import { computed } from 'vue'
 
 import type { GameInstance } from '@/helpers/types'

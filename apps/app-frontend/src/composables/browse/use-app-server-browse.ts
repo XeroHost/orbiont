@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import {
 	CheckIcon,
 	ClipboardCopyIcon,
@@ -7,9 +7,9 @@ import {
 	PlusIcon,
 	SpinnerIcon,
 	StopCircleIcon,
-} from '@modrinth/assets'
-import type { ButtonMenuOption, CardAction } from '@modrinth/ui'
-import { commonMessages, defineMessages, useDebugLogger, useVIntl } from '@modrinth/ui'
+} from '@orbiont/assets'
+import type { ButtonMenuOption, CardAction } from '@orbiont/ui'
+import { commonMessages, defineMessages, useDebugLogger, useVIntl } from '@orbiont/ui'
 import { useQueryClient } from '@tanstack/vue-query'
 import { openUrl } from '@tauri-apps/plugin-opener'
 import type { ComputedRef, Ref } from 'vue'

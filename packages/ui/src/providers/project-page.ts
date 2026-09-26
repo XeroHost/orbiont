@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import type { DeepReadonly, Ref, ShallowRef } from 'vue'
 
 import { createContext } from '.'

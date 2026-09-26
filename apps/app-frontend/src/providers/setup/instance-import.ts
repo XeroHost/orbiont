@@ -1,4 +1,4 @@
-import { type AbstractWebNotificationManager, provideInstanceImport } from '@modrinth/ui'
+import { type AbstractWebNotificationManager, provideInstanceImport } from '@orbiont/ui'
 import { open } from '@tauri-apps/plugin-dialog'
 
 import {

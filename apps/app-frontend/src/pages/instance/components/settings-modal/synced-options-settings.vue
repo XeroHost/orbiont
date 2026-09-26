@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EditIcon, RefreshCwIcon, RotateCounterClockwiseIcon, XIcon } from '@modrinth/assets'
+import { EditIcon, RefreshCwIcon, RotateCounterClockwiseIcon, XIcon } from '@orbiont/assets'
 import {
 	Button,
 	commonMessages,
@@ -9,7 +9,7 @@ import {
 	NewModal,
 	Toggle,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, inject, ref } from 'vue'
 

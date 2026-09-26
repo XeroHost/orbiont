@@ -1,4 +1,4 @@
-import { productName } from '@modrinth/branding'
+import { productName } from '@orbiont/branding'
 import IntlMessageFormat from 'intl-messageformat'
 import type { Ref } from 'vue'
 import type { CompileError, MessageCompiler, MessageContext } from 'vue-i18n'

@@ -128,7 +128,7 @@ import {
 	IssuesIcon,
 	XCircleIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import { computed, ref } from 'vue'
 
 import { Button, IconButton } from '#ui/components/base/buttons'

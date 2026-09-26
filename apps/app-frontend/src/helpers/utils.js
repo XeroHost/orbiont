@@ -1,4 +1,4 @@
-import { productName } from '@modrinth/branding'
+import { productName } from '@orbiont/branding'
 import { invoke } from '@tauri-apps/api/core'
 import { save } from '@tauri-apps/plugin-dialog'
 

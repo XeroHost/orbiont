@@ -453,7 +453,7 @@
 	</div>
 </template>
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import {
 	CalendarIcon,
 	CircleAlertIcon,
@@ -461,7 +461,7 @@ import {
 	getLoaderIcon,
 	PlusIcon,
 	StarIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	AutoLink,
 	Pagination,
@@ -474,12 +474,12 @@ import {
 	useFormatDateTime,
 	VersionChannelIndicator,
 	VersionFilterControl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import {
 	type GameVersionTag,
 	getVersionGroupsForDisplay,
 	type VersionDisplayGroup,
-} from '@modrinth/utils'
+} from '@orbiont/utils'
 import { computed, type Ref, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 

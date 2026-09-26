@@ -8,7 +8,7 @@ import {
 	TrashIcon,
 	UpdatedIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	Avatar,
 	BulletDivider,
@@ -19,7 +19,7 @@ import {
 	truncatedTooltip,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed, useTemplateRef } from 'vue'
 import { RouterLink } from 'vue-router'
 

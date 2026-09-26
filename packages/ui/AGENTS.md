@@ -1,6 +1,6 @@
 # Architecture
 
-The shared UI package used by both `apps/frontend` (Nuxt 3) and `apps/app-frontend` (Vue 3 + Tauri). Components here must be platform-agnostic — use dependency injection for platform-specific behavior.
+The shared UI package of the launcher, consumed by `apps/app-frontend` (Vue 3 + Tauri). Keep components free of Tauri-specific code — use dependency injection for platform behavior (file pickers, API client, notifications).
 
 ## Folder Structure
 
@@ -11,7 +11,6 @@ src/
 ├── layouts/          # Self-contained page layouts (see below)
 ├── providers/        # Dependency injection contexts (createContext pattern)
 ├── utils/            # Utility functions and constants
-├── pages/            # Cross-platform page components (used in both app-frontend and frontend)
 ├── locales/          # 34 language locale files (FormatJS)
 ├── styles/           # Tailwind CSS utilities
 └── stories/          # Storybook story files
@@ -21,10 +20,10 @@ Each subdirectory under `components/` has an `index.ts` barrel file. All public 
 
 ### `src/layouts/`
 
-Self-contained page layouts shared across frontends. Split into two categories:
+Self-contained page layouts. Split into two categories:
 
 - **`shared/`** — Reusable layout modules with their own components, composables, providers, and types. Each module is a self-contained unit (e.g. `shared/content-tab/` contains the content/mods tab layout with its own `layout.vue`, `components/`, `composables/`, `providers/`, and `types.ts`).
-- **`wrapped/`** — Page-level Vue components that mirror route structures (e.g. `wrapped/hosting/manage/`). These are full page implementations consumed by both `apps/frontend` and `apps/app-frontend`.
+- **`wrapped/`** — Page-level Vue components that mirror route structures (e.g. `wrapped/settings/`).
 
 Files inside `layouts/` use the `#ui/*` import alias (resolved via the `"imports"` field in `package.json`) to reference other `src/` modules like `#ui/components/base/buttons` or `#ui/composables/i18n`.
 
@@ -35,7 +34,7 @@ Files inside `layouts/` use the `#ui/*` import alias (resolved via the `"imports
 All frontend packages share a Tailwind preset at `packages/tooling-config/tailwind/tailwind-preset.ts`. This package's `tailwind.config.ts` extends it:
 
 ```ts
-import preset from '@modrinth/tooling-config/tailwind/tailwind-preset.ts'
+import preset from '@orbiont/tooling-config/tailwind/tailwind-preset.ts'
 ```
 
 CSS custom properties are defined in `packages/assets/styles/variables.scss` with light, dark, and OLED theme variants.
@@ -78,7 +77,7 @@ This package defines the DI layer using `createContext` from `src/providers/inde
 
 Key providers exported from this package:
 
-- `provideModrinthClient` / `injectModrinthClient` — API client
+- `provideApiClient` / `injectApiClient` — API client
 - `provideNotificationManager` / `injectNotificationManager` — Notifications
 
 ## Vue Template Rules

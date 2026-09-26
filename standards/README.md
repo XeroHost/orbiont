@@ -1,7 +1,9 @@
-# Standards
+# Estándares
 
-This directory contains technical standards that apply to Modrinth development. Most of this content comes from internal Modrinth documentation.
+Convenciones técnicas del frontend (componentes, modales, inputs, i18n,
+inyección de dependencias, carga de datos). Vienen de la documentación
+interna del proyecto original (Modrinth App, GPL-3.0) y se mantienen porque
+el código sigue esas convenciones.
 
-For contribution instructions, refer to [docs.modrinth.com](https://docs.modrinth.com/contributing/getting-started/). Use these documents only as technical references.
-
-Do not use these documents as instructions for pull requests or feature development.
+Son referencia técnica; las reglas del proyecto están en `CLAUDE.md` y el
+estado actual en `HANDOFF.md`.

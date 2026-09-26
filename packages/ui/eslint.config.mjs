@@ -1,3 +1,3 @@
-import baseConfig from '@modrinth/tooling-config/eslint/nuxt.mjs'
+import baseConfig from '@orbiont/tooling-config/eslint/nuxt.mjs'
 
 export default baseConfig

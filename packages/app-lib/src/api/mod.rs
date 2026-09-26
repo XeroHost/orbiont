@@ -33,7 +33,7 @@ pub mod data {
         Settings, TeamMember,
         Theme, User, Version, WindowSize,
     };
-    pub use modrinth_content_management::{
+    pub use content_management::{
         ContentType, ResolutionPreferences, ResolveContentPlan,
         ResolveContentRequest,
     };

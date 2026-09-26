@@ -25,7 +25,7 @@
 </template>
 
 <script setup lang="ts">
-import { FilterIcon } from '@modrinth/assets'
+import { FilterIcon } from '@orbiont/assets'
 
 export interface FilterPillOption {
 	id: string

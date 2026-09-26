@@ -10,7 +10,7 @@ import {
 	PencilIcon,
 	SquareIcon,
 	TypeIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 
 import IconButton from '#ui/components/base/buttons/IconButton.vue'
 import { useVIntl } from '#ui/composables/i18n'

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SaveIcon, XIcon } from '@modrinth/assets'
+import { SaveIcon, XIcon } from '@orbiont/assets'
 import {
 	Button,
 	commonMessages,
@@ -7,7 +7,7 @@ import {
 	injectNotificationManager,
 	NewModal,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { defineAsyncComponent, nextTick, ref } from 'vue'
 
@@ -23,8 +23,8 @@ const historyQuery = useQuery({ ...commandHistoryQueryOptions(), enabled: false 
 const CommandHistoryEditor = defineAsyncComponent(async () => {
 	const [editor] = await Promise.all([
 		import('vue3-ace-editor'),
-		import('@modrinth/ui/src/utils/ace-theme'),
-		import('@modrinth/ui/src/utils/ace-mode-mcfunction'),
+		import('@orbiont/ui/src/utils/ace-theme'),
+		import('@orbiont/ui/src/utils/ace-mode-mcfunction'),
 	])
 	return editor.VAceEditor
 })

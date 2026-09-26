@@ -1,4 +1,4 @@
-import { useDebugLogger } from '@modrinth/ui'
+import { useDebugLogger } from '@orbiont/ui'
 
 const debug = useDebugLogger('Startup')
 

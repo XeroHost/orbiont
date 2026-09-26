@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { SearchIcon } from '@modrinth/assets'
-import { Avatar, ButtonLink, defineMessages, useVIntl } from '@modrinth/ui'
+import { SearchIcon } from '@orbiont/assets'
+import { Avatar, ButtonLink, defineMessages, useVIntl } from '@orbiont/ui'
 import { computed } from 'vue'
 
 import OrbiontServerList from '@/components/ui/orbiont/OrbiontServerList.vue'

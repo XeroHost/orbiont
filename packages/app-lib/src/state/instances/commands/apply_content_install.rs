@@ -9,7 +9,7 @@ use crate::state::{
 use crate::util::fetch::{self, DownloadMeta, DownloadReason};
 use crate::util::io;
 use async_trait::async_trait;
-use modrinth_content_management::{
+use content_management::{
     ContentMetadataProvider, ContentType, Error as ResolveError,
     ResolutionPreferences, ResolveContentPlan, ResolveContentRequest,
     ResolvedContent,
@@ -56,7 +56,7 @@ impl ContentMetadataProvider for CachedEntryContentProvider<'_> {
     async fn get_version(
         &mut self,
         version_id: &str,
-    ) -> Result<Option<modrinth_content_management::Version>, ResolveError>
+    ) -> Result<Option<content_management::Version>, ResolveError>
     {
         let version = CachedEntry::get_version(
             version_id,
@@ -73,7 +73,7 @@ impl ContentMetadataProvider for CachedEntryContentProvider<'_> {
     async fn get_project_versions(
         &mut self,
         project_id: &str,
-    ) -> Result<Vec<modrinth_content_management::Version>, ResolveError> {
+    ) -> Result<Vec<content_management::Version>, ResolveError> {
         let versions = CachedEntry::get_project_versions(
             project_id,
             self.cache_behaviour,
@@ -101,8 +101,8 @@ fn resolver_error(error: ResolveError) -> crate::Error {
 
 fn version_to_resolver(
     version: Version,
-) -> modrinth_content_management::Version {
-    modrinth_content_management::Version {
+) -> content_management::Version {
+    content_management::Version {
         id: version.id,
         project_id: version.project_id,
         date_published: version.date_published,
@@ -118,23 +118,23 @@ fn version_to_resolver(
 
 fn dependency_to_resolver(
     dependency: Dependency,
-) -> modrinth_content_management::Dependency {
-    modrinth_content_management::Dependency {
+) -> content_management::Dependency {
+    content_management::Dependency {
         version_id: dependency.version_id,
         project_id: dependency.project_id,
         file_name: dependency.file_name,
         dependency_type: match dependency.dependency_type {
             DependencyType::Required => {
-                modrinth_content_management::DependencyType::Required
+                content_management::DependencyType::Required
             }
             DependencyType::Optional => {
-                modrinth_content_management::DependencyType::Optional
+                content_management::DependencyType::Optional
             }
             DependencyType::Incompatible => {
-                modrinth_content_management::DependencyType::Incompatible
+                content_management::DependencyType::Incompatible
             }
             DependencyType::Embedded => {
-                modrinth_content_management::DependencyType::Embedded
+                content_management::DependencyType::Embedded
             }
         },
     }
@@ -196,7 +196,7 @@ pub(crate) async fn resolve_install_plan(
         existing_project_ids,
     };
 
-    modrinth_content_management::resolve_content(provider, request)
+    content_management::resolve_content(provider, request)
         .await
         .map_err(resolver_error)
 }

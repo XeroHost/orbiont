@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { PowerIcon, PowerOffIcon, XIcon } from '@modrinth/assets'
+import { PowerIcon, PowerOffIcon, XIcon } from '@orbiont/assets'
 import { computed } from 'vue'
 
 import Avatar from '#ui/components/base/Avatar.vue'

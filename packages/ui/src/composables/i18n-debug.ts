@@ -42,7 +42,7 @@ export function initI18nDebugRuntime(context: I18nDebugContext): () => void {
 				clearAllAnnotations()
 				return
 			}
-			import('@modrinth/assets/styles/i18n-debug.css')
+			import('@orbiont/assets/styles/i18n-debug.css')
 			document.body.classList.add('i18n-debug')
 			runtime = effectScope()
 			runtime.run(() => {

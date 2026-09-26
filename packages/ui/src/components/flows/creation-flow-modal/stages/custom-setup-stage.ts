@@ -1,4 +1,4 @@
-import { LeftArrowIcon, PlusIcon } from '@modrinth/assets'
+import { LeftArrowIcon, PlusIcon } from '@orbiont/assets'
 import { markRaw } from 'vue'
 
 import { commonMessages } from '#ui/utils/common-messages'

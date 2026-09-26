@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LoaderCircleIcon, ShieldCheckIcon, TrashIcon } from '@modrinth/assets'
+import { LoaderCircleIcon, ShieldCheckIcon, TrashIcon } from '@orbiont/assets'
 import {
 	Admonition,
 	Button,
@@ -9,7 +9,7 @@ import {
 	ProgressBar,
 	useFormatBytes,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { invoke } from '@tauri-apps/api/core'
 import { computed, inject, ref, watch } from 'vue'

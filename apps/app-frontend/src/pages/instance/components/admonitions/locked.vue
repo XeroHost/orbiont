@@ -11,8 +11,8 @@
 </template>
 
 <script setup lang="ts">
-import { TrashIcon } from '@modrinth/assets'
-import { Admonition, Button, defineMessages, useVIntl } from '@modrinth/ui'
+import { TrashIcon } from '@orbiont/assets'
+import { Admonition, Button, defineMessages, useVIntl } from '@orbiont/ui'
 
 const emit = defineEmits<{
 	delete: []

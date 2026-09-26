@@ -5,7 +5,7 @@ import {
 	type DropdownFilterBarCategory,
 	formatLoader,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed } from 'vue'
 
 import { useLibrary } from '@/components/ui/library/use-library'

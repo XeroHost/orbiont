@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DropdownIcon } from '@modrinth/assets'
+import { DropdownIcon } from '@orbiont/assets'
 import { computed, useSlots } from 'vue'
 
 import Button from './Button.vue'

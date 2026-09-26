@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TagItem } from '@modrinth/ui'
+import { TagItem } from '@orbiont/ui'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 import { useImageThumbnail } from '@/composables/use-image-thumbnail'

@@ -18,7 +18,7 @@ import {
 	UpdatedIcon,
 	UserIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	Avatar,
 	BulletDivider,
@@ -37,8 +37,8 @@ import {
 	useFormatNumber,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { getPingLevel } from '@modrinth/utils/utils'
+} from '@orbiont/ui'
+import { getPingLevel } from '@orbiont/utils/utils'
 import { autoToHTML } from '@sfirew/minecraft-motd-parser'
 import dayjs from 'dayjs'
 import type { Component } from 'vue'

@@ -1,4 +1,4 @@
-import { defineMessages, injectNotificationManager, useVIntl } from '@modrinth/ui'
+import { defineMessages, injectNotificationManager, useVIntl } from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, type MaybeRefOrGetter, nextTick, onScopeDispose, ref, toValue, watch } from 'vue'
 

@@ -1,4 +1,4 @@
-import { useDebugLogger, useVIntl } from '@modrinth/ui'
+import { useDebugLogger, useVIntl } from '@orbiont/ui'
 import { listen, type UnlistenFn } from '@tauri-apps/api/event'
 import { computed, type MaybeRefOrGetter, onScopeDispose, shallowRef, toValue, watch } from 'vue'
 

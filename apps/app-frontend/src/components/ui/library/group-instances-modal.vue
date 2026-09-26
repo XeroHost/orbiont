@@ -91,7 +91,7 @@
 </template>
 
 <script setup lang="ts">
-import { CheckIcon, SearchIcon, SpinnerIcon, XIcon } from '@modrinth/assets'
+import { CheckIcon, SearchIcon, SpinnerIcon, XIcon } from '@orbiont/assets'
 import {
 	Avatar,
 	Button,
@@ -100,7 +100,7 @@ import {
 	Input,
 	NewModal,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { ref, watch } from 'vue'
 
 import { useLibrary } from '@/components/ui/library/use-library'

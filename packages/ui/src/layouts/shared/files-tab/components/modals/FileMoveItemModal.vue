@@ -43,7 +43,7 @@
 </template>
 
 <script setup lang="ts">
-import { RightArrowIcon, XIcon } from '@modrinth/assets'
+import { RightArrowIcon, XIcon } from '@orbiont/assets'
 import { nextTick, ref } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'

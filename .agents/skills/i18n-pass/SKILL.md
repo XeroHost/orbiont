@@ -1,6 +1,6 @@
 ---
 name: i18n-pass
-description: Convert hard-coded English text in changed Vue components to the @modrinth/ui localization system. Use for an i18n pass, untranslated-string review, pull request, or component migration.
+description: Convert hard-coded English text in changed Vue components to the @orbiont/ui localization system. Use for an i18n pass, untranslated-string review, pull request, or component migration.
 ---
 
 # Do an Internationalization Pass

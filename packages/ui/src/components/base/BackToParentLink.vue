@@ -9,7 +9,7 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronLeftIcon } from '@modrinth/assets'
+import { ChevronLeftIcon } from '@orbiont/assets'
 
 import AutoLink from './AutoLink.vue'
 

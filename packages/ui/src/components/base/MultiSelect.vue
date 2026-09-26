@@ -396,7 +396,7 @@
 <script setup lang="ts" generic="T">
 import 'overlayscrollbars/overlayscrollbars.css'
 
-import { CheckIcon, ChevronLeftIcon, MinusIcon, SearchIcon, XIcon } from '@modrinth/assets'
+import { CheckIcon, ChevronLeftIcon, MinusIcon, SearchIcon, XIcon } from '@orbiont/assets'
 import { onClickOutside } from '@vueuse/core'
 import Fuse from 'fuse.js'
 import { OverlayScrollbars, type PartialOptions } from 'overlayscrollbars'

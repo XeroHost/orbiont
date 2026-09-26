@@ -1,17 +1,17 @@
 - [Internationalization](#internationalization)
-	- [Translatable strings](#translatable-strings)
-	- [Message definitions](#message-definitions)
-	- [Render messages](#render-messages)
-	- [ICU message format](#icu-message-format)
-	- [Write strings for translation](#write-strings-for-translation)
-	- [Rich-text messages](#rich-text-messages)
-	- [Vue and ICU delimiter conflicts](#vue-and-icu-delimiter-conflicts)
-	- [Imports](#imports)
-	- [Reference examples](#reference-examples)
+  - [Translatable strings](#translatable-strings)
+  - [Message definitions](#message-definitions)
+  - [Render messages](#render-messages)
+  - [ICU message format](#icu-message-format)
+  - [Write strings for translation](#write-strings-for-translation)
+  - [Rich-text messages](#rich-text-messages)
+  - [Vue and ICU delimiter conflicts](#vue-and-icu-delimiter-conflicts)
+  - [Imports](#imports)
+  - [Reference examples](#reference-examples)
 
 # Internationalization
 
-Use the `@modrinth/ui` localization system for all user-visible strings in Vue single-file components (SFCs).
+Use the `@orbiont/ui` localization system for all user-visible strings in Vue single-file components (SFCs).
 
 Do not put hard-coded English text in templates or scripts. Get all user-visible text from `formatMessage` or `<IntlFormatted>`.
 
@@ -30,7 +30,7 @@ In `{{ user.name }}`, only the static text around the expression needs translati
 
 ## Message Definitions
 
-Use `defineMessage` or `defineMessages` from `@modrinth/ui` in `<script setup>`.
+Use `defineMessage` or `defineMessages` from `@orbiont/ui` in `<script setup>`.
 
 Give each message a unique `id`. Put the English text in `defaultMessage`:
 
@@ -45,7 +45,7 @@ Use descriptive, stable message IDs, such as `error.generic.default.title`. Put 
 
 ## Render Messages
 
-Use `useVIntl()` from `@modrinth/ui` to format simple strings:
+Use `useVIntl()` from `@orbiont/ui` to format simple strings:
 
 ```ts
 const { formatMessage } = useVIntl()
@@ -143,7 +143,7 @@ Use this pattern for simple emphasis:
 </template>
 ```
 
-Use `normalizeChildren` from `@modrinth/ui` for complex child content:
+Use `normalizeChildren` from `@orbiont/ui` for complex child content:
 
 ```vue
 <template #bold="{ children }">
@@ -157,7 +157,7 @@ If an ICU placeholder ends immediately before `}}`, add a space. Use `} }` to pr
 
 ## Imports
 
-Get all internationalization utilities from `@modrinth/ui`:
+Get all internationalization utilities from `@orbiont/ui`:
 
 - `defineMessage` and `defineMessages`: Define messages.
 - `useVIntl`: Supplies `formatMessage`.

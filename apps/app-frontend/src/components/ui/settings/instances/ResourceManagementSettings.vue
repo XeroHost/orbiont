@@ -1,5 +1,5 @@
 <script setup>
-import { BoxIcon, FolderOpenIcon, FolderSearchIcon, TrashIcon } from '@modrinth/assets'
+import { BoxIcon, FolderOpenIcon, FolderSearchIcon, TrashIcon } from '@orbiont/assets'
 import {
 	Button,
 	defineMessages,
@@ -9,7 +9,7 @@ import {
 	Slider,
 	Toggle,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { open } from '@tauri-apps/plugin-dialog'
 import { ref, watch } from 'vue'
 

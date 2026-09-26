@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { InfoIcon, XIcon } from '@modrinth/assets'
+import { InfoIcon, XIcon } from '@orbiont/assets'
 import { computed, nextTick, toValue, useTemplateRef, watch } from 'vue'
 
 import { IconButton } from '#ui/components/base/buttons'

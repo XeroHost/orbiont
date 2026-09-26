@@ -9,8 +9,8 @@ import {
 	UpdatedIcon,
 	WrenchIcon,
 	XIcon,
-} from '@modrinth/assets'
-import { productName, supportUrl } from '@modrinth/branding'
+} from '@orbiont/assets'
+import { productName, supportUrl } from '@orbiont/branding'
 import {
 	Button,
 	ButtonLink,
@@ -19,7 +19,7 @@ import {
 	IconButton,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed, ref } from 'vue'
 
 import { ChatIcon } from '@/assets/icons'

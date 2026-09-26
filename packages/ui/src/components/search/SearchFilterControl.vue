@@ -53,12 +53,12 @@
 </template>
 
 <script setup lang="ts">
-import { BanIcon, LockIcon, XCircleIcon, XIcon } from '@modrinth/assets'
+import { BanIcon, LockIcon, XCircleIcon, XIcon } from '@orbiont/assets'
 import { useQuery } from '@tanstack/vue-query'
 import { computed, type ComputedRef } from 'vue'
 
 import { defineMessage, type MessageDescriptor, useVIntl } from '../../composables/i18n'
-import { injectModrinthClient } from '../../providers'
+import { injectApiClient } from '../../providers'
 import {
 	type FilterOption,
 	type FilterType,
@@ -69,7 +69,7 @@ import {
 import TagItem from '../base/TagItem.vue'
 
 const { formatMessage } = useVIntl()
-const { labrinth } = injectModrinthClient()
+const { labrinth } = injectApiClient()
 
 const selectedFilters = defineModel<FilterValue[]>('selectedFilters', { required: true })
 

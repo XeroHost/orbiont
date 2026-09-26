@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DropdownIcon } from '@modrinth/assets'
+import { DropdownIcon } from '@orbiont/assets'
 import {
 	Accordion,
 	commonMessages,
@@ -8,7 +8,7 @@ import {
 	TagItem,
 	useDebugLogger,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 const props = withDefaults(

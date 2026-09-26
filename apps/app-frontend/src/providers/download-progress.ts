@@ -1,4 +1,4 @@
-import { createContext } from '@modrinth/ui'
+import { createContext } from '@orbiont/ui'
 import type { Ref } from 'vue'
 
 import type { AppEvents } from '@/providers/app-events'

@@ -6,7 +6,7 @@ import {
 	Toggle,
 	useSavable,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { inject, onBeforeUnmount, onMounted } from 'vue'
 

@@ -1,18 +1,18 @@
 - [Dependency injection](#dependency-injection)
-	- [The `createContext` factory](#the-createcontext-factory)
-	- [When to use DI](#when-to-use-di)
-		- [Platform abstraction](#platform-abstraction)
-		- [Page context](#page-context)
-	- [Create a provider](#create-a-provider)
-		- [1. Define the interface](#1-define-the-interface)
-		- [2. Use an abstract class for complex logic](#2-use-an-abstract-class-for-complex-logic)
-	- [Connect providers](#connect-providers)
-		- [App frontend](#app-frontend)
-		- [Website frontend](#website-frontend)
-	- [Use providers](#use-providers)
-	- [When not to use DI](#when-not-to-use-di)
-	- [Existing providers](#existing-providers)
-	- [Key files](#key-files)
+  - [The `createContext` factory](#the-createcontext-factory)
+  - [When to use DI](#when-to-use-di)
+    - [Platform abstraction](#platform-abstraction)
+    - [Page context](#page-context)
+  - [Create a provider](#create-a-provider)
+    - [1. Define the interface](#1-define-the-interface)
+    - [2. Use an abstract class for complex logic](#2-use-an-abstract-class-for-complex-logic)
+  - [Connect providers](#connect-providers)
+    - [App frontend](#app-frontend)
+    - [Website frontend](#website-frontend)
+  - [Use providers](#use-providers)
+  - [When not to use DI](#when-not-to-use-di)
+  - [Existing providers](#existing-providers)
+  - [Key files](#key-files)
 
 # Dependency Injection
 
@@ -27,7 +27,7 @@ Define all providers with `createContext` from `packages/ui/src/providers/index.
 The factory returns a typed `[inject, provide]` tuple:
 
 ```ts
-import { createContext } from '@modrinth/ui'
+import { createContext } from '@orbiont/ui'
 
 interface MyContext {
 	someValue: Ref<string>
@@ -52,13 +52,13 @@ Use DI in these conditions:
 
 Components in `packages/ui` can need capabilities that each frontend implements differently:
 
-| Provider      | App frontend                       | Website frontend                |
-| ------------- | ---------------------------------- | ------------------------------- |
-| API client    | Tauri IPC client                   | REST fetch client               |
-| Notifications | `ref()` state and window control   | `useState()` for SSR hydration  |
-| File picker   | Native Tauri dialogs               | Browser file inputs             |
-| Tags          | Tauri commands                     | Nuxt server state               |
-| Page context  | Sidebar and advertisement hooks    | No sidebar and no advertisements |
+| Provider      | App frontend                     | Website frontend                 |
+| ------------- | -------------------------------- | -------------------------------- |
+| API client    | Tauri IPC client                 | REST fetch client                |
+| Notifications | `ref()` state and window control | `useState()` for SSR hydration   |
+| File picker   | Native Tauri dialogs             | Browser file inputs              |
+| Tags          | Tauri commands                   | Nuxt server state                |
+| Page context  | Sidebar and advertisement hooks  | No sidebar and no advertisements |
 
 ### Page Context
 
@@ -101,8 +101,7 @@ export abstract class AbstractMyFeatureManager {
 	}
 }
 
-export const [injectMyFeature, provideMyFeature] =
-	createContext<AbstractMyFeatureManager>('MyFeature')
+export const [injectMyFeature, provideMyFeature] = createContext<AbstractMyFeatureManager>('MyFeature')
 ```
 
 Refer to `AbstractWebNotificationManager` in `packages/ui/src/providers/web-notifications.ts` for an example.
@@ -116,7 +115,7 @@ Make a setup function in `apps/app-frontend/src/providers/setup/`:
 ```ts
 // apps/app-frontend/src/providers/setup/my-feature.ts
 import { ref } from 'vue'
-import { provideMyFeature } from '@modrinth/ui'
+import { provideMyFeature } from '@orbiont/ui'
 
 export function setupMyFeatureProvider() {
 	const items = ref<Item[]>([])
@@ -129,7 +128,7 @@ export function setupMyFeatureProvider() {
 		},
 		removeItem: async (id) => {
 			await invoke('remove_item', { id })
-			items.value = items.value.filter(i => i.id !== id)
+			items.value = items.value.filter((i) => i.id !== id)
 		},
 	})
 }
@@ -159,7 +158,7 @@ Inject the provider in a component in `packages/ui`, `apps/frontend`, or `apps/a
 
 ```vue
 <script setup lang="ts">
-import { injectMyFeature } from '@modrinth/ui'
+import { injectMyFeature } from '@orbiont/ui'
 
 const { items, addItem } = injectMyFeature()
 </script>

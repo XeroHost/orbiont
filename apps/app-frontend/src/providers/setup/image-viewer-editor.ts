@@ -2,7 +2,7 @@ import {
 	type ImageViewerEditorData,
 	type ImageViewerEditorSource,
 	provideImageViewerEditor,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { readFile } from '@tauri-apps/plugin-fs'
 
 export function setupImageViewerEditorProvider() {

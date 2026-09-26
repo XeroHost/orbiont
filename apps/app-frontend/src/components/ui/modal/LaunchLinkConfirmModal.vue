@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PlayIcon } from '@modrinth/assets'
-import { ConfirmModal, defineMessages, useVIntl } from '@modrinth/ui'
+import { PlayIcon } from '@orbiont/assets'
+import { ConfirmModal, defineMessages, useVIntl } from '@orbiont/ui'
 import { computed, ref, useTemplateRef } from 'vue'
 
 /**

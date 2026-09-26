@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Avatar, truncatedTooltip } from '@modrinth/ui'
+import { Avatar, truncatedTooltip } from '@orbiont/ui'
 import { computed, ref } from 'vue'
 
 import { useAppSettings } from '@/composables/use-app-settings.ts'

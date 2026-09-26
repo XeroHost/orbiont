@@ -144,7 +144,7 @@
 </template>
 
 <script setup lang="ts">
-import { XIcon } from '@modrinth/assets'
+import { XIcon } from '@orbiont/assets'
 import { computed, nextTick, onUnmounted, ref } from 'vue'
 
 import { IconButton } from '#ui/components/base/buttons'

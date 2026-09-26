@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { productName } from '@modrinth/branding'
+import { productName } from '@orbiont/branding'
 import { computed } from 'vue'
 
 import wordmarkDark from '@/assets/branding/orbiont-wordmark-cyan.svg?url'

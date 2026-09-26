@@ -1,4 +1,4 @@
-import { prepareThemeColorTransition } from '@modrinth/ui'
+import { prepareThemeColorTransition } from '@orbiont/ui'
 import { computed, reactive, ref, watch } from 'vue'
 
 export const THEME_OPTIONS = ['dark', 'light', 'oled', 'retro', 'system'] as const

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SkinButton } from '@modrinth/ui'
+import { SkinButton } from '@orbiont/ui'
 import { useIntersectionObserver } from '@vueuse/core'
 import { computed, ref, watch } from 'vue'
 

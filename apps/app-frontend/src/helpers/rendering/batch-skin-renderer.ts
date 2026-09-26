@@ -1,5 +1,5 @@
-import { ClassicPlayerModel, SlimPlayerModel } from '@modrinth/assets'
-import { loadSkinRendering } from '@modrinth/ui'
+import { ClassicPlayerModel, SlimPlayerModel } from '@orbiont/assets'
+import { loadSkinRendering } from '@orbiont/ui'
 import * as THREE from 'three'
 
 import type { Cape, Skin } from '../skins'

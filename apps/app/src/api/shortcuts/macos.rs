@@ -73,7 +73,7 @@ fn macos_shortcut_identifier(launch_url: &str) -> String {
     let mut hasher = DefaultHasher::new();
     launch_url.hash(&mut hasher);
 
-    format!("com.modrinth.instance-shortcut.{:x}", hasher.finish())
+    format!("net.xerohost.launcher.instance-shortcut.{:x}", hasher.finish())
 }
 
 fn shell_quote(input: &str) -> String {

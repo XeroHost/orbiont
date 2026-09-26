@@ -1,5 +1,5 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { createContext } from '@modrinth/ui'
+import type { Labrinth } from '@orbiont/api-client'
+import { createContext } from '@orbiont/ui'
 import type { ComputedRef, Ref } from 'vue'
 
 import type { GameInstance } from '@/helpers/types'

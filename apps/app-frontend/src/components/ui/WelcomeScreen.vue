@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { ImportIcon, PlusIcon } from '@modrinth/assets'
-import { productName } from '@modrinth/branding'
-import { Button, defineMessages, IntlFormatted, useVIntl } from '@modrinth/ui'
+import { ImportIcon, PlusIcon } from '@orbiont/assets'
+import { productName } from '@orbiont/branding'
+import { Button, defineMessages, IntlFormatted, useVIntl } from '@orbiont/ui'
 import { inject, onMounted, onUnmounted, ref } from 'vue'
 
 import orbiontIcon from '../../assets/branding/orbiont-icon.svg?url'

@@ -32,7 +32,7 @@
 	</button>
 </template>
 <script setup lang="ts">
-import { CheckIcon, MinusIcon } from '@modrinth/assets'
+import { CheckIcon, MinusIcon } from '@orbiont/assets'
 import type { HTMLAttributes } from 'vue'
 
 const emit = defineEmits<{

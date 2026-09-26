@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { FloatingMenu } from '@modrinth/ui'
+import { FloatingMenu } from '@orbiont/ui'
 import { computed, nextTick, onScopeDispose, ref, useId, useTemplateRef, watch } from 'vue'
 
 import DownloadManagerBar from './download-manager-bar.vue'

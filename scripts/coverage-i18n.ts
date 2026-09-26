@@ -55,10 +55,7 @@ interface LanguageCoverageStats {
 	unlocalizedStrings: number
 }
 
-type LanguageCoverageByProduct = Record<
-	LanguageProduct,
-	Record<string, LanguageCoverageStats>
->
+type LanguageCoverageByProduct = Record<LanguageProduct, Record<string, LanguageCoverageStats>>
 
 const PRODUCT_SCOPES: Record<
 	LanguageProduct,
@@ -283,8 +280,8 @@ function checkScriptForI18n(scriptContent: string): { hasI18n: boolean; i18nUsag
 	for (const node of ast.body) {
 		if (node.type === AST_NODE_TYPES.ImportDeclaration) {
 			const source = node.source.value as string
-			// Check for @modrinth/ui import
-			if (source === '@modrinth/ui') {
+			// Check for @orbiont/ui import
+			if (source === '@orbiont/ui') {
 				for (const specifier of node.specifiers) {
 					if (specifier.type === AST_NODE_TYPES.ImportSpecifier) {
 						const importedName =
@@ -522,8 +519,7 @@ function getLocaleCodes(rootDir: string): string[] {
 		.readdirSync(localesDirectory, { withFileTypes: true })
 		.filter(
 			(entry) =>
-				entry.isDirectory() &&
-				fs.existsSync(path.join(localesDirectory, entry.name, 'index.json')),
+				entry.isDirectory() && fs.existsSync(path.join(localesDirectory, entry.name, 'index.json')),
 		)
 		.map((entry) => entry.name)
 		.sort((left, right) => left.localeCompare(right))
@@ -559,16 +555,13 @@ function generateLanguageCoverage(
 		LanguageProduct,
 		(typeof PRODUCT_SCOPES)[LanguageProduct],
 	][]) {
-		const sourceRoots = definition.sourceDirectories.map((directory) =>
-			`${path.join(rootDir, directory)}${path.sep}`,
+		const sourceRoots = definition.sourceDirectories.map(
+			(directory) => `${path.join(rootDir, directory)}${path.sep}`,
 		)
 		const productResults = results.filter((result) =>
 			sourceRoots.some((sourceRoot) => result.path.startsWith(sourceRoot)),
 		)
-		const localizedUsages = productResults.reduce(
-			(total, result) => total + result.i18nUsages,
-			0,
-		)
+		const localizedUsages = productResults.reduce((total, result) => total + result.i18nUsages, 0)
 		const unlocalizedStrings = productResults.reduce(
 			(total, result) => total + result.plainStrings.length,
 			0,
@@ -592,9 +585,7 @@ function generateLanguageCoverage(
 					? Math.round((translatedMessages / sourceEntries.length) * 100)
 					: 100
 			const percentage =
-				locale === 'en-US'
-					? 100
-					: Math.round((interfaceCoverage * translationCoverage) / 100)
+				locale === 'en-US' ? 100 : Math.round((interfaceCoverage * translationCoverage) / 100)
 
 			coverage[product][locale] = {
 				percentage,
@@ -613,7 +604,8 @@ function generateLanguageCoverage(
 function renderLanguageCoverageModule(coverage: LanguageCoverageByProduct): string {
 	const products = (
 		Object.entries(coverage) as [LanguageProduct, Record<string, LanguageCoverageStats>][]
-	).map(([product, locales]) => {
+	)
+		.map(([product, locales]) => {
 			const localeEntries = Object.entries(locales)
 				.map(
 					([locale, stats]) =>

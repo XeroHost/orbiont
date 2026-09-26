@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TrashIcon } from '@modrinth/assets'
+import { TrashIcon } from '@orbiont/assets'
 import {
 	Button,
 	type ButtonMenuOption,
@@ -9,7 +9,7 @@ import {
 	injectNotificationManager,
 	ManagedContentModal,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, nextTick, ref, watch } from 'vue'
 

@@ -212,7 +212,7 @@
 	lang="ts"
 	generic="K extends string = string, T extends Record<string, unknown> = Record<K, unknown>"
 >
-import { ChevronDownIcon, ChevronUpIcon } from '@modrinth/assets'
+import { ChevronDownIcon, ChevronUpIcon } from '@orbiont/assets'
 import { computed, ref, toRef, useSlots } from 'vue'
 
 import { useVirtualScroll } from '../../composables/virtual-scroll'

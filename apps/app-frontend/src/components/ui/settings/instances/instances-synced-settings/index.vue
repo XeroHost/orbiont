@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EditIcon } from '@modrinth/assets'
+import { EditIcon } from '@orbiont/assets'
 import {
 	commonMessages,
 	defineMessages,
@@ -7,7 +7,7 @@ import {
 	injectNotificationManager,
 	Toggle,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, nextTick, onScopeDispose, ref } from 'vue'
 

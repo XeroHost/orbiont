@@ -17,7 +17,7 @@ importers:
       '@formatjs/icu-messageformat-parser':
         specifier: ^2.11.4
         version: 2.11.4
-      '@modrinth/tooling-config':
+      '@orbiont/tooling-config':
         specifier: workspace:*
         version: link:packages/tooling-config
       '@tailwindcss/container-queries':
@@ -59,15 +59,15 @@ importers:
 
   apps/app:
     dependencies:
-      '@modrinth/app-lib':
-        specifier: workspace:*
-        version: link:../../packages/app-lib
-      '@modrinth/daedalus':
-        specifier: workspace:*
-        version: link:../../packages/daedalus
       '@orbiont/app-frontend':
         specifier: workspace:*
         version: link:../app-frontend
+      '@orbiont/app-lib':
+        specifier: workspace:*
+        version: link:../../packages/app-lib
+      '@orbiont/daedalus':
+        specifier: workspace:*
+        version: link:../../packages/daedalus
     devDependencies:
       '@tauri-apps/cli':
         specifier: 2.5.0
@@ -81,19 +81,19 @@ importers:
       '@fontsource/inter':
         specifier: ^5.3.0
         version: 5.3.0
-      '@modrinth/api-client':
+      '@orbiont/api-client':
         specifier: workspace:^
         version: link:../../packages/api-client
-      '@modrinth/assets':
+      '@orbiont/assets':
         specifier: workspace:*
         version: link:../../packages/assets
-      '@modrinth/branding':
+      '@orbiont/branding':
         specifier: workspace:*
         version: link:../../packages/branding
-      '@modrinth/ui':
+      '@orbiont/ui':
         specifier: workspace:*
         version: link:../../packages/ui
-      '@modrinth/utils':
+      '@orbiont/utils':
         specifier: workspace:*
         version: link:../../packages/utils
       '@sfirew/minecraft-motd-parser':
@@ -175,12 +175,12 @@ importers:
       '@formatjs/cli':
         specifier: ^6.2.12
         version: 6.12.2(@vue/compiler-core@3.5.27)(vue@3.5.27(typescript@5.9.3))
-      '@modrinth/tooling-config':
-        specifier: workspace:*
-        version: link:../../packages/tooling-config
       '@nuxt/eslint-config':
         specifier: ^0.5.6
         version: 0.5.7(@typescript-eslint/utils@8.54.0(eslint@9.39.2(jiti@1.21.7))(typescript@5.9.3))(eslint@9.39.2(jiti@1.21.7))(typescript@5.9.3)
+      '@orbiont/tooling-config':
+        specifier: workspace:*
+        version: link:../../packages/tooling-config
       '@taijased/vue-render-tracker':
         specifier: ^1.0.7
         version: 1.0.7(vue@3.5.27(typescript@5.9.3))
@@ -226,7 +226,7 @@ importers:
       '@microsoft/api-extractor':
         specifier: ^7.58.9
         version: 7.58.9(@types/node@24.12.2)
-      '@modrinth/tooling-config':
+      '@orbiont/tooling-config':
         specifier: workspace:*
         version: link:../tooling-config
       '@tauri-apps/plugin-http':
@@ -246,7 +246,7 @@ importers:
 
   packages/assets:
     devDependencies:
-      '@modrinth/tooling-config':
+      '@orbiont/tooling-config':
         specifier: workspace:*
         version: link:../tooling-config
       '@types/node':
@@ -264,7 +264,7 @@ importers:
 
   packages/branding:
     devDependencies:
-      '@modrinth/tooling-config':
+      '@orbiont/tooling-config':
         specifier: workspace:*
         version: link:../tooling-config
 
@@ -345,16 +345,16 @@ importers:
       '@floating-ui/vue':
         specifier: ^2.0.1
         version: 2.0.1(vue@3.5.27(typescript@5.9.3))
-      '@modrinth/api-client':
+      '@orbiont/api-client':
         specifier: workspace:*
         version: link:../api-client
-      '@modrinth/assets':
+      '@orbiont/assets':
         specifier: workspace:*
         version: link:../assets
-      '@modrinth/branding':
+      '@orbiont/branding':
         specifier: workspace:*
         version: link:../branding
-      '@modrinth/utils':
+      '@orbiont/utils':
         specifier: workspace:*
         version: link:../utils
       '@tanstack/vue-query':
@@ -433,7 +433,7 @@ importers:
       '@formatjs/cli':
         specifier: ^6.2.12
         version: 6.12.2(@vue/compiler-core@3.5.27)(vue@3.5.27(typescript@5.9.3))
-      '@modrinth/tooling-config':
+      '@orbiont/tooling-config':
         specifier: workspace:*
         version: link:../tooling-config
       '@stripe/stripe-js':
@@ -515,10 +515,10 @@ importers:
         specifier: ^1.0.14
         version: 1.0.15
     devDependencies:
-      '@modrinth/api-client':
+      '@orbiont/api-client':
         specifier: workspace:*
         version: link:../api-client
-      '@modrinth/tooling-config':
+      '@orbiont/tooling-config':
         specifier: workspace:*
         version: link:../tooling-config
 

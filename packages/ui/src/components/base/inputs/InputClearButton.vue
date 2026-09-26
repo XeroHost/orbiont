@@ -11,7 +11,7 @@
 </template>
 
 <script setup lang="ts">
-import { XIcon } from '@modrinth/assets'
+import { XIcon } from '@orbiont/assets'
 
 withDefaults(
 	defineProps<{

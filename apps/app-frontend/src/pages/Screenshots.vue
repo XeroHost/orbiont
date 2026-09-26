@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { ImageIcon } from '@modrinth/assets'
-import { defineMessages, useVIntl } from '@modrinth/ui'
+import { ImageIcon } from '@orbiont/assets'
+import { defineMessages, useVIntl } from '@orbiont/ui'
 import { onActivated } from 'vue'
 
 import ScreenshotsPage from '@/components/ui/screenshots-page/index.vue'

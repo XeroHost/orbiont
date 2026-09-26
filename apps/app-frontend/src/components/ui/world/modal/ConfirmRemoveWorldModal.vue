@@ -1,13 +1,6 @@
 <script setup lang="ts">
-import { ShredderIcon, TrashIcon, XIcon } from '@modrinth/assets'
-import {
-	Admonition,
-	Button,
-	commonMessages,
-	defineMessages,
-	NewModal,
-	useVIntl,
-} from '@modrinth/ui'
+import { ShredderIcon, TrashIcon, XIcon } from '@orbiont/assets'
+import { Admonition, Button, commonMessages, defineMessages, NewModal, useVIntl } from '@orbiont/ui'
 import { computed, ref } from 'vue'
 
 import { getWorldDisplayName, type World } from '@/helpers/worlds.ts'

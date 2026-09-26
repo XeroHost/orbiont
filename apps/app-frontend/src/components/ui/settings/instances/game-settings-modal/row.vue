@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LinkIcon, UnknownIcon, UnlinkIcon } from '@modrinth/assets'
+import { LinkIcon, UnknownIcon, UnlinkIcon } from '@orbiont/assets'
 import {
 	Avatar,
 	Combobox,
@@ -10,7 +10,7 @@ import {
 	Slider,
 	truncatedTooltip,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed, ref } from 'vue'
 import { type RouteLocationRaw, RouterLink } from 'vue-router'
 

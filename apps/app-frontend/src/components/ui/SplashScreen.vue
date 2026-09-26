@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-import { injectLoadingState } from '@modrinth/ui'
+import { injectLoadingState } from '@orbiont/ui'
 import { onMounted, ref, watch } from 'vue'
 
 import markUrl from '@/assets/branding/orbiont-mark-cyan.svg?url'

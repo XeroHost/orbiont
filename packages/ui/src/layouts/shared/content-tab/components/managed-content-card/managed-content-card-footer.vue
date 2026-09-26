@@ -1,11 +1,5 @@
 <script setup lang="ts">
-import {
-	ArrowLeftRightIcon,
-	ClockIcon,
-	DownloadIcon,
-	LockIcon,
-	SpinnerIcon,
-} from '@modrinth/assets'
+import { ArrowLeftRightIcon, ClockIcon, DownloadIcon, LockIcon, SpinnerIcon } from '@orbiont/assets'
 import { computed } from 'vue'
 
 import AutoLink from '#ui/components/base/AutoLink.vue'

@@ -1,4 +1,4 @@
-import type { ContentItem } from '@modrinth/ui'
+import type { ContentItem } from '@orbiont/ui'
 import { computed, type Ref } from 'vue'
 
 import type { GameInstance } from '@/helpers/types'

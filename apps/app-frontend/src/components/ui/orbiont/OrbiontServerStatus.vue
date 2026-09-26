@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { UsersIcon } from '@modrinth/assets'
-import { defineMessages, useVIntl } from '@modrinth/ui'
+import { UsersIcon } from '@orbiont/assets'
+import { defineMessages, useVIntl } from '@orbiont/ui'
 import { onMounted, ref } from 'vue'
 
 import { get_server_status } from '@/helpers/worlds'

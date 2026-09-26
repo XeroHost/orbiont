@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import { RightArrowIcon, XIcon } from '@modrinth/assets'
+import { RightArrowIcon, XIcon } from '@orbiont/assets'
 import { ref } from 'vue'
 
 import Admonition from '#ui/components/base/Admonition.vue'

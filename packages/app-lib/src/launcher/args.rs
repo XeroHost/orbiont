@@ -182,12 +182,12 @@ pub fn get_jvm_arguments(
     ));
 
     parsed_arguments
-        .push(format!("-Dmodrinth.internal.ipc.host={}", ipc_addr.ip()));
+        .push(format!("-Dlauncher.internal.ipc.host={}", ipc_addr.ip()));
     parsed_arguments
-        .push(format!("-Dmodrinth.internal.ipc.port={}", ipc_addr.port()));
+        .push(format!("-Dlauncher.internal.ipc.port={}", ipc_addr.port()));
 
     parsed_arguments.push(format!(
-        "-Dmodrinth.internal.quickPlay.serverVersion={}",
+        "-Dlauncher.internal.quickPlay.serverVersion={}",
         serde_json::to_value(quick_play_version.server)?
             .as_str()
             .unwrap()
@@ -197,8 +197,8 @@ pub fn get_jvm_arguments(
     {
         let (host, port) = server.require_resolved()?;
         parsed_arguments.extend_from_slice(&[
-            format!("-Dmodrinth.internal.quickPlay.host={host}"),
-            format!("-Dmodrinth.internal.quickPlay.port={port}"),
+            format!("-Dlauncher.internal.quickPlay.host={host}"),
+            format!("-Dlauncher.internal.quickPlay.port={port}"),
         ]);
     }
 
@@ -246,7 +246,7 @@ fn parse_jvm_argument(
                 .to_string_lossy(),
         )
         .replace("${classpath_separator}", classpath_separator(java_arch))
-        .replace("${launcher_name}", "theseus")
+        .replace("${launcher_name}", crate::orbiont::PRODUCT_NAME)
         .replace("${launcher_version}", env!("CARGO_PKG_VERSION"))
         .replace("${version_name}", version_name)
         .replace("${classpath}", class_paths))

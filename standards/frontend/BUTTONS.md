@@ -13,25 +13,25 @@ of importing it directly.
 
 ## Choosing a component
 
-| Component                  | Use                                                                                 |
-| -------------------------- | ----------------------------------------------------------------------------------- |
-| `Button`                   | An action, including form submission                                                 |
-| `ButtonLink`               | Navigation to an internal route or external URL                                      |
-| `IconButton`               | An icon-only action                                                                  |
-| `FileButton`               | Opening a file picker, with optional drag-and-drop support                           |
-| `ButtonGroup`              | Visually joining related buttons                                                     |
-| `SplitButton`              | A primary action with an attached overflow menu                                      |
-| `TeleportOverflowMenu`     | An icon button that opens a menu of actions and links                                |
-| `TeleportPopoutMenu`       | A button or icon button that opens an arbitrary panel                                |
+| Component              | Use                                                        |
+| ---------------------- | ---------------------------------------------------------- |
+| `Button`               | An action, including form submission                       |
+| `ButtonLink`           | Navigation to an internal route or external URL            |
+| `IconButton`           | An icon-only action                                        |
+| `FileButton`           | Opening a file picker, with optional drag-and-drop support |
+| `ButtonGroup`          | Visually joining related buttons                           |
+| `SplitButton`          | A primary action with an attached overflow menu            |
+| `TeleportOverflowMenu` | An icon button that opens a menu of actions and links      |
+| `TeleportPopoutMenu`   | A button or icon button that opens an arbitrary panel      |
 
 Use the component that matches the interaction's semantics. Do not use a click handler
 on `ButtonLink` for an action, and do not perform navigation from a `Button`.
 
-Import public button components from `@modrinth/ui`. Inside `packages/ui`, use the
+Import public button components from `@orbiont/ui`. Inside `packages/ui`, use the
 corresponding `#ui/components/base/buttons/*` path:
 
 ```ts
-import { Button, ButtonLink, IconButton } from '@modrinth/ui'
+import { Button, ButtonLink, IconButton } from '@orbiont/ui'
 ```
 
 ## Basic usage
@@ -107,11 +107,11 @@ neutral treatment.
 Quiet buttons support an `interaction` prop when their hover and keyboard-focus
 treatment needs to differ from the default surface fill:
 
-| Interaction | Treatment |
-| ----------- | --------- |
-| `surface` | Uses the standard neutral hover/focus surface. This is the default. |
-| `filled` | Fills with the button's `color` and uses contrast text. |
-| `none` | Keeps the background transparent while retaining the focus ring. |
+| Interaction | Treatment                                                           |
+| ----------- | ------------------------------------------------------------------- |
+| `surface`   | Uses the standard neutral hover/focus surface. This is the default. |
+| `filled`    | Fills with the button's `color` and uses contrast text.             |
+| `none`      | Keeps the background transparent while retaining the focus ring.    |
 
 ```vue
 <Button type="quiet" color="brand" interaction="filled">Current page</Button>
@@ -153,11 +153,7 @@ Use `disabled` when an action is unavailable. Use `loading` while a `Button` or
 `IconButton` action is in progress:
 
 ```vue
-<Button
-	type="colored"
-	:loading="createMutation.isPending.value"
-	@click="createMutation.mutate()"
->
+<Button type="colored" :loading="createMutation.isPending.value" @click="createMutation.mutate()">
 	Create
 </Button>
 ```
@@ -196,13 +192,7 @@ would be clearer.
 `FileButton` owns the file input and emits validated files:
 
 ```vue
-<FileButton
-	prompt="Select images"
-	accept="image/*"
-	:max-size="MAX_IMAGE_SIZE"
-	multiple
-	@change="handleFiles"
->
+<FileButton prompt="Select images" accept="image/*" :max-size="MAX_IMAGE_SIZE" multiple @change="handleFiles">
 	<UploadIcon aria-hidden="true" />
 </FileButton>
 ```
@@ -234,8 +224,8 @@ an attached menu:
 
 ```vue
 <script setup lang="ts">
-import { PlayIcon, SettingsIcon, TrashIcon } from '@modrinth/assets'
-import type { OverflowMenuOption } from '@modrinth/ui/src/components/base/buttons/types'
+import { PlayIcon, SettingsIcon, TrashIcon } from '@orbiont/assets'
+import type { OverflowMenuOption } from '@orbiont/ui/src/components/base/buttons/types'
 
 const options: OverflowMenuOption[] = [
 	{
@@ -256,13 +246,7 @@ const options: OverflowMenuOption[] = [
 </script>
 
 <template>
-	<SplitButton
-		menu-label="More server actions"
-		group-label="Server actions"
-		type="colored"
-		:options="options"
-		@click="startServer"
-	>
+	<SplitButton menu-label="More server actions" group-label="Server actions" type="colored" :options="options" @click="startServer">
 		<PlayIcon aria-hidden="true" />
 		Start server
 	</SplitButton>
@@ -361,15 +345,15 @@ focus restoration.
 Do not introduce new uses of the legacy `packages/ui/src/components/base/Button.vue` or
 `ButtonStyled.vue` APIs. When migrating:
 
-| Legacy pattern                  | Replacement                                  |
-| ------------------------------- | -------------------------------------------- |
-| `link` / `external`             | `ButtonLink` with `to`, `href`, and `target` |
-| `action`                        | `@click` on `Button`                         |
-| `icon-only`                     | `IconButton` with `label`                    |
-| `large`                         | `size="lg"` or `size="xl"`                   |
-| `outline`                       | `type="outlined"`                            |
-| `transparent`                   | `type="quiet"`                               |
-| `ButtonStyled` wrapping an element | The matching direct button component      |
+| Legacy pattern                     | Replacement                                  |
+| ---------------------------------- | -------------------------------------------- |
+| `link` / `external`                | `ButtonLink` with `to`, `href`, and `target` |
+| `action`                           | `@click` on `Button`                         |
+| `icon-only`                        | `IconButton` with `label`                    |
+| `large`                            | `size="lg"` or `size="xl"`                   |
+| `outline`                          | `type="outlined"`                            |
+| `transparent`                      | `type="quiet"`                               |
+| `ButtonStyled` wrapping an element | The matching direct button component         |
 
 Preserve the original element's semantics while migrating. A visual match is not enough
 if a link becomes a button or an icon-only action loses its accessible name.

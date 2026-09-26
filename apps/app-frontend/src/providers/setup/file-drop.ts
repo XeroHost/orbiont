@@ -1,4 +1,4 @@
-import { provideFileDrop } from '@modrinth/ui'
+import { provideFileDrop } from '@orbiont/ui'
 import { invoke } from '@tauri-apps/api/core'
 import type { DragDropEvent } from '@tauri-apps/api/webview'
 import { getCurrentWebview } from '@tauri-apps/api/webview'

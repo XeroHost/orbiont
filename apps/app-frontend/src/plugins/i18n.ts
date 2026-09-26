@@ -1,4 +1,4 @@
-import { I18N_INJECTION_KEY, type I18nContext } from '@modrinth/ui'
+import { I18N_INJECTION_KEY, type I18nContext } from '@orbiont/ui'
 import type { App } from 'vue'
 
 import i18n, { setLocale } from '@/i18n.config'

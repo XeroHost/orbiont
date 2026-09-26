@@ -31,7 +31,7 @@
 </template>
 
 <script setup lang="ts">
-import { CheckCircleIcon } from '@modrinth/assets'
+import { CheckCircleIcon } from '@orbiont/assets'
 import { ref, useTemplateRef } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'

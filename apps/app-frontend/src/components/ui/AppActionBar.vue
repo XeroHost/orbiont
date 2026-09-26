@@ -130,7 +130,7 @@ import {
 	StopCircleIcon,
 	TerminalSquareIcon,
 	UnplugIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	defineMessages,
 	FloatingMenu,
@@ -140,7 +140,7 @@ import {
 	type PopupNotificationProgressItem,
 	type PopupNotificationStandard,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'

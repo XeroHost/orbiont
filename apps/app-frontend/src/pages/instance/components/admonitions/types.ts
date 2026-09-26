@@ -1,4 +1,4 @@
-import type { StackedAdmonitionItem } from '@modrinth/ui'
+import type { StackedAdmonitionItem } from '@orbiont/ui'
 
 export type InstanceAdmonitionKind = 'locked'
 

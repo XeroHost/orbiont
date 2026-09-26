@@ -1,13 +1,6 @@
 <script setup lang="ts">
 import { useDroppable } from '@dnd-kit/vue'
-import {
-	DropdownIcon,
-	EditIcon,
-	PlusIcon,
-	SquarePlusIcon,
-	TrashIcon,
-	XIcon,
-} from '@modrinth/assets'
+import { DropdownIcon, EditIcon, PlusIcon, SquarePlusIcon, TrashIcon, XIcon } from '@orbiont/assets'
 import {
 	Accordion,
 	Button,
@@ -20,7 +13,7 @@ import {
 	TagItem,
 	useScrollViewport,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useElementSize, useWindowSize } from '@vueuse/core'
 import { computed, inject, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 

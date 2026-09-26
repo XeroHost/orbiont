@@ -44,8 +44,8 @@
 	</ModalWrapper>
 </template>
 <script setup>
-import { CheckIcon, PlusIcon, XIcon } from '@modrinth/assets'
-import { Button, defineMessages, injectNotificationManager, Table, useVIntl } from '@modrinth/ui'
+import { CheckIcon, PlusIcon, XIcon } from '@orbiont/assets'
+import { Button, defineMessages, injectNotificationManager, Table, useVIntl } from '@orbiont/ui'
 import { computed, ref } from 'vue'
 
 import ModalWrapper from '@/components/ui/modal/ModalWrapper.vue'

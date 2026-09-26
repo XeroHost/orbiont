@@ -1,4 +1,4 @@
-import { defineMessages, useFormatNumber, useVIntl } from '@modrinth/ui'
+import { defineMessages, useFormatNumber, useVIntl } from '@orbiont/ui'
 import { computed } from 'vue'
 
 import type { InstallJobSnapshot, InstallProgress } from '@/helpers/install'

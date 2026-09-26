@@ -5,7 +5,7 @@ import {
 	I18N_DEBUG_KEY,
 	type I18nDebugContext,
 	initI18nDebugRuntime,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import type { App } from 'vue'
 import { reactive, ref, watch } from 'vue'
 

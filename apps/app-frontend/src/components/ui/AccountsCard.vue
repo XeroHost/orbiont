@@ -91,7 +91,7 @@ import {
 	RadioButtonIcon,
 	SpinnerIcon,
 	TrashIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	Avatar,
 	Button,
@@ -100,7 +100,7 @@ import {
 	IconButton,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import type { Ref } from 'vue'
 import { computed, onUnmounted, ref, useSlots } from 'vue'
 

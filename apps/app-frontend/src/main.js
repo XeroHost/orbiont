@@ -5,8 +5,8 @@ import '@fontsource/inter/700.css'
 import '@fontsource/inter/800.css'
 import 'overlayscrollbars/overlayscrollbars.css'
 
-import { productName } from '@modrinth/branding'
-import { installTooltipDirective } from '@modrinth/ui'
+import { productName } from '@orbiont/branding'
+import { installTooltipDirective } from '@orbiont/ui'
 import { VueQueryPlugin } from '@tanstack/vue-query'
 import { createApp } from 'vue'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { DropdownIcon, EditIcon, PlusIcon, TrashIcon, UnknownIcon } from '@modrinth/assets'
+import { DropdownIcon, EditIcon, PlusIcon, TrashIcon, UnknownIcon } from '@orbiont/assets'
 import {
 	Accordion,
 	Button,
@@ -10,7 +10,7 @@ import {
 	Tooltip,
 	useScrollViewport,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useElementSize, useWindowSize } from '@vueuse/core'
 import { computed, nextTick, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 import Draggable from 'vuedraggable'

@@ -48,7 +48,7 @@
 </template>
 
 <script setup>
-import { CheckIcon, DownloadIcon, ExternalIcon } from '@modrinth/assets'
+import { CheckIcon, DownloadIcon, ExternalIcon } from '@orbiont/assets'
 import {
 	ButtonLink,
 	commonMessages,
@@ -57,7 +57,7 @@ import {
 	injectNotificationManager,
 	ProjectPageVersions,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { ref } from 'vue'
 import { useRoute } from 'vue-router'
 

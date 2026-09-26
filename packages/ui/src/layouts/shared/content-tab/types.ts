@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import type { RouteLocationRaw } from 'vue-router'
 
 import type { ButtonMenuOption } from '#ui/components/base/buttons'

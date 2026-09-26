@@ -74,8 +74,8 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { ClipboardCopyIcon, FolderOpenIcon, LockIcon, LockOpenIcon } from '@modrinth/assets'
+import type { Labrinth } from '@orbiont/api-client'
+import { ClipboardCopyIcon, FolderOpenIcon, LockIcon, LockOpenIcon } from '@orbiont/assets'
 import {
 	type BulkOperationStatus,
 	type ButtonMenuOption,
@@ -100,7 +100,7 @@ import {
 	useDebugLogger,
 	useVIntl,
 	versionChangesGameVersion,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { getCurrentWebview } from '@tauri-apps/api/webview'
 import { open } from '@tauri-apps/plugin-dialog'

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PlayIcon } from '@modrinth/assets'
-import { Avatar, Button, defineMessages, useVIntl } from '@modrinth/ui'
+import { PlayIcon } from '@orbiont/assets'
+import { Avatar, Button, defineMessages, useVIntl } from '@orbiont/ui'
 import { ref } from 'vue'
 
 import OrbiontServerStatus from '@/components/ui/orbiont/OrbiontServerStatus.vue'

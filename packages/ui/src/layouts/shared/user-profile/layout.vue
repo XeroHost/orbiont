@@ -390,7 +390,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import {
 	BanIcon,
 	BoxIcon,
@@ -401,13 +401,13 @@ import {
 	LockIcon,
 	SpinnerIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	getPrimaryProjectType,
 	isModrinthUser as checkIsModrinthUser,
 	isOfficialAccount as checkIsOfficialAccount,
 	UserBadge,
-} from '@modrinth/utils'
+} from '@orbiont/utils'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
@@ -428,8 +428,8 @@ import UserBadges from '#ui/components/user/UserBadges.vue'
 import UserPageHeader from '#ui/components/user/UserPageHeader.vue'
 import { defineMessages, useVIntl } from '#ui/composables'
 import {
+	injectApiClient,
 	injectAuth,
-	injectModrinthClient,
 	injectNotificationManager,
 	injectPageContext,
 } from '#ui/providers'
@@ -494,7 +494,7 @@ const auth = injectAuth(null)
 const authUser = computed(() => auth?.user.value ?? null)
 const pageContext = injectPageContext()
 const notificationManager = injectNotificationManager()
-const client = injectModrinthClient()
+const client = injectApiClient()
 const queryClient = useQueryClient()
 const route = useRoute()
 const router = useRouter()

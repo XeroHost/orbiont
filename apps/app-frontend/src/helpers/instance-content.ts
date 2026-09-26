@@ -1,4 +1,4 @@
-import type { ContentItem, ManagedContentProject, ManagedContentVersion } from '@modrinth/ui'
+import type { ContentItem, ManagedContentProject, ManagedContentVersion } from '@orbiont/ui'
 
 import {
 	get_content_items,

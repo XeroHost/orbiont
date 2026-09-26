@@ -24,15 +24,15 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { TimerIcon } from '@modrinth/assets'
+import type { Labrinth } from '@orbiont/api-client'
+import { TimerIcon } from '@orbiont/assets'
 import {
 	PageHeaderMetadata,
 	PageHeaderMetadataItem,
 	ServerOnlinePlayers,
 	ServerPing,
 	ServerRegion,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 
 defineProps<{
 	loadingServerPing?: boolean

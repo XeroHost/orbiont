@@ -1,5 +1,5 @@
 export type { FeatureConfig } from '../core/abstract-feature'
 export type { BaseUrlConfig, ClientConfig, RequestHooks } from './client'
-export type { ApiErrorData, ModrinthErrorResponse } from './errors'
-export { isModrinthErrorResponse } from './errors'
+export type { ApiErrorData, ApiErrorResponse } from './errors'
+export { isApiErrorResponse } from './errors'
 export type { HttpMethod, RequestContext, RequestOptions, ResponseData } from './request'

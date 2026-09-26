@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon } from '@modrinth/assets'
+import { CheckIcon } from '@orbiont/assets'
 import { computed, ref } from 'vue'
 
 import ButtonFrame from './ButtonFrame.vue'

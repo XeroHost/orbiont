@@ -23,11 +23,11 @@ into application code.
 Use a dedicated component for each other type of control. Do not use `Input` instead
 of a select, checkbox, radio group, toggle, or file picker.
 
-Import the public input components from `@modrinth/ui`. In `packages/ui`, import them
+Import the public input components from `@orbiont/ui`. In `packages/ui`, import them
 from `#ui/components/base/inputs`:
 
 ```ts
-import { ColorPicker, DateInput, DatePicker, Input, Textarea } from '@modrinth/ui'
+import { ColorPicker, DateInput, DatePicker, Input, Textarea } from '@orbiont/ui'
 ```
 
 ## Labels and field descriptions

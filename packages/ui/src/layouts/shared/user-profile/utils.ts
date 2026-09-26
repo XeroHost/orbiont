@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 
 type ProjectSorting = 'publish_time' | 'queue_time' | 'downloads'
 type ProjectStatusPriority = { order: number; sort: ProjectSorting }

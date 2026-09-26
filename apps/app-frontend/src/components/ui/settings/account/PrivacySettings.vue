@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { defineMessages, Toggle, useVIntl } from '@modrinth/ui'
+import { defineMessages, Toggle, useVIntl } from '@orbiont/ui'
 import { ref, watch } from 'vue'
 
 import { get, set } from '@/helpers/settings.ts'

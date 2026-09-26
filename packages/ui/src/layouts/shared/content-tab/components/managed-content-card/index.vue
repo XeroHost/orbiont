@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EyeIcon, WrenchIcon } from '@modrinth/assets'
+import { EyeIcon, WrenchIcon } from '@orbiont/assets'
 import { computed } from 'vue'
 
 import AutoLink from '#ui/components/base/AutoLink.vue'

@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { CheckIcon, RadioButtonIcon } from '@modrinth/assets'
-import { defineMessages, useVIntl } from '@modrinth/ui'
+import { CheckIcon, RadioButtonIcon } from '@orbiont/assets'
+import { defineMessages, useVIntl } from '@orbiont/ui'
 import { computed } from 'vue'
 
 import { injectOnboardingChecklist } from '@/providers/onboarding-checklist'

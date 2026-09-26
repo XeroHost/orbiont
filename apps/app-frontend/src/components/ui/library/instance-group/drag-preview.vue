@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { TagItem } from '@modrinth/ui'
+import { TagItem } from '@orbiont/ui'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 import InstanceCardView from '@/components/ui/library/instance-group/instance-card-view.vue'

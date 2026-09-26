@@ -7,7 +7,7 @@ import {
 	SearchIcon,
 	SpinnerIcon,
 	XCircleIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	Button,
 	commonMessages,
@@ -17,7 +17,7 @@ import {
 	Slider,
 	Toggle,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { open } from '@tauri-apps/plugin-dialog'
 import { computed, readonly, ref, watch } from 'vue'
 

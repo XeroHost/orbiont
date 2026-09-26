@@ -26,7 +26,7 @@ export type ApiErrorData = {
 /**
  * V1 error response format
  */
-export type ModrinthErrorResponse = {
+export type ApiErrorResponse = {
 	/**
 	 * Error code/identifier
 	 */
@@ -49,9 +49,9 @@ export type ModrinthErrorResponse = {
 }
 
 /**
- * Type guard to check if an object is a ModrinthErrorResponse
+ * Type guard to check if an object is a ApiErrorResponse
  */
-export function isModrinthErrorResponse(obj: unknown): obj is ModrinthErrorResponse {
+export function isApiErrorResponse(obj: unknown): obj is ApiErrorResponse {
 	if (typeof obj !== 'object' || obj === null) {
 		return false
 	}

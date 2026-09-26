@@ -10,7 +10,7 @@
 </template>
 
 <script setup lang="ts">
-import { UnknownFileWarningModal } from '@modrinth/ui'
+import { UnknownFileWarningModal } from '@orbiont/ui'
 import { ref, useTemplateRef } from 'vue'
 
 import { type FeatureFlag, useAppSettings } from '@/composables/use-app-settings.ts'

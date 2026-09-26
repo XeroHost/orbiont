@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { injectPageContext } from '@modrinth/ui'
+import { injectPageContext } from '@orbiont/ui'
 
 defineProps<{
 	sidebar?: 'right' | 'left'

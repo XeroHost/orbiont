@@ -1,4 +1,4 @@
-import { defineMessages } from '@modrinth/ui'
+import { defineMessages } from '@orbiont/ui'
 
 export const appMessages = defineMessages({
 	skinSelectorLabel: {

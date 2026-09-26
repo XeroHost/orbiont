@@ -1,4 +1,4 @@
-import { productName } from '@modrinth/branding'
+import { productName } from '@orbiont/branding'
 
 export interface MinecraftAuthError {
 	errorCode?: string

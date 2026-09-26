@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { renderBasicInlineMarkdown } from '@modrinth/utils'
+import { renderBasicInlineMarkdown } from '@orbiont/utils'
 import { computed } from 'vue'
 
 const props = withDefaults(

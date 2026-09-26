@@ -1,4 +1,4 @@
-import type { AbstractModrinthClient } from '../core/abstract-client'
+import type { AbstractApiClient } from '../core/abstract-client'
 import type { AbstractModule } from '../core/abstract-module'
 import {
 	LabrinthProjectsV2Module,
@@ -11,7 +11,7 @@ import { LauncherMetaManifestV0Module } from './launcher-meta/v0'
 import { MclogsInsightsV1Module } from './mclogs/insights/v1'
 import { MclogsLogsV1Module } from './mclogs/logs/v1'
 
-type ModuleConstructor = new (client: AbstractModrinthClient) => AbstractModule
+type ModuleConstructor = new (client: AbstractApiClient) => AbstractModule
 
 /**
  * To add a new module:

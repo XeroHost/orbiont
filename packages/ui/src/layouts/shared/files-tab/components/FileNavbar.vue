@@ -210,7 +210,7 @@ import {
 	SearchIcon,
 	ShareIcon,
 	UploadIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 import { Button, IconButton, TeleportOverflowMenu } from '#ui/components/base/buttons'

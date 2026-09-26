@@ -3,7 +3,7 @@
 </template>
 
 <script setup lang="ts">
-import { LanguageSettings as SharedLanguageSettings } from '@modrinth/ui'
+import { LanguageSettings as SharedLanguageSettings } from '@orbiont/ui'
 import { inject, onBeforeUnmount, onMounted, ref } from 'vue'
 
 import { get, set } from '@/helpers/settings.ts'

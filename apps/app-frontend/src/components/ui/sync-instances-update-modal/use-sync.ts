@@ -1,4 +1,4 @@
-import { injectNotificationManager } from '@modrinth/ui'
+import { injectNotificationManager } from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, ref, watch } from 'vue'
 

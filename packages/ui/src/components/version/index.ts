@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 
 export { default as VersionChannelIndicator } from './VersionChannelIndicator.vue'
 export { default as VersionDependencyItem } from './VersionDependencyItem.vue'

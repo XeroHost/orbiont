@@ -7,7 +7,7 @@ import {
 	SparklesIcon,
 	SpinnerIcon,
 	StopCircleIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	Avatar,
 	BulletDivider,
@@ -23,8 +23,8 @@ import {
 	useFormatDateTime,
 	useRelativeTime,
 	useVIntl,
-} from '@modrinth/ui'
-import { capitalizeString } from '@modrinth/utils/utils'
+} from '@orbiont/ui'
+import { capitalizeString } from '@orbiont/utils/utils'
 import type { Dayjs } from 'dayjs'
 import { computed, onMounted, ref, useTemplateRef } from 'vue'
 import { useRouter } from 'vue-router'

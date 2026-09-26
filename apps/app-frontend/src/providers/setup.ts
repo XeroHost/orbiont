@@ -1,4 +1,4 @@
-import type { AbstractPopupNotificationManager, AbstractWebNotificationManager } from '@modrinth/ui'
+import type { AbstractPopupNotificationManager, AbstractWebNotificationManager } from '@orbiont/ui'
 
 import type { InstanceIconConfig } from '@/helpers/types'
 

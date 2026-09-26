@@ -1,4 +1,4 @@
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import {
 	ClipboardCopyIcon,
 	EditIcon,
@@ -12,7 +12,7 @@ import {
 	StopCircleIcon,
 	TrashIcon,
 	UploadIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	type ButtonMenuLeafOption,
 	type ButtonMenuOption,
@@ -20,7 +20,7 @@ import {
 	formatLoader,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { open as openDialog } from '@tauri-apps/plugin-dialog'
 import { useEventListener, useStorage } from '@vueuse/core'
 import dayjs from 'dayjs'

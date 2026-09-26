@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { SearchIcon } from '@modrinth/assets'
+import { SearchIcon } from '@orbiont/assets'
 import Fuse from 'fuse.js/dist/fuse.basic'
 import { computed, ref } from 'vue'
 

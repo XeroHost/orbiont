@@ -26,8 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { ModrinthApiError } from '@modrinth/api-client'
-import { FolderArchiveIcon, XIcon } from '@modrinth/assets'
+import { ApiError } from '@orbiont/api-client'
+import { FolderArchiveIcon, XIcon } from '@orbiont/assets'
 import { computed, nextTick, ref, watch } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'
@@ -94,7 +94,7 @@ async function fileExists(fileName: string) {
 		await props.statFile(getTargetPath(fileName))
 		return true
 	} catch (error) {
-		if (error instanceof ModrinthApiError && error.statusCode === 404) return false
+		if (error instanceof ApiError && error.statusCode === 404) return false
 		throw error
 	}
 }

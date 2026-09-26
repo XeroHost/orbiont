@@ -33,8 +33,8 @@ import {
 	USDCColorIcon,
 	XCircleIcon,
 	XIcon,
-} from '@modrinth/assets'
-import type { ProjectStatus, ProjectType } from '@modrinth/utils'
+} from '@orbiont/assets'
+import type { ProjectStatus, ProjectType } from '@orbiont/utils'
 import type { Component } from 'vue'
 
 import {

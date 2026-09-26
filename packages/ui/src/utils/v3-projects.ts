@@ -1,5 +1,5 @@
-import type { Labrinth } from '@modrinth/api-client'
-import { getPrimaryProjectType } from '@modrinth/utils'
+import type { Labrinth } from '@orbiont/api-client'
+import { getPrimaryProjectType } from '@orbiont/utils'
 
 import { normalizeProjectType } from './common-messages'
 import { sortProjectTypes } from './project-types'

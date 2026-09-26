@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { PlusIcon, SearchIcon, SquarePlusIcon } from '@modrinth/assets'
-import { Button, defineMessages, Input, useVIntl } from '@modrinth/ui'
+import { PlusIcon, SearchIcon, SquarePlusIcon } from '@orbiont/assets'
+import { Button, defineMessages, Input, useVIntl } from '@orbiont/ui'
 import { computed, inject } from 'vue'
 
 import FilterMenu from '@/components/ui/library/library-toolbar/filter-menu.vue'

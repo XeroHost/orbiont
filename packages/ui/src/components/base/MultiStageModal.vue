@@ -120,7 +120,7 @@
 </template>
 
 <script lang="ts">
-import { ChevronRightIcon, SpinnerIcon } from '@modrinth/assets'
+import { ChevronRightIcon, SpinnerIcon } from '@orbiont/assets'
 import type { Component } from 'vue'
 import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 

@@ -85,8 +85,8 @@ import {
 	DownloadIcon,
 	RightArrowIcon,
 	UploadIcon,
-} from '@modrinth/assets'
-import { commonMessages, defineMessages, useVIntl } from '@modrinth/ui'
+} from '@orbiont/assets'
+import { commonMessages, defineMessages, useVIntl } from '@orbiont/ui'
 import { defineAsyncComponent, h, onMounted, ref, watch } from 'vue'
 
 import { useDebugLogger } from '#ui/composables/debug-logger'

@@ -1,4 +1,4 @@
-import { defineMessages, injectNotificationManager, useFormatBytes, useVIntl } from '@modrinth/ui'
+import { defineMessages, injectNotificationManager, useFormatBytes, useVIntl } from '@orbiont/ui'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import { computed, onMounted, onScopeDispose, ref, watch } from 'vue'
 

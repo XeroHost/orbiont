@@ -85,7 +85,7 @@
 </template>
 
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
+import type { Labrinth } from '@orbiont/api-client'
 import {
 	AffiliateIcon,
 	BadgeCheckIcon,
@@ -100,7 +100,7 @@ import {
 	InfoIcon,
 	MoreVerticalIcon,
 	ReportIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import { computed } from 'vue'
 
 import Avatar from '#ui/components/base/Avatar.vue'

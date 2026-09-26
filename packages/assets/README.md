@@ -1,11 +1,14 @@
-# `@modrinth/assets`
+# `@orbiont/assets`
 
-This package contains various assets used across the Modrinth platform, including icons, images, and branding materials.
+Iconos, ilustraciones y estilos base del launcher.
 
-Modrinth uses the [Lucide icon set](https://lucide.dev/) for its icons, which are automatically imported and exported in the `index.ts` file. This file is generated through the `pnpm run fix` command, which also ensures that all icons are consistent and correctly formatted.
+Los iconos vienen de [Lucide](https://lucide.dev/) y se importan/exportan
+automáticamente en `index.ts`, que se genera con `pnpm run fix`.
 
-## Adding New Assets
+## Añadir recursos
 
-If you're adding a new icon from the [Lucide icon set](https://lucide.dev/), download the icon as an SVG file and place it in the `icons` directory. The icon should be named in kebab-case (e.g., `example-icon.svg`). Then run the `pnpm run fix` command to automatically generate the necessary imports and exports.
+- **Icono de Lucide**: descarga el SVG, guárdalo en `icons/` en kebab-case
+  (p. ej. `example-icon.svg`) y ejecuta `pnpm run fix`.
+- **Cualquier otra cosa**: añade el import y el export a mano en `index.ts`.
 
-If you're adding anything else, you should manually add the import statement to `index.ts` and ensure it is exported correctly.
+No añadas recursos de marca de Modrinth (ver `CLAUDE.md`).

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { CheckIcon, InfoIcon, RefreshCwIcon, SaveIcon, SpinnerIcon, XIcon } from '@modrinth/assets'
+import { CheckIcon, InfoIcon, RefreshCwIcon, SaveIcon, SpinnerIcon, XIcon } from '@orbiont/assets'
 import {
 	Avatar,
 	Button,
@@ -8,7 +8,7 @@ import {
 	injectNotificationManager,
 	NewModal,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 
 import { toError } from '@/helpers/errors'

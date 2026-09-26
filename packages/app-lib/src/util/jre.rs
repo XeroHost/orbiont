@@ -272,12 +272,12 @@ pub async fn check_java_at_filepath(path: &Path) -> crate::Result<JavaVersion> {
     };
 
     let (_temp, file_path) =
-        get_resource_file!(env "JAVA_JARS_DIR" / "theseus.jar")?;
+        get_resource_file!(env "JAVA_JARS_DIR" / "launcher-agent.jar")?;
 
     let output = Command::new(&java)
         .arg("-cp")
         .arg(file_path)
-        .arg("com.modrinth.theseus.JavaInfo")
+        .arg("net.xerohost.launcher.JavaInfo")
         .env_remove("_JAVA_OPTIONS")
         .output()?;
 

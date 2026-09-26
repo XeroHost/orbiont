@@ -16,8 +16,8 @@
  *   version  `cf-<modId>-<fileId>`
  *   team     `cf-<modId>` (same as the project; there's one author list)
  */
-import type { Labrinth } from '@modrinth/api-client'
-import { registerCategoryIconAliases } from '@modrinth/assets'
+import type { Labrinth } from '@orbiont/api-client'
+import { registerCategoryIconAliases } from '@orbiont/assets'
 import { invoke } from '@tauri-apps/api/core'
 
 export type CurseforgeProjectType = 'modpack' | 'mod' | 'resourcepack' | 'datapack' | 'shader'

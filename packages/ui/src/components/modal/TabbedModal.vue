@@ -1,7 +1,7 @@
 <script lang="ts"></script>
 
 <script setup lang="ts">
-import { RightArrowIcon } from '@modrinth/assets'
+import { RightArrowIcon } from '@orbiont/assets'
 import { useElementSize } from '@vueuse/core'
 import { type Component, type ComponentPublicInstance, computed, nextTick, ref, watch } from 'vue'
 

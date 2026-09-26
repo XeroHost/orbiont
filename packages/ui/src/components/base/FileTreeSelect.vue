@@ -191,7 +191,7 @@ import {
 	ChevronUpIcon,
 	FileIcon,
 	UndoIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import { type Component, type ComponentPublicInstance, computed, ref, watch } from 'vue'
 
 import { useFormatBytes } from '../../composables/format-bytes'

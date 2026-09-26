@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Labrinth } from '@modrinth/api-client'
-import { ClientIcon, MonitorSmartphoneIcon, ServerIcon, UserIcon } from '@modrinth/assets'
+import type { Labrinth } from '@orbiont/api-client'
+import { ClientIcon, MonitorSmartphoneIcon, ServerIcon, UserIcon } from '@orbiont/assets'
 import { type Component, computed } from 'vue'
 
 import { defineMessage, type MessageDescriptor, useVIntl } from '#ui/composables/i18n.ts'

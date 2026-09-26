@@ -99,7 +99,7 @@
 </template>
 
 <script setup lang="ts">
-import { BanIcon } from '@modrinth/assets'
+import { BanIcon } from '@orbiont/assets'
 import { computed, nextTick, ref, useTemplateRef } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'

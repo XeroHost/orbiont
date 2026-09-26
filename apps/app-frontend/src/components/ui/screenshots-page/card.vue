@@ -2,14 +2,14 @@
 
 <script setup lang="ts">
 import { KeyboardSensor, PointerSensor, useDraggable } from '@dnd-kit/vue'
-import { CheckIcon, ClipboardCopyIcon, EditIcon, MoreHorizontalIcon } from '@modrinth/assets'
+import { CheckIcon, ClipboardCopyIcon, EditIcon, MoreHorizontalIcon } from '@orbiont/assets'
 import {
 	defineMessages,
 	IconButton,
 	useDebugLogger,
 	useFormatDateTime,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 import { useImageThumbnail } from '@/composables/use-image-thumbnail'

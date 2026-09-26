@@ -28,7 +28,7 @@
 </template>
 
 <script setup lang="ts">
-import { HammerIcon, XIcon } from '@modrinth/assets'
+import { HammerIcon, XIcon } from '@orbiont/assets'
 import { ref } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'

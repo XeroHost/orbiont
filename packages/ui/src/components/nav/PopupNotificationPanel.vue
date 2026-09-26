@@ -181,7 +181,7 @@ import {
 	MinecraftServerIcon,
 	XCircleIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import { computed, ref } from 'vue'
 
 import { Button, type ButtonColor, IconButton } from '#ui/components/base/buttons'

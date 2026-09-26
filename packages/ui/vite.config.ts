@@ -31,14 +31,14 @@ export default defineConfig({
 		alias: {
 			'@': path.resolve(__dirname, 'src'),
 			'#ui': path.resolve(__dirname, 'src'),
-			'@modrinth/api-client': path.resolve(__dirname, '../api-client/src/index.ts'),
+			'@orbiont/api-client': path.resolve(__dirname, '../api-client/src/index.ts'),
 		},
 	},
 
 	build: {
 		lib: {
 			entry: path.resolve(__dirname, 'index.ts'),
-			name: 'ModrinthUI',
+			name: 'OrbiontUI',
 			formats: ['es'],
 			fileName: 'index',
 		},

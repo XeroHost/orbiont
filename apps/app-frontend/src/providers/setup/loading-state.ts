@@ -1,8 +1,4 @@
-import {
-	createLoadingStateCore,
-	type LoadingStateProvider,
-	provideLoadingState,
-} from '@modrinth/ui'
+import { createLoadingStateCore, type LoadingStateProvider, provideLoadingState } from '@orbiont/ui'
 import { useQueryClient } from '@tanstack/vue-query'
 import { getCurrentInstance, onScopeDispose } from 'vue'
 
@@ -16,7 +12,7 @@ type AppLoadingStateProvider = Omit<LoadingStateProvider, 'begin'> & {
  * Source of truth for the desktop app's loading state.
  *
  * Owns the token-based ref-counter directly. Consumers
- * obtain the same reactive state via `injectLoadingState()` from `@modrinth/ui`.
+ * obtain the same reactive state via `injectLoadingState()` from `@orbiont/ui`.
  *
  * Returns the provider so the call site (App.vue) can also use it directly
  * without a second injection round-trip.

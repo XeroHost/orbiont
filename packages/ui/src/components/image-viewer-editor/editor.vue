@@ -6,7 +6,7 @@ import {
 	XIcon,
 	ZoomInIcon,
 	ZoomOutIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 import Button from '#ui/components/base/buttons/Button.vue'

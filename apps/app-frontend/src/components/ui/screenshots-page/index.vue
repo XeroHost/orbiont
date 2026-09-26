@@ -17,7 +17,7 @@ import {
 	SquarePlusIcon,
 	TrashIcon,
 	XIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	Avatar,
 	Button,
@@ -39,7 +39,7 @@ import {
 	useReadyState,
 	useScrollViewport,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { save } from '@tauri-apps/plugin-dialog'
 import { readFile } from '@tauri-apps/plugin-fs'

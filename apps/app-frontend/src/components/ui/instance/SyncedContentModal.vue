@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LinkIcon, ShredderIcon, TrashIcon, XIcon } from '@modrinth/assets'
+import { LinkIcon, ShredderIcon, TrashIcon, XIcon } from '@orbiont/assets'
 import {
 	Admonition,
 	Button,
@@ -9,7 +9,7 @@ import {
 	defineMessages,
 	NewModal,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { computed, onBeforeUnmount, ref } from 'vue'
 
 import type { SyncedPackAction } from '@/helpers/synced-packs'

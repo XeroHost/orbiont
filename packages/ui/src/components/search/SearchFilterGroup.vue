@@ -41,7 +41,7 @@
 </template>
 
 <script setup lang="ts">
-import { DropdownIcon } from '@modrinth/assets'
+import { DropdownIcon } from '@orbiont/assets'
 import { ref } from 'vue'
 
 import type { FilterMode, FilterOption } from '../../utils/search'

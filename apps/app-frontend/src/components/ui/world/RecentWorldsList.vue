@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { LoaderCircleIcon } from '@modrinth/assets'
+import { LoaderCircleIcon } from '@orbiont/assets'
 import {
 	Accordion,
 	defineMessages,
@@ -7,7 +7,7 @@ import {
 	type GameVersion,
 	injectNotificationManager,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useQueries, useQuery, useQueryClient } from '@tanstack/vue-query'
 import type { Dayjs } from 'dayjs'
 import dayjs from 'dayjs'

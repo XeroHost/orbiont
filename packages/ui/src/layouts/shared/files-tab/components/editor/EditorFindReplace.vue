@@ -112,7 +112,7 @@
 </template>
 
 <script setup lang="ts">
-import { ChevronDownIcon, ChevronRightIcon, ChevronUpIcon, XIcon } from '@modrinth/assets'
+import { ChevronDownIcon, ChevronRightIcon, ChevronUpIcon, XIcon } from '@orbiont/assets'
 import { nextTick, ref, watch } from 'vue'
 
 import { Button, IconButton } from '#ui/components/base/buttons'

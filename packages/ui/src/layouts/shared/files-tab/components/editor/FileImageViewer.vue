@@ -39,7 +39,7 @@
 </template>
 
 <script setup lang="ts">
-import { TriangleAlertIcon, ZoomInIcon, ZoomOutIcon } from '@modrinth/assets'
+import { TriangleAlertIcon, ZoomInIcon, ZoomOutIcon } from '@orbiont/assets'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'

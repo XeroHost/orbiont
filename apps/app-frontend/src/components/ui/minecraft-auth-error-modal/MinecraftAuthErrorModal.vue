@@ -6,9 +6,9 @@ import {
 	LogInIcon,
 	MessagesSquareIcon,
 	WrenchIcon,
-} from '@modrinth/assets'
-import { supportUrl } from '@modrinth/branding'
-import { Admonition, Button, ButtonLink, Collapsible, IconButton, NewModal } from '@modrinth/ui'
+} from '@orbiont/assets'
+import { supportUrl } from '@orbiont/branding'
+import { Admonition, Button, ButtonLink, Collapsible, IconButton, NewModal } from '@orbiont/ui'
 import { computed, ref } from 'vue'
 
 import { handleSevereError } from '@/composables/use-error.js'

@@ -239,7 +239,7 @@
 </template>
 
 <script setup lang="ts">
-import { BanIcon, DropdownIcon, LockOpenIcon, SearchIcon, UpdatedIcon } from '@modrinth/assets'
+import { BanIcon, DropdownIcon, LockOpenIcon, SearchIcon, UpdatedIcon } from '@orbiont/assets'
 import { computed, ref, watch } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'

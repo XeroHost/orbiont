@@ -74,7 +74,7 @@ import {
 	PlusIcon,
 	StopCircleIcon,
 	TerminalSquareIcon,
-} from '@modrinth/assets'
+} from '@orbiont/assets'
 import {
 	commonMessages,
 	ContextMenu,
@@ -83,7 +83,7 @@ import {
 	NavTabs,
 	useLoadingBarToken,
 	useVIntl,
-} from '@modrinth/ui'
+} from '@orbiont/ui'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { useOnline } from '@vueuse/core'
 import dayjs from 'dayjs'

@@ -24,7 +24,7 @@
 </template>
 
 <script setup lang="ts">
-import { PlusIcon, TrashIcon, XIcon } from '@modrinth/assets'
+import { PlusIcon, TrashIcon, XIcon } from '@orbiont/assets'
 import { ref } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'

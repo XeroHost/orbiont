@@ -60,8 +60,11 @@ fn instance_launch_url(
     server: Option<String>,
     singleplayer_world: Option<String>,
 ) -> Url {
-    let mut launch_url = Url::parse("modrinth://launch/instance")
-        .expect("static launch URL should parse");
+    let mut launch_url = Url::parse(&format!(
+        "{}://launch/instance",
+        theseus::orbiont::DEEP_LINK_SCHEME
+    ))
+    .expect("static launch URL should parse");
 
     launch_url
         .path_segments_mut()

@@ -1,7 +1,8 @@
 {
-	"name": "@modrinth/api-client",
+	"name": "@orbiont/api-client",
 	"version": "0.0.0",
-	"description": "An API client for Modrinth's API for use in nuxt, tauri and plain node/browser environments.",
+	"private": true,
+	"description": "API client for the launcher: Modrinth content API, mclo.gs and loader manifests, over Tauri HTTP.",
 	"license": "LGPL-3.0-only",
 	"type": "module",
 	"main": "./dist/index.js",
@@ -20,18 +21,6 @@
 		"LICENSE"
 	],
 	"sideEffects": false,
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/modrinth/code.git",
-		"directory": "packages/api-client"
-	},
-	"bugs": {
-		"url": "https://github.com/modrinth/code/issues"
-	},
-	"homepage": "https://github.com/modrinth/code/tree/main/packages/api-client#readme",
-	"publishConfig": {
-		"access": "public"
-	},
 	"scripts": {
 		"clean": "node --eval \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
 		"build": "pnpm run clean && node esbuild.config.mjs",
@@ -41,7 +30,7 @@
 	},
 	"devDependencies": {
 		"@microsoft/api-extractor": "^7.58.9",
-		"@modrinth/tooling-config": "workspace:*",
+		"@orbiont/tooling-config": "workspace:*",
 		"@tauri-apps/plugin-http": "^2.0.0",
 		"esbuild": "0.27.2",
 		"typescript": "^5.9.3",

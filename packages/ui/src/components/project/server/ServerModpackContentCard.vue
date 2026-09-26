@@ -46,7 +46,7 @@
 </template>
 
 <script setup lang="ts">
-import { DownloadIcon } from '@modrinth/assets/generated-icons'
+import { DownloadIcon } from '@orbiont/assets/generated-icons'
 
 import { IconButton } from '#ui/components/base/buttons'
 
