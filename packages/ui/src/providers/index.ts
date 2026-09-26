@@ -20,5 +20,4 @@ export {
 	type TooltipPlacement,
 	type TooltipProps,
 } from './tooltip'
-export * from './user-country'
 export * from './web-notifications'

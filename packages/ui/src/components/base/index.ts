@@ -40,11 +40,9 @@ export type { CollapsibleAdmonitionItem } from './CollapsibleAdmonition.vue'
 export { default as CollapsibleAdmonition } from './CollapsibleAdmonition.vue'
 export type { ComboboxOption, ComboboxSearchInputVariant } from './Combobox.vue'
 export { default as Combobox } from './Combobox.vue'
-export { default as CopyCode } from './CopyCode.vue'
 export type { DropdownFilterBarCategory, DropdownFilterBarOption } from './DropdownFilterBar.vue'
 export { default as DropdownFilterBar } from './DropdownFilterBar.vue'
 export { default as EmptyState } from './EmptyState.vue'
-export { default as FileInput } from './FileInput.vue'
 export type { FileTreeSelectItem } from './FileTreeSelect.vue'
 export { default as FileTreeSelect } from './FileTreeSelect.vue'
 export type { FilterPillOption } from './FilterPills.vue'
@@ -58,7 +56,6 @@ export { ColorPicker, Input, InputClearButton, InputFrame, Textarea } from './in
 export { default as IntlFormatted } from './IntlFormatted.vue'
 export { default as LoadingBar } from './LoadingBar.vue'
 export { default as LoadingIndicator } from './LoadingIndicator.vue'
-export { default as MarkdownEditor } from './MarkdownEditor.vue'
 export type {
 	MultiSelectItem,
 	MultiSelectOption,
