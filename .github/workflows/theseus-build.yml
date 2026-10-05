@@ -158,11 +158,17 @@ jobs:
 
       - name: Build macOS app
         if: contains(matrix.artifact-target-name, 'darwin')
-        run: pnpm --filter=@orbiont/app run tauri build --target universal-apple-darwin --config ${{ env.IS_RELEASE == 'true' && 'tauri-release.conf.json' || 'tauri-dev.conf.json' }}
+        run: |
+          # Tauri distinguishes missing Apple credentials from empty values.
+          for credential in APPLE_CERTIFICATE APPLE_CERTIFICATE_PASSWORD APPLE_SIGNING_IDENTITY APPLE_ID APPLE_TEAM_ID APPLE_PASSWORD; do
+            if [ -z "${!credential}" ]; then
+              unset "$credential"
+            fi
+          done
+          pnpm --filter=@orbiont/app run tauri build --target universal-apple-darwin --config ${{ env.IS_RELEASE == 'true' && 'tauri-release.conf.json' || 'tauri-dev.conf.json' }}
         env:
           TAURI_BUNDLER_DMG_IGNORE_CI: 'true'
           # Optional Apple signing; unsigned builds when the secrets are missing.
-          ENABLE_CODE_SIGNING: ${{ secrets.APPLE_CERTIFICATE }}
           APPLE_CERTIFICATE: ${{ secrets.APPLE_CERTIFICATE }}
           APPLE_CERTIFICATE_PASSWORD: ${{ secrets.APPLE_CERTIFICATE_PASSWORD }}
           APPLE_SIGNING_IDENTITY: ${{ secrets.APPLE_SIGNING_IDENTITY }}
