@@ -25,8 +25,9 @@ jobs:
       LINUX: App bundle (x86_64-unknown-linux-gnu)
       WINDOWS: App bundle (x86_64-pc-windows-msvc)
       MACOS: App bundle (universal-apple-darwin)
-      # Installers and update bundles are published as GitHub release assets.
+      # Update bundles are staged here until the website verifies and hosts them.
       DOWNLOAD_BASE_URL: https://github.com/${{ github.repository }}/releases/download/${{ github.event.workflow_run.head_branch }}
+      UPDATE_BASE_URL: https://www.xerohost.net/orbiont-updates
 
     steps:
       - name: Check out code
@@ -88,8 +89,6 @@ jobs:
           pick "${LINUX}/release/bundle/appimage/Orbiont_*.AppImage.tar.gz.sig" > /dev/null
           echo "LINUX_DEB=$(pick "${LINUX}/release/bundle/deb/Orbiont_*.deb")" >> "$GITHUB_ENV"
           echo "LINUX_RPM=$(pick "${LINUX}/release/bundle/rpm/Orbiont-*.rpm")" >> "$GITHUB_ENV"
-          git archive --format=tar.gz --prefix="Orbiont-${VERSION_TAG#v}/" \
-            --output="dist/Orbiont-${VERSION_TAG#v}-source.tar.gz" "refs/tags/${VERSION_TAG}"
           ls -la dist
 
       - name: Write release notes
@@ -102,7 +101,7 @@ jobs:
           printf '\n## Source code and license\n\n' >> release-notes.md
           printf 'Orbiont is licensed under GPL-3.0-only, without warranty. Individual packages retain their respective licenses.\n\n' >> release-notes.md
           printf -- '- [Source for this version](https://github.com/%s/tree/%s)\n' "$GITHUB_REPOSITORY" "$VERSION_TAG" >> release-notes.md
-          printf -- '- [Download source code](%s/Orbiont-%s-source.tar.gz)\n' "$DOWNLOAD_BASE_URL" "${VERSION_TAG#v}" >> release-notes.md
+          printf -- '- [Download source code](https://github.com/%s/archive/refs/tags/%s.tar.gz)\n' "$GITHUB_REPOSITORY" "$VERSION_TAG" >> release-notes.md
           printf -- '- [GPL-3.0 license](https://github.com/%s/blob/%s/apps/app/LICENSE)\n' "$GITHUB_REPOSITORY" "$VERSION_TAG" >> release-notes.md
           printf -- '- [Credits and build instructions](https://github.com/%s/blob/%s/README.md)\n' "$GITHUB_REPOSITORY" "$VERSION_TAG" >> release-notes.md
           cat release-notes.md
@@ -155,10 +154,53 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          # The newest release is marked "latest" so that
-          # releases/latest/download/updates.json always serves the current manifest.
+          # Keep the legacy manifest endpoint working for beta.1 installations.
+          # Detached signatures are already embedded in updates.json.
           gh release create "$VERSION_TAG" \
             --title "Orbiont ${VERSION_TAG#v}" \
             --notes-file release-notes.md \
             --latest \
-            dist/*
+            "dist/${WINDOWS_SETUP}" "dist/${MACOS_DMG}" \
+            "dist/${LINUX_APPIMAGE}" "dist/${LINUX_DEB}" "dist/${LINUX_RPM}" \
+            "dist/${WINDOWS_UPDATE}" "dist/${MACOS_UPDATE}" "dist/${LINUX_UPDATE}" \
+            dist/updates.json
+
+      - name: Move update bundles off the public download list
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          # The landing repository polls new releases every 15 minutes and
+          # verifies their signatures before publishing the update feed.
+          ready=false
+          for attempt in $(seq 1 60); do
+            if curl -fsS --max-time 30 "${UPDATE_BASE_URL}/updates.json" -o hosted-updates.json &&
+              jq -e --arg version "${VERSION_TAG#v}" \
+                --arg base "${UPDATE_BASE_URL}/${VERSION_TAG}" \
+                --arg win "$WINDOWS_UPDATE" --arg mac "$MACOS_UPDATE" --arg linux "$LINUX_UPDATE" \
+                --slurpfile original dist/updates.json '
+                  .version == $version and
+                  .platforms["windows-x86_64"].url == ($base + "/" + $win) and
+                  .platforms["linux-x86_64"].url == ($base + "/" + $linux) and
+                  .platforms["darwin-aarch64"].url == ($base + "/" + $mac) and
+                  .platforms["darwin-x86_64"].url == ($base + "/" + $mac) and
+                  ([.platforms | to_entries[] | {key, signature: .value.signature}] | sort_by(.key)) ==
+                    ([$original[0].platforms | to_entries[] | {key, signature: .value.signature}] | sort_by(.key))
+                ' hosted-updates.json > /dev/null; then
+              ready=true
+              for bundle in "$WINDOWS_UPDATE" "$MACOS_UPDATE" "$LINUX_UPDATE"; do
+                curl -fsSI --max-time 30 "${UPDATE_BASE_URL}/${VERSION_TAG}/${bundle}" > /dev/null || ready=false
+              done
+              if [ "$ready" = true ]; then break; fi
+            fi
+            sleep 30
+          done
+          if [ "$ready" != true ]; then
+            echo "::error::Update hosting is not ready; bundles retained to preserve automatic updates"
+            exit 1
+          fi
+          cp hosted-updates.json dist/updates.json
+          gh release upload "$VERSION_TAG" dist/updates.json --clobber
+          for bundle in "$WINDOWS_UPDATE" "$MACOS_UPDATE" "$LINUX_UPDATE"; do
+            gh release delete-asset "$VERSION_TAG" "$bundle" --yes
+          done

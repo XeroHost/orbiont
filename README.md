@@ -68,6 +68,15 @@ Tagged releases also require the repository secrets `TAURI_PRIVATE_KEY` and
 `TAURI_KEY_PASSWORD` for signing update bundles. Use the private key that matches
 the public key in `apps/app/tauri-release.conf.json`; keep it outside Git.
 
+The public release downloads contain the five platform installers. Signed
+update bundles are hosted at `https://www.xerohost.net/orbiont-updates/` by the
+landing repository's publication workflow, which checks each Minisign signature
+before advancing the feed. The release workflow temporarily stages these bundles
+on GitHub, then removes them after verifying the public hosting. If hosting is
+unavailable, the bundles remain available and the publication step fails safely.
+The small `updates.json` asset remains for installations of beta.1, whose update
+endpoint is embedded in the application. New builds use the website endpoint.
+
 ## Credits and license
 
 Orbiont is an independent fork of the [Modrinth App](https://github.com/modrinth/code),
@@ -91,7 +100,7 @@ Individual packages and third-party code retain their respective licenses
 and copyright notices. These licenses allow modification and redistribution
 under their terms; they do not grant rights to third-party trademarks.
 
-Each release includes a matching source archive. Build instructions are
+GitHub generates matching source archives from each release tag. Build instructions are
 provided above and in the build workflow. Licenses are included with the
 installed application in `legal/`.
 
