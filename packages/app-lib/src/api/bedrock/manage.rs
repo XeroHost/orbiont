@@ -1,5 +1,5 @@
 //! Recoverable edits and removals in detected Bedrock user-data folders.
-use super::{BedrockError, DataRoot, ErrorCode, Result};
+use super::{BedrockError, DataRoot, Document, ErrorCode, Recovery, Result};
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
 use std::{
@@ -205,19 +205,6 @@ fn journal(root: &DataRoot, id: &str) -> Result<(Journal, PathBuf)> {
     Ok((journal, directory))
 }
 
-#[derive(Debug, Serialize)]
-pub struct Document {
-    pub text: String,
-    pub revision: String,
-}
-#[derive(Debug, Clone, Serialize, Deserialize)]
-pub struct Recovery {
-    pub id: String,
-    pub root_id: String,
-    pub path: String,
-    pub saved_at: u64,
-    pub operation: String,
-}
 pub(super) fn read(root: &DataRoot, path: &str) -> Result<Document> {
     document(load(&editable(root, path)?)?)
 }

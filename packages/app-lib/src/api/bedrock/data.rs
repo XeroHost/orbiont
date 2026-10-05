@@ -1,5 +1,20 @@
 use serde::{Deserialize, Serialize};
 
+#[derive(Debug, Serialize)]
+pub struct Document {
+    pub text: String,
+    pub revision: String,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct Recovery {
+    pub id: String,
+    pub root_id: String,
+    pub path: String,
+    pub saved_at: u64,
+    pub operation: String,
+}
+
 #[derive(Debug, Deserialize, Serialize)]
 pub struct WorldTarget {
     pub root_id: String,

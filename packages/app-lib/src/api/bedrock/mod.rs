@@ -9,10 +9,11 @@ pub use catalog::import_catalog_file;
 
 mod data;
 pub use data::*;
+#[cfg(any(windows, test))]
 mod manage;
-pub use manage::{Document, Recovery};
 #[cfg(any(windows, test))]
 pub(crate) mod screenshots;
+#[cfg(any(windows, test))]
 mod workspace;
 #[cfg(any(windows, test))]
 mod world_packs;

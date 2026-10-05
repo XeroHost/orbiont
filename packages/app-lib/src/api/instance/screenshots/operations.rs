@@ -29,6 +29,8 @@ pub(super) fn is_bedrock_source(id: &str) -> bool {
     id.starts_with("bedrock:")
 }
 
+// Non-Windows tests exercise the same screenshot pipeline with fixture sources.
+#[allow(clippy::cfg_not_test)]
 async fn get_screenshot_source(
     id: &str,
     pool: &sqlx::SqlitePool,
@@ -110,6 +112,8 @@ pub async fn list_all_screenshots() -> crate::Result<Vec<InstanceScreenshot>> {
     Ok(screenshots)
 }
 
+// Keep Bedrock fixture coverage on non-Windows test runners.
+#[allow(clippy::cfg_not_test)]
 pub async fn list_bedrock_screenshots() -> crate::Result<Vec<InstanceScreenshot>>
 {
     #[cfg(any(windows, test))]
