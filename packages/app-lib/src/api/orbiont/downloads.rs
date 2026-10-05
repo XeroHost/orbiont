@@ -403,7 +403,7 @@ mod tests {
             ),
             (
                 "Content-Type: application/java-archive\r\nContent-Length: 3",
-                "abd",
+                "xyz",
                 false,
             ),
             ("Content-Type: text/html\r\nContent-Length: 3", "abc", false),
@@ -475,7 +475,7 @@ mod tests {
         std::fs::create_dir(&staging).unwrap();
         let source = dir.path().join("download.jar");
         for (bytes, valid) in [
-            (b"abd".as_slice(), false),
+            (b"xyz".as_slice(), false),
             (b"ab".as_slice(), false),
             (b"abc".as_slice(), true),
         ] {

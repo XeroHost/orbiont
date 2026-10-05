@@ -140,7 +140,7 @@ keyring = { workspace = true, features = ["apple-native"] }
 
 [target."cfg(windows)".dependencies]
 keyring = { workspace = true, features = ["windows-native"] }
-windows = { workspace = true, features = ["Networking_Connectivity", "Win32_Storage_FileSystem", "ApplicationModel_Core", "Management_Deployment", "Storage_Streams", "System", "Win32_System_WinRT"] }
+windows = { workspace = true, features = ["ApplicationModel_Core", "Management_Deployment", "Networking_Connectivity", "Storage_Streams", "System", "Win32_Storage_FileSystem", "Win32_System_WinRT"] }
 windows-core = { workspace = true }
 winreg = { workspace = true }
 
