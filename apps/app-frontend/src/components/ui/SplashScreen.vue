@@ -2,23 +2,24 @@
 	<Transition name="splash-fade" @after-leave="onAfterLeave">
 		<div v-if="!doneLoading" class="splash-screen" :class="`${theme.active}-mode`">
 			<div class="app-logo-wrapper" data-tauri-drag-region>
-				<AppLogo class="app-logo" />
+				<img :src="wordmarkUrl" :alt="productName" class="app-logo" />
 				<ProgressBar class="loading-bar" :progress="Math.min(loadingProgress, 100)" />
 				<span v-if="message">{{ message }}</span>
 			</div>
 			<div class="gradient-bg" data-tauri-drag-region></div>
-			<div class="mark-bg" :style="{ '--splash-mark-image': `url(${markUrl})` }"></div>
+			<div class="image-bg" :style="{ backgroundImage: `url(${backgroundUrl})` }"></div>
 			<div class="base-bg"></div>
 		</div>
 	</Transition>
 </template>
 
 <script setup>
+import { productName } from '@orbiont/branding'
 import { injectLoadingState } from '@orbiont/ui'
 import { onMounted, ref, watch } from 'vue'
 
-import markUrl from '@/assets/branding/orbiont-mark-cyan.svg?url'
-import AppLogo from '@/components/ui/AppLogo.vue'
+import backgroundUrl from '@/assets/branding/orbiont-splash-background.png'
+import wordmarkUrl from '@/assets/branding/orbiont-wordmark-cyan.svg?url'
 import ProgressBar from '@/components/ui/ProgressBar.vue'
 import { useAppEvent } from '@/composables/use-app-event'
 import { useTheme } from '@/composables/use-theme.ts'
@@ -114,7 +115,7 @@ useAppEvent('loading', (e) => {
 	align-items: center;
 
 	gap: 1rem;
-	color: var(--color-contrast);
+	color: #f6f8fa;
 
 	z-index: 9998;
 }
@@ -125,6 +126,7 @@ useAppEvent('loading', (e) => {
 }
 
 .loading-bar {
+	--color-button-bg: #34373e;
 	max-width: 20rem;
 }
 
@@ -132,25 +134,18 @@ useAppEvent('loading', (e) => {
 	position: absolute;
 	height: 100vh;
 	width: 100vw;
-	background:
-		linear-gradient(180deg, var(--splash-tint-top) 0%, var(--splash-tint-bottom) 97.29%),
-		linear-gradient(0deg, var(--splash-overlay), var(--splash-overlay));
+	background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.2));
 	z-index: 9997;
 }
 
-.mark-bg {
+.image-bg {
 	position: absolute;
 	inset: 0;
-	background-color: var(--color-bg);
+	background-color: #16181c;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
 	z-index: 9996;
-
-	&::after {
-		content: '';
-		position: absolute;
-		inset: -10%;
-		background: var(--splash-mark-image) center / min(120vh, 120vw) no-repeat;
-		opacity: var(--splash-mark-opacity);
-	}
 }
 
 .base-bg {
@@ -159,7 +154,7 @@ useAppEvent('loading', (e) => {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: var(--color-bg);
+	background: #16181c;
 	z-index: 9995;
 }
 </style>
