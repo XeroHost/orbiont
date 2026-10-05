@@ -88,7 +88,7 @@
 						v-if="clearable && modelValue.length > 0"
 						type="button"
 						class="flex cursor-pointer items-center justify-center rounded border-none bg-transparent p-0.5 text-secondary transition-all hover:text-contrast"
-						aria-label="Clear all"
+						:aria-label="formatMessage(messages.clearAll)"
 						@click.stop="clearAll"
 					>
 						<XIcon class="size-5" />
@@ -273,7 +273,11 @@
 												@keydown.enter.stop
 												@keydown.space.stop
 											>
-												{{ areSectionHeaderOptionsSelected(item) ? 'Clear' : 'Select all' }}
+												{{
+													areSectionHeaderOptionsSelected(item)
+														? formatMessage(commonMessages.clearButton)
+														: formatMessage(commonMessages.selectAllLabel)
+												}}
 											</button>
 										</div>
 										<span
@@ -412,8 +416,10 @@ import {
 	watch,
 } from 'vue'
 
+import { defineMessages, useVIntl } from '../../composables/i18n'
 import { useVirtualScroll } from '../../composables/virtual-scroll'
 import { dismissTooltip } from '../../providers/tooltip'
+import { commonMessages } from '../../utils/common-messages'
 import FloatingMenu from '../floating/FloatingMenu.vue'
 import ButtonFrame from './buttons/ButtonFrame.vue'
 import type {
@@ -551,6 +557,18 @@ const emit = defineEmits<{
 }>()
 
 const slots = useSlots()
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	clearAll: {
+		id: 'multi-select.clear-all',
+		defaultMessage: 'Clear all',
+	},
+	selectionCount: {
+		id: 'multi-select.selection-count',
+		defaultMessage: '{count, plural, one {# selected} other {# selected}}',
+	},
+})
 const triggerComponent = computed(() => (props.triggerType ? ButtonFrame : 'span'))
 const triggerButtonProps = computed(() =>
 	props.triggerType
@@ -740,7 +758,7 @@ const selectedOptionCount = computed(() => selectedOptions.value.length)
 const hasSelectedOptions = computed(() => selectedOptionCount.value > 0)
 const shouldShowSelectionActions = computed(() => props.showSelectionActions)
 const selectionActionsLabel = computed(() => {
-	return selectedOptionCount.value === 1 ? '1 selected' : `${selectedOptionCount.value} selected`
+	return formatMessage(messages.selectionCount, { count: selectedOptionCount.value })
 })
 
 function isSelected(value: T) {

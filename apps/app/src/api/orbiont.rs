@@ -1,33 +1,41 @@
 use crate::api::Result;
-use theseus::orbiont::{Modpack, OrbiontServer};
 
 pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
     tauri::plugin::Builder::new("orbiont")
         .invoke_handler(tauri::generate_handler![
-            orbiont_get_modpacks,
-            orbiont_get_servers,
             orbiont_curseforge_api,
+            orbiont_curseforge_api_post,
             orbiont_convert_curseforge_pack,
-            orbiont_download_modpack,
             orbiont_download_curseforge_file,
+            orbiont_import_curseforge_file,
         ])
         .build()
 }
 
-/// GET /v1/modpacks from the Orbiont catalog backend.
 #[tauri::command]
-pub async fn orbiont_get_modpacks() -> Result<Vec<Modpack>> {
-    Ok(theseus::orbiont::get_modpacks().await?)
+pub async fn orbiont_import_curseforge_file(
+    mod_id: u32,
+    file_id: u32,
+    path: std::path::PathBuf,
+) -> Result<String> {
+    Ok(
+        theseus::orbiont::downloads::import_manual_file(mod_id, file_id, &path)
+            .await?
+            .to_string_lossy()
+            .into_owned(),
+    )
 }
 
-/// GET /v1/servers from the Orbiont catalog backend.
+/// Read-only batch lookups, validated by the core and facade.
 #[tauri::command]
-pub async fn orbiont_get_servers() -> Result<Vec<OrbiontServer>> {
-    Ok(theseus::orbiont::get_servers().await?)
+pub async fn orbiont_curseforge_api_post(
+    path: String,
+    body: serde_json::Value,
+) -> Result<serde_json::Value> {
+    Ok(theseus::orbiont::curseforge_api_post(&path, &body).await?)
 }
 
-/// GET /v1/curseforge/api/{path} — allowlisted pass-through to the CurseForge
-/// API via the catalog (which holds the key). Returns CurseForge's raw JSON.
+/// Allowlisted pass-through to the CurseForge facade. Returns raw JSON.
 #[tauri::command]
 pub async fn orbiont_curseforge_api(
     path: String,
@@ -47,14 +55,6 @@ pub async fn orbiont_convert_curseforge_pack(
     path: std::path::PathBuf,
 ) -> Result<theseus::curseforge_pack::ConvertedPack> {
     Ok(theseus::curseforge_pack::convert_curseforge_pack(&path).await?)
-}
-
-/// Downloads a catalog modpack's .mrpack to a local cache path, ready to
-/// install via `install_create_modpack_instance` with a `fromFile` location.
-#[tauri::command]
-pub async fn orbiont_download_modpack(modpack_id: String) -> Result<String> {
-    let path = theseus::orbiont::download_modpack_file(&modpack_id).await?;
-    Ok(path.to_string_lossy().into_owned())
 }
 
 /// Downloads a CurseForge file by id (resolved and verified in the core; see

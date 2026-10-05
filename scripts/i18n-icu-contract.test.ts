@@ -6,7 +6,7 @@ import {
 	contractsEqual,
 	sourceContractChanged,
 	translationCompatibleWithSource,
-} from './i18n-icu-contract'
+} from './i18n-icu-contract.ts'
 
 test('same plain text contract is equal', () => {
 	assert.equal(

@@ -294,6 +294,10 @@ const messages = defineMessages({
 		id: 'version.section.no-changes',
 		defaultMessage: 'No changelog was provided.',
 	},
+	uploadedBy: {
+		id: 'version.uploaded-by',
+		defaultMessage: 'Uploaded by',
+	},
 	files: {
 		id: 'version.section.files',
 		defaultMessage: 'Files',
@@ -363,7 +367,7 @@ const authorLink = computed(() =>
 					v-if="(author && authorLink) || loadingAuthor"
 					class="flex items-center gap-1 text-secondary"
 				>
-					Uploaded by
+					{{ formatMessage(messages.uploadedBy) }}
 					<AutoLink
 						v-if="author && authorLink"
 						:to="authorLink"

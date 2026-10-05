@@ -16,6 +16,7 @@ import * as path from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { contractFromMessage, translationCompatibleWithSource } from './i18n-icu-contract.ts'
+import { coveragePercentage, sourceMessages } from './i18n-source-catalog.ts'
 
 interface FileResult {
 	path: string
@@ -44,7 +45,7 @@ interface CoverageReport {
 
 type MessageEntry = string | { message?: string; defaultMessage?: string }
 type MessageFile = Record<string, MessageEntry>
-type LanguageProduct = 'app' | 'website'
+type LanguageProduct = 'app'
 
 interface LanguageCoverageStats {
 	percentage: number
@@ -61,13 +62,10 @@ const PRODUCT_SCOPES: Record<
 	LanguageProduct,
 	{ sourceDirectories: string[]; catalogScopes: string[] }
 > = {
+	// Solo el launcher existe en este repo (la web/moderación se retiraron).
 	app: {
 		sourceDirectories: ['apps/app-frontend/src', 'packages/ui/src'],
 		catalogScopes: ['apps/app-frontend', 'packages/ui'],
-	},
-	website: {
-		sourceDirectories: ['apps/frontend/src', 'packages/moderation/src', 'packages/ui/src'],
-		catalogScopes: ['packages/ui', 'packages/moderation', 'apps/frontend'],
 	},
 }
 
@@ -514,15 +512,23 @@ function mergeProductCatalog(
 }
 
 function getLocaleCodes(rootDir: string): string[] {
-	const localesDirectory = path.join(rootDir, 'packages/ui/src/locales')
-	return fs
-		.readdirSync(localesDirectory, { withFileTypes: true })
-		.filter(
-			(entry) =>
-				entry.isDirectory() && fs.existsSync(path.join(localesDirectory, entry.name, 'index.json')),
-		)
-		.map((entry) => entry.name)
-		.sort((left, right) => left.localeCompare(right))
+	const localeDirectories = [
+		path.join(rootDir, 'packages/ui/src/locales'),
+		path.join(rootDir, 'apps/app-frontend/src/locales'),
+	]
+	const codes = new Set<string>()
+	for (const localesDirectory of localeDirectories) {
+		if (!fs.existsSync(localesDirectory)) continue
+		for (const entry of fs.readdirSync(localesDirectory, { withFileTypes: true })) {
+			if (
+				entry.isDirectory() &&
+				fs.existsSync(path.join(localesDirectory, entry.name, 'index.json'))
+			) {
+				codes.add(entry.name)
+			}
+		}
+	}
+	return [...codes].sort((left, right) => left.localeCompare(right))
 }
 
 function isValidTranslation(
@@ -549,7 +555,7 @@ function generateLanguageCoverage(
 	rootDir: string,
 ): LanguageCoverageByProduct {
 	const localeCodes = getLocaleCodes(rootDir)
-	const coverage: LanguageCoverageByProduct = { app: {}, website: {} }
+	const coverage: LanguageCoverageByProduct = { app: {} }
 
 	for (const [product, definition] of Object.entries(PRODUCT_SCOPES) as [
 		LanguageProduct,
@@ -567,9 +573,13 @@ function generateLanguageCoverage(
 			0,
 		)
 		const detectedStrings = localizedUsages + unlocalizedStrings
-		const interfaceCoverage =
-			detectedStrings > 0 ? Math.round((localizedUsages / detectedStrings) * 100) : 100
-		const sourceCatalog = mergeProductCatalog(rootDir, definition.catalogScopes, 'en-US')
+		const interfaceCoverage = coveragePercentage(localizedUsages, detectedStrings)
+		const sourceCatalog = {
+			...mergeProductCatalog(rootDir, definition.catalogScopes, 'en-US'),
+			...sourceMessages(
+				definition.sourceDirectories.map((directory) => path.join(rootDir, directory)),
+			),
+		}
 		const sourceEntries = Object.entries(sourceCatalog).filter(([, entry]) => messageText(entry))
 
 		for (const locale of localeCodes) {
@@ -580,12 +590,11 @@ function generateLanguageCoverage(
 					: sourceEntries.filter(([key, source]) =>
 							isValidTranslation(key, source, translationCatalog[key]),
 						).length
-			const translationCoverage =
-				sourceEntries.length > 0
-					? Math.round((translatedMessages / sourceEntries.length) * 100)
-					: 100
+			const translationCoverage = coveragePercentage(translatedMessages, sourceEntries.length)
 			const percentage =
-				locale === 'en-US' ? 100 : Math.round((interfaceCoverage * translationCoverage) / 100)
+				interfaceCoverage === 100 && translationCoverage === 100
+					? 100
+					: Math.min(99, Math.round((interfaceCoverage * translationCoverage) / 100))
 
 			coverage[product][locale] = {
 				percentage,
@@ -753,13 +762,8 @@ function main() {
 
 	const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..')
 
-	// Directories to scan for Vue files
-	const scanDirs = [
-		'apps/frontend/src',
-		'apps/app-frontend/src',
-		'packages/ui/src',
-		'packages/moderation/src',
-	]
+	// Directories to scan for Vue files (solo lo que existe en el repo)
+	const scanDirs = ['apps/app-frontend/src', 'packages/ui/src']
 
 	if (!jsonOutput && !quiet) {
 		console.log()

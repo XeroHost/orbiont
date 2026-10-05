@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Bilinmeyen kurulum"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Paylaşılmış içerik güncelleniyor"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Birincil kurulum yap"
   },
@@ -149,8 +146,23 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "İsim etiketini gizle"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Üzerine gelindiğinde ve klavye odağında simgeleri canlandırın."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Animasyonları kapat"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Her zaman canlandır"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Sistemi izle"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Simge animasyonları"
+  },
   "app.appearance-settings.minimize-launcher.description": {
-    "message": "Minecraft başladığında Modrinth uygulamasını küçült."
+    "message": "Minecraft başladığında {productName} uygulamasını küçült."
   },
   "app.appearance-settings.minimize-launcher.title": {
     "message": "Uygulamayı küçült"
@@ -173,17 +185,533 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "Sağ kenar çubuğunu gizle"
   },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Modrinth'te yayınlanmayan bir Modrinth Pack (.mrpack) kurulmadan önce bir güvenlik uyarısı göster."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Kaynağı doğrulanamayan içe aktarılmış bir mod paketini (.mrpack veya CurseForge .zip) kurmadan önce güvenlik uyarısı göster."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Bilinmeyen mod paketlerini indirmeden önce beni uyar"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Destekle iletişime geç"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Hata ayıklama bilgilerini kopyala"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Hata ayıklama bilgileri"
+  },
+  "app.auth-error.header": {
+    "message": "Oturum açma başarısız"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Nasıl düzeltilir"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Kimlik doğrulama sürecini tamamla"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Bu hesap, Güney Kore mevzuatı uyarınca yetişkin doğrulaması gerektiriyor."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Minecraft Girişi"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "İnternet bağlantınızın çalıştığından emin olun"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "{product} uygulamasına güvenlik duvarınızda, antivirüsünüzde, proxy'nizde, VPN'inizde ve hosts dosyası kurallarınızda izin verin"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Farklı bir ağ deneyin veya kullanıyorsanız VPN/proxy yazılımını geçici olarak devre dışı bırakın"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "{product} uygulamasını yeniden başlatın ve tekrar oturum açmayı deneyin"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Sorun yönlendirme veya DNS ise, Cloudflare WARP gibi bir hizmet bazen yardımcı olabilir"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product}, oturum açma için gereken bir Microsoft, Xbox veya Minecraft hizmetine bağlanamadı. Bu genellikle yerel ağ, DNS, proxy, güvenlik duvarı, hosts dosyası, VPN veya antivirüs sorunundan kaynaklanır."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Hata mesajı yok."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Hesabın kime ait olduğunu <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a> adresinden kontrol edebilirsiniz"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Minecraft'ı satın alan (veya PC erişimli aktif bir Game Pass'i olan) Microsoft hesabıyla oturum açtığınızdan emin olun"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Bu Microsoft hesabı Minecraft: Java Edition'a sahip değil ve {product} yalnızca premium hesaplarla çalışır."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Minecraft: Java Edition'ı resmi başlatıcıdan bir kez başlatın"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Minecraft'a sahip olan Microsoft hesabını kullandığınızdan emin olun. Hesabın kime ait olduğunu <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a> adresinden kontrol edebilirsiniz"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Satın alma veya profil oluşturma yeni olduysa bir saate kadar bekleyin"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Minecraft hizmetleri bu hesap için bir Java Edition profili döndüremedi. Bu genellikle oyun yakın zamanda satın alındığında, Java profili oluşturulması henüz tamamlanmadığında veya yanlış Microsoft hesabı kullanıldığında olur."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Minecraft'ın bu hesapta satın alındığından emin olun"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "İstenirse Xbox profil kurulumunu tamamlayın"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Bu hesabın ayarlanmış bir Xbox profili yok veya Minecraft'a sahip değil."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Bekledikten sonra {product} uygulamasını yeniden başlatın"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Bir kez daha oturum açmayı deneyin"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Tekrar denemeden önce yaklaşık bir saat bekleyin"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Aynı mesaj görünürse, geçici sınırın kalkması için tekrar denemeden önce daha uzun bekleyin"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Çok fazla son deneme olduğu için Microsoft veya Minecraft oturum açma isteğini geçici olarak engelledi."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Desteklenen bölgeler için <a href=\"https://www.xbox.com/en-US/regions\">Xbox Availability</a> sayfasına bakın"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Oturum açmadan önce Xbox hizmetlerinin ülkenizde desteklenmesi gerekir"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live bölgenizde kullanılamıyor, bu nedenle oturum açma engellendi."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Bir velinizin <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a> oturumu açmasını sağlayın"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Çevrimiçi oyun izinlerini güncelleyin"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Bu hesap kısıtlı ve çevrimiçi oynama izni yok."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Hizmet sorunsuz çalışıyorsa ve bu durum devam ederse, aşağıdaki hata ayıklama bilgileriyle destekle iletişime geçin"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Minecraft oturum açmanın orada da etkilenip etkilenmediğini doğrulamak için <a href=\"https://www.minecraft.net/en-us/download\">resmi Minecraft Başlatıcısı</a> ile oturum açmayı deneyin"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Güncel hizmet sorunları için <a href=\"https://support.xbox.com/xbox-live-status\">Xbox Durumu</a> sayfasına bakın"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Birkaç dakika bekleyin ve tekrar oturum açmayı deneyin"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Minecraft'ın kimlik doğrulama hizmeti bir sunucu hatası döndürüyor, bu nedenle {product} şu anda oturumunuzu tamamlayamıyor."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Tekrar oturum aç"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Tamamlandıktan sonra tekrar oturum açmayı deneyin"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "<a href=\"https://www.minecraft.net/en-us/download\">resmi Minecraft Başlatıcısı</a> ile oturum açın"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "{product} uygulamasında tekrar oturum açmayı deneyin"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "<a href=\"https://www.minecraft.net/en-us/login\">Minecraft Girişi</a> sayfasını ziyaret edin ve oturum açın"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "<a href=\"https://www.xbox.com\">Xbox</a> sayfasını ziyaret edin ve oturum açın"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Uygunsa itiraz gönderin"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "<a href=\"https://support.xbox.com\">Xbox Desteği</a> sayfasını ziyaret edin ve yaptırım ayrıntılarını inceleyin"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Bu hesap, Xbox Topluluk Standartlarını ihlal ettiği için askıya alındı."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Yeni oturum açma tamamlandıktan sonra Minecraft'ı tekrar başlatmayı deneyin"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Hesapta tekrar oturum açın"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "{product} içindeki etkilenen Minecraft hesabından çıkış yapın"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Kayıtlı Microsoft oturum açma jetonunuzun süresi doldu veya iptal edildi, bu nedenle {product} Minecraft oturumunuzu yenileyemiyor."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "İstenirse Koşulları kabul edin"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Bu hesap Xbox Kullanım Koşullarını kabul etmemiş."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Şunu ziyaret etmeyi deneyin"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Ek yardım için <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">Xbox'ta UK yaş doğrulaması</a> sayfasını ziyaret edin"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "<a href=\"https://www.minecraft.net/en-us/login\">Minecraft Girişi</a> sayfasına gidin ve oturum açın"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Doğrulandıktan sonra tekrar oturum açmayı deneyin"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Yaşınızı doğrulamak için talimatları izleyin"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Minecraft/Xbox Live hesabınız, Birleşik Krallık mevzuatına uymak için yaş doğrulaması gerektiriyor. Oturum açmadan önce bunu tamamlamanız gerekir."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "<a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">Family Setup Guide</a> sayfasını inceleyin"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Talimatlara göre bir aile grubuna katılın veya oluşturun"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Bu hesap reşit değil ve bir Microsoft aile grubuna bağlı değil."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Bilinmeyen hata"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Bu hatayı tanımıyoruz ve çözmek için belirli adımlar öneremiyoruz."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "ve oturum açın, çünkü gerekli adımları size gösterebilir. Ayrıca destekle iletişime geçebilirsiniz; konuyu daha ayrıntılı inceleyebiliriz."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Microsoft hesabınızda oturum açamadık. Bunun nedeni hesap kısıtlamaları veya bölgesel sınırlamalar olabilir."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Bizce olan şey"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Gösterilen tüm koşulları kabul edin veya profil kurulum adımlarını tamamlayın"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Aynı Microsoft hesabıyla <a href=\"https://www.xbox.com\">Xbox.com</a> adresinde bir kez oturum açın"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live, Microsoft oturum açmayı kabul etmedi. Bu genellikle Microsoft hesabının Xbox'a hiç oturum açmadığı veya güncellenmiş koşulları kabul etmesi gerektiği anlamına gelir."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Resmi başlatıcı da başarısız olursa, orada gösterilen hatayı izleyin veya Xbox Desteği ile iletişime geçin"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Microsoft, Xbox veya Minecraft tarafından gösterilen tüm istemleri tamamlayın"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Xbox hizmetleri bu hesabı Minecraft hizmetleri için yetkilendirme isteğini reddetti, ancak {product}'un tanıdığı belirli bir hesap kısıtlaması döndürmedi."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Minecraft doğrulama sunucuları kapalı olabilir. İnternet bağlantını kontrol et ve daha sonra tekrar dene."
   },
   "app.auth-servers.unreachable.header": {
     "message": "Doğrulama sunucularına erişilemedi"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft ve Microsoft Store, Bedrock lisansınızı kontrol edin. Minecraft’ye sahip olan hesapla orada oturum açın; Bu başlatıcıdaki Java hesabınız farklı olabilir."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Yerel davranış paketleri ve komut dosyaları. Bunları Minecraft içindeki dünya ayarlarında yapılandırın."
+  },
+  "app.bedrock.addons": {
+    "message": "Eklentiler"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Davranış paketi"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Eklentiler"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "CurseForge’deki eklentilere, kaynak paketlerine, dünyalara ve komut dosyalarına göz atın."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Bedrock içeriğini keşfedin"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Eklentileri keşfedin"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Komut dosyalarını keşfedin"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Bir dünyaya paket eklemeden önce Minecraft’yi kapatın ve tekrar deneyin."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Minecraft Bedrock’ye yükleyin"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Bu içeriği içe aktarmak için Minecraft açılacaktır. Oyundaki sonucu kontrol edin, ardından dünya ayarlarınızda paketleri etkinleştirin. Gerekli paketler ve deneysel ayarlar proje açıklamasında listelenmiştir."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Bu arşiv desteklenen Bedrock içeriğini içermiyor."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Proje sürümleri veya dünyalar yüklenemedi. Tekrar deneyin."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Bu paket, bu dünyada aktif olmayan başka bir paket gerektirir. Önce yazar tarafından listelenen bağımlılıkları yükleyin."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Bu proje için desteklenen .mcaddon, .mcpack, .mcworld veya ZIP dosyası mevcut değil."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Önce Minecraft’de bir dünya yaratın, ardından bu listeyi yenileyin."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Komut dosyaları"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "İçerik sürümü"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Hedef dünya"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Yüklemeden önce Minecraft’yi kapatın. Bu paketler yalnızca seçilen dünyaya eklenecek ve etkinleştirilecektir. Proje açıklamasında gerekli bağımlılıkları ve deneysel ayarları kontrol edin."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "{world}’ye paketler eklendi. Bu dünyayı oynamak için Minecraft’yi açın."
+  },
+  "app.bedrock.checking": {
+    "message": "Minecraft for Windows aranıyor…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Dosyaları düzenlemek, içeriği silmek veya bir kopyayı geri yüklemek için Minecraft’yi kapatın."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Bu içerik değişti veya orijinal konum işgal edildi. Değişikliklerinizin üzerine yazılmasını önlemek için kurtarma kopyası saklandı."
+  },
+  "app.bedrock.content": {
+    "message": "İçerik"
+  },
+  "app.bedrock.content-help": {
+    "message": "Yerel kaynak ve görünüm paketleri. Bunları Minecraft’de etkinleştirin; bazı içerikler bireysel dünyalara aittir."
+  },
+  "app.bedrock.data-error": {
+    "message": "Minecraft verileri okunamadı. Tekrar denemek için yenileyin."
+  },
+  "app.bedrock.data-location": {
+    "message": "Minecraft veri konumu"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Bu öğeler Minecraft’den kaldırılacak. Etkilenen dünya paketi ayarları da dahil olmak üzere bir kurtarma kopyası saklanacaktır. Silinen bir pakete bağlı olan dünyalar bloklarını veya davranışlarını kaybedebilir; bu dünyaları açmadan önce onu geri yükleyin."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Yerel içeriği silin"
+  },
+  "app.bedrock.description": {
+    "message": "Minecraft for Windows oynayın ve dünyalarınızı ve eklentilerinizi içe aktarın."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Minecraft kurulumu kontrol edilemedi. Tekrar deneyin."
+  },
+  "app.bedrock.development": {
+    "message": "Geliştirme"
+  },
+  "app.bedrock.edition": {
+    "message": "Minecraft sürümü"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Bu klasör boş."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock dünyaları ve eklentileri"
+  },
+  "app.bedrock.file-size": {
+    "message": "Boyut"
+  },
+  "app.bedrock.files": {
+    "message": "Dosyalar"
+  },
+  "app.bedrock.folder": {
+    "message": "Klasör"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Bu Minecraft klasörü açılamadı. Verilerinizi yenileyin ve tekrar deneyin."
+  },
+  "app.bedrock.import-button": {
+    "message": "Dosyayı içe aktar"
+  },
+  "app.bedrock.import-description": {
+    "message": "Bir .mcworld, .mcpack veya .mcaddon dosyası seçin. Minecraft açılacak ve içe aktarma işlemini gerçekleştirecektir."
+  },
+  "app.bedrock.import-error": {
+    "message": "Dosya Minecraft’ye gönderilemedi. Minecraft for Windows’nin kurulu olup olmadığını kontrol edin ve tekrar deneyin."
+  },
+  "app.bedrock.import-title": {
+    "message": "Dünyalar ve eklentiler"
+  },
+  "app.bedrock.installation": {
+    "message": "Resmi kurulum"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows kuruldu"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Geçerli bir yerel .mcworld, .mcpack veya .mcaddon arşivi seçin."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Bu dosya 8 GiB içe aktarma sınırını aşıyor."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Minecraft açılamadı. Kurulumu kontrol etmek için resmi başlatıcıyı veya Microsoft Store’yi açın."
+  },
+  "app.bedrock.launcher": {
+    "message": "Resmi başlatıcıyı aç"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Resmi başlatıcı algılandı. Devam etmek için Minecraft for Windows’yi buraya yükleyin."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Minecraft verileri okunuyor…"
+  },
+  "app.bedrock.location": {
+    "message": "Konum"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Bu günlüğün son 1 MiB’si gösteriliyor."
+  },
+  "app.bedrock.logs": {
+    "message": "Günlükler"
+  },
+  "app.bedrock.missing": {
+    "message": "Başlamak için Minecraft for Windows’yi yükleyin"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Bu içerik değiştirilemedi. Minecraft’yi kapatın ve yenileyin. Kurtarma kopyanız saklandı."
+  },
+  "app.bedrock.name": {
+    "message": "İsim"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Yerel eklenti bulunamadı. Başlamak için bir .mcpack veya .mcaddon dosyasını içe aktarın."
+  },
+  "app.bedrock.no-content": {
+    "message": "Yerel içerik bulunamadı."
+  },
+  "app.bedrock.no-data": {
+    "message": "Veri klasörlerini oluşturmak için Minecraft’yi bir kez açın, ardından burayı yenileyin."
+  },
+  "app.bedrock.no-logs": {
+    "message": "İçerik günlüğü bulunamadı. Minecraft Ayarlar > Oluşturucu bölümünde içerik günlüğünü etkinleştirin, ardından dünyanızı açın."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Henüz kurtarma kopyası yok."
+  },
+  "app.bedrock.no-results": {
+    "message": "Eşleşen öğe yok."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Yerel dünya bulunamadı. Minecraft’de bir tane oluşturun veya bir .mcworld dosyasını içe aktarın."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Klasörü aç"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Üst klasör"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Bazı klasörler okunamadı veya görüntüleme sınırına ulaşılmadı. Bunları Dosya Gezgini’nde inceleyebilirsiniz."
+  },
+  "app.bedrock.play": {
+    "message": "Oyna"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Orijinal dosyalar ve silinen içerikler burada saklanır. Minecraft kapalıyken bir kopyayı geri yükleyin. Mevcut içeriğin ve daha sonra yapılan düzenlemelerin üzerine hiçbir zaman yazılmaz."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Kurtarma kopyaları"
+  },
+  "app.bedrock.refresh": {
+    "message": "Tekrar kontrol edin"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Yenile"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Kaydetmeden önce bu dosyayı yeniden yükleyin."
+  },
+  "app.bedrock.repair": {
+    "message": "Microsoft Store’yi veya resmi başlatıcıyı kullanarak kurulumunuzu onarın veya güncelleyin."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Kaynak paketi"
+  },
+  "app.bedrock.restore": {
+    "message": "Geri yükle"
+  },
+  "app.bedrock.running": {
+    "message": "Çalışıyor"
+  },
+  "app.bedrock.save-error": {
+    "message": "Kaydedilemedi. Dosya değişmiş olabilir, geçersiz JSON içeriyor olabilir veya kullanımda olabilir. Yeniden yükleyin ve tekrar deneyin."
+  },
+  "app.bedrock.search": {
+    "message": "Yerel içeriği arayın…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Okumak için bir günlük seçin."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Görünüm paketi"
+  },
+  "app.bedrock.store": {
+    "message": "Yükleme veya güncelleme"
+  },
+  "app.bedrock.store-error": {
+    "message": "Microsoft Store açılamadı. Windows Başlat menüsünden açın."
+  },
+  "app.bedrock.submitted": {
+    "message": "Dosya Minecraft’ye gönderildi. Oyundaki içe aktarma sonucunu kontrol edin."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Bedrock entegrasyonu Windows gerektirir. Bu cihazda Java Edition oynamaya devam edebilirsiniz."
+  },
+  "app.bedrock.update": {
+    "message": "Minecraft’yi güncelleyin"
+  },
+  "app.bedrock.update-help": {
+    "message": "Microsoft Store’de güncellemeleri kontrol edin ve Minecraft for Windows’yi seçin. Geri döndüğünüzde yüklü sürümünüz yenilenecektir."
+  },
+  "app.bedrock.version": {
+    "message": "Windows kurulumu {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Sürüm"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Dünya: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Dünyalar"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "Onaylamalar"
@@ -194,32 +722,8 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "Başlatma ve gezinme"
   },
-  "app.behavior-settings.sync-across-devices.description": {
-    "message": "Bu davranış ayarlarını oturum açtığınız her yerde kullanın. Bu cihazda ayrı ayarlar tutmak için bunu kapatın."
-  },
-  "app.behavior-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Ayarları senkronize etmek için Modrinth'e giriş yapın."
-  },
-  "app.behavior-settings.sync-across-devices.title": {
-    "message": "Cihazlar arası senkronizasyon davranışı"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "Sunucuyu kuruluma ekle"
-  },
   "app.browse.add-to-an-instance": {
     "message": "Bir kuruluma ekle"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Kuruluma ekle"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "{instanceName}'a ekle"
-  },
-  "app.browse.added": {
-    "message": "Ekli"
-  },
-  "app.browse.already-added": {
-    "message": "Zaten ekli"
   },
   "app.browse.back-to-instance": {
     "message": "Kuruluma dön"
@@ -227,14 +731,11 @@
   "app.browse.discover-project-type": {
     "message": "Keşfet {projectType}"
   },
-  "app.browse.discover-servers": {
-    "message": "Sunucuları keşfet"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "Zaten eklenmiş sunucuları gizle"
-  },
   "app.browse.hide-installed-modpacks": {
     "message": "Zaten yüklenmiş olanları gizle"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "CurseForge'da aç"
   },
   "app.browse.project-actions.label": {
     "message": "Proje eylemleri"
@@ -251,17 +752,8 @@
   "app.browse.project-type.resource-packs": {
     "message": "Kaynak Paketleri"
   },
-  "app.browse.project-type.servers": {
-    "message": "Sunucular"
-  },
   "app.browse.project-type.shaders": {
     "message": "Shader'lar"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "İçerik eklemek, bu sunucuya katılmanızı engelleyebilir. Eklediğiniz tüm içerik, yönetilen sunucu içeriği güncellendiğinde kaldırılacaktır."
-  },
-  "app.browse.server.installing": {
-    "message": "Yükleniyor"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Kullanılabilir sürümler {compatibilityLabel} ile eşleşmiyor. Yine de kurulacak bir sürüm seçin. Bağımlılıklar otomatik olarak yüklenmeyecektir."
@@ -281,8 +773,215 @@
   "app.content.sync-resource-packs-disabled": {
     "message": "Öncelikle uygulama ayarlarından Kaynak Paketi eşitlemeyi açın."
   },
+  "app.curseforge.rate-limit.text": {
+    "message": "Paylaşılan istek sınırına ulaşıldı. Bir süre bekleyip tekrar deneyin."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge geçici olarak yoğun"
+  },
+  "app.download-manager.active": {
+    "message": "Aktif"
+  },
+  "app.download-manager.attention": {
+    "message": "İlgilenilmesi gerekiyor"
+  },
+  "app.download-manager.cancel": {
+    "message": "İndirmeyi iptal et"
+  },
+  "app.download-manager.canceling": {
+    "message": "İndirme iptal ediliyor..."
+  },
+  "app.download-manager.clear-all": {
+    "message": "Hepsini sil"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Tamamlanmış işlemlerin hepsini sil"
+  },
+  "app.download-manager.complete": {
+    "message": "Tamamlandı"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Yinelenen kurulum"
+  },
+  "app.download-manager.empty": {
+    "message": "İndirme görevi yok"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Tahmini indirme hızı"
+  },
+  "app.download-manager.eta": {
+    "message": "Bu indirme için kalan tahmini süre"
+  },
+  "app.download-manager.hide": {
+    "message": "İndirme işlemlerini gizle"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "İçeri aktarılmış kurulum"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Kurulum indirmesi"
+  },
+  "app.download-manager.modpack": {
+    "message": "Mod paketi"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Mod paketi indirmesi"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Yeni kurulum"
+  },
+  "app.download-manager.pause": {
+    "message": "İndirmeyi duraklat"
+  },
+  "app.download-manager.paused": {
+    "message": "Duraklatıldı"
+  },
+  "app.download-manager.remove": {
+    "message": "Geçmişten kaldır"
+  },
+  "app.download-manager.resume": {
+    "message": "İndirmeyi devam ettir"
+  },
+  "app.download-manager.show": {
+    "message": "İndirme işlemlerini göster"
+  },
+  "app.download-manager.tasks": {
+    "message": "İşlemler"
+  },
+  "app.download-manager.title": {
+    "message": "İndirilenler"
+  },
+  "app.download-manager.verifying": {
+    "message": "Doğrulanıyor"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Dizin değişikliğini iptal et"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Hata ayıklama bilgilerini kopyala"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Hata ayıklama bilgileri"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "önce. İşiniz bittiğinde buraya dönün ve oturum açın!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Şu uygulamayla oturum açmayı deneyin:"
+  },
+  "app.error.game-pass.heading": {
+    "message": "PC Game Pass mi kullanıyorsunuz, Bedrock'tan mı geliyorsunuz yoksa oyunu yeni mi satın aldınız?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "resmi Minecraft Başlatıcısı"
+  },
+  "app.error.get-support.button": {
+    "message": "Destek al"
+  },
+  "app.error.help.end": {
+    "message": "ve size memnuniyetle yardımcı oluruz! Aşağıdaki hata ayıklama bilgilerini mutlaka ekleyin:"
+  },
+  "app.error.help.start": {
+    "message": "Hiçbir şey işe yaramıyorsa ve yardıma ihtiyacınız varsa şu adresi ziyaret edin:"
+  },
+  "app.error.help.support-link": {
+    "message": "destek sayfamız"
+  },
+  "app.error.hosts.body-end": {
+    "message": "Microsoft / Xbox / Minecraft hizmetlerine bağlanmayı denedi, ancak uzak sunucu bağlantıyı reddetti. Bu, bu hizmetlerin hosts dosyası tarafından engellendiğini gösterebilir. Lütfen şu adresi ziyaret edin:"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "sorunun nasıl çözüleceğine dair adımlar için."
+  },
+  "app.error.migrate.body-end": {
+    "message": "seçtiğiniz yeni dizine taşınamıyor. Yardım için lütfen destekle iletişime geçin veya dizin değişikliğini iptal edin."
+  },
+  "app.error.network.body-end": {
+    "message": "Microsoft sunucularına bağlanırken sorun oluştu. Bu genellikle kötü bir bağlantıdan kaynaklanır, bu nedenle sorunun çözülüp çözülmediğini görmek için tekrar denemenizi öneririz. Sorunlar devam ederse şu bölümdeki adımları izleyin:"
+  },
+  "app.error.network.body-start": {
+    "message": "Şuna bağlanırken sorun oluşmuş gibi görünüyor:"
+  },
+  "app.error.network.heading": {
+    "message": "Ağ sorunları"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "sorun giderme için."
+  },
+  "app.error.no-error-message": {
+    "message": "Hata mesajı yok."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "bu örnek için yükleyici sürümünü bulamadı."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Bunu çözmek için örneği onarmanız gerekir. Bunun için aşağıdaki düğmeye tıklayın."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Seçtiğiniz dizini içeren diskte yeterli alan yok gibi görünüyor. Lütfen biraz yer açın ve tekrar deneyin veya dizin değişikliğini iptal edin."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Yeterli alan yok"
+  },
+  "app.error.read-only.body-end": {
+    "message": "seçtiğiniz dizine yazamıyor. Lütfen dizinin izinlerini düzenleyip tekrar deneyin veya dizin değişikliğini iptal edin."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Görünüşe göre"
+  },
+  "app.error.read-only.heading": {
+    "message": "Dizin izinlerini değiştir"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Örneği onar"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Dizin değişikliğini tekrar dene"
+  },
+  "app.error.state-init.body-end": {
+    "message": "doğru şekilde yüklenemedi. Bunun nedeni bozuk bir dosya veya uygulamanın önemli dosyalarının eksik olması olabilir."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Belki şu yollardan biriyle düzeltebilirsiniz:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "İnternete bağlı olduğunuzdan emin olun, ardından uygulamayı yeniden başlatmayı deneyin."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Uygulamayı yeniden indirmek."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "Yedekler klasörünü aç"
+  },
+  "app.error.support-article-link": {
+    "message": "destek makalemiz"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Uygulama dizini değiştirilemedi"
+  },
+  "app.error.title.generic": {
+    "message": "Bir hata oluştu"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Yükleyici seçilmedi"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Minecraft'ta oturum açılamadı"
+  },
+  "app.error.title.state-init": {
+    "message": "{product} başlatılırken hata"
+  },
+  "app.error.try-again.button": {
+    "message": "Tekrar oturum açmayı dene"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Doğru hesapla oturum açtığınızdan emin olun. Minecraft'a başka bir Microsoft hesabıyla sahip olabilirsiniz."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Başka hesap dene"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Başka bir Microsoft hesabı deneyin"
   },
   "app.export-modal.description-placeholder": {
     "message": "Mod paketi açıklaması girin..."
@@ -295,6 +994,27 @@
   },
   "app.export-modal.export-complete-description": {
     "message": "{name} başarıyla Dışa aktarıldı."
+  },
+  "app.export-modal.format-label": {
+    "message": "Dışa aktarma biçimi"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "manifest.json içeren ve seçilen dosyaları overrides klasöründe barındıran CurseForge ZIP'i."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Modrinth paketlerini destekleyen başlatıcılar için. İndirme referanslarını ve seçilen ek dosyaları içerir."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Seçilen dosyaları içeren taşınabilir bir {productName} paketi. Doğrudan başlatıcıda açın."
   },
   "app.export-modal.header": {
     "message": "Mod paketini dışa aktar"
@@ -352,15 +1072,6 @@
   },
   "app.features-settings.sidebar.title": {
     "message": "Yan Menü"
-  },
-  "app.features-settings.sync-across-devices.description": {
-    "message": "Bu özellik ayarlarını oturumunuzun açık olduğu her yerde kullanın. Bu cihazda farklı ayarlar tutmak için bu özelliği kapatın."
-  },
-  "app.features-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Ayarları eşitlemek için bir Modrinth Hesabı'yla oturum açın."
-  },
-  "app.features-settings.sync-across-devices.title": {
-    "message": "Cihazlar arası özellikleri eşitle"
   },
   "app.home.jump-back-in.actions.label": {
     "message": "Kurulum eylemleri"
@@ -464,57 +1175,6 @@
   "app.instance.actions.label": {
     "message": "Kurulum eylemleri"
   },
-  "app.instance.add-server.add": {
-    "message": "Ekle"
-  },
-  "app.instance.add-server.added": {
-    "message": "Eklendi"
-  },
-  "app.instance.add-server.adding": {
-    "message": "Ekleniyor..."
-  },
-  "app.instance.add-server.cancel": {
-    "message": "İptal et"
-  },
-  "app.instance.add-server.compatibility-warning": {
-    "message": "Bu sunucu tüm kurulumlarala uyumlu olmayabilir."
-  },
-  "app.instance.add-server.search-placeholder": {
-    "message": "Bir kurulum ara"
-  },
-  "app.instance.add-server.title": {
-    "message": "Sunucuyu kuruluma ekle"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Eklendi"
-  },
-  "app.instance.admonitions.shared-instance.changes-body": {
-    "message": "Yerel kurulumunuz paylaştığınız kullanıcılardan daha ileride."
-  },
-  "app.instance.admonitions.shared-instance.changes-header": {
-    "message": "Değişiklikler henüz paylaşılmadı"
-  },
-  "app.instance.admonitions.shared-instance.publish-button": {
-    "message": "Güncellemeyi gönder"
-  },
-  "app.instance.admonitions.shared-instance.publishing-button": {
-    "message": "Yayınlıyor..."
-  },
-  "app.instance.admonitions.shared-instance.removed-label": {
-    "message": "Kaldırıldı"
-  },
-  "app.instance.admonitions.shared-instance.review-admonition-header": {
-    "message": "Güncellemeyi yayınla"
-  },
-  "app.instance.admonitions.shared-instance.review-description": {
-    "message": "Bu kurulumu kullanan herkesle paylaşılacak içerik değişikliklerini gözden geçirin."
-  },
-  "app.instance.admonitions.shared-instance.review-header": {
-    "message": "Değişimleri inceleniyor"
-  },
-  "app.instance.admonitions.shared-instance.reviewing-button": {
-    "message": "İnceleniyor..."
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Dünyalarınız, yapılandırmalarınız ve yüklü tüm içerikler ve tüm veriler kalıcı olarak silinecek."
   },
@@ -542,8 +1202,8 @@
   "app.instance.content.managed-content.modpack-header": {
     "message": "Modpack içeriği"
   },
-  "app.instance.content.managed-content.shared-header": {
-    "message": "Paylaşılan içerik"
+  "app.instance.content.managed-content.server-header": {
+    "message": "Sunucu içeriği"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Bu mod paketi zaten <bold>{instanceName}</bold> kurulumunda yüklü. Kopyalamak istediğinizden emin misiniz?"
@@ -596,36 +1256,6 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Kuruluma dön"
   },
-  "app.instance.shared-instance-already-installed.body": {
-    "message": "Bu paylaşımlı örnek zaten <bold>{instanceName}</bold> olarak yüklü. Başka bir kopya daha yüklemek istediğinize emin misiniz?"
-  },
-  "app.instance.shared-instance-already-installed.header": {
-    "message": "Paylaşımlı örnek zaten yüklü"
-  },
-  "app.instance.shared-instance-already-installed.install-anyway": {
-    "message": "Yine de kur"
-  },
-  "app.instance.shared-instance-already-installed.instance": {
-    "message": "Kurulum"
-  },
-  "app.instance.shared-instance-wrong-account.fallback-username": {
-    "message": "bağlı hesap"
-  },
-  "app.instance.shared-instance-wrong-account.owner-admonition-body-v2": {
-    "message": "bu paylaşımlı örneği yönetmek için. Kullanıcılara güncelleme gönderemeyeceksiniz."
-  },
-  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
-    "message": "Olarak giriş yap"
-  },
-  "app.instance.shared-instance-wrong-account.signed-out-header": {
-    "message": "Modrinth'e giriş yapmanız gerek"
-  },
-  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
-    "message": "paylaşımlı örnek hakkında güncellemeler almak için."
-  },
-  "app.instance.shared-instance-wrong-account.warning-header": {
-    "message": "Yanlış Modrinth hesabını kullanıyorsunuz"
-  },
   "app.instance.shortcut.created": {
     "message": "Kısayol oluşturuldu"
   },
@@ -644,17 +1274,14 @@
   "app.instance.tab.screenshots": {
     "message": "Ekran görüntüleri"
   },
-  "app.instance.tab.share": {
-    "message": "Paylaş"
-  },
   "app.instance.tab.worlds": {
     "message": "Dünyalar"
   },
   "app.instance.worlds.add-server": {
     "message": "Sunucu Ekle"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Sunucuları Keşfet"
+  "app.instance.worlds.browse": {
+    "message": "Dünyalara göz at"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Dünya Sil"
@@ -760,6 +1387,21 @@
   },
   "app.java-selector.test-installation": {
     "message": "Java kurulumunu dene"
+  },
+  "app.launch-link.instance": {
+    "message": "Bir bağlantı {instance} öğesini başlatmak istiyor."
+  },
+  "app.launch-link.proceed": {
+    "message": "Başlat"
+  },
+  "app.launch-link.server": {
+    "message": "Bir bağlantı {instance} öğesini başlatmak ve {target} sunucusuna katılmak istiyor. Yalnızca bu bağlantının nereden geldiğine güveniyorsanız devam edin."
+  },
+  "app.launch-link.title": {
+    "message": "Minecraft bir bağlantıdan açılsın mı?"
+  },
+  "app.launch-link.world": {
+    "message": "Bir bağlantı {instance} öğesini başlatmak ve {target} dünyasını açmak istiyor."
   },
   "app.library.actions.label": {
     "message": "Kütüphane eylemleri"
@@ -1022,122 +1664,14 @@
   "app.library.title": {
     "message": "Kütüphane"
   },
-  "app.modal.install-to-play.additional-context": {
-    "message": "Ek bağlam"
-  },
-  "app.modal.install-to-play.additional-context-placeholder": {
-    "message": "Varsa bağlantı veya resimler ekle"
-  },
-  "app.modal.install-to-play.block-user": {
-    "message": "Kullanıcıyı engelle"
-  },
-  "app.modal.install-to-play.content-you-are-reporting": {
-    "message": "Raporladığınız kurulum"
-  },
-  "app.modal.install-to-play.delete-instance": {
-    "message": "Kurulumu sil"
-  },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "Kurma"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "Oynamak için yükleyin"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Yine de indir"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "Yükle"
-  },
-  "app.modal.install-to-play.invite-warning": {
-    "message": "Bu davetiye Modrinth tarafından değil, başka bir Modrinth kullanıcısı tarafından oluşturulmuştur. Sadece güvendiğiniz kişilerden gelen davetleri kabul edin."
-  },
-  "app.modal.install-to-play.invite-warning-with-creator": {
-    "message": "Bu davet Modrinth aksine, <creator>{username}</creator> tarafından oluşturuldu. Yalnızca güvendiğiniz kişilerden gelen davetleri kabul edin."
-  },
-  "app.modal.install-to-play.managed-content.modpack-header": {
-    "message": "Modpack içeriği"
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {#mod} other {#mods}}"
-  },
-  "app.modal.install-to-play.report-description": {
-    "message": "Bu formu <rules-link>Kuralları</rules-link> ihlal eden veya <terms-link>Hizmet Şartlarını</terms-link> ihlal eden örnekleri raporlamak için kullanın."
-  },
-  "app.modal.install-to-play.report-image-invalid-type": {
-    "message": "Dosya kabul edilen bir resim türü değil"
-  },
-  "app.modal.install-to-play.report-image-too-large": {
-    "message": "Dosya 1 MiB boyut sınırını aşıyor"
-  },
-  "app.modal.install-to-play.report-legal-claims": {
-    "message": "DMCA veya herhangi yasal talep için, <copyright-link>Telif Hakkı Politikamıza</copyright-link> bakın."
-  },
-  "app.modal.install-to-play.report-reason": {
-    "message": "Bu örnek hangi kuralları ihlal ediyor?"
-  },
-  "app.modal.install-to-play.report-shared-instance-header": {
-    "message": "Paylaşılan kurulumunu şikayet edin"
-  },
-  "app.modal.install-to-play.report-submitted": {
-    "message": "Rapor sunuldu"
-  },
-  "app.modal.install-to-play.report-support-and-bugs": {
-    "message": "Yardım talepleri için <support-link>yardım ekibimizle</support-link> iletişime geçin. Hata raporları için <github-link>Github raporu</github-link> açın."
-  },
-  "app.modal.install-to-play.reviewed-files": {
-    "message": "Modrinth'te paylaşılmayan dosyalar incelenmemiştir."
-  },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Paylaşılan Kurulum"
-  },
-  "app.modal.install-to-play.shared-instance-content": {
-    "message": "Paylaşılan kurulum içeriği"
-  },
-  "app.modal.install-to-play.shared-instance-unknown-files-description": {
-    "message": "Bu paylaşımlı örnek Modrinth'te paylaşılmayan dosyalar içeriyor. Yalnızca güvendiğiniz kaynaklardan gelen dosyaları yüklemenizi şiddetle tavsiye ederiz."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "Bu sunucunun mod paketi Modrinth'te yayınlanmamış doysaları mevcut. Yalnızca güvendiğiniz kaynaklardan dosya indirmenizi önemle tavsiye ederiz."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Bilinmeyen dosya uyarısı"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Tanımlanamayan dosyalar"
-  },
-  "app.modal.install-to-play.user-blocked": {
-    "message": "Kullanıcı engellendi"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "İçeriği görüntüle"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Oynamak için güncelle"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "Silindi"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "Bu sunucunun modpack güncellemesi Modrinth'te paylaşılmayan dosyalar içeriyor. Yalnızca güvendiğiniz kaynaklardan gelen dosyaları yüklemenizi şiddetle tavsiye ederiz."
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "Eklendi"
-  },
-  "app.modal.update-to-play.shared-instance-removed-label": {
-    "message": "Kaldırıldı"
-  },
-  "app.modal.update-to-play.shared-instance-unknown-files-description": {
-    "message": "Bu örnek Modrinth'te paylaşılmayan dosyaları içeriyor. Yalnızca güvendiğiniz kaynaklardan gelen dosyaları yüklemenizi şiddetle tavsiye ederiz."
-  },
-  "app.modal.update-to-play.update-required": {
-    "message": "Güncelleme gerekiyor"
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "{name} içeriğini oynamak için bir güncelleme gerekli. Oynamak için lütfen çalıştırmak için gereken en yeni sürüme güncelleyin."
+  "app.nav.collapse-sidebar": {
+    "message": "Kenar çubuğunu daralt"
   },
   "app.nav.create-new-instance": {
     "message": "Yeni kurulum oluştur"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Kenar çubuğunu genişlet"
   },
   "app.nav.home": {
     "message": "Ana Sayfa"
@@ -1166,6 +1700,12 @@
   "app.project.coming-soon": {
     "message": "Yakında"
   },
+  "app.project.gallery.image-fallback": {
+    "message": "Galeri görseli"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Görseli yeni sekmede aç"
+  },
   "app.project.install-button.already-installed": {
     "message": "Bu proje zaten kurulu"
   },
@@ -1183,6 +1723,9 @@
   },
   "app.project.more-options": {
     "message": "Diğer ayarlar"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "CurseForge'da aç"
   },
   "app.project.tab.description": {
     "message": "Açıklama"
@@ -1216,6 +1759,9 @@
   },
   "app.quick-instance-switcher.instance-locked": {
     "message": "Bu kurulum kilitlenmiştir"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Son örnekler"
   },
   "app.quick-instance-switcher.view-instance": {
     "message": "Kurulumu göster"
@@ -1377,7 +1923,7 @@
     "message": "En eski"
   },
   "app.settings.app-version": {
-    "message": "Modrinth Uygulaması {version}"
+    "message": "{productName} {version}"
   },
   "app.settings.default-instance-options.environment-variables.description": {
     "message": "Ortam değişkenleri örnekler açılırken ayarlanır."
@@ -1471,6 +2017,15 @@
   },
   "app.settings.downloading": {
     "message": "v{version} indiriliyor"
+  },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "\"{query}\" ile eşleşen bayrak bulunamadı"
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Varsayılana sıfırla"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Bayrak ara..."
   },
   "app.settings.game-options.category.accessibility.description": {
     "message": "Erişilebilirlik seçenekleri"
@@ -1811,11 +2366,683 @@
   "app.settings.game-options.keybind.mouse.right": {
     "message": "Sağ Fare"
   },
+  "app.settings.game-options.keybind.recording-label": {
+    "message": "{setting}: bir tuş veya fare düğmesi bekleniyor. Bu atamayı temizlemek için Escape'e basın."
+  },
+  "app.settings.game-options.keybind.scancode": {
+    "message": "Tuş kodu {code}"
+  },
+  "app.settings.game-options.keybind.unsupported-status": {
+    "message": "Bu girdi Minecraft tarafından kullanılamaz. Başka bir tuşa basın."
+  },
+  "app.settings.game-options.setting.advanced-opengl.label": {
+    "message": "Gelişmiş OpenGL"
+  },
+  "app.settings.game-options.setting.allow-cursor-changes.label": {
+    "message": "İmleç değişikliklerine izin ver"
+  },
+  "app.settings.game-options.setting.allow-server-listing.description": {
+    "message": "Oyuncunun adının sunucu listelerinde görünmesine izin verir."
+  },
+  "app.settings.game-options.setting.allow-server-listing.label": {
+    "message": "Sunucu listeleri"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "Alternatif bloklar"
+  },
+  "app.settings.game-options.setting.ambient-occlusion.label": {
+    "message": "Yumuşak aydınlatma"
+  },
+  "app.settings.game-options.setting.ambient-volume.label": {
+    "message": "Ortam/Çevre"
+  },
+  "app.settings.game-options.setting.anaglyph-3d.label": {
+    "message": "3D anaglif"
+  },
+  "app.settings.game-options.setting.anisotropic-filtering.label": {
+    "message": "Anizotropik filtreleme"
+  },
+  "app.settings.game-options.setting.anisotropy.label": {
+    "message": "Anizotropi"
+  },
+  "app.settings.game-options.setting.attack-indicator.label": {
+    "message": "Saldırı göstergesi"
+  },
+  "app.settings.game-options.setting.auto-jump.description": {
+    "message": "Bir blok yükseklikteki engelleri otomatik olarak zıplar."
+  },
+  "app.settings.game-options.setting.auto-jump.label": {
+    "message": "Otomatik zıplama"
+  },
+  "app.settings.game-options.setting.auto-suggestions.label": {
+    "message": "Komut önerileri"
+  },
+  "app.settings.game-options.setting.autosave-indicator.label": {
+    "message": "Otomatik kaydetme simgesi"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.description": {
+    "message": "Biyom renklerinin geçiş yaptığı mesafe."
+  },
+  "app.settings.game-options.setting.biome-blend-radius.label": {
+    "message": "Biyom geçişi"
+  },
+  "app.settings.game-options.setting.blocks-volume.label": {
+    "message": "Bloklar"
+  },
+  "app.settings.game-options.setting.brightness.label": {
+    "message": "Parlaklık"
+  },
+  "app.settings.game-options.setting.cape.description": {
+    "message": "Oyuncunun pelerinini elitra dokusu dahil olmak üzere göster."
+  },
+  "app.settings.game-options.setting.cape.label": {
+    "message": "Pelerin"
+  },
+  "app.settings.game-options.setting.chat-background-only.label": {
+    "message": "Yalnızca sohbet arka planı"
+  },
+  "app.settings.game-options.setting.chat-colors.label": {
+    "message": "Sohbet renkleri"
+  },
+  "app.settings.game-options.setting.chat-delay.label": {
+    "message": "Sohbet gecikmesi"
+  },
+  "app.settings.game-options.setting.chat-line-spacing.label": {
+    "message": "Sohbet satır aralığı"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.description": {
+    "message": "Sohbetteki bağlantıları açmadan önce sor."
+  },
+  "app.settings.game-options.setting.chat-links-prompt.label": {
+    "message": "Bağlantılarda onay iste"
+  },
+  "app.settings.game-options.setting.chat-links.description": {
+    "message": "Sohbetteki web bağlantılarının açılmasına izin ver."
+  },
+  "app.settings.game-options.setting.chat-links.label": {
+    "message": "Web bağlantıları"
+  },
+  "app.settings.game-options.setting.chat-opacity.description": {
+    "message": "Sohbet metninin saydamlığı."
+  },
+  "app.settings.game-options.setting.chat-opacity.label": {
+    "message": "Sohbet opaklığı"
+  },
+  "app.settings.game-options.setting.chat-preview.label": {
+    "message": "Sohbet önizlemesi"
+  },
+  "app.settings.game-options.setting.chat-scale.label": {
+    "message": "Sohbet ölçeği"
+  },
+  "app.settings.game-options.setting.chat-visibility.label": {
+    "message": "Sohbet görünürlüğü"
+  },
+  "app.settings.game-options.setting.chat-width.label": {
+    "message": "Sohbet genişliği"
+  },
+  "app.settings.game-options.setting.chunk-fade-time.label": {
+    "message": "Chunk belirme süresi"
+  },
+  "app.settings.game-options.setting.cloud-range.label": {
+    "message": "Bulut mesafesi"
+  },
+  "app.settings.game-options.setting.clouds.label": {
+    "message": "Bulutlar"
+  },
+  "app.settings.game-options.setting.ctrl-click-right-click.label": {
+    "message": "Ctrl tuşuna tıklamayı sağ tık olarak kullan"
+  },
+  "app.settings.game-options.setting.cutout-leaves.label": {
+    "message": "Kesik yapraklar"
+  },
+  "app.settings.game-options.setting.damage-tilt.label": {
+    "message": "Hasar eğilmesi"
+  },
+  "app.settings.game-options.setting.dark-splash.description": {
+    "message": "Mojang Studios yüklenme ekranını kırmızıdan siyaha çevir."
+  },
+  "app.settings.game-options.setting.dark-splash.label": {
+    "message": "Tek renkli logo"
+  },
+  "app.settings.game-options.setting.darkness-pulsing.label": {
+    "message": "Karanlık nabzı"
+  },
+  "app.settings.game-options.setting.debug-gui-scale.label": {
+    "message": "Hata ayıklama GUI ölçeği"
+  },
+  "app.settings.game-options.setting.directional-audio.label": {
+    "message": "Yönlü ses"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.description": {
+    "message": "Her fare tekerleği girdisini tek bir kaydırma adımı olarak işle."
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.label": {
+    "message": "Ayrık kaydırma"
+  },
+  "app.settings.game-options.setting.entity-distance.label": {
+    "message": "Varlık mesafesi"
+  },
+  "app.settings.game-options.setting.entity-shadows.label": {
+    "message": "Varlık gölgeleri"
+  },
+  "app.settings.game-options.setting.exclusive-fullscreen.label": {
+    "message": "Özel tam ekran"
+  },
+  "app.settings.game-options.setting.extra-telemetry.label": {
+    "message": "İsteğe bağlı ölçüm verileri"
+  },
+  "app.settings.game-options.setting.focused-chat-height.label": {
+    "message": "Odaklanmış sohbet yüksekliği"
+  },
+  "app.settings.game-options.setting.force-unicode-font.label": {
+    "message": "Unicode yazı tipini zorla"
+  },
+  "app.settings.game-options.setting.fov-effects.label": {
+    "message": "Görüş Açısı Efektleri"
+  },
+  "app.settings.game-options.setting.fov.label": {
+    "message": "Görüş Açısı"
+  },
+  "app.settings.game-options.setting.fullscreen.label": {
+    "message": "Tam Ekran"
+  },
+  "app.settings.game-options.setting.glint-speed.label": {
+    "message": "Parıltı hızı"
+  },
+  "app.settings.game-options.setting.glint-strength.label": {
+    "message": "Parıltı yoğunluğu"
+  },
+  "app.settings.game-options.setting.graphics-backend.label": {
+    "message": "Grafik arka ucu"
+  },
+  "app.settings.game-options.setting.graphics.description": {
+    "message": "Görsel kaliteyi ve performansı kontrol eder."
+  },
+  "app.settings.game-options.setting.graphics.label": {
+    "message": "Grafikler"
+  },
+  "app.settings.game-options.setting.gui-scale.description": {
+    "message": "Oyun arayüzünün ve HUD'un boyutu."
+  },
+  "app.settings.game-options.setting.gui-scale.label": {
+    "message": "Arayüz Ölçeği"
+  },
+  "app.settings.game-options.setting.hat.description": {
+    "message": "Şapka görünüm katmanını göster."
+  },
+  "app.settings.game-options.setting.hat.label": {
+    "message": "Şapka"
+  },
+  "app.settings.game-options.setting.held-item-tooltips.label": {
+    "message": "Tutulan eşya ipuçları"
+  },
+  "app.settings.game-options.setting.hide-lightning-flashes.label": {
+    "message": "Şimşek parlamalarını gizle"
+  },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "Eşleşen adları gizle"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "Sunucu adresini gizle"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "Açılış yazılarını gizle"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "Yüksek kontrastlı blok çerçevesi"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "Arayüz öğelerinin kontrastını artır."
+  },
+  "app.settings.game-options.setting.high-contrast.label": {
+    "message": "Yüksek karşıtlık"
+  },
+  "app.settings.game-options.setting.hostile-volume.label": {
+    "message": "Düşman yaratıklar"
+  },
+  "app.settings.game-options.setting.improved-transparency.label": {
+    "message": "Artırılmış şeffaflık"
+  },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "Oyun içi bildirimler"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "Azaltılmış kare hızı"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "Fareyi yatay olarak ters çevir"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "Dikey fare hareketini ters çevir."
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "Fareyi ters çevir"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "Ceket görünüm katmanını göster."
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "Ceket"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "Japonca glif varyantları"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "Başarımlar"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "Saldır"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "Geriye yürü"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "Sohbeti aç"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "Komut"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "Gelişmiş ipuçlarını göster"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "Yığın sınırlarını göster"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "Sohbeti temizle"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "Konumu kopyala"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "Yeniden oluşturma komutunu kopyala"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "Hata ayıklama çökmesi tetikle"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "Dinamik dokuları dök"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "Sürümü dök"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "Odak kaybında duraklat"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "FPS grafikleri"
+  },
+  "app.settings.game-options.setting.key-debug-hitboxes.label": {
+    "message": "Vuruş kutularını göster"
+  },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "Geliştirilmiş saydamlık hata ayıklama görünümü"
+  },
+  "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
+    "message": "Işık haritası dokusu"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "Hata ayıklama değiştiricisi"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "Ağ grafikleri"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "Hata ayıklama seçenekleri"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "Hata ayıklama kaplaması"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "Profil oluşturma grafiği"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "Profil oluşturmayı başlat"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "Chunk'ları yeniden yükle"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "Kaynak paketlerini yeniden yükle"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "Varlığı izle"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "Oyun modunu değiştir"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "Eşyayı bırak"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "İleri git"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "Arkadaşlar"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "Tam ekranı değiştir"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "Hızlı çubuk 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "Hızlı çubuk 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "Hızlı çubuk 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "Hızlı çubuk 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "Hızlı çubuk 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "Hızlı çubuk 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "Hızlı çubuk 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "Hızlı çubuk 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "Hızlı çubuk 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "Envanter"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "Zıpla"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "Sola git"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "Araç çubuğunu yükle"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "Bakış açısını değiştir"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "Blok seç"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "Oyuncu listesi"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "Hızlı eylemler"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "Sağa git"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "Araç çubuğunu kaydet"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "Ekran görüntüsü"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "Sinematik kamerayı değiştir"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "Eğil"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "Sosyal etkileşimler"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "İzleyici hızlı çubuğu"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "İzleyicileri vurgula"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "Koş"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "Diğer eli değiştir"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "HUD'u değiştir"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "İzleyici gölgelendiricisini değiştir"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "Eşyayı kullan"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "Dil"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "Sol pantolon bacağı"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "Sol kol"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "Kare hızı sınırı"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "Görüş mesafesi"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "Tam ekranda macOS menüsünü göster"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "Ana elin sol mu sağ mı olduğunu seçin."
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "Ana el"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "Ana ses düzeyi"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "Maksimum kare hızı"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "Menü arka planı bulanıklığı"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "Uzakta doku yumuşatma."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "Mipmap seviyeleri"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "Fare tekerleği hassasiyeti"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "Müzik sıklığı"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "Müzik başlıklarının duraklatma menüsünde ve bildirim olarak görünüp görünmeyeceğini seçin."
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "Müzik bildirimi"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "Müzik"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "Anlatıcı kısayol tuşu"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "Anlatıcının ne okuyacağını seçin."
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "Anlatıcı"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "Dost canlılar"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "Bildirimlerin ne kadar süre görünür kaldığı."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "Bildirim süresi"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "Operatör öğeleri sekmesi"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "Panorama hızı"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "Parçacıklar"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "Oyuncular"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "Chunk güncellemelerine öncelik ver"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "Çıkış kısayolları"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "Ham fare girdisi"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "Realms bildirimleri"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "Müzik kutuları/Nota blokları"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "Azaltılmış hata ayıklama bilgileri"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "Oluşturma mesafesi"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "Sağ pantolon bacağı"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "Sağ kol"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "Minecart ile döndür"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "Sohbet taslaklarını kaydet"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "Ekran efektleri"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "Yalnızca güvenli sohbeti göster"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "Fare hassasiyeti"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "Sunucu dokuları"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "Durumu paylaş"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "Varlıkların ne kadar uzaktan güncellendiği ve blokların ve sıvıların ne kadar uzaktan çalıştığı."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "Simülasyon mesafesi"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Snooper"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "Koşma süresi"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "Oyunda çalan sesler için altyazı göster."
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "Altyazılar"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "Metin arka planı saydamlığı"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "Doku filtreleme"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "Saldırıyı değiştir"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "Eğik kalmak için bir kez bas."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "Eğilmeyi değiştir"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "Koşmaya devam etmek için bir kez bas."
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "Koşmayı değiştir"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "Kullanmayı değiştir"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "Dokunmatik ekran modu"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "Kullanıcı arayüzü"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "Odaklanmamış sohbet yüksekliği"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "VBO'ları kullan"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "Yürürken kameraya sallanma hareketi ekle."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "Görüş sallanması"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "Vinyet"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "Ses ve konuşma"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "Ekran yırtılmasını önlemek için kare hızını ekran yenileme hızıyla sınırla."
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "Hava durumu yarıçapı"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "Hava durumu"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "Bu ayar başka bir yerde değişti. Kontrol edip tekrar deneyin."
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "Geçerli bir değer seçin."
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "Önce bir değer seçin."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "Bazı örnekleriniz bu ayarı kullanamaz"
+  },
   "app.settings.java-installations.location.title": {
     "message": "Java {version, number} konumu"
   },
   "app.settings.operating-system.macos": {
     "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "{productName} uygulamasını Discord'daki mevcut etkinliğiniz olarak göster. Bu, modların örneklere eklediği Rich Presence'i etkilemez."
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
@@ -1831,6 +3058,9 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "Uygulama önbelleğini temizle?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Önbelleğe alınmış verileri temizleyip yeniden indir. Önbellek yeniden oluşturulana kadar uygulama daha yavaş yüklenebilir."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Önbelleği temizle"
@@ -1871,11 +3101,122 @@
   "app.settings.resource-management.maximum-concurrent-writes.title": {
     "message": "Maksimum eşzamanlı yazım"
   },
+  "app.settings.resource-management.store.attention": {
+    "message": "Bazı dosyalar hâlâ ilgilenilmesi gerekiyor"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Gelecekteki kurulumlar için bu kadar kullanılmayan içerik sakla. Daha fazlasını saklamak indirme süresinden tasarruf sağlayabilir."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Kullanılmayan indirmeleri sakla"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Hesaplanıyor"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Kullanılmayanları temizle"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Kullanılmayan indirilmiş içerikleri sil"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "{size} disk alanı boşaltıldı."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Temizleniyor…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Oyun kurulumlarını, modları ve paketleri örnekleriniz arasında yeniden kullanarak yerden tasarruf edin."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Depolama kullanımınızı burada görmek için mod veya paket kurun."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "{count, plural, one {# sorunu} other {# sorunu}} görüntüle"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Temizlenecek kullanılmayan içerik yok."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Doğrula ve onar"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Bu, çalışan tüm örnekleri kapatır."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Eksik veya hasarlı dosyaları kontrol edip onar."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Doğrulanıyor ve onarılıyor…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Paylaşılan"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "İçerik depolaması"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} depolandı"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Benzersiz"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Sahipsiz"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "{checked, plural, one {# dosya} other {# dosya}} kontrol edildi ve {repaired, plural, one {# onarım} other {# onarım}} yapıldı."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Doğrulama tamamlandı"
+  },
   "app.settings.sidebar.label.instances": {
     "message": "Örnekler"
   },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Komut geçmişinizi hangi örnekten kopyalayacağınızı seçin. Bu geçmiş yalnızca ilk senkronizasyon için kullanılır ve sonrasında herhangi bir örnekten düzenleyebilirsiniz."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Komut geçmişi kaynağını seç"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Kayıtlı yaratıcı hızlı çubuklarınızı hangi örnekten kopyalayacağınızı seçin. Bu hızlı çubuklar yalnızca ilk senkronizasyon için kullanılır ve sonrasında herhangi bir örnekten düzenleyebilirsiniz."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Yaratıcı hızlı çubuk kaynağını seç"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Veri paketi kaynağını seç"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Oyun ayarlarınızı hangi örnekten kopyalayacağınızı seçin. Bu ayarlar yalnızca ilk senkronizasyon için kullanılır ve sonrasında herhangi bir örnekten düzenleyebilirsiniz."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Oyun ayarları kaynağını seç"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Bu örneği senkronizasyon kaynağı olarak seçemezsiniz"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Senkronizasyon kaynakları yüklenemedi. Lütfen tekrar deneyin."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Çok oyunculu sunucularınızı hangi örnekten kopyalayacağınızı seçin. Bu sunucular yalnızca ilk senkronizasyon için kullanılır ve sonrasında herhangi bir örnekten düzenleyebilirsiniz."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Çok oyunculu sunucu kaynağını seç"
+  },
   "app.settings.synced-options.choose-sync-source.no-instances-found": {
     "message": "Hiçbir örnek bulunamadı"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Kaynak paketi kaynağını seç"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Tekrar dene"
   },
   "app.settings.synced-options.choose-sync-source.search-placeholder": {
     "message": "Örnek ara"
@@ -1898,11 +3239,116 @@
   "app.settings.synced-options.creative-hotbars.description": {
     "message": "Kaydedilmiş aynı kreatif hızlı erişim çubuklarını farklı oturumlarınızda kullanın."
   },
+  "app.settings.synced-options.data-packs": {
+    "message": "Veri paketlerini senkronize et"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Tüm örneklerinizde aynı veri paketlerini kullanın"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Henüz hiç veri paketi senkronize etmediniz"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Senkronize verileri düzenlemeden önce bir örnek ekleyin."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Bu ayarı düzenlemeden önce bir senkronizasyon kaynağı seçin."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "Oyun ayarlarını senkronize et"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Oyun ayarlarını düzenle"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "En son ayarları yükledik. Değişikliklerinizi kontrol edip tekrar kaydedin."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Bu ayarlar başka bir yerde değişti"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Modlar tarafından eklenen ayarlar, {productName} bunları örneklerinizden birinde bulduğunda burada görünür."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Tüm örneklerinizde aynı oyun ayarlarını kullanın."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "Tümünün senkronizasyonunu kaldır"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Tek tek ayarları seçmeden önce oyun ayarları senkronizasyonunu etkinleştirin."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Aramanızla veya filtrenizle eşleşen ayar yok."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "Tümünü senkronize et"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "Oyun ayarlarınızı yükleyemedik."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Ayarlar yükleniyor..."
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Henüz düzenlenecek ayarınız yok"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Senkronize edilmiyor"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "Tekrar dene"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "Ayarları kaydet"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Ayar ara..."
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Senkronize edilen ayarlar her örneğe uygulanır ve bir mod paketiyle gelen değerleri geçersiz kılar."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "{setting} öğesini örnekler arasında senkronize et"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "Oyun ayarlarını senkronize et"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Örnekler arasında senkronize edildi"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Oyun ayarları"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Kaydedilmemiş değişiklikleriniz var."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "{setting} öğesinin örnekler arasında senkronizasyonunu durdur"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "Örnekler arasında farklı"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "Kapalı"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "Açık"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Bir değer seç"
+  },
   "app.settings.synced-options.multiplayer-servers": {
     "message": "Çok oyunculu sunucuları senkronize et"
   },
   "app.settings.synced-options.multiplayer-servers.address": {
     "message": "Sunucu adresi"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Adresi kopyala"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {# sunucu} other {# sunucu}}"
   },
   "app.settings.synced-options.multiplayer-servers.description": {
     "message": "Örneklerinizde aynı çok oyunculu sunucuları kullanın."
@@ -1913,14 +3359,53 @@
   "app.settings.synced-options.multiplayer-servers.empty": {
     "message": "Şu anda kullanıcı ekli sunucular senkronize edilmedi."
   },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "Çevrimdışı"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "Çevrimiçi"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "Diğer sunucu seçenekleri"
+  },
   "app.settings.synced-options.multiplayer-servers.name": {
     "message": "Sunucu adı"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Aramanızla veya filtrelerinizle eşleşen senkronize sunucu yok."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Henüz hiç sunucu senkronize etmediniz"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} çevrimiçi"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "{count, number} {count, plural, one {senkronize sunucu} other {senkronize sunucu}} ara..."
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Durum"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Paylaşılan paketleri düzenlemeden önce senkronizasyonu etkinleştirin."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "Kaynak paketlerini senkronize et"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Tüm örneklerinizde aynı kaynak paketlerini kullanın."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "Henüz hiç kaynak paketi senkronize etmediniz"
   },
   "app.settings.tabs.appearance": {
     "message": "Görünüm"
   },
   "app.settings.tabs.behavior": {
     "message": "Davranış"
+  },
+  "app.settings.tabs.features": {
+    "message": "Özellikler"
   },
   "app.settings.tabs.java-installations": {
     "message": "Java kurulumları"
@@ -1937,8 +3422,41 @@
   "app.settings.tabs.synced-options": {
     "message": "Senkronize edilmiş ayarlar"
   },
-  "app.sidebar.playing-as": {
-    "message": "Şu olarak oynuyor"
+  "app.sidebar.advertising.label": {
+    "message": "Reklam"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Önizleme · alan {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Sonraki mod paketi"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Geçişi duraklat"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} / {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Önceki mod paketi"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Geçişi sürdür"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Öne çıkan mod paketleri"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Öne çıkan mod paketleri şu anda kullanılamıyor."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Projeyi görüntüle"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Barındırmayı keşfet"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Bir sonraki Minecraft sunucunuz"
   },
   "app.skins.add-button": {
     "message": "Dış görünüm ekle"
@@ -1948,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Uygula"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Tüm modeller"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klasik"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Varsayılan"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Hiç kıyafet bulunamadı. Başka bir arama deneyin."
+  },
+  "app.skins.catalog.error": {
+    "message": "Bu kıyafet sağlayıcısı kullanılamıyor. Lütfen daha sonra tekrar deneyin."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Kıyafetler yükleniyor…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "MineSkin'in herkese açık galerisinin tamamını ara."
+  },
+  "app.skins.catalog.model": {
+    "message": "Model"
+  },
+  "app.skins.catalog.next": {
+    "message": "Sonraki sayfa"
+  },
+  "app.skins.catalog.page": {
+    "message": "Sayfa {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Popüler"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Önceki sayfa"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Kıyafet sağlayıcıları"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Sağlayıcı istek sınırına ulaştı. Yeniden denemeden önce bekleyin."
+  },
+  "app.skins.catalog.recent": {
+    "message": "En Son"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Tekrar dene"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Kıyafet Varsayılan'a kaydedildi"
+  },
+  "app.skins.catalog.search": {
+    "message": "Kıyafet ara…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Ara"
+  },
+  "app.skins.catalog.slim": {
+    "message": "İnce"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Sırala"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Etiket (isteğe bağlı)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Trend"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Bu sağlayıcı henüz yapılandırılmamış."
   },
   "app.skins.delete-button": {
     "message": "Dış görünümü sil"
@@ -2093,8 +3683,134 @@
   "app.skins.toggle-ears-features-on": {
     "message": "Aç"
   },
+  "app.sync-instances-update.badge": {
+    "message": "Bu güncellemede yeni"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "Oyun ayarlarını, kaynak paketlerini, komut geçmişini, yaratıcı hızlı çubuklarını ve çok oyunculu sunucuları hangi örnekten kopyalayacağınızı seçin. Bu ayarlar yalnızca ilk senkronizasyon için kullanılır ve sonrasında herhangi bir örnekten düzenleyebilirsiniz."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "Senkronizasyon kaynağını seç"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Veri paketlerinizi hangi örnekten kopyalayacağınızı seçin. Bu paketler yalnızca ilk senkronizasyon için kullanılır ve sonrasında herhangi bir örnekten düzenleyebilirsiniz."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Kaynak paketlerinizi hangi örnekten kopyalayacağınızı seçin. Bu paketler yalnızca ilk senkronizasyon için kullanılır ve sonrasında herhangi bir örnekten düzenleyebilirsiniz."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "Yaratıcı hızlı çubuklarını senkronize et"
+  },
+  "app.sync-instances-update.description": {
+    "message": "Artık oyun ayarları, sunucular, kaynak paketleri ve daha fazlası gibi seçenekleri örnekleriniz arasında senkronize edebilirsiniz, böylece her oynadığınızda her şey aynı kalır!"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "Senkronizasyon ayarlarınız yüklenemedi. Lütfen tekrar deneyin."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "Senkronizasyonu şimdi etkinleştirip daha sonra uygulama ayarlarınızdan yönetebilirsiniz."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "Oyun ayarlarını, sunucuları, kaynak paketlerini ve daha fazlasını örnekleriniz arasında senkronize tutun."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "Yoksay"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "Örneklerinizi senkronize edin"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "Güncellemeyi görüntüle"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "Tekrar dene"
+  },
   "app.sync-instances-update.skip": {
     "message": "Atla"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "Tümünü senkronize et"
+  },
+  "app.sync-instances-update.title": {
+    "message": "Örneklerinizi senkronize edin"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "Bunu tüm senkronize örneklerde veya yalnızca bu örnekte devre dışı bırakın. Yalnızca burada devre dışı bırakmak, bu örnek için geçersiz kılmaları etkinleştirir."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "Her yerde devre dışı bırak"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "Bu içeriği tüm senkronize örneklerde devre dışı bırak."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "Burada devre dışı bırak"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "İçerik devre dışı bırakılsın mı?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "Bunu tüm senkronize örneklerde veya yalnızca bu örnekte etkinleştirin. Yalnızca burada etkinleştirmek, bu örnek için geçersiz kılmaları etkinleştirir."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Her yerde etkinleştir"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Bu içeriği tüm senkronize örneklerde etkinleştir."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Burada etkinleştir"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "İçerik etkinleştirilsin mi?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Her yerde sil"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Burada sil"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Bu içeriği silmek, onu tüm örneklerinizden silecek"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Senkronize edilmeyen seçili içerik yalnızca bu örnekten silinir."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Bunu yalnızca bu örnekten veya tüm senkronize örneklerden kaldırabilirsiniz. Yalnızca bu örnekten kaldırmak geçersiz kılmaları etkinleştirir ve bu örnek artık bu içerik türleri için senkronize değişiklikleri almaz."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "Bunları yalnızca bu örnekten veya tüm senkronize örneklerden kaldırabilirsiniz. {count, plural, one {Bunu} other {Bunları}} yalnızca bu örnekten kaldırmak geçersiz kılmaları etkinleştirir ve bu örnek artık senkronize kaynak paketi değişikliklerini almaz."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {Bu kaynak paketi senkronize edildi} other {Bu kaynak paketleri senkronize edildi}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Bu örnek kendi kopyasını koruyacak. Bu içeriği diğer örneklerde senkronize tutmak mı yoksa onlardan kaldırmak mı istiyorsunuz?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "Sakla"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "Kaldır"
+  },
+  "app.synced-content.desync.title": {
+    "message": "İçeriğin senkronizasyonunu kaldır"
+  },
+  "app.synced-content.warning.title": {
+    "message": "Bu içerik senkronize edildi"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "Senkronize veri paketleri"
+  },
+  "app.synced-packs.empty": {
+    "message": "Senkronizasyona başlamak için bir örneğin içerik sayfasından paket ekleyin."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "Paketler yüklenemedi. Yenilemeyi deneyin."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Senkronize kaynak paketleri"
   },
   "app.update-popup.body.download-complete": {
     "message": "{productName} v{version} indirildi. Güncellemek için yeniden başlatın veya {productName}’i kapattığınızda otomatik olarak güncellenecektir."
@@ -2129,9 +3845,6 @@
   "app.update.download-error.missing-version": {
     "message": "Güncelleme indirilemedi: sürüm mevcut değil"
   },
-  "app.user.project.install-to-instance": {
-    "message": "Bu örneğe yükle"
-  },
   "app.welcome-screen.create-instance": {
     "message": "Bir kurulum oluştur"
   },
@@ -2150,6 +3863,69 @@
   "app.welcome-screen.title": {
     "message": "{productName}'e Hoş Geldiniz"
   },
+  "app.window-controls.close": {
+    "message": "Pencereyi kapat"
+  },
+  "app.window-controls.minimize": {
+    "message": "Pencereyi küçült"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Pencereyi büyütmeyi değiştir"
+  },
+  "app.world-install.backup": {
+    "message": "Değiştir, mevcut dünyanın yedeğini saklar. Koru ve İptal hiçbir şey kurmaz. Başka bir kopya kur seçeneği numaralandırılmış bir dünya oluşturur."
+  },
+  "app.world-install.backup-location": {
+    "message": "Önceki dünya, kurulum içindeki {path} konumuna kaydedildi."
+  },
+  "app.world-install.conflict": {
+    "message": "Bu ada sahip veya bu projeden gelen bir dünya zaten var."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Sürüm farkına rağmen kur"
+  },
+  "app.world-install.copy": {
+    "message": "Başka bir kopya kur"
+  },
+  "app.world-install.description": {
+    "message": "Bir kuruluma yeni bir dünya kur. Mevcut dünyalar, birini değiştirmeyi seçmediğin sürece korunur."
+  },
+  "app.world-install.incompatible": {
+    "message": "Bu dosya Minecraft {version} ile uyumluluk belirtmiyor. Devam etmeden önce yazarın istediği sürümü ve modları kontrol et."
+  },
+  "app.world-install.installed": {
+    "message": "Dünya kuruldu: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Hedef kurulum"
+  },
+  "app.world-install.keep": {
+    "message": "Mevcut olanı koru"
+  },
+  "app.world-install.no-instances": {
+    "message": "Önce bir Minecraft kurulumu oluştur, ardından dünyayı kurmak için buraya dön."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Dünyaları görüntüle"
+  },
+  "app.world-install.replace": {
+    "message": "Değiştir"
+  },
+  "app.world-install.replace-target": {
+    "message": "Değiştirilecek dünya"
+  },
+  "app.world-install.requirements": {
+    "message": "Gerekli modlar veya mod paketleri hedef kurulumda önceden kurulu olmalıdır. Proje açıklamasını kontrol et."
+  },
+  "app.world-install.title": {
+    "message": "Dünya kur"
+  },
+  "app.world-install.version": {
+    "message": "Dünya sürümü"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
+  },
   "app.world.server-modal.select-an-option": {
     "message": "Bir seçenek seçin"
   },
@@ -2165,80 +3941,14 @@
   "app.world.world-item.players-online": {
     "message": "{count} çevrimiçi"
   },
-  "content.shared-instance.change-version-body": {
-    "message": "Sürümü değiştirmek sadece yerel kopyanızı değiştirir. Gelecek paylaşımlı örnek güncellemeleri, bu içeriği geri yükleyebilir veya yeniden değiştirebilir."
+  "curseforge.manual.description": {
+    "message": "{file} dosyasını resmi CurseForge sayfasından indirin ve devam etmek için indirilen dosyayı seçin. Boyutu ve SHA-1 değeri doğrulanacaktır."
   },
-  "content.shared-instance.delete-bulk-body": {
-    "message": "Seçilen bazı projeler paylaşımlı örneklerin parçası. Onları silmek sadece yerel kopyanızı değiştirir ve gelecek paylaşımlı örnek güncellemeleri, bu içeriği geri yükleyebilir veya yeniden değiştirebilir."
+  "curseforge.manual.select": {
+    "message": "İndirilen dosyayı seç"
   },
-  "content.shared-instance.delete-button": {
-    "message": "Yine de sil"
-  },
-  "content.shared-instance.delete-many-button": {
-    "message": "Yine de {count, number} sayıda proje sil"
-  },
-  "content.shared-instance.delete-single-body": {
-    "message": "Bunu silmek sadece yerel kopyanızı etkiler. Gelecek paylaşımlı örnek güncellemeleri, bu içeriği geri yükleyebilir veya yeniden değiştirebilir."
-  },
-  "content.shared-instance.disable-bulk-body": {
-    "message": "Seçilen bazı projeler paylaşımlı örneklerin parçası. Bunları devre dışı bırakmak yalnızca yerel kopyanızı etkiler; gelecek paylaşımlı örnek güncellemeleri, bu projeleri tekrar etkinleştirebilir, geri yükleyebilir veya yeniden değiştirebilir."
-  },
-  "content.shared-instance.disable-button": {
-    "message": "Yine de devre dışı bırak"
-  },
-  "content.shared-instance.disable-many-button": {
-    "message": "Yine de {count, number} sayıda proje devre dışı bırak"
-  },
-  "content.shared-instance.disable-single-body": {
-    "message": "Bunu devre dışı bırakmak sadece yerel kopyanızı etkiler. Gelecek paylaşımlı örnek güncellemeleri, bu içeriği tekrar etkinleştirebilir, geri yükleyebilir veya yeniden değiştirebilir."
-  },
-  "content.shared-instance.unlink-body": {
-    "message": "Bağlantıyı kaldırma sadece yerel kopyanızı değiştirir. Gelecek paylaşımlı örnek güncellemeleri, bu içeriği geri yükleyebilir veya yeniden değiştirebilir."
-  },
-  "content.shared-instance.warning-header": {
-    "message": "Bu paylaşımlı örneğin parçası"
-  },
-  "installation-settings.shared-instance.linked-title": {
-    "message": "Bağlantılı paylaşımlı örnek"
-  },
-  "installation-settings.shared-instance.title": {
-    "message": "Örneği yayından kaldır"
-  },
-  "installation-settings.shared-instance.unlink-button": {
-    "message": "Paylaşımlı örneğin bağlantısını kaldır"
-  },
-  "installation-settings.shared-instance.unlink-description": {
-    "message": "Bu yerel örneği gelecek paylaşımlı güncellemelerden bağlantısını kes."
-  },
-  "installation-settings.shared-instance.unlinking-button": {
-    "message": "Bağlantı kesiliyor..."
-  },
-  "installation-settings.shared-instance.unpublish-button": {
-    "message": "Paylaşımlı örneği yayından kaldır"
-  },
-  "installation-settings.shared-instance.unpublish-description": {
-    "message": "Bu paylaşımlı örneği Modrinth'ten kaldırın ve onu kullanan kişilere güncelleme göndermeyi durdurun. Yerel örneğiniz bundan etkilenmeyecektir."
-  },
-  "installation-settings.shared-instance.unpublishing-button": {
-    "message": "Yayından kaldırılıyor..."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-body": {
-    "message": "Bu yalnızca yerel örneğinizi etkiler. Yüklediğiniz içerik bu cihazda kalacak, paylaşımlı örnek ve kullanan diğer kişiler etkilenmeyecek."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-header": {
-    "message": "Paylaşımlı örneğin bağlantısı kaldırılıyor"
-  },
-  "installation-settings.unlink-shared-instance.modal.header": {
-    "message": "Paylaşımlı örneğin bağlantısını kaldır"
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-body": {
-    "message": "Bu paylaşımlı örneği Modrinth'in sunucularından kaldırır. {productName}'i kullanan kişiler güncelleme almayı bırakır fakat yerel örneğiniz ve içeriği bu cihazda kalacak."
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-header": {
-    "message": "Paylaşımlı örnek yayından kaldırılıyor"
-  },
-  "installation-settings.unpublish-shared-instance.modal.header": {
-    "message": "Paylaşımlı örneği yayından kaldır"
+  "curseforge.manual.title": {
+    "message": "Manuel indirme gerekli"
   },
   "instance.action.create-shortcut": {
     "message": "Kısayol oluştur"
@@ -2305,6 +4015,9 @@
   },
   "instance.files.adding-files": {
     "message": "Dosyalar ekleniyor ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "Yüklü içeriğinizi İçerik sekmesinden yönetin"
   },
   "instance.files.save-as": {
     "message": "Farklı kaydet..."
@@ -2453,9 +4166,6 @@
   "instance.icon-editor.symbol.moobloom": {
     "message": "Moobloom İneği"
   },
-  "instance.icon-editor.symbol.mr-pack": {
-    "message": "Mr Pack"
-  },
   "instance.icon-editor.symbol.neoforge": {
     "message": "NeoForge"
   },
@@ -2522,14 +4232,41 @@
   "instance.last-played": {
     "message": "Son oynanış:"
   },
+  "instance.locked.badge": {
+    "message": "Kilitli"
+  },
   "instance.locked.delete-button": {
     "message": "Örneği kaldır"
+  },
+  "instance.locked.info-label": {
+    "message": "Kilitli örnek bilgileri"
   },
   "instance.locked.play-tooltip": {
     "message": "Bu örnek kilitlendi"
   },
+  "instance.locked.text": {
+    "message": "Bu örnek kilitli; oynanamaz veya değiştirilemez. Silebilirsiniz."
+  },
+  "instance.locked.title": {
+    "message": "Örnek kilitli"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Mod yükleyicisi ve Minecraft sürümü"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# saat} other {# saat}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# dakika} other {# dakika}}"
+  },
   "instance.playtime.never-played": {
     "message": "Hiç oynanmadı"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# saniye} other {# saniye}}"
+  },
+  "instance.playtime.total": {
+    "message": "Toplam oyun süresi"
   },
   "instance.server-modal.address": {
     "message": "Adres"
@@ -2543,44 +4280,32 @@
   "instance.server-modal.resource-pack": {
     "message": "Kaynak paketi"
   },
-  "instance.settings.sharing.active-invites.actions": {
-    "message": "Eylemler"
+  "instance.settings.synced-options.data-override": {
+    "message": "Senkronize verileri düzenlemek için bu geçersiz kılmayı kapatın."
   },
-  "instance.settings.sharing.active-invites.code": {
-    "message": "Davet bağlantısı"
+  "instance.settings.synced-options.data-packs": {
+    "message": "Veri paketlerinin senkronizasyonunu kaldır"
   },
-  "instance.settings.sharing.active-invites.description": {
-    "message": "Bu davet bağlantısına sahip olan herhangi birisi aktif olduğu sürece katılabilecektir."
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Bu örneğin veri paketlerini senkronize paketlerden ayrı tutun."
   },
-  "instance.settings.sharing.active-invites.empty": {
-    "message": "Aktif davet bulunmuyor."
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "Veri paketi senkronizasyonu uygulama ayarlarında kapalı."
   },
-  "instance.settings.sharing.active-invites.expires": {
-    "message": "Süresi doluyor"
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Senkronize paketleri düzenle"
   },
-  "instance.settings.sharing.active-invites.revoke": {
-    "message": "Daveti geri çek"
+  "instance.settings.synced-options.packs-override": {
+    "message": "Senkronize paketleri düzenlemek için bu geçersiz kılmayı kapatın. Bağımsız paketler içerik sekmesinden yönetilebilir."
   },
-  "instance.settings.sharing.active-invites.revoke-with-code": {
-    "message": "{code} davetini geri çek"
+  "instance.settings.synced-options.resource-packs": {
+    "message": "Kaynak paketlerinin senkronizasyonunu kaldır"
   },
-  "instance.settings.sharing.active-invites.title": {
-    "message": "Aktif davetler"
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Bu örneğin kaynak paketlerini senkronize paketlerden ayrı tutun."
   },
-  "instance.settings.sharing.active-invites.uses": {
-    "message": "Kullanımlar"
-  },
-  "instance.settings.sharing.revoke-invite.admonition-body": {
-    "message": "Davet linki <monospace>{code}</monospace>, hemen çalışmayı durduracaktır. Zaten katılmış kişiler erişimi sürdürecektir."
-  },
-  "instance.settings.sharing.revoke-invite.admonition-header": {
-    "message": "Bu eylem geri alınamaz"
-  },
-  "instance.settings.sharing.revoke-invite.confirm": {
-    "message": "Daveti geri çek"
-  },
-  "instance.settings.sharing.revoke-invite.header": {
-    "message": "Daveti geri çek"
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "Kaynak paketi senkronizasyonu uygulama ayarlarında kapalı."
   },
   "instance.settings.tabs.general": {
     "message": "Genel"
@@ -2759,9 +4484,6 @@
   "instance.settings.tabs.settings-overrides": {
     "message": "Geçersiz kılmaları senkronize et"
   },
-  "instance.settings.tabs.sharing": {
-    "message": "Paylaşım"
-  },
   "instance.settings.tabs.synced-options.command-history": {
     "message": "Komut geçmişinin senkronizasyonunu kaldır"
   },
@@ -2779,6 +4501,15 @@
   },
   "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
     "message": "Bu örneğe ait kaydedilmiş yaratıcı mod hızlı erişim çubuklarını, senkronize edilmiş hızlı erişim çubuklarından ayrı tutun."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "Oyun ayarlarının senkronizasyonunu kaldır"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Bu örneğin options.txt dosyasını senkronize kopyadan ayrı tutun."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "Oyun ayarları senkronizasyonu uygulama ayarlarında kapalı."
   },
   "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
     "message": "Değişiklik yapılmadan önce, yerini alacak olan sürümün yedeği alınacaktır."
@@ -2839,63 +4570,6 @@
   },
   "instance.settings.tabs.window.width.enter": {
     "message": "Genişlik gir..."
-  },
-  "instance.shared-instance.error.title": {
-    "message": "Bir şeyler yanlış gitti"
-  },
-  "instance.shared-instance.network-error.text": {
-    "message": "Paylaşımlı örnek API'sine bağlanılamadı"
-  },
-  "instance.shared-instance.network-error.title": {
-    "message": "Bağlantı hatası"
-  },
-  "instance.shared-instance.owner-tooltip": {
-    "message": "Bu kurulumun içeriği diğer kullanıcılarla paylaşılıyor."
-  },
-  "instance.shared-instance.publish-review.added-label": {
-    "message": "Eklendi"
-  },
-  "instance.shared-instance.publish-review.admonition-header": {
-    "message": "Oyunculara güncellemeyi gönder"
-  },
-  "instance.shared-instance.publish-review.config-title-v2": {
-    "message": "Yapılandırma dosyalarını seç"
-  },
-  "instance.shared-instance.publish-review.description": {
-    "message": "İçerik değişikliklerini gözden geçirin ve bu güncellemeye dahil edilecek yapılandırma dosyalarını seçin."
-  },
-  "instance.shared-instance.publish-review.header": {
-    "message": "Değişiklikleri incele"
-  },
-  "instance.shared-instance.publish-review.publish-button": {
-    "message": "Güncelleme gönder"
-  },
-  "instance.shared-instance.publish-review.removed-label": {
-    "message": "Kaldırıldı"
-  },
-  "instance.shared-instance.tooltip": {
-    "message": "Bu kurulumun içeriği başka biri tarafından yönetiliyor."
-  },
-  "instance.shared-instance.unavailable.access-revoked-text": {
-    "message": "Bu paylaşımlı örneğe olan erişiminiz geri çekildi. Örnek hala erişilebilir fakat artık bağlantılı değil ve güncelleme almayacak."
-  },
-  "instance.shared-instance.unavailable.deleted-text": {
-    "message": "Ana örnek silindi. Bu örnek hala erişilebilir fakat artık bağlantılı değil ve güncelleme almayacak."
-  },
-  "instance.shared-instance.unavailable.locked-text": {
-    "message": "Bu paylaşımlı örnek İçerik Moderasyonu ekibi tarafından kilitlendi. Artık ana örnekten güncelleme almayacak ve oynanılamaz."
-  },
-  "instance.shared-instance.unavailable.locked-title": {
-    "message": "Örnek kilitli"
-  },
-  "instance.shared-instance.unavailable.manager-fallback": {
-    "message": "örnek yöneticisi"
-  },
-  "instance.shared-instance.unavailable.text": {
-    "message": "Yerel örneğiniz hala erişilebilir fakat artık bağlantılı değil ve güncelleme almayacak."
-  },
-  "instance.shared-instance.unavailable.title": {
-    "message": "Paylaşımlı örnek artık erişilebilir değil"
   },
   "instance.worlds.a_minecraft_server": {
     "message": "Minecraft Sunucusu"
@@ -2969,17 +4643,23 @@
   "instance.worlds.shortcut-creation-failed": {
     "message": "Kısayol oluşturulamadı"
   },
+  "instance.worlds.synced_server": {
+    "message": "Örnekler arasında senkronize edildi"
+  },
   "instance.worlds.view_instance": {
     "message": "Kurulumu gör"
   },
   "instance.worlds.world_in_use": {
     "message": "Dünya şu anda kullanımda"
   },
+  "minecraft-account.accounts": {
+    "message": "Minecraft hesapları"
+  },
   "minecraft-account.add-account": {
     "message": "Hesap ekle"
   },
-  "minecraft-account.label": {
-    "message": "Minecraft hesabı"
+  "minecraft-account.getting-started": {
+    "message": "Başlarken"
   },
   "minecraft-account.not-signed-in": {
     "message": "Giriş yapılmadı"
@@ -2987,11 +4667,11 @@
   "minecraft-account.remove-account": {
     "message": "Hesabı kaldır"
   },
-  "minecraft-account.select-account": {
-    "message": "Hesap seçin"
-  },
   "minecraft-account.sign-in": {
     "message": "Minecraft'a giriş yapın"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Oturum aç"
   },
   "minecraft-required.description": {
     "message": "Oyunu başlatmak ve oynamak için Minecraft'a sahip olan bir Microsoft hesabına ihtiyaç vardır."
@@ -3014,39 +4694,6 @@
   "minecraft-required.sign-in": {
     "message": "Microsoft'a giriş yap"
   },
-  "modal.modrinth-account-required.browser-description": {
-    "message": "Giriş yapmak için yeni bir pencere açıldı. Girişi orada tamamlayın, sonra uygulamaya dönün."
-  },
-  "modal.modrinth-account-required.continue-in-browser-heading": {
-    "message": "Tarayıcında devam et"
-  },
-  "modal.modrinth-account-required.create-account-button": {
-    "message": "Bir hesap oluştur"
-  },
-  "modal.modrinth-account-required.description": {
-    "message": "Bu özelliği kullanmadan önce Modrinth hesabınıza giriş yapmanız gerekmektedir."
-  },
-  "modal.modrinth-account-required.header": {
-    "message": "Hesap gerekli"
-  },
-  "modal.modrinth-account-required.open-browser-again-button": {
-    "message": "Tarayıcıyı yeniden aç"
-  },
-  "modal.modrinth-account-required.sign-in-button": {
-    "message": "Modrinth'e giriş yap"
-  },
-  "modal.modrinth-account-required.sign-in-heading": {
-    "message": "Bir Modrinth hesabına giriş yap"
-  },
-  "modal.modrinth-account-required.signing-in-header": {
-    "message": "Giriş yapılıyor"
-  },
-  "modal.modrinth-account-required.support-prompt": {
-    "message": "Giriş yapmakta sorun mu yaşıyorsunuz? <support>Destek alın</support>"
-  },
-  "modal.modrinth-account-required.waiting-for-browser": {
-    "message": "Tarayıcı onayı bekleniyor..."
-  },
   "onboarding-checklist.create-instance": {
     "message": "Yeni kurulum oluştur"
   },
@@ -3055,6 +4702,42 @@
   },
   "onboarding-checklist.title": {
     "message": "Başlarken"
+  },
+  "optifine.add-component": {
+    "message": "OptiFine'i Yükle"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "JAR'ı seç ve devam et"
+  },
+  "optifine.download-official": {
+    "message": "Resmi indirme"
+  },
+  "optifine.export-notice": {
+    "message": "OptiFine ikili dosyaları hariç tutulur. Orbpack gerekli sürümü korur; Modrinth ve CurseForge paketlerinde OptiFine'in ayrıca yüklenmesi gerekir."
+  },
+  "optifine.import-canceled": {
+    "message": "OptiFine seçimi iptal edildi. Paket yüklenmedi."
+  },
+  "optifine.import-description": {
+    "message": "Bu paket, Minecraft {gameVersion} için OptiFine {version} gerektiriyor. Devam etmek için resmi JAR dosyasını indirip seçin. OptiFine pakete dahil değildir."
+  },
+  "optifine.import-title": {
+    "message": "Bu paket OptiFine gerektiriyor"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Minecraft {gameVersion} için resmi OptiFine yükleyicisini seçin. İçe aktarılan bir pakette sürüm ve dosya karması da eşleşmelidir."
+  },
+  "optifine.remove-component": {
+    "message": "OptiFine'i Kaldır"
+  },
+  "optifine.select-installer": {
+    "message": "Resmi OptiFine JAR'ını seçin"
+  },
+  "project-type.world.category": {
+    "message": "Dünyalar"
   },
   "search.filter.locked.instance": {
     "message": "Kurulum tarafından sağlanan"
@@ -3067,9 +4750,6 @@
   },
   "search.filter.locked.instance.sync": {
     "message": "Kurulum ile eşitle"
-  },
-  "search.filter.locked.server-environment.title": {
-    "message": "Sunucu örneğine yalnızca istemci tarafında çalışan modlar eklenebilir"
   },
   "settings.sidebar.label.account": {
     "message": "Hesap"

@@ -11,11 +11,12 @@ import {
 	useScrollViewport,
 	useVIntl,
 } from '@orbiont/ui'
-import { useElementSize, useWindowSize } from '@vueuse/core'
+import { useElementSize } from '@vueuse/core'
 import { computed, nextTick, onUnmounted, ref, useTemplateRef, watch } from 'vue'
 import Draggable from 'vuedraggable'
 
 import BakedSkinButton from '@/components/ui/skin/BakedSkinButton.vue'
+import { getSkinGridColumns, SKIN_GRID_GAP } from '@/helpers/skin-grid'
 import type { Cape, Skin } from '@/helpers/skins.ts'
 
 type SkinSectionKind = 'saved' | 'default'
@@ -46,13 +47,12 @@ interface VirtualSkinSection {
 
 const SKIN_CARD_ASPECT_WIDTH = 31
 const SKIN_CARD_ASPECT_HEIGHT = 40
-const SKIN_GRID_GAP = 12
 const SKIN_SECTION_FIRST_SPACING = 4
 const SKIN_SECTION_SPACING = 24
 const SKIN_SECTION_HEADER_HEIGHT = 28
 const SKIN_SECTION_CONTENT_SPACING = 8
 const SKIN_SECTION_OVERSCAN = 900
-const FALLBACK_CARD_WIDTH = 220
+const FALLBACK_CARD_WIDTH = 180
 const messages = defineMessages({
 	savedSkinsSection: {
 		id: 'app.skins.section.saved-skins',
@@ -109,23 +109,10 @@ let isEnableLayoutTransitionsScheduled = false
 let isUnmounted = false
 
 const { width: listWidth } = useElementSize(listContainer)
-const { width: windowWidth } = useWindowSize()
-
-const columnCount = computed(() => {
-	if (windowWidth.value >= 2050) {
-		return 6
-	}
-
-	if (windowWidth.value >= 1750) {
-		return 5
-	}
-
-	if (windowWidth.value >= 1300) {
-		return 4
-	}
-
-	return 3
-})
+const columnCount = computed(() => getSkinGridColumns(listWidth.value))
+const gridStyle = computed(() => ({
+	gridTemplateColumns: `repeat(${columnCount.value}, minmax(0, 1fr))`,
+}))
 
 const cardWidth = computed(() => {
 	if (listWidth.value <= 0) {
@@ -406,7 +393,8 @@ defineExpose({ getAddSkinButtonElement })
 				<Draggable
 					v-if="section.kind === 'saved'"
 					:list="draggableSavedSkins"
-					class="grid w-full grid-cols-3 gap-3 min-[1300px]:grid-cols-4 min-[1750px]:grid-cols-5 min-[2050px]:grid-cols-6"
+					class="grid w-full gap-3"
+					:style="gridStyle"
 					:item-key="savedSkinKey"
 					:disabled="readOnly || !canReorderSavedSkins"
 					:animation="250"
@@ -527,10 +515,7 @@ defineExpose({ getAddSkinButtonElement })
 					</template>
 				</Draggable>
 
-				<div
-					v-else
-					class="grid w-full grid-cols-3 gap-3 min-[1300px]:grid-cols-4 min-[1750px]:grid-cols-5 min-[2050px]:grid-cols-6"
-				>
+				<div v-else class="grid w-full gap-3" :style="gridStyle">
 					<BakedSkinButton
 						v-for="skin in section.skins"
 						:key="skinKey(skin, section.key)"

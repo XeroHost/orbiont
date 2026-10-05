@@ -3,6 +3,7 @@ use serde::{Serialize, Serializer};
 use thiserror::Error;
 
 pub mod auth;
+pub mod bedrock;
 pub mod import;
 pub mod install;
 pub mod instance;
@@ -17,7 +18,6 @@ pub mod settings;
 pub mod shortcuts;
 pub mod tags;
 mod thumbnails;
-pub mod users;
 pub mod utils;
 
 pub mod cache;

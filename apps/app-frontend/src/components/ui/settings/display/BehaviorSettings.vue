@@ -63,14 +63,6 @@ const messages = defineMessages({
 		id: 'app.appearance-settings.default-landing-page.library',
 		defaultMessage: 'Library',
 	},
-	toggleSidebarTitle: {
-		id: 'app.appearance-settings.toggle-sidebar.title',
-		defaultMessage: 'Hide right sidebar',
-	},
-	toggleSidebarDescription: {
-		id: 'app.appearance-settings.toggle-sidebar.description',
-		defaultMessage: 'Hide the right sidebar by default and add a button to show or hide it.',
-	},
 	compactModeTitle: {
 		id: 'app.appearance-settings.compact-mode.title',
 		defaultMessage: 'Compact mode',
@@ -100,9 +92,9 @@ const messages = defineMessages({
 		defaultMessage: 'Warn me before installing unknown modpacks',
 	},
 	unknownPackWarningDescription: {
-		id: 'app.appearance-settings.unknown-pack-warning.description',
+		id: 'app.appearance-settings.unknown-pack-warning.imported-description',
 		defaultMessage:
-			"Show a safety warning before installing a Modrinth Pack (.mrpack) that isn't hosted on Modrinth.",
+			'Show a safety warning before installing an imported modpack (.mrpack or CurseForge .zip) whose source could not be verified.',
 	},
 	skipNonEssentialWarningsTitle: {
 		id: 'app.appearance-settings.skip-non-essential-warnings.title',
@@ -117,7 +109,6 @@ const messages = defineMessages({
 
 type BehaviorSettingsState = {
 	minimizeApp: boolean
-	hideRightSidebar: boolean
 	compactInstanceCards: boolean
 	showPlayTime: boolean
 	hideNametag: boolean
@@ -131,7 +122,6 @@ await settingsQuery.suspense()
 function getBehaviorSettingsState(settings: AppSettings): BehaviorSettingsState {
 	return {
 		minimizeApp: settings.hide_on_process_start,
-		hideRightSidebar: settings.toggle_sidebar,
 		compactInstanceCards:
 			settings.feature_flags[compactInstanceCardsFlag] ??
 			DEFAULT_FEATURE_FLAGS[compactInstanceCardsFlag],
@@ -156,7 +146,6 @@ const settingsMutation = useMutation({
 		const nextSettings: AppSettings = {
 			...latestSettings,
 			hide_on_process_start: value.minimizeApp,
-			toggle_sidebar: value.hideRightSidebar,
 			hide_nametag_skins_page: value.hideNametag,
 			feature_flags: {
 				...latestSettings.feature_flags,
@@ -169,7 +158,6 @@ const settingsMutation = useMutation({
 
 		await set(nextSettings)
 		queryClient.setQueryData(appSettingsKeys.all, nextSettings)
-		appSettings.toggleSidebar = value.hideRightSidebar
 		appSettings.hideNametagSkinsPage = value.hideNametag
 		appSettings.featureFlags[compactInstanceCardsFlag] = value.compactInstanceCards
 		appSettings.featureFlags[showPlayTimeFlag] = value.showPlayTime
@@ -225,16 +213,6 @@ onBeforeUnmount(() => {
 					</p>
 				</div>
 				<Toggle id="minimize-launcher" v-model="current.minimizeApp" />
-			</div>
-
-			<div class="flex items-center justify-between gap-4">
-				<div>
-					<h3 class="m-0 text-lg font-semibold text-contrast">
-						{{ formatMessage(messages.toggleSidebarTitle) }}
-					</h3>
-					<p class="m-0 mt-1">{{ formatMessage(messages.toggleSidebarDescription) }}</p>
-				</div>
-				<Toggle id="toggle-sidebar" v-model="current.hideRightSidebar" />
 			</div>
 		</div>
 	</section>

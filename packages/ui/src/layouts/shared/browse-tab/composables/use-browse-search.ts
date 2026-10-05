@@ -21,7 +21,6 @@ import type {
 	SortType,
 } from '#ui/utils/search'
 import { LOADER_FILTER_TYPES, useSearch } from '#ui/utils/search'
-import { useServerSearch } from '#ui/utils/server-search'
 
 import type { BrowseSearchResponse } from '../types'
 
@@ -50,24 +49,18 @@ export interface BrowseSearchState {
 	toggledGroups: Ref<string[]>
 	overriddenProvidedFilterTypes: Ref<string[]>
 
-	serverFilterTypes: ComputedRef<FilterType[]>
-	serverCurrentFilters: Ref<FilterValue[]>
-	serverToggledGroups: Ref<string[]>
-
 	effectiveSortTypes: ComputedRef<readonly SortType[]>
 	effectiveCurrentSortType: Ref<SortType>
 
 	loading: Ref<boolean>
 	refreshing: Ref<boolean>
 	projectHits: ShallowRef<BrowseSearchResponse['projectHits']>
-	serverHits: ShallowRef<BrowseSearchResponse['serverHits']>
 	totalHits: Ref<number>
 	pageCount: ComputedRef<number>
 
 	maxResults: Ref<number>
 	currentPage: Ref<number>
 
-	isServerType: ComputedRef<boolean>
 	effectiveLayout: ComputedRef<'list' | 'grid'>
 	deprioritizedTags: ComputedRef<string[]>
 	excludeLoaders: ComputedRef<boolean>
@@ -90,7 +83,6 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 
 	const active = computed(() => options.active?.value ?? true)
 	const projectTypes = computed(() => [options.projectType.value] as ProjectType[])
-	const isServerType = computed(() => options.projectType.value === 'server')
 
 	const {
 		query,
@@ -110,36 +102,6 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 		options.providedFilters ?? computed(() => []),
 		options.environmentOverride ?? computed(() => undefined),
 	)
-
-	const {
-		serverCurrentSortType,
-		serverCurrentFilters,
-		serverToggledGroups,
-		serverSortTypes,
-		serverFilterTypes,
-		serverRequestParams,
-		createServerPageParams,
-	} = useServerSearch({
-		tags: options.tags,
-		query,
-		maxResults,
-		currentPage,
-		providedFilters: options.providedFilters,
-	})
-
-	const effectiveRequestParams = computed(() =>
-		isServerType.value ? serverRequestParams.value : requestParams.value,
-	)
-	const effectiveSortTypes = computed(() =>
-		isServerType.value ? (serverSortTypes as readonly SortType[]) : sortTypes,
-	)
-	const effectiveCurrentSortType = computed({
-		get: () => (isServerType.value ? serverCurrentSortType.value : currentSortType.value),
-		set: (v: SortType) => {
-			if (isServerType.value) serverCurrentSortType.value = v
-			else currentSortType.value = v
-		},
-	})
 
 	const effectiveMaxResultsOptions = computed(
 		() => options.maxResultsOptions?.value ?? [5, 10, 15, 20, 50, 100],
@@ -189,7 +151,6 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 	const loading = ref(true)
 	const refreshing = ref(false)
 	const projectHits = shallowRef<BrowseSearchResponse['projectHits']>([])
-	const serverHits = shallowRef<BrowseSearchResponse['serverHits']>([])
 	const totalHits = ref(0)
 
 	const pageCount = computed(() => {
@@ -208,35 +169,21 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 	}
 
 	const providedFiltersOrEmpty = computed(() => options.providedFilters?.value ?? [])
-	const effectiveCurrentFilters = computed(() =>
-		isServerType.value ? serverCurrentFilters.value : currentFilters.value,
-	)
-	const effectiveFilterTypes = computed(() =>
-		isServerType.value ? serverFilterTypes.value : filters.value,
-	)
 
 	const advancedPrefs = useAdvancedPrefs()
 	const linkOverridesAdvancedPrefs = ref(false)
-	const selectedAdvancedIds = computed(() => getAdvancedOptionIds(effectiveCurrentFilters.value))
+	const selectedAdvancedIds = computed(() => getAdvancedOptionIds(currentFilters.value))
 
 	function hasSearchQuery(): boolean {
 		return Object.keys(route.query).some((key) => !options.persistentQueryParams.includes(key))
 	}
 
 	function getCompatiblePrefs(): FilterValue[] {
-		return compatibleAdvancedFilters(advancedPrefs.value, effectiveFilterTypes.value)
-	}
-
-	function setEffectiveFilters(nextFilters: FilterValue[]) {
-		if (isServerType.value) {
-			serverCurrentFilters.value = nextFilters
-		} else {
-			currentFilters.value = nextFilters
-		}
+		return compatibleAdvancedFilters(advancedPrefs.value, filters.value)
 	}
 
 	function applyAdvancedPrefs(prefs: FilterValue[]) {
-		setEffectiveFilters(replaceAdvancedFilters(effectiveCurrentFilters.value, prefs))
+		currentFilters.value = replaceAdvancedFilters(currentFilters.value, prefs)
 	}
 
 	function syncLinkOverride() {
@@ -274,7 +221,7 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 		const nextPrefs = mergeAdvancedPrefs(
 			advancedPrefs.value,
 			selected,
-			getAvailableAdvancedIds(effectiveFilterTypes.value),
+			getAvailableAdvancedIds(filters.value),
 		)
 		if (!sameOptionIds(advancedPrefs.value, nextPrefs)) {
 			advancedPrefs.value = nextPrefs
@@ -287,8 +234,8 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 			query,
 			maxResults,
 			options.projectType,
-			effectiveCurrentSortType,
-			effectiveCurrentFilters,
+			currentSortType,
+			currentFilters,
 			overriddenProvidedFilterTypes,
 			providedFiltersOrEmpty,
 		],
@@ -298,9 +245,9 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 		{ deep: true },
 	)
 
-	watch(effectiveRequestParams, (newVal, oldVal) => {
+	watch(requestParams, (newVal, oldVal) => {
 		refreshing.value = true
-		debug('effectiveRequestParams changed', {
+		debug('requestParams changed', {
 			from: oldVal?.substring(0, 80),
 			to: newVal?.substring(0, 80),
 		})
@@ -330,18 +277,16 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 		debug('refreshSearch start', {
 			version,
 			projectType: options.projectType.value,
-			params: effectiveRequestParams.value.substring(0, 100),
+			params: requestParams.value.substring(0, 100),
 		})
 
-		const currentHitsEmpty = isServerType.value
-			? serverHits.value.length === 0
-			: projectHits.value.length === 0
+		const currentHitsEmpty = projectHits.value.length === 0
 		if (currentHitsEmpty) {
 			loading.value = true
 		}
 
 		try {
-			const response = await options.search(effectiveRequestParams.value)
+			const response = await options.search(requestParams.value)
 
 			if (!active.value) {
 				return
@@ -352,17 +297,12 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 				return
 			}
 
-			if (isServerType.value) {
-				serverHits.value = response.serverHits
-			} else {
-				projectHits.value = response.projectHits
-			}
+			projectHits.value = response.projectHits
 			totalHits.value = response.total_hits
 			debug('refreshSearch complete', {
 				version,
 				hits: response.total_hits,
 				projectHits: response.projectHits.length,
-				serverHits: response.serverHits.length,
 			})
 
 			updateUrlParams()
@@ -399,7 +339,7 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 
 		const params = {
 			...persistentParams,
-			...(isServerType.value ? createServerPageParams() : createPageParams()),
+			...createPageParams(),
 		}
 
 		router.replace({ path: route.path, query: params })
@@ -424,9 +364,8 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 		() => options.projectType.value,
 		(newType, oldType) => {
 			debug('projectType changed', { from: oldType, to: newType })
-			effectiveCurrentSortType.value =
-				effectiveSortTypes.value.find((sortType) => sortType.name === 'relevance') ??
-				effectiveSortTypes.value[0]
+			currentSortType.value =
+				sortTypes.value.find((sortType) => sortType.name === 'relevance') ?? sortTypes.value[0]
 			query.value = ''
 
 			void nextTick(() => {
@@ -441,20 +380,15 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 		currentFilters,
 		toggledGroups,
 		overriddenProvidedFilterTypes,
-		serverFilterTypes,
-		serverCurrentFilters,
-		serverToggledGroups,
-		effectiveSortTypes,
-		effectiveCurrentSortType,
+		effectiveSortTypes: computed(() => sortTypes),
+		effectiveCurrentSortType: currentSortType,
 		loading,
 		refreshing,
 		projectHits,
-		serverHits,
 		totalHits,
 		pageCount,
 		maxResults,
 		currentPage,
-		isServerType,
 		effectiveLayout,
 		deprioritizedTags,
 		excludeLoaders,

@@ -6,7 +6,7 @@
 			:action="clearFilters"
 		>
 			<XCircleIcon />
-			Clear all filters
+			{{ formatMessage(clearAllFiltersMessage) }}
 		</TagItem>
 		<TagItem v-if="selectedIncludedProjectItems.length > 0" :action="removeIncludedProjectFilters">
 			<XIcon />
@@ -96,6 +96,10 @@ const includedProjectsMessage = defineMessage({
 const excludedProjectsMessage = defineMessage({
 	id: 'search.filter.excluded_projects',
 	defaultMessage: 'Excludes: {projects}',
+})
+const clearAllFiltersMessage = defineMessage({
+	id: 'search.filter.clear-all-filters',
+	defaultMessage: 'Clear all filters',
 })
 
 type Item = {

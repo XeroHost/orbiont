@@ -17,6 +17,13 @@ pub(crate) struct RuntimeFile {
     pub last_used_at: i64,
     pub references: usize,
     pub directory: bool,
+    java_installation: bool,
+}
+
+impl RuntimeFile {
+    pub fn is_unused(&self) -> bool {
+        self.references == 0 && !self.java_installation
+    }
 }
 
 pub(crate) struct RuntimeStorage {
@@ -125,6 +132,10 @@ impl RuntimeStorage {
                     .unwrap_or(i64::MAX);
                 files.push(RuntimeFile {
                     references: references.count(&path),
+                    // Installing Java is an explicit persistent installation,
+                    // even before its selection is saved or an instance uses it.
+                    java_installation: path
+                        .starts_with(dirs.java_versions_dir()),
                     path,
                     size: if metadata.is_file() {
                         metadata.len()
@@ -154,6 +165,7 @@ impl RuntimeStorage {
                         last_used_at: 0,
                         references: 0,
                         directory: true,
+                        java_installation: true,
                     });
                 entry.size += file.size;
                 entry.last_used_at = entry.last_used_at.max(file.last_used_at);
@@ -184,7 +196,7 @@ impl RuntimeStorage {
     pub fn unused_bytes(&self) -> u64 {
         self.files
             .iter()
-            .filter(|file| file.references == 0)
+            .filter(|file| file.is_unused())
             .map(|file| file.size)
             .sum()
     }
@@ -326,6 +338,11 @@ pub(crate) async fn remove_file(
     file: &RuntimeFile,
     root: &Path,
 ) -> crate::Result<u64> {
+    if file.java_installation {
+        return Err(input(
+            "Java installations cannot be removed by cache cleanup",
+        ));
+    }
     let path = &file.path;
     let mut parent = path.parent();
     while let Some(directory) = parent {
@@ -377,4 +394,55 @@ pub(crate) async fn remove_file(
     } else {
         0
     })
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn unused_cache_cleanup_preserves_downloaded_java_without_instances()
+    {
+        let temp = tempfile::tempdir().unwrap();
+        let dirs = DirectoryInfo {
+            settings_dir: temp.path().to_path_buf(),
+            config_dir: temp.path().to_path_buf(),
+            app_identifier: "runtime-cache-test".into(),
+        };
+        let registered = dirs.java_versions_dir().join("jdk-17/bin/javaw.exe");
+        let pending = dirs.java_versions_dir().join("jdk-21/bin/javaw.exe");
+        let library = dirs.libraries_dir().join("unused.jar");
+        for path in [&registered, &pending, &library] {
+            fs::create_dir_all(path.parent().unwrap()).unwrap();
+            fs::write(path, b"runtime").unwrap();
+        }
+        let java = HashMap::from([(
+            17,
+            JavaVersion {
+                parsed_version: 17,
+                version: "17".into(),
+                architecture: "x86_64".into(),
+                path: registered.to_string_lossy().into_owned(),
+            },
+        )]);
+        let storage =
+            RuntimeStorage::scan(dirs, Vec::new(), java, false).unwrap();
+        assert_eq!(storage.total_bytes(), 21);
+        // Java 17 is saved in settings; Java 21 is downloaded but its selection
+        // is still a draft. Both installations must survive cache cleanup.
+        assert_eq!(storage.unused_bytes(), 7);
+        for file in &storage.files {
+            if file.is_unused() {
+                remove_file(file, &storage.root).await.unwrap();
+            }
+        }
+        assert!(registered.is_file());
+        assert!(pending.is_file());
+        assert!(!library.exists());
+        for file in storage.files.iter().filter(|file| file.java_installation) {
+            assert!(remove_file(file, &storage.root).await.is_err());
+        }
+        assert!(registered.is_file());
+        assert!(pending.is_file());
+    }
 }

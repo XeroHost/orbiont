@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Instanță necunoscută"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Actualizând conținutul partajat"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Setează ca instanță principală"
   },
@@ -149,8 +146,23 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "Ascunde nametag-ul"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Animează pictogramele la trecerea cursorului și la focalizarea cu tastatura."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Dezactivează animațiile"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Animează întotdeauna"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Urmează sistemul"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Animațiile pictogramelor"
+  },
   "app.appearance-settings.minimize-launcher.description": {
-    "message": "Minimizează aplicația Modrinth atunci când Minecraft pornește."
+    "message": "Minimizează aplicația {productName} atunci când Minecraft pornește."
   },
   "app.appearance-settings.minimize-launcher.title": {
     "message": "Minimizează aplicația"
@@ -173,17 +185,533 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "Ascundeți bara laterală dreapta"
   },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Afișați un avertisment de siguranța înainte de a instala un Modrinth Pack (.mrpack) care nu este găzduit de Modrinth."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Afișează un avertisment de siguranță înainte de a instala un modpack importat (.mrpack sau .zip de CurseForge) a cărui sursă nu a putut fi verificată."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Avertizează-ma înainte de a instala modpackuri necunoscute"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Contactează asistența"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Copiază informațiile de depanare"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Informații de depanare"
+  },
+  "app.auth-error.header": {
+    "message": "Autentificarea a eșuat"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Cum se rezolvă"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Finalizează procesul de verificare a identității"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Acest cont necesită verificarea vârstei de adult conform reglementărilor din Coreea de Sud."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Minecraft Login"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Verifică dacă conexiunea ta la internet funcționează"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Permite {product} în firewall, antivirus, proxy, VPN și în regulile fișierului hosts"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Încearcă o altă rețea sau dezactivează temporar VPN-ul sau proxy-ul, dacă folosești unul"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Repornește {product} și încearcă să te autentifici din nou"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Dacă problema este de rutare sau DNS, un serviciu precum Cloudflare WARP poate ajuta uneori"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} nu s-a putut conecta la un serviciu Microsoft, Xbox sau Minecraft necesar pentru autentificare. De obicei, cauza este o problemă locală de rețea, DNS, proxy, firewall, fișier hosts, VPN sau antivirus."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Niciun mesaj de eroare."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Poți verifica ce cont îl deține la <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Asigură-te că te autentifici cu contul Microsoft care a cumpărat Minecraft (sau care are un Game Pass activ cu acces pe PC)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Acest cont Microsoft nu deține Minecraft: Java Edition, iar {product} funcționează doar cu conturi premium."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Deschide Minecraft: Java Edition o dată din launcherul oficial"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Asigură-te că folosești contul Microsoft care deține Minecraft. Poți verifica ce cont îl deține la <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Așteaptă până la o oră dacă achiziția sau configurarea profilului este recentă"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Serviciile Minecraft nu au putut returna un profil Java Edition pentru acest cont. Cel mai adesea se întâmplă când jocul a fost cumpărat recent, profilul Java nu a fost încă creat complet sau se folosește un alt cont Microsoft."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Asigură-te că Minecraft este cumpărat pe acest cont"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Finalizează configurarea profilului Xbox, dacă ți se cere"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Acest cont nu are un profil Xbox configurat sau nu deține Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Repornește {product} după ce aștepți"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Încearcă să te autentifici încă o dată"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Așteaptă aproximativ o oră înainte de a încerca din nou"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Dacă apare același mesaj, așteaptă mai mult înainte de a reîncerca, pentru ca limita temporară să expire"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft sau Minecraft a blocat temporar cererea de autentificare pentru că au existat prea multe încercări recente."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Verifică <a href=\"https://www.xbox.com/en-US/regions\">Xbox Availability</a> pentru regiunile acceptate"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Serviciile Xbox trebuie să fie disponibile în țara ta pentru a te putea autentifica"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live nu este disponibil în regiunea ta, deci autentificarea este blocată."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Roagă un tutore să se autentifice la <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Actualizează permisiunile pentru jocul online"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Acest cont este restricționat și nu are permisiunea de a juca online."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Dacă serviciul funcționează normal și asta se repetă, contactează asistența cu informațiile de depanare de mai jos"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Încearcă să te autentifici cu <a href=\"https://www.minecraft.net/en-us/download\">official Minecraft Launcher</a> pentru a verifica dacă autentificarea Minecraft eșuează și acolo"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Verifică <a href=\"https://support.xbox.com/xbox-live-status\">Xbox Status</a> pentru problemele curente ale serviciului"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Așteaptă câteva minute și încearcă să te autentifici din nou"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Serviciul de autentificare Minecraft returnează o eroare de server, deci {product} nu îți poate finaliza autentificarea chiar acum."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Autentifică-te din nou"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "După ce termini, încearcă să te autentifici din nou"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Autentifică-te cu <a href=\"https://www.minecraft.net/en-us/download\">official Minecraft Launcher</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Încearcă să te autentifici din nou în {product}"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Vizitează <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> și autentifică-te"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Vizitează <a href=\"https://www.xbox.com\">Xbox</a> și autentifică-te"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Trimite o contestație, dacă este disponibilă"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Vizitează <a href=\"https://support.xbox.com\">Xbox Support</a> și verifică detaliile sancțiunii"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Acest cont a fost suspendat pentru încălcarea standardelor comunității Xbox."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "După ce se termină noua autentificare, încearcă să lansezi din nou Minecraft"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Autentifică-te din nou în cont"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Deconectează contul de Minecraft afectat din {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Tokenul tău de autentificare Microsoft salvat a expirat sau a fost revocat, deci {product} nu îți poate reîmprospăta sesiunea Minecraft."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Acceptă Termenii, dacă ți se cere"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Acest cont nu a acceptat Termenii de utilizare Xbox."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Încearcă să vizitezi"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Pentru ajutor suplimentar, vizitează <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">UK age verification on Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Mergi la pagina <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> și autentifică-te"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "După verificare, încearcă să te autentifici din nou"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Urmează instrucțiunile pentru a-ți verifica vârsta"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Contul tău Minecraft/Xbox Live necesită verificarea vârstei pentru a respecta reglementările din Regatul Unit. Trebuie să o finalizezi înainte de a te autentifica."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Consultă <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">Family Setup Guide</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Alătură-te unui grup familial sau creează unul conform instrucțiunilor"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Acest cont aparține unui minor și nu este asociat unui grup familial Microsoft."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Eroare necunoscută"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Nu recunoaștem această eroare și nu putem recomanda pași concreți pentru rezolvarea ei."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "și autentifică-te, deoarece este posibil să îți arate pașii necesari. Poți contacta și asistența, iar noi vom investiga mai departe."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Nu te-am putut autentifica în contul tău Microsoft. Cauza poate fi restricțiile contului sau limitările regionale."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Ce credem că s-a întâmplat"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Acceptă termenii sau finalizează configurarea profilului afișată"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Autentifică-te o dată pe <a href=\"https://www.xbox.com\">Xbox.com</a> cu același cont Microsoft"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live nu a acceptat autentificarea Microsoft. De obicei, asta înseamnă că acel cont Microsoft nu s-a autentificat niciodată pe Xbox sau trebuie să accepte termenii actualizați."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Dacă launcherul oficial eșuează la fel, urmează eroarea afișată acolo sau contactează asistența Xbox"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Completează solicitările afișate de Microsoft, Xbox sau Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Serviciile Xbox au respins cererea de autorizare a acestui cont pentru serviciile Minecraft, dar nu au returnat o restricție concretă pe care {product} să o recunoască."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Serverele de autentificare Minecraft pot fi indisponibile în acest moment. Verificați conexiunea la internet și încercați din nou mai târziu."
   },
   "app.auth-servers.unreachable.header": {
     "message": "Nu se pot accesa serverele de autentificare"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft și Microsoft Store vă verifică licența Bedrock. Conectați-vă acolo cu contul care deține Minecraft; contul dvs. Java din acest lansator poate fi diferit."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Pachete de comportament local și scripturi. Configurați-le în setările lumii din interiorul Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Suplimente"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Pachet de comportament"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Suplimente"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Răsfoiți suplimente, pachete de resurse, lumi și scripturi de la CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Descoperiți conținutul Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Descoperiți suplimente"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Descoperiți scenarii"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Închideți Minecraft înainte de a adăuga pachete într-o lume, apoi încercați din nou."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Instalați în Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft se va deschide pentru a importa acest conținut. Verifică rezultatul în joc, apoi activează pachetele în setările lumii tale. Pachetele și setările experimentale necesare sunt enumerate în descrierea proiectului."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Această arhivă nu conține conținut Bedrock acceptat."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Nu s-au putut încărca versiunile sau lumile proiectului. Încearcă din nou."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Acest pachet necesită un alt pachet care nu este activ în această lume. Instalați mai întâi dependențele enumerate de autor."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Nu sunt disponibile fișiere .mcaddon, .mcpack, .mcworld sau ZIP acceptate pentru acest proiect."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Creați mai întâi o lume în Minecraft, apoi reîmprospătați această listă."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Scripturi"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Versiunea de conținut"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Lumea destinației"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Închideți Minecraft înainte de instalare. Aceste pachete vor fi adăugate și activate numai în lumea selectată. Verificați dependențele necesare și setările experimentale în descrierea proiectului."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Pachete adăugate la {world}. Deschideți Minecraft pentru a juca această lume."
+  },
+  "app.bedrock.checking": {
+    "message": "Se caută Minecraft for Windows..."
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Închideți Minecraft pentru a edita fișiere, a șterge conținut sau a restabili o copie."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Acest conținut s-a schimbat sau locația inițială este ocupată. Copia de recuperare a fost păstrată pentru a evita suprascrierea modificărilor."
+  },
+  "app.bedrock.content": {
+    "message": "Conținut"
+  },
+  "app.bedrock.content-help": {
+    "message": "Resurse locale și pachete de piele. Activați-le în Minecraft; unele conținuturi aparțin unor lumi individuale."
+  },
+  "app.bedrock.data-error": {
+    "message": "Nu s-au putut citi datele Minecraft. Actualizează pentru a încerca din nou."
+  },
+  "app.bedrock.data-location": {
+    "message": "Locația datelor Minecraft"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Aceste articole vor fi eliminate din Minecraft. Va fi păstrată o copie de recuperare, inclusiv setările pachetului mondial afectat. Lumile care depind de un pachet șters își pot pierde blocurile sau comportamentul; restaurați-l înainte de a deschide acele lumi."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Ștergeți conținutul local"
+  },
+  "app.bedrock.description": {
+    "message": "Joacă Minecraft for Windows și importă-ți lumile și suplimentele."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Nu s-a putut verifica instalarea Minecraft. Încearcă din nou."
+  },
+  "app.bedrock.development": {
+    "message": "Dezvoltare"
+  },
+  "app.bedrock.edition": {
+    "message": "Ediția Minecraft"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Acest folder este gol."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock lumi și suplimente"
+  },
+  "app.bedrock.file-size": {
+    "message": "Dimensiune"
+  },
+  "app.bedrock.files": {
+    "message": "Fișiere"
+  },
+  "app.bedrock.folder": {
+    "message": "Folder"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Nu s-a putut deschide acest folder Minecraft. Actualizează-ți datele și încearcă din nou."
+  },
+  "app.bedrock.import-button": {
+    "message": "Importați fișierul"
+  },
+  "app.bedrock.import-description": {
+    "message": "Alegeți un fișier .mcworld, .mcpack sau .mcaddon. Minecraft se va deschide și se va ocupa de import."
+  },
+  "app.bedrock.import-error": {
+    "message": "Nu s-a putut trimite fișierul către Minecraft. Verificați dacă Minecraft for Windows este instalat și încercați din nou."
+  },
+  "app.bedrock.import-title": {
+    "message": "Lumi și suplimente"
+  },
+  "app.bedrock.installation": {
+    "message": "Instalare oficială"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows este instalat"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Alegeți o arhivă locală validă .mcworld, .mcpack sau .mcaddon."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Acest fișier depășește limita de import 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Nu s-a putut deschide Minecraft. Deschideți lansatorul oficial sau Microsoft Store pentru a verifica instalarea."
+  },
+  "app.bedrock.launcher": {
+    "message": "Deschideți lansatorul oficial"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Lansatorul oficial a fost detectat. Instalați Minecraft for Windows acolo pentru a continua."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Se citesc datele Minecraft..."
+  },
+  "app.bedrock.location": {
+    "message": "Locație"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Se afișează ultimul 1 MiB din acest jurnal."
+  },
+  "app.bedrock.logs": {
+    "message": "Jurnale"
+  },
+  "app.bedrock.missing": {
+    "message": "Instalați Minecraft for Windows pentru a începe"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Nu s-a putut schimba acest conținut. Închideți Minecraft și reîmprospătați. Copia dvs. de recuperare a fost păstrată."
+  },
+  "app.bedrock.name": {
+    "message": "Nume"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Nu s-au găsit suplimente locale. Importați un fișier .mcpack sau .mcaddon pentru a începe."
+  },
+  "app.bedrock.no-content": {
+    "message": "Nu s-a găsit conținut local."
+  },
+  "app.bedrock.no-data": {
+    "message": "Deschideți Minecraft o dată pentru a-și crea folderele de date, apoi reîmprospătați aici."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Nu au fost găsite jurnalele de conținut. Activați înregistrarea conținutului în Minecraft Setări > Creator, apoi deschideți-vă lumea."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Încă nu există copii de recuperare."
+  },
+  "app.bedrock.no-results": {
+    "message": "Nu există articole care se potrivesc."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Nu s-au găsit lumi locale. Creați unul în Minecraft sau importați un fișier .mcworld."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Deschide folder-ul"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Dosar părinte"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Unele foldere nu au putut fi citite sau au atins limita de afișare. Le puteți inspecta în File Explorer."
+  },
+  "app.bedrock.play": {
+    "message": "Joacă"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Fișierele originale și conținutul șters sunt păstrate aici. Restaurați o copie în timp ce Minecraft este închis. Conținutul existent și editările ulterioare nu sunt niciodată suprascrise."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Copii de recuperare"
+  },
+  "app.bedrock.refresh": {
+    "message": "Verificați din nou"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Reîmprospătează"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Reîncărcați acest fișier înainte de a salva."
+  },
+  "app.bedrock.repair": {
+    "message": "Reparați sau actualizați instalația folosind Microsoft Store sau lansatorul oficial."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Pachet de resurse"
+  },
+  "app.bedrock.restore": {
+    "message": "Restaurați"
+  },
+  "app.bedrock.running": {
+    "message": "În execuție"
+  },
+  "app.bedrock.save-error": {
+    "message": "Nu s-a putut salva. Este posibil ca fișierul să se fi modificat, să conțină JSON nevalid sau să fie în uz. Reîncărcați-l și încercați din nou."
+  },
+  "app.bedrock.search": {
+    "message": "Căutați conținut local..."
+  },
+  "app.bedrock.select-log": {
+    "message": "Selectați un jurnal pentru a-l citi."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Pachet de skinuri"
+  },
+  "app.bedrock.store": {
+    "message": "Instalați sau actualizați"
+  },
+  "app.bedrock.store-error": {
+    "message": "Nu s-a putut deschide Microsoft Store. Deschideți-l din meniul Start Windows."
+  },
+  "app.bedrock.submitted": {
+    "message": "Fișier trimis către Minecraft. Verificați rezultatul importului în joc."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Integrarea Bedrock necesită Windows. Puteți continua să jucați Java Edition pe acest dispozitiv."
+  },
+  "app.bedrock.update": {
+    "message": "Actualizați Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "În Microsoft Store, verificați actualizările și selectați Minecraft for Windows. Versiunea instalată se va reîmprospăta când reveniți."
+  },
+  "app.bedrock.version": {
+    "message": "Windows instalare {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Versiune"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Lumea: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Lumi"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "Confirmări"
@@ -194,32 +722,8 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "Pornire și navigare"
   },
-  "app.behavior-settings.sync-across-devices.description": {
-    "message": "Utilizați aceste setări de comportament pretutindeni unde sunteți conectat. Dezactivați această opțiune pentru a păstra setări separate pe acest dispozitiv."
-  },
-  "app.behavior-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Conectează-te la un cont Modrinth pentru a sincroniza setările."
-  },
-  "app.behavior-settings.sync-across-devices.title": {
-    "message": "Sincronizați comportamentul între dispozitive"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "Adaugă server la instanță"
-  },
   "app.browse.add-to-an-instance": {
     "message": "Adaugă la o instanță"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Adăugați la instanță"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Adaugă la {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Adăugat"
-  },
-  "app.browse.already-added": {
-    "message": "Deja adăugat"
   },
   "app.browse.back-to-instance": {
     "message": "Înapoi la instanță"
@@ -227,14 +731,11 @@
   "app.browse.discover-project-type": {
     "message": "Descoperă {projectType}"
   },
-  "app.browse.discover-servers": {
-    "message": "Descoperă servere"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "Ascunde serverele deja adăugate"
-  },
   "app.browse.hide-installed-modpacks": {
     "message": "Ascunde conținutul deja instalat"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Deschide în CurseForge"
   },
   "app.browse.project-actions.label": {
     "message": "Acțiuni de proiect"
@@ -251,17 +752,8 @@
   "app.browse.project-type.resource-packs": {
     "message": "Resource Pack-uri"
   },
-  "app.browse.project-type.servers": {
-    "message": "Servere"
-  },
   "app.browse.project-type.shaders": {
     "message": "Shadere"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "Adăugarea de conținut poate împiedica conectarea la acest server. Orice conținut adăugat va fi eliminat atunci când conținutul serverului gestionat este actualizat."
-  },
-  "app.browse.server.installing": {
-    "message": "Se instalează"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Nicio versiune disponibilă nu corespunde cu {compatibilityLabel}. Selectați o versiune pentru a o instala oricum. Dependențele nu vor fi instalate automat."
@@ -269,11 +761,227 @@
   "app.content.desync-pack": {
     "message": "Desincronizare"
   },
+  "app.content.sync-data-packs-disabled": {
+    "message": "Activează mai întâi sincronizarea pachetelor de date în setările aplicației."
+  },
   "app.content.sync-pack": {
     "message": "Sincronizeaza"
   },
+  "app.content.sync-packs-override": {
+    "message": "Dezactivează mai întâi suprascrierea sincronizării pachetelor în setările acestei instanțe."
+  },
+  "app.content.sync-resource-packs-disabled": {
+    "message": "Activează mai întâi sincronizarea pachetelor de resurse în setările aplicației."
+  },
+  "app.curseforge.rate-limit.text": {
+    "message": "Limita comună de cereri a fost atinsă. Așteaptă puțin, apoi încearcă din nou."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge este temporar ocupat"
+  },
+  "app.download-manager.active": {
+    "message": "Activ"
+  },
+  "app.download-manager.attention": {
+    "message": "Necesită atenție"
+  },
+  "app.download-manager.cancel": {
+    "message": "Anulează instalarea"
+  },
+  "app.download-manager.canceling": {
+    "message": "Se anulează instalarea..."
+  },
+  "app.download-manager.clear-all": {
+    "message": "Șterge tot"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Șterge toate sarcinile finalizate"
+  },
+  "app.download-manager.complete": {
+    "message": "Complet"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Instanță duplicată"
+  },
+  "app.download-manager.empty": {
+    "message": "Nicio sarcină de instalare"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Viteza estimată de descărcare"
+  },
+  "app.download-manager.eta": {
+    "message": "Timpul rămas estimat pentru această descărcare"
+  },
+  "app.download-manager.hide": {
+    "message": "Ascunde sarcinile de instalare"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Instanță importată"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Instalarea instanței"
+  },
+  "app.download-manager.modpack": {
+    "message": "Modpack"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Instalarea modpackului"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Instanță nouă"
+  },
+  "app.download-manager.pause": {
+    "message": "Întrerupe instalarea"
+  },
+  "app.download-manager.paused": {
+    "message": "Întrerupt"
+  },
+  "app.download-manager.remove": {
+    "message": "Șterge din istoric"
+  },
+  "app.download-manager.resume": {
+    "message": "Reia instalarea"
+  },
+  "app.download-manager.show": {
+    "message": "Afișează sarcinile de instalare"
+  },
+  "app.download-manager.tasks": {
+    "message": "Sarcini"
+  },
+  "app.download-manager.title": {
+    "message": "Managerul de descărcări"
+  },
+  "app.download-manager.verifying": {
+    "message": "Se verifică"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Anulează schimbarea dosarului"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Copiază informațiile de depanare"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Informații de depanare"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "mai întâi. După ce termini, revino aici și autentifică-te!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Încearcă să te autentifici cu"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Folosești PC Game Pass, vii de la Bedrock sau tocmai ai cumpărat jocul?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "official Minecraft Launcher"
+  },
+  "app.error.get-support.button": {
+    "message": "Obține asistență"
+  },
+  "app.error.help.end": {
+    "message": "și te vom ajuta cu plăcere! Nu uita să incluzi următoarele informații de depanare:"
+  },
+  "app.error.help.start": {
+    "message": "Dacă nimic nu funcționează și ai nevoie de ajutor, vizitează"
+  },
+  "app.error.help.support-link": {
+    "message": "pagina noastră de asistență"
+  },
+  "app.error.hosts.body-end": {
+    "message": "a încercat să se conecteze la serviciile Microsoft / Xbox / Minecraft, dar serverul la distanță a respins conexiunea. Este posibil ca aceste servicii să fie blocate de fișierul hosts. Vizitează"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "pentru pașii de remediere a problemei."
+  },
+  "app.error.migrate.body-end": {
+    "message": "nu poate migra la noul dosar selectat. Contactează asistența pentru ajutor sau anulează schimbarea dosarului."
+  },
+  "app.error.network.body-end": {
+    "message": "să se conecteze la serverele Microsoft. De obicei cauza este o conexiune slabă, așa că recomandăm să încerci din nou. Dacă problemele persistă, urmează pașii din"
+  },
+  "app.error.network.body-start": {
+    "message": "Se pare că au existat probleme cu"
+  },
+  "app.error.network.heading": {
+    "message": "Probleme de rețea"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "pentru depanare."
+  },
+  "app.error.no-error-message": {
+    "message": "Niciun mesaj de eroare."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "nu a găsit versiunea loaderului pentru această instanță."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Pentru a rezolva asta, trebuie să repari instanța. Fă clic pe butonul de mai jos pentru a face asta."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Se pare că nu există suficient spațiu pe discul care conține dosarul selectat. Eliberează spațiu și încearcă din nou sau anulează schimbarea dosarului."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Spațiu insuficient"
+  },
+  "app.error.read-only.body-end": {
+    "message": "nu poate scrie în dosarul selectat. Ajustează permisiunile dosarului și încearcă din nou sau anulează schimbarea dosarului."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Se pare că"
+  },
+  "app.error.read-only.heading": {
+    "message": "Schimbă permisiunile dosarului"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Repară instanța"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Reîncearcă schimbarea dosarului"
+  },
+  "app.error.state-init.body-end": {
+    "message": "nu s-a încărcat corect. Cauza poate fi un fișier corupt sau lipsa unor fișiere esențiale ale aplicației."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "O poți remedia prin una dintre următoarele metode:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Asigură-te că ești conectat la internet, apoi repornește aplicația."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Descărcând din nou aplicația."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "Deschideți folderul de copii de rezervă"
+  },
+  "app.error.support-article-link": {
+    "message": "articolul nostru de asistență"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Nu s-a putut schimba dosarul aplicației"
+  },
+  "app.error.title.generic": {
+    "message": "A apărut o eroare"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Niciun loader selectat"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Autentificarea în Minecraft nu a reușit"
+  },
+  "app.error.title.state-init": {
+    "message": "Eroare la inițializarea {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Încearcă să te autentifici din nou"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Verifică dacă te-ai autentificat cu contul potrivit. Este posibil să deții Minecraft pe un alt cont Microsoft."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Încearcă alt cont"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Încearcă alt cont Microsoft"
   },
   "app.export-modal.description-placeholder": {
     "message": "Introduceți descrierea modpack-ului..."
@@ -287,6 +995,27 @@
   "app.export-modal.export-complete-description": {
     "message": "{name} a fost exportat cu succes."
   },
+  "app.export-modal.format-label": {
+    "message": "Formatul de export"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "ZIP CurseForge cu manifest.json și fișierele selectate în overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Pentru launchere compatibile cu pachetele Modrinth. Include referințe de descărcare și fișierele suplimentare selectate."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Un pachet {productName} portabil care conține fișierele selectate. Deschide-l direct în launcher."
+  },
   "app.export-modal.header": {
     "message": "Exportă modpack"
   },
@@ -295,6 +1024,9 @@
   },
   "app.export-modal.modpack-name-placeholder": {
     "message": "Numele modpack-ului"
+  },
+  "app.export-modal.version-number-label": {
+    "message": "Numărul versiunii"
   },
   "app.export-modal.version-number-placeholder": {
     "message": "1.0.0"
@@ -317,6 +1049,9 @@
   "app.features-settings.show-all-screenshots.title": {
     "message": "Afișați toate capturile de ecran în bara laterală"
   },
+  "app.features-settings.show-files-tab.title": {
+    "message": "Afișează fila Fișiere în instanțe"
+  },
   "app.features-settings.show-jump-in.description": {
     "message": "Afișați lumile și instanțele jucate recent în partea de sus a paginii Joacă."
   },
@@ -326,11 +1061,26 @@
   "app.features-settings.show-screenshots-tab.title": {
     "message": "Afișează fila Capturi de ecran în instanțe"
   },
+  "app.features-settings.show-skin-selector.description": {
+    "message": "Afișează un buton în bara laterală stângă pentru a deschide selectorul de skin."
+  },
+  "app.features-settings.show-skin-selector.title": {
+    "message": "Afișează selectorul de skin în bara laterală"
+  },
+  "app.features-settings.show-worlds-tab.title": {
+    "message": "Afișează fila Lumi în instanțe"
+  },
   "app.features-settings.sidebar.title": {
     "message": "Bară laterală"
   },
-  "app.features-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Conectează-te la un cont Modrinth pentru a sincroniza setările."
+  "app.home.jump-back-in.actions.label": {
+    "message": "Acțiunile instanței"
+  },
+  "app.home.jump-back-in.instance-locked": {
+    "message": "Această instanță a fost blocată"
+  },
+  "app.home.jump-back-in.instance-open": {
+    "message": "Instanța este deja deschisă"
   },
   "app.home.jump-back-in.more-options": {
     "message": "Mai multe opțiuni"
@@ -341,8 +1091,80 @@
   "app.home.jump-back-in.new-instance": {
     "message": "Instanță nouă"
   },
+  "app.home.jump-back-in.resize": {
+    "message": "Trage pentru a redimensiona"
+  },
+  "app.home.jump-back-in.title": {
+    "message": "Continuă"
+  },
+  "app.home.jump-back-in.view-instance": {
+    "message": "Vezi instanța"
+  },
+  "app.install.phase.downloading_content": {
+    "message": "Se descarcă conținutul"
+  },
+  "app.install.phase.downloading_minecraft": {
+    "message": "Se descarcă Minecraft"
+  },
+  "app.install.phase.downloading_pack_file": {
+    "message": "Se descarcă fișierul pachetului"
+  },
+  "app.install.phase.extracting_overrides": {
+    "message": "Se extrag fișierele overrides"
+  },
   "app.install.phase.finalizing": {
     "message": "Se finalizează"
+  },
+  "app.install.phase.preparing_instance": {
+    "message": "În coadă pentru instalare"
+  },
+  "app.install.phase.preparing_java": {
+    "message": "Se pregătește Java"
+  },
+  "app.install.phase.preparing_java.downloading": {
+    "message": "Se descarcă Java {version}"
+  },
+  "app.install.phase.preparing_java.extracting": {
+    "message": "Se extrage Java {version}"
+  },
+  "app.install.phase.preparing_java.fetching-metadata": {
+    "message": "Se preiau datele Java {version}"
+  },
+  "app.install.phase.preparing_java.resolving": {
+    "message": "Se pregătește Java {version}"
+  },
+  "app.install.phase.preparing_java.validating": {
+    "message": "Se validează Java {version}"
+  },
+  "app.install.phase.reading_pack_manifest": {
+    "message": "Se citește manifestul pachetului"
+  },
+  "app.install.phase.resolving_loader": {
+    "message": "Se rezolvă loaderul"
+  },
+  "app.install.phase.resolving_minecraft": {
+    "message": "Se rezolvă Minecraft"
+  },
+  "app.install.phase.resolving_pack": {
+    "message": "Se rezolvă conținutul"
+  },
+  "app.install.phase.rolling_back": {
+    "message": "Se revine la starea anterioară"
+  },
+  "app.install.phase.running_loader_processors": {
+    "message": "Se execută procesoarele loaderului"
+  },
+  "app.instance.action.add-content": {
+    "message": "Adaugă conținut"
+  },
+  "app.instance.action.copy-path": {
+    "message": "Copiază calea"
+  },
+  "app.instance.action.edit": {
+    "message": "Editează"
+  },
+  "app.instance.action.open-folder": {
+    "message": "Deschide dosarul"
   },
   "app.instance.action.play": {
     "message": "Joacă"
@@ -350,20 +1172,116 @@
   "app.instance.action.stop": {
     "message": "Oprește"
   },
-  "app.instance.add-server.add": {
-    "message": "Adaugă"
+  "app.instance.actions.label": {
+    "message": "Acțiunile instanței"
   },
-  "app.instance.add-server.added": {
-    "message": "Adăugat"
+  "app.instance.confirm-delete.admonition-body": {
+    "message": "Toate datele instanței tale vor fi șterse definitiv, inclusiv lumile, configurațiile și tot conținutul instalat."
   },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Adăugat"
+  "app.instance.confirm-delete.admonition-header": {
+    "message": "Această acțiune nu poate fi anulată"
+  },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "Toate datele acestor {count} instanțe vor fi șterse definitiv, inclusiv lumile, configurațiile și tot conținutul instalat."
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "Șterge {count} instanțe"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "Șterge {count} instanțe"
+  },
+  "app.instance.confirm-delete.delete-button": {
+    "message": "Șterge instanța"
+  },
+  "app.instance.confirm-delete.header": {
+    "message": "Șterge instanța"
+  },
+  "app.instance.confirm-delete.instances-label": {
+    "message": "{count, plural, one {Instanță} other {Instanțe ({count})}}"
+  },
+  "app.instance.content.managed-content.modpack-header": {
+    "message": "Conținutul modpackului"
+  },
+  "app.instance.content.managed-content.server-header": {
+    "message": "Conținutul serverului"
+  },
+  "app.instance.modpack-already-installed.body": {
+    "message": "Acest modpack este deja instalat în instanța <bold>{instanceName}</bold>. Ești sigur că vrei să creezi o copie?"
   },
   "app.instance.modpack-already-installed.create": {
     "message": "Creează"
   },
-  "app.instance.shared-instance-already-installed.instance": {
+  "app.instance.modpack-already-installed.header": {
+    "message": "Modpack deja instalat"
+  },
+  "app.instance.modpack-already-installed.instance": {
     "message": "Instanță"
+  },
+  "app.instance.mods.bulk-update.downloading-projects": {
+    "message": "Se descarcă proiectele {current, number}/{total, number}..."
+  },
+  "app.instance.mods.bulk-update.finishing": {
+    "message": "Se finalizează actualizarea..."
+  },
+  "app.instance.mods.bulk-update.resolving-versions": {
+    "message": "Se rezolvă versiunile..."
+  },
+  "app.instance.mods.content-type-project": {
+    "message": "proiect"
+  },
+  "app.instance.mods.freeze-content": {
+    "message": "Îngheață versiunea"
+  },
+  "app.instance.mods.locked-content": {
+    "message": "Conținutul instanțelor blocate nu poate fi modificat."
+  },
+  "app.instance.mods.project-was-added": {
+    "message": "„{name}” a fost adăugat"
+  },
+  "app.instance.mods.projects-were-added": {
+    "message": "Au fost adăugate {count} proiecte"
+  },
+  "app.instance.mods.share-text": {
+    "message": "Uită-te la proiectele pe care le folosesc în modpackul meu!"
+  },
+  "app.instance.mods.share-title": {
+    "message": "Partajarea conținutului modpackului"
+  },
+  "app.instance.mods.successfully-uploaded": {
+    "message": "S-a încărcat cu succes"
+  },
+  "app.instance.mods.unfreeze-content": {
+    "message": "Dezîngheață versiunea"
+  },
+  "app.instance.navigation.back-to-instance": {
+    "message": "Înapoi la instanță"
+  },
+  "app.instance.shortcut.created": {
+    "message": "Comandă rapidă creată"
+  },
+  "app.instance.shortcut.creation-error": {
+    "message": "Eroare la crearea comenzii rapide"
+  },
+  "app.instance.tab.content": {
+    "message": "Conținut"
+  },
+  "app.instance.tab.files": {
+    "message": "Fișiere"
+  },
+  "app.instance.tab.logs": {
+    "message": "Jurnale"
+  },
+  "app.instance.tab.screenshots": {
+    "message": "Capturi"
+  },
+  "app.instance.tab.worlds": {
+    "message": "Lumi"
+  },
+  "app.instance.worlds.add-server": {
+    "message": "Adaugă server"
+  },
+  "app.instance.worlds.browse": {
+    "message": "Explorează lumile"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Șterge lumea"
@@ -371,8 +1289,14 @@
   "app.instance.worlds.delete-world-modal.title": {
     "message": "Șterge lumea"
   },
+  "app.instance.worlds.delete-world-modal.warning-body": {
+    "message": "Această lume va fi ștearsă definitiv din această instanță. Această acțiune nu poate fi anulată."
+  },
   "app.instance.worlds.delete-world-modal.warning-header": {
     "message": "Se șterge {name}"
+  },
+  "app.instance.worlds.filter-modded": {
+    "message": "Cu moduri"
   },
   "app.instance.worlds.filter-offline": {
     "message": "Offline"
@@ -383,8 +1307,41 @@
   "app.instance.worlds.filter-vanilla": {
     "message": "Vanilla"
   },
+  "app.instance.worlds.no-worlds-description": {
+    "message": "Adaugă un server sau explorează pentru a începe"
+  },
+  "app.instance.worlds.no-worlds-heading": {
+    "message": "Niciun server sau lume adăugată"
+  },
   "app.instance.worlds.refreshing": {
     "message": "Se reîmprospătează..."
+  },
+  "app.instance.worlds.remove-server-modal.remove-button": {
+    "message": "Elimină serverul"
+  },
+  "app.instance.worlds.remove-server-modal.remove-everywhere": {
+    "message": "Elimină de peste tot"
+  },
+  "app.instance.worlds.remove-server-modal.remove-here": {
+    "message": "Elimină de aici"
+  },
+  "app.instance.worlds.remove-server-modal.synced-description": {
+    "message": "Îl poți elimina doar din această instanță sau din toate instanțele sincronizate. Eliminarea doar din această instanță va activa suprascrierile, iar această instanță nu va mai primi modificările sincronizate ale serverelor."
+  },
+  "app.instance.worlds.remove-server-modal.synced-header": {
+    "message": "Acest server este sincronizat"
+  },
+  "app.instance.worlds.remove-server-modal.title": {
+    "message": "Elimină serverul"
+  },
+  "app.instance.worlds.remove-server-modal.warning-body": {
+    "message": "Acest server va fi eliminat din lista ta de servere și din lista de servere din joc. Îl poți adăuga din nou mai târziu dacă știi adresa."
+  },
+  "app.instance.worlds.remove-server-modal.warning-header": {
+    "message": "Se elimină {name}"
+  },
+  "app.instance.worlds.search-worlds-placeholder": {
+    "message": "Caută în {count} lumi..."
   },
   "app.java-detection.cancel": {
     "message": "Anulează"
@@ -392,23 +1349,668 @@
   "app.java-detection.columns.actions": {
     "message": "Acțiuni"
   },
-  "app.modal.install-to-play.header": {
-    "message": "Instalați pentru a juca"
+  "app.java-detection.columns.path": {
+    "message": "Cale"
   },
-  "app.modal.install-to-play.install-button": {
-    "message": "Instalează"
+  "app.java-detection.columns.version": {
+    "message": "Versiune"
   },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural,one {#mod} other {# moduri}}"
+  "app.java-detection.no-installations-found": {
+    "message": "Nu a fost găsită nicio instalare Java."
   },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Instanță comună"
+  "app.java-detection.select": {
+    "message": "Selectează"
   },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Vizualizați conținutul"
+  "app.java-detection.selected": {
+    "message": "Selectat"
   },
-  "app.modal.update-to-play.header": {
-    "message": "Actualizați pentru a juca"
+  "app.java-detection.title": {
+    "message": "Selectează instalarea Java"
+  },
+  "app.java-selector.already-installed": {
+    "message": "Deja instalat"
+  },
+  "app.java-selector.browse": {
+    "message": "Răsfoiește"
+  },
+  "app.java-selector.detect": {
+    "message": "Detectează"
+  },
+  "app.java-selector.install-recommended": {
+    "message": "Instalează versiunea recomandată"
+  },
+  "app.java-selector.installing": {
+    "message": "Se instalează..."
+  },
+  "app.java-selector.path.placeholder": {
+    "message": "/path/to/java"
+  },
+  "app.java-selector.test-installation": {
+    "message": "Testează instalarea Java"
+  },
+  "app.launch-link.instance": {
+    "message": "Un link vrea să pornească {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Pornește"
+  },
+  "app.launch-link.server": {
+    "message": "Un link vrea să pornească {instance} și să se alăture serverului {target}. Continuă doar dacă ai încredere în sursa linkului."
+  },
+  "app.launch-link.title": {
+    "message": "Deschide Minecraft dintr-un link?"
+  },
+  "app.launch-link.world": {
+    "message": "Un link vrea să pornească {instance} și să deschidă lumea {target}."
+  },
+  "app.library.actions.label": {
+    "message": "Acțiunile librăriei"
+  },
+  "app.library.context-menu.create-instance": {
+    "message": "Instanță nouă"
+  },
+  "app.library.filter.add": {
+    "message": "Adaugă filtru"
+  },
+  "app.library.filter.clear": {
+    "message": "Șterge filtrele"
+  },
+  "app.library.filter.game-version": {
+    "message": "Versiunea jocului"
+  },
+  "app.library.filter.instance-type": {
+    "message": "Tipul instanței"
+  },
+  "app.library.filter.instance-type.custom": {
+    "message": "Personalizat"
+  },
+  "app.library.filter.instance-type.modpack": {
+    "message": "Modpack"
+  },
+  "app.library.filter.instance-type.server": {
+    "message": "Server"
+  },
+  "app.library.filter.label": {
+    "message": "Filtrează după"
+  },
+  "app.library.filter.loader": {
+    "message": "Loader"
+  },
+  "app.library.group-by.custom-group": {
+    "message": "Grup personalizat"
+  },
+  "app.library.group-by.game-version": {
+    "message": "Versiunea jocului"
+  },
+  "app.library.group-by.instance-type": {
+    "message": "Tipul instanței"
+  },
+  "app.library.group-by.label": {
+    "message": "Grupează după"
+  },
+  "app.library.group-by.loader": {
+    "message": "Loader"
+  },
+  "app.library.group-by.none": {
+    "message": "Fără grupare"
+  },
+  "app.library.group.actions.label": {
+    "message": "Acțiunile grupului"
+  },
+  "app.library.group.collapse": {
+    "message": "Restrânge grupul"
+  },
+  "app.library.group.context-menu.add-to-group": {
+    "message": "Adaugă la grup"
+  },
+  "app.library.group.create": {
+    "message": "Creează grup"
+  },
+  "app.library.group.create.cancel": {
+    "message": "Anulează"
+  },
+  "app.library.group.delete": {
+    "message": "Șterge grupul"
+  },
+  "app.library.group.delete-description": {
+    "message": "Instanțele din acest grup vor fi scoase din grup."
+  },
+  "app.library.group.edit-name": {
+    "message": "Editează numele grupului"
+  },
+  "app.library.group.empty": {
+    "message": "Trage și plasează pentru a adăuga instanțe."
+  },
+  "app.library.group.expand": {
+    "message": "Extinde grupul"
+  },
+  "app.library.group.favorites": {
+    "message": "Favorite"
+  },
+  "app.library.group.instance.add": {
+    "message": "Adaugă"
+  },
+  "app.library.group.instance.added": {
+    "message": "Adăugat"
+  },
+  "app.library.group.instances-modal.add": {
+    "message": "Adaugă"
+  },
+  "app.library.group.instances-modal.added": {
+    "message": "Adăugat"
+  },
+  "app.library.group.instances-modal.no-instances-found": {
+    "message": "Nu a fost găsită nicio instanță"
+  },
+  "app.library.group.instances-modal.search-placeholder": {
+    "message": "Caută instanța"
+  },
+  "app.library.group.instances-modal.title": {
+    "message": "Adaugă instanțe la „{groupName}”"
+  },
+  "app.library.group.move-down": {
+    "message": "Mută grupul în jos"
+  },
+  "app.library.group.move-up": {
+    "message": "Mută grupul în sus"
+  },
+  "app.library.group.name": {
+    "message": "Numele grupului"
+  },
+  "app.library.group.name-empty": {
+    "message": "Numele grupurilor nu pot fi goale."
+  },
+  "app.library.group.name-placeholder": {
+    "message": "Introdu numele grupului"
+  },
+  "app.library.group.name-reserved": {
+    "message": "„None” este rezervat și nu poate fi folosit ca nume de grup."
+  },
+  "app.library.group.name-too-long": {
+    "message": "Numele grupurilor nu pot depăși {maxLength} caractere."
+  },
+  "app.library.group.new": {
+    "message": "Grup nou"
+  },
+  "app.library.group.no-instances-found": {
+    "message": "Nu a fost găsită nicio instanță"
+  },
+  "app.library.group.rename-failed": {
+    "message": "Grupul nu a putut fi redenumit"
+  },
+  "app.library.group.search-instance": {
+    "message": "Caută instanța"
+  },
+  "app.library.group.ungrouped": {
+    "message": "Negrupate"
+  },
+  "app.library.group.unknown": {
+    "message": "Grup necunoscut"
+  },
+  "app.library.instance.action.add-content": {
+    "message": "Adaugă conținut"
+  },
+  "app.library.instance.action.add-to-favorites": {
+    "message": "Adaugă la favorite"
+  },
+  "app.library.instance.action.copy-path": {
+    "message": "Copiază calea"
+  },
+  "app.library.instance.action.delete": {
+    "message": "Șterge"
+  },
+  "app.library.instance.action.duplicate": {
+    "message": "Dublează instanța"
+  },
+  "app.library.instance.action.open-folder": {
+    "message": "Deschide dosarul"
+  },
+  "app.library.instance.action.play": {
+    "message": "Joacă"
+  },
+  "app.library.instance.action.remove-from-favorites": {
+    "message": "Elimină de la favorite"
+  },
+  "app.library.instance.action.remove-from-group": {
+    "message": "Elimină din grup"
+  },
+  "app.library.instance.action.stop": {
+    "message": "Oprește"
+  },
+  "app.library.instance.action.view-instance": {
+    "message": "Vezi instanța"
+  },
+  "app.library.instance.actions.label": {
+    "message": "Acțiunile instanței"
+  },
+  "app.library.instance.deselect": {
+    "message": "Deselectează instanța"
+  },
+  "app.library.instance.deselect-with-name": {
+    "message": "Deselectează {name}"
+  },
+  "app.library.instance.installing": {
+    "message": "Se instalează..."
+  },
+  "app.library.instance.loading": {
+    "message": "Instanța se încarcă..."
+  },
+  "app.library.instance.new": {
+    "message": "Instanță nouă"
+  },
+  "app.library.instance.open-with-name": {
+    "message": "Deschide {name}"
+  },
+  "app.library.instance.play": {
+    "message": "Joacă"
+  },
+  "app.library.instance.repair": {
+    "message": "Repară"
+  },
+  "app.library.instance.select": {
+    "message": "Selectează instanța"
+  },
+  "app.library.instance.select-with-name": {
+    "message": "Selectează {name}"
+  },
+  "app.library.instance.stop": {
+    "message": "Oprește"
+  },
+  "app.library.search.no-results.title": {
+    "message": "Nicio instanță nu corespunde căutării tale."
+  },
+  "app.library.search.placeholder": {
+    "message": "Caută"
+  },
+  "app.library.selection.aria-label": {
+    "message": "Instanțe selectate"
+  },
+  "app.library.selection.deleting": {
+    "message": "Se șterg instanțele selectate"
+  },
+  "app.library.selection.new-group": {
+    "message": "Grup nou"
+  },
+  "app.library.selection.remove-from-group": {
+    "message": "Elimină din grup"
+  },
+  "app.library.selection.selected-count": {
+    "message": "{count} selectate"
+  },
+  "app.library.sort.date-created": {
+    "message": "Data creării"
+  },
+  "app.library.sort.date-modified": {
+    "message": "Data modificării"
+  },
+  "app.library.sort.game-version": {
+    "message": "Versiunea jocului"
+  },
+  "app.library.sort.hours-played": {
+    "message": "Ore jucate"
+  },
+  "app.library.sort.label": {
+    "message": "Sortează după"
+  },
+  "app.library.sort.last-played": {
+    "message": "Ultima oară jucat"
+  },
+  "app.library.sort.loader": {
+    "message": "Loader"
+  },
+  "app.library.sort.name": {
+    "message": "Nume"
+  },
+  "app.library.title": {
+    "message": "Librărie"
+  },
+  "app.nav.collapse-sidebar": {
+    "message": "Restrânge bara laterală"
+  },
+  "app.nav.create-new-instance": {
+    "message": "Creează o instanță nouă"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Extinde bara laterală"
+  },
+  "app.nav.home": {
+    "message": "Acasă"
+  },
+  "app.nav.screenshots": {
+    "message": "Capturi de ecran"
+  },
+  "app.navigation.go-back": {
+    "message": "Înapoi"
+  },
+  "app.navigation.go-forward": {
+    "message": "Înainte"
+  },
+  "app.navigation.home": {
+    "message": "Acasă"
+  },
+  "app.navigation.next-image": {
+    "message": "Imaginea următoare"
+  },
+  "app.notification.warning": {
+    "message": "Avertisment"
+  },
+  "app.project.actions.label": {
+    "message": "Acțiunile proiectului"
+  },
+  "app.project.coming-soon": {
+    "message": "În curând"
+  },
+  "app.project.gallery.image-fallback": {
+    "message": "Imagine din galerie"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Deschide imaginea într-o filă nouă"
+  },
+  "app.project.install-button.already-installed": {
+    "message": "Acest proiect este deja instalat"
+  },
+  "app.project.install-button.switch-version": {
+    "message": "Schimbă versiunea"
+  },
+  "app.project.install-context.back-to-browse": {
+    "message": "Înapoi la descoperire"
+  },
+  "app.project.install-context.back-to-instance": {
+    "message": "Înapoi la instanță"
+  },
+  "app.project.load-error": {
+    "message": "Nu s-au putut încărca datele proiectului."
+  },
+  "app.project.more-options": {
+    "message": "Mai multe opțiuni"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Deschide în CurseForge"
+  },
+  "app.project.tab.description": {
+    "message": "Descriere"
+  },
+  "app.project.tab.gallery": {
+    "message": "Galerie"
+  },
+  "app.project.tab.versions": {
+    "message": "Versiuni"
+  },
+  "app.project.version.all-versions": {
+    "message": "Toate versiunile"
+  },
+  "app.project.version.download-in-browser": {
+    "message": "Descarcă în browser"
+  },
+  "app.project.version.installing": {
+    "message": "Se instalează"
+  },
+  "app.project.versions.already-installed": {
+    "message": "Deja instalat"
+  },
+  "app.quick-instance-switcher.actions.label": {
+    "message": "Acțiunile instanței"
+  },
+  "app.quick-instance-switcher.drag-show-tooltip": {
+    "message": "Trage pentru a afișa instanțele recente"
+  },
+  "app.quick-instance-switcher.drag-tooltip": {
+    "message": "Trage pentru a redimensiona"
+  },
+  "app.quick-instance-switcher.instance-locked": {
+    "message": "Această instanță a fost blocată"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Instanțe recente"
+  },
+  "app.quick-instance-switcher.view-instance": {
+    "message": "Vezi instanța"
+  },
+  "app.restarting": {
+    "message": "Se repornește..."
+  },
+  "app.screenshots.copied": {
+    "message": "Copiat"
+  },
+  "app.screenshots.copy": {
+    "message": "Copiază imaginea"
+  },
+  "app.screenshots.delete-description": {
+    "message": "Ștergi definitiv {name}? Această acțiune nu poate fi anulată."
+  },
+  "app.screenshots.delete-success": {
+    "message": "Captura de ecran a fost ștearsă"
+  },
+  "app.screenshots.delete-title": {
+    "message": "Șterge captura de ecran"
+  },
+  "app.screenshots.deselect": {
+    "message": "Deselectează {name}"
+  },
+  "app.screenshots.edit": {
+    "message": "Editează captura de ecran"
+  },
+  "app.screenshots.empty-description": {
+    "message": "Capturile de ecran făcute în joc vor apărea aici."
+  },
+  "app.screenshots.empty-heading": {
+    "message": "Nicio captură de ecran încă"
+  },
+  "app.screenshots.error-heading": {
+    "message": "Capturile de ecran nu s-au putut încărca"
+  },
+  "app.screenshots.go-to-instance": {
+    "message": "Mergi la instanță"
+  },
+  "app.screenshots.group-by": {
+    "message": "Grupează după"
+  },
+  "app.screenshots.group.all-screenshots": {
+    "message": "Toate capturile de ecran"
+  },
+  "app.screenshots.group.collapse": {
+    "message": "Restrânge grupul"
+  },
+  "app.screenshots.group.custom": {
+    "message": "Grup personalizat"
+  },
+  "app.screenshots.group.date": {
+    "message": "Dată"
+  },
+  "app.screenshots.group.delete": {
+    "message": "Șterge grupul"
+  },
+  "app.screenshots.group.delete-description": {
+    "message": "Capturile de ecran din acest grup vor fi scoase din grup."
+  },
+  "app.screenshots.group.edit": {
+    "message": "Editează numele grupului"
+  },
+  "app.screenshots.group.empty": {
+    "message": "Trage și plasează pentru a adăuga capturi de ecran."
+  },
+  "app.screenshots.group.expand": {
+    "message": "Extinde grupul"
+  },
+  "app.screenshots.group.instance": {
+    "message": "Instanță"
+  },
+  "app.screenshots.group.new": {
+    "message": "Grup nou"
+  },
+  "app.screenshots.group.none": {
+    "message": "Fără grupare"
+  },
+  "app.screenshots.group.this-month": {
+    "message": "Luna aceasta"
+  },
+  "app.screenshots.group.this-week": {
+    "message": "Săptămâna aceasta"
+  },
+  "app.screenshots.group.today": {
+    "message": "Azi"
+  },
+  "app.screenshots.group.ungrouped": {
+    "message": "Negrupate"
+  },
+  "app.screenshots.group.yesterday": {
+    "message": "Ieri"
+  },
+  "app.screenshots.heading": {
+    "message": "Capturi de ecran"
+  },
+  "app.screenshots.more-actions": {
+    "message": "Mai multe acțiuni"
+  },
+  "app.screenshots.no-results-description": {
+    "message": "Încearcă altă căutare sau alt filtru."
+  },
+  "app.screenshots.no-results-heading": {
+    "message": "Nicio captură potrivită"
+  },
+  "app.screenshots.preview.instance-and-date": {
+    "message": "{instance} · {date}"
+  },
+  "app.screenshots.search": {
+    "message": "Caută"
+  },
+  "app.screenshots.select": {
+    "message": "Selectează {name}"
+  },
+  "app.screenshots.selection.aria-label": {
+    "message": "Capturi de ecran selectate"
+  },
+  "app.screenshots.selection.delete-description": {
+    "message": "Ștergi {count, plural, one {# captură de ecran} other {# capturi de ecran}}? Această acțiune nu poate fi anulată."
+  },
+  "app.screenshots.selection.delete-success": {
+    "message": "{count, plural, one {# captură ștearsă} other {# capturi șterse}}"
+  },
+  "app.screenshots.selection.delete-title": {
+    "message": "Șterge capturile de ecran selectate"
+  },
+  "app.screenshots.selection.export-zip": {
+    "message": "Exportă ZIP"
+  },
+  "app.screenshots.selection.global-export-filename": {
+    "message": "{productName} screenshots.zip"
+  },
+  "app.screenshots.selection.instance-export-filename": {
+    "message": "{instance} screenshots.zip"
+  },
+  "app.screenshots.selection.remove-from-group": {
+    "message": "Elimină din grup"
+  },
+  "app.screenshots.selection.selected-count": {
+    "message": "{count} selectate"
+  },
+  "app.screenshots.selection.zip-archive": {
+    "message": "Arhivă ZIP"
+  },
+  "app.screenshots.show-in-folder": {
+    "message": "Afișează în dosar"
+  },
+  "app.screenshots.sort-by": {
+    "message": "Sortează după"
+  },
+  "app.screenshots.sort.name": {
+    "message": "Nume"
+  },
+  "app.screenshots.sort.newest": {
+    "message": "Cele mai noi"
+  },
+  "app.screenshots.sort.oldest": {
+    "message": "Cele mai vechi"
+  },
+  "app.settings.app-version": {
+    "message": "{productName} {version}"
+  },
+  "app.settings.default-instance-options.environment-variables.description": {
+    "message": "Variabile de mediu setate la lansarea unei instanțe."
+  },
+  "app.settings.default-instance-options.environment-variables.placeholder": {
+    "message": "Introdu variabilele de mediu..."
+  },
+  "app.settings.default-instance-options.environment-variables.title": {
+    "message": "Variabile de mediu"
+  },
+  "app.settings.default-instance-options.fullscreen.description": {
+    "message": "Pornește instanțele pe tot ecranul prin actualizarea fișierului options.txt."
+  },
+  "app.settings.default-instance-options.fullscreen.title": {
+    "message": "Ecran complet"
+  },
+  "app.settings.default-instance-options.height.description": {
+    "message": "Înălțimea ferestrei jocului la lansare."
+  },
+  "app.settings.default-instance-options.height.placeholder": {
+    "message": "Introdu înălțimea..."
+  },
+  "app.settings.default-instance-options.height.title": {
+    "message": "Înălțime"
+  },
+  "app.settings.default-instance-options.java-and-memory.title": {
+    "message": "Java și memorie"
+  },
+  "app.settings.default-instance-options.java-arguments.description": {
+    "message": "Argumente transmise către Java la lansarea unei instanțe."
+  },
+  "app.settings.default-instance-options.java-arguments.placeholder": {
+    "message": "Introdu argumentele Java..."
+  },
+  "app.settings.default-instance-options.java-arguments.title": {
+    "message": "Argumente Java"
+  },
+  "app.settings.default-instance-options.launch-hooks.title": {
+    "message": "Hookuri de lansare"
+  },
+  "app.settings.default-instance-options.memory-allocation.description": {
+    "message": "Memoria maximă disponibilă pentru fiecare instanță."
+  },
+  "app.settings.default-instance-options.memory-allocation.title": {
+    "message": "Alocarea memoriei"
+  },
+  "app.settings.default-instance-options.post-exit-hook.description": {
+    "message": "Rulează după închiderea jocului."
+  },
+  "app.settings.default-instance-options.post-exit-hook.placeholder": {
+    "message": "Introdu comanda post-ieșire..."
+  },
+  "app.settings.default-instance-options.post-exit-hook.title": {
+    "message": "Hook post-ieșire"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.description": {
+    "message": "Rulează înainte de pornirea instanței."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.placeholder": {
+    "message": "Introdu comanda pre-lansare..."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "Hook pre-lansare"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "Lățimea ferestrei jocului la lansare."
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "Introdu lățimea..."
+  },
+  "app.settings.default-instance-options.width.title": {
+    "message": "Lățime"
+  },
+  "app.settings.default-instance-options.window.title": {
+    "message": "Fereastră"
+  },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "Comandă folosită pentru a înfășura procesul de lansare Minecraft."
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "Introdu comanda wrapper..."
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "Hook wrapper"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "Comută modul dezvoltator"
   },
   "app.settings.developer-mode-enabled": {
     "message": "Modul dezvoltator activat."
@@ -416,8 +2018,1394 @@
   "app.settings.downloading": {
     "message": "Se descarcă v{version}"
   },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Nu s-a găsit niciun flag pentru „{query}”"
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Resetează la implicit"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Caută flaguri..."
+  },
+  "app.settings.game-options.category.accessibility.description": {
+    "message": "Preferințe de accesibilitate"
+  },
+  "app.settings.game-options.category.accessibility.label": {
+    "message": "Accesibilitate"
+  },
+  "app.settings.game-options.category.chat.description": {
+    "message": "Vizibilitatea și aspectul chatului"
+  },
+  "app.settings.game-options.category.chat.label": {
+    "message": "Chat"
+  },
+  "app.settings.game-options.category.controls.description": {
+    "message": "Mouse, mișcare și atribuiri de taste"
+  },
+  "app.settings.game-options.category.controls.label": {
+    "message": "Controale"
+  },
+  "app.settings.game-options.category.custom.description": {
+    "message": "Setări adăugate de moduri"
+  },
+  "app.settings.game-options.category.custom.label": {
+    "message": "Setări personalizate"
+  },
+  "app.settings.game-options.category.language.description": {
+    "message": "Limba jocului"
+  },
+  "app.settings.game-options.category.language.label": {
+    "message": "Limbă"
+  },
+  "app.settings.game-options.category.music-and-sound.description": {
+    "message": "Preferințe de volum și audio"
+  },
+  "app.settings.game-options.category.music-and-sound.label": {
+    "message": "Muzică și sunete"
+  },
+  "app.settings.game-options.category.online.description": {
+    "message": "Preferințe online și Realms"
+  },
+  "app.settings.game-options.category.online.label": {
+    "message": "Online"
+  },
+  "app.settings.game-options.category.skin-customization.description": {
+    "message": "Straturile skinului și mâna principală"
+  },
+  "app.settings.game-options.category.skin-customization.label": {
+    "message": "Personalizarea skinului"
+  },
+  "app.settings.game-options.category.video.description": {
+    "message": "Setări de cameră și afișare"
+  },
+  "app.settings.game-options.category.video.label": {
+    "message": "Video"
+  },
+  "app.settings.game-options.choice.all": {
+    "message": "Toate"
+  },
+  "app.settings.game-options.choice.balanced": {
+    "message": "Echilibrat"
+  },
+  "app.settings.game-options.choice.by-player": {
+    "message": "După jucător"
+  },
+  "app.settings.game-options.choice.chat": {
+    "message": "Chat"
+  },
+  "app.settings.game-options.choice.commands-only": {
+    "message": "Doar comenzi"
+  },
+  "app.settings.game-options.choice.constant": {
+    "message": "Constant"
+  },
+  "app.settings.game-options.choice.crosshair": {
+    "message": "Reticul"
+  },
+  "app.settings.game-options.choice.custom": {
+    "message": "Personalizat"
+  },
+  "app.settings.game-options.choice.decreased": {
+    "message": "Redus"
+  },
+  "app.settings.game-options.choice.default": {
+    "message": "Implicit"
+  },
+  "app.settings.game-options.choice.fabulous": {
+    "message": "Fabulos"
+  },
+  "app.settings.game-options.choice.fancy": {
+    "message": "Detaliat"
+  },
+  "app.settings.game-options.choice.far": {
+    "message": "Mare"
+  },
+  "app.settings.game-options.choice.fast": {
+    "message": "Rapid"
+  },
+  "app.settings.game-options.choice.frequent": {
+    "message": "Frecvent"
+  },
+  "app.settings.game-options.choice.hidden": {
+    "message": "Ascuns"
+  },
+  "app.settings.game-options.choice.hotbar": {
+    "message": "Bara rapidă"
+  },
+  "app.settings.game-options.choice.left": {
+    "message": "Stânga"
+  },
+  "app.settings.game-options.choice.limited": {
+    "message": "Limitat"
+  },
+  "app.settings.game-options.choice.max-fps": {
+    "message": "FPS maxim"
+  },
+  "app.settings.game-options.choice.maximum": {
+    "message": "Maxim"
+  },
+  "app.settings.game-options.choice.minimal": {
+    "message": "Minim"
+  },
+  "app.settings.game-options.choice.minimum": {
+    "message": "Minim"
+  },
+  "app.settings.game-options.choice.nearby": {
+    "message": "Apropiat"
+  },
+  "app.settings.game-options.choice.never": {
+    "message": "Niciodată"
+  },
+  "app.settings.game-options.choice.none": {
+    "message": "Niciunul"
+  },
+  "app.settings.game-options.choice.normal": {
+    "message": "Normal"
+  },
+  "app.settings.game-options.choice.off": {
+    "message": "Oprit"
+  },
+  "app.settings.game-options.choice.on": {
+    "message": "Pornit"
+  },
+  "app.settings.game-options.choice.opengl": {
+    "message": "OpenGL"
+  },
+  "app.settings.game-options.choice.pause": {
+    "message": "Meniul de pauză"
+  },
+  "app.settings.game-options.choice.pause-and-toast": {
+    "message": "Meniul de pauză și notificarea"
+  },
+  "app.settings.game-options.choice.power-saver": {
+    "message": "Economisire energie"
+  },
+  "app.settings.game-options.choice.right": {
+    "message": "Dreapta"
+  },
+  "app.settings.game-options.choice.short": {
+    "message": "Scurt"
+  },
+  "app.settings.game-options.choice.shown": {
+    "message": "Afișat"
+  },
+  "app.settings.game-options.choice.system": {
+    "message": "Sistem"
+  },
+  "app.settings.game-options.choice.tiny": {
+    "message": "Mic"
+  },
+  "app.settings.game-options.choice.vulkan": {
+    "message": "Vulkan"
+  },
+  "app.settings.game-options.choice.when-minimized": {
+    "message": "Când e minimizat"
+  },
+  "app.settings.game-options.choice.while-afk": {
+    "message": "Cât ești AFK"
+  },
+  "app.settings.game-options.compatibility.none": {
+    "message": "Unele dintre instanțele tale nu pot folosi această setare"
+  },
+  "app.settings.game-options.compatibility.reason.launcher-controlled": {
+    "message": "Această setare este gestionată de setările de lansare ale {productName}."
+  },
+  "app.settings.game-options.custom-value.placeholder": {
+    "message": "Introdu o valoare"
+  },
+  "app.settings.game-options.keybind.assigned-status": {
+    "message": "{setting} este acum atribuit lui {binding}."
+  },
+  "app.settings.game-options.keybind.cancelled-status": {
+    "message": "Schimbarea atribuirii tastei a fost anulată."
+  },
+  "app.settings.game-options.keybind.change": {
+    "message": "{setting}: {binding}. Activează pentru a schimba atribuirea."
+  },
+  "app.settings.game-options.keybind.choose": {
+    "message": "Alege o tastă"
+  },
+  "app.settings.game-options.keybind.conflict-description": {
+    "message": "Este deja folosit de {settings}."
+  },
+  "app.settings.game-options.keybind.key.arrow-down": {
+    "message": "Săgeată jos"
+  },
+  "app.settings.game-options.keybind.key.arrow-left": {
+    "message": "Săgeată stânga"
+  },
+  "app.settings.game-options.keybind.key.arrow-right": {
+    "message": "Săgeată dreapta"
+  },
+  "app.settings.game-options.keybind.key.arrow-up": {
+    "message": "Săgeată sus"
+  },
+  "app.settings.game-options.keybind.key.backspace": {
+    "message": "Backspace"
+  },
+  "app.settings.game-options.keybind.key.caps-lock": {
+    "message": "Caps Lock"
+  },
+  "app.settings.game-options.keybind.key.delete": {
+    "message": "Delete"
+  },
+  "app.settings.game-options.keybind.key.end": {
+    "message": "Sfârșit"
+  },
+  "app.settings.game-options.keybind.key.enter": {
+    "message": "Enter"
+  },
+  "app.settings.game-options.keybind.key.escape": {
+    "message": "Escape"
+  },
+  "app.settings.game-options.keybind.key.home": {
+    "message": "Acasă"
+  },
+  "app.settings.game-options.keybind.key.insert": {
+    "message": "Insert"
+  },
+  "app.settings.game-options.keybind.key.keypad-key": {
+    "message": "{key} numeric"
+  },
+  "app.settings.game-options.keybind.key.left-alt": {
+    "message": "Alt stânga"
+  },
+  "app.settings.game-options.keybind.key.left-command": {
+    "message": "Command stânga"
+  },
+  "app.settings.game-options.keybind.key.left-control": {
+    "message": "Ctrl stânga"
+  },
+  "app.settings.game-options.keybind.key.left-shift": {
+    "message": "Shift stânga"
+  },
+  "app.settings.game-options.keybind.key.left-super": {
+    "message": "Super stânga"
+  },
+  "app.settings.game-options.keybind.key.menu": {
+    "message": "Meniu"
+  },
+  "app.settings.game-options.keybind.key.num-lock": {
+    "message": "Num Lock"
+  },
+  "app.settings.game-options.keybind.key.page-down": {
+    "message": "Page Down"
+  },
+  "app.settings.game-options.keybind.key.page-up": {
+    "message": "Page Up"
+  },
+  "app.settings.game-options.keybind.key.pause": {
+    "message": "Pauză"
+  },
+  "app.settings.game-options.keybind.key.print-screen": {
+    "message": "Print Screen"
+  },
+  "app.settings.game-options.keybind.key.right-alt": {
+    "message": "Alt dreapta"
+  },
+  "app.settings.game-options.keybind.key.right-command": {
+    "message": "Command dreapta"
+  },
+  "app.settings.game-options.keybind.key.right-control": {
+    "message": "Ctrl dreapta"
+  },
+  "app.settings.game-options.keybind.key.right-shift": {
+    "message": "Shift dreapta"
+  },
+  "app.settings.game-options.keybind.key.right-super": {
+    "message": "Super dreapta"
+  },
+  "app.settings.game-options.keybind.key.scroll-lock": {
+    "message": "Scroll Lock"
+  },
+  "app.settings.game-options.keybind.key.space": {
+    "message": "Spațiu"
+  },
+  "app.settings.game-options.keybind.key.tab": {
+    "message": "Tab"
+  },
+  "app.settings.game-options.keybind.key.unbound": {
+    "message": "Neatribuit"
+  },
+  "app.settings.game-options.keybind.key.unknown": {
+    "message": "Tastă necunoscută"
+  },
+  "app.settings.game-options.keybind.listen": {
+    "message": "Apasă o tastă..."
+  },
+  "app.settings.game-options.keybind.listening-status": {
+    "message": "Se așteaptă o tastă sau un buton de mouse. Apasă Escape pentru a șterge această atribuire."
+  },
+  "app.settings.game-options.keybind.mixed": {
+    "message": "Diferit între instanțe"
+  },
+  "app.settings.game-options.keybind.modifier.alt": {
+    "message": "Alt"
+  },
+  "app.settings.game-options.keybind.modifier.command": {
+    "message": "Command"
+  },
+  "app.settings.game-options.keybind.modifier.control": {
+    "message": "Ctrl"
+  },
+  "app.settings.game-options.keybind.modifier.shift": {
+    "message": "Shift"
+  },
+  "app.settings.game-options.keybind.modifier.super": {
+    "message": "Super"
+  },
+  "app.settings.game-options.keybind.mouse.button": {
+    "message": "Mouse {button}"
+  },
+  "app.settings.game-options.keybind.mouse.left": {
+    "message": "Clic stânga"
+  },
+  "app.settings.game-options.keybind.mouse.middle": {
+    "message": "Clic mijloc"
+  },
+  "app.settings.game-options.keybind.mouse.right": {
+    "message": "Clic dreapta"
+  },
+  "app.settings.game-options.keybind.recording-label": {
+    "message": "{setting}: se așteaptă o tastă sau un buton de mouse. Apasă Escape pentru a șterge această atribuire."
+  },
+  "app.settings.game-options.keybind.scancode": {
+    "message": "Scancode {code}"
+  },
+  "app.settings.game-options.keybind.unsupported-status": {
+    "message": "Această intrare nu poate fi folosită de Minecraft. Apasă altă tastă."
+  },
+  "app.settings.game-options.setting.advanced-opengl.label": {
+    "message": "OpenGL avansat"
+  },
+  "app.settings.game-options.setting.allow-cursor-changes.label": {
+    "message": "Permite schimbarea cursorului"
+  },
+  "app.settings.game-options.setting.allow-server-listing.description": {
+    "message": "Permite afișarea numelui jucătorului în listările de servere."
+  },
+  "app.settings.game-options.setting.allow-server-listing.label": {
+    "message": "Listări de servere"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "Blocuri alternative"
+  },
+  "app.settings.game-options.setting.ambient-occlusion.label": {
+    "message": "Iluminare lină"
+  },
+  "app.settings.game-options.setting.ambient-volume.label": {
+    "message": "Ambient/Mediu"
+  },
+  "app.settings.game-options.setting.anaglyph-3d.label": {
+    "message": "Anaglif 3D"
+  },
+  "app.settings.game-options.setting.anisotropic-filtering.label": {
+    "message": "Filtrare anizotropă"
+  },
+  "app.settings.game-options.setting.anisotropy.label": {
+    "message": "Anizotropie"
+  },
+  "app.settings.game-options.setting.attack-indicator.label": {
+    "message": "Indicator de atac"
+  },
+  "app.settings.game-options.setting.auto-jump.description": {
+    "message": "Sare automat peste obstacole înalte de un bloc."
+  },
+  "app.settings.game-options.setting.auto-jump.label": {
+    "message": "Salt automat"
+  },
+  "app.settings.game-options.setting.auto-suggestions.label": {
+    "message": "Sugestii de comenzi"
+  },
+  "app.settings.game-options.setting.autosave-indicator.label": {
+    "message": "Indicator de salvare automată"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.description": {
+    "message": "Distanța pe care culorile biomurilor fac tranziția."
+  },
+  "app.settings.game-options.setting.biome-blend-radius.label": {
+    "message": "Amestecare biomuri"
+  },
+  "app.settings.game-options.setting.blocks-volume.label": {
+    "message": "Blocuri"
+  },
+  "app.settings.game-options.setting.brightness.label": {
+    "message": "Luminozitate"
+  },
+  "app.settings.game-options.setting.cape.description": {
+    "message": "Afișează pelerina jucătorului, inclusiv textura elytrei."
+  },
+  "app.settings.game-options.setting.cape.label": {
+    "message": "Pelerină"
+  },
+  "app.settings.game-options.setting.chat-background-only.label": {
+    "message": "Doar fundalul chatului"
+  },
+  "app.settings.game-options.setting.chat-colors.label": {
+    "message": "Culorile chatului"
+  },
+  "app.settings.game-options.setting.chat-delay.label": {
+    "message": "Întârzierea chatului"
+  },
+  "app.settings.game-options.setting.chat-line-spacing.label": {
+    "message": "Spațierea liniilor chatului"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.description": {
+    "message": "Întreabă înainte de a deschide linkuri din chat."
+  },
+  "app.settings.game-options.setting.chat-links-prompt.label": {
+    "message": "Confirmare la linkuri"
+  },
+  "app.settings.game-options.setting.chat-links.description": {
+    "message": "Permite deschiderea linkurilor web din chat."
+  },
+  "app.settings.game-options.setting.chat-links.label": {
+    "message": "Linkuri web"
+  },
+  "app.settings.game-options.setting.chat-opacity.description": {
+    "message": "Opacitatea textului chatului."
+  },
+  "app.settings.game-options.setting.chat-opacity.label": {
+    "message": "Opacitatea chatului"
+  },
+  "app.settings.game-options.setting.chat-preview.label": {
+    "message": "Previzualizare chat"
+  },
+  "app.settings.game-options.setting.chat-scale.label": {
+    "message": "Scara chatului"
+  },
+  "app.settings.game-options.setting.chat-visibility.label": {
+    "message": "Vizibilitatea chatului"
+  },
+  "app.settings.game-options.setting.chat-width.label": {
+    "message": "Lățimea chatului"
+  },
+  "app.settings.game-options.setting.chunk-fade-time.label": {
+    "message": "Timpul de estompare a chunkurilor"
+  },
+  "app.settings.game-options.setting.cloud-range.label": {
+    "message": "Distanța norilor"
+  },
+  "app.settings.game-options.setting.clouds.label": {
+    "message": "Nori"
+  },
+  "app.settings.game-options.setting.ctrl-click-right-click.label": {
+    "message": "Clic cu Control ca și clic dreapta"
+  },
+  "app.settings.game-options.setting.cutout-leaves.label": {
+    "message": "Frunze decupate"
+  },
+  "app.settings.game-options.setting.damage-tilt.label": {
+    "message": "Înclinare la daune"
+  },
+  "app.settings.game-options.setting.dark-splash.description": {
+    "message": "Schimbă ecranul de încărcare Mojang Studios din roșu în negru."
+  },
+  "app.settings.game-options.setting.dark-splash.label": {
+    "message": "Logo monocrom"
+  },
+  "app.settings.game-options.setting.darkness-pulsing.label": {
+    "message": "Pulsarea întunericului"
+  },
+  "app.settings.game-options.setting.debug-gui-scale.label": {
+    "message": "Scara interfeței de depanare"
+  },
+  "app.settings.game-options.setting.directional-audio.label": {
+    "message": "Audio direcțional"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.description": {
+    "message": "Tratează fiecare intrare a rotiței mouse-ului ca un singur pas de derulare."
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.label": {
+    "message": "Derulare discretă"
+  },
+  "app.settings.game-options.setting.entity-distance.label": {
+    "message": "Distanța entităților"
+  },
+  "app.settings.game-options.setting.entity-shadows.label": {
+    "message": "Umbrele entităților"
+  },
+  "app.settings.game-options.setting.exclusive-fullscreen.label": {
+    "message": "Ecran complet exclusiv"
+  },
+  "app.settings.game-options.setting.extra-telemetry.label": {
+    "message": "Telemetrie opțională"
+  },
+  "app.settings.game-options.setting.focused-chat-height.label": {
+    "message": "Înălțimea chatului focalizat"
+  },
+  "app.settings.game-options.setting.force-unicode-font.label": {
+    "message": "Forțează fontul Unicode"
+  },
+  "app.settings.game-options.setting.fov-effects.label": {
+    "message": "Efecte FOV"
+  },
+  "app.settings.game-options.setting.fov.label": {
+    "message": "Câmp vizual"
+  },
+  "app.settings.game-options.setting.fullscreen.label": {
+    "message": "Ecran complet"
+  },
+  "app.settings.game-options.setting.glint-speed.label": {
+    "message": "Viteza strălucirii"
+  },
+  "app.settings.game-options.setting.glint-strength.label": {
+    "message": "Intensitatea strălucirii"
+  },
+  "app.settings.game-options.setting.graphics-backend.label": {
+    "message": "Motor grafic"
+  },
+  "app.settings.game-options.setting.graphics.description": {
+    "message": "Controlează calitatea vizuală și performanța."
+  },
+  "app.settings.game-options.setting.graphics.label": {
+    "message": "Grafică"
+  },
+  "app.settings.game-options.setting.gui-scale.description": {
+    "message": "Dimensiunea interfeței jocului și a HUD-ului."
+  },
+  "app.settings.game-options.setting.gui-scale.label": {
+    "message": "Scara interfeței"
+  },
+  "app.settings.game-options.setting.hat.description": {
+    "message": "Afișează stratul pălărie al skinului."
+  },
+  "app.settings.game-options.setting.hat.label": {
+    "message": "Pălărie"
+  },
+  "app.settings.game-options.setting.held-item-tooltips.label": {
+    "message": "Indicații pentru obiectul ținut"
+  },
+  "app.settings.game-options.setting.hide-lightning-flashes.label": {
+    "message": "Ascunde fulgerele"
+  },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "Ascunde numele potrivite"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "Ascunde adresa serverului"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "Ascunde textele splash"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "Contur cu contrast mare al blocului"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "Mărește contrastul elementelor interfeței."
+  },
+  "app.settings.game-options.setting.high-contrast.label": {
+    "message": "Contrast mare"
+  },
+  "app.settings.game-options.setting.hostile-volume.label": {
+    "message": "Creaturi ostile"
+  },
+  "app.settings.game-options.setting.improved-transparency.label": {
+    "message": "Transparență îmbunătățită"
+  },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "Notificări în joc"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "FPS redus"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "Inversează mouse-ul pe orizontală"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "Inversează mișcarea verticală a mouse-ului."
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "Inversează mouse-ul"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "Afișează stratul jachetă al skinului."
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "Jachetă"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "Variante japoneze de glife"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "Avansuri"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "Atac"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "Mergi înapoi"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "Deschide chatul"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "Comandă"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "Afișează indicații avansate"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "Afișează marginile chunkurilor"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "Golește chatul"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "Copiază locația"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "Copiază comanda de recreare"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "Declanșează blocarea de depanare"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "Exportă texturile dinamice"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "Exportă versiunea"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "Pauză la pierderea focalizării"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "Grafice FPS"
+  },
+  "app.settings.game-options.setting.key-debug-hitboxes.label": {
+    "message": "Afișează hitboxurile"
+  },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "Vizualizare de depanare a transparenței îmbunătățite"
+  },
+  "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
+    "message": "Textura hărții de lumină"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "Modificator de depanare"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "Grafice de rețea"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "Opțiuni de depanare"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "Suprapunere de depanare"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "Grafic de profilare"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "Pornește profilarea"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "Reîncarcă chunkurile"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "Reîncarcă pachetele de resurse"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "Observă entitatea"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "Schimbă modul de joc"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "Aruncă obiectul"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "Mergi înainte"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "Prieteni"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "Comută ecranul complet"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "Bara rapidă 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "Bara rapidă 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "Bara rapidă 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "Bara rapidă 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "Bara rapidă 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "Bara rapidă 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "Bara rapidă 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "Bara rapidă 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "Bara rapidă 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "Inventar"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "Sari"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "Deplasează-te la stânga"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "Încarcă bara de unelte"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "Schimbă perspectiva"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "Alege blocul"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "Lista de jucători"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "Acțiuni rapide"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "Deplasează-te la dreapta"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "Salvează bara de unelte"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "Captură de ecran"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "Comută camera cinematică"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "Furișează-te"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "Interacțiuni sociale"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "Bara rapidă de spectator"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "Evidențiază spectatorii"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "Sprintează"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "Schimbă mâna secundară"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "Comută HUD-ul"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "Comută shaderul de spectator"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "Folosește obiectul"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "Limbă"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "Piciorul stâng al pantalonilor"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "Mâneca stângă"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "Limita FPS"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "Distanța de vizualizare"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "Afișează meniul macOS pe ecran complet"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "Alege dacă mâna principală este stânga sau dreapta."
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "Mâna principală"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "Volum principal"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "FPS maxim"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "Estomparea fundalului meniului"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "Netezirea texturilor la distanță."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "Niveluri mipmap"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "Sensibilitatea rotiței mouse-ului"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "Frecvența muzicii"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "Alege dacă titlurile melodiilor apar în meniul de pauză și ca notificări."
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "Notificare muzică"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "Muzică"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "Tasta rapidă a naratorului"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "Alege ce citește naratorul."
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "Narator"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "Creaturi prietenoase"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "Cât timp rămân vizibile notificările."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "Durata notificărilor"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "Fila obiectelor de operator"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "Viteza panoramei"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "Particule"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "Jucători"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "Prioritizează actualizările chunkurilor"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "Comenzi rapide de ieșire"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "Intrare brută de mouse"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "Notificări Realms"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "Tonomat/Blocuri muzicale"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "Informații de depanare reduse"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "Distanța de randare"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "Piciorul drept al pantalonilor"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "Mâneca dreaptă"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "Rotește cu vagonetul"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "Salvează ciornele de chat"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "Efecte de ecran"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "Afișează doar chatul securizat"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "Sensibilitatea mouse-ului"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "Texturile serverului"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "Partajează prezența"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "Cât de departe se actualizează entitățile și avansează blocurile și fluidele."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "Distanța de simulare"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Snooper"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "Fereastra de sprint"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "Afișează subtitrări pentru sunetele din joc."
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "Subtitrări"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "Opacitatea fundalului textului"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "Filtrarea texturilor"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "Comută atacul"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "Apasă o dată pentru a rămâne ghemuit."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "Comută ghemuirea"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "Apasă o dată pentru a continua sprintul."
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "Comută sprintul"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "Comută folosirea"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "Mod ecran tactil"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "Interfață"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "Înălțimea chatului nefocalizat"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "Folosește VBO-uri"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "Adaugă o mișcare de legănare camerei în timpul mersului."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "Legănarea vizualizării"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "Vignetare"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "Voce și vorbire"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "Limitează FPS-ul la rata de reîmprospătare a ecranului pentru a preveni ruperea imaginii."
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "Raza vremii"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "Vreme"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "Această setare s-a schimbat în altă parte. Verific-o și încearcă din nou."
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "Alege o valoare validă."
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "Alege mai întâi o valoare."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "Unele dintre instanțele tale nu pot folosi această setare"
+  },
+  "app.settings.java-installations.location.title": {
+    "message": "Locația Java {version, number}"
+  },
+  "app.settings.operating-system.macos": {
+    "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Afișează {productName} ca activitate curentă pe Discord. Nu afectează Rich Presence-ul adăugat instanțelor de moduri."
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord Rich Presence"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "Afișează acțiunea „Copiază detaliile” cât timp o instalare e în coadă sau rulează. Este disponibilă mereu pentru instalările eșuate sau întrerupte."
+  },
+  "app.settings.resource-management.always-show-copy-details.title": {
+    "message": "Afișează mereu copierea detaliilor"
+  },
+  "app.settings.resource-management.app-cache.confirm.description": {
+    "message": "Aplicația se poate încărca mai lent până la reconstruirea cache-ului."
+  },
+  "app.settings.resource-management.app-cache.confirm.title": {
+    "message": "Golești cache-ul aplicației?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Șterge datele din cache și le descarcă din nou. Aplicația se poate încărca mai lent până la reconstruirea cache-ului."
+  },
+  "app.settings.resource-management.app-cache.purge": {
+    "message": "Golește cache-ul"
+  },
+  "app.settings.resource-management.app-cache.title": {
+    "message": "Cache-ul aplicației"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "Copiile de rezervă ale datelor importante ale aplicației sunt stocate aici, în caz că trebuie să le recuperezi mai târziu."
+  },
+  "app.settings.resource-management.app-database-backups.open-folder": {
+    "message": "Deschide dosarul copiilor de rezervă"
+  },
+  "app.settings.resource-management.app-database-backups.title": {
+    "message": "Copiile de rezervă ale bazei de date"
+  },
+  "app.settings.resource-management.app-directory.browse": {
+    "message": "Răsfoiește după dosarul aplicației"
+  },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "Locul unde {productName} stochează instanțele și alte fișiere. Modificările se aplică după repornirea aplicației."
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "Selectează un dosar nou pentru aplicație"
+  },
+  "app.settings.resource-management.app-directory.title": {
+    "message": "Dosarul aplicației"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "Numărul de fișiere pe care aplicația le poate descărca simultan. Redu-l dacă descărcările nu sunt fiabile pe conexiunea ta. Necesită repornirea aplicației."
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "Descărcări simultane maxime"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "Numărul de fișiere pe care aplicația le poate scrie pe disc simultan. Redu-l dacă întâlnești frecvent erori I/O. Necesită repornirea aplicației."
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "Scrieri simultane maxime"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Unele fișiere necesită încă atenție"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Păstrează până la această cantitate de conținut nefolosit pentru instalări viitoare. Păstrarea unei cantități mai mari poate economisi timp de descărcare."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Păstrează descărcările nefolosite"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Se calculează"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Șterge ce e nefolosit"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Șterge conținutul descărcat nefolosit"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "S-au eliberat {size} de spațiu pe disc."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Se șterge..."
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Economisește spațiu reutilizând instalările jocului, modurile și pachetele între instanțele tale."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Instalează moduri sau pachete pentru a vedea aici utilizarea spațiului de stocare."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Vezi {count, plural, one {# problemă} other {# probleme}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Niciun conținut nefolosit de șters."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Verifică și repară"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Aceasta va închide toate instanțele care rulează."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Caută fișiere lipsă sau deteriorate și le repară."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Se verifică și se repară..."
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Partajat"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Stocarea conținutului"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} stocat"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Unic"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Orfan"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "S-au verificat {checked, plural, one {# fișier} other {# fișiere}} și s-au făcut {repaired, plural, one {# reparație} other {# reparații}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Verificare finalizată"
+  },
+  "app.settings.sidebar.label.instances": {
+    "message": "Instanțe"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Alege din ce instanță să copiezi istoricul de comenzi. Acest istoric e folosit doar pentru sincronizarea inițială, iar apoi îl poți edita din orice instanță."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Alege sursa istoricului de comenzi"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Alege din ce instanță să copiezi barele creative salvate. Aceste bare sunt folosite doar pentru sincronizarea inițială, iar apoi le poți edita din orice instanță."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Alege sursa barelor creative"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Alege sursa pachetelor de date"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Alege din ce instanță să copiezi setările jocului. Aceste setări sunt folosite doar pentru sincronizarea inițială, iar apoi le poți edita din orice instanță."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Alege sursa setărilor jocului"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Nu poți alege această instanță ca sursă de sincronizare"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Nu s-au putut încărca sursele de sincronizare. Încearcă din nou."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Alege din ce instanță să copiezi serverele multiplayer. Aceste servere sunt folosite doar pentru sincronizarea inițială, iar apoi le poți edita din orice instanță."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Alege sursa serverelor multiplayer"
+  },
+  "app.settings.synced-options.choose-sync-source.no-instances-found": {
+    "message": "Nu a fost găsită nicio instanță"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Alege sursa pachetelor de resurse"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Încearcă din nou"
+  },
+  "app.settings.synced-options.choose-sync-source.search-placeholder": {
+    "message": "Caută instanța"
+  },
+  "app.settings.synced-options.choose-sync-source.sync": {
+    "message": "Sincronizează"
+  },
+  "app.settings.synced-options.command-history": {
+    "message": "Sincronizează istoricul de comenzi"
+  },
+  "app.settings.synced-options.command-history.description": {
+    "message": "Folosește același istoric de comenzi în toate instanțele."
+  },
+  "app.settings.synced-options.command-history.editor-title": {
+    "message": "Editează istoricul de comenzi"
+  },
+  "app.settings.synced-options.creative-hotbars": {
+    "message": "Sincronizează barele creative salvate"
+  },
+  "app.settings.synced-options.creative-hotbars.description": {
+    "message": "Folosește aceleași bare creative salvate în toate instanțele."
+  },
+  "app.settings.synced-options.data-packs": {
+    "message": "Sincronizează pachetele de date"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Folosește aceleași pachete de date în toate instanțele."
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Nu ai sincronizat încă niciun pachet de date"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Adaugă o instanță înainte de a edita datele sincronizate."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Alege o sursă de sincronizare înainte de a edita această setare."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "Sincronizează opțiunile de joc"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Editează setările jocului"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "Am încărcat cele mai recente setări. Verifică-ți modificările, apoi salvează din nou."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Aceste setări s-au schimbat în altă parte"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Setările adăugate de moduri vor apărea aici după ce {productName} le găsește într-una dintre instanțele tale."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Folosește aceleași opțiuni de joc în toate instanțele."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "Desincronizează tot"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Activează sincronizarea setărilor jocului înainte de a alege setări individuale."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Nicio setare nu corespunde căutării sau filtrului tău."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "Sincronizează tot"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "Nu ți-am putut încărca setările jocului."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Se încarcă setările..."
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Nu ai încă nicio opțiune de editat"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Nu se sincronizează"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "Reîncearcă"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "Salvează setările"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Caută setări..."
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Opțiunile sincronizate se aplică fiecărei instanțe și suprascriu valorile incluse într-un modpack."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "Sincronizează {setting} între instanțe"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "Sincronizează setările jocului"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Sincronizat între instanțe"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Setările jocului"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Ai modificări nesalvate."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "Oprește sincronizarea {setting} între instanțe"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "Diferit între instanțe"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "Oprit"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "Pornit"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Alege o valoare"
+  },
+  "app.settings.synced-options.multiplayer-servers": {
+    "message": "Sincronizează serverele multiplayer"
+  },
+  "app.settings.synced-options.multiplayer-servers.address": {
+    "message": "Adresa serverului"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Copiază adresa"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {# server} other {# servere}}"
+  },
+  "app.settings.synced-options.multiplayer-servers.description": {
+    "message": "Folosește aceleași servere multiplayer în toate instanțele."
+  },
+  "app.settings.synced-options.multiplayer-servers.editor-title": {
+    "message": "Editează serverele sincronizate"
+  },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "Niciun server adăugat de tine nu e sincronizat momentan."
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "Offline"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "Online"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "Mai multe opțiuni de server"
+  },
+  "app.settings.synced-options.multiplayer-servers.name": {
+    "message": "Numele serverului"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Niciun server sincronizat nu corespunde căutării sau filtrelor tale."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Nu ai sincronizat încă niciun server"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} online"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "Caută în {count, number} {count, plural, one {server sincronizat} other {servere sincronizate}}..."
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Stare"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Activează sincronizarea înainte de a edita pachetele partajate."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "Sincronizează pachetele de resurse"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Folosește aceleași pachete de resurse în toate instanțele."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "Nu ai sincronizat încă niciun pachet de resurse"
+  },
   "app.settings.tabs.appearance": {
     "message": "Aspect"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "Comportament"
+  },
+  "app.settings.tabs.features": {
+    "message": "Funcționalități"
   },
   "app.settings.tabs.java-installations": {
     "message": "Instalări Java"
@@ -431,14 +3419,407 @@
   "app.settings.tabs.resource-management": {
     "message": "Administrare resurse"
   },
+  "app.settings.tabs.synced-options": {
+    "message": "Setări sincronizate"
+  },
+  "app.sidebar.advertising.label": {
+    "message": "Publicitate"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Previzualizare · spațiul {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Pachetul următor"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Întrerupe alternarea"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} din {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Pachetul anterior"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Reia alternarea"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Pachete de moduri recomandate"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Pachetele de moduri recomandate nu sunt disponibile momentan."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Vezi proiectul"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Explorează găzduirea"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Următorul tău server Minecraft"
+  },
+  "app.skins.add-button": {
+    "message": "Adaugă skin"
+  },
+  "app.skins.add-button.drag-and-drop": {
+    "message": "Trage și plasează"
+  },
+  "app.skins.apply-button": {
+    "message": "Aplică"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Toate modelele"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Clasic"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Implicit"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Niciun skin găsit. Încearcă altă căutare."
+  },
+  "app.skins.catalog.error": {
+    "message": "Acest furnizor de skin-uri nu este disponibil. Încearcă din nou mai târziu."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Se încarcă skin-uri…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Caută în întreaga galerie publică MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "Model"
+  },
+  "app.skins.catalog.next": {
+    "message": "Pagina următoare"
+  },
+  "app.skins.catalog.page": {
+    "message": "Pagina {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Popular"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Pagina anterioară"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Furnizori de skin-uri"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Furnizorul a atins limita de cereri. Așteaptă înainte de a încerca din nou."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Recente"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Încearcă din nou"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Skin salvat în Implicit"
+  },
+  "app.skins.catalog.search": {
+    "message": "Caută skin-uri…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Caută"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Subțire"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Sortează după"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Etichetă (opțională)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "În tendințe"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Acest furnizor nu este încă configurat."
+  },
+  "app.skins.delete-button": {
+    "message": "Șterge skinul"
+  },
+  "app.skins.delete-modal.description": {
+    "message": "Aceasta va șterge definitiv skinul selectat. Această acțiune nu poate fi anulată."
+  },
+  "app.skins.delete-modal.title": {
+    "message": "Ești sigur că vrei să ștergi acest skin?"
+  },
+  "app.skins.demo.apply-tooltip": {
+    "message": "Autentifică-te pentru a aplica skinuri."
+  },
+  "app.skins.demo.description": {
+    "message": "Autentifică-te în contul tău Minecraft pentru a salva și aplica skinuri!"
+  },
+  "app.skins.demo.title": {
+    "message": "Editare cu un cont demo"
+  },
+  "app.skins.dropped-file-error.text": {
+    "message": "Fișierul plasat nu a putut fi citit."
+  },
+  "app.skins.dropped-file-error.title": {
+    "message": "Eroare la procesarea fișierului"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "Acest skin folosește funcționalități ale modului {ears}"
+  },
+  "app.skins.edit-button": {
+    "message": "Editează skinul"
+  },
+  "app.skins.modal.add-skin-button": {
+    "message": "Adaugă skin"
+  },
+  "app.skins.modal.add-title": {
+    "message": "Adăugarea unui skin"
+  },
+  "app.skins.modal.arm-style-section": {
+    "message": "Stilul brațelor"
+  },
+  "app.skins.modal.arm-style-slim": {
+    "message": "Subțire"
+  },
+  "app.skins.modal.arm-style-wide": {
+    "message": "Lat"
+  },
+  "app.skins.modal.cape-fallback-name": {
+    "message": "Pelerină"
+  },
+  "app.skins.modal.cape-section": {
+    "message": "Pelerină"
+  },
+  "app.skins.modal.demo-save-tooltip": {
+    "message": "Autentifică-te pentru a salva skinuri."
+  },
+  "app.skins.modal.edit-title": {
+    "message": "Editarea skinului"
+  },
+  "app.skins.modal.make-edit-first-tooltip": {
+    "message": "Editează mai întâi skinul!"
+  },
+  "app.skins.modal.no-cape-tooltip": {
+    "message": "Fără pelerină"
+  },
+  "app.skins.modal.none-cape-option": {
+    "message": "Niciuna"
+  },
+  "app.skins.modal.replace-texture-button": {
+    "message": "Înlocuiește textura"
+  },
+  "app.skins.modal.save-skin-button": {
+    "message": "Salvează skinul"
+  },
+  "app.skins.modal.saving-tooltip": {
+    "message": "Se salvează..."
+  },
+  "app.skins.modal.texture-section": {
+    "message": "Textură"
+  },
+  "app.skins.modal.upload-skin-first-tooltip": {
+    "message": "Încarcă mai întâi un skin!"
+  },
+  "app.skins.preview.edit-button": {
+    "message": "Editează skinul"
+  },
+  "app.skins.previewing-badge": {
+    "message": "Previzualizare"
+  },
+  "app.skins.rate-limit.text": {
+    "message": "Îți schimbi skinul prea des. Serverele Mojang au blocat temporar cererile suplimentare. Așteaptă puțin înainte de a încerca din nou."
+  },
+  "app.skins.rate-limit.title": {
+    "message": "Mai încet!"
+  },
+  "app.skins.reorder-error.text": {
+    "message": "Ordinea skinurilor nu a putut fi salvată."
+  },
+  "app.skins.reorder-error.title": {
+    "message": "Reordonarea skinurilor a eșuat"
+  },
+  "app.skins.section.builders-and-biomes": {
+    "message": "Builders & Biomes"
+  },
+  "app.skins.section.chaos-cubed": {
+    "message": "Chaos Cubed"
+  },
+  "app.skins.section.chase-the-skies": {
+    "message": "Chase the Skies"
+  },
+  "app.skins.section.default-skins": {
+    "message": "Skinuri implicite"
+  },
+  "app.skins.section.minecon-earth-2017": {
+    "message": "MINECON Earth 2017"
+  },
+  "app.skins.section.mounts-of-mayhem": {
+    "message": "Mounts of Mayhem"
+  },
+  "app.skins.section.saved-skins": {
+    "message": "Skinuri salvate"
+  },
+  "app.skins.section.striding-hero": {
+    "message": "Striding Hero"
+  },
+  "app.skins.section.the-copper-age": {
+    "message": "The Copper Age"
+  },
+  "app.skins.section.the-garden-awakens": {
+    "message": "The Garden Awakens"
+  },
+  "app.skins.section.tiny-takeover": {
+    "message": "Tiny Takeover"
+  },
+  "app.skins.sign-in.button": {
+    "message": "Autentifică-te cu Microsoft"
+  },
+  "app.skins.title": {
+    "message": "Selectorul de skin"
+  },
+  "app.skins.toggle-ears-features-off": {
+    "message": "Dezactivează"
+  },
+  "app.skins.toggle-ears-features-on": {
+    "message": "Activează"
+  },
+  "app.sync-instances-update.badge": {
+    "message": "Nou în această actualizare"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "Alege din ce instanță să copiezi setările jocului, pachetele de resurse, istoricul de comenzi, barele creative și serverele multiplayer. Aceste setări sunt folosite doar pentru sincronizarea inițială, iar apoi le poți edita din orice instanță."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "Alege sursa de sincronizare"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Alege din ce instanță să copiezi pachetele tale de date. Aceste pachete sunt folosite doar pentru sincronizarea inițială, iar apoi le poți edita din orice instanță."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Alege din ce instanță să copiezi pachetele tale de resurse. Aceste pachete sunt folosite doar pentru sincronizarea inițială, iar apoi le poți edita din orice instanță."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "Sincronizează barele creative"
+  },
+  "app.sync-instances-update.description": {
+    "message": "Acum poți sincroniza opțiuni precum setările jocului, serverele, pachetele de resurse și altele între instanțele tale, ca totul să rămână la fel de fiecare dată când te joci!"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "Nu ți-am putut încărca setările de sincronizare. Încearcă din nou."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "Poți activa sincronizarea acum și o poți gestiona mai târziu în setările aplicației."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "Menține setările jocului, serverele, pachetele de resurse și altele sincronizate între instanțele tale."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "Ignoră"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "Sincronizează-ți instanțele"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "Vezi actualizarea"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "Încearcă din nou"
+  },
+  "app.sync-instances-update.skip": {
+    "message": "Omite"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "Sincronizează tot"
+  },
+  "app.sync-instances-update.title": {
+    "message": "Sincronizează-ți instanțele"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "Dezactivează-l în toate instanțele sincronizate sau doar în această instanță. Dezactivarea doar aici va activa suprascrierile pentru această instanță."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "Dezactivează peste tot"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "Dezactivează acest conținut în toate instanțele sincronizate."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "Dezactivează aici"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "Dezactivezi conținutul?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "Activează-l în toate instanțele sincronizate sau doar în această instanță. Activarea doar aici va activa suprascrierile pentru această instanță."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Activează peste tot"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Activează acest conținut în toate instanțele sincronizate."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Activează aici"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "Activezi conținutul?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Șterge peste tot"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Șterge aici"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Ștergerea acestui conținut îl va șterge în toate instanțele tale"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Conținutul selectat care nu e sincronizat va fi șters doar din această instanță."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Îl poți elimina doar din această instanță sau din toate instanțele sincronizate. Eliminarea doar din această instanță va activa suprascrierile, iar această instanță nu va mai primi modificări sincronizate pentru aceste tipuri de conținut."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "{count, plural, one {Îl poți elimina} other {Le poți elimina}} doar din această instanță sau din toate instanțele sincronizate. {count, plural, one {Eliminarea lui} other {Eliminarea lor}} doar din această instanță va activa suprascrierile, iar această instanță nu va mai primi modificări sincronizate ale pachetelor de resurse."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {Acest pachet de resurse e sincronizat} other {Aceste pachete de resurse sunt sincronizate}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Această instanță își va păstra propria copie. Vrei să păstrezi acest conținut sincronizat în celelalte instanțe sau să îl elimini din ele?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "Păstrează"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "Elimină"
+  },
+  "app.synced-content.desync.title": {
+    "message": "Desincronizează conținutul"
+  },
+  "app.synced-content.warning.title": {
+    "message": "Acest conținut e sincronizat"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "Pachete de date sincronizate"
+  },
+  "app.synced-packs.empty": {
+    "message": "Adaugă pachete din pagina de conținut a unei instanțe pentru a începe sincronizarea."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "Pachetele nu s-au putut încărca. Reîmprospătează."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Pachete de resurse sincronizate"
+  },
   "app.update-popup.body.download-complete": {
-    "message": "Aplicația Modrinth v{version} a terminat descărcarea. Reîncărcați pentru a actualiza acum sau automat când închideți aplicația Modrinth."
+    "message": "Aplicația {productName} v{version} a terminat descărcarea. Reîncărcați pentru a actualiza acum sau automat când închideți aplicația {productName}."
   },
   "app.update-popup.body.linux": {
-    "message": "Aplicația Modrinth v{version} este disponibil. Utilizați managerul de pachete pentru a actualiza pentru cele mai recente funcții și remedieri!"
+    "message": "Aplicația {productName} v{version} este disponibil. Utilizați managerul de pachete pentru a actualiza pentru cele mai recente funcții și remedieri!"
   },
   "app.update-popup.body.metered": {
-    "message": "Aplicația Modrinth v{version} este disponibil acum! Deoarece sunteți într-o rețea cu contorizare, nu am descărcat-o automat."
+    "message": "Aplicația {productName} v{version} este disponibil acum! Deoarece sunteți într-o rețea cu contorizare, nu am descărcat-o automat."
   },
   "app.update-popup.changelog": {
     "message": "Jurnalul modificărilor"
@@ -449,6 +3830,9 @@
   "app.update-popup.download-complete": {
     "message": "Descărcare finalizată"
   },
+  "app.update-popup.reload": {
+    "message": "Reîncarcă pentru a actualiza"
+  },
   "app.update-popup.title": {
     "message": "Actualizare disponibilă"
   },
@@ -458,8 +3842,140 @@
   "app.update.complete-toast.title": {
     "message": "Versiunea {version} a fost instalată cu succes!"
   },
+  "app.update.download-error.missing-version": {
+    "message": "Descărcarea actualizării a eșuat: nicio versiune disponibilă"
+  },
+  "app.welcome-screen.create-instance": {
+    "message": "Creează o instanță"
+  },
+  "app.welcome-screen.description": {
+    "message": "Ești gata să te joci?"
+  },
+  "app.welcome-screen.import-from-launcher": {
+    "message": "Importă din launcher"
+  },
+  "app.welcome-screen.import-prompt": {
+    "message": "Fugi de alt launcher?"
+  },
+  "app.welcome-screen.quick-create-hint": {
+    "message": "Apasă <shortcut>N</shortcut> pentru a crea rapid o instanță"
+  },
+  "app.welcome-screen.title": {
+    "message": "Bine ai venit la {productName}"
+  },
+  "app.window-controls.close": {
+    "message": "Închide fereastra"
+  },
+  "app.window-controls.minimize": {
+    "message": "Minimizează fereastra"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Comută maximizarea ferestrei"
+  },
+  "app.world-install.backup": {
+    "message": "Înlocuire păstrează o copie de siguranță a lumii existente. Păstrare și Anulare nu instalează nimic. Instalează o altă copie creează o lume numerotată."
+  },
+  "app.world-install.backup-location": {
+    "message": "Lumea anterioară a fost salvată în {path} în interiorul instanței."
+  },
+  "app.world-install.conflict": {
+    "message": "Există deja o lume cu acest nume sau din acest proiect."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Instalează în ciuda diferenței de versiune"
+  },
+  "app.world-install.copy": {
+    "message": "Instalează o altă copie"
+  },
+  "app.world-install.description": {
+    "message": "Instalează o lume nouă într-o instanță. Lumile existente sunt păstrate, dacă nu alegi să înlocuiești una dintre ele."
+  },
+  "app.world-install.incompatible": {
+    "message": "Acest fișier nu indică compatibilitatea cu Minecraft {version}. Verifică versiunea și modurile cerute de autor înainte de a continua."
+  },
+  "app.world-install.installed": {
+    "message": "Lume instalată: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Instanța de destinație"
+  },
+  "app.world-install.keep": {
+    "message": "Păstrează lumea existentă"
+  },
+  "app.world-install.no-instances": {
+    "message": "Creează mai întâi o instanță Minecraft, apoi revino aici pentru a instala lumea."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Vezi lumile"
+  },
+  "app.world-install.replace": {
+    "message": "Înlocuiește"
+  },
+  "app.world-install.replace-target": {
+    "message": "Lumea de înlocuit"
+  },
+  "app.world-install.requirements": {
+    "message": "Modurile sau pachetele de moduri necesare trebuie să fie deja instalate în instanța de destinație. Consultă descrierea proiectului."
+  },
+  "app.world-install.title": {
+    "message": "Instalează o lume"
+  },
+  "app.world-install.version": {
+    "message": "Versiunea lumii"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
+  },
   "app.world.server-modal.select-an-option": {
     "message": "Selectează o opțiune"
+  },
+  "app.world.world-item.incompatible-version": {
+    "message": "Versiune incompatibilă {version}"
+  },
+  "app.world.world-item.not-played-yet": {
+    "message": "Nejucat încă"
+  },
+  "app.world.world-item.offline": {
+    "message": "Offline"
+  },
+  "app.world.world-item.players-online": {
+    "message": "{count} online"
+  },
+  "curseforge.manual.description": {
+    "message": "Descarcă {file} de pe pagina sa oficială CurseForge, apoi selectează fișierul descărcat pentru a continua. Dimensiunea și SHA-1 vor fi verificate."
+  },
+  "curseforge.manual.select": {
+    "message": "Selectează fișierul descărcat"
+  },
+  "curseforge.manual.title": {
+    "message": "Este necesară descărcarea manuală"
+  },
+  "instance.action.create-shortcut": {
+    "message": "Creează comandă rapidă"
+  },
+  "instance.action.export-modpack": {
+    "message": "Exportă modpackul"
+  },
+  "instance.action.launch-instance": {
+    "message": "Lansează instanța"
+  },
+  "instance.action.more-actions": {
+    "message": "Mai multe acțiuni"
+  },
+  "instance.action.open-folder": {
+    "message": "Deschide dosarul"
+  },
+  "instance.action.repair": {
+    "message": "Repară"
+  },
+  "instance.action.settings": {
+    "message": "Setările instanței"
+  },
+  "instance.action.starting": {
+    "message": "Se pornește..."
+  },
+  "instance.action.stopping": {
+    "message": "Se oprește..."
   },
   "instance.add-server.add-and-play": {
     "message": "Adaugă și joacă"
@@ -497,6 +4013,261 @@
   "instance.edit-world.title": {
     "message": "Editează lumea"
   },
+  "instance.files.adding-files": {
+    "message": "Se adaugă fișierele ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "Gestionează-ți conținutul instalat din fila Conținut"
+  },
+  "instance.files.save-as": {
+    "message": "Salvează ca..."
+  },
+  "instance.icon-editor.background": {
+    "message": "Fundal"
+  },
+  "instance.icon-editor.background.blue": {
+    "message": "Albastru"
+  },
+  "instance.icon-editor.background.dark-gray": {
+    "message": "Gri închis"
+  },
+  "instance.icon-editor.background.dark-green": {
+    "message": "Verde închis"
+  },
+  "instance.icon-editor.background.gray": {
+    "message": "Gri"
+  },
+  "instance.icon-editor.background.green": {
+    "message": "Verde"
+  },
+  "instance.icon-editor.background.indigo": {
+    "message": "Indigo"
+  },
+  "instance.icon-editor.background.lavender": {
+    "message": "Lavandă"
+  },
+  "instance.icon-editor.background.light-gray": {
+    "message": "Gri deschis"
+  },
+  "instance.icon-editor.background.lime": {
+    "message": "Verde lime"
+  },
+  "instance.icon-editor.background.orange": {
+    "message": "Portocaliu"
+  },
+  "instance.icon-editor.background.pink": {
+    "message": "Roz"
+  },
+  "instance.icon-editor.background.purple": {
+    "message": "Mov"
+  },
+  "instance.icon-editor.background.red": {
+    "message": "Roșu"
+  },
+  "instance.icon-editor.background.rose": {
+    "message": "Roz trandafiriu"
+  },
+  "instance.icon-editor.background.yellow": {
+    "message": "Galben"
+  },
+  "instance.icon-editor.description": {
+    "message": "Combină elemente pentru a crea o pictogramă personalizată."
+  },
+  "instance.icon-editor.recents": {
+    "message": "Recente"
+  },
+  "instance.icon-editor.save": {
+    "message": "Salvează pictograma"
+  },
+  "instance.icon-editor.surprise-me": {
+    "message": "Aleatoriu"
+  },
+  "instance.icon-editor.symbol": {
+    "message": "Simbol"
+  },
+  "instance.icon-editor.symbol.backpack": {
+    "message": "Rucsac"
+  },
+  "instance.icon-editor.symbol.beacon": {
+    "message": "Far"
+  },
+  "instance.icon-editor.symbol.blue-shark": {
+    "message": "Rechin albastru"
+  },
+  "instance.icon-editor.symbol.bookshelf": {
+    "message": "Raft de cărți"
+  },
+  "instance.icon-editor.symbol.brown-bear": {
+    "message": "Urs brun"
+  },
+  "instance.icon-editor.symbol.cake": {
+    "message": "Tort"
+  },
+  "instance.icon-editor.symbol.campfire": {
+    "message": "Foc de tabără"
+  },
+  "instance.icon-editor.symbol.chest": {
+    "message": "Cufăr"
+  },
+  "instance.icon-editor.symbol.cogwheel": {
+    "message": "Roată dințată"
+  },
+  "instance.icon-editor.symbol.command-block": {
+    "message": "Bloc de comandă"
+  },
+  "instance.icon-editor.symbol.cooking-pot": {
+    "message": "Oală de gătit"
+  },
+  "instance.icon-editor.symbol.couch": {
+    "message": "Canapea"
+  },
+  "instance.icon-editor.symbol.crafting-table": {
+    "message": "Masă de crafting"
+  },
+  "instance.icon-editor.symbol.create-wrench": {
+    "message": "Cheie fixă"
+  },
+  "instance.icon-editor.symbol.creeper": {
+    "message": "Creeper"
+  },
+  "instance.icon-editor.symbol.enchanting-table": {
+    "message": "Masă de descântece"
+  },
+  "instance.icon-editor.symbol.ender-chest": {
+    "message": "Cufăr de ender"
+  },
+  "instance.icon-editor.symbol.ender-dragon": {
+    "message": "Dragonul de ender"
+  },
+  "instance.icon-editor.symbol.engine": {
+    "message": "Motor"
+  },
+  "instance.icon-editor.symbol.fabric": {
+    "message": "Fabric"
+  },
+  "instance.icon-editor.symbol.forge": {
+    "message": "Forge"
+  },
+  "instance.icon-editor.symbol.furnace": {
+    "message": "Cuptor"
+  },
+  "instance.icon-editor.symbol.gizmo": {
+    "message": "Dispozitiv"
+  },
+  "instance.icon-editor.symbol.globe": {
+    "message": "Glob"
+  },
+  "instance.icon-editor.symbol.grass-block": {
+    "message": "Bloc de iarbă"
+  },
+  "instance.icon-editor.symbol.lantern": {
+    "message": "Felinar"
+  },
+  "instance.icon-editor.symbol.moobloom": {
+    "message": "Moobloom"
+  },
+  "instance.icon-editor.symbol.neoforge": {
+    "message": "NeoForge"
+  },
+  "instance.icon-editor.symbol.orb": {
+    "message": "Orb"
+  },
+  "instance.icon-editor.symbol.oxygen-distributor": {
+    "message": "Distribuitor de oxigen"
+  },
+  "instance.icon-editor.symbol.pancakes": {
+    "message": "Clătite"
+  },
+  "instance.icon-editor.symbol.pickaxe": {
+    "message": "Târnăcop"
+  },
+  "instance.icon-editor.symbol.poke-ball": {
+    "message": "Poke Ball"
+  },
+  "instance.icon-editor.symbol.quilt": {
+    "message": "Quilt"
+  },
+  "instance.icon-editor.symbol.redstone-block": {
+    "message": "Bloc de redstone"
+  },
+  "instance.icon-editor.symbol.sculk-sensor": {
+    "message": "Senzor sculk"
+  },
+  "instance.icon-editor.symbol.skeleton": {
+    "message": "Schelet"
+  },
+  "instance.icon-editor.symbol.skillet": {
+    "message": "Tigaie"
+  },
+  "instance.icon-editor.symbol.slime-block": {
+    "message": "Bloc de slime"
+  },
+  "instance.icon-editor.symbol.space-helmet": {
+    "message": "Cască spațială"
+  },
+  "instance.icon-editor.symbol.sticky-piston": {
+    "message": "Piston lipicios"
+  },
+  "instance.icon-editor.symbol.sword": {
+    "message": "Sabie"
+  },
+  "instance.icon-editor.symbol.terminal": {
+    "message": "Terminal"
+  },
+  "instance.icon-editor.symbol.tiny-potato": {
+    "message": "Cartof mic"
+  },
+  "instance.icon-editor.symbol.tire": {
+    "message": "Cauciuc"
+  },
+  "instance.icon-editor.symbol.tnt": {
+    "message": "TNT"
+  },
+  "instance.icon-editor.symbol.zombie": {
+    "message": "Zombie"
+  },
+  "instance.icon-editor.title": {
+    "message": "Editorul de pictograme"
+  },
+  "instance.last-played": {
+    "message": "Ultima oară jucat"
+  },
+  "instance.locked.badge": {
+    "message": "Blocată"
+  },
+  "instance.locked.delete-button": {
+    "message": "Șterge instanța"
+  },
+  "instance.locked.info-label": {
+    "message": "Informații despre instanța blocată"
+  },
+  "instance.locked.play-tooltip": {
+    "message": "Această instanță a fost blocată"
+  },
+  "instance.locked.text": {
+    "message": "Această instanță e blocată și nu poate fi jucată sau modificată. O poți șterge."
+  },
+  "instance.locked.title": {
+    "message": "Instanță blocată"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Loaderul de moduri și versiunea Minecraft"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# oră} other {# ore}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# minut} other {# minute}}"
+  },
+  "instance.playtime.never-played": {
+    "message": "Nejucat niciodată"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# secundă} other {# secunde}}"
+  },
+  "instance.playtime.total": {
+    "message": "Timp total de joc"
+  },
   "instance.server-modal.address": {
     "message": "Adresă"
   },
@@ -508,6 +4279,33 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "Pachet de resurse"
+  },
+  "instance.settings.synced-options.data-override": {
+    "message": "Dezactivează această suprascriere pentru a edita datele sincronizate."
+  },
+  "instance.settings.synced-options.data-packs": {
+    "message": "Desincronizează pachetele de date"
+  },
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Păstrează pachetele de date ale acestei instanțe separate de pachetele sincronizate."
+  },
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "Sincronizarea pachetelor de date e oprită în setările aplicației."
+  },
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Editează pachetele sincronizate"
+  },
+  "instance.settings.synced-options.packs-override": {
+    "message": "Dezactivează această suprascriere pentru a edita pachetele sincronizate. Pachetele independente pot fi gestionate în fila de conținut."
+  },
+  "instance.settings.synced-options.resource-packs": {
+    "message": "Desincronizează pachetele de resurse"
+  },
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Păstrează pachetele de resurse ale acestei instanțe separate de pachetele sincronizate."
+  },
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "Sincronizarea pachetelor de resurse e oprită în setările aplicației."
   },
   "instance.settings.tabs.general": {
     "message": "General"
@@ -539,6 +4337,12 @@
   "instance.settings.tabs.general.edit-icon": {
     "message": "Editează pictograma"
   },
+  "instance.settings.tabs.general.edit-icon.create": {
+    "message": "Creează o pictogramă"
+  },
+  "instance.settings.tabs.general.edit-icon.edit-created": {
+    "message": "Editează pictograma"
+  },
   "instance.settings.tabs.general.edit-icon.remove": {
     "message": "Șterge pictograma"
   },
@@ -548,8 +4352,38 @@
   "instance.settings.tabs.general.edit-icon.select": {
     "message": "Selectează pictograma"
   },
+  "instance.settings.tabs.general.icon": {
+    "message": "Pictogramă"
+  },
   "instance.settings.tabs.general.name": {
     "message": "Nume"
+  },
+  "instance.settings.tabs.general.update-channel": {
+    "message": "Canal de actualizare"
+  },
+  "instance.settings.tabs.general.update-channel.alpha": {
+    "message": "Alfa"
+  },
+  "instance.settings.tabs.general.update-channel.alpha.description": {
+    "message": "Versiunile stabile, beta și alfa vor fi afișate ca actualizări disponibile."
+  },
+  "instance.settings.tabs.general.update-channel.beta": {
+    "message": "Beta"
+  },
+  "instance.settings.tabs.general.update-channel.beta.description": {
+    "message": "Versiunile stabile și beta vor fi afișate ca actualizări disponibile."
+  },
+  "instance.settings.tabs.general.update-channel.release": {
+    "message": "Stabil"
+  },
+  "instance.settings.tabs.general.update-channel.release.description": {
+    "message": "Doar versiunile stabile vor fi afișate ca actualizări disponibile."
+  },
+  "instance.settings.tabs.general.update-channel.select": {
+    "message": "Selectează canalul de actualizare"
+  },
+  "instance.settings.tabs.hooks.description": {
+    "message": "Rulează comenzi de sistem specifice instanței înainte și după lansarea jocului."
   },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "După ieșire"
@@ -569,6 +4403,30 @@
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "Introdu comanda înainte de lansare..."
   },
+  "instance.settings.tabs.hooks.title": {
+    "message": "Hookuri personalizate de lansare a jocului"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "Hookurile rulează în dosarul de lucru al instanței, cu următoarele variabile:"
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR: Calea absolută către dosarul instanței"
+  },
+  "instance.settings.tabs.hooks.variables.inst-id.description": {
+    "message": "$INST_ID: Numele dosarului instanței"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS: Argumentele JVM transmise jocului"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA: Calea absolută către binarul java"
+  },
+  "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
+    "message": "$INST_MC_DIR: Un alias pentru $INST_DIR"
+  },
+  "instance.settings.tabs.hooks.variables.inst-name.description": {
+    "message": "$INST_NAME: Numele instanței"
+  },
   "instance.settings.tabs.hooks.wrapper": {
     "message": "Wrapper"
   },
@@ -584,8 +4442,110 @@
   "instance.settings.tabs.installation.loader-version": {
     "message": "Versiune {loader}"
   },
+  "instance.settings.tabs.installation.locked": {
+    "message": "Setările de instalare nu sunt disponibile cât timp această instanță e blocată."
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "Setează variabilele de mediu separat pentru această instanță."
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "Setează argumentele Java separat pentru această instanță."
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "Alege o altă instalare Java pentru această instanță."
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "Setează alocarea memoriei separat pentru această instanță."
+  },
+  "instance.settings.tabs.java.enter-environment-variables": {
+    "message": "Introdu variabilele de mediu..."
+  },
+  "instance.settings.tabs.java.enter-java-arguments": {
+    "message": "Introdu argumentele Java..."
+  },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "Variabile de mediu personalizate"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "Legături"
+  },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "Argumente Java personalizate"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "Instalare Java personalizată"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "Alocare personalizată a memoriei"
+  },
+  "instance.settings.tabs.java.java-path-placeholder": {
+    "message": "/path/to/java"
+  },
+  "instance.settings.tabs.settings-overrides": {
+    "message": "Suprascrieri de sincronizare"
+  },
+  "instance.settings.tabs.synced-options.command-history": {
+    "message": "Desincronizează istoricul de comenzi"
+  },
+  "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
+    "message": "Sincronizarea istoricului de comenzi e oprită în setările aplicației."
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "Păstrează istoricul de comenzi al acestei instanțe separat de istoricul sincronizat."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "Desincronizează barele creative salvate"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "Sincronizarea barelor creative salvate e oprită în setările aplicației."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "Păstrează barele creative salvate ale acestei instanțe separate de cele sincronizate."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "Desincronizează setările jocului"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Păstrează fișierul options.txt al acestei instanțe separat de copia sincronizată."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "Sincronizarea setărilor jocului e oprită în setările aplicației."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "Versiunea înlocuită va fi copiată de rezervă înainte de orice modificare."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "{instance} și versiunea ta sincronizată au bare creative diferite. Alege pe care să o folosești în instanțele tale."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "Alege barele creative"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "Suprascrie celelalte"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "Folosește versiunea sincronizată"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "Desincronizează serverele multiplayer"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "Sincronizarea serverelor multiplayer e oprită în setările aplicației."
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "Păstrează serverele multiplayer ale acestei instanțe separate de cele sincronizate."
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "Gestionează setările sincronizate"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "Activează o suprascriere pentru a păstra o setare sincronizată separată pentru această instanță."
+  },
+  "instance.settings.tabs.window": {
+    "message": "Setări personalizate de fereastră"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "Configurează ecranul complet și rezoluția de lansare separat pentru această instanță."
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "Ecran complet"
@@ -614,11 +4574,32 @@
   "instance.worlds.a_minecraft_server": {
     "message": "Un server de Minecraft"
   },
+  "instance.worlds.actions.label": {
+    "message": "Acțiunile lumii"
+  },
   "instance.worlds.cant_connect": {
     "message": "Nu m-am putut conecta la server"
   },
   "instance.worlds.copy_address": {
     "message": "Copiază adresa"
+  },
+  "instance.worlds.create_shortcut": {
+    "message": "Creează comandă rapidă"
+  },
+  "instance.worlds.desync-server.description": {
+    "message": "Vrei să păstrezi acest server în celelalte instanțe sincronizate sau să îl elimini din ele?"
+  },
+  "instance.worlds.desync-server.keep": {
+    "message": "Păstrează"
+  },
+  "instance.worlds.desync-server.remove": {
+    "message": "Elimină"
+  },
+  "instance.worlds.desync-server.title": {
+    "message": "Desincronizează serverul"
+  },
+  "instance.worlds.desync_server": {
+    "message": "Desincronizează"
   },
   "instance.worlds.dont_show_on_home": {
     "message": "Nu afișa în pagina principală"
@@ -632,8 +4613,14 @@
   "instance.worlds.incompatible_server": {
     "message": "Serverul este incompatibil"
   },
+  "instance.worlds.instance-locked": {
+    "message": "Această instanță a fost blocată"
+  },
   "instance.worlds.linked_server": {
     "message": "Gestionat de proiect server"
+  },
+  "instance.worlds.more-options": {
+    "message": "Mai multe opțiuni"
   },
   "instance.worlds.no_contact": {
     "message": "Serverul nu a putut fi contactat"
@@ -647,11 +4634,110 @@
   "instance.worlds.play_instance": {
     "message": "Joacă pe instanța"
   },
+  "instance.worlds.play_world": {
+    "message": "Joacă lumea"
+  },
+  "instance.worlds.shortcut-created": {
+    "message": "Comandă rapidă creată"
+  },
+  "instance.worlds.shortcut-creation-failed": {
+    "message": "Crearea comenzii rapide a eșuat"
+  },
+  "instance.worlds.synced_server": {
+    "message": "Sincronizat între instanțe"
+  },
   "instance.worlds.view_instance": {
     "message": "Afișează instanța"
   },
   "instance.worlds.world_in_use": {
     "message": "Lumea este în folosință"
+  },
+  "minecraft-account.accounts": {
+    "message": "Conturi Minecraft"
+  },
+  "minecraft-account.add-account": {
+    "message": "Adaugă cont"
+  },
+  "minecraft-account.getting-started": {
+    "message": "Primii pași"
+  },
+  "minecraft-account.not-signed-in": {
+    "message": "Neautentificat"
+  },
+  "minecraft-account.remove-account": {
+    "message": "Elimină contul"
+  },
+  "minecraft-account.sign-in": {
+    "message": "Autentifică-te în Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Autentifică-te"
+  },
+  "minecraft-required.description": {
+    "message": "Ai nevoie de un cont Microsoft care deține Minecraft înainte de a putea lansa și juca."
+  },
+  "minecraft-required.description-header": {
+    "message": "Autentifică-te într-un cont Microsoft"
+  },
+  "minecraft-required.dont-have-account": {
+    "message": "Nu ai cont?"
+  },
+  "minecraft-required.get-minecraft": {
+    "message": "Obține Minecraft"
+  },
+  "minecraft-required.get-support": {
+    "message": "Obține asistență"
+  },
+  "minecraft-required.header": {
+    "message": "Minecraft necesar"
+  },
+  "minecraft-required.sign-in": {
+    "message": "Autentifică-te cu Microsoft"
+  },
+  "onboarding-checklist.create-instance": {
+    "message": "Creează prima instanță"
+  },
+  "onboarding-checklist.login-minecraft": {
+    "message": "Autentifică-te în Minecraft"
+  },
+  "onboarding-checklist.title": {
+    "message": "Primii pași"
+  },
+  "optifine.add-component": {
+    "message": "Instalează OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Selectează JAR-ul și continuă"
+  },
+  "optifine.download-official": {
+    "message": "Descărcare oficială"
+  },
+  "optifine.export-notice": {
+    "message": "Binarele OptiFine sunt excluse. Orbpack păstrează versiunea necesară; pachetele Modrinth și CurseForge necesită instalarea separată a OptiFine."
+  },
+  "optifine.import-canceled": {
+    "message": "Selecția OptiFine a fost anulată. Pachetul nu a fost instalat."
+  },
+  "optifine.import-description": {
+    "message": "Acest pachet necesită OptiFine {version} pentru Minecraft {gameVersion}. Descarcă JAR-ul oficial și selectează-l pentru a continua. OptiFine nu e inclus în pachet."
+  },
+  "optifine.import-title": {
+    "message": "Acest pachet necesită OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Selectează installerul oficial OptiFine pentru Minecraft {gameVersion}. Pentru un pachet importat, versiunea și hashul fișierului trebuie să coincidă."
+  },
+  "optifine.remove-component": {
+    "message": "Elimină OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Selectează JAR-ul oficial OptiFine"
+  },
+  "project-type.world.category": {
+    "message": "Lumi"
   },
   "search.filter.locked.instance": {
     "message": "Oferit de instanță"
@@ -665,7 +4751,10 @@
   "search.filter.locked.instance.sync": {
     "message": "Sincronizează cu instanța"
   },
-  "search.filter.locked.server-environment.title": {
-    "message": "Numai modurile de pe partea clientului pot fi adăugate la instanța serverului"
+  "settings.sidebar.label.account": {
+    "message": "Cont"
+  },
+  "settings.sidebar.label.display": {
+    "message": "Afișare"
   }
 }

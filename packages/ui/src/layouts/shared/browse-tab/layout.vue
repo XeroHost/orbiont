@@ -60,8 +60,8 @@ const messages = defineMessages({
 		defaultMessage: 'Filter results...',
 	},
 	offline: {
-		id: 'browse.offline',
-		defaultMessage: 'You are currently offline. Connect to the internet to browse Modrinth!',
+		id: 'browse.offline-content',
+		defaultMessage: 'You are currently offline. Connect to the internet to browse content.',
 	},
 	noResults: {
 		id: 'browse.no-results',
@@ -74,6 +74,10 @@ const messages = defineMessages({
 	applySavedPreferences: {
 		id: 'browse.advanced-filters.apply-saved-preferences',
 		defaultMessage: 'Apply saved preferences',
+	},
+	changeDisplayMode: {
+		id: 'browse.display-mode.change',
+		defaultMessage: 'Change display mode',
 	},
 })
 
@@ -153,7 +157,9 @@ function getProjectCardTags(result: Labrinth.Search.v3.ResultSearchProject, disp
 		autocomplete="off"
 		:placeholder="
 			formatMessage(messages.searchPlaceholder, {
-				projectType: formatProjectTypeSentence(formatMessage, ctx.projectType.value, 2),
+				projectType:
+					ctx.projectTypeDisplayName?.value ??
+					formatProjectTypeSentence(formatMessage, ctx.projectType.value, 2),
 			})
 		"
 		clearable
@@ -221,7 +227,7 @@ function getProjectCardTags(result: Labrinth.Search.v3.ResultSearchProject, disp
 
 		<IconButton
 			v-if="ctx.cycleDisplayMode"
-			label="Change display mode"
+			:label="formatMessage(messages.changeDisplayMode)"
 			@click="ctx.cycleDisplayMode!()"
 		>
 			<slot name="display-mode-icon" />
@@ -236,15 +242,6 @@ function getProjectCardTags(result: Labrinth.Search.v3.ResultSearchProject, disp
 	</div>
 
 	<SearchFilterControl
-		v-if="ctx.isServerType.value"
-		v-model:selected-filters="ctx.serverCurrentFilters.value"
-		:filters="ctx.serverFilterTypes.value"
-		:project-type="ctx.projectType.value"
-		:provided-filters="[]"
-		:overridden-provided-filter-types="[]"
-	/>
-	<SearchFilterControl
-		v-else
 		v-model:selected-filters="ctx.currentFilters.value"
 		:filters="
 			ctx.filters.value.filter(
@@ -264,156 +261,85 @@ function getProjectCardTags(result: Labrinth.Search.v3.ResultSearchProject, disp
 		<section v-else-if="ctx.offline?.value && ctx.totalHits.value === 0" class="offline">
 			{{ formatMessage(messages.offline) }}
 		</section>
-		<section
-			v-else-if="
-				ctx.isServerType.value
-					? ctx.serverHits.value.length === 0
-					: ctx.projectHits.value.length === 0
-			"
-			class="offline"
-		>
+		<section v-else-if="ctx.projectHits.value.length === 0" class="offline">
 			<p>{{ formatMessage(messages.noResults) }}</p>
 		</section>
 
 		<ProjectCardList v-else :layout="ctx.effectiveLayout.value">
-			<template v-if="ctx.isServerType.value">
-				<ProjectCard
-					v-for="result in ctx.serverHits.value"
-					:key="`server-card-${result.project_id}`"
-					:title="result.name"
-					:icon-url="result.icon_url || undefined"
-					:summary="result.summary"
-					:tags="result.categories"
-					:link="ctx.getServerProjectLink(result)"
-					:server-online-players="result.minecraft_java_server?.ping?.data?.players_online ?? 0"
-					:server-region="result.minecraft_server?.region"
-					:server-recent-plays="result.minecraft_java_server?.verified_plays_2w ?? 0"
-					:server-modpack-content="ctx.getServerModpackContent?.(result)"
-					:server-ping="ctx.serverPings?.value?.[result.project_id]"
-					:server-status-online="!!result.minecraft_java_server?.ping?.data"
-					:hide-online-players-label="ctx.variant === 'app'"
-					:hide-recent-plays-label="ctx.variant === 'app'"
-					:layout="ctx.effectiveLayout.value"
-					:max-tags="2"
-					is-server-project
-					exclude-loaders
-					:color="result.color ?? undefined"
-					:banner="result.featured_gallery ?? undefined"
-					@contextmenu.prevent.stop="(event: MouseEvent) => ctx.onContextMenu?.(event, result)"
-					@mouseenter="ctx.onServerProjectHover?.(result)"
-					@mouseleave="ctx.onProjectHoverEnd?.()"
-				>
-					<template v-if="ctx.getCardActions?.(result, ctx.projectType.value)?.length" #actions>
-						<div class="flex gap-2">
-							<template
-								v-for="action in ctx.getCardActions(result, ctx.projectType.value)"
-								:key="action.key"
+			<ProjectCard
+				v-for="result in ctx.projectHits.value"
+				:key="result.project_id"
+				:link="ctx.getProjectLink(result)"
+				:title="result.name"
+				:icon-url="result.icon_url ?? undefined"
+				:author="{
+					name: result.organization == null ? result.author : result.organization,
+					link:
+						ctx.getAuthorLink?.(result) ??
+						(result.organization_id == null
+							? ''
+							: ctx.variant === 'web'
+								? `/organization/${result.organization_id}`
+								: `https://modrinth.com/organization/${result.organization_id}`),
+				}"
+				:date-updated="result.date_modified"
+				:date-published="result.date_created"
+				:displayed-date="
+					ctx.effectiveCurrentSortType.value.name === 'newest' ? 'published' : 'updated'
+				"
+				:downloads="result.downloads"
+				:summary="result.summary"
+				:tags="getProjectCardTags(result, true)"
+				:all-tags="getProjectCardTags(result, false)"
+				:deprioritized-tags="ctx.deprioritizedTags.value"
+				:exclude-loaders="ctx.excludeLoaders.value"
+				:followers="result.follows ?? undefined"
+				:banner="result.featured_gallery ?? undefined"
+				:color="result.color ?? undefined"
+				:environment="
+					['mod', 'modpack'].includes(ctx.projectType.value)
+						? result.project_loader_fields?.environment?.[0]
+						: undefined
+				"
+				:layout="ctx.effectiveLayout.value"
+				@contextmenu.prevent.stop="(event: MouseEvent) => ctx.onContextMenu?.(event, result)"
+				@mouseenter="ctx.onProjectHover?.(result)"
+				@mouseleave="ctx.onProjectHoverEnd?.()"
+			>
+				<template v-if="ctx.getCardActions?.(result, ctx.projectType.value)?.length" #actions>
+					<div class="flex gap-2">
+						<template
+							v-for="action in ctx.getCardActions(result, ctx.projectType.value)"
+							:key="action.key"
+						>
+							<IconButton
+								v-if="action.circular"
+								v-tooltip="action.tooltip"
+								:type="cardActionType(action)"
+								:color="cardActionColor(action)"
+								:class="cardActionClass(action)"
+								:label="action.label || action.tooltip || action.key"
+								:disabled="action.disabled"
+								@click.stop="action.onClick"
 							>
-								<IconButton
-									v-if="action.circular"
-									v-tooltip="action.tooltip"
-									:type="cardActionType(action)"
-									:color="cardActionColor(action)"
-									:class="cardActionClass(action)"
-									:label="action.label || action.tooltip || action.key"
-									:disabled="action.disabled"
-									@click.stop="action.onClick"
-								>
-									<component :is="action.icon" :class="action.iconClass" />
-								</IconButton>
-								<Button
-									v-else
-									v-tooltip="action.tooltip"
-									:type="cardActionType(action)"
-									:color="cardActionColor(action)"
-									:class="cardActionClass(action)"
-									:disabled="action.disabled"
-									@click.stop="action.onClick"
-								>
-									<component :is="action.icon" :class="action.iconClass" />
-									{{ action.label }}
-								</Button>
-							</template>
-						</div>
-					</template>
-				</ProjectCard>
-			</template>
-			<template v-else>
-				<ProjectCard
-					v-for="result in ctx.projectHits.value"
-					:key="result.project_id"
-					:link="ctx.getProjectLink(result)"
-					:title="result.name"
-					:icon-url="result.icon_url ?? undefined"
-					:author="{
-						name: result.organization == null ? result.author : result.organization,
-						link:
-							ctx.getAuthorLink?.(result) ??
-							(result.organization_id == null
-								? `/user/${encodeURIComponent(result.author_id ?? result.author)}`
-								: ctx.variant === 'web'
-									? `/organization/${result.organization_id}`
-									: `https://modrinth.com/organization/${result.organization_id}`),
-					}"
-					:date-updated="result.date_modified"
-					:date-published="result.date_created"
-					:displayed-date="
-						ctx.effectiveCurrentSortType.value.name === 'newest' ? 'published' : 'updated'
-					"
-					:downloads="result.downloads"
-					:summary="result.summary"
-					:tags="getProjectCardTags(result, true)"
-					:all-tags="getProjectCardTags(result, false)"
-					:deprioritized-tags="ctx.deprioritizedTags.value"
-					:exclude-loaders="ctx.excludeLoaders.value"
-					:followers="result.follows ?? undefined"
-					:banner="result.featured_gallery ?? undefined"
-					:color="result.color ?? undefined"
-					:environment="
-						['mod', 'modpack'].includes(ctx.projectType.value)
-							? result.project_loader_fields?.environment?.[0]
-							: undefined
-					"
-					:layout="ctx.effectiveLayout.value"
-					@contextmenu.prevent.stop="(event: MouseEvent) => ctx.onContextMenu?.(event, result)"
-					@mouseenter="ctx.onProjectHover?.(result)"
-					@mouseleave="ctx.onProjectHoverEnd?.()"
-				>
-					<template v-if="ctx.getCardActions?.(result, ctx.projectType.value)?.length" #actions>
-						<div class="flex gap-2">
-							<template
-								v-for="action in ctx.getCardActions(result, ctx.projectType.value)"
-								:key="action.key"
+								<component :is="action.icon" :class="action.iconClass" />
+							</IconButton>
+							<Button
+								v-else
+								v-tooltip="action.tooltip"
+								:type="cardActionType(action)"
+								:color="cardActionColor(action)"
+								:class="cardActionClass(action)"
+								:disabled="action.disabled"
+								@click.stop="action.onClick"
 							>
-								<IconButton
-									v-if="action.circular"
-									v-tooltip="action.tooltip"
-									:type="cardActionType(action)"
-									:color="cardActionColor(action)"
-									:class="cardActionClass(action)"
-									:label="action.label || action.tooltip || action.key"
-									:disabled="action.disabled"
-									@click.stop="action.onClick"
-								>
-									<component :is="action.icon" :class="action.iconClass" />
-								</IconButton>
-								<Button
-									v-else
-									v-tooltip="action.tooltip"
-									:type="cardActionType(action)"
-									:color="cardActionColor(action)"
-									:class="cardActionClass(action)"
-									:disabled="action.disabled"
-									@click.stop="action.onClick"
-								>
-									<component :is="action.icon" :class="action.iconClass" />
-									{{ action.label }}
-								</Button>
-							</template>
-						</div>
-					</template>
-				</ProjectCard>
-			</template>
+								<component :is="action.icon" :class="action.iconClass" />
+								{{ action.label }}
+							</Button>
+						</template>
+					</div>
+				</template>
+			</ProjectCard>
 		</ProjectCardList>
 
 		<div :class="ctx.variant === 'web' ? 'pagination-after mt-3' : 'flex justify-end mt-3'">

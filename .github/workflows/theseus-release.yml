@@ -33,6 +33,7 @@ jobs:
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           fetch-depth: 0
+          ref: ${{ github.event.workflow_run.head_sha }}
 
       - name: Verify ref is a tag
         env:
@@ -66,7 +67,8 @@ jobs:
 
           # Exactly one file must match each pattern.
           pick() {
-            local matches=( $1 )
+            local matches=()
+            mapfile -t matches < <(compgen -G "$1" || true)
             if [ "${#matches[@]}" -ne 1 ]; then
               echo "::error::Expected one file for '$1', found ${#matches[@]}"
               exit 1
@@ -86,6 +88,8 @@ jobs:
           pick "${LINUX}/release/bundle/appimage/Orbiont_*.AppImage.tar.gz.sig" > /dev/null
           echo "LINUX_DEB=$(pick "${LINUX}/release/bundle/deb/Orbiont_*.deb")" >> "$GITHUB_ENV"
           echo "LINUX_RPM=$(pick "${LINUX}/release/bundle/rpm/Orbiont-*.rpm")" >> "$GITHUB_ENV"
+          git archive --format=tar.gz --prefix="Orbiont-${VERSION_TAG#v}/" \
+            --output="dist/Orbiont-${VERSION_TAG#v}-source.tar.gz" "refs/tags/${VERSION_TAG}"
           ls -la dist
 
       - name: Write release notes
@@ -95,6 +99,12 @@ jobs:
           if [ ! -s release-notes.md ]; then
             echo "Orbiont ${VERSION_TAG#v}" > release-notes.md
           fi
+          printf '\n## Source code and license\n\n' >> release-notes.md
+          printf 'Orbiont is licensed under GPL-3.0-only, without warranty. Individual packages retain their respective licenses.\n\n' >> release-notes.md
+          printf -- '- [Source for this version](https://github.com/%s/tree/%s)\n' "$GITHUB_REPOSITORY" "$VERSION_TAG" >> release-notes.md
+          printf -- '- [Download source code](%s/Orbiont-%s-source.tar.gz)\n' "$DOWNLOAD_BASE_URL" "${VERSION_TAG#v}" >> release-notes.md
+          printf -- '- [GPL-3.0 license](https://github.com/%s/blob/%s/apps/app/LICENSE)\n' "$GITHUB_REPOSITORY" "$VERSION_TAG" >> release-notes.md
+          printf -- '- [Credits and build instructions](https://github.com/%s/blob/%s/README.md)\n' "$GITHUB_REPOSITORY" "$VERSION_TAG" >> release-notes.md
           cat release-notes.md
 
       - name: Generate update manifest

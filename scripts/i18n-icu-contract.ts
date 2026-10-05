@@ -1,24 +1,16 @@
-import { Client as CrowdinClient, type Credentials } from '@crowdin/crowdin-api-client'
 import { parse, TYPE } from '@formatjs/icu-messageformat-parser'
 import { execFileSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { readFile, readdir, writeFile } from 'node:fs/promises'
 import { basename, dirname, join, relative, resolve } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
-import { parse as parseYaml } from 'yaml'
 
 type MessageEntry = string | { message?: string; defaultMessage?: string }
 type MessageFile = Record<string, MessageEntry>
-type CrowdinFileEntry = { source: string; dest?: string; translation: string }
+type CatalogFileEntry = { source: string; translation: string }
 type ArgUse = 'argument' | 'number' | 'date' | 'time' | 'plural' | 'select'
 type Contract = { args: Record<string, ArgUse[]>; tags: string[]; selectBranches: Record<string, string[]> }
 type Issue = { file: string; key: string; reason: string }
-type CrowdinListResponse<T> = {
-	data: Array<{ data: T }>
-	pagination: { offset: number; limit: number }
-}
-type CrowdinSourceString = { id: number; identifier: string; fileId: number; branchId: number }
-
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const DEFAULT_LOCALE = 'en-US'
 
@@ -26,7 +18,7 @@ function stripLeadingSlash(path: string) {
 	return path.replace(/^[/\\]+/, '')
 }
 
-function normalizeCrowdinPath(path: string) {
+function normalizeCatalogPath(path: string) {
 	const normalized = path.replaceAll('\\', '/').replace(/^\/?/, '/')
 	return normalized.replaceAll('//', '/')
 }
@@ -189,16 +181,26 @@ async function writeJson(file: string, value: MessageFile) {
 	await writeFile(file, `${JSON.stringify(value, null, 2)}\n`)
 }
 
-async function loadCrowdinEntries(scope?: string) {
-	const raw = await readFile(resolve(ROOT, 'crowdin.yml'), 'utf8')
-	const config = parseYaml(raw) as { files: CrowdinFileEntry[] }
-	return config.files.filter((entry) => {
-		if (!scope) return true
-		return stripLeadingSlash(entry.source).startsWith(`${scope.replace(/\/$/, '')}/`)
-	})
+// Catálogo local de mensajes (antes descubierto vía crowdin.yml, retirado con
+// Crowdin). Cada entrada describe un fichero fuente en-US y el patrón de sus
+// traducciones por locale.
+const LOCAL_CATALOG_SCOPES = ['apps/app-frontend/src/locales', 'packages/ui/src/locales']
+
+async function loadCatalogEntries(scope?: string): Promise<CatalogFileEntry[]> {
+	const entries: CatalogFileEntry[] = []
+	for (const scopeDir of LOCAL_CATALOG_SCOPES) {
+		if (scope && !scopeDir.startsWith(scope.replace(/\/$/, ''))) continue
+		const sourceFile = join(scopeDir, `${DEFAULT_LOCALE}/index.json`)
+		if (!existsSync(resolve(ROOT, sourceFile))) continue
+		entries.push({
+			source: `${scopeDir}/${DEFAULT_LOCALE}/index.json`,
+			translation: `${scopeDir}/%locale%/index.json`,
+		})
+	}
+	return entries
 }
 
-async function sourceFilesFor(entry: CrowdinFileEntry) {
+async function sourceFilesFor(entry: CatalogFileEntry) {
 	const source = stripLeadingSlash(entry.source)
 	if (!source.endsWith('*.json')) return [resolve(ROOT, source)]
 
@@ -207,7 +209,7 @@ async function sourceFilesFor(entry: CrowdinFileEntry) {
 	return files.filter((file) => file.endsWith('.json')).map((file) => join(sourceDir, file))
 }
 
-async function translationFilesFor(entry: CrowdinFileEntry, sourceFile: string) {
+async function translationFilesFor(entry: CatalogFileEntry, sourceFile: string) {
 	const template = stripLeadingSlash(entry.translation)
 	const localeIndex = template.indexOf('%locale%')
 	if (localeIndex === -1) throw new Error(`Translation path lacks %locale%: ${entry.translation}`)
@@ -238,7 +240,7 @@ function sourceContracts(sourceFile: string, sourceMessages: MessageFile) {
 
 export async function pruneLocalTranslations(options: { check: boolean; scope?: string }) {
 	const issues: Issue[] = []
-	const entries = await loadCrowdinEntries(options.scope)
+	const entries = await loadCatalogEntries(options.scope)
 
 	for (const entry of entries) {
 		for (const sourceFile of await sourceFilesFor(entry)) {
@@ -314,22 +316,21 @@ function gitFile(ref: string, file: string) {
 	}
 }
 
-function crowdinDestPath(entry: CrowdinFileEntry, sourceFile: string) {
-	const dest = entry.dest ?? entry.source
-	return normalizeCrowdinPath(dest.replaceAll('%original_file_name%', basename(sourceFile)))
+function catalogDestPath(entry: CatalogFileEntry, sourceFile: string) {
+	return normalizeCatalogPath(entry.source)
 }
 
 async function changedSourceIds(baseRef: string, scope?: string) {
 	const changed = new Map<string, Set<string>>()
 
-	for (const entry of await loadCrowdinEntries(scope)) {
+	for (const entry of await loadCatalogEntries(scope)) {
 		for (const sourceFile of await sourceFilesFor(entry)) {
 			const previousRaw = gitFile(baseRef, sourceFile)
 			if (!previousRaw) continue
 
 			const current = await readJson(sourceFile)
 			const previous = JSON.parse(previousRaw) as MessageFile
-			const destPath = crowdinDestPath(entry, sourceFile)
+			const destPath = catalogDestPath(entry, sourceFile)
 
 			for (const [key, currentEntry] of Object.entries(current)) {
 				const previousText = textOf(previous[key])
@@ -353,95 +354,6 @@ async function changedSourceIds(baseRef: string, scope?: string) {
 	}
 
 	return changed
-}
-
-async function listAll<T>(
-	load: (limit: number, offset: number) => Promise<CrowdinListResponse<T>>,
-) {
-	const all: T[] = []
-	let offset = 0
-	const limit = 500
-
-	for (;;) {
-		const response = await load(limit, offset)
-		const page = response.data.map((item) => item.data)
-		all.push(...page)
-
-		const pageLimit = response.pagination.limit || limit
-		if (page.length < pageLimit) return all
-		offset += pageLimit
-	}
-}
-
-export async function clearCrowdinChangedTranslations(options: {
-	baseRef: string
-	crowdinBranch: string
-	scope?: string
-}) {
-	const projectId = Number(process.env.CROWDIN_PROJECT_ID)
-	const token = process.env.CROWDIN_PERSONAL_TOKEN
-	if (!projectId || !token) throw new Error('CROWDIN_PROJECT_ID and CROWDIN_PERSONAL_TOKEN are required')
-
-	const changed = await changedSourceIds(options.baseRef, options.scope)
-	if (changed.size === 0) {
-		console.log('No ICU contract changes found.')
-		return
-	}
-
-	const credentials: Credentials = { token }
-	const client = new CrowdinClient(credentials)
-	const branches = await listAll((limit, offset) =>
-		client.sourceFilesApi.listProjectBranches(projectId, {
-			name: options.crowdinBranch,
-			limit,
-			offset,
-		}) as Promise<CrowdinListResponse<{ id: number; name: string }>>,
-	)
-	const branch = branches.find((item) => item.name === options.crowdinBranch)
-	if (!branch) throw new Error(`Crowdin branch not found: ${options.crowdinBranch}`)
-
-	const files = await listAll((limit, offset) =>
-		client.sourceFilesApi.listProjectFiles(projectId, {
-			branchId: branch.id,
-			recursion: 1,
-			limit,
-			offset,
-		}) as Promise<CrowdinListResponse<{ id: number; path: string }>>,
-	)
-	const branchPathPrefix = normalizeCrowdinPath(options.crowdinBranch)
-	const fileByPath = new Map<string, { id: number; path: string }>()
-	for (const file of files) {
-		const filePath = normalizeCrowdinPath(file.path)
-		fileByPath.set(filePath, file)
-
-		if (filePath.startsWith(`${branchPathPrefix}/`)) {
-			fileByPath.set(normalizeCrowdinPath(filePath.slice(branchPathPrefix.length)), file)
-		}
-	}
-	let sourceStrings: CrowdinSourceString[] | undefined
-
-	for (const [destPath, keys] of changed) {
-		const file = fileByPath.get(destPath)
-		if (!file) throw new Error(`Crowdin file not found: ${destPath}`)
-
-		sourceStrings ??= await listAll((limit, offset) =>
-			client.sourceStringsApi.listProjectStrings(projectId, {
-				limit,
-				offset,
-			}) as Promise<CrowdinListResponse<CrowdinSourceString>>,
-		)
-		const strings = sourceStrings.filter(
-			(sourceString) => sourceString.branchId === branch.id && sourceString.fileId === file.id,
-		)
-		const stringByIdentifier = new Map(strings.map((sourceString) => [sourceString.identifier, sourceString]))
-
-		for (const key of keys) {
-			const sourceString = stringByIdentifier.get(key)
-			if (!sourceString) throw new Error(`Crowdin string not found: ${destPath}:${key}`)
-			await client.stringTranslationsApi.deleteAllTranslations(projectId, sourceString.id)
-			console.log(`Cleared translations for ${destPath}:${key}`)
-		}
-	}
 }
 
 function readOptions(args: string[]) {
@@ -473,21 +385,7 @@ async function main() {
 		return
 	}
 
-	if (command === 'clear-crowdin-changed') {
-		await clearCrowdinChangedTranslations({
-			baseRef: typeof options['base-ref'] === 'string' ? options['base-ref'] : 'HEAD^',
-			crowdinBranch:
-				typeof options['crowdin-branch'] === 'string'
-					? options['crowdin-branch']
-					: (() => {
-							throw new Error('--crowdin-branch is required')
-						})(),
-			scope: typeof options.scope === 'string' ? options.scope : undefined,
-		})
-		return
-	}
-
-	throw new Error('Usage: pnpm scripts i18n-icu-contract prune-local|clear-crowdin-changed')
+	throw new Error('Usage: pnpm scripts i18n-icu-contract prune-local')
 }
 
 if (import.meta.url === pathToFileURL(process.argv[1] ?? '').href) {

@@ -1,11 +1,11 @@
 <script setup>
-import { defineMessages, injectNotificationManager, useVIntl } from '@orbiont/ui'
+import { defineMessages, useSavable, useVIntl } from '@orbiont/ui'
 import { ref } from 'vue'
 
 import JavaSelector from '@/components/ui/JavaSelector.vue'
+import { useSettingsChanges } from '@/composables/use-settings-changes'
 import { get_java_versions, set_java_version } from '@/helpers/jre'
 
-const { handleError } = injectNotificationManager()
 const { formatMessage } = useVIntl()
 
 const messages = defineMessages({
@@ -15,8 +15,27 @@ const messages = defineMessages({
 	},
 })
 
-const javaVersions = ref(await get_java_versions().catch(handleError))
-async function updateJavaVersion(version) {
+const persistedVersions = ref(await get_java_versions())
+const draft = useSavable(
+	() => persistedVersions.value,
+	async (changes) => {
+		for (const [major, version] of Object.entries(changes)) {
+			await set_java_version(version)
+			persistedVersions.value = { ...persistedVersions.value, [major]: { ...version } }
+		}
+	},
+)
+const javaVersions = draft.current
+useSettingsChanges('java-installations', {
+	hasChanges: () => draft.hasChanges.value,
+	getOriginal: () => draft.saved.value,
+	getModified: () => draft.changes.value,
+	isSaving: () => draft.saving.value,
+	reset: draft.reset,
+	save: draft.save,
+})
+
+function updateJavaVersion(version) {
 	if (version?.path === '') {
 		version.path = undefined
 	}
@@ -24,8 +43,6 @@ async function updateJavaVersion(version) {
 	if (version?.path) {
 		version.path = version.path.replace('java.exe', 'javaw.exe')
 	}
-
-	await set_java_version(version).catch(handleError)
 }
 </script>
 <template>

@@ -146,6 +146,12 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "Hide nametag"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Animate icons on hover and keyboard focus."
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Icon animations"
+  },
   "app.appearance-settings.minimize-launcher.description": {
     "message": "Minimize {productName} when Minecraft starts."
   },
@@ -164,23 +170,533 @@
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Skip non-essential warnings"
   },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Hide the right sidebar by default and add a button to show or hide it."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Hide right sidebar"
-  },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Show a safety warning before installing a Modrinth Pack (.mrpack) that isn't hosted on Modrinth."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Show a safety warning before installing an imported modpack (.mrpack or CurseForge .zip) whose source could not be verified."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Warn me before installing unknown modpacks"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Contact support"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Copy debug info"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Debug information"
+  },
+  "app.auth-error.header": {
+    "message": "Sign in Failed"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "How to fix it"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Complete the identity verification process"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "This account requires adult verification under South Korean regulations."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Minecraft Login"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Check that your internet connection is working"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Allow {product} through your firewall, antivirus, proxy, VPN, and hosts file rules"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Try a different network or temporarily disable VPN/proxy software if you use one"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Restart {product} and try signing in again"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "If routing or DNS is the issue, a service like Cloudflare WARP can sometimes help"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} could not connect to a Microsoft, Xbox, or Minecraft service needed for sign-in. This is usually caused by a local network, DNS, proxy, firewall, hosts file, VPN, or antivirus issue."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "No error message."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "You can check which account owns it at <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Make sure you are signing in with the Microsoft account that bought Minecraft (or has an active Game Pass with PC access)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "This Microsoft account doesn't own Minecraft: Java Edition, and {product} only works with premium accounts."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Launch Minecraft: Java Edition once from the official launcher"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Make sure you are using the Microsoft account that owns Minecraft. You can check which account owns it at <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Wait up to an hour if the purchase or profile setup was recent"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Minecraft services could not return a Java Edition profile for this account. This most often happens when the game was purchased recently, the Java profile has not finished being created, or the wrong Microsoft account is being used."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Make sure Minecraft is purchased on this account"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Complete Xbox profile setup if prompted"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "This account doesn't have an Xbox profile set up or doesn't own Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Restart {product} after waiting"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Try signing in once more"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Wait about an hour before trying again"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "If the same message appears, wait longer before retrying so the temporary limit can clear"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft or Minecraft temporarily blocked the sign-in request because there were too many recent attempts."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Check <a href=\"https://www.xbox.com/en-US/regions\">Xbox Availability</a> for supported regions"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Xbox services must be supported in your country before you can sign in"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live isn't available in your region, so sign-in is blocked."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Have a guardian sign in to <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Update online play permissions"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "This account is restricted and doesn't have permission to play online."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "If the service is healthy and this keeps happening, contact support with the debug information below"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Try signing in with the <a href=\"https://www.minecraft.net/en-us/download\">official Minecraft Launcher</a> to confirm whether Minecraft sign-in is also affected there"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Check <a href=\"https://support.xbox.com/xbox-live-status\">Xbox Status</a> for current service issues"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Wait a few minutes and try signing in again"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Minecraft's authentication service is returning a server error, so {product} cannot finish signing you in right now."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Sign in again"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Once finished, try signing in again"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Sign in with the <a href=\"https://www.minecraft.net/en-us/download\">official Minecraft Launcher</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Try signing in to {product} again"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Visit <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> and sign in"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Visit <a href=\"https://www.xbox.com\">Xbox</a> and sign in"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Submit an appeal if one is available"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Visit <a href=\"https://support.xbox.com\">Xbox Support</a> and review the enforcement details"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "This account was suspended for violating Xbox Community Standards."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Once the new sign-in finishes, try launching Minecraft again"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Sign in to the account again"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Sign out of the affected Minecraft account in {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Your saved Microsoft sign-in token has expired or was revoked, so {product} cannot refresh your Minecraft session."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Accept the Terms if prompted"
+  },
+  "app.auth-error.tos.what": {
+    "message": "This account hasn't accepted Xbox's Terms of Service."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Try visiting"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "For additional help, visit <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">UK age verification on Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Go to the <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> page and sign in"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Once verified, try signing in again"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Follow the instructions to verify your age"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Your Minecraft/Xbox Live account requires age verification to comply with UK regulations. You must complete this before signing in."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Review the <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">Family Setup Guide</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Join or create a family group as instructed"
+  },
+  "app.auth-error.underage.what": {
+    "message": "This account is underage and not linked to a Microsoft family group."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Unknown error"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "We don’t recognize this error and can’t recommend specific steps to resolve it."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "and signing in, as it may prompt you with the necessary steps. You can also contact support and we can look into it further."
+  },
+  "app.auth-error.warning-body": {
+    "message": "We couldn't sign you into your Microsoft account. This may be due to account restrictions or regional limitations."
+  },
+  "app.auth-error.what-happened": {
+    "message": "What we think happened"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Accept any terms or complete any profile setup that is shown"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Sign in once at <a href=\"https://www.xbox.com\">Xbox.com</a> with the same Microsoft account"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live did not accept the Microsoft sign-in. This usually means the Microsoft account has never signed in to Xbox or needs to accept updated terms."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "If the official launcher also fails, follow the error shown there or contact Xbox Support"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Complete any prompts shown by Microsoft, Xbox, or Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Xbox services rejected the request to authorize this account for Minecraft services, but did not return a specific account restriction that {product} recognizes."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Minecraft authentication servers may be down right now. Check your internet connection and try again later."
   },
   "app.auth-servers.unreachable.header": {
     "message": "Cannot reach authentication servers"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft and Microsoft Store check your Bedrock license. Sign in there with the account that owns Minecraft; your Java account in this launcher may be different."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Local behavior packs and scripts. Configure them in the world settings inside Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Add-ons"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Behavior pack"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Addons"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Browse add-ons, resource packs, worlds and scripts from CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Discover Bedrock content"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Discover add-ons"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Discover scripts"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Close Minecraft before adding packs to a world, then try again."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Install in Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft will open to import this content. Check the result in the game, then activate the packs in your world settings. Required packs and experimental settings are listed in the project description."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "This archive does not contain supported Bedrock content."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Could not load the project versions or worlds. Try again."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "This pack requires another pack that is not active in this world. Install the dependencies listed by the author first."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "No supported .mcaddon, .mcpack, .mcworld or ZIP files are available for this project."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Create a world in Minecraft first, then refresh this list."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Scripts"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Content version"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Destination world"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Close Minecraft before installing. These packs will be added and activated only in the selected world. Check required dependencies and experimental settings in the project description."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Packs added to {world}. Open Minecraft to play this world."
+  },
+  "app.bedrock.checking": {
+    "message": "Looking for Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Close Minecraft to edit files, delete content or restore a copy."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "This content has changed or the original location is occupied. The recovery copy has been kept to avoid overwriting your changes."
+  },
+  "app.bedrock.content": {
+    "message": "Content"
+  },
+  "app.bedrock.content-help": {
+    "message": "Local resource and skin packs. Activate them in Minecraft; some content belongs to individual worlds."
+  },
+  "app.bedrock.data-error": {
+    "message": "Could not read Minecraft data. Refresh to try again."
+  },
+  "app.bedrock.data-location": {
+    "message": "Minecraft data location"
+  },
+  "app.bedrock.delete-help": {
+    "message": "These items will be removed from Minecraft. A recovery copy will be kept, including affected world pack settings. Worlds that depend on a deleted pack may lose its blocks or behavior; restore it before opening those worlds."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Delete local content"
+  },
+  "app.bedrock.description": {
+    "message": "Play Minecraft for Windows and import your worlds and add-ons."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Could not check the Minecraft installation. Try again."
+  },
+  "app.bedrock.development": {
+    "message": "Development"
+  },
+  "app.bedrock.edition": {
+    "message": "Minecraft edition"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "This folder is empty."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock worlds and add-ons"
+  },
+  "app.bedrock.file-size": {
+    "message": "Size"
+  },
+  "app.bedrock.files": {
+    "message": "Files"
+  },
+  "app.bedrock.folder": {
+    "message": "Folder"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Could not open this Minecraft folder. Refresh your data and try again."
+  },
+  "app.bedrock.import-button": {
+    "message": "Import file"
+  },
+  "app.bedrock.import-description": {
+    "message": "Choose a .mcworld, .mcpack or .mcaddon file. Minecraft will open and handle the import."
+  },
+  "app.bedrock.import-error": {
+    "message": "Could not send the file to Minecraft. Check that Minecraft for Windows is installed and try again."
+  },
+  "app.bedrock.import-title": {
+    "message": "Worlds and add-ons"
+  },
+  "app.bedrock.installation": {
+    "message": "Official installation"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows is installed"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Choose a valid local .mcworld, .mcpack or .mcaddon archive."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "This file exceeds the 8 GiB import limit."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Could not open Minecraft. Open the official launcher or Microsoft Store to check the installation."
+  },
+  "app.bedrock.launcher": {
+    "message": "Open official launcher"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Official launcher detected. Install Minecraft for Windows there to continue."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Reading Minecraft data…"
+  },
+  "app.bedrock.location": {
+    "message": "Location"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Showing the last 1 MiB of this log."
+  },
+  "app.bedrock.logs": {
+    "message": "Logs"
+  },
+  "app.bedrock.missing": {
+    "message": "Install Minecraft for Windows to get started"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Could not change this content. Close Minecraft and refresh. Your recovery copy has been kept."
+  },
+  "app.bedrock.name": {
+    "message": "Name"
+  },
+  "app.bedrock.no-addons": {
+    "message": "No local add-ons found. Import a .mcpack or .mcaddon file to get started."
+  },
+  "app.bedrock.no-content": {
+    "message": "No local content found."
+  },
+  "app.bedrock.no-data": {
+    "message": "Open Minecraft once to create its data folders, then refresh here."
+  },
+  "app.bedrock.no-logs": {
+    "message": "No content logs found. Enable content logging in Minecraft Settings > Creator, then open your world."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "No recovery copies yet."
+  },
+  "app.bedrock.no-results": {
+    "message": "No matching items."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "No local worlds found. Create one in Minecraft or import a .mcworld file."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Open folder"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Parent folder"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Some folders could not be read or reached the display limit. You can inspect them in File Explorer."
+  },
+  "app.bedrock.play": {
+    "message": "Play"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Original files and deleted content are kept here. Restore a copy while Minecraft is closed. Existing content and later edits are never overwritten."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Recovery copies"
+  },
+  "app.bedrock.refresh": {
+    "message": "Check again"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Refresh"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Reload this file before saving."
+  },
+  "app.bedrock.repair": {
+    "message": "Repair or update your installation using Microsoft Store or the official launcher."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Resource pack"
+  },
+  "app.bedrock.restore": {
+    "message": "Restore"
+  },
+  "app.bedrock.running": {
+    "message": "Running"
+  },
+  "app.bedrock.save-error": {
+    "message": "Could not save. The file may have changed, contain invalid JSON or be in use. Reload it and try again."
+  },
+  "app.bedrock.search": {
+    "message": "Search local content…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Select a log to read it."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Skin pack"
+  },
+  "app.bedrock.store": {
+    "message": "Install or update"
+  },
+  "app.bedrock.store-error": {
+    "message": "Could not open Microsoft Store. Open it from the Windows Start menu."
+  },
+  "app.bedrock.submitted": {
+    "message": "File sent to Minecraft. Check the import result in the game."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Bedrock integration requires Windows. You can keep playing Java Edition on this device."
+  },
+  "app.bedrock.update": {
+    "message": "Update Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "In Microsoft Store, check for updates and select Minecraft for Windows. Your installed version will refresh when you return."
+  },
+  "app.bedrock.version": {
+    "message": "Windows installation {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Version"
+  },
+  "app.bedrock.world-scope": {
+    "message": "World: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Worlds"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "Confirmations"
@@ -191,35 +707,14 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "Startup and navigation"
   },
-  "app.browse.add-servers-to-instance": {
-    "message": "Adding server to instance"
-  },
   "app.browse.add-to-an-instance": {
     "message": "Add to an instance"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Add to instance"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Add to {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Added"
-  },
-  "app.browse.already-added": {
-    "message": "Already added"
   },
   "app.browse.back-to-instance": {
     "message": "Back to instance"
   },
   "app.browse.discover-project-type": {
     "message": "Discover {projectType}"
-  },
-  "app.browse.discover-servers": {
-    "message": "Discover servers"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "Hide servers already added"
   },
   "app.browse.hide-installed-modpacks": {
     "message": "Hide already installed"
@@ -242,17 +737,8 @@
   "app.browse.project-type.resource-packs": {
     "message": "Resource Packs"
   },
-  "app.browse.project-type.servers": {
-    "message": "Servers"
-  },
   "app.browse.project-type.shaders": {
     "message": "Shaders"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "Adding content may prevent you from joining this server. Any content you add will be removed when the managed server content is updated."
-  },
-  "app.browse.server.installing": {
-    "message": "Installing"
   },
   "app.content-install.no-compatible-versions": {
     "message": "No available versions match {compatibilityLabel}. Select a version to install anyway. Dependencies will not be installed automatically."
@@ -272,11 +758,11 @@
   "app.content.sync-resource-packs-disabled": {
     "message": "Turn on resource pack syncing in app settings first."
   },
-  "app.curseforge.skipped-files.text": {
-    "message": "The authors only allow downloading these from CurseForge’s website, so {pack} was installed without them: {files}. Download them from CurseForge and add them to the instance’s mods folder."
+  "app.curseforge.rate-limit.text": {
+    "message": "The shared request limit has been reached. Wait a moment, then try again."
   },
-  "app.curseforge.skipped-files.title": {
-    "message": "{count, plural, one {# mod needs} other {# mods need}} a manual download"
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge is temporarily busy"
   },
   "app.download-manager.active": {
     "message": "Active"
@@ -353,8 +839,134 @@
   "app.download-manager.verifying": {
     "message": "Verifying"
   },
+  "app.error.cancel-dir.button": {
+    "message": "Cancel directory change"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Copy debug info"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Debug information"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "first. Once you're done, come back here and sign in!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Try signing in with the"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Using PC Game Pass, coming from Bedrock, or just bought the game?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "official Minecraft Launcher"
+  },
+  "app.error.get-support.button": {
+    "message": "Get support"
+  },
+  "app.error.help.end": {
+    "message": "and we will be more than happy to assist! Make sure to include the following debug information:"
+  },
+  "app.error.help.start": {
+    "message": "If nothing is working and you need help, visit"
+  },
+  "app.error.help.support-link": {
+    "message": "our support page"
+  },
+  "app.error.hosts.body-end": {
+    "message": "tried to connect to Microsoft / Xbox / Minecraft services, but the remote server rejected the connection. This may indicate that these services are blocked by the hosts file. Please visit"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "for steps on how to fix the issue."
+  },
+  "app.error.migrate.body-end": {
+    "message": "is unable to migrate to the new directory you selected. Please contact support for help or cancel the directory change."
+  },
+  "app.error.network.body-end": {
+    "message": "connecting to Microsoft's servers. This is often the result of a poor connection, so we recommend trying again to see if it works. If issues continue to persist, follow the steps in"
+  },
+  "app.error.network.body-start": {
+    "message": "It looks like there were issues with"
+  },
+  "app.error.network.heading": {
+    "message": "Network issues"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "to troubleshoot."
+  },
+  "app.error.no-error-message": {
+    "message": "No error message."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "failed to find the loader version for this instance."
+  },
+  "app.error.no-loader.fix": {
+    "message": "To resolve this, you need to repair the instance. Click the button below to do so."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "It looks like there is not enough space on the disk containing the directory you selected. Please free up some space and try again or cancel the directory change."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Not enough space"
+  },
+  "app.error.read-only.body-end": {
+    "message": "is unable to write to the directory you selected. Please adjust the permissions of the directory and try again or cancel the directory change."
+  },
+  "app.error.read-only.body-start": {
+    "message": "It looks like"
+  },
+  "app.error.read-only.heading": {
+    "message": "Change directory permissions"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Repair instance"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Retry directory change"
+  },
+  "app.error.state-init.body-end": {
+    "message": "failed to load correctly. This may be because of a corrupted file, or because the app is missing crucial files."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "You may be able to fix it through one of the following ways:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Ensuring you are connected to the internet, then try restarting the app."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Redownloading the app."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "Open backups folder"
+  },
+  "app.error.support-article-link": {
+    "message": "our support article"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Could not change app directory"
+  },
+  "app.error.title.generic": {
+    "message": "An error occurred"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "No loader selected"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Unable to sign in to Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Error initializing {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Try signing in again"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Double check you've signed in with the right account. You may own Minecraft on a different Microsoft account."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Try another account"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Try another Microsoft account"
   },
   "app.export-modal.description-placeholder": {
     "message": "Enter modpack description..."
@@ -367,6 +979,27 @@
   },
   "app.export-modal.export-complete-description": {
     "message": "{name} was exported successfully."
+  },
+  "app.export-modal.format-label": {
+    "message": "Export format"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "CurseForge ZIP with manifest.json and the selected files inside overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "For launchers supporting Modrinth packs. Includes download references and selected extra files."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "A portable {productName} pack containing the selected files. Open it directly in the launcher."
   },
   "app.export-modal.header": {
     "message": "Export modpack"
@@ -527,27 +1160,6 @@
   "app.instance.actions.label": {
     "message": "Instance actions"
   },
-  "app.instance.add-server.add": {
-    "message": "Add"
-  },
-  "app.instance.add-server.added": {
-    "message": "Added"
-  },
-  "app.instance.add-server.adding": {
-    "message": "Adding..."
-  },
-  "app.instance.add-server.cancel": {
-    "message": "Cancel"
-  },
-  "app.instance.add-server.compatibility-warning": {
-    "message": "This server may not be compatible with all instances."
-  },
-  "app.instance.add-server.search-placeholder": {
-    "message": "Search for an instance"
-  },
-  "app.instance.add-server.title": {
-    "message": "Add server to instance"
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "All data for your instance will be permanently deleted, including your worlds, configs, and all installed content."
   },
@@ -653,8 +1265,8 @@
   "app.instance.worlds.add-server": {
     "message": "Add server"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Browse servers"
+  "app.instance.worlds.browse": {
+    "message": "Browse worlds"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Delete world"
@@ -1037,57 +1649,6 @@
   "app.library.title": {
     "message": "Library"
   },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "Don't install"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "Install to play"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Install anyway"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "Install"
-  },
-  "app.modal.install-to-play.managed-content.modpack-header": {
-    "message": "Modpack content"
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {# mod} other {# mods}}"
-  },
-  "app.modal.install-to-play.reviewed-files": {
-    "message": "Files that aren't published to Modrinth aren't reviewed."
-  },
-  "app.modal.install-to-play.server-content": {
-    "message": "Server content"
-  },
-  "app.modal.install-to-play.server-warning": {
-    "message": "This content is chosen by the server, not by {productName}. Only install it for servers you trust."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "This server modpack contains files that aren’t published on Modrinth. We strongly recommend only installing files from sources you trust."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Unknown files warning"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Unrecognized files"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "View contents"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Update to play"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "Removed"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "This server modpack update contains files that aren’t published on Modrinth. We strongly recommend only installing files from sources you trust."
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "An update is required to play {name}. Please update to latest version to launch the game."
-  },
   "app.nav.collapse-sidebar": {
     "message": "Collapse sidebar"
   },
@@ -1102,9 +1663,6 @@
   },
   "app.nav.screenshots": {
     "message": "Screenshots"
-  },
-  "app.nav.servers": {
-    "message": "Servers"
   },
   "app.navigation.go-back": {
     "message": "Go back"
@@ -1121,56 +1679,14 @@
   "app.notification.warning": {
     "message": "Warning"
   },
-  "app.orbiont.home.featured-modpacks": {
-    "message": "Featured modpacks"
-  },
-  "app.orbiont.home.search-modpacks": {
-    "message": "Search modpacks"
-  },
-  "app.orbiont.home.see-all-servers": {
-    "message": "See all"
-  },
-  "app.orbiont.home.servers": {
-    "message": "Servers"
-  },
-  "app.orbiont.server-status.checking": {
-    "message": "Checking…"
-  },
-  "app.orbiont.server-status.offline": {
-    "message": "Offline"
-  },
-  "app.orbiont.servers.empty": {
-    "message": "No servers yet"
-  },
-  "app.orbiont.servers.empty.description": {
-    "message": "Servers will show up here as soon as they are published."
-  },
-  "app.orbiont.servers.error": {
-    "message": "Couldn't load the server list"
-  },
-  "app.orbiont.servers.featured": {
-    "message": "Featured"
-  },
-  "app.orbiont.servers.heading": {
-    "message": "Servers"
-  },
-  "app.orbiont.servers.no-results": {
-    "message": "No servers match your search"
-  },
-  "app.orbiont.servers.play": {
-    "message": "Play"
-  },
-  "app.orbiont.servers.search": {
-    "message": "Search servers"
-  },
-  "app.orbiont.servers.starting": {
-    "message": "Starting…"
-  },
   "app.project.actions.label": {
     "message": "Project actions"
   },
   "app.project.coming-soon": {
     "message": "Coming soon"
+  },
+  "app.project.gallery.image-fallback": {
+    "message": "Gallery image"
   },
   "app.project.install-button.already-installed": {
     "message": "This project is already installed"
@@ -1483,6 +1999,15 @@
   },
   "app.settings.downloading": {
     "message": "Downloading v{version}"
+  },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "No flags found matching \"{query}\""
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Reset to default"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Search flags..."
   },
   "app.settings.game-options.category.accessibility.description": {
     "message": "Accessibility preferences"
@@ -2879,6 +3404,42 @@
   "app.settings.tabs.synced-options": {
     "message": "Synced settings"
   },
+  "app.sidebar.advertising.label": {
+    "message": "Advertisement"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Preview · placement {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Next modpack"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Pause rotation"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} of {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Previous modpack"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Resume rotation"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Featured modpacks"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Featured modpacks are unavailable right now."
+  },
+  "app.sidebar.featured.view": {
+    "message": "View project"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Explore hosting"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Your next Minecraft server"
+  },
   "app.skins.add-button": {
     "message": "Add skin"
   },
@@ -2887,6 +3448,78 @@
   },
   "app.skins.apply-button": {
     "message": "Apply"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "All models"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Classic"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Default"
+  },
+  "app.skins.catalog.empty": {
+    "message": "No skins found. Try another search."
+  },
+  "app.skins.catalog.error": {
+    "message": "This skin provider is unavailable. Please try again later."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Loading skins…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Search the entire public MineSkin gallery."
+  },
+  "app.skins.catalog.model": {
+    "message": "Model"
+  },
+  "app.skins.catalog.next": {
+    "message": "Next page"
+  },
+  "app.skins.catalog.page": {
+    "message": "Page {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Popular"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Previous page"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Skin providers"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "The provider has reached its request limit. Please wait before trying again."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Recent"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Try again"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Skin saved to Default"
+  },
+  "app.skins.catalog.search": {
+    "message": "Search skins…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Search"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Slim"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Sort by"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tag (optional)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Trending"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "This skin provider is not configured yet."
   },
   "app.skins.delete-button": {
     "message": "Delete skin"
@@ -3194,9 +3827,6 @@
   "app.update.download-error.missing-version": {
     "message": "Failed to download update: no version available"
   },
-  "app.user.project.install-to-instance": {
-    "message": "Install to instance"
-  },
   "app.welcome-screen.create-instance": {
     "message": "Create an instance"
   },
@@ -3215,6 +3845,66 @@
   "app.welcome-screen.title": {
     "message": "Welcome to {productName}"
   },
+  "app.window-controls.close": {
+    "message": "Close window"
+  },
+  "app.window-controls.minimize": {
+    "message": "Minimize window"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Toggle maximize window"
+  },
+  "app.world-install.backup": {
+    "message": "Replace keeps a backup of the existing world. Keep existing and Cancel install nothing. Install another copy creates a numbered world."
+  },
+  "app.world-install.backup-location": {
+    "message": "Previous world saved in {path} inside the instance."
+  },
+  "app.world-install.conflict": {
+    "message": "A world with this name or from this project already exists."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Install despite the version difference"
+  },
+  "app.world-install.copy": {
+    "message": "Install another copy"
+  },
+  "app.world-install.description": {
+    "message": "Install a new world in an instance. Existing worlds are preserved unless you choose to replace one."
+  },
+  "app.world-install.incompatible": {
+    "message": "This file does not list Minecraft {version} as compatible. Check the author’s version and mod requirements before continuing."
+  },
+  "app.world-install.installed": {
+    "message": "World installed: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Destination instance"
+  },
+  "app.world-install.keep": {
+    "message": "Keep existing"
+  },
+  "app.world-install.no-instances": {
+    "message": "Create a Minecraft instance first, then return here to install the world."
+  },
+  "app.world-install.open-worlds": {
+    "message": "View worlds"
+  },
+  "app.world-install.replace": {
+    "message": "Replace"
+  },
+  "app.world-install.replace-target": {
+    "message": "World to replace"
+  },
+  "app.world-install.requirements": {
+    "message": "Required mods or modpacks must already be installed in the destination instance. Check the project description."
+  },
+  "app.world-install.title": {
+    "message": "Install world"
+  },
+  "app.world-install.version": {
+    "message": "World version"
+  },
   "app.world.server-modal.placeholder-address": {
     "message": "play.example.com"
   },
@@ -3232,6 +3922,15 @@
   },
   "app.world.world-item.players-online": {
     "message": "{count} online"
+  },
+  "curseforge.manual.description": {
+    "message": "Download {file} from its official CurseForge page, then select the downloaded file to continue. Its size and SHA-1 will be verified."
+  },
+  "curseforge.manual.select": {
+    "message": "Select downloaded file"
+  },
+  "curseforge.manual.title": {
+    "message": "Manual download required"
   },
   "instance.action.create-shortcut": {
     "message": "Create shortcut"
@@ -3515,8 +4214,14 @@
   "instance.last-played": {
     "message": "Last played"
   },
+  "instance.locked.badge": {
+    "message": "Locked"
+  },
   "instance.locked.delete-button": {
     "message": "Delete instance"
+  },
+  "instance.locked.info-label": {
+    "message": "Locked instance information"
   },
   "instance.locked.play-tooltip": {
     "message": "This instance has been locked"
@@ -3527,8 +4232,23 @@
   "instance.locked.title": {
     "message": "Instance locked"
   },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Mod loader and Minecraft version"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# hour} other {# hours}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# minute} other {# minutes}}"
+  },
   "instance.playtime.never-played": {
     "message": "Never played"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# second} other {# seconds}}"
+  },
+  "instance.playtime.total": {
+    "message": "Total playtime"
   },
   "instance.server-modal.address": {
     "message": "Address"
@@ -3965,6 +4685,42 @@
   "onboarding-checklist.title": {
     "message": "Getting started"
   },
+  "optifine.add-component": {
+    "message": "Install OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Select JAR and continue"
+  },
+  "optifine.download-official": {
+    "message": "Official download"
+  },
+  "optifine.export-notice": {
+    "message": "OptiFine binaries are excluded. Orbpack preserves its required version; Modrinth and CurseForge packs require installing OptiFine separately."
+  },
+  "optifine.import-canceled": {
+    "message": "OptiFine selection canceled. The pack was not installed."
+  },
+  "optifine.import-description": {
+    "message": "This pack requires OptiFine {version} for Minecraft {gameVersion}. Download its official JAR and select it to continue. OptiFine is not bundled in the pack."
+  },
+  "optifine.import-title": {
+    "message": "This pack requires OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Select the official OptiFine installer for Minecraft {gameVersion}. For an imported pack, its version and file hash must also match."
+  },
+  "optifine.remove-component": {
+    "message": "Remove OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Select official OptiFine JAR"
+  },
+  "project-type.world.category": {
+    "message": "Worlds"
+  },
   "search.filter.locked.instance": {
     "message": "Provided by the instance"
   },
@@ -3976,9 +4732,6 @@
   },
   "search.filter.locked.instance.sync": {
     "message": "Sync with instance"
-  },
-  "search.filter.locked.server-environment.title": {
-    "message": "Only client-side mods can be added to the server instance"
   },
   "settings.sidebar.label.account": {
     "message": "Account"

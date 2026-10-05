@@ -24,7 +24,7 @@ export interface FilePickerProvider {
 	pickImage: () => Promise<PickedFile | null>
 	/** Pick one or more generic files */
 	pickFiles?: (options?: { multiple?: boolean }) => Promise<PickedFile[]>
-	/** Pick a .mrpack modpack file */
+	/** Pick an .orbpack, .mrpack, or CurseForge .zip modpack file. */
 	pickModpackFile: (options?: PickModpackFileOptions) => Promise<PickedModpackFile | null>
 }
 

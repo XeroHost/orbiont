@@ -25,6 +25,30 @@ use crate::util::io::{self, IOError};
 const SCREENSHOTS_DIRECTORY: &str = "screenshots";
 const SCREENSHOT_SCAN_CONCURRENCY: usize = 8;
 
+pub(super) fn is_bedrock_source(id: &str) -> bool {
+    id.starts_with("bedrock:")
+}
+
+async fn get_screenshot_source(
+    id: &str,
+    pool: &sqlx::SqlitePool,
+) -> crate::Result<Option<InstanceScreenshotSource>> {
+    if is_bedrock_source(id) {
+        #[cfg(any(windows, test))]
+        {
+            return Ok(Some(crate::bedrock::screenshots::source(id).await?));
+        }
+        #[cfg(not(any(windows, test)))]
+        {
+            return Err(crate::ErrorKind::InputError(
+                "Bedrock requires Windows".into(),
+            )
+            .into());
+        }
+    }
+    instance_rows::get_instance_screenshot_source(id, pool).await
+}
+
 #[derive(Clone, Debug, Deserialize, Eq, Hash, PartialEq, Serialize)]
 pub struct ScreenshotKey {
     pub instance_id: String,
@@ -55,12 +79,11 @@ pub async fn list_screenshots(
     instance_id: &str,
 ) -> crate::Result<Vec<InstanceScreenshot>> {
     let state = State::get().await?;
-    let source =
-        instance_rows::get_instance_screenshot_source(instance_id, &state.pool)
-            .await?
-            .ok_or_else(|| {
-                crate::ErrorKind::InputError("Unknown instance".to_string())
-            })?;
+    let source = get_screenshot_source(instance_id, &state.pool)
+        .await?
+        .ok_or_else(|| {
+            crate::ErrorKind::InputError("Unknown instance".to_string())
+        })?;
 
     list_source_screenshots(&state, source).await
 }
@@ -81,7 +104,24 @@ pub async fn list_synced_screenshots() -> crate::Result<Vec<InstanceScreenshot>>
 pub async fn list_all_screenshots() -> crate::Result<Vec<InstanceScreenshot>> {
     let state = State::get().await?;
     let sources = instance_rows::list_screenshot_sources(&state.pool).await?;
-    list_source_screenshot_sets(&state, sources).await
+    let mut screenshots = list_source_screenshot_sets(&state, sources).await?;
+    screenshots.extend(list_bedrock_screenshots().await?);
+    sort_screenshots(&mut screenshots);
+    Ok(screenshots)
+}
+
+pub async fn list_bedrock_screenshots() -> crate::Result<Vec<InstanceScreenshot>>
+{
+    #[cfg(any(windows, test))]
+    {
+        let sources = crate::bedrock::screenshots::sources().await?;
+        let state = State::get().await?;
+        list_source_screenshot_sets(&state, sources).await
+    }
+    #[cfg(not(any(windows, test)))]
+    {
+        Ok(Vec::new())
+    }
 }
 
 async fn list_source_screenshot_sets(
@@ -160,14 +200,14 @@ pub async fn export_screenshots(
         let source = match sources.get(&key.instance_id) {
             Some(source) => source,
             None => {
-                let source = instance_rows::get_instance_screenshot_source(
-                    &key.instance_id,
-                    &state.pool,
-                )
-                .await?
-                .ok_or_else(|| {
-                    crate::ErrorKind::InputError("Unknown instance".to_string())
-                })?;
+                let source =
+                    get_screenshot_source(&key.instance_id, &state.pool)
+                        .await?
+                        .ok_or_else(|| {
+                            crate::ErrorKind::InputError(
+                                "Unknown instance".to_string(),
+                            )
+                        })?;
                 sources.insert(key.instance_id.clone(), source);
                 &sources[&key.instance_id]
             }
@@ -219,6 +259,15 @@ pub async fn move_screenshots(
     if keys.is_empty() {
         return Ok(Vec::new());
     }
+    if keys.iter().any(|key| {
+        is_bedrock_source(&key.instance_id)
+            != is_bedrock_source(target_instance_id)
+    }) {
+        return Err(crate::ErrorKind::InputError(
+            "Screenshots cannot move between Minecraft editions".into(),
+        )
+        .into());
+    }
 
     let state = State::get().await?;
     let mut instance_ids = keys
@@ -229,14 +278,11 @@ pub async fn move_screenshots(
     instance_ids.sort_unstable();
     instance_ids.dedup();
     let _locks = lock_instance_screenshots(&state, instance_ids).await;
-    let target_source = instance_rows::get_instance_screenshot_source(
-        target_instance_id,
-        &state.pool,
-    )
-    .await?
-    .ok_or_else(|| {
-        crate::ErrorKind::InputError("Unknown target instance".to_string())
-    })?;
+    let target_source = get_screenshot_source(target_instance_id, &state.pool)
+        .await?
+        .ok_or_else(|| {
+            crate::ErrorKind::InputError("Unknown target instance".to_string())
+        })?;
     let target_dir = source_screenshots_dir(&state, &target_source).await?;
     io::create_dir_all(&target_dir).await?;
     ensure_directory_is_not_symlink(&target_dir).await?;
@@ -290,14 +336,11 @@ pub async fn get_screenshot_path(
     validate_file_name(&key.file_name)?;
 
     let state = State::get().await?;
-    let source = instance_rows::get_instance_screenshot_source(
-        &key.instance_id,
-        &state.pool,
-    )
-    .await?
-    .ok_or_else(|| {
-        crate::ErrorKind::InputError("Unknown instance".to_string())
-    })?;
+    let source = get_screenshot_source(&key.instance_id, &state.pool)
+        .await?
+        .ok_or_else(|| {
+            crate::ErrorKind::InputError("Unknown instance".to_string())
+        })?;
     let screenshots_dir = source_screenshots_dir(&state, &source).await?;
     let canonical_dir = tokio::fs::canonicalize(&screenshots_dir)
         .await
@@ -336,14 +379,11 @@ pub async fn save_edited_screenshot(
     validate_file_name(&key.file_name)?;
 
     let state = State::get().await?;
-    let source = instance_rows::get_instance_screenshot_source(
-        &key.instance_id,
-        &state.pool,
-    )
-    .await?
-    .ok_or_else(|| {
-        crate::ErrorKind::InputError("Unknown instance".to_string())
-    })?;
+    let source = get_screenshot_source(&key.instance_id, &state.pool)
+        .await?
+        .ok_or_else(|| {
+            crate::ErrorKind::InputError("Unknown instance".to_string())
+        })?;
     let _lock = state.lock_instance_screenshots(&source.id).await;
 
     let scanned = scan_source_screenshots(&state, &source).await?;
@@ -370,16 +410,16 @@ pub async fn save_edited_screenshot(
         tokio::task::spawn_blocking(move || {
             let source = std::fs::File::open(&source_path)
                 .map_err(|error| IOError::with_path(error, &source_path))?;
-            let source_dimensions = image::ImageReader::with_format(
-                std::io::BufReader::new(source),
-                image::ImageFormat::Png,
-            )
-            .into_dimensions()
-            .map_err(|error| {
-                crate::ErrorKind::InputError(format!(
-                    "Could not read screenshot dimensions: {error}"
-                ))
-            })?;
+            let source_dimensions =
+                image::ImageReader::new(std::io::BufReader::new(source))
+                    .with_guessed_format()
+                    .map_err(IOError::from)?
+                    .into_dimensions()
+                    .map_err(|error| {
+                        crate::ErrorKind::InputError(format!(
+                            "Could not read screenshot dimensions: {error}"
+                        ))
+                    })?;
             let edited_dimensions = validate_png_dimensions(&png_bytes)?;
             Ok::<_, crate::Error>((
                 source_dimensions,
@@ -399,10 +439,21 @@ pub async fn save_edited_screenshot(
     }
 
     let screenshots_dir = source_screenshots_dir(&state, &source).await?;
+    let copy_name = if is_bedrock_source(&source.id)
+        && !has_png_extension(Path::new(&source_row.file_name))
+    {
+        Path::new(&source_row.file_name)
+            .with_extension("png")
+            .file_name()
+            .unwrap()
+            .to_string_lossy()
+            .into_owned()
+    } else {
+        source_row.file_name.clone()
+    };
     let (target_path, copy_group) = match mode {
         ScreenshotEditSaveMode::CreateCopy => (
-            available_target_path(&screenshots_dir, &source_row.file_name)
-                .await?,
+            available_target_path(&screenshots_dir, &copy_name).await?,
             true,
         ),
         ScreenshotEditSaveMode::ReplaceEdit => {
@@ -419,7 +470,27 @@ pub async fn save_edited_screenshot(
         })?
         .to_string();
 
-    io::write(&target_path, png_bytes).await?;
+    let bytes = if !copy_group && !has_png_extension(&target_path) {
+        tokio::task::spawn_blocking(move || -> crate::Result<Vec<u8>> {
+            let decoded = image::load_from_memory_with_format(
+                &png_bytes,
+                image::ImageFormat::Png,
+            )
+            .map_err(|error| crate::ErrorKind::InputError(error.to_string()))?;
+            let mut output = Cursor::new(Vec::new());
+            decoded
+                .to_rgb8()
+                .write_to(&mut output, image::ImageFormat::Jpeg)
+                .map_err(|error| {
+                    crate::ErrorKind::InputError(error.to_string())
+                })?;
+            Ok(output.into_inner())
+        })
+        .await??
+    } else {
+        png_bytes
+    };
+    io::write(&target_path, bytes).await?;
     if !copy_group {
         let (file_size, content_hash) = sha1_file_async(&target_path).await?;
         let file_size = i64::try_from(file_size).map_err(|_| {
@@ -514,6 +585,13 @@ pub(super) async fn source_screenshots_dir(
     state: &State,
     source: &InstanceScreenshotSource,
 ) -> crate::Result<PathBuf> {
+    if is_bedrock_source(&source.id) {
+        // Sources come only from fresh native discovery / source validation.
+        // Do not rescan every profile for every image directory in a gallery.
+        let path = PathBuf::from(&source.path);
+        ensure_directory_is_not_symlink(&path).await?;
+        return Ok(path);
+    }
     let instance_dir = state.directories.instances_dir().join(&source.path);
     let canonical_instance_dir =
         tokio::fs::canonicalize(&instance_dir)
@@ -612,7 +690,10 @@ fn validate_file_name(file_name: &str) -> crate::Result<()> {
         matches!(components.next(), Some(Component::Normal(_)))
             && components.next().is_none();
 
-    if !is_single_file || !has_png_extension(path) {
+    if !is_single_file
+        || file_name.contains(['\\', ':', '\0'])
+        || !has_screenshot_extension(path)
+    {
         return Err(crate::ErrorKind::InputError(
             "Invalid screenshot file name".to_string(),
         )
@@ -626,6 +707,16 @@ pub(super) fn has_png_extension(path: &Path) -> bool {
     path.extension()
         .and_then(|extension| extension.to_str())
         .is_some_and(|extension| extension.eq_ignore_ascii_case("png"))
+}
+
+pub(super) fn has_screenshot_extension(path: &Path) -> bool {
+    path.extension()
+        .and_then(|ext| ext.to_str())
+        .is_some_and(|ext| {
+            ["png", "jpg", "jpeg"]
+                .iter()
+                .any(|allowed| ext.eq_ignore_ascii_case(allowed))
+        })
 }
 
 pub(super) fn sort_screenshots(screenshots: &mut [InstanceScreenshot]) {

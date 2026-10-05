@@ -48,6 +48,99 @@ type HashProgressFn<'a> = dyn FnMut(u64) -> crate::Result<()> + Send + 'a;
 const MODPACK_CONTENT_DOWNLOAD_CONCURRENCY: usize = 4;
 const MRPACK_WARNING_IGNORED_EXTENSIONS: &[&str] = &["rpo"];
 
+// CurseForge manifests supply SHA-1 rather than SHA-512. Verify that hash
+// while downloading to staging; the downloader computes SHA-512 for the store.
+async fn download_sha1_pack_file(
+    project: &PackFile,
+    semaphore: &crate::util::fetch::FetchSemaphore,
+    pool: &sqlx::SqlitePool,
+    download_meta: Option<&DownloadMeta>,
+    progress: Option<&mut FetchProgressFn<'_>>,
+    staging: &Path,
+    client: &reqwest::Client,
+) -> crate::Result<crate::util::fetch::DownloadedFile> {
+    let hash = project.hashes.get(&PackFileHash::Sha1).ok_or_else(|| {
+        crate::state::content_store::input(
+            "Content download is missing a SHA-512 or SHA-1 hash",
+        )
+    })?;
+    let hash = hash.to_ascii_lowercase();
+    crate::state::content_store::validate_digest(&hash, 40)?;
+    if project
+        .downloads
+        .iter()
+        .any(|url| crate::orbiont::downloads::is_facade_url(url))
+    {
+        let (project_id, file_id) = project
+            .downloads
+            .iter()
+            .find_map(|url| crate::orbiont::downloads::download_ids(url))
+            .ok_or_else(|| {
+                crate::state::content_store::input(
+                    "Invalid CurseForge facade download route",
+                )
+            })?;
+        if project.downloads.len() != 1 {
+            return Err(crate::state::content_store::input(
+                "CurseForge files cannot use alternate download mirrors",
+            ));
+        }
+        let name = project.path.as_str().rsplit('/').next().unwrap_or("");
+        let file = crate::orbiont::downloads::download_pack_file(
+            project_id,
+            file_id,
+            name,
+            &hash,
+            project.file_size as u64,
+            progress,
+            staging,
+        )
+        .await?;
+        verify_declared_sha512(project, &file)?;
+        return Ok(file);
+    }
+    let file = crate::util::fetch::fetch_file_mirrors_in_with_client(
+        &project
+            .downloads
+            .iter()
+            .map(String::as_str)
+            .collect::<Vec<_>>(),
+        Some(&hash),
+        download_meta,
+        None,
+        semaphore,
+        pool,
+        progress,
+        Some(staging),
+        client,
+    )
+    .await?;
+    if file.size != project.file_size as u64 {
+        return Err(crate::state::content_store::input(
+            "Modpack content has the wrong file size",
+        ));
+    }
+    Ok(file)
+}
+
+fn verify_declared_sha512(
+    project: &PackFile,
+    file: &crate::util::fetch::DownloadedFile,
+) -> crate::Result<()> {
+    if let Some(expected) = project.hashes.get(&PackFileHash::Sha512) {
+        let expected = expected.to_ascii_lowercase();
+        crate::state::content_store::validate_digest(&expected, 128)?;
+        if file.sha512 != expected {
+            return Err(crate::ErrorKind::HashError(
+                expected,
+                file.sha512.clone(),
+            )
+            .into());
+        }
+    }
+    Ok(())
+}
+
 fn is_ignored_mrpack_warning_file(path: &str) -> bool {
     Path::new(path)
         .extension()
@@ -132,6 +225,28 @@ enum MrpackZipReader {
     File(FsZipFileReader),
 }
 
+pub(crate) async fn get_optifine_reference(
+    file: &CreatePackFile,
+) -> crate::Result<Option<crate::optifine::OptifineReference>> {
+    let mut reader = MrpackZipReader::new(file).await?;
+    let pack = reader.read_manifest().await?;
+    if let Some(reference) = &pack.optifine {
+        let loader = if pack.dependencies.len() == 1 {
+            crate::data::ModLoader::Vanilla
+        } else {
+            crate::data::ModLoader::Forge
+        };
+        reference.check_compatibility(
+            pack.dependencies
+                .get(&super::install_from::PackDependency::Minecraft)
+                .map(String::as_str)
+                .unwrap_or(""),
+            loader,
+        )?;
+    }
+    Ok(pack.optifine)
+}
+
 impl MrpackZipReader {
     async fn new(file: &CreatePackFile) -> crate::Result<Self> {
         match file {
@@ -161,6 +276,40 @@ impl MrpackZipReader {
         match self {
             Self::Memory(reader) => reader.file(),
             Self::File(reader) => reader.file(),
+        }
+    }
+
+    fn manifest_index(&self) -> crate::Result<(usize, bool)> {
+        let indices = self
+            .file()
+            .entries()
+            .iter()
+            .enumerate()
+            .filter_map(|(index, entry)| {
+                let name = entry.filename().as_str().ok()?;
+                matches!(
+                    name,
+                    "modrinth.index.json" | super::orbpack::INDEX_NAME
+                )
+                .then_some((index, name == super::orbpack::INDEX_NAME))
+            })
+            .collect::<Vec<_>>();
+        if indices.len() != 1 {
+            return Err(crate::state::content_store::input(
+                "Modpack must contain exactly one supported manifest",
+            ));
+        }
+        Ok(indices[0])
+    }
+
+    async fn read_manifest(&mut self) -> crate::Result<PackFormat> {
+        let (index, orbpack) = self.manifest_index()?;
+        let manifest = self.read_entry_to_string(index).await?;
+        if orbpack {
+            serde_json::from_str::<super::orbpack::OrbpackManifest>(&manifest)?
+                .into_pack_format()
+        } else {
+            Ok(serde_json::from_str(&manifest)?)
         }
     }
 
@@ -269,18 +418,7 @@ pub(crate) async fn get_external_files_from_mrpack(
     mut progress: impl FnMut(u64, u64) -> crate::Result<()> + Send,
 ) -> crate::Result<Vec<String>> {
     let mut zip_reader = MrpackZipReader::new(file).await?;
-    let Some(manifest_idx) =
-        zip_reader.file().entries().iter().position(|entry| {
-            matches!(entry.filename().as_str(), Ok("modrinth.index.json"))
-        })
-    else {
-        return Err(crate::Error::from(crate::ErrorKind::InputError(
-            "No pack manifest found in mrpack".to_string(),
-        )));
-    };
-
-    let manifest = zip_reader.read_entry_to_string(manifest_idx).await?;
-    let pack: PackFormat = serde_json::from_str(&manifest)?;
+    let pack = zip_reader.read_manifest().await?;
     let mut destinations = HashMap::<String, String>::new();
     for file in &pack.files {
         if file.env.as_ref().is_some_and(|env| {
@@ -555,24 +693,16 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
                 .maybe_project_id(project_id.clone())
                 .maybe_version_id(version_id.clone())
                 .source_path(source_path.clone())
-                .entry_path("modrinth.index.json")
+                .entry_path(if zip_reader.manifest_index()?.1 {
+                    super::orbpack::INDEX_NAME
+                } else {
+                    "modrinth.index.json"
+                })
                 .build(),
         )
         .await?;
 
-    // Extract index of modrinth.index.json
-    let Some(manifest_idx) = zip_reader.file().entries().iter().position(|f| {
-        matches!(f.filename().as_str(), Ok("modrinth.index.json"))
-    }) else {
-        return Err(crate::Error::from(crate::ErrorKind::InputError(
-            "No pack manifest found in mrpack".to_string(),
-        )));
-    };
-
-    let mut manifest = String::new();
-    manifest.push_str(&zip_reader.read_entry_to_string(manifest_idx).await?);
-
-    let pack: PackFormat = serde_json::from_str(&manifest)?;
+    let pack = zip_reader.read_manifest().await?;
     if &*pack.game != "minecraft" {
         return Err(crate::ErrorKind::InputError(
             "Pack does not support Minecraft".to_string(),
@@ -878,23 +1008,41 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
                 };
                 let progress =
                     &mut report_download_progress as &mut FetchProgressFn<'_>;
-                let file = match fetch_content_file(
-                    state,
-                    &project
-                        .downloads
-                        .iter()
-                        .map(|x| &**x)
-                        .collect::<Vec<&str>>(),
-                    project
-                        .hashes
-                        .get(&PackFileHash::Sha512)
-                        .map(String::as_str),
-                    Some(project_size),
-                    Some(&content_context.download_meta),
-                    Some(progress),
-                )
-                .await
-                {
+                let download_result = if project
+                    .hashes
+                    .contains_key(&PackFileHash::Sha512)
+                    && !project.downloads.iter().any(|url| {
+                        crate::orbiont::downloads::is_facade_url(url)
+                    }) {
+                    fetch_content_file(
+                        state,
+                        &project
+                            .downloads
+                            .iter()
+                            .map(|x| &**x)
+                            .collect::<Vec<&str>>(),
+                        project
+                            .hashes
+                            .get(&PackFileHash::Sha512)
+                            .map(String::as_str),
+                        Some(project_size),
+                        Some(&content_context.download_meta),
+                        Some(progress),
+                    )
+                    .await
+                } else {
+                    download_sha1_pack_file(
+                        &project,
+                        &state.fetch_semaphore,
+                        &state.pool,
+                        Some(&content_context.download_meta),
+                        Some(progress),
+                        &state.directories.store_staging_dir(),
+                        &crate::util::fetch::REQWEST_CLIENT,
+                    )
+                    .await
+                };
+                let file = match download_result {
                     Ok(file) => {
                         content_context
                             .remove_active_download(&project_path)
@@ -1254,6 +1402,18 @@ pub(crate) async fn install_zipped_mrpack_files_with_reporter(
             .await?;
     }
 
+    if let Some(reference) = &pack.optifine {
+        reference.check_compatibility(
+            &metadata.applied_content_set.game_version,
+            metadata.applied_content_set.loader,
+        )?;
+        crate::optifine::require_cached(reference).await?;
+    }
+    crate::optifine::write_reference(
+        &instance_full_path,
+        pack.optifine.as_ref(),
+    )
+    .await?;
     crate::launcher::install_minecraft_for_instance_id_with_reporter(
         &instance_id,
         false,
@@ -1290,18 +1450,7 @@ pub async fn remove_all_related_files(
     // Updates can remove files from a locally imported or downloaded pack, so share the same reader path.
     let mut zip_reader = MrpackZipReader::new(&mrpack_file).await?;
 
-    // Extract index of modrinth.index.json
-    let Some(manifest_idx) = zip_reader.file().entries().iter().position(|f| {
-        matches!(f.filename().as_str(), Ok("modrinth.index.json"))
-    }) else {
-        return Err(crate::Error::from(crate::ErrorKind::InputError(
-            "No pack manifest found in mrpack".to_string(),
-        )));
-    };
-
-    let manifest = zip_reader.read_entry_to_string(manifest_idx).await?;
-
-    let pack: PackFormat = serde_json::from_str(&manifest)?;
+    let pack = zip_reader.read_manifest().await?;
 
     if &*pack.game != "minecraft" {
         return Err(crate::ErrorKind::InputError(
@@ -1443,4 +1592,199 @@ pub async fn remove_all_related_files(
     }
 
     Ok(())
+}
+
+#[cfg(test)]
+mod orbpack_tests {
+    use super::*;
+    use std::io::Write;
+
+    #[tokio::test]
+    async fn curseforge_sha1_files_are_verified_and_staged_with_sha512() {
+        use sha2::{Digest, Sha512};
+        use tokio::io::{AsyncReadExt, AsyncWriteExt};
+        use tokio::time::{Duration, timeout};
+
+        let content = b"required CurseForge mod";
+        let altered = b"tampered CurseForge mod";
+        assert_eq!(content.len(), altered.len());
+        let listener =
+            tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let url = format!("http://{}/mod.jar", listener.local_addr().unwrap());
+        let server = tokio::spawn(async move {
+            for body in [content, altered, altered, altered] {
+                let (mut socket, _) = listener.accept().await.unwrap();
+                let mut request = [0; 2048];
+                let mut headers = Vec::new();
+                while !headers.windows(4).any(|value| value == b"\r\n\r\n") {
+                    let amount = socket.read(&mut request).await.unwrap();
+                    assert!(amount > 0, "request closed before HTTP headers");
+                    headers.extend_from_slice(&request[..amount]);
+                    assert!(headers.len() <= 16 * 1024);
+                }
+                socket
+                    .write_all(
+                        format!(
+                            "HTTP/1.1 200 OK\r\nContent-Length: {}\r\nConnection: close\r\n\r\n",
+                            body.len()
+                        )
+                        .as_bytes(),
+                    )
+                    .await
+                    .unwrap();
+                socket.write_all(body).await.unwrap();
+            }
+        });
+        // This is the same SHA-1-only shape emitted by the CurseForge converter.
+        let mut project: PackFile = serde_json::from_value(serde_json::json!({
+            "path": "mods/required.jar",
+            "hashes": { "sha1": sha1_smol::Sha1::from(content.as_slice()).digest().to_string().to_ascii_uppercase() },
+            "downloads": [url],
+            "fileSize": content.len(),
+        }))
+        .unwrap();
+        assert!(!project.hashes.contains_key(&PackFileHash::Sha512));
+        let pool = sqlx::SqlitePool::connect_lazy("sqlite::memory:").unwrap();
+        let semaphore =
+            crate::util::fetch::FetchSemaphore(tokio::sync::Semaphore::new(1));
+        let staging = tempfile::tempdir().unwrap();
+        let client = reqwest::Client::new();
+        let downloaded = download_sha1_pack_file(
+            &project,
+            &semaphore,
+            &pool,
+            None,
+            None,
+            staging.path(),
+            &client,
+        )
+        .await
+        .unwrap();
+        assert_eq!(tokio::fs::read(downloaded.path()).await.unwrap(), content);
+        assert_eq!(downloaded.sha512, format!("{:x}", Sha512::digest(content)));
+        project.hashes.insert(PackFileHash::Sha512, "0".repeat(128));
+        assert!(verify_declared_sha512(&project, &downloaded).is_err());
+        project
+            .hashes
+            .insert(PackFileHash::Sha512, downloaded.sha512.clone());
+        assert!(verify_declared_sha512(&project, &downloaded).is_ok());
+        project.hashes.remove(&PackFileHash::Sha512);
+        let staged = downloaded.into_staged().unwrap();
+        assert_eq!(staged.path.parent(), Some(staging.path()));
+        drop(staged);
+
+        let error = download_sha1_pack_file(
+            &project,
+            &semaphore,
+            &pool,
+            None,
+            None,
+            staging.path(),
+            &client,
+        )
+        .await
+        .unwrap_err();
+        assert!(matches!(
+            error.raw.as_ref(),
+            crate::ErrorKind::HashError(_, _)
+        ));
+        timeout(Duration::from_secs(5), server)
+            .await
+            .unwrap()
+            .unwrap();
+        assert_eq!(std::fs::read_dir(staging.path()).unwrap().count(), 0);
+
+        project.hashes.clear();
+        assert!(
+            download_sha1_pack_file(
+                &project,
+                &semaphore,
+                &pool,
+                None,
+                None,
+                staging.path(),
+                &client,
+            )
+            .await
+            .is_err()
+        );
+        project.hashes.insert(PackFileHash::Sha1, "invalid".into());
+        assert!(
+            download_sha1_pack_file(
+                &project,
+                &semaphore,
+                &pool,
+                None,
+                None,
+                staging.path(),
+                &client,
+            )
+            .await
+            .is_err()
+        );
+    }
+
+    fn archive(manifests: &[(&str, &str)]) -> CreatePackFile {
+        let mut zip = zip::ZipWriter::new(Cursor::new(Vec::new()));
+        for (name, data) in manifests {
+            zip.start_file(*name, zip::write::SimpleFileOptions::default())
+                .unwrap();
+            zip.write_all(data.as_bytes()).unwrap();
+        }
+        zip.start_file(
+            "overrides/config/settings.txt",
+            zip::write::SimpleFileOptions::default(),
+        )
+        .unwrap();
+        zip.write_all(b"settings").unwrap();
+        CreatePackFile::Bytes(bytes::Bytes::from(
+            zip.finish().unwrap().into_inner(),
+        ))
+    }
+
+    #[tokio::test]
+    async fn native_reader_accepts_orbpack_and_preserves_mrpack_imports() {
+        let orb = r#"{"format":"orbiont","formatVersion":1,"name":"Orb pack","version":"2.0","description":"Description","gameVersion":"1.21.1","loader":"fabric","loaderVersion":"0.16.0"}"#;
+        let mr = r#"{"game":"minecraft","formatVersion":1,"versionId":"1.0","name":"MR pack","files":[],"dependencies":{"minecraft":"1.21.1"}}"#;
+        for (index, manifest, expected_name) in [
+            (super::super::orbpack::INDEX_NAME, orb, "Orb pack"),
+            ("modrinth.index.json", mr, "MR pack"),
+        ] {
+            let file = archive(&[(index, manifest)]);
+            let mut reader = MrpackZipReader::new(&file).await.unwrap();
+            let pack = reader.read_manifest().await.unwrap();
+            assert_eq!(pack.name, expected_name);
+            assert_eq!(
+                pack.dependencies
+                    [&crate::pack::install_from::PackDependency::Minecraft],
+                "1.21.1"
+            );
+            assert_eq!(
+                reader.read_entry_to_string(1).await.unwrap(),
+                "settings"
+            );
+        }
+        let file = archive(&[
+            (super::super::orbpack::INDEX_NAME, orb),
+            ("modrinth.index.json", mr),
+        ]);
+        assert!(
+            MrpackZipReader::new(&file)
+                .await
+                .unwrap()
+                .read_manifest()
+                .await
+                .is_err()
+        );
+        let invalid = orb.replace("\"formatVersion\":1", "\"formatVersion\":2");
+        let file = archive(&[(super::super::orbpack::INDEX_NAME, &invalid)]);
+        assert!(
+            MrpackZipReader::new(&file)
+                .await
+                .unwrap()
+                .read_manifest()
+                .await
+                .is_err()
+        );
+    }
 }

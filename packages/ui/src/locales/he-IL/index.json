@@ -3,7 +3,10 @@
     "defaultMessage": "אין לך רשות."
   },
   "app.appearance-settings.native-decorations.description": {
-    "defaultMessage": ""
+    "defaultMessage": "השתמש בשורת הכותרת ובבקרות החלון של מערכת ההפעלה שלך. דורש הפעלה מחדש של האפליקציה."
+  },
+  "app.appearance-settings.native-decorations.title": {
+    "defaultMessage": "מסגרת חלון מערכת"
   },
   "badge.alpha": {
     "defaultMessage": "שקיפות"
@@ -20,8 +23,44 @@
   "badge.release": {
     "defaultMessage": "שחרר"
   },
+  "browse.advanced-filters.apply-saved-preferences": {
+    "defaultMessage": "החל העדפות שמורות"
+  },
+  "browse.advanced-filters.link-overriding-preferences": {
+    "defaultMessage": "מסנני הקישור הזה שונים מההחרגות המתקדמות השמורות שלך"
+  },
+  "browse.advanced-filters.persistence-note": {
+    "defaultMessage": "החרגות מתקדמות נשמרות בין הפעלות. פתיחת קישור משותף עם מסננים תדרוס אותן."
+  },
+  "browse.display-mode.change": {
+    "defaultMessage": "שנה מצב תצוגה"
+  },
+  "browse.filter-results": {
+    "defaultMessage": "סנן תוצאות…"
+  },
   "browse.no-results": {
     "defaultMessage": "לא נמצאו תוצאות עבור החיפוש!"
+  },
+  "browse.offline-content": {
+    "defaultMessage": "אתה כרגע לא מקוון. התחבר לאינטרנט כדי לעיין בתוכן."
+  },
+  "browse.search.placeholder": {
+    "defaultMessage": "חפש {projectType}…"
+  },
+  "browse.selected-projects-floating-bar.aria-label": {
+    "defaultMessage": "פרויקטים נבחרים"
+  },
+  "browse.selected-projects-floating-bar.install": {
+    "defaultMessage": "התקן {count, plural, one {פרויקט אחד} other {# פרויקטים}}"
+  },
+  "browse.selected-projects-floating-bar.selected-count": {
+    "defaultMessage": "{count, plural, one {פרויקט אחד נבחר} other {# פרויקטים נבחרו}}"
+  },
+  "browse.selected-projects-leave-modal.admonition-body": {
+    "defaultMessage": "בחרת {count, plural, one {פרויקט אחד} other {# פרויקטים}} להתקנה. התקן אותם כעת או חזור בלי להתקין אותם."
+  },
+  "browse.selected-projects-leave-modal.admonition-header": {
+    "defaultMessage": "פרויקטים נבחרים טרם הותקנו"
   },
   "browse.selected-projects-leave-modal.discard": {
     "defaultMessage": "בטל"
@@ -224,6 +263,9 @@
   "button.upload-image": {
     "defaultMessage": "העלה תמונה"
   },
+  "card.toggle-details": {
+    "defaultMessage": "החלף פרטים"
+  },
   "collections.label.private": {
     "defaultMessage": "פרטי"
   },
@@ -236,11 +278,59 @@
   "console.actions.share": {
     "defaultMessage": "שתף"
   },
+  "console.command-input-disabled": {
+    "defaultMessage": "קלט פקודות מושבת"
+  },
+  "console.crash.problems-detected": {
+    "defaultMessage": "{count, plural, one {זוהתה בעיה אחת} other {זוהו # בעיות}}"
+  },
+  "console.delete-log-confirm-body": {
+    "defaultMessage": "מחיקת קובץ יומן זה אינה הפיכה. האם אתה בטוח שברצונך להמשיך?"
+  },
+  "console.delete-log-failed-title": {
+    "defaultMessage": "נכשל במחיקת קובץ יומן"
+  },
+  "console.delete-log-file-header": {
+    "defaultMessage": "מחק קובץ יומן"
+  },
+  "console.delete-log-irreversible-header": {
+    "defaultMessage": "פעולה זו אינה הפיכה"
+  },
+  "console.search-logs-placeholder": {
+    "defaultMessage": "חפש יומנים"
+  },
+  "console.server-not-running": {
+    "defaultMessage": "השרת אינו פועל"
+  },
+  "console.share-logs-failed-title": {
+    "defaultMessage": "נכשל בשיתוף יומנים"
+  },
+  "console.share-logs-header": {
+    "defaultMessage": "שתף יומנים"
+  },
+  "console.unknown-error": {
+    "defaultMessage": "שגיאה לא ידועה."
+  },
   "content-type.content.lowercase": {
     "defaultMessage": "תוכן"
   },
+  "content-type.item.lowercase": {
+    "defaultMessage": "{count, plural, one {פריט} other {פריטים}}"
+  },
+  "content.card.frozen": {
+    "defaultMessage": "פרויקט זה נעול לגרסתו הנוכחית עד להפשרה."
+  },
   "content.card.select-project": {
     "defaultMessage": "בחר {project}"
+  },
+  "content.card.sync-update-pending": {
+    "defaultMessage": "חלק מהעותקים המסונכרנים ממתינים לשינויים. ייתכן שהתקנה פועלת, שיש לה גרסה קפואה או לא תואמת, או שהיא כבר מכילה עותק משלה."
+  },
+  "content.card.synced": {
+    "defaultMessage": "מסונכרן בין התקנות"
+  },
+  "content.card.uploaded": {
+    "defaultMessage": "הועלה"
   },
   "content.confirm-bulk-update.admonition-body": {
     "defaultMessage": "אתה בטוח שאתה רוצה לעדכן {count, plural, one {# פרויקט} other {# פרויקטים}} לגרסה המתאימה האחרונה שלהם? מומלץ לעדכן תוכן אחד־אחד."
@@ -251,6 +341,9 @@
   "content.confirm-bulk-update.header": {
     "defaultMessage": "עדכן פרויקטים"
   },
+  "content.confirm-bulk-update.shift-click-hint": {
+    "defaultMessage": "החזק Shift תוך לחיצה על \"עדכן הכל\" כדי לדלג על אישור זה בעתיד."
+  },
   "content.confirm-bulk-update.update-button": {
     "defaultMessage": "עדכן {count, plural, one {# פרויקט} other {# פרויקטים}}"
   },
@@ -260,8 +353,86 @@
   "content.confirm-deletion.admonition-header": {
     "defaultMessage": "אזהרת מחיקה"
   },
+  "content.confirm-deletion.delete-button": {
+    "defaultMessage": "מחק {count, number} {itemType}"
+  },
+  "content.confirm-deletion.header": {
+    "defaultMessage": "מחק {itemType}"
+  },
+  "content.confirm-disable.header": {
+    "defaultMessage": "השבת {itemType}"
+  },
+  "content.confirm-modpack-update.admonition-body": {
+    "defaultMessage": "{action, select, downgrade {שנמוך} other {עדכון}} עלול לגרום לבעיות תאימות. מודים או תוכן שהוספת מעל חבילת המודים יישמרו, אך ייתכן שלא יהיו תואמים לגרסה החדשה."
+  },
+  "content.confirm-modpack-update.admonition-header": {
+    "defaultMessage": "אזהרת {action, select, downgrade {שנמוך} other {עדכון}}"
+  },
+  "content.confirm-modpack-update.confirm-button": {
+    "defaultMessage": "{action, select, downgrade {שנמך} other {עדכן}} חבילת מודים"
+  },
+  "content.confirm-modpack-update.header": {
+    "defaultMessage": "{action, select, downgrade {שנמך} other {עדכן}} חבילת מודים"
+  },
+  "content.confirm-unlink.admonition-body": {
+    "defaultMessage": "מודים ותוכן ימוזגו עם מה שהוספת מעל חבילת המודים, והיא תפסיק לקבל עדכונים."
+  },
+  "content.confirm-unlink.admonition-header": {
+    "defaultMessage": "ניתוק חבילת מודים"
+  },
+  "content.confirm-unlink.header": {
+    "defaultMessage": "נתק חבילת מודים"
+  },
+  "content.confirm-unlink.unlink-button": {
+    "defaultMessage": "נתק"
+  },
+  "content.dependency-warning.admonition-header": {
+    "defaultMessage": "תוכן זה נדרש על ידי תוכן אחר"
+  },
+  "content.dependency-warning.affected-dependents-label": {
+    "defaultMessage": "{count, plural, one {פרויקט אחד מושפע} other {# פרויקטים מושפעים}}"
+  },
+  "content.dependency-warning.bulk-admonition-body": {
+    "defaultMessage": "חלק מהפרויקטים הנבחרים מותקנים כתלויות. מחיקתם עלולה לשבור את {context} או למנוע טעינה תקינה של תוכן תלוי."
+  },
+  "content.dependency-warning.context.instance": {
+    "defaultMessage": "ההתקנה"
+  },
+  "content.dependency-warning.context.server": {
+    "defaultMessage": "השרת"
+  },
+  "content.dependency-warning.delete-anyway-button": {
+    "defaultMessage": "מחק בכל זאת"
+  },
+  "content.dependency-warning.delete-many-anyway-button": {
+    "defaultMessage": "מחק {count, number} {itemType} בכל זאת"
+  },
+  "content.dependency-warning.deleting-label": {
+    "defaultMessage": "מוחק"
+  },
+  "content.dependency-warning.disable-dependents-label": {
+    "defaultMessage": "השבת תלויים לאחר מחיקה"
+  },
+  "content.dependency-warning.effect-dependent-content": {
+    "defaultMessage": "תוכן תלוי עלול לא להיטען או להשבית את עצמו"
+  },
+  "content.dependency-warning.effect-instance": {
+    "defaultMessage": "{context} שלך עלול לקרוס, לסרב להיפתח, או להתנהג באופן בלתי צפוי"
+  },
+  "content.dependency-warning.header": {
+    "defaultMessage": "אזהרת תלות"
+  },
+  "content.dependency-warning.single-admonition-body": {
+    "defaultMessage": "{project} מותקן כתלות. מחיקתו עלולה לשבור את {context} או למנוע טעינה תקינה של תוכן תלוי."
+  },
+  "content.dependency-warning.what-happens-label": {
+    "defaultMessage": "מה קורה?"
+  },
   "content.diff-modal.added-count": {
     "defaultMessage": "{count} נוספו"
+  },
+  "content.diff-modal.config-files-updated": {
+    "defaultMessage": "קבצי הגדרות שהשתנו"
   },
   "content.diff-modal.diff-type.added": {
     "defaultMessage": "נוסף (תלות)"
@@ -269,17 +440,200 @@
   "content.diff-modal.diff-type.removed": {
     "defaultMessage": "מושבת"
   },
+  "content.diff-modal.diff-type.removed-disabled": {
+    "defaultMessage": "הוסר (מושבת)"
+  },
   "content.diff-modal.diff-type.updated": {
     "defaultMessage": "עודכן"
+  },
+  "content.diff-modal.dont-install": {
+    "defaultMessage": "אל תתקין"
+  },
+  "content.diff-modal.external-diff-type.added": {
+    "defaultMessage": "נוסף"
+  },
+  "content.diff-modal.external-diff-type.removed": {
+    "defaultMessage": "הוסר"
+  },
+  "content.diff-modal.external-diff-type.updated": {
+    "defaultMessage": "עודכן"
+  },
+  "content.diff-modal.file-count": {
+    "defaultMessage": "{count, plural, one {קובץ אחד} other {# קבצים}}"
+  },
+  "content.diff-modal.game-version-updated": {
+    "defaultMessage": "גרסת משחק"
+  },
+  "content.diff-modal.install-anyway": {
+    "defaultMessage": "התקן בכל זאת"
+  },
+  "content.diff-modal.loader-updated": {
+    "defaultMessage": "טוען"
+  },
+  "content.diff-modal.modpack-linked": {
+    "defaultMessage": "חבילת מודים מקושרת"
+  },
+  "content.diff-modal.modpack-unlinked": {
+    "defaultMessage": "חבילת מודים מנותקת"
+  },
+  "content.diff-modal.modpack-updated": {
+    "defaultMessage": "חבילת מודים מעודכנת"
+  },
+  "content.diff-modal.no-content-changes": {
+    "defaultMessage": "אין שינויי תוכן"
+  },
+  "content.diff-modal.removed-count": {
+    "defaultMessage": "{count} הוסרו"
+  },
+  "content.diff-modal.removed-disabled-count": {
+    "defaultMessage": "{count} הוסרו (מושבתים)"
+  },
+  "content.diff-modal.reviewed-files": {
+    "defaultMessage": "קבצים שאינם מפורסמים ב־Modrinth אינם נבדקים."
+  },
+  "content.diff-modal.unknown-content-body": {
+    "defaultMessage": "לא ניתן לנתח חלק מהתוכן בשרת שלך והוא עלול להיות מושפע משינוי זה."
+  },
+  "content.diff-modal.unknown-files-description": {
+    "defaultMessage": "עדכון זה מכיל קבצים שאינם מפורסמים ב־Modrinth. מומלץ בחום להתקין רק קבצים ממקורות שאתה סומך עליהם."
+  },
+  "content.diff-modal.unknown-files-warning": {
+    "defaultMessage": "אזהרת קבצים לא ידועים"
+  },
+  "content.diff-modal.unknown-project": {
+    "defaultMessage": "לא ידוע"
+  },
+  "content.diff-modal.updated-count": {
+    "defaultMessage": "{count} עודכנו"
+  },
+  "content.filter.disabled": {
+    "defaultMessage": "מושבת"
+  },
+  "content.filter.enabled": {
+    "defaultMessage": "מופעל"
+  },
+  "content.filter.updates": {
+    "defaultMessage": "עדכונים"
+  },
+  "content.filter.warnings": {
+    "defaultMessage": "אזהרות"
   },
   "content.inline-backup.backing-up": {
     "defaultMessage": "יוצר גיבוי..."
   },
+  "content.inline-backup.backup-complete": {
+    "defaultMessage": "הגיבוי נוצר בהצלחה"
+  },
+  "content.inline-backup.backup-failed": {
+    "defaultMessage": "יצירת הגיבוי נכשלה. עדיין ניתן להמשיך."
+  },
   "content.inline-backup.create-backup": {
     "defaultMessage": "צור גיבוי"
   },
+  "content.inline-backup.instance-label": {
+    "defaultMessage": "התקנה"
+  },
+  "content.inline-backup.shift-click-hint": {
+    "defaultMessage": "החזק Shift תוך לחיצה כדי לדלג על האישור."
+  },
+  "content.inline-backup.warning-body": {
+    "defaultMessage": "מומלץ ליצור גיבוי לפני שממשיכים כדי שתוכל לשחזר את {type} אם משהו יישבר."
+  },
+  "content.managed-card.modpack-content": {
+    "defaultMessage": "תוכן חבילת מודים"
+  },
+  "content.managed-card.provided-by": {
+    "defaultMessage": "סופק על ידי"
+  },
+  "content.managed-card.server-suffix": {
+    "defaultMessage": "שרת"
+  },
+  "content.managed-card.settings": {
+    "defaultMessage": "הגדרות התקנה"
+  },
+  "content.managed-card.shared-content": {
+    "defaultMessage": "תוכן משותף"
+  },
+  "content.managed-card.summary.installing": {
+    "defaultMessage": "מתקין תוכן…"
+  },
+  "content.managed-card.summary.loading": {
+    "defaultMessage": "טוען סיכום תוכן מנוהל"
+  },
+  "content.managed-card.summary.no-provided-content": {
+    "defaultMessage": "אין תוכן מסופק"
+  },
+  "content.managed-card.switch-version": {
+    "defaultMessage": "החלף גרסה"
+  },
+  "content.managed-card.synced": {
+    "defaultMessage": "מסונכרן {time}"
+  },
+  "content.managed-card.update-available": {
+    "defaultMessage": "עדכון זמין"
+  },
+  "content.managed-card.updated": {
+    "defaultMessage": "עודכן {time}"
+  },
+  "content.managed-card.updating": {
+    "defaultMessage": "מעדכן…"
+  },
+  "content.managed-card.view-content": {
+    "defaultMessage": "הצג תוכן"
+  },
+  "content.metadata-filter.author": {
+    "defaultMessage": "יוצר"
+  },
+  "content.metadata-filter.environment": {
+    "defaultMessage": "סביבה"
+  },
+  "content.metadata-filter.open-source": {
+    "defaultMessage": "קוד פתוח"
+  },
+  "content.metadata-filter.shared-content": {
+    "defaultMessage": "תוכן משותף"
+  },
+  "content.metadata-filter.source.external": {
+    "defaultMessage": "חיצוני"
+  },
+  "content.metadata-filter.state": {
+    "defaultMessage": "מצב"
+  },
+  "content.metadata-filter.state.disabled": {
+    "defaultMessage": "מושבת"
+  },
+  "content.metadata-filter.state.enabled": {
+    "defaultMessage": "מופעל"
+  },
+  "content.metadata-filter.update.available": {
+    "defaultMessage": "עדכון זמין"
+  },
+  "content.metadata-filter.warning.client-depends": {
+    "defaultMessage": "לקוח תלוי בקובץ"
+  },
+  "content.metadata-filter.warning.client-only": {
+    "defaultMessage": "תוכן ללקוח בלבד"
+  },
+  "content.metadata-filter.warning.client-retained": {
+    "defaultMessage": "קובץ לקוח נשמר"
+  },
+  "content.metadata-filter.warning.none": {
+    "defaultMessage": "אין אזהרות"
+  },
+  "content.metadata-filter.warnings": {
+    "defaultMessage": "אזהרות"
+  },
   "content.page-layout.additional-content": {
     "defaultMessage": "תוכן נוסף"
+  },
+  "content.page-layout.browse-content": {
+    "defaultMessage": "עיין בתוכן"
+  },
+  "content.page-layout.empty.hint": {
+    "defaultMessage": "עיין או העלה {contentType} כדי להתחיל"
+  },
+  "content.page-layout.empty.modpack-hint": {
+    "defaultMessage": "הוסף תוכן נוסף מעל חבילת מודים זו"
   },
   "content.page-layout.empty.no-content-installed": {
     "defaultMessage": "אין תוכן מותקן"
@@ -290,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "טעינת התוכן נכשלה"
   },
+  "content.page-layout.filter.add": {
+    "defaultMessage": "סנן"
+  },
+  "content.page-layout.filter.author-count": {
+    "defaultMessage": "{count, plural, one {יוצר אחד} other {# יוצרים}}"
+  },
   "content.page-layout.loading": {
     "defaultMessage": "טוען תוכן..."
   },
@@ -299,11 +659,602 @@
   "content.page-layout.please-wait": {
     "defaultMessage": "אנא המתן"
   },
+  "content.page-layout.search-placeholder": {
+    "defaultMessage": "חפש {count, number} {contentType}…"
+  },
+  "content.page-layout.share.file-names": {
+    "defaultMessage": "שמות קבצים"
+  },
   "content.page-layout.share.label": {
     "defaultMessage": "שתף"
   },
+  "content.page-layout.share.markdown-links": {
+    "defaultMessage": "קישורי Markdown"
+  },
+  "content.page-layout.share.project-links": {
+    "defaultMessage": "קישורי פרויקטים"
+  },
+  "content.page-layout.share.project-names": {
+    "defaultMessage": "שמות פרויקטים"
+  },
+  "content.page-layout.sort.alphabetical-ascending": {
+    "defaultMessage": "שם (A-Z)"
+  },
+  "content.page-layout.sort.alphabetical-descending": {
+    "defaultMessage": "שם (Z-A)"
+  },
+  "content.page-layout.sort.date-added-newest": {
+    "defaultMessage": "החדש ביותר תחילה"
+  },
+  "content.page-layout.sort.date-added-oldest": {
+    "defaultMessage": "הישן ביותר תחילה"
+  },
+  "content.page-layout.sort.label": {
+    "defaultMessage": "מיין לפי {mode}"
+  },
+  "content.page-layout.update-all": {
+    "defaultMessage": "עדכן הכל"
+  },
+  "content.page-layout.upload-files": {
+    "defaultMessage": "העלה קבצים"
+  },
+  "content.selection-bar.all-already-disabled": {
+    "defaultMessage": "כל התוכן הנבחר כבר מושבת"
+  },
+  "content.selection-bar.all-already-enabled": {
+    "defaultMessage": "כל התוכן הנבחר כבר מופעל"
+  },
+  "content.selection-bar.bulk.deleting": {
+    "defaultMessage": "מוחק {progress}/{total} {contentType}…"
+  },
+  "content.selection-bar.bulk.deleting-count": {
+    "defaultMessage": "מוחק {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.deleting-waiting": {
+    "defaultMessage": "מוחק {contentType}…"
+  },
+  "content.selection-bar.bulk.disabling": {
+    "defaultMessage": "משבית {progress}/{total} {contentType}…"
+  },
+  "content.selection-bar.bulk.disabling-count": {
+    "defaultMessage": "משבית {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.disabling-waiting": {
+    "defaultMessage": "משבית {contentType}…"
+  },
+  "content.selection-bar.bulk.enabling": {
+    "defaultMessage": "מפעיל {progress}/{total} {contentType}…"
+  },
+  "content.selection-bar.bulk.enabling-count": {
+    "defaultMessage": "מפעיל {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.enabling-waiting": {
+    "defaultMessage": "מפעיל {contentType}…"
+  },
+  "content.selection-bar.bulk.updating": {
+    "defaultMessage": "מעדכן {progress}/{total} {contentType}…"
+  },
+  "content.selection-bar.bulk.updating-count": {
+    "defaultMessage": "מעדכן {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.updating-waiting": {
+    "defaultMessage": "מעדכן {contentType}…"
+  },
+  "content.selection-bar.selected-count": {
+    "defaultMessage": "{count, number} {contentType} נבחרו"
+  },
+  "content.selection-bar.selected-count-simple": {
+    "defaultMessage": "{count, number} נבחרו"
+  },
+  "creation-flow.button.create-instance": {
+    "defaultMessage": "צור התקנה"
+  },
+  "creation-flow.button.import": {
+    "defaultMessage": "ייבא"
+  },
+  "creation-flow.button.import-instances": {
+    "defaultMessage": "ייבא {count, plural, one {התקנה אחת} other {# התקנות}}"
+  },
+  "creation-flow.modal.custom-setup.game-version.placeholder": {
+    "defaultMessage": "בחר גרסת משחק"
+  },
+  "creation-flow.modal.custom-setup.game-version.search-placeholder": {
+    "defaultMessage": "חפש גרסת משחק…"
+  },
+  "creation-flow.modal.custom-setup.icon.customize": {
+    "defaultMessage": "התאם אישית"
+  },
+  "creation-flow.modal.custom-setup.icon.randomize": {
+    "defaultMessage": "הגרל"
+  },
+  "creation-flow.modal.custom-setup.icon.select": {
+    "defaultMessage": "העלה"
+  },
+  "creation-flow.modal.custom-setup.loader-version-type.latest": {
+    "defaultMessage": "עדכנית"
+  },
+  "creation-flow.modal.custom-setup.loader-version-type.other": {
+    "defaultMessage": "אחרת"
+  },
+  "creation-flow.modal.custom-setup.loader-version-type.stable": {
+    "defaultMessage": "יציבה"
+  },
+  "creation-flow.modal.custom-setup.loader-version.label": {
+    "defaultMessage": "גרסת טוען"
+  },
+  "creation-flow.modal.custom-setup.loader-version.placeholder": {
+    "defaultMessage": "בחר גרסת טוען"
+  },
+  "creation-flow.modal.custom-setup.loader-version.search-placeholder": {
+    "defaultMessage": "חפש גרסת טוען…"
+  },
+  "creation-flow.modal.custom-setup.loader.label": {
+    "defaultMessage": "טוען"
+  },
+  "creation-flow.modal.custom-setup.name.label": {
+    "defaultMessage": "שם"
+  },
+  "creation-flow.modal.custom-setup.name.placeholder": {
+    "defaultMessage": "הזן שם התקנה"
+  },
+  "creation-flow.modal.custom-setup.options.no-versions-available": {
+    "defaultMessage": "אין גרסאות זמינות"
+  },
+  "creation-flow.modal.import-instance.action.add": {
+    "defaultMessage": "הוסף"
+  },
+  "creation-flow.modal.import-instance.custom-launcher.name": {
+    "defaultMessage": "מותאם ({pathName})"
+  },
+  "creation-flow.modal.import-instance.detecting-launcher-instances": {
+    "defaultMessage": "מזהה התקנות משגר…"
+  },
+  "creation-flow.modal.import-instance.launcher-instances.title": {
+    "defaultMessage": "התקנות משגר"
+  },
+  "creation-flow.modal.import-instance.launcher-path.add": {
+    "defaultMessage": "הוסף נתיב משגר"
+  },
+  "creation-flow.modal.import-instance.launcher-path.browse": {
+    "defaultMessage": "עיין לנתיב משגר"
+  },
+  "creation-flow.modal.import-instance.launcher-path.placeholder": {
+    "defaultMessage": "נתיב למשגר…"
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.text": {
+    "defaultMessage": "לא נמצאו התקנות הניתנות לייבוא בנתיב שצוין."
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.title": {
+    "defaultMessage": "לא נמצאו התקנות"
+  },
+  "creation-flow.modal.import-instance.search.placeholder": {
+    "defaultMessage": "חפש שם התקנה"
+  },
+  "creation-flow.modal.import-instance.selection.clear-all": {
+    "defaultMessage": "נקה הכל"
+  },
+  "creation-flow.modal.project.known-project.prompt": {
+    "defaultMessage": "כבר יודע מה ברצונך לשחק?"
+  },
+  "creation-flow.modal.project.search.create-instance": {
+    "defaultMessage": "צור התקנה"
+  },
+  "creation-flow.modal.project.search.install-modpack": {
+    "defaultMessage": "התקן חבילת מודים"
+  },
+  "creation-flow.modal.project.search.no-results": {
+    "defaultMessage": "לא נמצאו תוצאות"
+  },
+  "creation-flow.modal.project.search.placeholder": {
+    "defaultMessage": "חפש מודים, חבילות מודים ועוד…"
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.description": {
+    "defaultMessage": "התחל מאפס על ידי בחירת טוען וגרסת משחק."
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.title": {
+    "defaultMessage": "הגדרה מותאמת"
+  },
+  "creation-flow.modal.setup-type.option.import-instance.description": {
+    "defaultMessage": "ייבא התקנה מ־Prism,‏ CurseForge או דומה."
+  },
+  "creation-flow.modal.setup-type.option.import-instance.title": {
+    "defaultMessage": "ייבא התקנה"
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.description": {
+    "defaultMessage": "בחר פרויקט ונשתמש בגרסתו העדכנית."
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.title": {
+    "defaultMessage": "התחל ממוד או מחבילת מודים"
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.supported-formats-description": {
+    "defaultMessage": "ייבא קובץ .orbpack,‏ .mrpack של Modrinth או .zip של CurseForge מהמכשיר שלך."
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.title": {
+    "defaultMessage": "העלה חבילת מודים"
+  },
+  "creation-flow.modal.setup-type.title.instance": {
+    "defaultMessage": "בחר סוג התקנה"
+  },
+  "creation-flow.optifine.description": {
+    "defaultMessage": "אופציונלי. בחר את המתקין הרשמי והמשגר יגדיר אותו בהתקנה זו."
+  },
+  "creation-flow.optifine.download": {
+    "defaultMessage": "הורדה רשמית"
+  },
+  "creation-flow.optifine.name": {
+    "defaultMessage": "OptiFine"
+  },
+  "creation-flow.optifine.none": {
+    "defaultMessage": "ללא"
+  },
+  "creation-flow.optifine.optimization": {
+    "defaultMessage": "אופטימיזציה"
+  },
+  "creation-flow.optifine.required": {
+    "defaultMessage": "בחר את JAR ה־OptiFine הרשמי עבור Minecraft {gameVersion} כדי להמשיך."
+  },
+  "creation-flow.optifine.select": {
+    "defaultMessage": "בחר JAR"
+  },
+  "creation-flow.optifine.selected": {
+    "defaultMessage": "OptiFine {version} · Minecraft {gameVersion}"
+  },
+  "creation-flow.optifine.validating": {
+    "defaultMessage": "בודק מתקין…"
+  },
+  "creation-flow.optifine.vanilla-only": {
+    "defaultMessage": "התקנת OptiFine זמינה כעת עבור התקנות Vanilla."
+  },
+  "creation-flow.title.create-instance": {
+    "defaultMessage": "צור התקנה"
+  },
+  "creation-flow.title.import-instance": {
+    "defaultMessage": "ייבא התקנה"
+  },
+  "empty-state.upload-versions.description": {
+    "defaultMessage": "חזור לאחר שהעלית את הגרסאות שלך."
+  },
+  "external-project-license-status.no": {
+    "defaultMessage": "לא"
+  },
+  "external-project-license-status.permanent-no": {
+    "defaultMessage": "לא לצמיתות"
+  },
+  "external-project-license-status.unidentified": {
+    "defaultMessage": "לא מזוהה"
+  },
+  "external-project-license-status.with-attribution": {
+    "defaultMessage": "עם ייחוס"
+  },
+  "external-project-license-status.with-attribution-and-source": {
+    "defaultMessage": "עם ייחוס ומקור"
+  },
+  "external-project-license-status.yes": {
+    "defaultMessage": "כן"
+  },
+  "file-button.file-too-large.description": {
+    "defaultMessage": "הקובץ {filename} גדול מדי. גודל הקובץ המרבי הוא {maxSize}."
+  },
+  "file-button.file-too-large.title": {
+    "defaultMessage": "קובץ גדול מדי"
+  },
+  "files.conflict-modal.header": {
+    "defaultMessage": "סיכום חילוץ"
+  },
+  "files.conflict-modal.overwrite-button": {
+    "defaultMessage": "דרוס"
+  },
+  "files.conflict-modal.overwrite-file-label": {
+    "defaultMessage": "ידרוס את <file-path>{path}</file-path>"
+  },
+  "files.conflict-modal.overwrite-many-warning": {
+    "defaultMessage": "מעל 100 קבצים יידרסו אם תמשיך בחילוץ; הנה חלק מהם."
+  },
+  "files.conflict-modal.overwrite-warning": {
+    "defaultMessage": "{count} הקבצים הבאים כבר קיימים בשרת שלך, ויידרסו אם תמשיך בחילוץ."
+  },
+  "files.conflict-modal.overwritten-count": {
+    "defaultMessage": "{count} נדרסו"
+  },
+  "files.conflict-modal.warning-header": {
+    "defaultMessage": "קבצים יידרסו"
+  },
+  "files.create-modal.create-button": {
+    "defaultMessage": "צור {type}"
+  },
+  "files.create-modal.header": {
+    "defaultMessage": "צור {type}"
+  },
+  "files.create-modal.placeholder-directory": {
+    "defaultMessage": "e.g. my-folder"
+  },
+  "files.create-modal.placeholder-file": {
+    "defaultMessage": "e.g. config.yml"
+  },
+  "files.create-zip-modal.already-exists": {
+    "defaultMessage": "קובץ בשם זה כבר קיים."
+  },
+  "files.create-zip-modal.check-failed": {
+    "defaultMessage": "לא ניתן לבדוק אם קובץ זה כבר קיים."
+  },
+  "files.create-zip-modal.create-button": {
+    "defaultMessage": "צור ZIP"
+  },
+  "files.create-zip-modal.header": {
+    "defaultMessage": "צור ZIP"
+  },
+  "files.create-zip-modal.invalid": {
+    "defaultMessage": "שם הארכיון חייב להיות שם קובץ יחיד."
+  },
+  "files.create-zip-modal.name-label": {
+    "defaultMessage": "שם ארכיון"
+  },
+  "files.create-zip-modal.name-placeholder": {
+    "defaultMessage": "ארכיון.zip"
+  },
+  "files.create-zip-modal.required": {
+    "defaultMessage": "הזן שם ארכיון."
+  },
+  "files.delete-modal.deleting-name": {
+    "defaultMessage": "מוחק את \"{name}\""
+  },
+  "files.delete-modal.header": {
+    "defaultMessage": "מחק קובץ"
+  },
+  "files.delete-modal.warning.file": {
+    "defaultMessage": "קובץ זה יימחק לצמיתות. לא ניתן לבטל פעולה זו."
+  },
+  "files.delete-modal.warning.folder": {
+    "defaultMessage": "תיקייה זו וכל תוכנה יימחקו לצמיתות. לא ניתן לבטל פעולה זו."
+  },
+  "files.editor.failed-to-open-text": {
+    "defaultMessage": "לא ניתן לטעון את תוכן הקובץ."
+  },
+  "files.editor.failed-to-open-title": {
+    "defaultMessage": "נכשל בפתיחת הקובץ"
+  },
+  "files.editor.failed-to-share-text": {
+    "defaultMessage": "לא ניתן להעלות ל־mclo.gs."
+  },
+  "files.editor.failed-to-share-title": {
+    "defaultMessage": "נכשל בשיתוף הקובץ"
+  },
+  "files.editor.file-saved-text": {
+    "defaultMessage": "הקובץ שלך נשמר."
+  },
+  "files.editor.file-saved-title": {
+    "defaultMessage": "הקובץ נשמר"
+  },
+  "files.editor.find-in-file": {
+    "defaultMessage": "חפש"
+  },
+  "files.editor.find-match-count": {
+    "defaultMessage": "{current} מתוך {total}"
+  },
+  "files.editor.find-next-match": {
+    "defaultMessage": "התאמה הבאה"
+  },
+  "files.editor.find-no-results": {
+    "defaultMessage": "אין תוצאות"
+  },
+  "files.editor.find-previous-match": {
+    "defaultMessage": "התאמה קודמת"
+  },
+  "files.editor.find-toggle-replace": {
+    "defaultMessage": "החלף החלפה"
+  },
+  "files.editor.log-url-copied-text": {
+    "defaultMessage": "כתובת קובץ היומן שלך הועתקה ללוח."
+  },
+  "files.editor.log-url-copied-title": {
+    "defaultMessage": "כתובת היומן הועתקה"
+  },
+  "files.editor.replace": {
+    "defaultMessage": "החלף"
+  },
+  "files.editor.replace-all": {
+    "defaultMessage": "החלף הכל"
+  },
+  "files.editor.replace-in-file": {
+    "defaultMessage": "החלף"
+  },
+  "files.editor.save-failed-text": {
+    "defaultMessage": "לא ניתן לשמור את הקובץ."
+  },
+  "files.editor.save-failed-title": {
+    "defaultMessage": "השמירה נכשלה"
+  },
+  "files.error.go-to-home": {
+    "defaultMessage": "עבור לתיקיית הבית"
+  },
+  "files.error.try-again": {
+    "defaultMessage": "נסה שוב"
+  },
+  "files.image_viewer.image_too_large": {
+    "defaultMessage": "התמונה גדולה מדי לצפייה (מרב {maxDimension}x{maxDimension} פיקסלים)"
+  },
+  "files.image_viewer.invalid_image": {
+    "defaultMessage": "קובץ תמונה לא תקין או ריק."
+  },
+  "files.image_viewer.load_failed": {
+    "defaultMessage": "נכשל בטעינת התמונה"
+  },
+  "files.image_viewer.reset_zoom": {
+    "defaultMessage": "אפס מרחק תצוגה"
+  },
+  "files.image_viewer.viewed_image_alt": {
+    "defaultMessage": "תמונה מוצגת"
+  },
+  "files.image_viewer.zoom_in": {
+    "defaultMessage": "התקרב"
+  },
+  "files.image_viewer.zoom_out": {
+    "defaultMessage": "התרחק"
+  },
+  "files.item-type.file": {
+    "defaultMessage": "קובץ"
+  },
+  "files.item-type.files": {
+    "defaultMessage": "קבצים"
+  },
+  "files.item-type.folder": {
+    "defaultMessage": "תיקייה"
+  },
+  "files.item-type.folders": {
+    "defaultMessage": "תיקיות"
+  },
+  "files.layout.create-zip": {
+    "defaultMessage": "צור ZIP"
+  },
+  "files.layout.dry-run-failed-text": {
+    "defaultMessage": "שגיאה בהרצת ניסיון"
+  },
+  "files.layout.dry-run-failed-title": {
+    "defaultMessage": "הרצת הניסיון נכשלה"
+  },
+  "files.layout.empty-folder-description": {
+    "defaultMessage": "אין קבצים או תיקיות."
+  },
+  "files.layout.empty-folder-title": {
+    "defaultMessage": "תיקייה זו ריקה"
+  },
+  "files.layout.error-message": {
+    "defaultMessage": "ייתכן שהתיקייה אינה קיימת."
+  },
+  "files.layout.error-title": {
+    "defaultMessage": "לא ניתן לטעון קבצים"
+  },
+  "files.layout.extraction-started-title": {
+    "defaultMessage": "החילוץ החל"
+  },
+  "files.layout.selected-count": {
+    "defaultMessage": "{count} נבחרו"
+  },
+  "files.layout.unsaved-changes": {
+    "defaultMessage": "יש לך שינויים שלא נשמרו."
+  },
   "files.move-modal.current-location": {
     "defaultMessage": "מיקום נוכחי"
+  },
+  "files.move-modal.destination-path": {
+    "defaultMessage": "נתיב יעד"
+  },
+  "files.move-modal.destination-placeholder": {
+    "defaultMessage": "e.g. /my-folder"
+  },
+  "files.move-modal.header": {
+    "defaultMessage": "העבר {type}"
+  },
+  "files.navbar.back-to-home": {
+    "defaultMessage": "חזרה לבית"
+  },
+  "files.navbar.breadcrumb-navigation": {
+    "defaultMessage": "ניווט פירורי לחם"
+  },
+  "files.navbar.create-new": {
+    "defaultMessage": "צור חדש…"
+  },
+  "files.navbar.file-navigation": {
+    "defaultMessage": "ניווט קבצים"
+  },
+  "files.navbar.find-in-file": {
+    "defaultMessage": "חפש בקובץ"
+  },
+  "files.navbar.home": {
+    "defaultMessage": "בית"
+  },
+  "files.navbar.new-file": {
+    "defaultMessage": "קובץ חדש"
+  },
+  "files.navbar.new-folder": {
+    "defaultMessage": "תיקייה חדשה"
+  },
+  "files.navbar.search-files": {
+    "defaultMessage": "חפש קבצים"
+  },
+  "files.navbar.share-to-mclogs": {
+    "defaultMessage": "שתף ל־mclo.gs"
+  },
+  "files.navbar.upload-file": {
+    "defaultMessage": "העלה קובץ"
+  },
+  "files.navbar.upload-from-zip": {
+    "defaultMessage": "העלה מקובץ .zip"
+  },
+  "files.rename-modal.header": {
+    "defaultMessage": "שנה שם {name}"
+  },
+  "files.rename-modal.new-name-label": {
+    "defaultMessage": "שם חדש"
+  },
+  "files.row.create-zip": {
+    "defaultMessage": "צור ZIP"
+  },
+  "files.row.item-count": {
+    "defaultMessage": "{count, plural, one {פריט אחד} other {# פריטים}}"
+  },
+  "files.row.parent-folder": {
+    "defaultMessage": "תיקיית אב"
+  },
+  "files.table-header.created": {
+    "defaultMessage": "נוצר"
+  },
+  "files.table-header.modified": {
+    "defaultMessage": "שונה"
+  },
+  "files.table-header.name": {
+    "defaultMessage": "שם"
+  },
+  "files.table-header.size": {
+    "defaultMessage": "גודל"
+  },
+  "files.unsaved-changes-modal.body": {
+    "defaultMessage": "יש לך שינויים שלא נשמרו שיאבדו אם תעזוב. האם ברצונך לשמור לפני העזיבה?"
+  },
+  "files.unsaved-changes-modal.discard": {
+    "defaultMessage": "בטל"
+  },
+  "files.unsaved-changes-modal.header": {
+    "defaultMessage": "שינויים שלא נשמרו"
+  },
+  "files.upload.drag-and-drop.drop-to-upload": {
+    "defaultMessage": "שחרר {type} כאן להעלאה"
+  },
+  "files.validation.name-invalid-directory": {
+    "defaultMessage": "השם חייב להכיל רק תווים אלפאנומריים, מקפים, קווים תחתונים או רווחים."
+  },
+  "files.validation.name-invalid-file": {
+    "defaultMessage": "השם חייב להכיל רק תווים אלפאנומריים, מקפים, קווים תחתונים, נקודות או רווחים."
+  },
+  "files.validation.name-label": {
+    "defaultMessage": "שם"
+  },
+  "files.validation.name-required": {
+    "defaultMessage": "נדרש שם."
+  },
+  "filter-bar.add": {
+    "defaultMessage": "הוסף"
+  },
+  "filter-bar.clear": {
+    "defaultMessage": "נקה"
+  },
+  "filter-bar.clear-named-filter": {
+    "defaultMessage": "נקה מסנן {name}"
+  },
+  "filter-bar.filtered-by": {
+    "defaultMessage": "מסונן לפי"
+  },
+  "filter-bar.no-options": {
+    "defaultMessage": "אין אפשרויות זמינות."
+  },
+  "filter-bar.no-search-results": {
+    "defaultMessage": "לא נמצאו אפשרויות."
+  },
+  "filter-bar.search-placeholder": {
+    "defaultMessage": "חפש…"
+  },
+  "filter-bar.select-all": {
+    "defaultMessage": "בחר הכל"
   },
   "form.label.address-line": {
     "defaultMessage": "שורת הכתובת"
@@ -383,17 +1334,155 @@
   "form.placeholder.state": {
     "defaultMessage": "הכנס מדינה/מחוז"
   },
+  "format.bytes.0": {
+    "defaultMessage": "{count, plural, one {בייט אחד} other {# בתים}}"
+  },
+  "format.bytes.1": {
+    "defaultMessage": "{count, number} KiB"
+  },
+  "format.bytes.2": {
+    "defaultMessage": "{count, number} MiB"
+  },
+  "format.bytes.3": {
+    "defaultMessage": "{count, number} GiB"
+  },
+  "format.bytes.4": {
+    "defaultMessage": "{count, number} TiB"
+  },
   "header.category.category": {
     "defaultMessage": "קטגוריה"
   },
   "header.category.feature": {
     "defaultMessage": "תכונה"
   },
+  "header.category.minecraft-server-community": {
+    "defaultMessage": "קהילה"
+  },
+  "header.category.minecraft-server-features": {
+    "defaultMessage": "תכונות"
+  },
+  "header.category.minecraft-server-gameplay": {
+    "defaultMessage": "משחקיות"
+  },
+  "header.category.minecraft-server-meta": {
+    "defaultMessage": "מטא"
+  },
   "header.category.performance-impact": {
     "defaultMessage": "השפעה על הביצועים"
   },
+  "header.category.resolutions": {
+    "defaultMessage": "רזולוציה"
+  },
+  "image-viewer.close": {
+    "defaultMessage": "סגור"
+  },
+  "image-viewer.edit": {
+    "defaultMessage": "ערוך"
+  },
+  "image-viewer.editor.colour": {
+    "defaultMessage": "צבע"
+  },
+  "image-viewer.editor.crop.dimensions": {
+    "defaultMessage": "{width} × {height} פיקסלים"
+  },
+  "image-viewer.editor.crop.reset": {
+    "defaultMessage": "אפס חיתוך"
+  },
+  "image-viewer.editor.delete-selection": {
+    "defaultMessage": "מחק הערה נבחרת"
+  },
+  "image-viewer.editor.eraser.area": {
+    "defaultMessage": "אזור"
+  },
+  "image-viewer.editor.eraser.element": {
+    "defaultMessage": "רכיב"
+  },
+  "image-viewer.editor.eraser.mode": {
+    "defaultMessage": "מצב מחק"
+  },
+  "image-viewer.editor.image-editing-tools": {
+    "defaultMessage": "כלי עריכת תמונה"
+  },
+  "image-viewer.editor.more-save-options": {
+    "defaultMessage": "אפשרויות שמירה נוספות"
+  },
+  "image-viewer.editor.overwrite": {
+    "defaultMessage": "דרוס"
+  },
+  "image-viewer.editor.redo": {
+    "defaultMessage": "בצע שוב"
+  },
+  "image-viewer.editor.save-as-new": {
+    "defaultMessage": "שמור עותק"
+  },
+  "image-viewer.editor.save-image": {
+    "defaultMessage": "שמור תמונה"
+  },
+  "image-viewer.editor.size": {
+    "defaultMessage": "גודל"
+  },
+  "image-viewer.editor.tool.arrow": {
+    "defaultMessage": "חץ"
+  },
+  "image-viewer.editor.tool.censor": {
+    "defaultMessage": "צנזר"
+  },
+  "image-viewer.editor.tool.crop": {
+    "defaultMessage": "חתוך"
+  },
+  "image-viewer.editor.tool.ellipse": {
+    "defaultMessage": "אליפסה"
+  },
+  "image-viewer.editor.tool.eraser": {
+    "defaultMessage": "מחק"
+  },
+  "image-viewer.editor.tool.highlight": {
+    "defaultMessage": "הדגש"
+  },
+  "image-viewer.editor.tool.pen": {
+    "defaultMessage": "עט"
+  },
+  "image-viewer.editor.tool.rectangle": {
+    "defaultMessage": "מלבן"
+  },
+  "image-viewer.editor.tool.select": {
+    "defaultMessage": "בחר"
+  },
+  "image-viewer.editor.tool.text": {
+    "defaultMessage": "טקסט"
+  },
+  "image-viewer.editor.undo": {
+    "defaultMessage": "בטל"
+  },
+  "image-viewer.editor.width": {
+    "defaultMessage": "רוחב"
+  },
+  "image-viewer.editor.zoom-fit": {
+    "defaultMessage": "התאם"
+  },
+  "image-viewer.editor.zoom-fit-workspace": {
+    "defaultMessage": "התאם לסביבת עבודה"
+  },
+  "image-viewer.editor.zoom-in": {
+    "defaultMessage": "התקרב"
+  },
+  "image-viewer.editor.zoom-out": {
+    "defaultMessage": "התרחק"
+  },
+  "image-viewer.next": {
+    "defaultMessage": "תמונה הבאה"
+  },
+  "image-viewer.previous": {
+    "defaultMessage": "תמונה קודמת"
+  },
+  "input.search-version.placeholder": {
+    "defaultMessage": "חפש גרסה…"
+  },
   "input.search.placeholder": {
     "defaultMessage": "חפש..."
+  },
+  "input.select-version.placeholder": {
+    "defaultMessage": "בחר גרסה"
   },
   "input.view.gallery": {
     "defaultMessage": "תצוגת גלריה"
@@ -403,6 +1492,135 @@
   },
   "input.view.list": {
     "defaultMessage": "תצוגת שורות"
+  },
+  "installation-settings.aria.select-game-version": {
+    "defaultMessage": "בחר גרסת משחק"
+  },
+  "installation-settings.aria.select-loader-version": {
+    "defaultMessage": "בחר גרסת {loader}"
+  },
+  "installation-settings.aria.select-platform": {
+    "defaultMessage": "בחר פלטפורמה"
+  },
+  "installation-settings.confirm-version-change": {
+    "defaultMessage": "אשר"
+  },
+  "installation-settings.confirm-version-change-description": {
+    "defaultMessage": "מעבר ל־{gameVersion} ישנה את התוכן הבא בשרת שלך."
+  },
+  "installation-settings.confirm-version-change-header": {
+    "defaultMessage": "סקור שינויי תוכן"
+  },
+  "installation-settings.edit-installation.title": {
+    "defaultMessage": "ערוך התקנה"
+  },
+  "installation-settings.edit.warning-instance": {
+    "defaultMessage": "איננו ממליצים לערוך את הגדרות ההתקנה לאחר התקנת תוכן. אם ברצונך לערוך אותן, היזהר שכן זה עלול לגרום לבעיות."
+  },
+  "installation-settings.incompatible-content.auto-fix-button": {
+    "defaultMessage": "תקן אוטומטית"
+  },
+  "installation-settings.incompatible-content.change-loader-button": {
+    "defaultMessage": "החלף טוען"
+  },
+  "installation-settings.incompatible-content.disable-conflicts-button": {
+    "defaultMessage": "השבת קונפליקטים"
+  },
+  "installation-settings.incompatible-content.game-version-warning-body": {
+    "defaultMessage": "בעת שינוי גרסת המשחק, ניתן להשבית תוכן מותקן לא תואם או לנסות לפתור את אי־ההתאמות."
+  },
+  "installation-settings.incompatible-content.game-version-warning-title": {
+    "defaultMessage": "אזהרת אי־תאימות"
+  },
+  "installation-settings.incompatible-content.header": {
+    "defaultMessage": "מותקן תוכן לא תואם"
+  },
+  "installation-settings.incompatible-content.loader-change-body": {
+    "defaultMessage": "בעת שינוי הטוען, כל התוכן המותקן יושבת. מומלץ לאפס את השרת במקום זאת."
+  },
+  "installation-settings.incompatible-content.loader-change-title": {
+    "defaultMessage": "שינוי טוענים הוא הרסני"
+  },
+  "installation-settings.linked-instance.title": {
+    "defaultMessage": "{projectType} מקושר"
+  },
+  "installation-settings.linked.modpack": {
+    "defaultMessage": "חבילת מודים"
+  },
+  "installation-settings.linked.server-project": {
+    "defaultMessage": "פרויקט שרת"
+  },
+  "installation-settings.loader-version": {
+    "defaultMessage": "גרסת {loader}"
+  },
+  "installation-settings.platform-lock-tooltip": {
+    "defaultMessage": "יהיה עליך לאפס את השרת כדי להחליף טוען."
+  },
+  "installation-settings.reinstall-modpack.description": {
+    "defaultMessage": "התקנה מחדש של חבילת המודים מאפסת את תוכן {type} למצבו המקורי, ומסירה מודים או תוכן שהוספת."
+  },
+  "installation-settings.reinstall-modpack.title": {
+    "defaultMessage": "התקן מחדש חבילת מודים"
+  },
+  "installation-settings.reinstalling-modpack": {
+    "defaultMessage": "מתקין מחדש חבילת מודים"
+  },
+  "installation-settings.removed-incompatible": {
+    "defaultMessage": "הוסר (לא תואם)"
+  },
+  "installation-settings.repair.instance-description": {
+    "defaultMessage": "מתקין מחדש תלויות Minecraft ובודק פגימות. עשוי לפתור בעיות אם המשחק שלך אינו מופעל בגלל שגיאות הקשורות למשגר."
+  },
+  "installation-settings.repair.instance-title": {
+    "defaultMessage": "תקן התקנה"
+  },
+  "installation-settings.saving": {
+    "defaultMessage": "שומר…"
+  },
+  "installation-settings.search-game-version": {
+    "defaultMessage": "חפש גרסת משחק…"
+  },
+  "installation-settings.type.instance": {
+    "defaultMessage": "התקנה"
+  },
+  "installation-settings.type.instance-possessive": {
+    "defaultMessage": "של ההתקנה"
+  },
+  "installation-settings.type.server": {
+    "defaultMessage": "שרת"
+  },
+  "installation-settings.unlink": {
+    "defaultMessage": "נתק"
+  },
+  "installation-settings.unlink.description": {
+    "defaultMessage": "ניתוק מנתק לצמיתות {type} זה מפרויקט {projectType}, ומאפשר לשנות את הטוען וגרסת Minecraft, אך לא תקבל עדכונים עתידיים."
+  },
+  "installation-settings.verifying": {
+    "defaultMessage": "מאמת…"
+  },
+  "instance.confirm-reinstall.admonition-body": {
+    "defaultMessage": "התקנה מחדש תאפס את כל התוכן המותקן או שהשתנה למה שמסופק על ידי חבילת המודים, ותסיר מודים או תוכן שהוספת מעל ההתקנה המקורית."
+  },
+  "instance.confirm-reinstall.admonition-header": {
+    "defaultMessage": "אזהרת התקנה מחדש"
+  },
+  "instance.confirm-reinstall.header": {
+    "defaultMessage": "התקן מחדש חבילת מודים"
+  },
+  "instance.confirm-reinstall.reinstall-button": {
+    "defaultMessage": "התקן מחדש חבילת מודים"
+  },
+  "instance.confirm-repair.body.instance": {
+    "defaultMessage": "תיקון מתקין מחדש את הטוען ואת תלויות Minecraft מבלי למחוק את התוכן שלך. עשוי לפתור בעיות אם המשחק שלך אינו מופעל בגלל שגיאות הקשורות למשגר."
+  },
+  "instance.confirm-repair.header": {
+    "defaultMessage": "תקן {type}"
+  },
+  "instance.confirm-repair.instance-label": {
+    "defaultMessage": "התקנה"
+  },
+  "instance.confirm-repair.repair-button": {
+    "defaultMessage": "תקן"
   },
   "instance.worlds.game_mode.adventure": {
     "defaultMessage": "מצב הרפתקה"
@@ -419,23 +1637,164 @@
   "instance.worlds.game_mode.unknown": {
     "defaultMessage": "מצב משחק לא ידוע"
   },
+  "instances.content-install.compatible-count": {
+    "defaultMessage": "{count} תואמות {count, plural, one {התקנה} other {התקנות}}"
+  },
+  "instances.content-install.existing-tab": {
+    "defaultMessage": "התקנה קיימת"
+  },
+  "instances.content-install.game-version-placeholder": {
+    "defaultMessage": "בחר גרסת משחק"
+  },
+  "instances.content-install.header": {
+    "defaultMessage": "התקן פרויקט"
+  },
+  "instances.content-install.hide-unavailable": {
+    "defaultMessage": "הסתר לא זמינים"
+  },
+  "instances.content-install.incompatible-tooltip": {
+    "defaultMessage": "התקנה זו משתמשת בטוען או בגרסת משחק שונים מאלה שפרויקט זה תומך בהם."
+  },
+  "instances.content-install.install-button": {
+    "defaultMessage": "התקן"
+  },
+  "instances.content-install.installed-badge": {
+    "defaultMessage": "מותקן"
+  },
+  "instances.content-install.instance-type": {
+    "defaultMessage": "סוג התקנה"
+  },
+  "instances.content-install.loader-label": {
+    "defaultMessage": "טוען"
+  },
+  "instances.content-install.name-label": {
+    "defaultMessage": "שם"
+  },
+  "instances.content-install.name-placeholder": {
+    "defaultMessage": "הזן שם התקנה"
+  },
+  "instances.content-install.new-tab": {
+    "defaultMessage": "התקנה חדשה"
+  },
+  "instances.content-install.no-instances": {
+    "defaultMessage": "לא נמצאו התקנות תואמות"
+  },
+  "instances.content-install.search-placeholder": {
+    "defaultMessage": "חפש התקנה"
+  },
+  "instances.content-install.show-unavailable": {
+    "defaultMessage": "הצג לא זמינים"
+  },
+  "instances.managed-content-modal.disabled": {
+    "defaultMessage": "מושבת"
+  },
+  "instances.managed-content-modal.download-file": {
+    "defaultMessage": "הורד קובץ"
+  },
+  "instances.managed-content-modal.empty-description": {
+    "defaultMessage": "מקור זה אינו כולל תוכן מנוהל."
+  },
+  "instances.managed-content-modal.empty-title": {
+    "defaultMessage": "לא נמצא תוכן"
+  },
+  "instances.managed-content-modal.enabled": {
+    "defaultMessage": "מופעל"
+  },
+  "instances.managed-content-modal.external-content": {
+    "defaultMessage": "חיצוני"
+  },
+  "instances.managed-content-modal.external-content-description": {
+    "defaultMessage": "קובץ זה אינו מפורסם ב־Modrinth."
+  },
+  "instances.managed-content-modal.header": {
+    "defaultMessage": "תוכן מנוהל"
+  },
+  "instances.managed-content-modal.loading": {
+    "defaultMessage": "טוען תוכן…"
+  },
+  "instances.managed-content-modal.no-results": {
+    "defaultMessage": "אין פרויקטים התואמים לחיפוש שלך."
+  },
+  "instances.managed-content-modal.open-in-slicer": {
+    "defaultMessage": "פתח ב־Slicer"
+  },
+  "instances.managed-content-modal.search-placeholder": {
+    "defaultMessage": "חפש {count, number} {count, plural, one {פרויקט} other {פרויקטים}}"
+  },
+  "instances.managed-content-modal.warnings": {
+    "defaultMessage": "אזהרות"
+  },
   "instances.updater-modal.badge.current": {
     "defaultMessage": "נוכחי"
   },
   "instances.updater-modal.badge.incompatible": {
     "defaultMessage": "לא הושלם"
   },
+  "instances.updater-modal.downgrade-to": {
+    "defaultMessage": "שנמך ל־{version}"
+  },
   "instances.updater-modal.header": {
     "defaultMessage": "עדכן גרסה"
   },
+  "instances.updater-modal.header-modpack": {
+    "defaultMessage": "החלף גרסת חבילת מודים"
+  },
+  "instances.updater-modal.header-switch": {
+    "defaultMessage": "החלף גרסה"
+  },
   "instances.updater-modal.hide-incompatible": {
     "defaultMessage": "הסתר לא הושלם"
+  },
+  "instances.updater-modal.incompatibility-warning": {
+    "defaultMessage": "גרסה זו אינה מסומנת כתואמת להתקנה זו. תלויות לא יותקנו אוטומטית."
+  },
+  "instances.updater-modal.incompatibility-warning-header": {
+    "defaultMessage": "בחר גרסה"
+  },
+  "instances.updater-modal.incompatible-update.description": {
+    "defaultMessage": "{version} אינה מסומנת כתואמת להתקנה זו. היא עלולה לא להיפתח או להתנהג באופן בלתי צפוי."
+  },
+  "instances.updater-modal.incompatible-update.header": {
+    "defaultMessage": "לעדכן לגרסה לא תואמת?"
+  },
+  "instances.updater-modal.incompatible-update.proceed": {
+    "defaultMessage": "עדכן בכל זאת"
+  },
+  "instances.updater-modal.install-anyway": {
+    "defaultMessage": "התקן בכל זאת"
+  },
+  "instances.updater-modal.loading-changelog": {
+    "defaultMessage": "טוען יומן שינויים…"
+  },
+  "instances.updater-modal.loading-versions": {
+    "defaultMessage": "טוען גרסאות…"
+  },
+  "instances.updater-modal.no-changelog": {
+    "defaultMessage": "לא סופק יומן שינויים לגרסה זו."
   },
   "instances.updater-modal.no-versions": {
     "defaultMessage": "לא נמצאה גרסה"
   },
   "instances.updater-modal.search-placeholder": {
     "defaultMessage": "חפש גרסה..."
+  },
+  "instances.updater-modal.select-version": {
+    "defaultMessage": "בחר גרסה כדי לראות את יומן השינויים שלה"
+  },
+  "instances.updater-modal.show-incompatible": {
+    "defaultMessage": "הצג לא תואמות"
+  },
+  "instances.updater-modal.switch-to": {
+    "defaultMessage": "עבור ל־{version}"
+  },
+  "instances.updater-modal.update-to": {
+    "defaultMessage": "עדכן ל־{version}"
+  },
+  "instances.updater-modal.warning-app": {
+    "defaultMessage": "עדכון עלול לשבור את ההתקנה שלך. סקור יומני שינויים של גרסאות וגבה תחילה."
+  },
+  "instances.updater-modal.warning-web": {
+    "defaultMessage": "עדכון עלול לשבור את העולם שלך. סקור יומני שינויים של גרסאות וגבה תחילה."
   },
   "label.actions": {
     "defaultMessage": "פעולות"
@@ -449,6 +1808,15 @@
   "label.changes-saved": {
     "defaultMessage": "שינויים נשמרו"
   },
+  "label.client-depends-warning": {
+    "defaultMessage": "מוד זה תלוי במוד צד־לקוח ועלול לגרום לבעיות בהפעלת השרת שלך"
+  },
+  "label.client-only-warning": {
+    "defaultMessage": "זהו מוד צד־לקוח ועלול לגרום לבעיות בהפעלת השרת שלך"
+  },
+  "label.client-retained-warning": {
+    "defaultMessage": "זהו מוד צד־לקוח שהותקן כתלות ועלול לגרום לבעיות בהפעלת השרת שלך"
+  },
   "label.collections": {
     "defaultMessage": "אוספים"
   },
@@ -457,6 +1825,15 @@
   },
   "label.content": {
     "defaultMessage": "תוכן"
+  },
+  "label.copied-filename": {
+    "defaultMessage": "שם הקובץ הועתק"
+  },
+  "label.copied-path": {
+    "defaultMessage": "הנתיב הועתק"
+  },
+  "label.create-failed": {
+    "defaultMessage": "היצירה נכשלה"
   },
   "label.created-ago": {
     "defaultMessage": "נוצר ב-{ago}"
@@ -467,11 +1844,26 @@
   "label.delete": {
     "defaultMessage": "מחק"
   },
+  "label.delete-failed": {
+    "defaultMessage": "המחיקה נכשלה"
+  },
+  "label.delete-immediately": {
+    "defaultMessage": "מחק מיד"
+  },
   "label.description": {
     "defaultMessage": "תיאור"
   },
   "label.details": {
     "defaultMessage": "פרטים"
+  },
+  "label.discover-content": {
+    "defaultMessage": "גלה תוכן"
+  },
+  "label.done": {
+    "defaultMessage": "הושלם"
+  },
+  "label.download-failed": {
+    "defaultMessage": "ההורדה נכשלה"
   },
   "label.email": {
     "defaultMessage": "אימייל"
@@ -482,17 +1874,56 @@
   "label.error": {
     "defaultMessage": "שגיאה"
   },
+  "label.explanation": {
+    "defaultMessage": "הסבר"
+  },
+  "label.extract-failed": {
+    "defaultMessage": "החילוץ נכשל"
+  },
   "label.filter-by": {
     "defaultMessage": "סנן לפי"
   },
+  "label.filters": {
+    "defaultMessage": "מסננים"
+  },
   "label.followed-projects": {
     "defaultMessage": "פרויקטים במעקב"
+  },
+  "label.game-version": {
+    "defaultMessage": "גרסת משחק"
+  },
+  "label.hide-installed-content": {
+    "defaultMessage": "הסתר תוכן שכבר מותקן"
+  },
+  "label.hide-selected-content": {
+    "defaultMessage": "הסתר תוכן נבחר"
+  },
+  "label.installation-info": {
+    "defaultMessage": "מידע התקנה"
+  },
+  "label.installed": {
+    "defaultMessage": "מותקן"
+  },
+  "label.installed-modpack": {
+    "defaultMessage": "חבילת מודים מותקנת"
+  },
+  "label.installing": {
+    "defaultMessage": "מתקין…"
+  },
+  "label.installing-content": {
+    "defaultMessage": "מתקין תוכן"
   },
   "label.loading": {
     "defaultMessage": "טוען..."
   },
   "label.moderation": {
     "defaultMessage": "פיקוח ובקרה"
+  },
+  "label.modpack": {
+    "defaultMessage": "חבילת מודים"
+  },
+  "label.move-failed": {
+    "defaultMessage": "ההעברה נכשלה"
   },
   "label.no": {
     "defaultMessage": "לא"
@@ -509,6 +1940,30 @@
   "label.password": {
     "defaultMessage": "סיסמה"
   },
+  "label.permissions": {
+    "defaultMessage": "הרשאות"
+  },
+  "label.plan-custom": {
+    "defaultMessage": "מותאם"
+  },
+  "label.plan-large": {
+    "defaultMessage": "גדול"
+  },
+  "label.plan-medium": {
+    "defaultMessage": "בינוני"
+  },
+  "label.plan-small": {
+    "defaultMessage": "קטן"
+  },
+  "label.plan-unknown": {
+    "defaultMessage": "לא ידוע"
+  },
+  "label.platform": {
+    "defaultMessage": "פלטפורמה"
+  },
+  "label.played": {
+    "defaultMessage": "שוחק {ago}"
+  },
   "label.project": {
     "defaultMessage": "פרויקט"
   },
@@ -518,6 +1973,12 @@
   "label.rejected": {
     "defaultMessage": "נדחה"
   },
+  "label.rename-failed": {
+    "defaultMessage": "שינוי השם נכשל"
+  },
+  "label.rewards-program-terms-agreement": {
+    "defaultMessage": "אני מסכים ל־<terms-link>תנאי תוכנית התגמולים</terms-link>"
+  },
   "label.saved": {
     "defaultMessage": "נשמר"
   },
@@ -526,6 +1987,15 @@
   },
   "label.search": {
     "defaultMessage": "חפש"
+  },
+  "label.select-all": {
+    "defaultMessage": "בחר הכל"
+  },
+  "label.selected": {
+    "defaultMessage": "נבחר"
+  },
+  "label.selection-actions": {
+    "defaultMessage": "פעולות בחירה"
   },
   "label.server": {
     "defaultMessage": "שרת"
@@ -539,11 +2009,17 @@
   "label.singleplayer": {
     "defaultMessage": "שחקן יחיד"
   },
+  "label.sort-by": {
+    "defaultMessage": "מיין לפי: "
+  },
   "label.success": {
     "defaultMessage": "הצלחה"
   },
   "label.title": {
     "defaultMessage": "כותרת"
+  },
+  "label.unknown": {
+    "defaultMessage": "לא ידוע"
   },
   "label.unlisted": {
     "defaultMessage": "לא נמצא ברשימה"
@@ -551,11 +2027,23 @@
   "label.update-available": {
     "defaultMessage": "עדכון זמין"
   },
+  "label.updating": {
+    "defaultMessage": "מעדכן…"
+  },
+  "label.upload-failed": {
+    "defaultMessage": "ההעלאה נכשלה"
+  },
   "label.username": {
     "defaultMessage": "שם משתמש"
   },
+  "label.validating": {
+    "defaultMessage": "מאמת"
+  },
   "label.version": {
     "defaultMessage": "גרסה"
+  },
+  "label.view": {
+    "defaultMessage": "הצג"
   },
   "label.visibility": {
     "defaultMessage": "חשיפה"
@@ -566,11 +2054,188 @@
   "label.yes": {
     "defaultMessage": "כן"
   },
+  "locale.cs-CZ": {
+    "defaultMessage": "צ'כית"
+  },
+  "locale.da-DK": {
+    "defaultMessage": "דנית"
+  },
+  "locale.de-CH": {
+    "defaultMessage": "גרמנית (שווייץ)"
+  },
+  "locale.de-DE": {
+    "defaultMessage": "גרמנית (גרמניה)"
+  },
+  "locale.en-US": {
+    "defaultMessage": "אנגלית (ארצות הברית)"
+  },
+  "locale.es-419": {
+    "defaultMessage": "ספרדית (אמריקה הלטינית)"
+  },
+  "locale.es-ES": {
+    "defaultMessage": "ספרדית (ספרד)"
+  },
+  "locale.fi-FI": {
+    "defaultMessage": "פינית"
+  },
+  "locale.fil-PH": {
+    "defaultMessage": "פיליפינית"
+  },
+  "locale.fr-FR": {
+    "defaultMessage": "צרפתית"
+  },
+  "locale.he-IL": {
+    "defaultMessage": "עברית"
+  },
+  "locale.hu-HU": {
+    "defaultMessage": "הונגרית"
+  },
+  "locale.id-ID": {
+    "defaultMessage": "אינדונזית"
+  },
+  "locale.it-IT": {
+    "defaultMessage": "איטלקית (איטליה)"
+  },
+  "locale.ja-JP": {
+    "defaultMessage": "יפנית"
+  },
+  "locale.ko-KR": {
+    "defaultMessage": "קוריאנית"
+  },
+  "locale.ms-MY": {
+    "defaultMessage": "מלאית"
+  },
+  "locale.nl-NL": {
+    "defaultMessage": "הולנדית"
+  },
+  "locale.no-NO": {
+    "defaultMessage": "נורווגית (בוקמול)"
+  },
+  "locale.pl-PL": {
+    "defaultMessage": "פולנית"
+  },
+  "locale.pt-BR": {
+    "defaultMessage": "פורטוגזית (ברזיל)"
+  },
+  "locale.pt-PT": {
+    "defaultMessage": "פורטוגזית (פורטוגל)"
+  },
+  "locale.ro-RO": {
+    "defaultMessage": "רומנית"
+  },
+  "locale.ru-RU": {
+    "defaultMessage": "רוסית"
+  },
+  "locale.sr-CS": {
+    "defaultMessage": "סרבית (לטינית)"
+  },
+  "locale.sv-SE": {
+    "defaultMessage": "שוודית"
+  },
+  "locale.th-TH": {
+    "defaultMessage": "תאית"
+  },
+  "locale.tr-TR": {
+    "defaultMessage": "טורקית"
+  },
+  "locale.uk-UA": {
+    "defaultMessage": "אוקראינית"
+  },
+  "locale.vi-VN": {
+    "defaultMessage": "וייטנאמית"
+  },
+  "locale.zh-CN": {
+    "defaultMessage": "סינית (מפושטת)"
+  },
+  "locale.zh-TW": {
+    "defaultMessage": "סינית (מסורתית)"
+  },
+  "modal.confirm.type-here-placeholder": {
+    "defaultMessage": "הקלד כאן…"
+  },
+  "modal.confirm.type-to-confirm": {
+    "defaultMessage": "כדי לאשר שברצונך להמשיך, הקלד <confirmation-text></confirmation-text> למטה:"
+  },
+  "modal.share.copy-failed-title": {
+    "defaultMessage": "נכשל בהעתקת טקסט"
+  },
+  "modal.share.copy-link": {
+    "defaultMessage": "העתק קישור"
+  },
+  "modal.share.copy-qr-code": {
+    "defaultMessage": "העתק קוד QR"
+  },
+  "modal.share.copy-text": {
+    "defaultMessage": "העתק טקסט"
+  },
+  "modal.share.link-copied-text": {
+    "defaultMessage": "הקישור הועתק ללוח שלך."
+  },
+  "modal.share.link-copied-title": {
+    "defaultMessage": "הקישור הועתק"
+  },
+  "modal.share.open-in-new-tab": {
+    "defaultMessage": "פתח בכרטיסייה חדשה"
+  },
+  "modal.share.open-link-in-browser": {
+    "defaultMessage": "פתח קישור בדפדפן"
+  },
+  "modal.share.send-email": {
+    "defaultMessage": "שלח כאימייל"
+  },
+  "modal.share.share": {
+    "defaultMessage": "שתף"
+  },
+  "modal.share.share-on-reddit": {
+    "defaultMessage": "שתף ב־Reddit"
+  },
+  "modal.share.toot-about-it": {
+    "defaultMessage": "טוט על זה"
+  },
+  "modal.share.tweet-about-it": {
+    "defaultMessage": "צייץ על זה"
+  },
+  "multi-select.clear-all": {
+    "defaultMessage": "נקה הכל"
+  },
+  "multi-select.selection-count": {
+    "defaultMessage": "{count, plural, one {# נבחר} other {# נבחרו}}"
+  },
   "notification.error.title": {
     "defaultMessage": "אירעה שגיאה"
   },
-  "omorphia.component.copy.action.copy": {
-    "defaultMessage": "העתק קוד אל הלוח"
+  "notifications.actor.unknown": {
+    "defaultMessage": "מישהו"
+  },
+  "notifications.close": {
+    "defaultMessage": "סגור"
+  },
+  "notifications.dismiss": {
+    "defaultMessage": "בטל התראה"
+  },
+  "notifications.friend-request.body": {
+    "defaultMessage": "<actor>{actor}</actor> שלח לך בקשת חברות."
+  },
+  "notifications.instance-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> הזמין אותך להתקנת <entity>{entity}</entity>."
+  },
+  "notifications.instance-ready.launch-game": {
+    "defaultMessage": "הפעל משחק"
+  },
+  "notifications.instance-ready.open-instance": {
+    "defaultMessage": "התקנה"
+  },
+  "notifications.instance-ready.status": {
+    "defaultMessage": "הותקן ומוכן למשחק."
+  },
+  "notifications.invite.accept": {
+    "defaultMessage": "קבל"
+  },
+  "notifications.invite.decline": {
+    "defaultMessage": "דחה"
+  },
+  "notifications.server-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> הזמין אותך לנהל את השרת <entity>{entity}</entity>."
   },
   "payment-method.amazon_pay": {
     "defaultMessage": "Amazon Pay"
@@ -578,11 +2243,26 @@
   "payment-method.amex": {
     "defaultMessage": "American Express"
   },
+  "payment-method.card_display": {
+    "defaultMessage": "{card_brand} המסתיים ב־{last_four}"
+  },
+  "payment-method.cashapp": {
+    "defaultMessage": "Cash App"
+  },
   "payment-method.charity": {
     "defaultMessage": "צדקה"
   },
   "payment-method.charity-plural": {
     "defaultMessage": "ארגוני צדקה"
+  },
+  "payment-method.diners": {
+    "defaultMessage": "Diners Club"
+  },
+  "payment-method.discover": {
+    "defaultMessage": "Discover"
+  },
+  "payment-method.eftpos": {
+    "defaultMessage": "EFTPOS"
   },
   "payment-method.gift-card": {
     "defaultMessage": "כרטיס מתנה"
@@ -590,14 +2270,59 @@
   "payment-method.gift-card-plural": {
     "defaultMessage": "כרטיסי מתנה"
   },
+  "payment-method.jcb": {
+    "defaultMessage": "JCB"
+  },
+  "payment-method.mastercard": {
+    "defaultMessage": "Mastercard"
+  },
   "payment-method.paypal": {
     "defaultMessage": "PayPal"
+  },
+  "payment-method.paypal_international": {
+    "defaultMessage": "PayPal International"
+  },
+  "payment-method.unionpay": {
+    "defaultMessage": "UnionPay"
+  },
+  "payment-method.unknown": {
+    "defaultMessage": "אמצעי תשלום לא ידוע"
+  },
+  "payment-method.venmo": {
+    "defaultMessage": "Venmo"
   },
   "payment-method.virtual-visa": {
     "defaultMessage": "ויזה וירטואלית"
   },
+  "payment-method.virtual-visa-plural": {
+    "defaultMessage": "ויזות וירטואליות"
+  },
+  "payment-method.visa": {
+    "defaultMessage": "Visa"
+  },
+  "project-card.date.published.tooltip": {
+    "defaultMessage": "פורסם {date}"
+  },
+  "project-card.date.updated.tooltip": {
+    "defaultMessage": "עודכן {date}"
+  },
+  "project-card.environment.client": {
+    "defaultMessage": "לקוח"
+  },
+  "project-card.environment.client-and-server": {
+    "defaultMessage": "לקוח ושרת"
+  },
+  "project-card.environment.client-or-server": {
+    "defaultMessage": "לקוח או שרת"
+  },
+  "project-card.environment.dedicated-server": {
+    "defaultMessage": "שרת ייעודי"
+  },
   "project-card.environment.server": {
     "defaultMessage": "שרת"
+  },
+  "project-card.environment.singleplayer": {
+    "defaultMessage": "שחקן יחיד"
   },
   "project-type.all": {
     "defaultMessage": "הכל"
@@ -644,6 +2369,9 @@
   "project-type.project.category": {
     "defaultMessage": "פרויקטים"
   },
+  "project-type.project.lowercase": {
+    "defaultMessage": "{count, plural, one {פרויקט} other {פרויקטים}}"
+  },
   "project-type.resourcepack.capital": {
     "defaultMessage": "{count, plural, one {חבילת משאבים} other {חבילות משאבים}}"
   },
@@ -653,8 +2381,14 @@
   "project-type.resourcepack.lowercase": {
     "defaultMessage": "{count, plural, one {חבילת משאבים} other {חבילות משאבים}}"
   },
+  "project-type.server.capital": {
+    "defaultMessage": "{count, plural, one {שרת} other {שרתים}}"
+  },
   "project-type.server.category": {
     "defaultMessage": "שרתים"
+  },
+  "project-type.server.lowercase": {
+    "defaultMessage": "{count, plural, one {שרת} other {שרתים}}"
   },
   "project-type.shader.capital": {
     "defaultMessage": "{count, plural, one {שיידר} other {שיידרים}}"
@@ -665,8 +2399,29 @@
   "project-type.shader.lowercase": {
     "defaultMessage": "{count, plural, one {שיידר} other {שיידרים}}"
   },
+  "project-type.world.capital": {
+    "defaultMessage": "{count, plural, one {עולם} other {עולמות}}"
+  },
+  "project-type.world.category": {
+    "defaultMessage": "עולמות"
+  },
+  "project-type.world.lowercase": {
+    "defaultMessage": "{count, plural, one {עולם} other {עולמות}}"
+  },
   "project.about.compatibility.environments": {
     "defaultMessage": "סביבות נתמכות"
+  },
+  "project.about.compatibility.environments.client-and-server": {
+    "defaultMessage": "לקוח ושרת"
+  },
+  "project.about.compatibility.environments.client-side": {
+    "defaultMessage": "צד־לקוח"
+  },
+  "project.about.compatibility.environments.dedicated-servers-only": {
+    "defaultMessage": "שרתים ייעודיים בלבד"
+  },
+  "project.about.compatibility.environments.server-side": {
+    "defaultMessage": "צד־שרת"
   },
   "project.about.compatibility.environments.singleplayer": {
     "defaultMessage": "שחקן יחיד"
@@ -680,8 +2435,17 @@
   "project.about.compatibility.platforms": {
     "defaultMessage": "פלטפורמות"
   },
+  "project.about.compatibility.platforms-plural": {
+    "defaultMessage": "{count, plural, one {פלטפורמה} other {פלטפורמות}}"
+  },
   "project.about.compatibility.title": {
     "defaultMessage": "תאימות"
+  },
+  "project.about.creators.no-members-error": {
+    "defaultMessage": "שגיאה: לפרויקט אין חברים. זה לא אמור לקרות."
+  },
+  "project.about.creators.organization": {
+    "defaultMessage": "ארגון"
   },
   "project.about.creators.owner": {
     "defaultMessage": "בעלי הפרוייקט"
@@ -728,8 +2492,14 @@
   "project.about.links.issues": {
     "defaultMessage": "דיווח בעיות"
   },
+  "project.about.links.site": {
+    "defaultMessage": "בקר באתר"
+  },
   "project.about.links.source": {
     "defaultMessage": "מקור צפיות"
+  },
+  "project.about.links.store": {
+    "defaultMessage": "בקר בדף החנות"
   },
   "project.about.links.title": {
     "defaultMessage": "קישורים"
@@ -737,17 +2507,227 @@
   "project.about.links.wiki": {
     "defaultMessage": "בקרו בויקי"
   },
+  "project.about.tags.title": {
+    "defaultMessage": "תגיות"
+  },
+  "project.compatibility.client-and-server": {
+    "defaultMessage": "לקוח ושרת"
+  },
+  "project.compatibility.client-side": {
+    "defaultMessage": "צד־לקוח"
+  },
+  "project.compatibility.no-mod-loader": {
+    "defaultMessage": "אין טוען מודים"
+  },
+  "project.compatibility.server-side": {
+    "defaultMessage": "צד־שרת"
+  },
+  "project.disclosure.advertising.title": {
+    "defaultMessage": "מכיל פרסום"
+  },
+  "project.disclosure.ai-functionality.title": {
+    "defaultMessage": "פונקציונליות בינה מלאכותית יוצרת"
+  },
+  "project.disclosure.ai-generated-content.title": {
+    "defaultMessage": "מכיל {types} שנוצרו על ידי בינה מלאכותית"
+  },
+  "project.disclosure.ai-generated-content.use.assets": {
+    "defaultMessage": "נכסים"
+  },
+  "project.disclosure.ai-generated-content.use.code": {
+    "defaultMessage": "קוד"
+  },
+  "project.disclosure.ai-generated-content.use.content": {
+    "defaultMessage": "תוכן"
+  },
+  "project.disclosure.ai-generated-content.use.text": {
+    "defaultMessage": "טקסט"
+  },
+  "project.disclosure.derivative-work.show-fewer": {
+    "defaultMessage": "הצג פחות"
+  },
+  "project.disclosure.derivative-work.show-more": {
+    "defaultMessage": "הצג עוד {count}"
+  },
+  "project.disclosure.derivative-work.title": {
+    "defaultMessage": "זוהי יצירה נגזרת של:"
+  },
+  "project.disclosure.paid-features.title": {
+    "defaultMessage": "מכיל תכונות בתשלום"
+  },
+  "project.disclosure.photosensitivity.title": {
+    "defaultMessage": "אזהרת רגישות לאור"
+  },
+  "project.disclosure.system-interactions.title": {
+    "defaultMessage": "מכיל אינטראקציות מערכת חיצוניות"
+  },
+  "project.disclosure.telemetry.title": {
+    "defaultMessage": "מכיל {consent, select, opt_in {טלמטריה בהצטרפות} opt_out {טלמטריה עם ביטול} always_active {טלמטריה פעילה תמיד} other {טלמטריה}}"
+  },
+  "project.download-count-tooltip": {
+    "defaultMessage": "{count, number} {count, plural, one {הורדה} other {הורדות}}"
+  },
+  "project.environment.client-and-server.description": {
+    "defaultMessage": "נדרש גם בלקוח וגם בשרת."
+  },
+  "project.environment.client-and-server.title": {
+    "defaultMessage": "לקוח ושרת, נדרש בשניהם"
+  },
+  "project.environment.client-only-server-optional.description": {
+    "defaultMessage": "רוב הפונקציונליות היא צד־לקוח, אך התקנה בשרת מאפשרת פונקציונליות משופרת."
+  },
+  "project.environment.client-only-server-optional.title": {
+    "defaultMessage": "לקוח ושרת, אופציונלי בשרת"
+  },
+  "project.environment.client-only.description": {
+    "defaultMessage": "כל הפונקציונליות היא צד־לקוח ותואמת לשרתי Vanilla."
+  },
   "project.environment.client-only.title": {
     "defaultMessage": "צד לקוח בלבד"
+  },
+  "project.environment.client-or-server-prefers-both.description": {
+    "defaultMessage": "יש פונקציונליות מסוימת גם בלקוח וגם בשרת, גם אם חלקית. התקנה בשניהם מובילה לחוויה הטובה ביותר."
+  },
+  "project.environment.client-or-server-prefers-both.title": {
+    "defaultMessage": "לקוח ושרת, עדיף להתקין בשניהם"
+  },
+  "project.environment.client-or-server.description": {
+    "defaultMessage": "יש פונקציונליות מסוימת גם בלקוח וגם בשרת, גם אם חלקית."
+  },
+  "project.environment.client-or-server.title": {
+    "defaultMessage": "לקוח ושרת, אופציונלי בשניהם"
+  },
+  "project.environment.dedicated-server-only.description": {
+    "defaultMessage": "כל הפונקציונליות היא צד־שרת ותואמת ללקוחות Vanilla. עובד רק בשרתים ייעודיים."
   },
   "project.environment.dedicated-server-only.title": {
     "defaultMessage": "צד שרת בלבד"
   },
+  "project.environment.server-only-client-optional.description": {
+    "defaultMessage": "רוב הפונקציונליות היא צד־שרת, אך התקנה בלקוח מאפשרת פונקציונליות משופרת."
+  },
+  "project.environment.server-only-client-optional.title": {
+    "defaultMessage": "לקוח ושרת, אופציונלי בלקוח"
+  },
+  "project.environment.server-only.description": {
+    "defaultMessage": "כל הפונקציונליות היא צד־שרת ותואמת ללקוחות Vanilla. עובד גם בשרת הפנימי בשחקן יחיד."
+  },
+  "project.environment.server-only.title": {
+    "defaultMessage": "צד־שרת בלבד, עובד גם בשחקן יחיד"
+  },
+  "project.environment.singleplayer-only.description": {
+    "defaultMessage": "פועל רק בשחקן יחיד או כשלא מחוברים לשרת מרובה־משתתפים."
+  },
+  "project.environment.singleplayer-only.title": {
+    "defaultMessage": "שחקן יחיד בלבד"
+  },
+  "project.environment.tag.not-applicable": {
+    "defaultMessage": "N/A"
+  },
+  "project.environment.tag.unknown": {
+    "defaultMessage": "לא ידוע"
+  },
+  "project.environment.unknown.description": {
+    "defaultMessage": "לא ניתן לקבוע את הסביבה של גרסה זו."
+  },
+  "project.environment.unknown.title": {
+    "defaultMessage": "סביבה לא ידועה"
+  },
+  "project.follower-count-tooltip": {
+    "defaultMessage": "{count, number} {count, plural, one {עוקב} other {עוקבים}}"
+  },
+  "project.license.error": {
+    "defaultMessage": "לא ניתן לאחזר את טקסט הרישיון."
+  },
+  "project.license.loading": {
+    "defaultMessage": "טוען טקסט רישיון…"
+  },
+  "project.license.title": {
+    "defaultMessage": "רישיון"
+  },
+  "project.online-player-count": {
+    "defaultMessage": "{count, number} מקוונים"
+  },
+  "project.online-player-count.tooltip": {
+    "defaultMessage": "{count} {countPlural, plural, one {שחקנים} other {שחקנים}} מקוונים"
+  },
+  "project.recent-plays": {
+    "defaultMessage": "{count} {countPlural, plural, one {השמעה אחרונה} other {השמעות אחרונות}}"
+  },
+  "project.recent-plays.tooltip": {
+    "defaultMessage": "{count} {countPlural, plural, one {השמעה אחרונה} other {השמעות אחרונות}} מ־Modrinth בשבועיים האחרונים"
+  },
+  "project.server.customModpackTooltip": {
+    "defaultMessage": "פרויקט זה משתמש בחבילת מודים מותאמת"
+  },
+  "project.server.ping.ms": {
+    "defaultMessage": "{ping, number} ms"
+  },
+  "project.server.region.asia": {
+    "defaultMessage": "אסיה"
+  },
+  "project.server.region.australia": {
+    "defaultMessage": "אוסטרליה"
+  },
+  "project.server.region.europe": {
+    "defaultMessage": "אירופה"
+  },
+  "project.server.region.middle_east": {
+    "defaultMessage": "המזרח התיכון"
+  },
+  "project.server.region.russia": {
+    "defaultMessage": "רוסיה"
+  },
+  "project.server.region.south_america": {
+    "defaultMessage": "דרום אמריקה"
+  },
+  "project.server.region.tooltip": {
+    "defaultMessage": "שרת המתארח ב־{regionName}"
+  },
+  "project.server.region.us_east": {
+    "defaultMessage": "מזרח ארצות הברית"
+  },
+  "project.server.region.us_west": {
+    "defaultMessage": "מערב ארצות הברית"
+  },
+  "project.server.status.offline": {
+    "defaultMessage": "לא מקוון"
+  },
+  "project.server.status.offline.tooltip": {
+    "defaultMessage": "השרת לא מקוון"
+  },
+  "project.server.status.online": {
+    "defaultMessage": "מקוון"
+  },
   "project.settings.analytics.title": {
     "defaultMessage": "אנליטיקה"
   },
+  "project.settings.content.title": {
+    "defaultMessage": "תוכן"
+  },
   "project.settings.description.title": {
     "defaultMessage": "תיאור"
+  },
+  "project.settings.disclosures.ai.types-assets": {
+    "defaultMessage": "נכסים"
+  },
+  "project.settings.disclosures.ai.types-code": {
+    "defaultMessage": "קוד"
+  },
+  "project.settings.disclosures.ai.types-text": {
+    "defaultMessage": "טקסט"
+  },
+  "project.settings.disclosures.telemetry.consent-always-active": {
+    "defaultMessage": "פעיל תמיד"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-in": {
+    "defaultMessage": "בהצטרפות"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-out": {
+    "defaultMessage": "עם ביטול"
+  },
+  "project.settings.disclosures.title": {
+    "defaultMessage": "גילויים"
   },
   "project.settings.environment.client_and_server.title": {
     "defaultMessage": "לקוח ושרת"
@@ -785,17 +2765,29 @@
   "project.settings.notice.no-permission.title": {
     "defaultMessage": "אין הרשאה"
   },
+  "project.settings.server.title": {
+    "defaultMessage": "שרת"
+  },
   "project.settings.tags.title": {
     "defaultMessage": "תגים"
   },
   "project.settings.upload.title": {
     "defaultMessage": "העלה"
   },
+  "project.settings.versions.permissions": {
+    "defaultMessage": "הרשאות"
+  },
   "project.settings.versions.title": {
     "defaultMessage": "גרסאות"
   },
   "project.settings.view.title": {
     "defaultMessage": "צפייה"
+  },
+  "project.stats.downloads-label": {
+    "defaultMessage": "{count, plural, one {הורדה} other {הורדות}}"
+  },
+  "project.stats.followers-label": {
+    "defaultMessage": "{count, plural, one {עוקב} other {עוקבים}}"
   },
   "project.versions.channel.alpha.symbol": {
     "defaultMessage": "א"
@@ -805,6 +2797,36 @@
   },
   "project.versions.channel.release.symbol": {
     "defaultMessage": "ש"
+  },
+  "project.versions.create-version": {
+    "defaultMessage": "צור גרסה"
+  },
+  "project.versions.downloads-tooltip": {
+    "defaultMessage": "{count, plural, one {# הורדות} other {# הורדות}}"
+  },
+  "project.versions.filter.channel": {
+    "defaultMessage": "ערוץ"
+  },
+  "project.versions.filter.selected-count": {
+    "defaultMessage": "{count, number} נבחרו"
+  },
+  "project.versions.filter.toggle-tooltip": {
+    "defaultMessage": "החלף מסנן עבור {filter}"
+  },
+  "project.versions.no-mod-loader": {
+    "defaultMessage": "אין טוען מודים"
+  },
+  "project.versions.platform.modloader.short": {
+    "defaultMessage": "ModLoader"
+  },
+  "project.versions.version.withheld": {
+    "defaultMessage": "מושהה"
+  },
+  "project.versions.version.withheld.tooltip": {
+    "defaultMessage": "הגרסה מושהית עקב הרשאות חסרות"
+  },
+  "project.versions.withheld-versions-warning.resolve-button": {
+    "defaultMessage": "פתור"
   },
   "project.visibility.archived": {
     "defaultMessage": "בארכיון"
@@ -836,6 +2858,96 @@
   "project.visibility.unlisted-by-staff": {
     "defaultMessage": "הוסתר על ידי הצוות"
   },
+  "report.item-type.content": {
+    "defaultMessage": "תוכן"
+  },
+  "report.item-type.project": {
+    "defaultMessage": "פרויקט"
+  },
+  "report.item-type.user": {
+    "defaultMessage": "משתמש"
+  },
+  "report.item-type.version": {
+    "defaultMessage": "גרסה"
+  },
+  "report.type.ai-images": {
+    "defaultMessage": "תמונות שנוצרו על ידי בינה מלאכותית בסמל, בגלריה או בתיאור"
+  },
+  "report.type.copyright": {
+    "defaultMessage": "עבודה שהועלתה מחדש"
+  },
+  "report.type.fully-ai-generated": {
+    "defaultMessage": "פרויקט שנוצר כולו על ידי בינה מלאכותית"
+  },
+  "report.type.inappropriate": {
+    "defaultMessage": "לא הולם"
+  },
+  "report.type.malicious": {
+    "defaultMessage": "זדוני"
+  },
+  "report.type.missing-disclosure": {
+    "defaultMessage": "גילוי חסר או שגוי"
+  },
+  "report.type.name-squatting": {
+    "defaultMessage": "תפיסת שם"
+  },
+  "report.type.spam": {
+    "defaultMessage": "ספאם"
+  },
+  "search.filter.clear-all-filters": {
+    "defaultMessage": "נקה את כל המסננים"
+  },
+  "search.filter.dependency_type.any": {
+    "defaultMessage": "כל סוג תלות"
+  },
+  "search.filter.dependency_type.embedded": {
+    "defaultMessage": "מוטמע"
+  },
+  "search.filter.dependency_type.optional": {
+    "defaultMessage": "אופציונלי"
+  },
+  "search.filter.dependency_type.optional_or_embedded": {
+    "defaultMessage": "אופציונלי או מוטמע"
+  },
+  "search.filter.dependency_type.required": {
+    "defaultMessage": "נדרש"
+  },
+  "search.filter.dependency_type.required_or_embedded": {
+    "defaultMessage": "נדרש או מוטמע"
+  },
+  "search.filter.dependency_type.required_or_optional": {
+    "defaultMessage": "נדרש או אופציונלי"
+  },
+  "search.filter.dependent_project": {
+    "defaultMessage": "תלוי ב: {project}"
+  },
+  "search.filter.dependent_project.clear": {
+    "defaultMessage": "נקה מסנן תלות"
+  },
+  "search.filter.dependent_project.search_placeholder": {
+    "defaultMessage": "חפש פרויקט…"
+  },
+  "search.filter.excluded_projects": {
+    "defaultMessage": "מוחרגים: {projects}"
+  },
+  "search.filter.included_content.exclude": {
+    "defaultMessage": "החרג"
+  },
+  "search.filter.included_content.excluded": {
+    "defaultMessage": "מוחרג"
+  },
+  "search.filter.included_content.remove_project": {
+    "defaultMessage": "הסר את {project}"
+  },
+  "search.filter.included_content.remove_project.tooltip": {
+    "defaultMessage": "הסר פרויקט"
+  },
+  "search.filter.included_content.search_placeholder": {
+    "defaultMessage": "חפש תוכן…"
+  },
+  "search.filter.included_projects": {
+    "defaultMessage": "כוללים: {projects}"
+  },
   "search.filter.locked.default": {
     "defaultMessage": "סינון נעול"
   },
@@ -851,6 +2963,63 @@
   "search.filter.locked.default.unlock": {
     "defaultMessage": "שחרר סינון"
   },
+  "search.filter.option.exclusion.add.tooltip": {
+    "defaultMessage": "החרג"
+  },
+  "search.filter.option.search.clear.aria_label": {
+    "defaultMessage": "נקה חיפוש"
+  },
+  "search.filter.option.search.placeholder": {
+    "defaultMessage": "חפש…"
+  },
+  "search.filter.option.show_fewer": {
+    "defaultMessage": "הצג פחות"
+  },
+  "search.filter.option.show_more": {
+    "defaultMessage": "הצג עוד"
+  },
+  "search.filter.option.sub_options.collapse.tooltip": {
+    "defaultMessage": "הסתר אפשרויות נוספות"
+  },
+  "search.filter.option.sub_options.expand.tooltip": {
+    "defaultMessage": "הצג אפשרויות נוספות"
+  },
+  "search.filter_type.advanced": {
+    "defaultMessage": "החרגות מתקדמות"
+  },
+  "search.filter_type.advanced.disclosure.advertisements": {
+    "defaultMessage": "פרסומות"
+  },
+  "search.filter_type.advanced.disclosure.ai_content": {
+    "defaultMessage": "תוכן שנוצר על ידי בינה מלאכותית"
+  },
+  "search.filter_type.advanced.disclosure.ai_content.usage": {
+    "defaultMessage": "בינה מלאכותית {usage}"
+  },
+  "search.filter_type.advanced.disclosure.ai_functionality": {
+    "defaultMessage": "פונקציונליות בינה מלאכותית יוצרת"
+  },
+  "search.filter_type.advanced.disclosure.archived": {
+    "defaultMessage": "מאורכב"
+  },
+  "search.filter_type.advanced.disclosure.derivative_work": {
+    "defaultMessage": "תוכן נגזר"
+  },
+  "search.filter_type.advanced.disclosure.epilepsy_triggers": {
+    "defaultMessage": "טריגרים לרגישות לאור"
+  },
+  "search.filter_type.advanced.disclosure.paid_features": {
+    "defaultMessage": "תכונות בתשלום"
+  },
+  "search.filter_type.advanced.disclosure.system_interactions": {
+    "defaultMessage": "אינטראקציות מערכת חיצוניות"
+  },
+  "search.filter_type.advanced.disclosure.telemetry": {
+    "defaultMessage": "טלמטריה"
+  },
+  "search.filter_type.compatible_dependency_project_ids": {
+    "defaultMessage": "תלוי ב"
+  },
   "search.filter_type.environment": {
     "defaultMessage": "סביבה"
   },
@@ -865,6 +3034,9 @@
   },
   "search.filter_type.game_version.all_versions": {
     "defaultMessage": "הראה את כל הגרסאות"
+  },
+  "search.filter_type.included_content": {
+    "defaultMessage": "תוכן כלול"
   },
   "search.filter_type.license": {
     "defaultMessage": "רישיון"
@@ -890,6 +3062,21 @@
   "search.filter_type.shader_loader": {
     "defaultMessage": "מנהל שיידרים"
   },
+  "search.photosensitivity-warning-modal.body.1": {
+    "defaultMessage": "איננו יכולים להבטיח שכל התוכן ב־Modrinth סומן כראוי."
+  },
+  "search.photosensitivity-warning-modal.body.2": {
+    "defaultMessage": "תוויות תוכן לטריגרים של רגישות לאור מוקצות עצמית על ידי היוצרים שמעלים את תוכנם ל־Modrinth. פרויקטים אלה לא עברו בדיקות בטיחות."
+  },
+  "search.photosensitivity-warning-modal.body.3": {
+    "defaultMessage": "השימוש בכל תוכן ב־Modrinth הוא על אחריותך. הישמר! 💚"
+  },
+  "search.photosensitivity-warning-modal.dont-show-again": {
+    "defaultMessage": "אל תציג זאת שוב"
+  },
+  "search.photosensitivity-warning-modal.title": {
+    "defaultMessage": "התוצאות אינן מובטחות כבטוחות"
+  },
   "settings.account.title": {
     "defaultMessage": "חשבון ואבטחה"
   },
@@ -905,6 +3092,66 @@
   "settings.billing.title": {
     "defaultMessage": "חיובים ומנויים"
   },
+  "settings.display.project-list-layouts.datapack": {
+    "defaultMessage": "דף חבילות נתונים"
+  },
+  "settings.display.project-list-layouts.description": {
+    "defaultMessage": "בחר את הפריסה המועדפת עליך לכל דף המציג רשימות פרויקטים."
+  },
+  "settings.display.project-list-layouts.mod": {
+    "defaultMessage": "דף מודים"
+  },
+  "settings.display.project-list-layouts.mode.grid": {
+    "defaultMessage": "רשת"
+  },
+  "settings.display.project-list-layouts.mode.rows": {
+    "defaultMessage": "שורות"
+  },
+  "settings.display.project-list-layouts.modpack": {
+    "defaultMessage": "דף חבילות מודים"
+  },
+  "settings.display.project-list-layouts.plugin": {
+    "defaultMessage": "דף פלאגינים"
+  },
+  "settings.display.project-list-layouts.resourcepack": {
+    "defaultMessage": "דף חבילות משאבים"
+  },
+  "settings.display.project-list-layouts.server": {
+    "defaultMessage": "דף שרתים"
+  },
+  "settings.display.project-list-layouts.shader": {
+    "defaultMessage": "דף שיידרים"
+  },
+  "settings.display.project-list-layouts.title": {
+    "defaultMessage": "פריסות רשימת פרויקטים"
+  },
+  "settings.display.project-list-layouts.user": {
+    "defaultMessage": "דפי פרופיל משתמש"
+  },
+  "settings.display.sidebar.advanced-rendering.description": {
+    "defaultMessage": "מאפשר רינדור מתקדם כמו אפקטי טשטוש שעלולים לגרום לבעיות ביצועים ללא רינדור מואץ חומרה."
+  },
+  "settings.display.sidebar.advanced-rendering.title": {
+    "defaultMessage": "רינדור מתקדם"
+  },
+  "settings.display.sidebar.external-links-new-tab.description": {
+    "defaultMessage": "גרום לקישורים המובילים אל מחוץ ל־Modrinth להיפתח בכרטיסייה חדשה. ללא קשר להגדרה זו, קישורים באותו דומיין ובתיאורי Markdown ייפתחו באותה כרטיסייה, וקישורים במודעות ובדפי עריכה ייפתחו בכרטיסייה חדשה."
+  },
+  "settings.display.sidebar.external-links-new-tab.title": {
+    "defaultMessage": "פתח קישורים חיצוניים בכרטיסייה חדשה"
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.description": {
+    "defaultMessage": "מיישר את סרגל הצד לשמאל תוכן הדף."
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.title": {
+    "defaultMessage": "סרגל צד מיושר לשמאל בדפי תוכן"
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.description": {
+    "defaultMessage": "מיישר את סרגל המסננים לימין תוצאות החיפוש."
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.title": {
+    "defaultMessage": "סרגל מסננים מיושר לימין בדפי חיפוש"
+  },
   "settings.display.theme.dark": {
     "defaultMessage": "כהה"
   },
@@ -913,6 +3160,9 @@
   },
   "settings.display.theme.oled": {
     "defaultMessage": "OLED"
+  },
+  "settings.display.theme.orbiont-description": {
+    "defaultMessage": "בחר את ערכת הצבעים המועדפת עליך עבור {productName}."
   },
   "settings.display.theme.preferred-dark-theme": {
     "defaultMessage": "ערכת צבעים כהה מועדפת"
@@ -929,14 +3179,65 @@
   "settings.display.theme.title": {
     "defaultMessage": "צבעי ממשק"
   },
+  "settings.feature-flags.title": {
+    "defaultMessage": "דגלי תכונות"
+  },
+  "settings.language.categories.default": {
+    "defaultMessage": "שפות סטנדרטיות"
+  },
+  "settings.language.categories.search-result": {
+    "defaultMessage": "תוצאות חיפוש"
+  },
+  "settings.language.coverage.app-tooltip": {
+    "defaultMessage": "כ־{percentage}% מ־{productName} זמינים בשפה זו."
+  },
+  "settings.language.coverage.label": {
+    "defaultMessage": "נתמכים {percentage}%"
+  },
+  "settings.language.description.orbiont": {
+    "defaultMessage": "בחר את השפה המועדפת עליך עבור {platform}. Orbiont מספק תרגומי קהילה כפי שהם; הכיסוי משתנה בין שפות וטקסט לא מתורגם חוזר לאנגלית."
+  },
+  "settings.language.languages.search-field.placeholder": {
+    "defaultMessage": "חפש שפה…"
+  },
+  "settings.language.languages.search-results-announcement": {
+    "defaultMessage": "{matches, plural, =0 {אין שפות תואמות} one {# שפה תואמת} other {# שפות תואמות}} לחיפוש שלך."
+  },
+  "settings.language.languages.search.no-results": {
+    "defaultMessage": "אין שפות התואמות לחיפוש שלך."
+  },
+  "settings.language.platform.app": {
+    "defaultMessage": "app"
+  },
   "settings.language.title": {
     "defaultMessage": "שפה"
+  },
+  "settings.language.warning": {
+    "defaultMessage": "שינוי שפת {platform} עלול לגרום לחלק מהתוכן להופיע באנגלית אם תרגום אינו זמין. {platform} טרם מתורגם במלואו, ולכן חלק מהתוכן עשוי להישאר באנגלית בשפות מסוימות."
   },
   "settings.pats.title": {
     "defaultMessage": "מפתחות גישה אישיים"
   },
+  "settings.profile.navigation-title": {
+    "defaultMessage": "פרופיל"
+  },
   "settings.sessions.title": {
     "defaultMessage": "חיבורים פעילים"
+  },
+  "settings.social.title": {
+    "defaultMessage": "חברתי"
+  },
+  "skin.preview.drag-to-rotate": {
+    "defaultMessage": "גרור לסיבוב"
+  },
+  "skins.select": {
+    "defaultMessage": "בחר סקין"
+  },
+  "skins.select-named": {
+    "defaultMessage": "בחר את {name}"
+  },
+  "table.empty-state.no-data": {
+    "defaultMessage": "אין נתונים זמינים."
   },
   "tag.category.128x": {
     "defaultMessage": "128x"
@@ -950,23 +3251,383 @@
   "tag.category.32x": {
     "defaultMessage": "32x"
   },
+  "tag.category.3d-packs": {
+    "message": "חבילות תלת מימד"
+  },
   "tag.category.48x": {
     "defaultMessage": "48x"
+  },
+  "tag.category.512x+": {
+    "defaultMessage": "512x ומעלה"
   },
   "tag.category.64x": {
     "defaultMessage": "64x"
   },
+  "tag.category.8x-": {
+    "defaultMessage": "8x ומטה"
+  },
+  "tag.category.adventure": {
+    "defaultMessage": "הרפתקה"
+  },
+  "tag.category.adventure-mode": {
+    "defaultMessage": "מצב הרפתקה"
+  },
+  "tag.category.anarchy": {
+    "defaultMessage": "אנרכיה"
+  },
+  "tag.category.armor-tools-weapons": {
+    "message": "שריון, כלים וכלי נשק"
+  },
+  "tag.category.atmosphere": {
+    "defaultMessage": "אטמוספירה"
+  },
+  "tag.category.audio": {
+    "defaultMessage": "שמע"
+  },
+  "tag.category.battle-royale": {
+    "defaultMessage": "באטל רויאל"
+  },
+  "tag.category.bedwars": {
+    "defaultMessage": "Bed Wars"
+  },
+  "tag.category.blocks": {
+    "defaultMessage": "בלוקים"
+  },
+  "tag.category.bloom": {
+    "defaultMessage": "בלום"
+  },
+  "tag.category.bosses": {
+    "defaultMessage": "בוסים"
+  },
+  "tag.category.cartoon": {
+    "defaultMessage": "מצויר"
+  },
+  "tag.category.challenging": {
+    "defaultMessage": "מאתגר"
+  },
+  "tag.category.classes": {
+    "defaultMessage": "מחלקות"
+  },
+  "tag.category.colored-lighting": {
+    "defaultMessage": "תאורה צבעונית"
+  },
+  "tag.category.combat": {
+    "defaultMessage": "קרב"
+  },
+  "tag.category.competitive": {
+    "defaultMessage": "תחרותי"
+  },
+  "tag.category.core-shaders": {
+    "defaultMessage": "שיידרי ליבה"
+  },
+  "tag.category.cosmetics": {
+    "message": "קוסמטיקה"
+  },
+  "tag.category.creation": {
+    "defaultMessage": "יצירה"
+  },
+  "tag.category.creative-mode": {
+    "defaultMessage": "מצב יצירה"
+  },
+  "tag.category.creator-community": {
+    "defaultMessage": "קהילת יוצרים"
+  },
+  "tag.category.crossplay": {
+    "defaultMessage": "קרוספליי"
+  },
+  "tag.category.ctm": {
+    "message": "השלם את האנדרטה"
+  },
+  "tag.category.cursed": {
+    "defaultMessage": "מקולל"
+  },
+  "tag.category.custom-content": {
+    "defaultMessage": "תוכן מותאם"
+  },
+  "tag.category.custom-terrain": {
+    "message": "שטח מותאם אישית"
+  },
+  "tag.category.decoration": {
+    "defaultMessage": "קישוט"
+  },
+  "tag.category.dungeons": {
+    "defaultMessage": "מבוכים"
+  },
+  "tag.category.economy": {
+    "defaultMessage": "כלכלה"
+  },
+  "tag.category.enhanced-visuals": {
+    "message": "חזותיים משופרים"
+  },
+  "tag.category.entities": {
+    "defaultMessage": "ישויות"
+  },
+  "tag.category.environment": {
+    "defaultMessage": "סביבה"
+  },
+  "tag.category.equipment": {
+    "defaultMessage": "ציוד"
+  },
+  "tag.category.factions": {
+    "defaultMessage": "פלגים"
+  },
+  "tag.category.fantasy": {
+    "defaultMessage": "פנטזיה"
+  },
+  "tag.category.foliage": {
+    "defaultMessage": "עלווה"
+  },
+  "tag.category.fonts": {
+    "defaultMessage": "גופנים"
+  },
+  "tag.category.food": {
+    "defaultMessage": "אוכל"
+  },
+  "tag.category.game-map": {
+    "defaultMessage": "מפת משחק"
+  },
+  "tag.category.game-mechanics": {
+    "defaultMessage": "מכניקות משחק"
+  },
+  "tag.category.gens": {
+    "defaultMessage": "ג'נס"
+  },
+  "tag.category.gui": {
+    "defaultMessage": "GUI"
+  },
+  "tag.category.hardcore-mode": {
+    "defaultMessage": "מצב הארדקור"
+  },
+  "tag.category.high": {
+    "defaultMessage": "גבוה"
+  },
+  "tag.category.items": {
+    "defaultMessage": "פריטים"
+  },
+  "tag.category.keep-inventory": {
+    "defaultMessage": "שמירת מלאי"
+  },
+  "tag.category.kitchen-sink": {
+    "defaultMessage": "קיטשן סינק"
+  },
+  "tag.category.kitpvp": {
+    "defaultMessage": "Kit PvP"
+  },
+  "tag.category.library": {
+    "defaultMessage": "ספרייה"
+  },
+  "tag.category.lifesteal": {
+    "defaultMessage": "גניבת חיים"
+  },
+  "tag.category.lightweight": {
+    "defaultMessage": "קל משקל"
+  },
+  "tag.category.locale": {
+    "defaultMessage": "לוקאל"
+  },
+  "tag.category.low": {
+    "defaultMessage": "נמוך"
+  },
+  "tag.category.magic": {
+    "defaultMessage": "קסם"
+  },
+  "tag.category.management": {
+    "defaultMessage": "ניהול"
+  },
+  "tag.category.maps": {
+    "message": "מפות"
+  },
+  "tag.category.media": {
+    "defaultMessage": "מדיה"
+  },
+  "tag.category.medium": {
+    "defaultMessage": "בינוני"
+  },
+  "tag.category.microgames": {
+    "defaultMessage": "מיקרוגיימס"
+  },
+  "tag.category.minecraft-addon-maker": {
+    "message": "Minecraft Addon Maker"
+  },
+  "tag.category.minigame": {
+    "defaultMessage": "מיניגיים"
+  },
+  "tag.category.minigames": {
+    "defaultMessage": "מיניגיימס"
+  },
+  "tag.category.mmo": {
+    "defaultMessage": "MMO"
+  },
   "tag.category.mobs": {
     "defaultMessage": "יצורים"
+  },
+  "tag.category.modded": {
+    "defaultMessage": "עם מודים"
+  },
+  "tag.category.modded-world": {
+    "defaultMessage": "עולם עם מודים"
+  },
+  "tag.category.models": {
+    "defaultMessage": "מודלים"
   },
   "tag.category.multiplayer": {
     "defaultMessage": "רב-משתתפים"
   },
+  "tag.category.network": {
+    "defaultMessage": "רשת"
+  },
+  "tag.category.offline-mode": {
+    "defaultMessage": "מצב לא מקוון"
+  },
+  "tag.category.oneblock": {
+    "defaultMessage": "בלוק אחד"
+  },
+  "tag.category.op": {
+    "defaultMessage": "OP"
+  },
+  "tag.category.optimization": {
+    "defaultMessage": "אופטימיזציה"
+  },
+  "tag.category.parkour": {
+    "defaultMessage": "פארקור"
+  },
+  "tag.category.path-tracing": {
+    "defaultMessage": "מעקב קרניים"
+  },
+  "tag.category.pbr": {
+    "defaultMessage": "PBR"
+  },
+  "tag.category.personal-worlds": {
+    "defaultMessage": "עולמות אישיים"
+  },
+  "tag.category.players": {
+    "message": "שחקנים"
+  },
+  "tag.category.plots": {
+    "defaultMessage": "מגרשים"
+  },
+  "tag.category.pokemon": {
+    "defaultMessage": "Pokémon"
+  },
+  "tag.category.potato": {
+    "defaultMessage": "תפוח אדמה"
+  },
+  "tag.category.prison": {
+    "defaultMessage": "כלא"
+  },
+  "tag.category.puzzle": {
+    "defaultMessage": "חידות"
+  },
+  "tag.category.pve": {
+    "defaultMessage": "PvE"
+  },
+  "tag.category.pvp": {
+    "defaultMessage": "PvP"
+  },
+  "tag.category.questing": {
+    "defaultMessage": "משימות"
+  },
+  "tag.category.quests": {
+    "defaultMessage": "קווסטים"
+  },
+  "tag.category.racing": {
+    "defaultMessage": "מרוצים"
+  },
+  "tag.category.realistic": {
+    "defaultMessage": "ריאליסטי"
+  },
+  "tag.category.recording-smp": {
+    "defaultMessage": "SMP הקלטות"
+  },
+  "tag.category.reflections": {
+    "defaultMessage": "השתקפויות"
+  },
+  "tag.category.roleplay": {
+    "defaultMessage": "משחק תפקידים"
+  },
+  "tag.category.rollercoaster": {
+    "message": "רכבת הרים"
+  },
+  "tag.category.rpg": {
+    "defaultMessage": "RPG"
+  },
+  "tag.category.screenshot": {
+    "defaultMessage": "צילום מסך"
+  },
+  "tag.category.scripts": {
+    "message": "סקריפטים"
+  },
+  "tag.category.semi-realistic": {
+    "defaultMessage": "ריאליסטי למחצה"
+  },
+  "tag.category.shaders": {
+    "message": "שיידרים"
+  },
+  "tag.category.shadows": {
+    "defaultMessage": "צללים"
+  },
+  "tag.category.simplistic": {
+    "defaultMessage": "פשטני"
+  },
+  "tag.category.skins": {
+    "message": "סקינים"
+  },
+  "tag.category.skyblock": {
+    "defaultMessage": "סקייבלוק"
+  },
+  "tag.category.smp": {
+    "defaultMessage": "SMP"
+  },
+  "tag.category.social": {
+    "defaultMessage": "חברתי"
+  },
   "tag.category.storage": {
     "defaultMessage": "אחסון"
   },
+  "tag.category.survival": {
+    "defaultMessage": "הישרדות"
+  },
+  "tag.category.survival-mode": {
+    "defaultMessage": "מצב הישרדות"
+  },
+  "tag.category.teams": {
+    "defaultMessage": "קבוצות"
+  },
+  "tag.category.technical": {
+    "defaultMessage": "טכני"
+  },
   "tag.category.technology": {
     "defaultMessage": "טכנולוגיה"
+  },
+  "tag.category.texture-packs": {
+    "message": "חבילות מרקם"
+  },
+  "tag.category.themed": {
+    "defaultMessage": "נושאי"
+  },
+  "tag.category.towns": {
+    "defaultMessage": "עיירות"
+  },
+  "tag.category.transportation": {
+    "defaultMessage": "תחבורה"
+  },
+  "tag.category.tweaks": {
+    "defaultMessage": "שיפורים"
+  },
+  "tag.category.utility": {
+    "defaultMessage": "שימושי"
+  },
+  "tag.category.vanilla-like": {
+    "defaultMessage": "בסגנון Vanilla"
+  },
+  "tag.category.whitelisted": {
+    "defaultMessage": "עם רשימת מורשים"
+  },
+  "tag.category.world-resets": {
+    "defaultMessage": "איפוסי עולם"
+  },
+  "tag.category.worldgen": {
+    "defaultMessage": "יצירת עולם"
   },
   "tag.loader.babric": {
     "defaultMessage": "Babric"
@@ -980,6 +3641,9 @@
   "tag.loader.bungeecord": {
     "defaultMessage": "BungeeCord"
   },
+  "tag.loader.canvas": {
+    "defaultMessage": "Canvas"
+  },
   "tag.loader.datapack": {
     "defaultMessage": "חבילת נתונים"
   },
@@ -992,8 +3656,17 @@
   "tag.loader.forge": {
     "defaultMessage": "Forge"
   },
+  "tag.loader.geyser": {
+    "defaultMessage": "הרחבת Geyser"
+  },
   "tag.loader.iris": {
     "defaultMessage": "Iris"
+  },
+  "tag.loader.java-agent": {
+    "defaultMessage": "סוכן Java"
+  },
+  "tag.loader.legacy-fabric": {
+    "defaultMessage": "Legacy Fabric"
   },
   "tag.loader.liteloader": {
     "defaultMessage": "LiteLoader"
@@ -1037,13 +3710,229 @@
   "tag.loader.sponge": {
     "defaultMessage": "Sponge"
   },
+  "tag.loader.vanilla": {
+    "defaultMessage": "שיידר Vanilla"
+  },
   "tag.loader.velocity": {
     "defaultMessage": "Velocity"
   },
   "tag.loader.waterfall": {
     "defaultMessage": "Waterfall"
   },
+  "terminal.scroll-to-bottom": {
+    "defaultMessage": "גלול למטה"
+  },
   "ui.component.unsaved-changes-popup.body": {
     "defaultMessage": "יש לך שינויים שלא נשמרו."
+  },
+  "ui.confirm-leave-modal.body": {
+    "defaultMessage": "יש לך שינויים שלא נשמרו שיאבדו אם תעזוב דף זה."
+  },
+  "ui.confirm-leave-modal.header": {
+    "defaultMessage": "יש לך שינויים שלא נשמרו"
+  },
+  "ui.confirm-leave-modal.leave": {
+    "defaultMessage": "עזוב דף"
+  },
+  "ui.confirm-leave-modal.stay": {
+    "defaultMessage": "הישאר בדף"
+  },
+  "ui.confirm-leave-modal.title": {
+    "defaultMessage": "לעזוב את הדף?"
+  },
+  "ui.i18n-debug.close": {
+    "defaultMessage": "סגור מפקח"
+  },
+  "ui.i18n-debug.copied": {
+    "defaultMessage": "הועתק"
+  },
+  "ui.i18n-debug.copy": {
+    "defaultMessage": "העתק"
+  },
+  "ui.i18n-debug.copy-hint": {
+    "defaultMessage": "לחץ להעתקה"
+  },
+  "ui.i18n-debug.discover-hint": {
+    "defaultMessage": "נווט באפליקציה כדי לגלות מפתחות i18n"
+  },
+  "ui.i18n-debug.expand": {
+    "defaultMessage": "הרחב פאנל"
+  },
+  "ui.i18n-debug.hide-keys": {
+    "defaultMessage": "הסתר מפתחות בשורה"
+  },
+  "ui.i18n-debug.key-count": {
+    "defaultMessage": "{count, plural, one {# מפתח} other {# מפתחות}}"
+  },
+  "ui.i18n-debug.minimize": {
+    "defaultMessage": "מזער פאנל"
+  },
+  "ui.i18n-debug.navigate": {
+    "defaultMessage": "נווט"
+  },
+  "ui.i18n-debug.no-keys": {
+    "defaultMessage": "אין מפתחות רשומים"
+  },
+  "ui.i18n-debug.no-matches": {
+    "defaultMessage": "לא נמצאו התאמות"
+  },
+  "ui.i18n-debug.reveal-keys": {
+    "defaultMessage": "חשוף מפתחות בשורה"
+  },
+  "ui.i18n-debug.search": {
+    "defaultMessage": "חפש מפתחות או ערכים…"
+  },
+  "ui.i18n-debug.search-hint": {
+    "defaultMessage": "נסה מונח חיפוש אחר"
+  },
+  "ui.i18n-debug.title": {
+    "defaultMessage": "i18n Inspector"
+  },
+  "ui.i18n-debug.toggle-overlay": {
+    "defaultMessage": "החלף שכבת ניפוי CSS"
+  },
+  "ui.i18n-debug.watching": {
+    "defaultMessage": "עוקב"
+  },
+  "ui.pagination.go-to-page": {
+    "defaultMessage": "עבור לדף"
+  },
+  "ui.pagination.next-page": {
+    "defaultMessage": "דף הבא"
+  },
+  "ui.pagination.previous-page": {
+    "defaultMessage": "דף קודם"
+  },
+  "ui.stacked-admonitions.alert-count": {
+    "defaultMessage": "{count, plural, one {# התראה} other {# התראות}}"
+  },
+  "ui.stacked-admonitions.dismiss-all": {
+    "defaultMessage": "בטל הכל"
+  },
+  "unknown-file-warning-modal.dont-install": {
+    "defaultMessage": "אל תתקין"
+  },
+  "unknown-file-warning-modal.dont-show-again": {
+    "defaultMessage": "אל תציג אזהרה זו שוב"
+  },
+  "unknown-file-warning-modal.file-unverified-body": {
+    "defaultMessage": " מקורו לא ניתן לאימות. התקן רק קבצים ממקורות שאתה סומך עליהם."
+  },
+  "unknown-file-warning-modal.header": {
+    "defaultMessage": "אשר התקנה"
+  },
+  "unknown-file-warning-modal.install-anyway": {
+    "defaultMessage": "התקן בכל זאת"
+  },
+  "unknown-file-warning-modal.malware-warning": {
+    "defaultMessage": "נוזקות מופצות לעתים קרובות דרך קבצי מוד על ידי שיתופם בפלטפורמות כמו Discord."
+  },
+  "unknown-file-warning-modal.mod-warning-title": {
+    "defaultMessage": "אזהרת קובץ לא ידוע"
+  },
+  "unknown-file-warning-modal.modpack-unverified-body": {
+    "defaultMessage": " מכיל קבצים שמקורם לא ניתן לאימות. התקן רק קבצים ממקורות שאתה סומך עליהם."
+  },
+  "unknown-file-warning-modal.modpack-warning-title": {
+    "defaultMessage": "אזהרת קבצים לא ידועים"
+  },
+  "unknown-file-warning-modal.unrecognized-files": {
+    "defaultMessage": "קבצים לא מזוהים"
+  },
+  "unknown-file-warning-modal.unverified-files": {
+    "defaultMessage": "קובץ לא מזוהה עלול להיות לא בטוח. בדוק את מקורו לפני ההתקנה."
+  },
+  "version.content.name": {
+    "defaultMessage": "שם"
+  },
+  "version.content.version": {
+    "defaultMessage": "גרסה"
+  },
+  "version.file-type.dev-jar": {
+    "defaultMessage": "jar פיתוח"
+  },
+  "version.file-type.javadoc-jar": {
+    "defaultMessage": "jar מסמכי Javadoc"
+  },
+  "version.file-type.optional-resource-pack": {
+    "defaultMessage": "חבילת משאבים אופציונלית"
+  },
+  "version.file-type.primary": {
+    "defaultMessage": "ראשי"
+  },
+  "version.file-type.required-resource-pack": {
+    "defaultMessage": "חבילת משאבים נדרשת"
+  },
+  "version.file-type.signature": {
+    "defaultMessage": "קובץ חתימה"
+  },
+  "version.file-type.sources-jar": {
+    "defaultMessage": "jar מקורות"
+  },
+  "version.file-type.unknown": {
+    "defaultMessage": "אחר"
+  },
+  "version.section.changes": {
+    "defaultMessage": "שינויים"
+  },
+  "version.section.compatibility": {
+    "defaultMessage": "תאימות"
+  },
+  "version.section.content": {
+    "defaultMessage": "תוכן"
+  },
+  "version.section.content.search-placeholder": {
+    "defaultMessage": "חפש תוכן…"
+  },
+  "version.section.dependencies.any-compatible-version": {
+    "defaultMessage": "כל גרסה תואמת"
+  },
+  "version.section.dependencies.any-version": {
+    "defaultMessage": "כל גרסה"
+  },
+  "version.section.dependencies.unavailable-version": {
+    "defaultMessage": "גרסה לא זמינה"
+  },
+  "version.section.dependencies.unavailable-version.description": {
+    "defaultMessage": "ייתכן שגרסה זו נמחקה או שהיא נבדקת על ידי מנחים."
+  },
+  "version.section.dependencies.unavailable-version.description.required": {
+    "defaultMessage": "ייתכן שהגרסה הנדרשת נמחקה או שהיא נבדקת על ידי מנחים."
+  },
+  "version.section.files": {
+    "defaultMessage": "קבצים"
+  },
+  "version.section.included-content": {
+    "defaultMessage": "תוכן כלול"
+  },
+  "version.section.known-incompatibilities": {
+    "defaultMessage": "אי־תאימות ידועות"
+  },
+  "version.section.no-changes": {
+    "defaultMessage": "לא סופק יומן שינויים."
+  },
+  "version.section.no-modpack-mod-loader": {
+    "defaultMessage": "אין טוען מודים"
+  },
+  "version.section.optional-dependencies": {
+    "defaultMessage": "תלויות אופציונליות"
+  },
+  "version.section.required-content": {
+    "defaultMessage": "תוכן נדרש"
+  },
+  "version.section.supplementary-resources": {
+    "defaultMessage": "משאבים משלימים"
+  },
+  "version.supplementary-resources.file": {
+    "defaultMessage": "קובץ"
+  },
+  "version.supplementary-resources.size": {
+    "defaultMessage": "גודל"
+  },
+  "version.supplementary-resources.type": {
+    "defaultMessage": "סוג"
+  },
+  "version.uploaded-by": {
+    "defaultMessage": "הועלה על ידי"
   }
 }

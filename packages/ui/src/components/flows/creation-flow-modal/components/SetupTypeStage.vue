@@ -151,8 +151,9 @@ const messages = defineMessages({
 		defaultMessage: 'Upload a modpack',
 	},
 	uploadModpackDescription: {
-		id: 'creation-flow.modal.setup-type.option.upload-modpack.description',
-		defaultMessage: 'Install a modpack from an .mrpack file on your device.',
+		id: 'creation-flow.modal.setup-type.option.upload-modpack.supported-formats-description',
+		defaultMessage:
+			'Import an .orbpack, Modrinth .mrpack, or CurseForge .zip file from your device.',
 	},
 	importInstanceTitle: {
 		id: 'creation-flow.modal.setup-type.option.import-instance.title',

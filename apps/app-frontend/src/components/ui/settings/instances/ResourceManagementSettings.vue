@@ -8,14 +8,16 @@ import {
 	Input,
 	Slider,
 	Toggle,
+	useSavable,
 	useVIntl,
 } from '@orbiont/ui'
 import { open } from '@tauri-apps/plugin-dialog'
-import { ref, watch } from 'vue'
+import { ref } from 'vue'
 
 import ConfirmModalWrapper from '@/components/ui/modal/ConfirmModalWrapper.vue'
 import ContentStorageSettings from '@/components/ui/settings/instances/ContentStorageSettings.vue'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
+import { useSettingsChanges } from '@/composables/use-settings-changes'
 import { purge_cache_types } from '@/helpers/cache.js'
 import { get, set } from '@/helpers/settings.ts'
 import { showAppDbBackupsFolder } from '@/helpers/utils.js'
@@ -23,9 +25,45 @@ import { showAppDbBackupsFolder } from '@/helpers/utils.js'
 const { handleError } = injectNotificationManager()
 const { formatMessage } = useVIntl()
 const appSettings = useAppSettings()
-const settings = ref(await get())
+const persistedSettings = ref(await get())
 const purgeCacheConfirmModal = ref(null)
 const alwaysShowCopyDetailsFlag = 'always_show_copy_details'
+
+const draft = useSavable(
+	() => ({
+		custom_dir: persistedSettings.value.custom_dir,
+		max_concurrent_downloads: persistedSettings.value.max_concurrent_downloads,
+		max_concurrent_writes: persistedSettings.value.max_concurrent_writes,
+		alwaysShowCopyDetails:
+			persistedSettings.value.feature_flags[alwaysShowCopyDetailsFlag] ?? false,
+	}),
+	async (changes) => {
+		const { alwaysShowCopyDetails, ...settingsChanges } = changes
+		const nextSettings = { ...(await get()), ...settingsChanges }
+		if ('custom_dir' in settingsChanges)
+			nextSettings.custom_dir = settingsChanges.custom_dir || null
+		if (alwaysShowCopyDetails !== undefined) {
+			nextSettings.feature_flags = {
+				...nextSettings.feature_flags,
+				[alwaysShowCopyDetailsFlag]: alwaysShowCopyDetails,
+			}
+		}
+		await set(nextSettings)
+		persistedSettings.value = nextSettings
+		if (alwaysShowCopyDetails !== undefined) {
+			appSettings.featureFlags[alwaysShowCopyDetailsFlag] = alwaysShowCopyDetails
+		}
+	},
+)
+const settings = draft.current
+useSettingsChanges('resource-management', {
+	hasChanges: () => draft.hasChanges.value,
+	getOriginal: () => draft.saved.value,
+	getModified: () => draft.changes.value,
+	isSaving: () => draft.saving.value,
+	reset: draft.reset,
+	save: draft.save,
+})
 
 const messages = defineMessages({
 	appDirectoryTitle: {
@@ -107,20 +145,6 @@ const messages = defineMessages({
 			'Backups of important app data are stored here in case you need to recover them later.',
 	},
 })
-
-watch(
-	settings,
-	async () => {
-		const setSettings = JSON.parse(JSON.stringify(settings.value))
-
-		if (!setSettings.custom_dir) {
-			setSettings.custom_dir = null
-		}
-
-		await set(setSettings)
-	},
-	{ deep: true },
-)
 
 async function purgeCache() {
 	await purge_cache_types([
@@ -210,17 +234,7 @@ async function findLauncherDir() {
 					{{ formatMessage(messages.alwaysShowCopyDetailsDescription) }}
 				</p>
 			</div>
-			<Toggle
-				id="always-show-copy-details"
-				:model-value="appSettings.getFeatureFlag(alwaysShowCopyDetailsFlag)"
-				@update:model-value="
-					() => {
-						const newValue = !appSettings.getFeatureFlag(alwaysShowCopyDetailsFlag)
-						appSettings.featureFlags[alwaysShowCopyDetailsFlag] = newValue
-						settings.feature_flags[alwaysShowCopyDetailsFlag] = newValue
-					}
-				"
-			/>
+			<Toggle id="always-show-copy-details" v-model="settings.alwaysShowCopyDetails" />
 		</div>
 
 		<div class="flex flex-col gap-2.5">

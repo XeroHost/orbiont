@@ -15,6 +15,7 @@ import type { Router } from 'vue-router'
 
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { config } from '@/config'
+import { requestBedrockInstall } from '@/helpers/bedrock-catalog'
 import {
 	get_organization,
 	get_project,
@@ -22,10 +23,12 @@ import {
 	get_team,
 	get_version_many,
 } from '@/helpers/cache.js'
+import { getCurseforgeProjectVersions, isCurseforgeId } from '@/helpers/curseforge'
 import {
 	install_create_instance,
 	install_create_modpack_instance,
 	installJobInstanceId,
+	wait_for_install_job,
 } from '@/helpers/install'
 import {
 	add_project_from_version,
@@ -40,6 +43,7 @@ import {
 } from '@/helpers/instance'
 import { get_game_versions } from '@/helpers/tags'
 import type { GameInstance, InstanceLoader } from '@/helpers/types'
+import { requestWorldInstall } from '@/helpers/world-install'
 import type { AppEvents } from '@/providers/app-events'
 interface ModalRef {
 	show: (initialVersionId?: string) => void
@@ -81,7 +85,9 @@ const RESOLVABLE_PROJECT_TYPES = new Set<Labrinth.Content.v3.ContentType>([
 ])
 
 function resolveContentType(projectType?: Labrinth.Projects.v2.ProjectType) {
-	return projectType && RESOLVABLE_PROJECT_TYPES.has(projectType) ? projectType : 'mod'
+	return projectType && projectType !== 'world' && RESOLVABLE_PROJECT_TYPES.has(projectType)
+		? projectType
+		: 'mod'
 }
 
 function isVersionCompatible(
@@ -141,6 +147,7 @@ export interface ContentInstallContext {
 	projectInfo: Ref<ContentInstallProjectInfo | null>
 	handleInstallToInstance: (instance: ContentInstallInstance) => Promise<void>
 	handleCreateAndInstall: (data: {
+		optifineInstallerPath?: string | null
 		name: string
 		iconPath: string | null
 		iconPreviewUrl: string | null
@@ -409,6 +416,7 @@ export function createContentInstall(opts: {
 	let currentProject: Labrinth.Projects.v2.Project | null = null
 	let currentVersions: Labrinth.Versions.v2.Version[] = []
 	let currentCallback: ContentInstallCallback = () => {}
+	let worldSelectionCommitted = false
 	let instanceMap: Record<string, InstallTargetInstance> = {}
 	let incompatibilityWarningInstance: InstallTargetInstance | null = null
 	let incompatibilityWarningProject: Labrinth.Projects.v2.Project | null = null
@@ -437,6 +445,7 @@ export function createContentInstall(opts: {
 		currentProject = project
 		currentVersions = versions
 		currentCallback = onInstall
+		worldSelectionCommitted = false
 
 		instances.value = []
 		loading.value = true
@@ -483,7 +492,7 @@ export function createContentInstall(opts: {
 										name: owner.user.username,
 										iconUrl: owner.user.avatar_url,
 										circle: true,
-										link: `/user/${encodeURIComponent(owner.user.username)}`,
+										link: undefined,
 									},
 								}
 							}
@@ -507,6 +516,9 @@ export function createContentInstall(opts: {
 			else if (VANILLA_COMPATIBLE_LOADERS.has(l)) mappedLoaders.add('vanilla')
 		}
 		compatibleLoaders.value = sortLoaders([...mappedLoaders])
+		if (project.project_type === 'world') {
+			compatibleLoaders.value = [...LOADER_ORDER]
+		}
 		gameVersions.value = [...gameVersionSet]
 		releaseGameVersions.value = new Set(gameVersionSet)
 
@@ -540,11 +552,22 @@ export function createContentInstall(opts: {
 			.catch(() => {})
 
 		try {
-			const candidates = await get_install_candidates(
-				project.id,
-				project.project_type,
-				getInstallTargets(versions),
-			)
+			const candidates =
+				project.project_type === 'world'
+					? (await list())
+							.filter((item) => !item.quarantined && item.install_stage === 'installed')
+							.map((item) => ({
+								...item,
+								installed: false,
+								compatible: versions.some((version) =>
+									version.game_versions.includes(item.game_version),
+								),
+							}))
+					: await get_install_candidates(
+							project.id,
+							project.project_type,
+							getInstallTargets(versions),
+						)
 			const newInstanceMap: Record<string, InstallTargetInstance> = {}
 			const newInstances: ContentInstallInstance[] = candidates.map((instance) => {
 				newInstanceMap[instance.id] = instance
@@ -579,9 +602,9 @@ export function createContentInstall(opts: {
 			throw new Error(`Project cannot be prepared as a new instance: '${projectId}'`)
 		}
 
-		const versions = (
-			(await get_version_many(project.versions)) as Labrinth.Versions.v2.Version[]
-		).sort((a, b) => dayjs(b.date_published).valueOf() - dayjs(a.date_published).valueOf())
+		const versions = ((await loadInstallVersions(project)) as Labrinth.Versions.v2.Version[]).sort(
+			(a, b) => dayjs(b.date_published).valueOf() - dayjs(a.date_published).valueOf(),
+		)
 
 		await showModInstallModal(project, versions, () => {}, {
 			showProjectInfo: true,
@@ -612,6 +635,29 @@ export function createContentInstall(opts: {
 		const storeInstance = instances.value.find((i) => i.id === instance.id)
 		if (!currentProject || !selectedInstance) {
 			opts.handleError('No project or instance found')
+			return
+		}
+
+		if (currentProject.project_type === 'world') {
+			const project = currentProject
+			const versions = currentVersions
+			const callback = currentCallback
+			const version = findPreferredVersion(versions, project, selectedInstance)
+			worldSelectionCommitted = true
+			modalRef?.hide()
+			if (!version) {
+				await showIncompatibilityWarning(selectedInstance, project, versions, versions[0], callback)
+				return
+			}
+			if (storeInstance) storeInstance.installing = true
+			try {
+				await installWorldVersion(selectedInstance.id, project, version, callback)
+			} catch (error) {
+				callback()
+				opts.handleError(error)
+			} finally {
+				if (storeInstance) storeInstance.installing = false
+			}
 			return
 		}
 
@@ -690,10 +736,9 @@ export function createContentInstall(opts: {
 		incompatibilityWarningProjectIconUrl.value = project.icon_url ?? undefined
 		incompatibilityWarningProjectName.value = project.title
 
-		const compatibilityLabel =
-			project.project_type === 'resourcepack' || project.project_type === 'datapack'
-				? (instance.game_version ?? '')
-				: `${instance.loader ?? ''} ${instance.game_version ?? ''}`.trim()
+		const compatibilityLabel = ['resourcepack', 'datapack', 'world'].includes(project.project_type)
+			? (instance.game_version ?? '')
+			: `${instance.loader ?? ''} ${instance.game_version ?? ''}`.trim()
 		incompatibilityWarningMessage.value = formatMessage(noCompatibleVersionsMessage, {
 			compatibilityLabel,
 		})
@@ -704,6 +749,20 @@ export function createContentInstall(opts: {
 
 	async function handleIncompatibilityWarningInstall(version: Labrinth.Versions.v2.Version) {
 		if (!incompatibilityWarningInstance || !incompatibilityWarningProject) return
+		if (incompatibilityWarningProject.project_type === 'world') {
+			const instance = incompatibilityWarningInstance
+			const project = incompatibilityWarningProject
+			const callback = incompatibilityWarningCallback
+			incompatibilityWarningInstalled = true // The world dialog now owns completion/cancellation.
+			incompatibilityWarningModalRef?.hide()
+			try {
+				await installWorldVersion(instance.id, project, version, callback)
+			} catch (error) {
+				callback()
+				opts.handleError(error)
+			}
+			return
+		}
 
 		incompatibilityWarningInstalling.value = true
 		addInstallingItem(incompatibilityWarningInstance.id, incompatibilityWarningProject, version)
@@ -733,12 +792,37 @@ export function createContentInstall(opts: {
 	}
 
 	async function handleCreateAndInstall(data: {
+		optifineInstallerPath?: string | null
 		name: string
 		iconPath: string | null
 		iconPreviewUrl: string | null
 		loader: string
 		gameVersion: string
 	}) {
+		if (currentProject?.project_type === 'world') {
+			const project = currentProject
+			const callback = currentCallback
+			const version = currentVersions.find((item) => item.game_versions.includes(data.gameVersion))
+			if (!version) return
+			worldSelectionCommitted = true
+			try {
+				const job = await install_create_instance({
+					name: data.name,
+					gameVersion: data.gameVersion,
+					loader: data.loader as InstanceLoader,
+					loaderVersion: 'latest',
+					iconPath: data.iconPath,
+				})
+				const finished = await wait_for_install_job(opts.appEvents, job.job_id)
+				const id = installJobInstanceId(finished)
+				if (!id) throw new Error('The new instance was not created')
+				await installWorldVersion(id, project, version, callback)
+			} catch (error) {
+				callback()
+				opts.handleError(error)
+			}
+			return
+		}
 		const loaderCandidates =
 			data.loader === 'vanilla' ? ['vanilla', 'datapack', 'minecraft'] : [data.loader]
 		const version =
@@ -751,6 +835,7 @@ export function createContentInstall(opts: {
 		let createdInstanceId: string | null = null
 		try {
 			const job = await install_create_instance({
+				optifineInstallerPath: data.optifineInstallerPath,
 				name: data.name,
 				gameVersion: data.gameVersion,
 				loader: data.loader as InstanceLoader,
@@ -787,7 +872,24 @@ export function createContentInstall(opts: {
 	}
 
 	function handleCancel() {
+		if (worldSelectionCommitted) return
 		currentCallback?.()
+	}
+
+	async function installWorldVersion(
+		instanceId: string,
+		project: Labrinth.Projects.v2.Project,
+		version: Labrinth.Versions.v2.Version,
+		callback: ContentInstallCallback,
+	) {
+		const installed = await requestWorldInstall({
+			project,
+			versions: [version],
+			instanceId,
+			autoInstall: true,
+			allowIncompatible: true,
+		})
+		callback(installed ?? undefined)
 	}
 
 	async function install(
@@ -805,16 +907,43 @@ export function createContentInstall(opts: {
 			opts.handleError(`Project not found: '${projectId}'`)
 			return
 		}
+		if (
+			(project as Labrinth.Projects.v2.Project & { minecraft_edition?: string })
+				.minecraft_edition === 'bedrock'
+		) {
+			const installed = await requestBedrockInstall({ project, versionId })
+			callback(installed ?? undefined)
+			return
+		}
+
+		if (project.project_type === 'world') {
+			const versions = (
+				versionId
+					? await get_version_many([versionId], 'must_revalidate')
+					: await loadInstallVersions(project)
+			).sort((a, b) => dayjs(b.date_published).valueOf() - dayjs(a.date_published).valueOf())
+			if (!versions.length) throw new Error(`No versions available for ${project.title}`)
+			if (instanceId) {
+				const instance = await get(instanceId)
+				if (!instance) return
+				const version = findPreferredVersion(versions, project, instance)
+				if (version) await installWorldVersion(instanceId, project, version, callback)
+				else await showIncompatibilityWarning(instance, project, versions, versions[0], callback)
+			} else {
+				await showModInstallModal(project, versions, callback, hints)
+			}
+			return
+		}
 
 		if (project.project_type === 'modpack') {
 			let version = versionId ?? null
 			if (!version) {
 				const hasHints = !!(hints?.preferredGameVersion || hints?.preferredLoader)
 				if (hasHints) {
-					const versions = (await get_version_many(
-						project.versions,
-						'must_revalidate',
-					)) as Labrinth.Versions.v2.Version[]
+					const versions = (await loadInstallVersions(project, {
+						gameVersion: hints?.preferredGameVersion,
+						loader: hints?.preferredLoader,
+					})) as Labrinth.Versions.v2.Version[]
 					const matching = getLatestMatchingInstallVersion(versions, {
 						gameVersions: hints?.preferredGameVersion ? [hints.preferredGameVersion] : undefined,
 						loaders: hints?.preferredLoader ? [hints.preferredLoader] : undefined,
@@ -845,16 +974,21 @@ export function createContentInstall(opts: {
 			}
 			callback(version)
 		} else if (instanceId) {
-			const [instanceOrNull, instanceProjects, versions] = await Promise.all([
+			const [instanceOrNull, instanceProjects] = await Promise.all([
 				get(instanceId),
 				get_projects(instanceId),
-				get_version_many(project.versions, 'must_revalidate') as Promise<
-					Labrinth.Versions.v2.Version[]
-				>,
 			])
 			if (!instanceOrNull) return
 
 			const instance = instanceOrNull
+			let versions = versionId
+				? await get_version_many([versionId], 'must_revalidate')
+				: await loadInstallVersions(project, {
+						gameVersion: instance.game_version,
+						loader: project.project_type === 'mod' ? instance.loader : undefined,
+					})
+			if (!versions.length) versions = await get_version_many(project.versions, 'must_revalidate')
+			if (!versions.length) throw new Error(`No versions available for ${project.title}`)
 			const projectVersions = versions.sort(
 				(a, b) => dayjs(b.date_published).valueOf() - dayjs(a.date_published).valueOf(),
 			)
@@ -900,9 +1034,9 @@ export function createContentInstall(opts: {
 				await showIncompatibilityWarning(instance, project, projectVersions, version, callback)
 			}
 		} else {
-			let versions = (
-				(await get_version_many(project.versions)) as Labrinth.Versions.v2.Version[]
-			).sort((a, b) => dayjs(b.date_published).valueOf() - dayjs(a.date_published).valueOf())
+			let versions = ((await loadInstallVersions(project)) as Labrinth.Versions.v2.Version[]).sort(
+				(a, b) => dayjs(b.date_published).valueOf() - dayjs(a.date_published).valueOf(),
+			)
 			if (versionId) versions = versions.filter((v) => v.id === versionId)
 			await showModInstallModal(project, versions, callback, hints)
 		}
@@ -968,4 +1102,13 @@ export function createContentInstall(opts: {
 		installRevisionByInstance,
 		installFailureRevisionByInstance,
 	}
+}
+
+async function loadInstallVersions(
+	project: Labrinth.Projects.v2.Project,
+	options: { gameVersion?: string; loader?: string } = {},
+): Promise<Labrinth.Versions.v2.Version[]> {
+	return isCurseforgeId(project.id)
+		? getCurseforgeProjectVersions(project.id, options)
+		: get_version_many(project.versions, 'must_revalidate')
 }

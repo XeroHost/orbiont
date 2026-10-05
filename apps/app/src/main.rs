@@ -262,11 +262,11 @@ fn main() {
         .plugin(api::settings::init())
         .plugin(api::shortcuts::init())
         .plugin(api::tags::init())
-        .plugin(api::users::init())
         .plugin(api::utils::init())
         .plugin(api::cache::init())
         .plugin(api::files::init())
         .plugin(api::orbiont::init())
+        .plugin(api::bedrock::init())
         .plugin(api::worlds::init())
         .manage(PendingUpdateData::default())
         .invoke_handler(tauri::generate_handler![

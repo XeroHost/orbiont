@@ -94,6 +94,7 @@
 			</nav>
 
 			<div v-if="!isEditing" class="flex flex-shrink-0 items-center gap-2">
+				<slot name="location" />
 				<Input
 					id="search-folder"
 					:model-value="searchQuery"
@@ -125,6 +126,7 @@
 				</Button>
 
 				<TeleportOverflowMenu
+					v-if="!browseOnly"
 					type="outlined"
 					:label="formatMessage(messages.createNew)"
 					:disabled="disabled"
@@ -281,6 +283,7 @@ const props = defineProps<{
 	searchQuery: string
 	showRefreshButton?: boolean
 	baseId: string
+	browseOnly?: boolean
 	disabled?: boolean
 	disabledTooltip?: string
 }>()

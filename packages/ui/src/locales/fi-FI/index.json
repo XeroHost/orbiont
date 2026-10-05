@@ -2,6 +2,12 @@
   "action.no-permission": {
     "defaultMessage": "Sinulla ei ole oikeutta."
   },
+  "app.appearance-settings.native-decorations.description": {
+    "defaultMessage": "Käytä käyttöjärjestelmäsi otsikkopalkkia ja ikkunaohjaimia. Vaatii sovelluksen uudelleenkäynnistyksen."
+  },
+  "app.appearance-settings.native-decorations.title": {
+    "defaultMessage": "Järjestelmän ikkunakehys"
+  },
   "badge.alpha": {
     "defaultMessage": "Alfa"
   },
@@ -20,8 +26,41 @@
   "browse.advanced-filters.apply-saved-preferences": {
     "defaultMessage": "Hyväksy tallennetut valinnat"
   },
+  "browse.advanced-filters.link-overriding-preferences": {
+    "defaultMessage": "Tämän linkin suodattimet eroavat tallennetuista edistyneistä poissulkemisistasi"
+  },
+  "browse.advanced-filters.persistence-note": {
+    "defaultMessage": "Edistyneet poissulkemiset tallennetaan istuntojen yli. Suodattimia sisältävän jaetun linkin avaaminen ohittaa ne."
+  },
+  "browse.display-mode.change": {
+    "defaultMessage": "Vaihda näyttötilaa"
+  },
+  "browse.filter-results": {
+    "defaultMessage": "Suodata tuloksia…"
+  },
+  "browse.no-results": {
+    "defaultMessage": "Haullesi ei löytynyt tuloksia!"
+  },
+  "browse.offline-content": {
+    "defaultMessage": "Olet offline-tilassa. Yhdistä internetiin selataksesi sisältöä."
+  },
   "browse.search.placeholder": {
     "defaultMessage": "Etsi {projectType}"
+  },
+  "browse.selected-projects-floating-bar.aria-label": {
+    "defaultMessage": "Valitut projektit"
+  },
+  "browse.selected-projects-floating-bar.install": {
+    "defaultMessage": "Asenna {count, plural, one {# projekti} other {# projektia}}"
+  },
+  "browse.selected-projects-floating-bar.selected-count": {
+    "defaultMessage": "{count, plural, one {# projekti valittu} other {# projektia valittu}}"
+  },
+  "browse.selected-projects-leave-modal.admonition-body": {
+    "defaultMessage": "Olet valinnut asennettavaksi {count, plural, one {# projektin} other {# projektia}}. Asenna ne nyt tai palaa asentamatta niitä."
+  },
+  "browse.selected-projects-leave-modal.admonition-header": {
+    "defaultMessage": "Valittuja projekteja ei ole vielä asennettu"
   },
   "browse.selected-projects-leave-modal.discard": {
     "defaultMessage": "Hylkää"
@@ -29,11 +68,17 @@
   "browse.selected-projects-leave-modal.header": {
     "defaultMessage": "Valittuja töitä ei vielä asennettu"
   },
+  "browse.view-prefix": {
+    "defaultMessage": "Näkymä:"
+  },
   "button.accept": {
     "defaultMessage": "Hyväksy"
   },
   "button.add-another": {
     "defaultMessage": "Lisää uusi"
+  },
+  "button.add-server-to-instance": {
+    "defaultMessage": "Lisää palvelin instanssiin"
   },
   "button.affiliate-links": {
     "defaultMessage": "Kumppanilinkit"
@@ -86,6 +131,9 @@
   "button.download": {
     "defaultMessage": "Lataa"
   },
+  "button.download-files": {
+    "defaultMessage": "Lataa tiedostot"
+  },
   "button.downloading": {
     "defaultMessage": "Ladataan"
   },
@@ -94,6 +142,9 @@
   },
   "button.enable": {
     "defaultMessage": "Salli"
+  },
+  "button.extract": {
+    "defaultMessage": "Pura"
   },
   "button.follow": {
     "defaultMessage": "Seuraa"
@@ -113,11 +164,23 @@
   "button.more-options": {
     "defaultMessage": "Lisää asetuksia"
   },
+  "button.move": {
+    "defaultMessage": "Siirrä"
+  },
   "button.next": {
     "defaultMessage": "Seuraava"
   },
   "button.open-folder": {
     "defaultMessage": "Avaa kansio"
+  },
+  "button.open-in-browser": {
+    "defaultMessage": "Avaa selaimessa"
+  },
+  "button.open-in-folder": {
+    "defaultMessage": "Avaa kansiossa"
+  },
+  "button.open-in-modrinth": {
+    "defaultMessage": "Avaa Modrinthissä"
   },
   "button.play": {
     "defaultMessage": "Pelaa"
@@ -125,8 +188,23 @@
   "button.refresh": {
     "defaultMessage": "Päivitä"
   },
+  "button.reinstall-modpack": {
+    "defaultMessage": "Asenna modipaketti uudelleen"
+  },
+  "button.remove": {
+    "defaultMessage": "Poista"
+  },
   "button.remove-image": {
     "defaultMessage": "Poista kuva"
+  },
+  "button.rename": {
+    "defaultMessage": "Nimeä uudelleen"
+  },
+  "button.repair": {
+    "defaultMessage": "Korjaa"
+  },
+  "button.repairing": {
+    "defaultMessage": "Korjataan…"
   },
   "button.report": {
     "defaultMessage": "Ilmoita"
@@ -149,6 +227,12 @@
   "button.saving": {
     "defaultMessage": "Tallennetaan"
   },
+  "button.show-all-versions": {
+    "defaultMessage": "Näytä kaikki versiot"
+  },
+  "button.show-file": {
+    "defaultMessage": "Näytä tiedosto"
+  },
   "button.sign-in": {
     "defaultMessage": "Kirjaudu sisään"
   },
@@ -161,8 +245,17 @@
   "button.stop": {
     "defaultMessage": "Pysäytä"
   },
+  "button.switch-to-version": {
+    "defaultMessage": "Vaihda versioon"
+  },
+  "button.switch-version": {
+    "defaultMessage": "Vaihda versiota"
+  },
   "button.unfollow": {
     "defaultMessage": "Lopeta seuraaminen"
+  },
+  "button.unlink-modpack": {
+    "defaultMessage": "Irrota modipaketti"
   },
   "button.update": {
     "defaultMessage": "Päivitys"
@@ -170,14 +263,1025 @@
   "button.upload-image": {
     "defaultMessage": "Lataa kuva"
   },
+  "card.toggle-details": {
+    "defaultMessage": "Vaihda tietojen näyttöä"
+  },
   "collections.label.private": {
     "defaultMessage": "Yksityinen"
+  },
+  "console.actions.collapse": {
+    "defaultMessage": "Supista"
+  },
+  "console.actions.expand": {
+    "defaultMessage": "Laajenna"
+  },
+  "console.actions.share": {
+    "defaultMessage": "Jaa"
+  },
+  "console.command-input-disabled": {
+    "defaultMessage": "Komentosyöte pois käytöstä"
+  },
+  "console.crash.problems-detected": {
+    "defaultMessage": "{count, plural, one {# ongelma havaittu} other {# ongelmaa havaittu}}"
+  },
+  "console.delete-log-confirm-body": {
+    "defaultMessage": "Tämän lokitiedoston poistamista ei voi kumota. Haluatko varmasti jatkaa?"
+  },
+  "console.delete-log-failed-title": {
+    "defaultMessage": "Lokitiedoston poisto epäonnistui"
+  },
+  "console.delete-log-file-header": {
+    "defaultMessage": "Poista lokitiedosto"
+  },
+  "console.delete-log-irreversible-header": {
+    "defaultMessage": "Tämä on peruuttamatonta"
+  },
+  "console.search-logs-placeholder": {
+    "defaultMessage": "Hae lokeista"
+  },
+  "console.server-not-running": {
+    "defaultMessage": "Palvelin ei ole käynnissä"
+  },
+  "console.share-logs-failed-title": {
+    "defaultMessage": "Lokien jakaminen epäonnistui"
+  },
+  "console.share-logs-header": {
+    "defaultMessage": "Jaa lokit"
+  },
+  "console.unknown-error": {
+    "defaultMessage": "Tuntematon virhe."
+  },
+  "content-type.content.lowercase": {
+    "defaultMessage": "sisältöä"
+  },
+  "content-type.item.lowercase": {
+    "defaultMessage": "{count, plural, one {kohde} other {kohdetta}}"
+  },
+  "content.card.frozen": {
+    "defaultMessage": "Tämä projekti on lukittu nykyiseen versioonsa, kunnes jäädytys poistetaan."
+  },
+  "content.card.select-project": {
+    "defaultMessage": "Valitse {project}"
+  },
+  "content.card.sync-update-pending": {
+    "defaultMessage": "Osa synkronoiduista kopioista odottaa muutoksia. Instanssi voi olla käynnissä, sen versio voi olla jäädytetty tai yhteensopimaton tai se voi jo sisältää oman kopionsa."
+  },
+  "content.card.synced": {
+    "defaultMessage": "Synkronoitu instanssien kesken"
+  },
+  "content.card.uploaded": {
+    "defaultMessage": "Ladattu"
+  },
+  "content.confirm-bulk-update.admonition-body": {
+    "defaultMessage": "Haluatko varmasti päivittää {count, plural, one {# projektin} other {# projektia}} uusimpaan yhteensopivaan versioon? Sisältö kannattaa päivittää yksi kerrallaan."
+  },
+  "content.confirm-bulk-update.admonition-header": {
+    "defaultMessage": "Päivitysvaroitus"
+  },
+  "content.confirm-bulk-update.header": {
+    "defaultMessage": "Päivitä projektit"
+  },
+  "content.confirm-bulk-update.shift-click-hint": {
+    "defaultMessage": "Pidä vaihtonäppäintä painettuna napsauttaessasi ”Päivitä kaikki” ohittaaksesi tämän vahvistuksen jatkossa."
+  },
+  "content.confirm-bulk-update.update-button": {
+    "defaultMessage": "Päivitä {count, plural, one {# projekti} other {# projektia}}"
+  },
+  "content.confirm-deletion.admonition-body": {
+    "defaultMessage": "Modin poistaminen voi vaikuttaa pysyvästi maailmaasi ja aiheuttaa puuttuvaa sisältöä tai odottamattomia ongelmia, kun se latautuu uudelleen."
+  },
+  "content.confirm-deletion.admonition-header": {
+    "defaultMessage": "Poistovaroitus"
+  },
+  "content.confirm-deletion.delete-button": {
+    "defaultMessage": "Poista {count, number} {itemType}"
+  },
+  "content.confirm-deletion.header": {
+    "defaultMessage": "Poista {itemType}"
+  },
+  "content.confirm-disable.header": {
+    "defaultMessage": "Poista käytöstä {itemType}"
+  },
+  "content.confirm-modpack-update.admonition-body": {
+    "defaultMessage": "{action, select, downgrade {Vanhentaminen} other {Päivittäminen}} voi aiheuttaa yhteensopivuusongelmia. Modipaketin päälle lisäämäsi modit tai sisältö säilytetään, mutta ne eivät välttämättä ole yhteensopivia uuden version kanssa."
+  },
+  "content.confirm-modpack-update.admonition-header": {
+    "defaultMessage": "{action, select, downgrade {Vanhentamis} other {Päivitys}}varoitus"
+  },
+  "content.confirm-modpack-update.confirm-button": {
+    "defaultMessage": "{action, select, downgrade {Vanhentaa} other {Päivitä}} modipaketti"
+  },
+  "content.confirm-modpack-update.header": {
+    "defaultMessage": "{action, select, downgrade {Vanhentaa} other {Päivitä}} modipaketti"
+  },
+  "content.confirm-unlink.admonition-body": {
+    "defaultMessage": "Modit ja sisältö yhdistetään modipaketin päälle lisäämääsi sisältöön, eikä se enää saa päivityksiä."
+  },
+  "content.confirm-unlink.admonition-header": {
+    "defaultMessage": "Irrotetaan modipakettia"
+  },
+  "content.confirm-unlink.header": {
+    "defaultMessage": "Irrota modipaketti"
+  },
+  "content.confirm-unlink.unlink-button": {
+    "defaultMessage": "Irrota"
+  },
+  "content.dependency-warning.admonition-header": {
+    "defaultMessage": "Tämä sisältö on muun sisällön vaatima"
+  },
+  "content.dependency-warning.affected-dependents-label": {
+    "defaultMessage": "Vaikutetut {count, plural, one {projekti} other {projektit}}"
+  },
+  "content.dependency-warning.bulk-admonition-body": {
+    "defaultMessage": "Osa valituista projekteista on asennettu riippuvuuksina. Niiden poistaminen voi rikkoa kohteen {context} tai estää riippuvaisen sisällön latautumisen oikein."
+  },
+  "content.dependency-warning.context.instance": {
+    "defaultMessage": "instanssin"
+  },
+  "content.dependency-warning.context.server": {
+    "defaultMessage": "palvelimen"
+  },
+  "content.dependency-warning.delete-anyway-button": {
+    "defaultMessage": "Poista silti"
+  },
+  "content.dependency-warning.delete-many-anyway-button": {
+    "defaultMessage": "Poista silti {count, number} {itemType}"
+  },
+  "content.dependency-warning.deleting-label": {
+    "defaultMessage": "Poistetaan"
+  },
+  "content.dependency-warning.disable-dependents-label": {
+    "defaultMessage": "Poista riippuvaiset käytöstä poistamisen jälkeen"
+  },
+  "content.dependency-warning.effect-dependent-content": {
+    "defaultMessage": "Riippuvainen sisältö ei välttämättä lataudu tai se voi poistua käytöstä"
+  },
+  "content.dependency-warning.effect-instance": {
+    "defaultMessage": "Kohteesi {context} voi kaatua, kieltäytyä käynnistymästä tai käyttäytyä odottamattomasti"
+  },
+  "content.dependency-warning.header": {
+    "defaultMessage": "Riippuvuusvaroitus"
+  },
+  "content.dependency-warning.single-admonition-body": {
+    "defaultMessage": "{project} on asennettu riippuvuutena. Sen poistaminen voi rikkoa kohteen {context} tai estää riippuvaisen sisällön latautumisen oikein."
+  },
+  "content.dependency-warning.what-happens-label": {
+    "defaultMessage": "Mitä tapahtuu?"
   },
   "content.diff-modal.added-count": {
     "defaultMessage": "{count} lisätty"
   },
+  "content.diff-modal.config-files-updated": {
+    "defaultMessage": "Muuttuneet asetustiedostot"
+  },
+  "content.diff-modal.diff-type.added": {
+    "defaultMessage": "Lisätty (riippuvuus)"
+  },
+  "content.diff-modal.diff-type.removed": {
+    "defaultMessage": "Poistettu käytöstä"
+  },
+  "content.diff-modal.diff-type.removed-disabled": {
+    "defaultMessage": "Poistettu (pois käytöstä)"
+  },
+  "content.diff-modal.diff-type.updated": {
+    "defaultMessage": "Päivitetty"
+  },
+  "content.diff-modal.dont-install": {
+    "defaultMessage": "Älä asenna"
+  },
+  "content.diff-modal.external-diff-type.added": {
+    "defaultMessage": "Lisätty"
+  },
+  "content.diff-modal.external-diff-type.removed": {
+    "defaultMessage": "Poistettu"
+  },
+  "content.diff-modal.external-diff-type.updated": {
+    "defaultMessage": "Päivitetty"
+  },
+  "content.diff-modal.file-count": {
+    "defaultMessage": "{count, plural, one {# tiedosto} other {# tiedostoa}}"
+  },
+  "content.diff-modal.game-version-updated": {
+    "defaultMessage": "Peliversio"
+  },
+  "content.diff-modal.install-anyway": {
+    "defaultMessage": "Asenna silti"
+  },
+  "content.diff-modal.loader-updated": {
+    "defaultMessage": "Lataaja"
+  },
+  "content.diff-modal.modpack-linked": {
+    "defaultMessage": "Linkitetty modipaketti"
+  },
+  "content.diff-modal.modpack-unlinked": {
+    "defaultMessage": "Irrotettu modipaketti"
+  },
+  "content.diff-modal.modpack-updated": {
+    "defaultMessage": "Päivitetty modipaketti"
+  },
+  "content.diff-modal.no-content-changes": {
+    "defaultMessage": "Ei sisältömuutoksia"
+  },
+  "content.diff-modal.removed-count": {
+    "defaultMessage": "{count} poistettu"
+  },
+  "content.diff-modal.removed-disabled-count": {
+    "defaultMessage": "{count} poistettu (pois käytöstä)"
+  },
+  "content.diff-modal.reviewed-files": {
+    "defaultMessage": "Tiedostoja, joita ei ole julkaistu Modrinthissä, ei tarkisteta."
+  },
+  "content.diff-modal.unknown-content-body": {
+    "defaultMessage": "Osa palvelimesi sisällöstä ei voitu analysoida, ja tämä muutos voi vaikuttaa siihen."
+  },
+  "content.diff-modal.unknown-files-description": {
+    "defaultMessage": "Tämä päivitys sisältää tiedostoja, joita ei ole julkaistu Modrinthissä. Suosittelemme vahvasti asentamaan vain luotettavista lähteistä peräisin olevia tiedostoja."
+  },
+  "content.diff-modal.unknown-files-warning": {
+    "defaultMessage": "Tuntemattomien tiedostojen varoitus"
+  },
+  "content.diff-modal.unknown-project": {
+    "defaultMessage": "Tuntematon"
+  },
   "content.diff-modal.updated-count": {
     "defaultMessage": "{count} päivitetty"
+  },
+  "content.filter.disabled": {
+    "defaultMessage": "Pois käytöstä"
+  },
+  "content.filter.enabled": {
+    "defaultMessage": "Käytössä"
+  },
+  "content.filter.updates": {
+    "defaultMessage": "Päivitykset"
+  },
+  "content.filter.warnings": {
+    "defaultMessage": "Varoitukset"
+  },
+  "content.inline-backup.backing-up": {
+    "defaultMessage": "Luodaan varmuuskopiota…"
+  },
+  "content.inline-backup.backup-complete": {
+    "defaultMessage": "Varmuuskopio luotu onnistuneesti"
+  },
+  "content.inline-backup.backup-failed": {
+    "defaultMessage": "Varmuuskopion luonti epäonnistui. Voit silti jatkaa."
+  },
+  "content.inline-backup.create-backup": {
+    "defaultMessage": "Luo varmuuskopio"
+  },
+  "content.inline-backup.instance-label": {
+    "defaultMessage": "instanssi"
+  },
+  "content.inline-backup.shift-click-hint": {
+    "defaultMessage": "Pidä vaihtonäppäintä painettuna napsauttaessasi ohittaaksesi vahvistuksen."
+  },
+  "content.inline-backup.warning-body": {
+    "defaultMessage": "Suosittelemme varmuuskopion luomista ennen jatkamista, jotta voit palauttaa kohteen {type}, jos jokin rikkoutuu."
+  },
+  "content.managed-card.modpack-content": {
+    "defaultMessage": "Modipaketin sisältö"
+  },
+  "content.managed-card.provided-by": {
+    "defaultMessage": "Tarjoaja"
+  },
+  "content.managed-card.server-suffix": {
+    "defaultMessage": "palvelin"
+  },
+  "content.managed-card.settings": {
+    "defaultMessage": "Asennusasetukset"
+  },
+  "content.managed-card.shared-content": {
+    "defaultMessage": "Jaettu sisältö"
+  },
+  "content.managed-card.summary.installing": {
+    "defaultMessage": "Asennetaan sisältöä…"
+  },
+  "content.managed-card.summary.loading": {
+    "defaultMessage": "Ladataan hallitun sisällön yhteenvetoa"
+  },
+  "content.managed-card.summary.no-provided-content": {
+    "defaultMessage": "Ei tarjottua sisältöä"
+  },
+  "content.managed-card.switch-version": {
+    "defaultMessage": "Vaihda versiota"
+  },
+  "content.managed-card.synced": {
+    "defaultMessage": "Synkronoitu {time}"
+  },
+  "content.managed-card.update-available": {
+    "defaultMessage": "Päivitys saatavilla"
+  },
+  "content.managed-card.updated": {
+    "defaultMessage": "Päivitetty {time}"
+  },
+  "content.managed-card.updating": {
+    "defaultMessage": "Päivitetään…"
+  },
+  "content.managed-card.view-content": {
+    "defaultMessage": "Näytä sisältö"
+  },
+  "content.metadata-filter.author": {
+    "defaultMessage": "Tekijä"
+  },
+  "content.metadata-filter.environment": {
+    "defaultMessage": "Ympäristö"
+  },
+  "content.metadata-filter.open-source": {
+    "defaultMessage": "Avoin lähdekoodi"
+  },
+  "content.metadata-filter.shared-content": {
+    "defaultMessage": "Jaettu sisältö"
+  },
+  "content.metadata-filter.source.external": {
+    "defaultMessage": "Ulkoinen"
+  },
+  "content.metadata-filter.state": {
+    "defaultMessage": "Tila"
+  },
+  "content.metadata-filter.state.disabled": {
+    "defaultMessage": "Pois käytöstä"
+  },
+  "content.metadata-filter.state.enabled": {
+    "defaultMessage": "Käytössä"
+  },
+  "content.metadata-filter.update.available": {
+    "defaultMessage": "Päivitys saatavilla"
+  },
+  "content.metadata-filter.warning.client-depends": {
+    "defaultMessage": "Asiakasohjelma riippuu tiedostosta"
+  },
+  "content.metadata-filter.warning.client-only": {
+    "defaultMessage": "Vain asiakasohjelman sisältöä"
+  },
+  "content.metadata-filter.warning.client-retained": {
+    "defaultMessage": "Asiakasohjelman tiedosto säilytetty"
+  },
+  "content.metadata-filter.warning.none": {
+    "defaultMessage": "Ei varoituksia"
+  },
+  "content.metadata-filter.warnings": {
+    "defaultMessage": "Varoitukset"
+  },
+  "content.page-layout.additional-content": {
+    "defaultMessage": "Lisäsisältö"
+  },
+  "content.page-layout.browse-content": {
+    "defaultMessage": "Selaa sisältöä"
+  },
+  "content.page-layout.empty.hint": {
+    "defaultMessage": "Selaa tai lataa kohdetta {contentType} aloittaaksesi"
+  },
+  "content.page-layout.empty.modpack-hint": {
+    "defaultMessage": "Lisää lisäsisältöä tämän modipaketin päälle"
+  },
+  "content.page-layout.empty.no-content-installed": {
+    "defaultMessage": "Sisältöä ei ole asennettu"
+  },
+  "content.page-layout.empty.no-extra-content-installed": {
+    "defaultMessage": "Lisäsisältöä ei ole asennettu"
+  },
+  "content.page-layout.failed-to-load": {
+    "defaultMessage": "Sisällön lataus epäonnistui"
+  },
+  "content.page-layout.filter.add": {
+    "defaultMessage": "Suodata"
+  },
+  "content.page-layout.filter.author-count": {
+    "defaultMessage": "{count, plural, one {# tekijä} other {# tekijää}}"
+  },
+  "content.page-layout.loading": {
+    "defaultMessage": "Ladataan sisältöä…"
+  },
+  "content.page-layout.no-content-found": {
+    "defaultMessage": "Sisältöä ei löytynyt."
+  },
+  "content.page-layout.please-wait": {
+    "defaultMessage": "Odota"
+  },
+  "content.page-layout.search-placeholder": {
+    "defaultMessage": "Hae {count, number} kohteesta {contentType}…"
+  },
+  "content.page-layout.share.file-names": {
+    "defaultMessage": "Tiedostonimet"
+  },
+  "content.page-layout.share.label": {
+    "defaultMessage": "Jaa"
+  },
+  "content.page-layout.share.markdown-links": {
+    "defaultMessage": "Markdown-linkit"
+  },
+  "content.page-layout.share.project-links": {
+    "defaultMessage": "Projektilinkit"
+  },
+  "content.page-layout.share.project-names": {
+    "defaultMessage": "Projektinimet"
+  },
+  "content.page-layout.sort.alphabetical-ascending": {
+    "defaultMessage": "Nimi (A–Ö)"
+  },
+  "content.page-layout.sort.alphabetical-descending": {
+    "defaultMessage": "Nimi (Ö–A)"
+  },
+  "content.page-layout.sort.date-added-newest": {
+    "defaultMessage": "Uusin ensin"
+  },
+  "content.page-layout.sort.date-added-oldest": {
+    "defaultMessage": "Vanhin ensin"
+  },
+  "content.page-layout.sort.label": {
+    "defaultMessage": "Järjestä: {mode}"
+  },
+  "content.page-layout.update-all": {
+    "defaultMessage": "Päivitä kaikki"
+  },
+  "content.page-layout.upload-files": {
+    "defaultMessage": "Lataa tiedostoja"
+  },
+  "content.selection-bar.all-already-disabled": {
+    "defaultMessage": "Kaikki valittu sisältö on jo pois käytöstä"
+  },
+  "content.selection-bar.all-already-enabled": {
+    "defaultMessage": "Kaikki valittu sisältö on jo käytössä"
+  },
+  "content.selection-bar.bulk.deleting": {
+    "defaultMessage": "Poistetaan {progress}/{total} {contentType}…"
+  },
+  "content.selection-bar.bulk.deleting-count": {
+    "defaultMessage": "Poistetaan {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.deleting-waiting": {
+    "defaultMessage": "Poistetaan {contentType}…"
+  },
+  "content.selection-bar.bulk.disabling": {
+    "defaultMessage": "Poistetaan käytöstä {progress}/{total} {contentType}…"
+  },
+  "content.selection-bar.bulk.disabling-count": {
+    "defaultMessage": "Poistetaan käytöstä {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.disabling-waiting": {
+    "defaultMessage": "Poistetaan käytöstä {contentType}…"
+  },
+  "content.selection-bar.bulk.enabling": {
+    "defaultMessage": "Otetaan käyttöön {progress}/{total} {contentType}…"
+  },
+  "content.selection-bar.bulk.enabling-count": {
+    "defaultMessage": "Otetaan käyttöön {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.enabling-waiting": {
+    "defaultMessage": "Otetaan käyttöön {contentType}…"
+  },
+  "content.selection-bar.bulk.updating": {
+    "defaultMessage": "Päivitetään {progress}/{total} {contentType}…"
+  },
+  "content.selection-bar.bulk.updating-count": {
+    "defaultMessage": "Päivitetään {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.updating-waiting": {
+    "defaultMessage": "Päivitetään {contentType}…"
+  },
+  "content.selection-bar.selected-count": {
+    "defaultMessage": "{count, number} {contentType} valittu"
+  },
+  "content.selection-bar.selected-count-simple": {
+    "defaultMessage": "{count, number} valittu"
+  },
+  "creation-flow.button.create-instance": {
+    "defaultMessage": "Luo instanssi"
+  },
+  "creation-flow.button.import": {
+    "defaultMessage": "Tuo"
+  },
+  "creation-flow.button.import-instances": {
+    "defaultMessage": "Tuo {count, plural, one {# instanssi} other {# instanssia}}"
+  },
+  "creation-flow.modal.custom-setup.game-version.placeholder": {
+    "defaultMessage": "Valitse peliversio"
+  },
+  "creation-flow.modal.custom-setup.game-version.search-placeholder": {
+    "defaultMessage": "Hae peliversiota…"
+  },
+  "creation-flow.modal.custom-setup.icon.customize": {
+    "defaultMessage": "Mukauta"
+  },
+  "creation-flow.modal.custom-setup.icon.randomize": {
+    "defaultMessage": "Satunnaista"
+  },
+  "creation-flow.modal.custom-setup.icon.select": {
+    "defaultMessage": "Lataa"
+  },
+  "creation-flow.modal.custom-setup.loader-version-type.latest": {
+    "defaultMessage": "Uusin"
+  },
+  "creation-flow.modal.custom-setup.loader-version-type.other": {
+    "defaultMessage": "Muu"
+  },
+  "creation-flow.modal.custom-setup.loader-version-type.stable": {
+    "defaultMessage": "Vakaa"
+  },
+  "creation-flow.modal.custom-setup.loader-version.label": {
+    "defaultMessage": "Lataajan versio"
+  },
+  "creation-flow.modal.custom-setup.loader-version.placeholder": {
+    "defaultMessage": "Valitse lataajan versio"
+  },
+  "creation-flow.modal.custom-setup.loader-version.search-placeholder": {
+    "defaultMessage": "Hae lataajan versiota…"
+  },
+  "creation-flow.modal.custom-setup.loader.label": {
+    "defaultMessage": "Lataaja"
+  },
+  "creation-flow.modal.custom-setup.name.label": {
+    "defaultMessage": "Nimi"
+  },
+  "creation-flow.modal.custom-setup.name.placeholder": {
+    "defaultMessage": "Anna instanssin nimi"
+  },
+  "creation-flow.modal.custom-setup.options.no-versions-available": {
+    "defaultMessage": "Versioita ei ole saatavilla"
+  },
+  "creation-flow.modal.import-instance.action.add": {
+    "defaultMessage": "Lisää"
+  },
+  "creation-flow.modal.import-instance.custom-launcher.name": {
+    "defaultMessage": "Mukautettu ({pathName})"
+  },
+  "creation-flow.modal.import-instance.detecting-launcher-instances": {
+    "defaultMessage": "Tunnistetaan launcherin instansseja…"
+  },
+  "creation-flow.modal.import-instance.launcher-instances.title": {
+    "defaultMessage": "Launcherin instanssit"
+  },
+  "creation-flow.modal.import-instance.launcher-path.add": {
+    "defaultMessage": "Lisää launcherin polku"
+  },
+  "creation-flow.modal.import-instance.launcher-path.browse": {
+    "defaultMessage": "Selaa launcherin polkua"
+  },
+  "creation-flow.modal.import-instance.launcher-path.placeholder": {
+    "defaultMessage": "Polku launchereen…"
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.text": {
+    "defaultMessage": "Määritetystä polusta ei löytynyt tuotavia instansseja."
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.title": {
+    "defaultMessage": "Instansseja ei löytynyt"
+  },
+  "creation-flow.modal.import-instance.search.placeholder": {
+    "defaultMessage": "Hae instanssin nimeä"
+  },
+  "creation-flow.modal.import-instance.selection.clear-all": {
+    "defaultMessage": "Tyhjennä kaikki"
+  },
+  "creation-flow.modal.project.known-project.prompt": {
+    "defaultMessage": "Tiedätkö jo mitä haluat pelata?"
+  },
+  "creation-flow.modal.project.search.create-instance": {
+    "defaultMessage": "Luo instanssi"
+  },
+  "creation-flow.modal.project.search.install-modpack": {
+    "defaultMessage": "Asenna modipaketti"
+  },
+  "creation-flow.modal.project.search.no-results": {
+    "defaultMessage": "Tuloksia ei löytynyt"
+  },
+  "creation-flow.modal.project.search.placeholder": {
+    "defaultMessage": "Hae modeja, modipaketteja ja muuta…"
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.description": {
+    "defaultMessage": "Aloita tyhjästä valitsemalla lataaja ja peliversio."
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.title": {
+    "defaultMessage": "Mukautettu asennus"
+  },
+  "creation-flow.modal.setup-type.option.import-instance.description": {
+    "defaultMessage": "Tuo instanssi Prismistä, CurseForgesta tai vastaavasta."
+  },
+  "creation-flow.modal.setup-type.option.import-instance.title": {
+    "defaultMessage": "Tuo instanssi"
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.description": {
+    "defaultMessage": "Valitse projekti, niin käytämme sen uusinta versiota."
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.title": {
+    "defaultMessage": "Aloita modista tai modipaketista"
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.supported-formats-description": {
+    "defaultMessage": "Tuo .orbpack-, Modrinth .mrpack- tai CurseForge .zip -tiedosto laitteeltasi."
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.title": {
+    "defaultMessage": "Lataa modipaketti"
+  },
+  "creation-flow.modal.setup-type.title.instance": {
+    "defaultMessage": "Valitse instanssin tyyppi"
+  },
+  "creation-flow.optifine.description": {
+    "defaultMessage": "Valinnainen. Valitse virallinen asennusohjelma, niin launcher määrittää sen tähän instanssiin."
+  },
+  "creation-flow.optifine.download": {
+    "defaultMessage": "Virallinen lataus"
+  },
+  "creation-flow.optifine.name": {
+    "defaultMessage": "OptiFine"
+  },
+  "creation-flow.optifine.none": {
+    "defaultMessage": "Ei mitään"
+  },
+  "creation-flow.optifine.optimization": {
+    "defaultMessage": "Optimointi"
+  },
+  "creation-flow.optifine.required": {
+    "defaultMessage": "Valitse virallinen OptiFine-JAR Minecraft-versiolle {gameVersion} jatkaaksesi."
+  },
+  "creation-flow.optifine.select": {
+    "defaultMessage": "Valitse JAR"
+  },
+  "creation-flow.optifine.selected": {
+    "defaultMessage": "OptiFine {version} · Minecraft {gameVersion}"
+  },
+  "creation-flow.optifine.validating": {
+    "defaultMessage": "Tarkistetaan asennusohjelmaa…"
+  },
+  "creation-flow.optifine.vanilla-only": {
+    "defaultMessage": "OptiFinen asennus on tällä hetkellä saatavilla Vanilla-instansseille."
+  },
+  "creation-flow.title.create-instance": {
+    "defaultMessage": "Luo instanssi"
+  },
+  "creation-flow.title.import-instance": {
+    "defaultMessage": "Tuo instanssi"
+  },
+  "empty-state.upload-versions.description": {
+    "defaultMessage": "Palaa, kun olet ladannut versiosi."
+  },
+  "external-project-license-status.no": {
+    "defaultMessage": "Ei"
+  },
+  "external-project-license-status.permanent-no": {
+    "defaultMessage": "Pysyvä ei"
+  },
+  "external-project-license-status.unidentified": {
+    "defaultMessage": "Tunnistamaton"
+  },
+  "external-project-license-status.with-attribution": {
+    "defaultMessage": "Maininnalla"
+  },
+  "external-project-license-status.with-attribution-and-source": {
+    "defaultMessage": "Maininnalla ja lähteellä"
+  },
+  "external-project-license-status.yes": {
+    "defaultMessage": "Kyllä"
+  },
+  "file-button.file-too-large.description": {
+    "defaultMessage": "Tiedosto {filename} on liian suuri. Tiedoston enimmäiskoko on {maxSize}."
+  },
+  "file-button.file-too-large.title": {
+    "defaultMessage": "Tiedosto liian suuri"
+  },
+  "files.conflict-modal.header": {
+    "defaultMessage": "Purkamisen yhteenveto"
+  },
+  "files.conflict-modal.overwrite-button": {
+    "defaultMessage": "Korvaa"
+  },
+  "files.conflict-modal.overwrite-file-label": {
+    "defaultMessage": "Korvaa kohteen <file-path>{path}</file-path>"
+  },
+  "files.conflict-modal.overwrite-many-warning": {
+    "defaultMessage": "Yli 100 tiedostoa korvataan, jos jatkat purkamista; tässä osa niistä."
+  },
+  "files.conflict-modal.overwrite-warning": {
+    "defaultMessage": "Seuraavat {count} tiedostoa ovat jo palvelimellasi ja ne korvataan, jos jatkat purkamista."
+  },
+  "files.conflict-modal.overwritten-count": {
+    "defaultMessage": "{count} korvattu"
+  },
+  "files.conflict-modal.warning-header": {
+    "defaultMessage": "Tiedostot korvataan"
+  },
+  "files.create-modal.create-button": {
+    "defaultMessage": "Luo {type}"
+  },
+  "files.create-modal.header": {
+    "defaultMessage": "Luo {type}"
+  },
+  "files.create-modal.placeholder-directory": {
+    "defaultMessage": "esim. oma-kansio"
+  },
+  "files.create-modal.placeholder-file": {
+    "defaultMessage": "esim. config.yml"
+  },
+  "files.create-zip-modal.already-exists": {
+    "defaultMessage": "Samanniminen tiedosto on jo olemassa."
+  },
+  "files.create-zip-modal.check-failed": {
+    "defaultMessage": "Ei voitu tarkistaa, onko tiedosto jo olemassa."
+  },
+  "files.create-zip-modal.create-button": {
+    "defaultMessage": "Luo ZIP"
+  },
+  "files.create-zip-modal.header": {
+    "defaultMessage": "Luo ZIP"
+  },
+  "files.create-zip-modal.invalid": {
+    "defaultMessage": "Arkiston nimen on oltava yksittäinen tiedostonimi."
+  },
+  "files.create-zip-modal.name-label": {
+    "defaultMessage": "Arkiston nimi"
+  },
+  "files.create-zip-modal.name-placeholder": {
+    "defaultMessage": "arkisto.zip"
+  },
+  "files.create-zip-modal.required": {
+    "defaultMessage": "Anna arkiston nimi."
+  },
+  "files.delete-modal.deleting-name": {
+    "defaultMessage": "Poistetaan ”{name}”"
+  },
+  "files.delete-modal.header": {
+    "defaultMessage": "Poista tiedosto"
+  },
+  "files.delete-modal.warning.file": {
+    "defaultMessage": "Tämä tiedosto poistetaan pysyvästi. Tätä ei voi kumota."
+  },
+  "files.delete-modal.warning.folder": {
+    "defaultMessage": "Tämä kansio ja kaikki sen sisältö poistetaan pysyvästi. Tätä ei voi kumota."
+  },
+  "files.editor.failed-to-open-text": {
+    "defaultMessage": "Tiedoston sisältöä ei voitu ladata."
+  },
+  "files.editor.failed-to-open-title": {
+    "defaultMessage": "Tiedoston avaus epäonnistui"
+  },
+  "files.editor.failed-to-share-text": {
+    "defaultMessage": "Lataus palveluun mclo.gs epäonnistui."
+  },
+  "files.editor.failed-to-share-title": {
+    "defaultMessage": "Tiedoston jakaminen epäonnistui"
+  },
+  "files.editor.file-saved-text": {
+    "defaultMessage": "Tiedostosi on tallennettu."
+  },
+  "files.editor.file-saved-title": {
+    "defaultMessage": "Tiedosto tallennettu"
+  },
+  "files.editor.find-in-file": {
+    "defaultMessage": "Etsi"
+  },
+  "files.editor.find-match-count": {
+    "defaultMessage": "{current}/{total}"
+  },
+  "files.editor.find-next-match": {
+    "defaultMessage": "Seuraava osuma"
+  },
+  "files.editor.find-no-results": {
+    "defaultMessage": "Ei tuloksia"
+  },
+  "files.editor.find-previous-match": {
+    "defaultMessage": "Edellinen osuma"
+  },
+  "files.editor.find-toggle-replace": {
+    "defaultMessage": "Vaihda korvausta"
+  },
+  "files.editor.log-url-copied-text": {
+    "defaultMessage": "Lokitiedostosi URL on kopioitu leikepöydällesi."
+  },
+  "files.editor.log-url-copied-title": {
+    "defaultMessage": "Lokin URL kopioitu"
+  },
+  "files.editor.replace": {
+    "defaultMessage": "Korvaa"
+  },
+  "files.editor.replace-all": {
+    "defaultMessage": "Korvaa kaikki"
+  },
+  "files.editor.replace-in-file": {
+    "defaultMessage": "Korvaa"
+  },
+  "files.editor.save-failed-text": {
+    "defaultMessage": "Tiedostoa ei voitu tallentaa."
+  },
+  "files.editor.save-failed-title": {
+    "defaultMessage": "Tallennus epäonnistui"
+  },
+  "files.error.go-to-home": {
+    "defaultMessage": "Siirry kotikansioon"
+  },
+  "files.error.try-again": {
+    "defaultMessage": "Yritä uudelleen"
+  },
+  "files.image_viewer.image_too_large": {
+    "defaultMessage": "Kuva on liian suuri näytettäväksi (enintään {maxDimension}x{maxDimension} kuvapistettä)"
+  },
+  "files.image_viewer.invalid_image": {
+    "defaultMessage": "Virheellinen tai tyhjä kuvatiedosto."
+  },
+  "files.image_viewer.load_failed": {
+    "defaultMessage": "Kuvan lataus epäonnistui"
+  },
+  "files.image_viewer.reset_zoom": {
+    "defaultMessage": "Palauta zoomaus"
+  },
+  "files.image_viewer.viewed_image_alt": {
+    "defaultMessage": "Näytetty kuva"
+  },
+  "files.image_viewer.zoom_in": {
+    "defaultMessage": "Lähennä"
+  },
+  "files.image_viewer.zoom_out": {
+    "defaultMessage": "Loitonna"
+  },
+  "files.item-type.file": {
+    "defaultMessage": "tiedosto"
+  },
+  "files.item-type.files": {
+    "defaultMessage": "tiedostoa"
+  },
+  "files.item-type.folder": {
+    "defaultMessage": "kansio"
+  },
+  "files.item-type.folders": {
+    "defaultMessage": "kansiota"
+  },
+  "files.layout.create-zip": {
+    "defaultMessage": "Luo ZIP"
+  },
+  "files.layout.dry-run-failed-text": {
+    "defaultMessage": "Virhe koeajoa suoritettaessa"
+  },
+  "files.layout.dry-run-failed-title": {
+    "defaultMessage": "Koeajo epäonnistui"
+  },
+  "files.layout.empty-folder-description": {
+    "defaultMessage": "Ei tiedostoja tai kansioita."
+  },
+  "files.layout.empty-folder-title": {
+    "defaultMessage": "Tämä kansio on tyhjä"
+  },
+  "files.layout.error-message": {
+    "defaultMessage": "Kansiota ei välttämättä ole olemassa."
+  },
+  "files.layout.error-title": {
+    "defaultMessage": "Tiedostoja ei voitu ladata"
+  },
+  "files.layout.extraction-started-title": {
+    "defaultMessage": "Purkaminen aloitettu"
+  },
+  "files.layout.selected-count": {
+    "defaultMessage": "{count} valittu"
+  },
+  "files.layout.unsaved-changes": {
+    "defaultMessage": "Sinulla on tallentamattomia muutoksia."
+  },
+  "files.move-modal.current-location": {
+    "defaultMessage": "Nykyinen sijainti"
+  },
+  "files.move-modal.destination-path": {
+    "defaultMessage": "Kohdepolku"
+  },
+  "files.move-modal.destination-placeholder": {
+    "defaultMessage": "esim. /oma-kansio"
+  },
+  "files.move-modal.header": {
+    "defaultMessage": "Siirrä {type}"
+  },
+  "files.navbar.back-to-home": {
+    "defaultMessage": "Takaisin kotiin"
+  },
+  "files.navbar.breadcrumb-navigation": {
+    "defaultMessage": "Murupolkunavigointi"
+  },
+  "files.navbar.create-new": {
+    "defaultMessage": "Luo uusi…"
+  },
+  "files.navbar.file-navigation": {
+    "defaultMessage": "Tiedostonavigointi"
+  },
+  "files.navbar.find-in-file": {
+    "defaultMessage": "Etsi tiedostosta"
+  },
+  "files.navbar.home": {
+    "defaultMessage": "Koti"
+  },
+  "files.navbar.new-file": {
+    "defaultMessage": "Uusi tiedosto"
+  },
+  "files.navbar.new-folder": {
+    "defaultMessage": "Uusi kansio"
+  },
+  "files.navbar.search-files": {
+    "defaultMessage": "Hae tiedostoja"
+  },
+  "files.navbar.share-to-mclogs": {
+    "defaultMessage": "Jaa palveluun mclo.gs"
+  },
+  "files.navbar.upload-file": {
+    "defaultMessage": "Lataa tiedosto"
+  },
+  "files.navbar.upload-from-zip": {
+    "defaultMessage": "Lataa .zip-tiedostosta"
+  },
+  "files.rename-modal.header": {
+    "defaultMessage": "Nimeä uudelleen {name}"
+  },
+  "files.rename-modal.new-name-label": {
+    "defaultMessage": "Uusi nimi"
+  },
+  "files.row.create-zip": {
+    "defaultMessage": "Luo ZIP"
+  },
+  "files.row.item-count": {
+    "defaultMessage": "{count, plural, one {# kohde} other {# kohdetta}}"
+  },
+  "files.row.parent-folder": {
+    "defaultMessage": "Yläkansio"
+  },
+  "files.table-header.created": {
+    "defaultMessage": "Luotu"
+  },
+  "files.table-header.modified": {
+    "defaultMessage": "Muokattu"
+  },
+  "files.table-header.name": {
+    "defaultMessage": "Nimi"
+  },
+  "files.table-header.size": {
+    "defaultMessage": "Koko"
+  },
+  "files.unsaved-changes-modal.body": {
+    "defaultMessage": "Sinulla on tallentamattomia muutoksia, jotka menetetään, jos poistut. Haluatko tallentaa ennen poistumista?"
+  },
+  "files.unsaved-changes-modal.discard": {
+    "defaultMessage": "Hylkää"
+  },
+  "files.unsaved-changes-modal.header": {
+    "defaultMessage": "Tallentamattomat muutokset"
+  },
+  "files.upload.drag-and-drop.drop-to-upload": {
+    "defaultMessage": "Pudota {type} tähän ladataksesi"
+  },
+  "files.validation.name-invalid-directory": {
+    "defaultMessage": "Nimi saa sisältää vain kirjaimia, numeroita, viivoja, alaviivoja tai välilyöntejä."
+  },
+  "files.validation.name-invalid-file": {
+    "defaultMessage": "Nimi saa sisältää vain kirjaimia, numeroita, viivoja, alaviivoja, pisteitä tai välilyöntejä."
+  },
+  "files.validation.name-label": {
+    "defaultMessage": "Nimi"
+  },
+  "files.validation.name-required": {
+    "defaultMessage": "Nimi vaaditaan."
+  },
+  "filter-bar.add": {
+    "defaultMessage": "Lisää"
+  },
+  "filter-bar.clear": {
+    "defaultMessage": "Tyhjennä"
+  },
+  "filter-bar.clear-named-filter": {
+    "defaultMessage": "Tyhjennä {name}-suodatin"
+  },
+  "filter-bar.filtered-by": {
+    "defaultMessage": "Suodatettu:"
+  },
+  "filter-bar.no-options": {
+    "defaultMessage": "Vaihtoehtoja ei ole saatavilla."
+  },
+  "filter-bar.no-search-results": {
+    "defaultMessage": "Vaihtoehtoja ei löytynyt."
+  },
+  "filter-bar.search-placeholder": {
+    "defaultMessage": "Hae…"
+  },
+  "filter-bar.select-all": {
+    "defaultMessage": "Valitse kaikki"
+  },
+  "form.label.address-line": {
+    "defaultMessage": "Katuosoite"
+  },
+  "form.label.address-line-2": {
+    "defaultMessage": "Katuosoite 2 (valinnainen)"
+  },
+  "form.label.amount": {
+    "defaultMessage": "Määrä"
+  },
+  "form.label.bank-name": {
+    "defaultMessage": "Pankin nimi"
+  },
+  "form.label.business-name": {
+    "defaultMessage": "Yrityksen nimi"
+  },
+  "form.label.city": {
+    "defaultMessage": "Kaupunki"
+  },
+  "form.label.country": {
+    "defaultMessage": "Maa"
+  },
+  "form.label.date-of-birth": {
+    "defaultMessage": "Syntymäaika"
+  },
+  "form.label.email": {
+    "defaultMessage": "Sähköposti"
   },
   "form.label.first-name": {
     "defaultMessage": "Etunimi"
@@ -191,8 +1295,20 @@
   "form.label.state-province": {
     "defaultMessage": "Maakunta"
   },
+  "form.placeholder.address": {
+    "defaultMessage": "Anna osoite"
+  },
+  "form.placeholder.address-2": {
+    "defaultMessage": "Huoneisto, sviitti jne."
+  },
   "form.placeholder.amount": {
     "defaultMessage": "Syötä määrä"
+  },
+  "form.placeholder.bank-name": {
+    "defaultMessage": "Anna pankin nimi"
+  },
+  "form.placeholder.bank-name-dropdown": {
+    "defaultMessage": "Valitse pankin nimi"
   },
   "form.placeholder.business-name": {
     "defaultMessage": "Syötä toiminimi"
@@ -218,11 +1334,155 @@
   "form.placeholder.state": {
     "defaultMessage": "Syötä maakunta"
   },
+  "format.bytes.0": {
+    "defaultMessage": "{count, plural, one {# tavu} other {# tavua}}"
+  },
+  "format.bytes.1": {
+    "defaultMessage": "{count, number} KiB"
+  },
+  "format.bytes.2": {
+    "defaultMessage": "{count, number} MiB"
+  },
+  "format.bytes.3": {
+    "defaultMessage": "{count, number} GiB"
+  },
+  "format.bytes.4": {
+    "defaultMessage": "{count, number} TiB"
+  },
+  "header.category.category": {
+    "defaultMessage": "Luokka"
+  },
+  "header.category.feature": {
+    "defaultMessage": "Ominaisuus"
+  },
+  "header.category.minecraft-server-community": {
+    "defaultMessage": "Yhteisö"
+  },
+  "header.category.minecraft-server-features": {
+    "defaultMessage": "Ominaisuudet"
+  },
+  "header.category.minecraft-server-gameplay": {
+    "defaultMessage": "Pelaaminen"
+  },
+  "header.category.minecraft-server-meta": {
+    "defaultMessage": "Meta"
+  },
+  "header.category.performance-impact": {
+    "defaultMessage": "Suorituskykyvaikutus"
+  },
   "header.category.resolutions": {
     "defaultMessage": "Resoluutio"
   },
+  "image-viewer.close": {
+    "defaultMessage": "Sulje"
+  },
+  "image-viewer.edit": {
+    "defaultMessage": "Muokkaa"
+  },
+  "image-viewer.editor.colour": {
+    "defaultMessage": "Väri"
+  },
+  "image-viewer.editor.crop.dimensions": {
+    "defaultMessage": "{width} × {height} px"
+  },
+  "image-viewer.editor.crop.reset": {
+    "defaultMessage": "Palauta rajaus"
+  },
+  "image-viewer.editor.delete-selection": {
+    "defaultMessage": "Poista valittu merkintä"
+  },
+  "image-viewer.editor.eraser.area": {
+    "defaultMessage": "Alue"
+  },
+  "image-viewer.editor.eraser.element": {
+    "defaultMessage": "Elementti"
+  },
+  "image-viewer.editor.eraser.mode": {
+    "defaultMessage": "Pyyhekumitila"
+  },
+  "image-viewer.editor.image-editing-tools": {
+    "defaultMessage": "Kuvanmuokkaustyökalut"
+  },
+  "image-viewer.editor.more-save-options": {
+    "defaultMessage": "Lisää tallennusvaihtoehtoja"
+  },
+  "image-viewer.editor.overwrite": {
+    "defaultMessage": "Korvaa"
+  },
+  "image-viewer.editor.redo": {
+    "defaultMessage": "Tee uudelleen"
+  },
+  "image-viewer.editor.save-as-new": {
+    "defaultMessage": "Tallenna kopio"
+  },
+  "image-viewer.editor.save-image": {
+    "defaultMessage": "Tallenna kuva"
+  },
+  "image-viewer.editor.size": {
+    "defaultMessage": "Koko"
+  },
+  "image-viewer.editor.tool.arrow": {
+    "defaultMessage": "Nuoli"
+  },
+  "image-viewer.editor.tool.censor": {
+    "defaultMessage": "Sensuroi"
+  },
+  "image-viewer.editor.tool.crop": {
+    "defaultMessage": "Rajaa"
+  },
+  "image-viewer.editor.tool.ellipse": {
+    "defaultMessage": "Ellipsi"
+  },
+  "image-viewer.editor.tool.eraser": {
+    "defaultMessage": "Pyyhekumi"
+  },
+  "image-viewer.editor.tool.highlight": {
+    "defaultMessage": "Korosta"
+  },
+  "image-viewer.editor.tool.pen": {
+    "defaultMessage": "Kynä"
+  },
+  "image-viewer.editor.tool.rectangle": {
+    "defaultMessage": "Suorakulmio"
+  },
+  "image-viewer.editor.tool.select": {
+    "defaultMessage": "Valitse"
+  },
+  "image-viewer.editor.tool.text": {
+    "defaultMessage": "Teksti"
+  },
+  "image-viewer.editor.undo": {
+    "defaultMessage": "Kumoa"
+  },
+  "image-viewer.editor.width": {
+    "defaultMessage": "Leveys"
+  },
+  "image-viewer.editor.zoom-fit": {
+    "defaultMessage": "Sovita"
+  },
+  "image-viewer.editor.zoom-fit-workspace": {
+    "defaultMessage": "Sovita työtilaan"
+  },
+  "image-viewer.editor.zoom-in": {
+    "defaultMessage": "Lähennä"
+  },
+  "image-viewer.editor.zoom-out": {
+    "defaultMessage": "Loitonna"
+  },
+  "image-viewer.next": {
+    "defaultMessage": "Seuraava kuva"
+  },
+  "image-viewer.previous": {
+    "defaultMessage": "Edellinen kuva"
+  },
+  "input.search-version.placeholder": {
+    "defaultMessage": "Hae versiota…"
+  },
   "input.search.placeholder": {
     "defaultMessage": "Hae..."
+  },
+  "input.select-version.placeholder": {
+    "defaultMessage": "Valitse versio"
   },
   "input.view.gallery": {
     "defaultMessage": "Gallerianäkymä"
@@ -232,6 +1492,135 @@
   },
   "input.view.list": {
     "defaultMessage": "Rivinäkymä"
+  },
+  "installation-settings.aria.select-game-version": {
+    "defaultMessage": "Valitse peliversio"
+  },
+  "installation-settings.aria.select-loader-version": {
+    "defaultMessage": "Valitse kohteen {loader} versio"
+  },
+  "installation-settings.aria.select-platform": {
+    "defaultMessage": "Valitse alusta"
+  },
+  "installation-settings.confirm-version-change": {
+    "defaultMessage": "Vahvista"
+  },
+  "installation-settings.confirm-version-change-description": {
+    "defaultMessage": "Vaihtaminen versioon {gameVersion} muuttaa seuraavaa sisältöä palvelimellasi."
+  },
+  "installation-settings.confirm-version-change-header": {
+    "defaultMessage": "Tarkista sisältömuutokset"
+  },
+  "installation-settings.edit-installation.title": {
+    "defaultMessage": "Muokkaa asennusta"
+  },
+  "installation-settings.edit.warning-instance": {
+    "defaultMessage": "Emme suosittele asennusasetusten muokkaamista sisällön asentamisen jälkeen. Jos haluat muokata niitä, ole varovainen, sillä se voi aiheuttaa ongelmia."
+  },
+  "installation-settings.incompatible-content.auto-fix-button": {
+    "defaultMessage": "Korjaa automaattisesti"
+  },
+  "installation-settings.incompatible-content.change-loader-button": {
+    "defaultMessage": "Vaihda lataajaa"
+  },
+  "installation-settings.incompatible-content.disable-conflicts-button": {
+    "defaultMessage": "Poista ristiriidat käytöstä"
+  },
+  "installation-settings.incompatible-content.game-version-warning-body": {
+    "defaultMessage": "Peliversiota vaihdettaessa voimme joko poistaa yhteensopimattoman asennetun sisällön käytöstä tai yrittää ratkaista yhteensopimattomuudet."
+  },
+  "installation-settings.incompatible-content.game-version-warning-title": {
+    "defaultMessage": "Yhteensopimattomuusvaroitus"
+  },
+  "installation-settings.incompatible-content.header": {
+    "defaultMessage": "Yhteensopimatonta sisältöä asennettu"
+  },
+  "installation-settings.incompatible-content.loader-change-body": {
+    "defaultMessage": "Lataajaa vaihdettaessa kaikki asennettu sisältö poistetaan käytöstä. Suosittelemme palvelimen nollaamista."
+  },
+  "installation-settings.incompatible-content.loader-change-title": {
+    "defaultMessage": "Lataajien vaihto on tuhoisaa"
+  },
+  "installation-settings.linked-instance.title": {
+    "defaultMessage": "Linkitetty {projectType}"
+  },
+  "installation-settings.linked.modpack": {
+    "defaultMessage": "modipaketti"
+  },
+  "installation-settings.linked.server-project": {
+    "defaultMessage": "palvelinprojekti"
+  },
+  "installation-settings.loader-version": {
+    "defaultMessage": "{loader}-versio"
+  },
+  "installation-settings.platform-lock-tooltip": {
+    "defaultMessage": "Palvelin on nollattava lataajan vaihtamiseksi."
+  },
+  "installation-settings.reinstall-modpack.description": {
+    "defaultMessage": "Modipaketin uudelleenasennus palauttaa {type}-sisällön alkuperäiseen tilaan ja poistaa lisäämäsi modit tai sisällön."
+  },
+  "installation-settings.reinstall-modpack.title": {
+    "defaultMessage": "Asenna modipaketti uudelleen"
+  },
+  "installation-settings.reinstalling-modpack": {
+    "defaultMessage": "Asennetaan modipakettia uudelleen"
+  },
+  "installation-settings.removed-incompatible": {
+    "defaultMessage": "Poistettu (yhteensopimaton)"
+  },
+  "installation-settings.repair.instance-description": {
+    "defaultMessage": "Asentaa Minecraft-riippuvuudet uudelleen ja tarkistaa vioittumisen. Tämä voi ratkaista ongelmia, jos pelisi ei käynnisty launcheriin liittyvien virheiden vuoksi."
+  },
+  "installation-settings.repair.instance-title": {
+    "defaultMessage": "Korjaa instanssi"
+  },
+  "installation-settings.saving": {
+    "defaultMessage": "Tallennetaan…"
+  },
+  "installation-settings.search-game-version": {
+    "defaultMessage": "Hae peliversiota…"
+  },
+  "installation-settings.type.instance": {
+    "defaultMessage": "instanssi"
+  },
+  "installation-settings.type.instance-possessive": {
+    "defaultMessage": "instanssin"
+  },
+  "installation-settings.type.server": {
+    "defaultMessage": "palvelin"
+  },
+  "installation-settings.unlink": {
+    "defaultMessage": "Irrota"
+  },
+  "installation-settings.unlink.description": {
+    "defaultMessage": "Irrottaminen katkaisee pysyvästi tämän kohteen {type} yhteyden {projectType}-projektiin, jolloin voit vaihtaa lataajaa ja Minecraft-versiota, mutta et saa tulevia päivityksiä."
+  },
+  "installation-settings.verifying": {
+    "defaultMessage": "Vahvistetaan…"
+  },
+  "instance.confirm-reinstall.admonition-body": {
+    "defaultMessage": "Uudelleenasennus palauttaa kaiken asennetun tai muokatun sisällön modipaketin tarjoamaan tilaan ja poistaa alkuperäisen asennuksen päälle lisäämäsi modit tai sisällön."
+  },
+  "instance.confirm-reinstall.admonition-header": {
+    "defaultMessage": "Uudelleenasennusvaroitus"
+  },
+  "instance.confirm-reinstall.header": {
+    "defaultMessage": "Asenna modipaketti uudelleen"
+  },
+  "instance.confirm-reinstall.reinstall-button": {
+    "defaultMessage": "Asenna modipaketti uudelleen"
+  },
+  "instance.confirm-repair.body.instance": {
+    "defaultMessage": "Korjaus asentaa lataajan ja Minecraft-riippuvuudet uudelleen poistamatta sisältöäsi. Tämä voi ratkaista ongelmia, jos pelisi ei käynnisty launcheriin liittyvien virheiden vuoksi."
+  },
+  "instance.confirm-repair.header": {
+    "defaultMessage": "Korjaa {type}"
+  },
+  "instance.confirm-repair.instance-label": {
+    "defaultMessage": "instanssi"
+  },
+  "instance.confirm-repair.repair-button": {
+    "defaultMessage": "Korjaa"
   },
   "instance.worlds.game_mode.adventure": {
     "defaultMessage": "Seikkailutila"
@@ -248,11 +1637,203 @@
   "instance.worlds.game_mode.unknown": {
     "defaultMessage": "Tuntematon pelitila"
   },
+  "instances.content-install.compatible-count": {
+    "defaultMessage": "{count} yhteensopivaa {count, plural, one {instanssia} other {instanssia}}"
+  },
+  "instances.content-install.existing-tab": {
+    "defaultMessage": "Olemassa oleva instanssi"
+  },
+  "instances.content-install.game-version-placeholder": {
+    "defaultMessage": "Valitse peliversio"
+  },
+  "instances.content-install.header": {
+    "defaultMessage": "Asenna projekti"
+  },
+  "instances.content-install.hide-unavailable": {
+    "defaultMessage": "Piilota ei-saatavilla olevat"
+  },
+  "instances.content-install.incompatible-tooltip": {
+    "defaultMessage": "Tämä instanssi käyttää eri lataajaa tai peliversiota kuin mitä tämä projekti tukee."
+  },
+  "instances.content-install.install-button": {
+    "defaultMessage": "Asenna"
+  },
+  "instances.content-install.installed-badge": {
+    "defaultMessage": "Asennettu"
+  },
+  "instances.content-install.instance-type": {
+    "defaultMessage": "Instanssin tyyppi"
+  },
+  "instances.content-install.loader-label": {
+    "defaultMessage": "Lataaja"
+  },
+  "instances.content-install.name-label": {
+    "defaultMessage": "Nimi"
+  },
+  "instances.content-install.name-placeholder": {
+    "defaultMessage": "Anna instanssin nimi"
+  },
+  "instances.content-install.new-tab": {
+    "defaultMessage": "Uusi instanssi"
+  },
+  "instances.content-install.no-instances": {
+    "defaultMessage": "Yhteensopivia instansseja ei löytynyt"
+  },
+  "instances.content-install.search-placeholder": {
+    "defaultMessage": "Hae instanssia"
+  },
+  "instances.content-install.show-unavailable": {
+    "defaultMessage": "Näytä ei-saatavilla olevat"
+  },
+  "instances.managed-content-modal.disabled": {
+    "defaultMessage": "Pois käytöstä"
+  },
+  "instances.managed-content-modal.download-file": {
+    "defaultMessage": "Lataa tiedosto"
+  },
+  "instances.managed-content-modal.empty-description": {
+    "defaultMessage": "Tämä lähde ei sisällä hallittua sisältöä."
+  },
+  "instances.managed-content-modal.empty-title": {
+    "defaultMessage": "Sisältöä ei löytynyt"
+  },
+  "instances.managed-content-modal.enabled": {
+    "defaultMessage": "Käytössä"
+  },
+  "instances.managed-content-modal.external-content": {
+    "defaultMessage": "Ulkoinen"
+  },
+  "instances.managed-content-modal.external-content-description": {
+    "defaultMessage": "Tätä tiedostoa ei ole julkaistu Modrinthissä."
+  },
+  "instances.managed-content-modal.header": {
+    "defaultMessage": "Hallittu sisältö"
+  },
+  "instances.managed-content-modal.loading": {
+    "defaultMessage": "Ladataan sisältöä…"
+  },
+  "instances.managed-content-modal.no-results": {
+    "defaultMessage": "Yksikään projekti ei vastaa hakuasi."
+  },
+  "instances.managed-content-modal.open-in-slicer": {
+    "defaultMessage": "Avaa Slicerissä"
+  },
+  "instances.managed-content-modal.search-placeholder": {
+    "defaultMessage": "Hae {count, number} {count, plural, one {projektista} other {projektista}}"
+  },
+  "instances.managed-content-modal.warnings": {
+    "defaultMessage": "Varoitukset"
+  },
+  "instances.updater-modal.badge.current": {
+    "defaultMessage": "Nykyinen"
+  },
+  "instances.updater-modal.badge.incompatible": {
+    "defaultMessage": "Yhteensopimaton"
+  },
+  "instances.updater-modal.downgrade-to": {
+    "defaultMessage": "Vanhenta versioon {version}"
+  },
+  "instances.updater-modal.header": {
+    "defaultMessage": "Päivitä versio"
+  },
+  "instances.updater-modal.header-modpack": {
+    "defaultMessage": "Vaihda modipaketin versiota"
+  },
+  "instances.updater-modal.header-switch": {
+    "defaultMessage": "Vaihda versiota"
+  },
+  "instances.updater-modal.hide-incompatible": {
+    "defaultMessage": "Piilota yhteensopimattomat"
+  },
+  "instances.updater-modal.incompatibility-warning": {
+    "defaultMessage": "Tätä versiota ei ole merkitty yhteensopivaksi tämän instanssin kanssa. Riippuvuuksia ei asenneta automaattisesti."
+  },
+  "instances.updater-modal.incompatibility-warning-header": {
+    "defaultMessage": "Valitse versio"
+  },
+  "instances.updater-modal.incompatible-update.description": {
+    "defaultMessage": "Versiota {version} ei ole merkitty yhteensopivaksi tämän asennuksen kanssa. Se ei välttämättä käynnisty tai se voi käyttäytyä odottamattomasti."
+  },
+  "instances.updater-modal.incompatible-update.header": {
+    "defaultMessage": "Päivitetäänkö yhteensopimattomaan versioon?"
+  },
+  "instances.updater-modal.incompatible-update.proceed": {
+    "defaultMessage": "Päivitä silti"
+  },
+  "instances.updater-modal.install-anyway": {
+    "defaultMessage": "Asenna silti"
+  },
+  "instances.updater-modal.loading-changelog": {
+    "defaultMessage": "Ladataan muutoslokia…"
+  },
+  "instances.updater-modal.loading-versions": {
+    "defaultMessage": "Ladataan versioita…"
+  },
+  "instances.updater-modal.no-changelog": {
+    "defaultMessage": "Tälle versiolle ei ole muutoslokia."
+  },
+  "instances.updater-modal.no-versions": {
+    "defaultMessage": "Versioita ei löytynyt"
+  },
+  "instances.updater-modal.search-placeholder": {
+    "defaultMessage": "Hae versiota…"
+  },
+  "instances.updater-modal.select-version": {
+    "defaultMessage": "Valitse versio nähdäksesi sen muutoslokin"
+  },
+  "instances.updater-modal.show-incompatible": {
+    "defaultMessage": "Näytä yhteensopimattomat"
+  },
+  "instances.updater-modal.switch-to": {
+    "defaultMessage": "Vaihda versioon {version}"
+  },
+  "instances.updater-modal.update-to": {
+    "defaultMessage": "Päivitä versioon {version}"
+  },
+  "instances.updater-modal.warning-app": {
+    "defaultMessage": "Päivittäminen voi rikkoa instanssisi. Tarkista versioiden muutoslokit ja varmuuskopioi ensin."
+  },
+  "instances.updater-modal.warning-web": {
+    "defaultMessage": "Päivittäminen voi rikkoa maailmasi. Tarkista versioiden muutoslokit ja varmuuskopioi ensin."
+  },
+  "label.actions": {
+    "defaultMessage": "Toiminnot"
+  },
+  "label.available": {
+    "defaultMessage": "{amount} saatavilla."
+  },
+  "label.changelog": {
+    "defaultMessage": "Muutosloki"
+  },
   "label.changes-saved": {
     "defaultMessage": "Muutokset tallennettu"
   },
+  "label.client-depends-warning": {
+    "defaultMessage": "Tämä modi riippuu asiakasohjelman modista ja voi aiheuttaa ongelmia palvelimesi käynnistyksessä"
+  },
+  "label.client-only-warning": {
+    "defaultMessage": "Tämä on asiakasohjelman modi ja voi aiheuttaa ongelmia palvelimesi käynnistyksessä"
+  },
+  "label.client-retained-warning": {
+    "defaultMessage": "Tämä on asiakasohjelman modi, joka asennettiin riippuvuutena, ja se voi aiheuttaa ongelmia palvelimesi käynnistyksessä"
+  },
   "label.collections": {
     "defaultMessage": "Kokoelmat"
+  },
+  "label.confirm-password": {
+    "defaultMessage": "Vahvista salasana"
+  },
+  "label.content": {
+    "defaultMessage": "Sisältö"
+  },
+  "label.copied-filename": {
+    "defaultMessage": "Tiedostonimi kopioitu"
+  },
+  "label.copied-path": {
+    "defaultMessage": "Polku kopioitu"
+  },
+  "label.create-failed": {
+    "defaultMessage": "Luonti epäonnistui"
   },
   "label.created-ago": {
     "defaultMessage": "Luotu {ago}"
@@ -263,11 +1844,26 @@
   "label.delete": {
     "defaultMessage": "Poista"
   },
+  "label.delete-failed": {
+    "defaultMessage": "Poisto epäonnistui"
+  },
+  "label.delete-immediately": {
+    "defaultMessage": "Poista heti"
+  },
   "label.description": {
     "defaultMessage": "Kuvaus"
   },
   "label.details": {
     "defaultMessage": "Yksityiskohdat"
+  },
+  "label.discover-content": {
+    "defaultMessage": "Löydä sisältöä"
+  },
+  "label.done": {
+    "defaultMessage": "Valmis"
+  },
+  "label.download-failed": {
+    "defaultMessage": "Lataus epäonnistui"
   },
   "label.email": {
     "defaultMessage": "Sähköposti"
@@ -278,11 +1874,44 @@
   "label.error": {
     "defaultMessage": "Virhe"
   },
+  "label.explanation": {
+    "defaultMessage": "Selitys"
+  },
+  "label.extract-failed": {
+    "defaultMessage": "Purkaminen epäonnistui"
+  },
   "label.filter-by": {
     "defaultMessage": "Lajittele"
   },
+  "label.filters": {
+    "defaultMessage": "Suodattimet"
+  },
   "label.followed-projects": {
     "defaultMessage": "Seuratut projektit"
+  },
+  "label.game-version": {
+    "defaultMessage": "Peliversio"
+  },
+  "label.hide-installed-content": {
+    "defaultMessage": "Piilota jo asennettu sisältö"
+  },
+  "label.hide-selected-content": {
+    "defaultMessage": "Piilota valittu sisältö"
+  },
+  "label.installation-info": {
+    "defaultMessage": "Asennuksen tiedot"
+  },
+  "label.installed": {
+    "defaultMessage": "Asennettu"
+  },
+  "label.installed-modpack": {
+    "defaultMessage": "Asennettu modipaketti"
+  },
+  "label.installing": {
+    "defaultMessage": "Asennetaan…"
+  },
+  "label.installing-content": {
+    "defaultMessage": "Asennetaan sisältöä"
   },
   "label.loading": {
     "defaultMessage": "Ladataan..."
@@ -290,8 +1919,17 @@
   "label.moderation": {
     "defaultMessage": "Moderaatio"
   },
+  "label.modpack": {
+    "defaultMessage": "Modipaketti"
+  },
+  "label.move-failed": {
+    "defaultMessage": "Siirto epäonnistui"
+  },
   "label.no": {
     "defaultMessage": "Ei"
+  },
+  "label.no-items": {
+    "defaultMessage": "Ei kohteita"
   },
   "label.notifications": {
     "defaultMessage": "Ilmoitukset"
@@ -302,6 +1940,30 @@
   "label.password": {
     "defaultMessage": "Salasana"
   },
+  "label.permissions": {
+    "defaultMessage": "Käyttöoikeudet"
+  },
+  "label.plan-custom": {
+    "defaultMessage": "Mukautettu"
+  },
+  "label.plan-large": {
+    "defaultMessage": "Suuri"
+  },
+  "label.plan-medium": {
+    "defaultMessage": "Keskikokoinen"
+  },
+  "label.plan-small": {
+    "defaultMessage": "Pieni"
+  },
+  "label.plan-unknown": {
+    "defaultMessage": "Tuntematon"
+  },
+  "label.platform": {
+    "defaultMessage": "Alusta"
+  },
+  "label.played": {
+    "defaultMessage": "Pelattu {ago}"
+  },
   "label.project": {
     "defaultMessage": "Projekti"
   },
@@ -311,6 +1973,12 @@
   "label.rejected": {
     "defaultMessage": "Hylätty"
   },
+  "label.rename-failed": {
+    "defaultMessage": "Uudelleennimeäminen epäonnistui"
+  },
+  "label.rewards-program-terms-agreement": {
+    "defaultMessage": "Hyväksyn <terms-link>palkkio-ohjelman ehdot</terms-link>"
+  },
   "label.saved": {
     "defaultMessage": "Tallennettu"
   },
@@ -319,6 +1987,15 @@
   },
   "label.search": {
     "defaultMessage": "Hae"
+  },
+  "label.select-all": {
+    "defaultMessage": "Valitse kaikki"
+  },
+  "label.selected": {
+    "defaultMessage": "Valittu"
+  },
+  "label.selection-actions": {
+    "defaultMessage": "Valinnan toiminnot"
   },
   "label.server": {
     "defaultMessage": "Palvelin"
@@ -332,11 +2009,17 @@
   "label.singleplayer": {
     "defaultMessage": "Yksinpeli"
   },
+  "label.sort-by": {
+    "defaultMessage": "Järjestä:"
+  },
   "label.success": {
     "defaultMessage": "Onnistui"
   },
   "label.title": {
     "defaultMessage": "Otsikko"
+  },
+  "label.unknown": {
+    "defaultMessage": "Tuntematon"
   },
   "label.unlisted": {
     "defaultMessage": "Piilotettu"
@@ -344,11 +2027,23 @@
   "label.update-available": {
     "defaultMessage": "Päivitys saatavilla"
   },
+  "label.updating": {
+    "defaultMessage": "Päivitetään…"
+  },
+  "label.upload-failed": {
+    "defaultMessage": "Lataus epäonnistui"
+  },
   "label.username": {
     "defaultMessage": "Käyttäjänimi"
   },
+  "label.validating": {
+    "defaultMessage": "Vahvistetaan"
+  },
   "label.version": {
     "defaultMessage": "Versio"
+  },
+  "label.view": {
+    "defaultMessage": "Näytä"
   },
   "label.visibility": {
     "defaultMessage": "Näkyvyys"
@@ -359,17 +2054,416 @@
   "label.yes": {
     "defaultMessage": "Kyllä"
   },
+  "locale.cs-CZ": {
+    "defaultMessage": "Tšekki"
+  },
+  "locale.da-DK": {
+    "defaultMessage": "Tanska"
+  },
+  "locale.de-CH": {
+    "defaultMessage": "Saksa (Sveitsi)"
+  },
+  "locale.de-DE": {
+    "defaultMessage": "Saksa (Saksa)"
+  },
+  "locale.en-US": {
+    "defaultMessage": "Englanti (Yhdysvallat)"
+  },
+  "locale.es-419": {
+    "defaultMessage": "Espanja (Latinalainen Amerikka)"
+  },
+  "locale.es-ES": {
+    "defaultMessage": "Espanja (Espanja)"
+  },
+  "locale.fi-FI": {
+    "defaultMessage": "Suomi"
+  },
+  "locale.fil-PH": {
+    "defaultMessage": "Filipino"
+  },
+  "locale.fr-FR": {
+    "defaultMessage": "Ranska"
+  },
+  "locale.he-IL": {
+    "defaultMessage": "Heprea"
+  },
+  "locale.hu-HU": {
+    "defaultMessage": "Unkari"
+  },
+  "locale.id-ID": {
+    "defaultMessage": "Indonesia"
+  },
+  "locale.it-IT": {
+    "defaultMessage": "Italia (Italia)"
+  },
+  "locale.ja-JP": {
+    "defaultMessage": "Japani"
+  },
+  "locale.ko-KR": {
+    "defaultMessage": "Korea"
+  },
+  "locale.ms-MY": {
+    "defaultMessage": "Malaiji"
+  },
+  "locale.nl-NL": {
+    "defaultMessage": "Hollanti"
+  },
+  "locale.no-NO": {
+    "defaultMessage": "Norjan bokmål"
+  },
+  "locale.pl-PL": {
+    "defaultMessage": "Puola"
+  },
+  "locale.pt-BR": {
+    "defaultMessage": "Portugali (Brasilia)"
+  },
+  "locale.pt-PT": {
+    "defaultMessage": "Portugali (Portugali)"
+  },
+  "locale.ro-RO": {
+    "defaultMessage": "Romania"
+  },
+  "locale.ru-RU": {
+    "defaultMessage": "Venäjä"
+  },
+  "locale.sr-CS": {
+    "defaultMessage": "Serbia (latinalainen)"
+  },
+  "locale.sv-SE": {
+    "defaultMessage": "Ruotsi"
+  },
+  "locale.th-TH": {
+    "defaultMessage": "Thai"
+  },
+  "locale.tr-TR": {
+    "defaultMessage": "Turkki"
+  },
+  "locale.uk-UA": {
+    "defaultMessage": "Ukraina"
+  },
+  "locale.vi-VN": {
+    "defaultMessage": "Vietnam"
+  },
+  "locale.zh-CN": {
+    "defaultMessage": "Kiina (yksinkertaistettu)"
+  },
+  "locale.zh-TW": {
+    "defaultMessage": "Kiina (perinteinen)"
+  },
+  "modal.confirm.type-here-placeholder": {
+    "defaultMessage": "Kirjoita tähän…"
+  },
+  "modal.confirm.type-to-confirm": {
+    "defaultMessage": "Vahvistaaksesi, että haluat jatkaa, kirjoita <confirmation-text></confirmation-text> alle:"
+  },
+  "modal.share.copy-failed-title": {
+    "defaultMessage": "Tekstin kopiointi epäonnistui"
+  },
+  "modal.share.copy-link": {
+    "defaultMessage": "Kopioi linkki"
+  },
+  "modal.share.copy-qr-code": {
+    "defaultMessage": "Kopioi QR-koodi"
+  },
+  "modal.share.copy-text": {
+    "defaultMessage": "Kopioi teksti"
+  },
+  "modal.share.link-copied-text": {
+    "defaultMessage": "Linkki on kopioitu leikepöydällesi."
+  },
+  "modal.share.link-copied-title": {
+    "defaultMessage": "Linkki kopioitu"
+  },
+  "modal.share.open-in-new-tab": {
+    "defaultMessage": "Avaa uudessa välilehdessä"
+  },
+  "modal.share.open-link-in-browser": {
+    "defaultMessage": "Avaa linkki selaimessa"
+  },
+  "modal.share.send-email": {
+    "defaultMessage": "Lähetä sähköpostina"
+  },
+  "modal.share.share": {
+    "defaultMessage": "Jaa"
+  },
+  "modal.share.share-on-reddit": {
+    "defaultMessage": "Jaa Redditissä"
+  },
+  "modal.share.toot-about-it": {
+    "defaultMessage": "Tootkaa siitä"
+  },
+  "modal.share.tweet-about-it": {
+    "defaultMessage": "Twiittaa siitä"
+  },
+  "multi-select.clear-all": {
+    "defaultMessage": "Tyhjennä kaikki"
+  },
+  "multi-select.selection-count": {
+    "defaultMessage": "{count, plural, one {# valittu} other {# valittu}}"
+  },
   "notification.error.title": {
     "defaultMessage": "Tapahtui virhe"
   },
-  "omorphia.component.copy.action.copy": {
-    "defaultMessage": "Kopioi koodi leikepöydälle"
+  "notifications.actor.unknown": {
+    "defaultMessage": "Joku"
+  },
+  "notifications.close": {
+    "defaultMessage": "Sulje"
+  },
+  "notifications.dismiss": {
+    "defaultMessage": "Hylkää ilmoitus"
+  },
+  "notifications.friend-request.body": {
+    "defaultMessage": "<actor>{actor}</actor> lähetti sinulle kaveripyynnön."
+  },
+  "notifications.instance-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> kutsui sinut instanssiin <entity>{entity}</entity>."
+  },
+  "notifications.instance-ready.launch-game": {
+    "defaultMessage": "Käynnistä peli"
+  },
+  "notifications.instance-ready.open-instance": {
+    "defaultMessage": "Instanssi"
+  },
+  "notifications.instance-ready.status": {
+    "defaultMessage": "Asennettu ja pelivalmis."
+  },
+  "notifications.invite.accept": {
+    "defaultMessage": "Hyväksy"
+  },
+  "notifications.invite.decline": {
+    "defaultMessage": "Hylkää"
+  },
+  "notifications.server-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> kutsui sinut hallinnoimaan palvelinta <entity>{entity}</entity>."
+  },
+  "payment-method.amazon_pay": {
+    "defaultMessage": "Amazon Pay"
+  },
+  "payment-method.amex": {
+    "defaultMessage": "American Express"
+  },
+  "payment-method.card_display": {
+    "defaultMessage": "{card_brand} loppuu {last_four}"
+  },
+  "payment-method.cashapp": {
+    "defaultMessage": "Cash App"
+  },
+  "payment-method.charity": {
+    "defaultMessage": "Hyväntekeväisyys"
+  },
+  "payment-method.charity-plural": {
+    "defaultMessage": "Hyväntekeväisyydet"
+  },
+  "payment-method.diners": {
+    "defaultMessage": "Diners Club"
+  },
+  "payment-method.discover": {
+    "defaultMessage": "Discover"
+  },
+  "payment-method.eftpos": {
+    "defaultMessage": "EFTPOS"
+  },
+  "payment-method.gift-card": {
+    "defaultMessage": "Lahjakortti"
+  },
+  "payment-method.gift-card-plural": {
+    "defaultMessage": "Lahjakortit"
+  },
+  "payment-method.jcb": {
+    "defaultMessage": "JCB"
+  },
+  "payment-method.mastercard": {
+    "defaultMessage": "Mastercard"
+  },
+  "payment-method.paypal": {
+    "defaultMessage": "PayPal"
+  },
+  "payment-method.paypal_international": {
+    "defaultMessage": "PayPal International"
+  },
+  "payment-method.unionpay": {
+    "defaultMessage": "UnionPay"
+  },
+  "payment-method.unknown": {
+    "defaultMessage": "Tuntematon maksutapa"
+  },
+  "payment-method.venmo": {
+    "defaultMessage": "Venmo"
+  },
+  "payment-method.virtual-visa": {
+    "defaultMessage": "Virtuaali-Visa"
+  },
+  "payment-method.virtual-visa-plural": {
+    "defaultMessage": "Virtuaali-Visat"
+  },
+  "payment-method.visa": {
+    "defaultMessage": "Visa"
+  },
+  "project-card.date.published.tooltip": {
+    "defaultMessage": "Julkaistu {date}"
+  },
+  "project-card.date.updated.tooltip": {
+    "defaultMessage": "Päivitetty {date}"
+  },
+  "project-card.environment.client": {
+    "defaultMessage": "Asiakasohjelma"
+  },
+  "project-card.environment.client-and-server": {
+    "defaultMessage": "Asiakasohjelma ja palvelin"
+  },
+  "project-card.environment.client-or-server": {
+    "defaultMessage": "Asiakasohjelma tai palvelin"
+  },
+  "project-card.environment.dedicated-server": {
+    "defaultMessage": "Erillispalvelin"
+  },
+  "project-card.environment.server": {
+    "defaultMessage": "Palvelin"
+  },
+  "project-card.environment.singleplayer": {
+    "defaultMessage": "Yksinpeli"
   },
   "project-type.all": {
     "defaultMessage": "Kaikki"
   },
+  "project-type.datapack.capital": {
+    "defaultMessage": "{count, plural, one {Datapaketti} other {Datapakettia}}"
+  },
+  "project-type.datapack.category": {
+    "defaultMessage": "Datapaketit"
+  },
+  "project-type.datapack.lowercase": {
+    "defaultMessage": "{count, plural, one {datapaketti} other {datapakettia}}"
+  },
+  "project-type.mod.capital": {
+    "defaultMessage": "{count, plural, one {Modi} other {Modia}}"
+  },
+  "project-type.mod.category": {
+    "defaultMessage": "Modit"
+  },
+  "project-type.mod.lowercase": {
+    "defaultMessage": "{count, plural, one {modi} other {modia}}"
+  },
+  "project-type.modpack.capital": {
+    "defaultMessage": "{count, plural, one {Modipaketti} other {Modipakettia}}"
+  },
+  "project-type.modpack.category": {
+    "defaultMessage": "Modipaketit"
+  },
+  "project-type.modpack.lowercase": {
+    "defaultMessage": "{count, plural, one {modipaketti} other {modipakettia}}"
+  },
+  "project-type.plugin.capital": {
+    "defaultMessage": "{count, plural, one {Liitännäinen} other {Liitännäistä}}"
+  },
+  "project-type.plugin.category": {
+    "defaultMessage": "Liitännäiset"
+  },
+  "project-type.plugin.lowercase": {
+    "defaultMessage": "{count, plural, one {liitännäinen} other {liitännäistä}}"
+  },
+  "project-type.project.capital": {
+    "defaultMessage": "{count, plural, one {Projekti} other {Projektia}}"
+  },
+  "project-type.project.category": {
+    "defaultMessage": "Projektit"
+  },
+  "project-type.project.lowercase": {
+    "defaultMessage": "{count, plural, one {projekti} other {projektia}}"
+  },
+  "project-type.resourcepack.capital": {
+    "defaultMessage": "{count, plural, one {Resurssipaketti} other {Resurssipakettia}}"
+  },
+  "project-type.resourcepack.category": {
+    "defaultMessage": "Resurssipaketit"
+  },
+  "project-type.resourcepack.lowercase": {
+    "defaultMessage": "{count, plural, one {resurssipaketti} other {resurssipakettia}}"
+  },
+  "project-type.server.capital": {
+    "defaultMessage": "{count, plural, one {Palvelin} other {Palvelinta}}"
+  },
+  "project-type.server.category": {
+    "defaultMessage": "Palvelimet"
+  },
+  "project-type.server.lowercase": {
+    "defaultMessage": "{count, plural, one {palvelin} other {palvelinta}}"
+  },
+  "project-type.shader.capital": {
+    "defaultMessage": "{count, plural, one {Shaderi} other {Shaderia}}"
+  },
+  "project-type.shader.category": {
+    "defaultMessage": "Shaderit"
+  },
+  "project-type.shader.lowercase": {
+    "defaultMessage": "{count, plural, one {shaderi} other {shaderia}}"
+  },
+  "project-type.world.capital": {
+    "defaultMessage": "{count, plural, one {Maailma} other {Maailmat}}"
+  },
+  "project-type.world.category": {
+    "defaultMessage": "Maailmat"
+  },
+  "project-type.world.lowercase": {
+    "defaultMessage": "{count, plural, one {maailma} other {maailmat}}"
+  },
+  "project.about.compatibility.environments": {
+    "defaultMessage": "Tuetut ympäristöt"
+  },
+  "project.about.compatibility.environments.client-and-server": {
+    "defaultMessage": "Asiakasohjelma ja palvelin"
+  },
+  "project.about.compatibility.environments.client-side": {
+    "defaultMessage": "Asiakasohjelman puoli"
+  },
+  "project.about.compatibility.environments.dedicated-servers-only": {
+    "defaultMessage": "Vain erillispalvelimet"
+  },
+  "project.about.compatibility.environments.server-side": {
+    "defaultMessage": "Palvelimen puoli"
+  },
+  "project.about.compatibility.environments.singleplayer": {
+    "defaultMessage": "Yksinpeli"
+  },
+  "project.about.compatibility.environments.singleplayer-only": {
+    "defaultMessage": "Vain yksinpeli"
+  },
+  "project.about.compatibility.game.minecraftJava": {
+    "defaultMessage": "Minecraft: Java Edition"
+  },
+  "project.about.compatibility.platforms": {
+    "defaultMessage": "Alustat"
+  },
+  "project.about.compatibility.platforms-plural": {
+    "defaultMessage": "{count, plural, one {Alusta} other {Alustaa}}"
+  },
+  "project.about.compatibility.title": {
+    "defaultMessage": "Yhteensopivuus"
+  },
+  "project.about.creators.no-members-error": {
+    "defaultMessage": "Virhe: projektilla ei ole jäseniä. Näin ei pitäisi käydä."
+  },
+  "project.about.creators.organization": {
+    "defaultMessage": "Organisaatio"
+  },
+  "project.about.creators.owner": {
+    "defaultMessage": "Projektin omistaja"
+  },
+  "project.about.creators.title": {
+    "defaultMessage": "Luoja"
+  },
+  "project.about.details.created": {
+    "defaultMessage": "Luotu {date}"
+  },
+  "project.about.details.licensed": {
+    "defaultMessage": "Lisensoitu {license}"
+  },
   "project.about.details.published": {
     "defaultMessage": "Julkaistu {date}"
+  },
+  "project.about.details.submitted": {
+    "defaultMessage": "Lähetetty {date}"
   },
   "project.about.details.updated": {
     "defaultMessage": "Päivitetty {date}"
@@ -377,17 +2471,35 @@
   "project.about.links.discord": {
     "defaultMessage": "Liity Discord palvelimelle"
   },
+  "project.about.links.donate.bmac": {
+    "defaultMessage": "Osta kahvi"
+  },
   "project.about.links.donate.generic": {
     "defaultMessage": "Lahjoita"
   },
   "project.about.links.donate.github": {
     "defaultMessage": "Sponsoroi Githubissa"
   },
+  "project.about.links.donate.kofi": {
+    "defaultMessage": "Lahjoita Ko-fissä"
+  },
   "project.about.links.donate.patreon": {
     "defaultMessage": "Lahjoita Patreonissa"
   },
+  "project.about.links.donate.paypal": {
+    "defaultMessage": "Lahjoita PayPalissa"
+  },
   "project.about.links.issues": {
     "defaultMessage": "Raportoi ongelmista"
+  },
+  "project.about.links.site": {
+    "defaultMessage": "Siirry verkkosivulle"
+  },
+  "project.about.links.source": {
+    "defaultMessage": "Näytä lähdekoodi"
+  },
+  "project.about.links.store": {
+    "defaultMessage": "Siirry kauppasivulle"
   },
   "project.about.links.title": {
     "defaultMessage": "Linkit"
@@ -395,17 +2507,248 @@
   "project.about.links.wiki": {
     "defaultMessage": "Käy wikissä"
   },
+  "project.about.tags.title": {
+    "defaultMessage": "Tunnisteet"
+  },
+  "project.compatibility.client-and-server": {
+    "defaultMessage": "Asiakasohjelma ja palvelin"
+  },
+  "project.compatibility.client-side": {
+    "defaultMessage": "Asiakasohjelman puoli"
+  },
+  "project.compatibility.no-mod-loader": {
+    "defaultMessage": "Ei modilataajaa"
+  },
+  "project.compatibility.server-side": {
+    "defaultMessage": "Palvelimen puoli"
+  },
+  "project.disclosure.advertising.title": {
+    "defaultMessage": "Sisältää mainontaa"
+  },
+  "project.disclosure.ai-functionality.title": {
+    "defaultMessage": "Generatiivisen tekoälyn toimintoja"
+  },
+  "project.disclosure.ai-generated-content.title": {
+    "defaultMessage": "Sisältää tekoälyllä tuotettua {types}"
+  },
+  "project.disclosure.ai-generated-content.use.assets": {
+    "defaultMessage": "resursseja"
+  },
+  "project.disclosure.ai-generated-content.use.code": {
+    "defaultMessage": "koodia"
+  },
+  "project.disclosure.ai-generated-content.use.content": {
+    "defaultMessage": "sisältöä"
+  },
+  "project.disclosure.ai-generated-content.use.text": {
+    "defaultMessage": "tekstiä"
+  },
+  "project.disclosure.derivative-work.show-fewer": {
+    "defaultMessage": "Näytä vähemmän"
+  },
+  "project.disclosure.derivative-work.show-more": {
+    "defaultMessage": "Näytä {count} lisää"
+  },
+  "project.disclosure.derivative-work.title": {
+    "defaultMessage": "Tämä on johdannaisteos kohteesta:"
+  },
+  "project.disclosure.paid-features.title": {
+    "defaultMessage": "Sisältää maksullisia ominaisuuksia"
+  },
+  "project.disclosure.photosensitivity.title": {
+    "defaultMessage": "Valoherkkyysvaroitus"
+  },
+  "project.disclosure.system-interactions.title": {
+    "defaultMessage": "Sisältää ulkoisia järjestelmävuorovaikutuksia"
+  },
+  "project.disclosure.telemetry.title": {
+    "defaultMessage": "Sisältää {consent, select, opt_in {opt-in-telemetriaa} opt_out {opt-out-telemetriaa} always_active {aina aktiivista telemetriaa} other {telemetriaa}}"
+  },
+  "project.download-count-tooltip": {
+    "defaultMessage": "{count, number} {count, plural, one {lataus} other {latausta}}"
+  },
+  "project.environment.client-and-server.description": {
+    "defaultMessage": "Vaaditaan sekä asiakasohjelmassa että palvelimella."
+  },
+  "project.environment.client-and-server.title": {
+    "defaultMessage": "Asiakasohjelma ja palvelin, vaaditaan molemmissa"
+  },
+  "project.environment.client-only-server-optional.description": {
+    "defaultMessage": "Suurin osa toiminnoista on asiakasohjelman puolella, mutta asentaminen palvelimelle ottaa käyttöön parannettuja toimintoja."
+  },
+  "project.environment.client-only-server-optional.title": {
+    "defaultMessage": "Asiakasohjelma ja palvelin, palvelimella valinnainen"
+  },
+  "project.environment.client-only.description": {
+    "defaultMessage": "Kaikki toiminnot tehdään asiakasohjelman puolella ja se on yhteensopiva vanilla-palvelinten kanssa."
+  },
+  "project.environment.client-only.title": {
+    "defaultMessage": "Vain asiakasohjelman puoli"
+  },
+  "project.environment.client-or-server-prefers-both.description": {
+    "defaultMessage": "Sillä on toimintoja sekä asiakasohjelmassa että palvelimella, vaikkakin vain osittain. Asentaminen molempiin antaa parhaan kokemuksen."
+  },
+  "project.environment.client-or-server-prefers-both.title": {
+    "defaultMessage": "Asiakasohjelma ja palvelin, paras molempiin asennettuna"
+  },
+  "project.environment.client-or-server.description": {
+    "defaultMessage": "Sillä on toimintoja sekä asiakasohjelmassa että palvelimella, vaikkakin vain osittain."
+  },
+  "project.environment.client-or-server.title": {
+    "defaultMessage": "Asiakasohjelma ja palvelin, molemmissa valinnainen"
+  },
+  "project.environment.dedicated-server-only.description": {
+    "defaultMessage": "Kaikki toiminnot tehdään palvelimen puolella ja se on yhteensopiva vanilla-asiakasohjelmien kanssa. Toimii vain erillispalvelimilla."
+  },
+  "project.environment.dedicated-server-only.title": {
+    "defaultMessage": "Vain palvelimen puoli"
+  },
+  "project.environment.server-only-client-optional.description": {
+    "defaultMessage": "Suurin osa toiminnoista on palvelimen puolella, mutta asentaminen asiakasohjelmaan ottaa käyttöön parannettuja toimintoja."
+  },
+  "project.environment.server-only-client-optional.title": {
+    "defaultMessage": "Asiakasohjelma ja palvelin, asiakasohjelmassa valinnainen"
+  },
+  "project.environment.server-only.description": {
+    "defaultMessage": "Kaikki toiminnot tehdään palvelimen puolella ja se on yhteensopiva vanilla-asiakasohjelmien kanssa. Toimii myös yksinpelin sisäisellä palvelimella."
+  },
+  "project.environment.server-only.title": {
+    "defaultMessage": "Vain palvelimen puoli, toimii myös yksinpelissä"
+  },
+  "project.environment.singleplayer-only.description": {
+    "defaultMessage": "Toimii vain yksinpelissä tai kun ei ole yhdistetty moninpelipalvelimeen."
+  },
+  "project.environment.singleplayer-only.title": {
+    "defaultMessage": "Vain yksinpeli"
+  },
+  "project.environment.tag.not-applicable": {
+    "defaultMessage": "Ei sovelleta"
+  },
+  "project.environment.tag.unknown": {
+    "defaultMessage": "Tuntematon"
+  },
+  "project.environment.unknown.description": {
+    "defaultMessage": "Tämän version ympäristöä ei voitu määrittää."
+  },
+  "project.environment.unknown.title": {
+    "defaultMessage": "Tuntematon ympäristö"
+  },
+  "project.follower-count-tooltip": {
+    "defaultMessage": "{count, number} {count, plural, one {seuraaja} other {seuraajaa}}"
+  },
+  "project.license.error": {
+    "defaultMessage": "Lisenssitekstiä ei voitu noutaa."
+  },
+  "project.license.loading": {
+    "defaultMessage": "Ladataan lisenssitekstiä…"
+  },
+  "project.license.title": {
+    "defaultMessage": "Lisenssi"
+  },
+  "project.online-player-count": {
+    "defaultMessage": "{count, number} paikalla"
+  },
+  "project.online-player-count.tooltip": {
+    "defaultMessage": "{count} {countPlural, plural, one {pelaaja} other {pelaajaa}} paikalla"
+  },
+  "project.recent-plays": {
+    "defaultMessage": "{count} {countPlural, plural, one {viimeaikainen pelikerta} other {viimeaikaista pelikertaa}}"
+  },
+  "project.recent-plays.tooltip": {
+    "defaultMessage": "{count} {countPlural, plural, one {viimeaikainen pelikerta} other {viimeaikaista pelikertaa}} Modrinthistä viimeisen 2 viikon aikana"
+  },
+  "project.server.customModpackTooltip": {
+    "defaultMessage": "Tämä projekti käyttää mukautettua modipakettia"
+  },
+  "project.server.ping.ms": {
+    "defaultMessage": "{ping, number} ms"
+  },
+  "project.server.region.asia": {
+    "defaultMessage": "Aasia"
+  },
+  "project.server.region.australia": {
+    "defaultMessage": "Australia"
+  },
+  "project.server.region.europe": {
+    "defaultMessage": "Eurooppa"
+  },
+  "project.server.region.middle_east": {
+    "defaultMessage": "Lähi-itä"
+  },
+  "project.server.region.russia": {
+    "defaultMessage": "Venäjä"
+  },
+  "project.server.region.south_america": {
+    "defaultMessage": "Etelä-Amerikka"
+  },
+  "project.server.region.tooltip": {
+    "defaultMessage": "Palvelin sijainnissa {regionName}"
+  },
+  "project.server.region.us_east": {
+    "defaultMessage": "USA itä"
+  },
+  "project.server.region.us_west": {
+    "defaultMessage": "USA länsi"
+  },
+  "project.server.status.offline": {
+    "defaultMessage": "Offline"
+  },
+  "project.server.status.offline.tooltip": {
+    "defaultMessage": "Palvelin on offline-tilassa"
+  },
+  "project.server.status.online": {
+    "defaultMessage": "Online"
+  },
   "project.settings.analytics.title": {
     "defaultMessage": "Analytiikat"
   },
+  "project.settings.content.title": {
+    "defaultMessage": "Sisältö"
+  },
   "project.settings.description.title": {
     "defaultMessage": "Kuvaus"
+  },
+  "project.settings.disclosures.ai.types-assets": {
+    "defaultMessage": "Resurssit"
+  },
+  "project.settings.disclosures.ai.types-code": {
+    "defaultMessage": "Koodi"
+  },
+  "project.settings.disclosures.ai.types-text": {
+    "defaultMessage": "Teksti"
+  },
+  "project.settings.disclosures.telemetry.consent-always-active": {
+    "defaultMessage": "Aina aktiivinen"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-in": {
+    "defaultMessage": "Opt-in"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-out": {
+    "defaultMessage": "Opt-out"
+  },
+  "project.settings.disclosures.title": {
+    "defaultMessage": "Ilmoitukset"
+  },
+  "project.settings.environment.client_and_server.title": {
+    "defaultMessage": "Asiakasohjelma ja palvelin"
+  },
+  "project.settings.environment.client_only.title": {
+    "defaultMessage": "Vain asiakasohjelman puoli"
+  },
+  "project.settings.environment.server_only.title": {
+    "defaultMessage": "Vain palvelimen puoli"
+  },
+  "project.settings.environment.singleplayer.title": {
+    "defaultMessage": "Vain yksinpeli"
   },
   "project.settings.environment.title": {
     "defaultMessage": "Ympäristö"
   },
   "project.settings.gallery.title": {
     "defaultMessage": "Galleria"
+  },
+  "project.settings.general.title": {
+    "defaultMessage": "Yleiset"
   },
   "project.settings.license.title": {
     "defaultMessage": "Lisenssi"
@@ -422,14 +2765,29 @@
   "project.settings.notice.no-permission.title": {
     "defaultMessage": "Ei lupaa"
   },
+  "project.settings.server.title": {
+    "defaultMessage": "Palvelin"
+  },
   "project.settings.tags.title": {
     "defaultMessage": "Tagit"
   },
   "project.settings.upload.title": {
     "defaultMessage": "Lataa"
   },
+  "project.settings.versions.permissions": {
+    "defaultMessage": "Käyttöoikeudet"
+  },
   "project.settings.versions.title": {
     "defaultMessage": "Versiot"
+  },
+  "project.settings.view.title": {
+    "defaultMessage": "Näytä"
+  },
+  "project.stats.downloads-label": {
+    "defaultMessage": "{count, plural, one {lataus} other {latausta}}"
+  },
+  "project.stats.followers-label": {
+    "defaultMessage": "{count, plural, one {seuraaja} other {seuraajaa}}"
   },
   "project.versions.channel.alpha.symbol": {
     "defaultMessage": "A"
@@ -440,11 +2798,284 @@
   "project.versions.channel.release.symbol": {
     "defaultMessage": "J"
   },
+  "project.versions.create-version": {
+    "defaultMessage": "Luo versio"
+  },
+  "project.versions.downloads-tooltip": {
+    "defaultMessage": "{count, plural, one {# lataus} other {# latausta}}"
+  },
+  "project.versions.filter.channel": {
+    "defaultMessage": "Kanava"
+  },
+  "project.versions.filter.selected-count": {
+    "defaultMessage": "{count, number} valittu"
+  },
+  "project.versions.filter.toggle-tooltip": {
+    "defaultMessage": "Vaihda suodatinta {filter}"
+  },
+  "project.versions.no-mod-loader": {
+    "defaultMessage": "Ei modilataajaa"
+  },
+  "project.versions.platform.modloader.short": {
+    "defaultMessage": "ModLoader"
+  },
+  "project.versions.version.withheld": {
+    "defaultMessage": "Pidätetty"
+  },
+  "project.versions.version.withheld.tooltip": {
+    "defaultMessage": "Versio pidätetty puuttuvien käyttöoikeuksien vuoksi"
+  },
+  "project.versions.withheld-versions-warning.resolve-button": {
+    "defaultMessage": "Ratkaise"
+  },
   "project.visibility.archived": {
     "defaultMessage": "Arkistoitu"
   },
   "project.visibility.draft": {
     "defaultMessage": "Luonnos"
+  },
+  "project.visibility.private": {
+    "defaultMessage": "Yksityinen"
+  },
+  "project.visibility.public": {
+    "defaultMessage": "Julkinen"
+  },
+  "project.visibility.rejected": {
+    "defaultMessage": "Hylätty"
+  },
+  "project.visibility.scheduled": {
+    "defaultMessage": "Ajastettu"
+  },
+  "project.visibility.under-review": {
+    "defaultMessage": "Tarkistettavana"
+  },
+  "project.visibility.unknown": {
+    "defaultMessage": "Tuntematon"
+  },
+  "project.visibility.unlisted": {
+    "defaultMessage": "Listaamaton"
+  },
+  "project.visibility.unlisted-by-staff": {
+    "defaultMessage": "Henkilökunnan listaama pois"
+  },
+  "report.item-type.content": {
+    "defaultMessage": "sisältö"
+  },
+  "report.item-type.project": {
+    "defaultMessage": "projekti"
+  },
+  "report.item-type.user": {
+    "defaultMessage": "käyttäjä"
+  },
+  "report.item-type.version": {
+    "defaultMessage": "versio"
+  },
+  "report.type.ai-images": {
+    "defaultMessage": "Tekoälyllä tuotettuja kuvia kuvakkeessa, galleriassa tai kuvauksessa"
+  },
+  "report.type.copyright": {
+    "defaultMessage": "Uudelleen ladattu teos"
+  },
+  "report.type.fully-ai-generated": {
+    "defaultMessage": "Täysin tekoälyllä tuotettu projekti"
+  },
+  "report.type.inappropriate": {
+    "defaultMessage": "Sopimaton"
+  },
+  "report.type.malicious": {
+    "defaultMessage": "Haitallinen"
+  },
+  "report.type.missing-disclosure": {
+    "defaultMessage": "Puuttuva tai virheellinen ilmoitus"
+  },
+  "report.type.name-squatting": {
+    "defaultMessage": "Nimivaraus"
+  },
+  "report.type.spam": {
+    "defaultMessage": "Roskaposti"
+  },
+  "search.filter.clear-all-filters": {
+    "defaultMessage": "Tyhjennä kaikki suodattimet"
+  },
+  "search.filter.dependency_type.any": {
+    "defaultMessage": "Mikä tahansa riippuvuustyyppi"
+  },
+  "search.filter.dependency_type.embedded": {
+    "defaultMessage": "Sulautettu"
+  },
+  "search.filter.dependency_type.optional": {
+    "defaultMessage": "Valinnainen"
+  },
+  "search.filter.dependency_type.optional_or_embedded": {
+    "defaultMessage": "Valinnainen tai sulautettu"
+  },
+  "search.filter.dependency_type.required": {
+    "defaultMessage": "Vaadittu"
+  },
+  "search.filter.dependency_type.required_or_embedded": {
+    "defaultMessage": "Vaadittu tai sulautettu"
+  },
+  "search.filter.dependency_type.required_or_optional": {
+    "defaultMessage": "Vaadittu tai valinnainen"
+  },
+  "search.filter.dependent_project": {
+    "defaultMessage": "Riippuu kohteesta: {project}"
+  },
+  "search.filter.dependent_project.clear": {
+    "defaultMessage": "Tyhjennä riippuvuussuodatin"
+  },
+  "search.filter.dependent_project.search_placeholder": {
+    "defaultMessage": "Hae projektia…"
+  },
+  "search.filter.excluded_projects": {
+    "defaultMessage": "Sulkee pois: {projects}"
+  },
+  "search.filter.included_content.exclude": {
+    "defaultMessage": "Sulje pois"
+  },
+  "search.filter.included_content.excluded": {
+    "defaultMessage": "Poissuljettu"
+  },
+  "search.filter.included_content.remove_project": {
+    "defaultMessage": "Poista {project}"
+  },
+  "search.filter.included_content.remove_project.tooltip": {
+    "defaultMessage": "Poista projekti"
+  },
+  "search.filter.included_content.search_placeholder": {
+    "defaultMessage": "Hae sisältöä…"
+  },
+  "search.filter.included_projects": {
+    "defaultMessage": "Sisältää: {projects}"
+  },
+  "search.filter.locked.default": {
+    "defaultMessage": "Suodatin lukittu"
+  },
+  "search.filter.locked.default.description": {
+    "defaultMessage": "Tämän suodattimen avaaminen voi sallia yhteensopimattoman sisällön asentamisen."
+  },
+  "search.filter.locked.default.sync": {
+    "defaultMessage": "Synkronoi suodatin"
+  },
+  "search.filter.locked.default.title": {
+    "defaultMessage": "{type} on lukittu"
+  },
+  "search.filter.locked.default.unlock": {
+    "defaultMessage": "Avaa suodatin"
+  },
+  "search.filter.option.exclusion.add.tooltip": {
+    "defaultMessage": "Sulje pois"
+  },
+  "search.filter.option.search.clear.aria_label": {
+    "defaultMessage": "Tyhjennä haku"
+  },
+  "search.filter.option.search.placeholder": {
+    "defaultMessage": "Hae…"
+  },
+  "search.filter.option.show_fewer": {
+    "defaultMessage": "Näytä vähemmän"
+  },
+  "search.filter.option.show_more": {
+    "defaultMessage": "Näytä enemmän"
+  },
+  "search.filter.option.sub_options.collapse.tooltip": {
+    "defaultMessage": "Piilota lisävaihtoehdot"
+  },
+  "search.filter.option.sub_options.expand.tooltip": {
+    "defaultMessage": "Näytä lisävaihtoehdot"
+  },
+  "search.filter_type.advanced": {
+    "defaultMessage": "Edistyneet poissulkemiset"
+  },
+  "search.filter_type.advanced.disclosure.advertisements": {
+    "defaultMessage": "Mainokset"
+  },
+  "search.filter_type.advanced.disclosure.ai_content": {
+    "defaultMessage": "Tekoälyllä tuotettu sisältö"
+  },
+  "search.filter_type.advanced.disclosure.ai_content.usage": {
+    "defaultMessage": "Tekoäly {usage}"
+  },
+  "search.filter_type.advanced.disclosure.ai_functionality": {
+    "defaultMessage": "Generatiivisen tekoälyn toimintoja"
+  },
+  "search.filter_type.advanced.disclosure.archived": {
+    "defaultMessage": "Arkistoitu"
+  },
+  "search.filter_type.advanced.disclosure.derivative_work": {
+    "defaultMessage": "Johdannaissisältö"
+  },
+  "search.filter_type.advanced.disclosure.epilepsy_triggers": {
+    "defaultMessage": "Valoherkkyyden laukaisijat"
+  },
+  "search.filter_type.advanced.disclosure.paid_features": {
+    "defaultMessage": "Maksulliset ominaisuudet"
+  },
+  "search.filter_type.advanced.disclosure.system_interactions": {
+    "defaultMessage": "Ulkoiset järjestelmävuorovaikutukset"
+  },
+  "search.filter_type.advanced.disclosure.telemetry": {
+    "defaultMessage": "Telemetria"
+  },
+  "search.filter_type.compatible_dependency_project_ids": {
+    "defaultMessage": "Riippuu kohteesta"
+  },
+  "search.filter_type.environment": {
+    "defaultMessage": "Ympäristö"
+  },
+  "search.filter_type.environment.client": {
+    "defaultMessage": "Asiakasohjelma"
+  },
+  "search.filter_type.environment.server": {
+    "defaultMessage": "Palvelin"
+  },
+  "search.filter_type.game_version": {
+    "defaultMessage": "Peliversio"
+  },
+  "search.filter_type.game_version.all_versions": {
+    "defaultMessage": "Näytä kaikki versiot"
+  },
+  "search.filter_type.included_content": {
+    "defaultMessage": "Sisällytetty sisältö"
+  },
+  "search.filter_type.license": {
+    "defaultMessage": "Lisenssi"
+  },
+  "search.filter_type.license.open_source": {
+    "defaultMessage": "Avoin lähdekoodi"
+  },
+  "search.filter_type.mod_loader": {
+    "defaultMessage": "Lataaja"
+  },
+  "search.filter_type.modpack_loader": {
+    "defaultMessage": "Lataaja"
+  },
+  "search.filter_type.plugin_loader": {
+    "defaultMessage": "Lataaja"
+  },
+  "search.filter_type.plugin_platform": {
+    "defaultMessage": "Alusta"
+  },
+  "search.filter_type.project_id": {
+    "defaultMessage": "Projektin ID"
+  },
+  "search.filter_type.shader_loader": {
+    "defaultMessage": "Lataaja"
+  },
+  "search.photosensitivity-warning-modal.body.1": {
+    "defaultMessage": "Emme voi taata, että kaikki Modrinthin sisältö on merkitty asianmukaisesti."
+  },
+  "search.photosensitivity-warning-modal.body.2": {
+    "defaultMessage": "Valoherkkyyden laukaisijoiden sisältömerkinnät ovat sisällön Modrinthiin lataavien luojien itse antamia. Nämä projektit eivät ole läpikäyneet turvallisuustestausta."
+  },
+  "search.photosensitivity-warning-modal.body.3": {
+    "defaultMessage": "Kaiken Modrinthin sisällön käyttö on omalla vastuullasi. Pysy turvassa! 💚"
+  },
+  "search.photosensitivity-warning-modal.dont-show-again": {
+    "defaultMessage": "Älä näytä tätä uudelleen"
+  },
+  "search.photosensitivity-warning-modal.title": {
+    "defaultMessage": "Tulosten turvallisuutta ei taata"
   },
   "settings.account.title": {
     "defaultMessage": "Tili ja turvallisuus"
@@ -458,6 +3089,69 @@
   "settings.authorized-apps.title": {
     "defaultMessage": "Valtuutetut sovellukset"
   },
+  "settings.billing.title": {
+    "defaultMessage": "Laskutus ja tilaukset"
+  },
+  "settings.display.project-list-layouts.datapack": {
+    "defaultMessage": "Datapaketit-sivu"
+  },
+  "settings.display.project-list-layouts.description": {
+    "defaultMessage": "Valitse kullekin projektilistoja näyttävälle sivulle haluamasi asettelu."
+  },
+  "settings.display.project-list-layouts.mod": {
+    "defaultMessage": "Modit-sivu"
+  },
+  "settings.display.project-list-layouts.mode.grid": {
+    "defaultMessage": "Ruudukko"
+  },
+  "settings.display.project-list-layouts.mode.rows": {
+    "defaultMessage": "Rivit"
+  },
+  "settings.display.project-list-layouts.modpack": {
+    "defaultMessage": "Modipaketit-sivu"
+  },
+  "settings.display.project-list-layouts.plugin": {
+    "defaultMessage": "Liitännäiset-sivu"
+  },
+  "settings.display.project-list-layouts.resourcepack": {
+    "defaultMessage": "Resurssipaketit-sivu"
+  },
+  "settings.display.project-list-layouts.server": {
+    "defaultMessage": "Palvelimet-sivu"
+  },
+  "settings.display.project-list-layouts.shader": {
+    "defaultMessage": "Shaderit-sivu"
+  },
+  "settings.display.project-list-layouts.title": {
+    "defaultMessage": "Projektilistojen asettelut"
+  },
+  "settings.display.project-list-layouts.user": {
+    "defaultMessage": "Käyttäjäprofiilisivut"
+  },
+  "settings.display.sidebar.advanced-rendering.description": {
+    "defaultMessage": "Ottaa käyttöön edistyneen renderöinnin, kuten sumennustehosteet, jotka voivat aiheuttaa suorituskykyongelmia ilman laitteistokiihdytettyä renderöintiä."
+  },
+  "settings.display.sidebar.advanced-rendering.title": {
+    "defaultMessage": "Edistynyt renderöinti"
+  },
+  "settings.display.sidebar.external-links-new-tab.description": {
+    "defaultMessage": "Avaa Modrinthin ulkopuolelle vievät linkit uudessa välilehdessä. Asetuksesta riippumatta saman verkkotunnuksen linkit ja Markdown-kuvausten linkit avautuvat samassa välilehdessä, ja mainosten sekä muokkaussivujen linkit avautuvat uudessa välilehdessä."
+  },
+  "settings.display.sidebar.external-links-new-tab.title": {
+    "defaultMessage": "Avaa ulkoiset linkit uudessa välilehdessä"
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.description": {
+    "defaultMessage": "Kohdistaa sivupalkin sivun sisällön vasemmalle puolelle."
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.title": {
+    "defaultMessage": "Vasemmalle kohdistettu sivupalkki sisältösivuilla"
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.description": {
+    "defaultMessage": "Kohdistaa suodatinsivupalkin hakutulosten oikealle puolelle."
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.title": {
+    "defaultMessage": "Oikealle kohdistettu suodatinsivupalkki hakusivuilla"
+  },
   "settings.display.theme.dark": {
     "defaultMessage": "Tumma"
   },
@@ -466,6 +3160,15 @@
   },
   "settings.display.theme.oled": {
     "defaultMessage": "OLED"
+  },
+  "settings.display.theme.orbiont-description": {
+    "defaultMessage": "Valitse haluamasi värimaailma kohteelle {productName}."
+  },
+  "settings.display.theme.preferred-dark-theme": {
+    "defaultMessage": "Haluttu tumma teema"
+  },
+  "settings.display.theme.preferred-light-theme": {
+    "defaultMessage": "Haluttu vaalea teema"
   },
   "settings.display.theme.retro": {
     "defaultMessage": "Retro"
@@ -476,13 +3179,760 @@
   "settings.display.theme.title": {
     "defaultMessage": "Väriteema"
   },
+  "settings.feature-flags.title": {
+    "defaultMessage": "Ominaisuusliput"
+  },
+  "settings.language.categories.default": {
+    "defaultMessage": "Vakiokielet"
+  },
+  "settings.language.categories.search-result": {
+    "defaultMessage": "Hakutulokset"
+  },
+  "settings.language.coverage.app-tooltip": {
+    "defaultMessage": "Noin {percentage} % kohteesta {productName} on saatavilla tällä kielellä."
+  },
+  "settings.language.coverage.label": {
+    "defaultMessage": "{percentage} % tuettu"
+  },
+  "settings.language.description.orbiont": {
+    "defaultMessage": "Valitse haluamasi kieli kohteelle {platform}. Orbiont toimittaa yhteisökäännökset sellaisinaan; kattavuus vaihtelee kielittäin ja kääntämätön teksti näytetään englanniksi."
+  },
+  "settings.language.languages.search-field.placeholder": {
+    "defaultMessage": "Hae kieltä…"
+  },
+  "settings.language.languages.search-results-announcement": {
+    "defaultMessage": "{matches, plural, =0 {Yksikään kieli ei vastaa} one {# kieli vastaa} other {# kieltä vastaa}} hakuasi."
+  },
+  "settings.language.languages.search.no-results": {
+    "defaultMessage": "Yksikään kieli ei vastaa hakuasi."
+  },
+  "settings.language.platform.app": {
+    "defaultMessage": "app"
+  },
   "settings.language.title": {
     "defaultMessage": "Kieli"
+  },
+  "settings.language.warning": {
+    "defaultMessage": "Kohteen {platform} kielen vaihtaminen voi aiheuttaa sen, että osa sisällöstä näkyy englanniksi, jos käännöstä ei ole saatavilla. Kohdetta {platform} ei ole vielä käännetty kokonaan, joten osa sisällöstä voi pysyä englanniksi tietyillä kielillä."
+  },
+  "settings.pats.title": {
+    "defaultMessage": "Henkilökohtaiset käyttötunnisteet"
+  },
+  "settings.profile.navigation-title": {
+    "defaultMessage": "Profiili"
   },
   "settings.sessions.title": {
     "defaultMessage": "Istunnot"
   },
+  "settings.social.title": {
+    "defaultMessage": "Sosiaalinen"
+  },
+  "skin.preview.drag-to-rotate": {
+    "defaultMessage": "Vedä kiertääksesi"
+  },
+  "skins.select": {
+    "defaultMessage": "Valitse ulkoasu"
+  },
+  "skins.select-named": {
+    "defaultMessage": "Valitse {name}"
+  },
+  "table.empty-state.no-data": {
+    "defaultMessage": "Tietoja ei ole saatavilla."
+  },
+  "tag.category.128x": {
+    "defaultMessage": "128x"
+  },
+  "tag.category.16x": {
+    "defaultMessage": "16x"
+  },
+  "tag.category.256x": {
+    "defaultMessage": "256x"
+  },
+  "tag.category.32x": {
+    "defaultMessage": "32x"
+  },
+  "tag.category.3d-packs": {
+    "message": "3D-paketit"
+  },
+  "tag.category.48x": {
+    "defaultMessage": "48x"
+  },
+  "tag.category.512x+": {
+    "defaultMessage": "512x tai suurempi"
+  },
+  "tag.category.64x": {
+    "defaultMessage": "64x"
+  },
+  "tag.category.8x-": {
+    "defaultMessage": "8x tai pienempi"
+  },
+  "tag.category.adventure": {
+    "defaultMessage": "Seikkailu"
+  },
+  "tag.category.adventure-mode": {
+    "defaultMessage": "Seikkailutila"
+  },
+  "tag.category.anarchy": {
+    "defaultMessage": "Anarkia"
+  },
+  "tag.category.armor-tools-weapons": {
+    "message": "Panssari, työkalut ja aseet"
+  },
+  "tag.category.atmosphere": {
+    "defaultMessage": "Tunnelma"
+  },
+  "tag.category.audio": {
+    "defaultMessage": "Ääni"
+  },
+  "tag.category.battle-royale": {
+    "defaultMessage": "Battle royale"
+  },
+  "tag.category.bedwars": {
+    "defaultMessage": "Bed Wars"
+  },
+  "tag.category.blocks": {
+    "defaultMessage": "Lohkot"
+  },
+  "tag.category.bloom": {
+    "defaultMessage": "Bloom"
+  },
+  "tag.category.bosses": {
+    "defaultMessage": "Pomot"
+  },
+  "tag.category.cartoon": {
+    "defaultMessage": "Piirretty"
+  },
+  "tag.category.challenging": {
+    "defaultMessage": "Haastava"
+  },
+  "tag.category.classes": {
+    "defaultMessage": "Luokat"
+  },
+  "tag.category.colored-lighting": {
+    "defaultMessage": "Värillinen valaistus"
+  },
+  "tag.category.combat": {
+    "defaultMessage": "Taistelu"
+  },
+  "tag.category.competitive": {
+    "defaultMessage": "Kilpailullinen"
+  },
+  "tag.category.core-shaders": {
+    "defaultMessage": "Ydinshaderit"
+  },
+  "tag.category.cosmetics": {
+    "message": "Kosmetiikka"
+  },
+  "tag.category.creation": {
+    "defaultMessage": "Luominen"
+  },
+  "tag.category.creative-mode": {
+    "defaultMessage": "Luova tila"
+  },
+  "tag.category.creator-community": {
+    "defaultMessage": "Luojayhteisö"
+  },
+  "tag.category.crossplay": {
+    "defaultMessage": "Crossplay"
+  },
+  "tag.category.ctm": {
+    "message": "Täydennä monumentti"
+  },
+  "tag.category.cursed": {
+    "defaultMessage": "Kirottu"
+  },
+  "tag.category.custom-content": {
+    "defaultMessage": "Mukautettu sisältö"
+  },
+  "tag.category.custom-terrain": {
+    "message": "Mukautettu maasto"
+  },
+  "tag.category.decoration": {
+    "defaultMessage": "Koristelu"
+  },
+  "tag.category.dungeons": {
+    "defaultMessage": "Luolastot"
+  },
+  "tag.category.economy": {
+    "defaultMessage": "Talous"
+  },
+  "tag.category.enhanced-visuals": {
+    "message": "Paranneltu visuaalisuus"
+  },
+  "tag.category.entities": {
+    "defaultMessage": "Olennot"
+  },
+  "tag.category.environment": {
+    "defaultMessage": "Ympäristö"
+  },
+  "tag.category.equipment": {
+    "defaultMessage": "Varusteet"
+  },
+  "tag.category.factions": {
+    "defaultMessage": "Ryhmittymät"
+  },
+  "tag.category.fantasy": {
+    "defaultMessage": "Fantasia"
+  },
+  "tag.category.foliage": {
+    "defaultMessage": "Kasvillisuus"
+  },
+  "tag.category.fonts": {
+    "defaultMessage": "Fontit"
+  },
+  "tag.category.food": {
+    "defaultMessage": "Ruoka"
+  },
+  "tag.category.game-map": {
+    "defaultMessage": "Pelikartta"
+  },
+  "tag.category.game-mechanics": {
+    "defaultMessage": "Pelimekaniikat"
+  },
+  "tag.category.gens": {
+    "defaultMessage": "Gens"
+  },
+  "tag.category.gui": {
+    "defaultMessage": "Käyttöliittymä"
+  },
+  "tag.category.hardcore-mode": {
+    "defaultMessage": "Hardcore-tila"
+  },
+  "tag.category.high": {
+    "defaultMessage": "Korkea"
+  },
+  "tag.category.items": {
+    "defaultMessage": "Esineet"
+  },
+  "tag.category.keep-inventory": {
+    "defaultMessage": "Pidä tavaraluettelo"
+  },
+  "tag.category.kitchen-sink": {
+    "defaultMessage": "Kitchen sink"
+  },
+  "tag.category.kitpvp": {
+    "defaultMessage": "Kit PvP"
+  },
+  "tag.category.library": {
+    "defaultMessage": "Kirjasto"
+  },
+  "tag.category.lifesteal": {
+    "defaultMessage": "Lifesteal"
+  },
+  "tag.category.lightweight": {
+    "defaultMessage": "Kevyt"
+  },
+  "tag.category.locale": {
+    "defaultMessage": "Lokaali"
+  },
+  "tag.category.low": {
+    "defaultMessage": "Matala"
+  },
+  "tag.category.magic": {
+    "defaultMessage": "Taikuus"
+  },
+  "tag.category.management": {
+    "defaultMessage": "Hallinta"
+  },
+  "tag.category.maps": {
+    "message": "Kartat"
+  },
+  "tag.category.media": {
+    "defaultMessage": "Media"
+  },
+  "tag.category.medium": {
+    "defaultMessage": "Keskitaso"
+  },
+  "tag.category.microgames": {
+    "defaultMessage": "Minipelit"
+  },
+  "tag.category.minecraft-addon-maker": {
+    "message": "Minecraft Addon Maker"
+  },
+  "tag.category.minigame": {
+    "defaultMessage": "Minipeli"
+  },
+  "tag.category.minigames": {
+    "defaultMessage": "Minipelit"
+  },
+  "tag.category.mmo": {
+    "defaultMessage": "MMO"
+  },
+  "tag.category.mobs": {
+    "defaultMessage": "Mobit"
+  },
+  "tag.category.modded": {
+    "defaultMessage": "Modattu"
+  },
+  "tag.category.modded-world": {
+    "defaultMessage": "Modattu maailma"
+  },
+  "tag.category.models": {
+    "defaultMessage": "Mallit"
+  },
+  "tag.category.multiplayer": {
+    "defaultMessage": "Moninpeli"
+  },
+  "tag.category.network": {
+    "defaultMessage": "Verkko"
+  },
+  "tag.category.offline-mode": {
+    "defaultMessage": "Offline-tila"
+  },
+  "tag.category.oneblock": {
+    "defaultMessage": "One Block"
+  },
+  "tag.category.op": {
+    "defaultMessage": "OP"
+  },
+  "tag.category.optimization": {
+    "defaultMessage": "Optimointi"
+  },
+  "tag.category.parkour": {
+    "defaultMessage": "Parkour"
+  },
+  "tag.category.path-tracing": {
+    "defaultMessage": "Säteenseuranta"
+  },
+  "tag.category.pbr": {
+    "defaultMessage": "PBR"
+  },
+  "tag.category.personal-worlds": {
+    "defaultMessage": "Omat maailmat"
+  },
+  "tag.category.players": {
+    "message": "Pelaajat"
+  },
+  "tag.category.plots": {
+    "defaultMessage": "Tontit"
+  },
+  "tag.category.pokemon": {
+    "defaultMessage": "Pokémon"
+  },
+  "tag.category.potato": {
+    "defaultMessage": "Peruna"
+  },
+  "tag.category.prison": {
+    "defaultMessage": "Vankila"
+  },
+  "tag.category.puzzle": {
+    "defaultMessage": "Pulmapelit"
+  },
+  "tag.category.pve": {
+    "defaultMessage": "PvE"
+  },
+  "tag.category.pvp": {
+    "defaultMessage": "PvP"
+  },
+  "tag.category.questing": {
+    "defaultMessage": "Tehtäväsisältö"
+  },
+  "tag.category.quests": {
+    "defaultMessage": "Tehtävät"
+  },
+  "tag.category.racing": {
+    "defaultMessage": "Kilpa-ajo"
+  },
+  "tag.category.realistic": {
+    "defaultMessage": "Realistinen"
+  },
+  "tag.category.recording-smp": {
+    "defaultMessage": "Recording SMP"
+  },
+  "tag.category.reflections": {
+    "defaultMessage": "Heijastukset"
+  },
+  "tag.category.roleplay": {
+    "defaultMessage": "Roolipeli"
+  },
+  "tag.category.rollercoaster": {
+    "message": "Vuoristorata"
+  },
+  "tag.category.rpg": {
+    "defaultMessage": "RPG"
+  },
+  "tag.category.screenshot": {
+    "defaultMessage": "Kuvakaappaus"
+  },
+  "tag.category.scripts": {
+    "message": "Skriptit"
+  },
+  "tag.category.semi-realistic": {
+    "defaultMessage": "Puolirealistinen"
+  },
+  "tag.category.shaders": {
+    "message": "Shaderit"
+  },
+  "tag.category.shadows": {
+    "defaultMessage": "Varjot"
+  },
+  "tag.category.simplistic": {
+    "defaultMessage": "Yksinkertainen"
+  },
+  "tag.category.skins": {
+    "message": "Skinit"
+  },
+  "tag.category.skyblock": {
+    "defaultMessage": "Skyblock"
+  },
+  "tag.category.smp": {
+    "defaultMessage": "SMP"
+  },
+  "tag.category.social": {
+    "defaultMessage": "Sosiaalinen"
+  },
+  "tag.category.storage": {
+    "defaultMessage": "Tallennus"
+  },
+  "tag.category.survival": {
+    "defaultMessage": "Selviytyminen"
+  },
+  "tag.category.survival-mode": {
+    "defaultMessage": "Selviytymistila"
+  },
+  "tag.category.teams": {
+    "defaultMessage": "Joukkueet"
+  },
+  "tag.category.technical": {
+    "defaultMessage": "Tekninen"
+  },
+  "tag.category.technology": {
+    "defaultMessage": "Teknologia"
+  },
+  "tag.category.texture-packs": {
+    "message": "Tekstuuripakkaukset"
+  },
+  "tag.category.themed": {
+    "defaultMessage": "Teemallinen"
+  },
+  "tag.category.towns": {
+    "defaultMessage": "Kaupungit"
+  },
+  "tag.category.transportation": {
+    "defaultMessage": "Liikenne"
+  },
+  "tag.category.tweaks": {
+    "defaultMessage": "Hienosäädöt"
+  },
+  "tag.category.utility": {
+    "defaultMessage": "Hyöty"
+  },
+  "tag.category.vanilla-like": {
+    "defaultMessage": "Vanillan kaltainen"
+  },
+  "tag.category.whitelisted": {
+    "defaultMessage": "Vain sallitut"
+  },
+  "tag.category.world-resets": {
+    "defaultMessage": "Maailman nollaukset"
+  },
+  "tag.category.worldgen": {
+    "defaultMessage": "Maailman generointi"
+  },
+  "tag.loader.babric": {
+    "defaultMessage": "Babric"
+  },
+  "tag.loader.bta-babric": {
+    "defaultMessage": "BTA (Babric)"
+  },
+  "tag.loader.bukkit": {
+    "defaultMessage": "Bukkit"
+  },
+  "tag.loader.bungeecord": {
+    "defaultMessage": "BungeeCord"
+  },
+  "tag.loader.canvas": {
+    "defaultMessage": "Canvas"
+  },
+  "tag.loader.datapack": {
+    "defaultMessage": "Datapaketti"
+  },
+  "tag.loader.fabric": {
+    "defaultMessage": "Fabric"
+  },
+  "tag.loader.folia": {
+    "defaultMessage": "Folia"
+  },
+  "tag.loader.forge": {
+    "defaultMessage": "Forge"
+  },
+  "tag.loader.geyser": {
+    "defaultMessage": "Geyser-laajennus"
+  },
+  "tag.loader.iris": {
+    "defaultMessage": "Iris"
+  },
+  "tag.loader.java-agent": {
+    "defaultMessage": "Java-agentti"
+  },
+  "tag.loader.legacy-fabric": {
+    "defaultMessage": "Legacy Fabric"
+  },
+  "tag.loader.liteloader": {
+    "defaultMessage": "LiteLoader"
+  },
+  "tag.loader.minecraft": {
+    "defaultMessage": "Resurssipaketti"
+  },
+  "tag.loader.modloader": {
+    "defaultMessage": "Risugamin ModLoader"
+  },
+  "tag.loader.mrpack": {
+    "defaultMessage": "Modipaketti"
+  },
+  "tag.loader.neoforge": {
+    "defaultMessage": "NeoForge"
+  },
+  "tag.loader.nilloader": {
+    "defaultMessage": "NilLoader"
+  },
+  "tag.loader.optifine": {
+    "defaultMessage": "OptiFine"
+  },
+  "tag.loader.ornithe": {
+    "defaultMessage": "Ornithe"
+  },
+  "tag.loader.paper": {
+    "defaultMessage": "Paper"
+  },
+  "tag.loader.purpur": {
+    "defaultMessage": "Purpur"
+  },
+  "tag.loader.quilt": {
+    "defaultMessage": "Quilt"
+  },
+  "tag.loader.rift": {
+    "defaultMessage": "Rift"
+  },
+  "tag.loader.spigot": {
+    "defaultMessage": "Spigot"
+  },
+  "tag.loader.sponge": {
+    "defaultMessage": "Sponge"
+  },
+  "tag.loader.vanilla": {
+    "defaultMessage": "Vanilla-shaderi"
+  },
+  "tag.loader.velocity": {
+    "defaultMessage": "Velocity"
+  },
+  "tag.loader.waterfall": {
+    "defaultMessage": "Waterfall"
+  },
+  "terminal.scroll-to-bottom": {
+    "defaultMessage": "Vieritä alaspäin"
+  },
   "ui.component.unsaved-changes-popup.body": {
     "defaultMessage": "Sinulla on tallentamattomia muutoksia."
+  },
+  "ui.confirm-leave-modal.body": {
+    "defaultMessage": "Sinulla on tallentamattomia muutoksia, jotka menetetään, jos poistut tältä sivulta."
+  },
+  "ui.confirm-leave-modal.header": {
+    "defaultMessage": "Sinulla on tallentamattomia muutoksia"
+  },
+  "ui.confirm-leave-modal.leave": {
+    "defaultMessage": "Poistu sivulta"
+  },
+  "ui.confirm-leave-modal.stay": {
+    "defaultMessage": "Pysy sivulla"
+  },
+  "ui.confirm-leave-modal.title": {
+    "defaultMessage": "Poistutaanko sivulta?"
+  },
+  "ui.i18n-debug.close": {
+    "defaultMessage": "Sulje tarkastaja"
+  },
+  "ui.i18n-debug.copied": {
+    "defaultMessage": "Kopioitu"
+  },
+  "ui.i18n-debug.copy": {
+    "defaultMessage": "kopioi"
+  },
+  "ui.i18n-debug.copy-hint": {
+    "defaultMessage": "napsauta kopioidaksesi"
+  },
+  "ui.i18n-debug.discover-hint": {
+    "defaultMessage": "Navigoi sovelluksessa löytääksesi i18n-avaimia"
+  },
+  "ui.i18n-debug.expand": {
+    "defaultMessage": "Laajenna paneeli"
+  },
+  "ui.i18n-debug.hide-keys": {
+    "defaultMessage": "Piilota avaimet tekstissä"
+  },
+  "ui.i18n-debug.key-count": {
+    "defaultMessage": "{count, plural, one {# avain} other {# avainta}}"
+  },
+  "ui.i18n-debug.minimize": {
+    "defaultMessage": "Pienennä paneeli"
+  },
+  "ui.i18n-debug.navigate": {
+    "defaultMessage": "navigoi"
+  },
+  "ui.i18n-debug.no-keys": {
+    "defaultMessage": "Avaimia ei ole rekisteröity"
+  },
+  "ui.i18n-debug.no-matches": {
+    "defaultMessage": "Osumia ei löytynyt"
+  },
+  "ui.i18n-debug.reveal-keys": {
+    "defaultMessage": "Näytä avaimet tekstissä"
+  },
+  "ui.i18n-debug.search": {
+    "defaultMessage": "Hae avaimia tai arvoja…"
+  },
+  "ui.i18n-debug.search-hint": {
+    "defaultMessage": "Kokeile toista hakusanaa"
+  },
+  "ui.i18n-debug.title": {
+    "defaultMessage": "i18n-tarkastaja"
+  },
+  "ui.i18n-debug.toggle-overlay": {
+    "defaultMessage": "Vaihda CSS-vianmäärityspeittokuvaa"
+  },
+  "ui.i18n-debug.watching": {
+    "defaultMessage": "Tarkkaillaan"
+  },
+  "ui.pagination.go-to-page": {
+    "defaultMessage": "Siirry sivulle"
+  },
+  "ui.pagination.next-page": {
+    "defaultMessage": "Seuraava sivu"
+  },
+  "ui.pagination.previous-page": {
+    "defaultMessage": "Edellinen sivu"
+  },
+  "ui.stacked-admonitions.alert-count": {
+    "defaultMessage": "{count, plural, one {# ilmoitus} other {# ilmoitusta}}"
+  },
+  "ui.stacked-admonitions.dismiss-all": {
+    "defaultMessage": "Hylkää kaikki"
+  },
+  "unknown-file-warning-modal.dont-install": {
+    "defaultMessage": "Älä asenna"
+  },
+  "unknown-file-warning-modal.dont-show-again": {
+    "defaultMessage": "Älä näytä tätä varoitusta uudelleen"
+  },
+  "unknown-file-warning-modal.file-unverified-body": {
+    "defaultMessage": " sisältää lähteen, jota ei voitu varmistaa. Asenna vain luotettavista lähteistä peräisin olevia tiedostoja."
+  },
+  "unknown-file-warning-modal.header": {
+    "defaultMessage": "Vahvista asennus"
+  },
+  "unknown-file-warning-modal.install-anyway": {
+    "defaultMessage": "Asenna silti"
+  },
+  "unknown-file-warning-modal.malware-warning": {
+    "defaultMessage": "Haittaohjelmia levitetään usein moditiedostojen kautta jakamalla niitä esimerkiksi Discordissa."
+  },
+  "unknown-file-warning-modal.mod-warning-title": {
+    "defaultMessage": "Tuntemattoman tiedoston varoitus"
+  },
+  "unknown-file-warning-modal.modpack-unverified-body": {
+    "defaultMessage": " sisältää tiedostoja, joiden lähdettä ei voitu varmistaa. Asenna vain luotettavista lähteistä peräisin olevia tiedostoja."
+  },
+  "unknown-file-warning-modal.modpack-warning-title": {
+    "defaultMessage": "Tuntemattomien tiedostojen varoitus"
+  },
+  "unknown-file-warning-modal.unrecognized-files": {
+    "defaultMessage": "Tunnistamattomat tiedostot"
+  },
+  "unknown-file-warning-modal.unverified-files": {
+    "defaultMessage": "Tunnistamaton tiedosto voi olla turvaton. Tarkista sen lähde ennen asentamista."
+  },
+  "version.content.name": {
+    "defaultMessage": "Nimi"
+  },
+  "version.content.version": {
+    "defaultMessage": "Versio"
+  },
+  "version.file-type.dev-jar": {
+    "defaultMessage": "Dev-jar"
+  },
+  "version.file-type.javadoc-jar": {
+    "defaultMessage": "Javadoc-jar"
+  },
+  "version.file-type.optional-resource-pack": {
+    "defaultMessage": "Valinnainen resurssipaketti"
+  },
+  "version.file-type.primary": {
+    "defaultMessage": "Ensisijainen"
+  },
+  "version.file-type.required-resource-pack": {
+    "defaultMessage": "Vaadittu resurssipaketti"
+  },
+  "version.file-type.signature": {
+    "defaultMessage": "Allekirjoitustiedosto"
+  },
+  "version.file-type.sources-jar": {
+    "defaultMessage": "Lähde-jar"
+  },
+  "version.file-type.unknown": {
+    "defaultMessage": "Muu"
+  },
+  "version.section.changes": {
+    "defaultMessage": "Muutokset"
+  },
+  "version.section.compatibility": {
+    "defaultMessage": "Yhteensopivuus"
+  },
+  "version.section.content": {
+    "defaultMessage": "Sisältö"
+  },
+  "version.section.content.search-placeholder": {
+    "defaultMessage": "Hae sisältöä…"
+  },
+  "version.section.dependencies.any-compatible-version": {
+    "defaultMessage": "Mikä tahansa yhteensopiva versio"
+  },
+  "version.section.dependencies.any-version": {
+    "defaultMessage": "Mikä tahansa versio"
+  },
+  "version.section.dependencies.unavailable-version": {
+    "defaultMessage": "Ei-saatavilla oleva versio"
+  },
+  "version.section.dependencies.unavailable-version.description": {
+    "defaultMessage": "Tämä versio on saatettu poistaa tai valvojat tarkistavat sitä."
+  },
+  "version.section.dependencies.unavailable-version.description.required": {
+    "defaultMessage": "Vaadittu versio on saatettu poistaa tai valvojat tarkistavat sitä."
+  },
+  "version.section.files": {
+    "defaultMessage": "Tiedostot"
+  },
+  "version.section.included-content": {
+    "defaultMessage": "Sisällytetty sisältö"
+  },
+  "version.section.known-incompatibilities": {
+    "defaultMessage": "Tunnetut yhteensopimattomuudet"
+  },
+  "version.section.no-changes": {
+    "defaultMessage": "Muutoslokia ei annettu."
+  },
+  "version.section.no-modpack-mod-loader": {
+    "defaultMessage": "Ei modilataajaa"
+  },
+  "version.section.optional-dependencies": {
+    "defaultMessage": "Valinnaiset riippuvuudet"
+  },
+  "version.section.required-content": {
+    "defaultMessage": "Vaadittu sisältö"
+  },
+  "version.section.supplementary-resources": {
+    "defaultMessage": "Täydentävät resurssit"
+  },
+  "version.supplementary-resources.file": {
+    "defaultMessage": "Tiedosto"
+  },
+  "version.supplementary-resources.size": {
+    "defaultMessage": "Koko"
+  },
+  "version.supplementary-resources.type": {
+    "defaultMessage": "Tyyppi"
+  },
+  "version.uploaded-by": {
+    "defaultMessage": "Lataaja"
   }
 }

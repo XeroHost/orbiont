@@ -1,9 +1,5 @@
-# Estándares
+# Frontend standards
 
-Convenciones técnicas del frontend (componentes, modales, inputs, i18n,
-inyección de dependencias, carga de datos). Vienen de la documentación
-interna del proyecto original (Modrinth App, GPL-3.0) y se mantienen porque
-el código sigue esas convenciones.
+Technical conventions for components, modals, inputs, internationalization, dependency injection, and data loading.
 
-Son referencia técnica; las reglas del proyecto están en `CLAUDE.md` y el
-estado actual en `HANDOFF.md`.
+These standards derive from the original Modrinth App documentation and remain relevant to the shared frontend architecture. Project requirements are defined in `CLAUDE.md`; see the repository README for build and development instructions.

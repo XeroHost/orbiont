@@ -580,6 +580,16 @@ pub async fn apply_cleanup(
                     restore_instance_update(staging_dir, rollback, state)
                         .await?;
                 } else {
+                    if let Some(reference) = &rollback.optifine {
+                        crate::optifine::write_reference(
+                            &state
+                                .directories
+                                .instances_dir()
+                                .join(&rollback.instance.instance.path),
+                            reference.as_ref(),
+                        )
+                        .await?;
+                    }
                     crate::state::instances::commands::set_instance_install_stage(
                         instance_id,
                         rollback.install_stage,

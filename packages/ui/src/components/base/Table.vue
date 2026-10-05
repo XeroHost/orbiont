@@ -73,7 +73,7 @@
 						<td :colspan="columnSpan" class="border-solid border-0 border-t border-surface-4 p-0">
 							<slot name="empty-state">
 								<div class="text-secondary flex h-64 items-center justify-center">
-									No data available.
+									{{ formatMessage(messages.noDataAvailable) }}
 								</div>
 							</slot>
 						</td>
@@ -133,7 +133,7 @@
 						<td :colspan="columnSpan" class="border-solid border-0 border-t border-surface-4 p-0">
 							<slot name="empty-state">
 								<div class="text-secondary flex h-64 items-center justify-center">
-									No data available.
+									{{ formatMessage(messages.noDataAvailable) }}
 								</div>
 							</slot>
 						</td>
@@ -215,8 +215,18 @@
 import { ChevronDownIcon, ChevronUpIcon } from '@orbiont/assets'
 import { computed, ref, toRef, useSlots } from 'vue'
 
+import { defineMessages, useVIntl } from '../../composables/i18n'
 import { useVirtualScroll } from '../../composables/virtual-scroll'
 import Checkbox from './Checkbox.vue'
+
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	noDataAvailable: {
+		id: 'table.empty-state.no-data',
+		defaultMessage: 'No data available.',
+	},
+})
 
 export type TableColumnAlign = 'left' | 'center' | 'right'
 export type SortDirection = 'asc' | 'desc'

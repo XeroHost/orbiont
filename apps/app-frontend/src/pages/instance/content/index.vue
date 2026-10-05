@@ -204,8 +204,8 @@ const messages = defineMessages({
 
 let savedModalState: ManagedContentModalState | null = null
 
-function contentOwnerLink(owner: ContentOwner): NonNullable<ContentOwner['link']> {
-	if (owner.type === 'user') return `/user/${encodeURIComponent(owner.id)}`
+function contentOwnerLink(owner: ContentOwner): ContentOwner['link'] {
+	if (owner.type === 'user') return undefined
 	return () => {
 		void openUrl(`${config.siteUrl}/organization/${owner.id}`)
 	}

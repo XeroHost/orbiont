@@ -170,6 +170,7 @@ defineExpose({ show, hide, selectedTab, setTab })
 							</div>
 							<component
 								:is="tab.href ? 'a' : 'button'"
+								data-animated-icon-trigger
 								:href="tab.href ?? undefined"
 								:target="tab.href ? '_blank' : undefined"
 								:rel="tab.href ? 'noopener noreferrer' : undefined"

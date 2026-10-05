@@ -18,6 +18,7 @@ import {
 	createCreationFlowContext,
 	type CreationFlowContextValue,
 	type LoaderManifestResolver,
+	type OptifineSelection,
 	type ProjectInstallCreateData,
 	type ProjectInstallSelection,
 	type ProjectSearchResult,
@@ -41,6 +42,8 @@ const props = withDefaults(
 		) => Promise<ProjectInstallSelection | null>
 		createProjectInstall?: (data: ProjectInstallCreateData) => Promise<void>
 		getLoaderManifest?: LoaderManifestResolver
+		pickOptifineInstaller?: (gameVersion: string) => Promise<OptifineSelection | null>
+		openOptifineDownloads?: () => Promise<void>
 		randomizeInstanceIcon?: () => Promise<{ path: string; previewUrl: string } | null>
 		customizeInstanceIcon?: () => void
 		finishDisabled?: boolean
@@ -56,6 +59,8 @@ const props = withDefaults(
 		onBack: null,
 		randomizeInstanceIcon: undefined,
 		customizeInstanceIcon: undefined,
+		pickOptifineInstaller: undefined,
+		openOptifineDownloads: undefined,
 	},
 )
 
@@ -84,6 +89,8 @@ const ctx = createCreationFlowContext(
 		prepareProjectInstall: props.prepareProjectInstall,
 		createProjectInstall: props.createProjectInstall,
 		getLoaderManifest: props.getLoaderManifest,
+		pickOptifineInstaller: props.pickOptifineInstaller,
+		openOptifineDownloads: props.openOptifineDownloads,
 		randomizeInstanceIcon: props.randomizeInstanceIcon,
 		customizeInstanceIcon: props.customizeInstanceIcon,
 		finishDisabled: computed(() => props.finishDisabled ?? false),

@@ -2,6 +2,12 @@
   "action.no-permission": {
     "defaultMessage": "Nu ai permisiune."
   },
+  "app.appearance-settings.native-decorations.description": {
+    "defaultMessage": "Folosește bara de titlu și controalele ferestrei sistemului de operare. Necesită repornirea aplicației."
+  },
+  "app.appearance-settings.native-decorations.title": {
+    "defaultMessage": "Cadru de fereastră de sistem"
+  },
   "badge.alpha": {
     "defaultMessage": "Alfa"
   },
@@ -14,14 +20,29 @@
   "badge.new": {
     "defaultMessage": "Nou"
   },
+  "badge.release": {
+    "defaultMessage": "Lansare"
+  },
+  "browse.advanced-filters.apply-saved-preferences": {
+    "defaultMessage": "Aplică preferințele salvate"
+  },
+  "browse.advanced-filters.link-overriding-preferences": {
+    "defaultMessage": "Filtrele acestui link diferă de excluderile avansate salvate"
+  },
+  "browse.advanced-filters.persistence-note": {
+    "defaultMessage": "Excluderile avansate se salvează între sesiuni. Deschiderea unui link partajat cu filtre le va suprascrie."
+  },
+  "browse.display-mode.change": {
+    "defaultMessage": "Schimbă modul de afișare"
+  },
   "browse.filter-results": {
     "defaultMessage": "Filtrează rezultatele..."
   },
   "browse.no-results": {
     "defaultMessage": "Niciun rezultat găsit pentru query-ul tău!"
   },
-  "browse.offline": {
-    "defaultMessage": "Sunteți offline! Conectați-vă la internet ca să puteți căuta pe Modrinth!"
+  "browse.offline-content": {
+    "defaultMessage": "Ești offline momentan. Conectează-te la internet pentru a explora conținut."
   },
   "browse.search.placeholder": {
     "defaultMessage": "Caută {projectType}..."
@@ -52,6 +73,9 @@
   },
   "button.accept": {
     "defaultMessage": "Acceptă"
+  },
+  "button.add-another": {
+    "defaultMessage": "Adaugă altul"
   },
   "button.add-server-to-instance": {
     "defaultMessage": "Adaugă server la instanță"
@@ -106,6 +130,9 @@
   },
   "button.download": {
     "defaultMessage": "Descarcă"
+  },
+  "button.download-files": {
+    "defaultMessage": "Descarcă fișierele"
   },
   "button.downloading": {
     "defaultMessage": "Descărcare"
@@ -163,6 +190,9 @@
   },
   "button.reinstall-modpack": {
     "defaultMessage": "Reinstalează modpackul"
+  },
+  "button.remove": {
+    "defaultMessage": "Elimină"
   },
   "button.remove-image": {
     "defaultMessage": "Elimină imaginea"
@@ -233,8 +263,53 @@
   "button.upload-image": {
     "defaultMessage": "Încarcă o imagine"
   },
+  "card.toggle-details": {
+    "defaultMessage": "Comută detaliile"
+  },
   "collections.label.private": {
     "defaultMessage": "Privat"
+  },
+  "console.actions.collapse": {
+    "defaultMessage": "Restrânge"
+  },
+  "console.actions.expand": {
+    "defaultMessage": "Extinde"
+  },
+  "console.actions.share": {
+    "defaultMessage": "Partajează"
+  },
+  "console.command-input-disabled": {
+    "defaultMessage": "Introducerea comenzilor e dezactivată"
+  },
+  "console.crash.problems-detected": {
+    "defaultMessage": "{count, plural, one {# problemă detectată} other {# probleme detectate}}"
+  },
+  "console.delete-log-confirm-body": {
+    "defaultMessage": "Ștergerea acestui fișier jurnal nu poate fi anulată. Ești sigur că vrei să continui?"
+  },
+  "console.delete-log-failed-title": {
+    "defaultMessage": "Ștergerea fișierului jurnal a eșuat"
+  },
+  "console.delete-log-file-header": {
+    "defaultMessage": "Șterge fișierul jurnal"
+  },
+  "console.delete-log-irreversible-header": {
+    "defaultMessage": "Aceasta e ireversibil"
+  },
+  "console.search-logs-placeholder": {
+    "defaultMessage": "Caută în jurnale"
+  },
+  "console.server-not-running": {
+    "defaultMessage": "Serverul nu rulează"
+  },
+  "console.share-logs-failed-title": {
+    "defaultMessage": "Partajarea jurnalelor a eșuat"
+  },
+  "console.share-logs-header": {
+    "defaultMessage": "Partajează jurnalele"
+  },
+  "console.unknown-error": {
+    "defaultMessage": "Eroare necunoscută."
   },
   "content-type.content.lowercase": {
     "defaultMessage": "conținut"
@@ -242,8 +317,20 @@
   "content-type.item.lowercase": {
     "defaultMessage": "{count, plural, one {item} other {iteme}}"
   },
+  "content.card.frozen": {
+    "defaultMessage": "Acest proiect e blocat la versiunea curentă până la deblocare."
+  },
   "content.card.select-project": {
     "defaultMessage": "Selectează {project}"
+  },
+  "content.card.sync-update-pending": {
+    "defaultMessage": "Unele copii sincronizate așteaptă modificări. O instanță poate rula, poate avea o versiune înghețată sau incompatibilă ori poate conține deja propria copie."
+  },
+  "content.card.synced": {
+    "defaultMessage": "Sincronizat între instanțe"
+  },
+  "content.card.uploaded": {
+    "defaultMessage": "Încărcat"
   },
   "content.confirm-bulk-update.admonition-body": {
     "defaultMessage": "Esti sigur că vrei să actualizezi {count, plural, one {# proiect} other {# proiecte}} la cea mai recentă versiune compatibilă? Recomandăm sa le actualizezi pe rând."
@@ -272,8 +359,20 @@
   "content.confirm-deletion.header": {
     "defaultMessage": "Șterge {itemType}"
   },
+  "content.confirm-disable.header": {
+    "defaultMessage": "Dezactivează {itemType}"
+  },
   "content.confirm-modpack-update.admonition-body": {
     "defaultMessage": "{action, select, downgrade {Downgradarea} other {Actualizarea}} poate cauza probleme de compatibilitate. Moduri sau continut adăugat deasupra modpack-ului va fi păstrat, dar poate să nu fie compatibil cu noua versiune."
+  },
+  "content.confirm-modpack-update.admonition-header": {
+    "defaultMessage": "Avertisment de {action, select, downgrade {downgrade} other {actualizare}}"
+  },
+  "content.confirm-modpack-update.confirm-button": {
+    "defaultMessage": "{action, select, downgrade {Downgrade} other {Actualizare}} modpack"
+  },
+  "content.confirm-modpack-update.header": {
+    "defaultMessage": "{action, select, downgrade {Downgrade} other {Actualizare}} modpack"
   },
   "content.confirm-unlink.admonition-body": {
     "defaultMessage": "Moduri si conținut vor fi adunate cu ce ai adăugat deasupra pachetului de mod, si se va opri din primirea actualizărilor."
@@ -287,8 +386,41 @@
   "content.confirm-unlink.unlink-button": {
     "defaultMessage": "Delinkare"
   },
+  "content.dependency-warning.admonition-header": {
+    "defaultMessage": "Acest conținut e necesar pentru alt conținut"
+  },
+  "content.dependency-warning.affected-dependents-label": {
+    "defaultMessage": "{count, plural, one {proiect afectat} other {proiecte afectate}}"
+  },
+  "content.dependency-warning.bulk-admonition-body": {
+    "defaultMessage": "Unele proiecte selectate sunt instalate ca dependențe. Ștergerea lor poate strica {context} sau poate împiedica încărcarea corectă a conținutului dependent."
+  },
+  "content.dependency-warning.context.instance": {
+    "defaultMessage": "instanța"
+  },
+  "content.dependency-warning.context.server": {
+    "defaultMessage": "serverul"
+  },
+  "content.dependency-warning.delete-anyway-button": {
+    "defaultMessage": "Șterge oricum"
+  },
+  "content.dependency-warning.delete-many-anyway-button": {
+    "defaultMessage": "Șterge oricum {count, number} {itemType}"
+  },
   "content.dependency-warning.deleting-label": {
     "defaultMessage": "Ștergere"
+  },
+  "content.dependency-warning.disable-dependents-label": {
+    "defaultMessage": "Dezactivează dependenții după ștergere"
+  },
+  "content.dependency-warning.effect-dependent-content": {
+    "defaultMessage": "Conținutul dependent poate eșua la încărcare sau se poate dezactiva singur"
+  },
+  "content.dependency-warning.effect-instance": {
+    "defaultMessage": "Există riscul ca {context} să blocheze, să refuze pornirea sau să se comporte neașteptat"
+  },
+  "content.dependency-warning.header": {
+    "defaultMessage": "Avertisment de dependență"
   },
   "content.dependency-warning.single-admonition-body": {
     "defaultMessage": "{project} este instalată ca dependență. Ștergând-ul poate strica {context} al tău sau să oprească conținut-ul să nu pornească corect."
@@ -308,6 +440,9 @@
   "content.diff-modal.diff-type.removed": {
     "defaultMessage": "Deazactivează"
   },
+  "content.diff-modal.diff-type.removed-disabled": {
+    "defaultMessage": "Eliminat (dezactivat)"
+  },
   "content.diff-modal.diff-type.updated": {
     "defaultMessage": "Actualizat"
   },
@@ -317,11 +452,56 @@
   "content.diff-modal.external-diff-type.added": {
     "defaultMessage": "Adăugat"
   },
+  "content.diff-modal.external-diff-type.removed": {
+    "defaultMessage": "Eliminat"
+  },
+  "content.diff-modal.external-diff-type.updated": {
+    "defaultMessage": "Actualizat"
+  },
+  "content.diff-modal.file-count": {
+    "defaultMessage": "{count, plural, one {# fișier} other {# fișiere}}"
+  },
+  "content.diff-modal.game-version-updated": {
+    "defaultMessage": "Versiunea jocului"
+  },
+  "content.diff-modal.install-anyway": {
+    "defaultMessage": "Instalează oricum"
+  },
+  "content.diff-modal.loader-updated": {
+    "defaultMessage": "Loader"
+  },
+  "content.diff-modal.modpack-linked": {
+    "defaultMessage": "Modpack asociat"
+  },
+  "content.diff-modal.modpack-unlinked": {
+    "defaultMessage": "Modpack disociat"
+  },
+  "content.diff-modal.modpack-updated": {
+    "defaultMessage": "Modpack actualizat"
+  },
+  "content.diff-modal.no-content-changes": {
+    "defaultMessage": "Nicio modificare de conținut"
+  },
   "content.diff-modal.removed-count": {
     "defaultMessage": "{count} îndepărtat"
   },
+  "content.diff-modal.removed-disabled-count": {
+    "defaultMessage": "{count} eliminate (dezactivate)"
+  },
+  "content.diff-modal.reviewed-files": {
+    "defaultMessage": "Fișierele nepublicate pe Modrinth nu sunt verificate."
+  },
   "content.diff-modal.unknown-content-body": {
     "defaultMessage": "Niște conținut in serverul tău nu poate fi analizat și poate fi afectat de această schimbare."
+  },
+  "content.diff-modal.unknown-files-description": {
+    "defaultMessage": "Această actualizare conține fișiere nepublicate pe Modrinth. Recomandăm insistent să instalezi doar fișiere din surse de încredere."
+  },
+  "content.diff-modal.unknown-files-warning": {
+    "defaultMessage": "Avertisment de fișiere necunoscute"
+  },
+  "content.diff-modal.unknown-project": {
+    "defaultMessage": "Necunoscut"
   },
   "content.diff-modal.updated-count": {
     "defaultMessage": "{count} actualizat"
@@ -347,17 +527,143 @@
   "content.inline-backup.backup-failed": {
     "defaultMessage": "Crearea copiei de rezervă a eșuat. Poți sa continui."
   },
-  "content.inline-backup.backup-in-progress": {
-    "defaultMessage": "O copie de rezervă se creează, este recomandat să aștepți ca sa se termine înainte de perfomarea acestei acțiuni."
-  },
-  "content.inline-backup.backup-takes-a-while": {
-    "defaultMessage": "Crearea copiei de rezervă poate dura câteva minute depinzând de dimensiunea serverului."
-  },
   "content.inline-backup.create-backup": {
     "defaultMessage": "Creează o copie de rezervă"
   },
   "content.inline-backup.instance-label": {
     "defaultMessage": "instanță"
+  },
+  "content.inline-backup.shift-click-hint": {
+    "defaultMessage": "Ține apăsat Shift în timp ce faci clic pentru a omite confirmarea."
+  },
+  "content.inline-backup.warning-body": {
+    "defaultMessage": "Recomandăm crearea unei copii de rezervă înainte de a continua, ca să îți poți restaura {type} dacă ceva se strică."
+  },
+  "content.managed-card.modpack-content": {
+    "defaultMessage": "Conținutul modpackului"
+  },
+  "content.managed-card.provided-by": {
+    "defaultMessage": "Furnizat de"
+  },
+  "content.managed-card.server-suffix": {
+    "defaultMessage": "server"
+  },
+  "content.managed-card.settings": {
+    "defaultMessage": "Setările instalării"
+  },
+  "content.managed-card.shared-content": {
+    "defaultMessage": "Conținut partajat"
+  },
+  "content.managed-card.summary.installing": {
+    "defaultMessage": "Se instalează conținutul..."
+  },
+  "content.managed-card.summary.loading": {
+    "defaultMessage": "Se încarcă rezumatul conținutului gestionat"
+  },
+  "content.managed-card.summary.no-provided-content": {
+    "defaultMessage": "Niciun conținut furnizat"
+  },
+  "content.managed-card.switch-version": {
+    "defaultMessage": "Schimbă versiunea"
+  },
+  "content.managed-card.synced": {
+    "defaultMessage": "Sincronizat {time}"
+  },
+  "content.managed-card.update-available": {
+    "defaultMessage": "Actualizare disponibilă"
+  },
+  "content.managed-card.updated": {
+    "defaultMessage": "Actualizat {time}"
+  },
+  "content.managed-card.updating": {
+    "defaultMessage": "Se actualizează..."
+  },
+  "content.managed-card.view-content": {
+    "defaultMessage": "Vezi conținutul"
+  },
+  "content.metadata-filter.author": {
+    "defaultMessage": "Autor"
+  },
+  "content.metadata-filter.environment": {
+    "defaultMessage": "Mediu"
+  },
+  "content.metadata-filter.open-source": {
+    "defaultMessage": "Open source"
+  },
+  "content.metadata-filter.shared-content": {
+    "defaultMessage": "Conținut partajat"
+  },
+  "content.metadata-filter.source.external": {
+    "defaultMessage": "Extern"
+  },
+  "content.metadata-filter.state": {
+    "defaultMessage": "Stare"
+  },
+  "content.metadata-filter.state.disabled": {
+    "defaultMessage": "Dezactivat"
+  },
+  "content.metadata-filter.state.enabled": {
+    "defaultMessage": "Activat"
+  },
+  "content.metadata-filter.update.available": {
+    "defaultMessage": "Actualizare disponibilă"
+  },
+  "content.metadata-filter.warning.client-depends": {
+    "defaultMessage": "Clientul depinde de fișier"
+  },
+  "content.metadata-filter.warning.client-only": {
+    "defaultMessage": "Conținut doar pentru client"
+  },
+  "content.metadata-filter.warning.client-retained": {
+    "defaultMessage": "Fișier de client păstrat"
+  },
+  "content.metadata-filter.warning.none": {
+    "defaultMessage": "Fără avertismente"
+  },
+  "content.metadata-filter.warnings": {
+    "defaultMessage": "Avertismente"
+  },
+  "content.page-layout.additional-content": {
+    "defaultMessage": "Conținut suplimentar"
+  },
+  "content.page-layout.browse-content": {
+    "defaultMessage": "Explorează conținutul"
+  },
+  "content.page-layout.empty.hint": {
+    "defaultMessage": "Explorează sau încarcă {contentType} pentru a începe"
+  },
+  "content.page-layout.empty.modpack-hint": {
+    "defaultMessage": "Adaugă conținut suplimentar peste acest modpack"
+  },
+  "content.page-layout.empty.no-content-installed": {
+    "defaultMessage": "Niciun conținut instalat"
+  },
+  "content.page-layout.empty.no-extra-content-installed": {
+    "defaultMessage": "Niciun conținut suplimentar instalat"
+  },
+  "content.page-layout.failed-to-load": {
+    "defaultMessage": "Conținutul nu s-a putut încărca"
+  },
+  "content.page-layout.filter.add": {
+    "defaultMessage": "Filtru"
+  },
+  "content.page-layout.filter.author-count": {
+    "defaultMessage": "{count, plural, one {# autor} other {# autori}}"
+  },
+  "content.page-layout.loading": {
+    "defaultMessage": "Se încarcă conținutul..."
+  },
+  "content.page-layout.no-content-found": {
+    "defaultMessage": "Niciun conținut găsit."
+  },
+  "content.page-layout.please-wait": {
+    "defaultMessage": "Te rugăm să aștepți"
+  },
+  "content.page-layout.search-placeholder": {
+    "defaultMessage": "Caută în {count, number} {contentType}..."
+  },
+  "content.page-layout.share.file-names": {
+    "defaultMessage": "Numele fișierelor"
   },
   "content.page-layout.share.label": {
     "defaultMessage": "Distribuie"
@@ -370,6 +676,12 @@
   },
   "content.page-layout.share.project-names": {
     "defaultMessage": "Nume ale proiectului"
+  },
+  "content.page-layout.sort.alphabetical-ascending": {
+    "defaultMessage": "Nume (A-Z)"
+  },
+  "content.page-layout.sort.alphabetical-descending": {
+    "defaultMessage": "Nume (Z-A)"
   },
   "content.page-layout.sort.date-added-newest": {
     "defaultMessage": "Cele noi mai întâi"
@@ -395,11 +707,17 @@
   "content.selection-bar.bulk.deleting": {
     "defaultMessage": "Se șterge {progress}/{total} {contentType}..."
   },
+  "content.selection-bar.bulk.deleting-count": {
+    "defaultMessage": "Se șterg {count, number} {contentType}"
+  },
   "content.selection-bar.bulk.deleting-waiting": {
     "defaultMessage": "Se șterge {contentType}..."
   },
   "content.selection-bar.bulk.disabling": {
     "defaultMessage": "Se dezactivează {progress}/{total} {contentType}..."
+  },
+  "content.selection-bar.bulk.disabling-count": {
+    "defaultMessage": "Se dezactivează {count, number} {contentType}"
   },
   "content.selection-bar.bulk.disabling-waiting": {
     "defaultMessage": "Se dezactivează {contentType}..."
@@ -407,11 +725,17 @@
   "content.selection-bar.bulk.enabling": {
     "defaultMessage": "Se activează {progress}/{total} {contentType}..."
   },
+  "content.selection-bar.bulk.enabling-count": {
+    "defaultMessage": "Se activează {count, number} {contentType}"
+  },
   "content.selection-bar.bulk.enabling-waiting": {
     "defaultMessage": "Se activează {contentType}..."
   },
   "content.selection-bar.bulk.updating": {
     "defaultMessage": "Se actualizează {progress}/{total} {contentType}..."
+  },
+  "content.selection-bar.bulk.updating-count": {
+    "defaultMessage": "Se actualizează {count, number} {contentType}"
   },
   "content.selection-bar.bulk.updating-waiting": {
     "defaultMessage": "Se actualizează {contentType}..."
@@ -425,14 +749,29 @@
   "creation-flow.button.create-instance": {
     "defaultMessage": "Creează instanța"
   },
-  "creation-flow.button.create-world": {
-    "defaultMessage": "Creează lume"
-  },
-  "creation-flow.button.finish": {
-    "defaultMessage": "Termină"
-  },
   "creation-flow.button.import": {
     "defaultMessage": "Importă"
+  },
+  "creation-flow.button.import-instances": {
+    "defaultMessage": "Importă {count, plural, one {# instanță} other {# instanțe}}"
+  },
+  "creation-flow.modal.custom-setup.game-version.placeholder": {
+    "defaultMessage": "Selectează versiunea jocului"
+  },
+  "creation-flow.modal.custom-setup.game-version.search-placeholder": {
+    "defaultMessage": "Caută versiunea jocului..."
+  },
+  "creation-flow.modal.custom-setup.icon.customize": {
+    "defaultMessage": "Personalizează"
+  },
+  "creation-flow.modal.custom-setup.icon.randomize": {
+    "defaultMessage": "Aleatoriu"
+  },
+  "creation-flow.modal.custom-setup.icon.select": {
+    "defaultMessage": "Încarcă"
+  },
+  "creation-flow.modal.custom-setup.loader-version-type.latest": {
+    "defaultMessage": "Cea mai recentă"
   },
   "creation-flow.modal.custom-setup.loader-version-type.other": {
     "defaultMessage": "Altele"
@@ -455,17 +794,170 @@
   "creation-flow.modal.custom-setup.name.label": {
     "defaultMessage": "Nume"
   },
+  "creation-flow.modal.custom-setup.name.placeholder": {
+    "defaultMessage": "Introdu numele instanței"
+  },
   "creation-flow.modal.custom-setup.options.no-versions-available": {
     "defaultMessage": "Nu exista versiuni disponibile"
   },
-  "creation-flow.modal.final-config.additional-settings.title": {
-    "defaultMessage": "Setări adiționale"
-  },
-  "creation-flow.modal.final-config.difficulty.easy": {
-    "defaultMessage": "Ușor"
+  "creation-flow.modal.import-instance.action.add": {
+    "defaultMessage": "Adaugă"
   },
   "creation-flow.modal.import-instance.custom-launcher.name": {
     "defaultMessage": "Ușor"
+  },
+  "creation-flow.modal.import-instance.detecting-launcher-instances": {
+    "defaultMessage": "Se detectează instanțele launcherului..."
+  },
+  "creation-flow.modal.import-instance.launcher-instances.title": {
+    "defaultMessage": "Instanțele launcherului"
+  },
+  "creation-flow.modal.import-instance.launcher-path.add": {
+    "defaultMessage": "Adaugă calea launcherului"
+  },
+  "creation-flow.modal.import-instance.launcher-path.browse": {
+    "defaultMessage": "Răsfoiește după calea launcherului"
+  },
+  "creation-flow.modal.import-instance.launcher-path.placeholder": {
+    "defaultMessage": "Calea către launcher..."
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.text": {
+    "defaultMessage": "Nu a fost găsită nicio instanță importabilă la calea specificată."
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.title": {
+    "defaultMessage": "Nicio instanță găsită"
+  },
+  "creation-flow.modal.import-instance.search.placeholder": {
+    "defaultMessage": "Caută după numele instanței"
+  },
+  "creation-flow.modal.import-instance.selection.clear-all": {
+    "defaultMessage": "Șterge tot"
+  },
+  "creation-flow.modal.project.known-project.prompt": {
+    "defaultMessage": "Știi deja ce vrei să joci?"
+  },
+  "creation-flow.modal.project.search.create-instance": {
+    "defaultMessage": "Creează instanța"
+  },
+  "creation-flow.modal.project.search.install-modpack": {
+    "defaultMessage": "Instalează modpackul"
+  },
+  "creation-flow.modal.project.search.no-results": {
+    "defaultMessage": "Niciun rezultat găsit"
+  },
+  "creation-flow.modal.project.search.placeholder": {
+    "defaultMessage": "Caută moduri, modpackuri și altele..."
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.description": {
+    "defaultMessage": "Pornește de la zero alegând un loader și o versiune de joc."
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.title": {
+    "defaultMessage": "Configurare personalizată"
+  },
+  "creation-flow.modal.setup-type.option.import-instance.description": {
+    "defaultMessage": "Importă o instanță din Prism, CurseForge sau similar."
+  },
+  "creation-flow.modal.setup-type.option.import-instance.title": {
+    "defaultMessage": "Importă instanța"
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.description": {
+    "defaultMessage": "Alege un proiect și vom folosi cea mai recentă versiune."
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.title": {
+    "defaultMessage": "Pornește de la un mod sau modpack"
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.supported-formats-description": {
+    "defaultMessage": "Importă un fișier .orbpack, .mrpack de Modrinth sau .zip de CurseForge de pe dispozitivul tău."
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.title": {
+    "defaultMessage": "Încarcă un modpack"
+  },
+  "creation-flow.modal.setup-type.title.instance": {
+    "defaultMessage": "Alege tipul instanței"
+  },
+  "creation-flow.optifine.description": {
+    "defaultMessage": "Opțional. Selectează installerul oficial, iar launcherul îl va configura în această instanță."
+  },
+  "creation-flow.optifine.download": {
+    "defaultMessage": "Descărcare oficială"
+  },
+  "creation-flow.optifine.name": {
+    "defaultMessage": "OptiFine"
+  },
+  "creation-flow.optifine.none": {
+    "defaultMessage": "Niciunul"
+  },
+  "creation-flow.optifine.optimization": {
+    "defaultMessage": "Optimizare"
+  },
+  "creation-flow.optifine.required": {
+    "defaultMessage": "Selectează JAR-ul oficial OptiFine pentru Minecraft {gameVersion} pentru a continua."
+  },
+  "creation-flow.optifine.select": {
+    "defaultMessage": "Selectează JAR-ul"
+  },
+  "creation-flow.optifine.selected": {
+    "defaultMessage": "OptiFine {version} · Minecraft {gameVersion}"
+  },
+  "creation-flow.optifine.validating": {
+    "defaultMessage": "Se verifică installerul..."
+  },
+  "creation-flow.optifine.vanilla-only": {
+    "defaultMessage": "Instalarea OptiFine e disponibilă momentan doar pentru instanțele Vanilla."
+  },
+  "creation-flow.title.create-instance": {
+    "defaultMessage": "Creează instanța"
+  },
+  "creation-flow.title.import-instance": {
+    "defaultMessage": "Importă instanța"
+  },
+  "empty-state.upload-versions.description": {
+    "defaultMessage": "Revino după ce ți-ai încărcat versiunile."
+  },
+  "external-project-license-status.no": {
+    "defaultMessage": "Nu"
+  },
+  "external-project-license-status.permanent-no": {
+    "defaultMessage": "Nu permanent"
+  },
+  "external-project-license-status.unidentified": {
+    "defaultMessage": "Neidentificat"
+  },
+  "external-project-license-status.with-attribution": {
+    "defaultMessage": "Cu atribuire"
+  },
+  "external-project-license-status.with-attribution-and-source": {
+    "defaultMessage": "Cu atribuire și sursă"
+  },
+  "external-project-license-status.yes": {
+    "defaultMessage": "Da"
+  },
+  "file-button.file-too-large.description": {
+    "defaultMessage": "Fișierul {filename} e prea mare. Dimensiunea maximă e {maxSize}."
+  },
+  "file-button.file-too-large.title": {
+    "defaultMessage": "Fișier prea mare"
+  },
+  "files.conflict-modal.header": {
+    "defaultMessage": "Rezumatul extragerii"
+  },
+  "files.conflict-modal.overwrite-button": {
+    "defaultMessage": "Suprascrie"
+  },
+  "files.conflict-modal.overwrite-file-label": {
+    "defaultMessage": "Va suprascrie <file-path>{path}</file-path>"
+  },
+  "files.conflict-modal.overwrite-many-warning": {
+    "defaultMessage": "Peste 100 de fișiere vor fi suprascrise dacă continui cu extragerea; iată câteva dintre ele."
+  },
+  "files.conflict-modal.overwrite-warning": {
+    "defaultMessage": "Următoarele {count} fișiere există deja pe serverul tău și vor fi suprascrise dacă continui cu extragerea."
+  },
+  "files.conflict-modal.overwritten-count": {
+    "defaultMessage": "{count} suprascrise"
+  },
+  "files.conflict-modal.warning-header": {
+    "defaultMessage": "Fișierele vor fi suprascrise"
   },
   "files.create-modal.create-button": {
     "defaultMessage": "Creează {type}"
@@ -479,8 +971,47 @@
   "files.create-modal.placeholder-file": {
     "defaultMessage": "ex: config.yml"
   },
+  "files.create-zip-modal.already-exists": {
+    "defaultMessage": "Există deja un fișier cu acest nume."
+  },
+  "files.create-zip-modal.check-failed": {
+    "defaultMessage": "Nu s-a putut verifica dacă acest fișier există deja."
+  },
+  "files.create-zip-modal.create-button": {
+    "defaultMessage": "Creează ZIP"
+  },
+  "files.create-zip-modal.header": {
+    "defaultMessage": "Creează ZIP"
+  },
+  "files.create-zip-modal.invalid": {
+    "defaultMessage": "Numele arhivei trebuie să fie un singur nume de fișier."
+  },
+  "files.create-zip-modal.name-label": {
+    "defaultMessage": "Numele arhivei"
+  },
+  "files.create-zip-modal.name-placeholder": {
+    "defaultMessage": "arhiva.zip"
+  },
+  "files.create-zip-modal.required": {
+    "defaultMessage": "Introdu un nume de arhivă."
+  },
   "files.delete-modal.deleting-name": {
     "defaultMessage": "Se șterge \"{name}\""
+  },
+  "files.delete-modal.header": {
+    "defaultMessage": "Șterge fișierul"
+  },
+  "files.delete-modal.warning.file": {
+    "defaultMessage": "Acest fișier va fi șters definitiv. Această acțiune nu poate fi anulată."
+  },
+  "files.delete-modal.warning.folder": {
+    "defaultMessage": "Acest dosar și tot conținutul lui vor fi șterse definitiv. Această acțiune nu poate fi anulată."
+  },
+  "files.editor.failed-to-open-text": {
+    "defaultMessage": "Conținutul fișierului nu s-a putut încărca."
+  },
+  "files.editor.failed-to-open-title": {
+    "defaultMessage": "Deschiderea fișierului a eșuat"
   },
   "files.editor.failed-to-share-text": {
     "defaultMessage": "Nu s-a putut posta către mclo.gs."
@@ -509,8 +1040,14 @@
   "files.editor.find-previous-match": {
     "defaultMessage": "Anterioara potrivire"
   },
+  "files.editor.find-toggle-replace": {
+    "defaultMessage": "Comută înlocuirea"
+  },
   "files.editor.log-url-copied-text": {
     "defaultMessage": "Fișierul log URL a fost copiat in Clipboard."
+  },
+  "files.editor.log-url-copied-title": {
+    "defaultMessage": "URL-ul jurnalului a fost copiat"
   },
   "files.editor.replace": {
     "defaultMessage": "Înlocuiește"
@@ -521,14 +1058,32 @@
   "files.editor.replace-in-file": {
     "defaultMessage": "Înlocuiește"
   },
+  "files.editor.save-failed-text": {
+    "defaultMessage": "Fișierul nu s-a putut salva."
+  },
   "files.editor.save-failed-title": {
     "defaultMessage": "Salvare eșuată"
+  },
+  "files.error.go-to-home": {
+    "defaultMessage": "Mergi la dosarul principal"
   },
   "files.error.try-again": {
     "defaultMessage": "Încearcă din nou"
   },
+  "files.image_viewer.image_too_large": {
+    "defaultMessage": "Imagine prea mare pentru vizualizare (maxim {maxDimension}x{maxDimension} pixeli)"
+  },
+  "files.image_viewer.invalid_image": {
+    "defaultMessage": "Fișier de imagine invalid sau gol."
+  },
+  "files.image_viewer.load_failed": {
+    "defaultMessage": "Încărcarea imaginii a eșuat"
+  },
   "files.image_viewer.reset_zoom": {
     "defaultMessage": "Resetează zoom-ul"
+  },
+  "files.image_viewer.viewed_image_alt": {
+    "defaultMessage": "Imagine vizualizată"
   },
   "files.image_viewer.zoom_in": {
     "defaultMessage": "Mărește"
@@ -547,6 +1102,18 @@
   },
   "files.item-type.folders": {
     "defaultMessage": "foldere"
+  },
+  "files.layout.create-zip": {
+    "defaultMessage": "Creează ZIP"
+  },
+  "files.layout.dry-run-failed-text": {
+    "defaultMessage": "Eroare la rularea de probă"
+  },
+  "files.layout.dry-run-failed-title": {
+    "defaultMessage": "Rularea de probă a eșuat"
+  },
+  "files.layout.empty-folder-description": {
+    "defaultMessage": "Nu există fișiere sau dosare."
   },
   "files.layout.empty-folder-title": {
     "defaultMessage": "Acest folder este gol"
@@ -569,6 +1136,9 @@
   "files.move-modal.current-location": {
     "defaultMessage": "Locația curentă"
   },
+  "files.move-modal.destination-path": {
+    "defaultMessage": "Calea de destinație"
+  },
   "files.move-modal.destination-placeholder": {
     "defaultMessage": "ex: folderul-meu"
   },
@@ -590,6 +1160,66 @@
   "files.navbar.find-in-file": {
     "defaultMessage": "Caută in fișier"
   },
+  "files.navbar.home": {
+    "defaultMessage": "Acasă"
+  },
+  "files.navbar.new-file": {
+    "defaultMessage": "Fișier nou"
+  },
+  "files.navbar.new-folder": {
+    "defaultMessage": "Dosar nou"
+  },
+  "files.navbar.search-files": {
+    "defaultMessage": "Caută fișiere"
+  },
+  "files.navbar.share-to-mclogs": {
+    "defaultMessage": "Partajează pe mclo.gs"
+  },
+  "files.navbar.upload-file": {
+    "defaultMessage": "Încarcă fișier"
+  },
+  "files.navbar.upload-from-zip": {
+    "defaultMessage": "Încarcă din fișier .zip"
+  },
+  "files.rename-modal.header": {
+    "defaultMessage": "Redenumește {name}"
+  },
+  "files.rename-modal.new-name-label": {
+    "defaultMessage": "Nume nou"
+  },
+  "files.row.create-zip": {
+    "defaultMessage": "Creează ZIP"
+  },
+  "files.row.item-count": {
+    "defaultMessage": "{count, plural, one {# element} other {# elemente}}"
+  },
+  "files.row.parent-folder": {
+    "defaultMessage": "Dosar părinte"
+  },
+  "files.table-header.created": {
+    "defaultMessage": "Creat"
+  },
+  "files.table-header.modified": {
+    "defaultMessage": "Modificat"
+  },
+  "files.table-header.name": {
+    "defaultMessage": "Nume"
+  },
+  "files.table-header.size": {
+    "defaultMessage": "Dimensiune"
+  },
+  "files.unsaved-changes-modal.body": {
+    "defaultMessage": "Ai modificări nesalvate care se vor pierde dacă pleci. Vrei să salvezi înainte de a pleca?"
+  },
+  "files.unsaved-changes-modal.discard": {
+    "defaultMessage": "Renunță"
+  },
+  "files.unsaved-changes-modal.header": {
+    "defaultMessage": "Modificări nesalvate"
+  },
+  "files.upload.drag-and-drop.drop-to-upload": {
+    "defaultMessage": "Plasează {type} aici pentru a încărca"
+  },
   "files.validation.name-invalid-directory": {
     "defaultMessage": "Numele trebuie sa conțină numai caractere alfanumerice, linii, sublinii sau spații."
   },
@@ -602,56 +1232,29 @@
   "files.validation.name-required": {
     "defaultMessage": "Numele este obligatoriu."
   },
-  "files.zip-url-modal.backup-name": {
-    "defaultMessage": "Instalează un pachet de moduri CurseForge"
+  "filter-bar.add": {
+    "defaultMessage": "Adaugă"
   },
-  "files.zip-url-modal.cf-header": {
-    "defaultMessage": "Instalează un pachet de moduri CurseForge"
+  "filter-bar.clear": {
+    "defaultMessage": "Șterge"
   },
-  "files.zip-url-modal.cf-not-found-text": {
-    "defaultMessage": "Nu s-a găsit un pachet de moduri CurseForge cu acel URL."
+  "filter-bar.clear-named-filter": {
+    "defaultMessage": "Șterge filtrul {name}"
   },
-  "files.zip-url-modal.cf-not-found-title": {
-    "defaultMessage": "Pachet de moduri CurseForge negăsit"
+  "filter-bar.filtered-by": {
+    "defaultMessage": "Filtrat după"
   },
-  "files.zip-url-modal.enter-link": {
-    "defaultMessage": "Introduceți link"
+  "filter-bar.no-options": {
+    "defaultMessage": "Nicio opțiune disponibilă."
   },
-  "files.zip-url-modal.error-cf-url": {
-    "defaultMessage": "URL trebuie sa fie un URL de versiune de pachet de resurse CurseForge."
+  "filter-bar.no-search-results": {
+    "defaultMessage": "Nicio opțiune găsită."
   },
-  "files.zip-url-modal.error-url-invalid": {
-    "defaultMessage": "URL trebuie sa fie valid."
+  "filter-bar.search-placeholder": {
+    "defaultMessage": "Caută..."
   },
-  "files.zip-url-modal.error-url-required": {
-    "defaultMessage": "URL este obligatoriu."
-  },
-  "files.zip-url-modal.install-button": {
-    "defaultMessage": "Instalează"
-  },
-  "files.zip-url-modal.install-failed-title": {
-    "defaultMessage": "Instalarea a eșuat"
-  },
-  "files.zip-url-modal.step-copy-description": {
-    "defaultMessage": "Copiază versiunea paginii URL si lipește-o mai jos."
-  },
-  "files.zip-url-modal.step-copy-title": {
-    "defaultMessage": "Copiază URL-ul"
-  },
-  "files.zip-url-modal.step-find-title": {
-    "defaultMessage": "Caută pachetul de moduri"
-  },
-  "files.zip-url-modal.step-select-title": {
-    "defaultMessage": "Selectează o versiune"
-  },
-  "files.zip-url-modal.unknown-error": {
-    "defaultMessage": "A apărut o eroare neprevăzută"
-  },
-  "files.zip-url-modal.zip-description": {
-    "defaultMessage": "Copiază si lipește URL-ul descărcării directe al unui fișier .zip."
-  },
-  "files.zip-url-modal.zip-header": {
-    "defaultMessage": "Se postează conținuturile .zip din URL"
+  "filter-bar.select-all": {
+    "defaultMessage": "Selectează tot"
   },
   "form.label.address-line": {
     "defaultMessage": "Adresă"
@@ -770,8 +1373,116 @@
   "header.category.resolutions": {
     "defaultMessage": "Rezoluție"
   },
+  "image-viewer.close": {
+    "defaultMessage": "Închide"
+  },
+  "image-viewer.edit": {
+    "defaultMessage": "Editează"
+  },
+  "image-viewer.editor.colour": {
+    "defaultMessage": "Culoare"
+  },
+  "image-viewer.editor.crop.dimensions": {
+    "defaultMessage": "{width} × {height} px"
+  },
+  "image-viewer.editor.crop.reset": {
+    "defaultMessage": "Resetează decuparea"
+  },
+  "image-viewer.editor.delete-selection": {
+    "defaultMessage": "Șterge adnotarea selectată"
+  },
+  "image-viewer.editor.eraser.area": {
+    "defaultMessage": "Zonă"
+  },
+  "image-viewer.editor.eraser.element": {
+    "defaultMessage": "Element"
+  },
+  "image-viewer.editor.eraser.mode": {
+    "defaultMessage": "Modul radieră"
+  },
+  "image-viewer.editor.image-editing-tools": {
+    "defaultMessage": "Unelte de editare a imaginii"
+  },
+  "image-viewer.editor.more-save-options": {
+    "defaultMessage": "Mai multe opțiuni de salvare"
+  },
+  "image-viewer.editor.overwrite": {
+    "defaultMessage": "Suprascrie"
+  },
+  "image-viewer.editor.redo": {
+    "defaultMessage": "Refă"
+  },
+  "image-viewer.editor.save-as-new": {
+    "defaultMessage": "Salvează copia"
+  },
+  "image-viewer.editor.save-image": {
+    "defaultMessage": "Salvează imaginea"
+  },
+  "image-viewer.editor.size": {
+    "defaultMessage": "Dimensiune"
+  },
+  "image-viewer.editor.tool.arrow": {
+    "defaultMessage": "Săgeată"
+  },
+  "image-viewer.editor.tool.censor": {
+    "defaultMessage": "Cenzurează"
+  },
+  "image-viewer.editor.tool.crop": {
+    "defaultMessage": "Decupează"
+  },
+  "image-viewer.editor.tool.ellipse": {
+    "defaultMessage": "Elipsă"
+  },
+  "image-viewer.editor.tool.eraser": {
+    "defaultMessage": "Radieră"
+  },
+  "image-viewer.editor.tool.highlight": {
+    "defaultMessage": "Evidențiază"
+  },
+  "image-viewer.editor.tool.pen": {
+    "defaultMessage": "Creion"
+  },
+  "image-viewer.editor.tool.rectangle": {
+    "defaultMessage": "Dreptunghi"
+  },
+  "image-viewer.editor.tool.select": {
+    "defaultMessage": "Selectează"
+  },
+  "image-viewer.editor.tool.text": {
+    "defaultMessage": "Text"
+  },
+  "image-viewer.editor.undo": {
+    "defaultMessage": "Anulează"
+  },
+  "image-viewer.editor.width": {
+    "defaultMessage": "Lățime"
+  },
+  "image-viewer.editor.zoom-fit": {
+    "defaultMessage": "Potrivește"
+  },
+  "image-viewer.editor.zoom-fit-workspace": {
+    "defaultMessage": "Potrivește la spațiul de lucru"
+  },
+  "image-viewer.editor.zoom-in": {
+    "defaultMessage": "Mărește"
+  },
+  "image-viewer.editor.zoom-out": {
+    "defaultMessage": "Micșorează"
+  },
+  "image-viewer.next": {
+    "defaultMessage": "Imaginea următoare"
+  },
+  "image-viewer.previous": {
+    "defaultMessage": "Imaginea anterioară"
+  },
+  "input.search-version.placeholder": {
+    "defaultMessage": "Caută versiunea..."
+  },
   "input.search.placeholder": {
     "defaultMessage": "Caută..."
+  },
+  "input.select-version.placeholder": {
+    "defaultMessage": "Selectează versiunea"
   },
   "input.view.gallery": {
     "defaultMessage": "Vedere galerie"
@@ -781,6 +1492,108 @@
   },
   "input.view.list": {
     "defaultMessage": "Vedere rânduri"
+  },
+  "installation-settings.aria.select-game-version": {
+    "defaultMessage": "Selectează versiunea jocului"
+  },
+  "installation-settings.aria.select-loader-version": {
+    "defaultMessage": "Selectează versiunea {loader}"
+  },
+  "installation-settings.aria.select-platform": {
+    "defaultMessage": "Selectează platforma"
+  },
+  "installation-settings.confirm-version-change": {
+    "defaultMessage": "Confirmă"
+  },
+  "installation-settings.confirm-version-change-description": {
+    "defaultMessage": "Trecerea la {gameVersion} va modifica următorul conținut de pe serverul tău."
+  },
+  "installation-settings.confirm-version-change-header": {
+    "defaultMessage": "Verifică modificările de conținut"
+  },
+  "installation-settings.edit-installation.title": {
+    "defaultMessage": "Editează instalarea"
+  },
+  "installation-settings.edit.warning-instance": {
+    "defaultMessage": "Nu recomandăm editarea setărilor instalării după instalarea conținutului. Dacă vrei să le editezi, fii atent, deoarece pot apărea probleme."
+  },
+  "installation-settings.incompatible-content.auto-fix-button": {
+    "defaultMessage": "Repară automat"
+  },
+  "installation-settings.incompatible-content.change-loader-button": {
+    "defaultMessage": "Schimbă loaderul"
+  },
+  "installation-settings.incompatible-content.disable-conflicts-button": {
+    "defaultMessage": "Dezactivează conflictele"
+  },
+  "installation-settings.incompatible-content.game-version-warning-body": {
+    "defaultMessage": "La schimbarea versiunii jocului, putem fie să dezactivăm conținutul instalat incompatibil, fie să încercăm să rezolvăm incompatibilitățile."
+  },
+  "installation-settings.incompatible-content.game-version-warning-title": {
+    "defaultMessage": "Avertisment de incompatibilitate"
+  },
+  "installation-settings.incompatible-content.header": {
+    "defaultMessage": "Conținut incompatibil instalat"
+  },
+  "installation-settings.incompatible-content.loader-change-body": {
+    "defaultMessage": "La schimbarea loaderului, tot conținutul instalat va fi dezactivat. Recomandăm resetarea serverului în schimb."
+  },
+  "installation-settings.incompatible-content.loader-change-title": {
+    "defaultMessage": "Schimbarea loaderelor e distructivă"
+  },
+  "installation-settings.linked-instance.title": {
+    "defaultMessage": "{projectType} asociat"
+  },
+  "installation-settings.linked.modpack": {
+    "defaultMessage": "modpack"
+  },
+  "installation-settings.linked.server-project": {
+    "defaultMessage": "proiect de server"
+  },
+  "installation-settings.loader-version": {
+    "defaultMessage": "versiunea {loader}"
+  },
+  "installation-settings.platform-lock-tooltip": {
+    "defaultMessage": "Va trebui să resetezi serverul pentru a schimba loaderul."
+  },
+  "installation-settings.reinstall-modpack.description": {
+    "defaultMessage": "Reinstalarea modpackului resetează conținutul {type} la starea inițială, eliminând orice moduri sau conținut adăugat de tine."
+  },
+  "installation-settings.reinstall-modpack.title": {
+    "defaultMessage": "Reinstalează modpackul"
+  },
+  "installation-settings.reinstalling-modpack": {
+    "defaultMessage": "Se reinstalează modpackul"
+  },
+  "installation-settings.removed-incompatible": {
+    "defaultMessage": "Eliminat (incompatibil)"
+  },
+  "installation-settings.repair.instance-description": {
+    "defaultMessage": "Reinstalează dependențele Minecraft și verifică coruperea. Poate rezolva problemele dacă jocul nu pornește din cauza unor erori ale launcherului."
+  },
+  "installation-settings.repair.instance-title": {
+    "defaultMessage": "Repară instanța"
+  },
+  "installation-settings.saving": {
+    "defaultMessage": "Se salvează..."
+  },
+  "installation-settings.search-game-version": {
+    "defaultMessage": "Caută versiunea jocului..."
+  },
+  "installation-settings.type.instance": {
+    "defaultMessage": "instanță"
+  },
+  "installation-settings.type.instance-possessive": {
+    "defaultMessage": "al instanței"
+  },
+  "installation-settings.type.server": {
+    "defaultMessage": "server"
+  },
+  "installation-settings.unlink": {
+    "defaultMessage": "Disociază"
+  },
+  "installation-settings.unlink.description": {
+    "defaultMessage": "Disocierea deconectează definitiv acest {type} de proiectul {projectType}, permițându-ți să schimbi loaderul și versiunea Minecraft, dar nu vei mai primi actualizări viitoare."
   },
   "installation-settings.verifying": {
     "defaultMessage": "Se verifică..."
@@ -809,9 +1622,6 @@
   "instance.confirm-repair.repair-button": {
     "defaultMessage": "Repară"
   },
-  "instance.confirm-repair.server-label": {
-    "defaultMessage": "server"
-  },
   "instance.worlds.game_mode.adventure": {
     "defaultMessage": "Modul aventură"
   },
@@ -838,6 +1648,9 @@
   },
   "instances.content-install.header": {
     "defaultMessage": "Instalează proiect"
+  },
+  "instances.content-install.hide-unavailable": {
+    "defaultMessage": "Ascunde indisponibilele"
   },
   "instances.content-install.incompatible-tooltip": {
     "defaultMessage": "Aceasta instanță folosește un loader diferit sau o versiune de joc diferită față de ce suportă proiectul."
@@ -868,6 +1681,48 @@
   },
   "instances.content-install.search-placeholder": {
     "defaultMessage": "Căutare instanță"
+  },
+  "instances.content-install.show-unavailable": {
+    "defaultMessage": "Afișează indisponibilele"
+  },
+  "instances.managed-content-modal.disabled": {
+    "defaultMessage": "Dezactivat"
+  },
+  "instances.managed-content-modal.download-file": {
+    "defaultMessage": "Descarcă fișierul"
+  },
+  "instances.managed-content-modal.empty-description": {
+    "defaultMessage": "Această sursă nu include niciun conținut gestionat."
+  },
+  "instances.managed-content-modal.empty-title": {
+    "defaultMessage": "Niciun conținut găsit"
+  },
+  "instances.managed-content-modal.enabled": {
+    "defaultMessage": "Activat"
+  },
+  "instances.managed-content-modal.external-content": {
+    "defaultMessage": "Extern"
+  },
+  "instances.managed-content-modal.external-content-description": {
+    "defaultMessage": "Acest fișier nu e publicat pe Modrinth."
+  },
+  "instances.managed-content-modal.header": {
+    "defaultMessage": "Conținut gestionat"
+  },
+  "instances.managed-content-modal.loading": {
+    "defaultMessage": "Se încarcă conținutul..."
+  },
+  "instances.managed-content-modal.no-results": {
+    "defaultMessage": "Niciun proiect nu corespunde căutării tale."
+  },
+  "instances.managed-content-modal.open-in-slicer": {
+    "defaultMessage": "Deschide în Slicer"
+  },
+  "instances.managed-content-modal.search-placeholder": {
+    "defaultMessage": "Caută în {count, number} {count, plural, one {proiect} other {proiecte}}"
+  },
+  "instances.managed-content-modal.warnings": {
+    "defaultMessage": "Avertismente"
   },
   "instances.updater-modal.badge.current": {
     "defaultMessage": "Curent"
@@ -1001,6 +1856,9 @@
   "label.details": {
     "defaultMessage": "Detalii"
   },
+  "label.discover-content": {
+    "defaultMessage": "Descoperă conținut"
+  },
   "label.done": {
     "defaultMessage": "Gata"
   },
@@ -1016,6 +1874,9 @@
   "label.error": {
     "defaultMessage": "Eroare"
   },
+  "label.explanation": {
+    "defaultMessage": "Explicație"
+  },
   "label.extract-failed": {
     "defaultMessage": "Extracție eșuată"
   },
@@ -1030,6 +1891,9 @@
   },
   "label.game-version": {
     "defaultMessage": "Versiune joc"
+  },
+  "label.hide-installed-content": {
+    "defaultMessage": "Ascunde conținutul deja instalat"
   },
   "label.hide-selected-content": {
     "defaultMessage": "Ascunde conținutul selectat"
@@ -1075,6 +1939,9 @@
   },
   "label.password": {
     "defaultMessage": "Parolă"
+  },
+  "label.permissions": {
+    "defaultMessage": "Permisiuni"
   },
   "label.plan-custom": {
     "defaultMessage": "Personalizat"
@@ -1283,140 +2150,92 @@
   "locale.zh-TW": {
     "defaultMessage": "Chineză(Tradițională)"
   },
-  "markdown-editor.default-image-alt-text": {
-    "defaultMessage": "Înlocuiește asta cu o descriere"
+  "modal.confirm.type-here-placeholder": {
+    "defaultMessage": "Scrie aici..."
   },
-  "markdown-editor.error-label": {
-    "defaultMessage": "Eroare"
+  "modal.confirm.type-to-confirm": {
+    "defaultMessage": "Pentru a confirma că vrei să continui, scrie <confirmation-text></confirmation-text> mai jos:"
   },
-  "markdown-editor.image-modal.description-field.description": {
-    "defaultMessage": "Descrie imaginea la fel cum ai descri-o cuiva care nu poate vedea imaginea."
+  "modal.share.copy-failed-title": {
+    "defaultMessage": "Copierea textului a eșuat"
   },
-  "markdown-editor.image-modal.description-field.placeholder": {
-    "defaultMessage": "Descrie imaginea..."
+  "modal.share.copy-link": {
+    "defaultMessage": "Copiază linkul"
   },
-  "markdown-editor.image-modal.description-field.title": {
-    "defaultMessage": "Descriere (text alternativ)"
+  "modal.share.copy-qr-code": {
+    "defaultMessage": "Copiază codul QR"
   },
-  "markdown-editor.image-modal.header": {
-    "defaultMessage": "Inserează imagine"
+  "modal.share.copy-text": {
+    "defaultMessage": "Copiază textul"
   },
-  "markdown-editor.image-modal.upload-mode.label": {
-    "defaultMessage": "Sursă imagine"
+  "modal.share.link-copied-text": {
+    "defaultMessage": "Linkul a fost copiat în clipboard."
   },
-  "markdown-editor.image-modal.upload-mode.link": {
-    "defaultMessage": "Link"
+  "modal.share.link-copied-title": {
+    "defaultMessage": "Link copiat"
   },
-  "markdown-editor.image-modal.upload-mode.upload": {
-    "defaultMessage": "Încarcă"
+  "modal.share.open-in-new-tab": {
+    "defaultMessage": "Deschide într-o filă nouă"
   },
-  "markdown-editor.image-modal.upload.prompt": {
-    "defaultMessage": "Trage și plasează pentru a încărca sau apasă pentru a selecta fișierul"
+  "modal.share.open-link-in-browser": {
+    "defaultMessage": "Deschide linkul în browser"
   },
-  "markdown-editor.image-modal.url-field.placeholder": {
-    "defaultMessage": "Introduce URL pentru imagine..."
+  "modal.share.send-email": {
+    "defaultMessage": "Trimite ca e-mail"
   },
-  "markdown-editor.insert-button": {
-    "defaultMessage": "Inserează"
+  "modal.share.share": {
+    "defaultMessage": "Partajează"
   },
-  "markdown-editor.link-modal.header": {
-    "defaultMessage": "Inserează link"
+  "modal.share.share-on-reddit": {
+    "defaultMessage": "Partajează pe Reddit"
   },
-  "markdown-editor.link-modal.label-field.placeholder": {
-    "defaultMessage": "Inserează etichetă..."
+  "modal.share.toot-about-it": {
+    "defaultMessage": "Publică pe Mastodon"
   },
-  "markdown-editor.link-modal.label-field.title": {
-    "defaultMessage": "Etichetă"
+  "modal.share.tweet-about-it": {
+    "defaultMessage": "Postează pe Twitter"
   },
-  "markdown-editor.link-modal.url-field.placeholder": {
-    "defaultMessage": "Introduce URL pentru link..."
+  "multi-select.clear-all": {
+    "defaultMessage": "Șterge tot"
   },
-  "markdown-editor.markdown-formatting-support": {
-    "defaultMessage": "Acest editor suportă <markdown-link>formatare Markdown</markdown-link>."
-  },
-  "markdown-editor.max-length.label": {
-    "defaultMessage": "Lungime maximă:"
-  },
-  "markdown-editor.max-length.unlimited": {
-    "defaultMessage": "Nelimitat"
-  },
-  "markdown-editor.max-length.value": {
-    "defaultMessage": "{currentLength}/{maxLength}"
-  },
-  "markdown-editor.placeholder": {
-    "defaultMessage": "Scrie ceva..."
-  },
-  "markdown-editor.preview-label": {
-    "defaultMessage": "Previzualizare"
-  },
-  "markdown-editor.preview-toggle.label": {
-    "defaultMessage": "Previzualizare"
-  },
-  "markdown-editor.toolbar.bold": {
-    "defaultMessage": "Îngroșat"
-  },
-  "markdown-editor.toolbar.bulleted-list": {
-    "defaultMessage": "Listă punctată"
-  },
-  "markdown-editor.toolbar.code": {
-    "defaultMessage": "Cod"
-  },
-  "markdown-editor.toolbar.image": {
-    "defaultMessage": "Imagine"
-  },
-  "markdown-editor.toolbar.link": {
-    "defaultMessage": "Link"
-  },
-  "markdown-editor.toolbar.ordered-list": {
-    "defaultMessage": "Listă ordonată"
-  },
-  "markdown-editor.toolbar.spoiler": {
-    "defaultMessage": "Spoiler"
-  },
-  "markdown-editor.toolbar.strikethrough": {
-    "defaultMessage": "Tăiat"
-  },
-  "markdown-editor.toolbar.video": {
-    "defaultMessage": "Video"
-  },
-  "markdown-editor.upload-error.no-file": {
-    "defaultMessage": "Niciun fișier provenit"
-  },
-  "markdown-editor.upload-error.no-handler": {
-    "defaultMessage": "Niciun Handler provenit pentru postarea imaginii"
-  },
-  "markdown-editor.url-label": {
-    "defaultMessage": "URL"
-  },
-  "markdown-editor.url-validation-error.blocked-domain": {
-    "defaultMessage": "URL invalid. Acest domeniu nu este permis."
-  },
-  "markdown-editor.url-validation-error.malformed": {
-    "defaultMessage": "URL invalid. Asigură-te că acest URL este scris corect."
-  },
-  "markdown-editor.url-validation-error.unsupported-protocol": {
-    "defaultMessage": "Protocol nesuportat. Folosește http sau https."
-  },
-  "markdown-editor.video-embed.title": {
-    "defaultMessage": "Player video YouTube"
-  },
-  "markdown-editor.video-modal.header": {
-    "defaultMessage": "Inserează un video de pe YouTube"
-  },
-  "markdown-editor.video-modal.url-field.description": {
-    "defaultMessage": "Introduce un link valid către video-ul de pe YouTube."
-  },
-  "markdown-editor.video-modal.url-field.placeholder": {
-    "defaultMessage": "Introduce un URL pentru video de pe YouTube"
-  },
-  "markdown-editor.video-modal.url-field.title": {
-    "defaultMessage": "Video YouTube URL"
+  "multi-select.selection-count": {
+    "defaultMessage": "{count, plural, one {# selectat} other {# selectate}}"
   },
   "notification.error.title": {
     "defaultMessage": "A avut loc o eroare"
   },
-  "omorphia.component.copy.action.copy": {
-    "defaultMessage": "Copiați codul în clipboard"
+  "notifications.actor.unknown": {
+    "defaultMessage": "Cineva"
+  },
+  "notifications.close": {
+    "defaultMessage": "Închide"
+  },
+  "notifications.dismiss": {
+    "defaultMessage": "Ignoră notificarea"
+  },
+  "notifications.friend-request.body": {
+    "defaultMessage": "<actor>{actor}</actor> ți-a trimis o cerere de prietenie."
+  },
+  "notifications.instance-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> te-a invitat la instanța <entity>{entity}</entity>."
+  },
+  "notifications.instance-ready.launch-game": {
+    "defaultMessage": "Lansează jocul"
+  },
+  "notifications.instance-ready.open-instance": {
+    "defaultMessage": "Instanță"
+  },
+  "notifications.instance-ready.status": {
+    "defaultMessage": "Instalat și gata de joc."
+  },
+  "notifications.invite.accept": {
+    "defaultMessage": "Acceptă"
+  },
+  "notifications.invite.decline": {
+    "defaultMessage": "Refuză"
+  },
+  "notifications.server-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> te-a invitat să administrezi serverul <entity>{entity}</entity>."
   },
   "payment-method.amazon_pay": {
     "defaultMessage": "Amazon Plată"
@@ -1481,9 +2300,6 @@
   "payment-method.visa": {
     "defaultMessage": "Visa"
   },
-  "profile.label.badges": {
-    "defaultMessage": "Insigne"
-  },
   "project-card.date.published.tooltip": {
     "defaultMessage": "Publicat {date}"
   },
@@ -1499,8 +2315,14 @@
   "project-card.environment.client-or-server": {
     "defaultMessage": "Client sau server"
   },
+  "project-card.environment.dedicated-server": {
+    "defaultMessage": "Server dedicat"
+  },
   "project-card.environment.server": {
     "defaultMessage": "Server"
+  },
+  "project-card.environment.singleplayer": {
+    "defaultMessage": "Singleplayer"
   },
   "project-type.all": {
     "defaultMessage": "Toate"
@@ -1577,6 +2399,15 @@
   "project-type.shader.lowercase": {
     "defaultMessage": "{count, plural, one {shader} other {shadere}}"
   },
+  "project-type.world.capital": {
+    "defaultMessage": "{count, plural, one {Lume} few {Lumi} other {Lumi}}"
+  },
+  "project-type.world.category": {
+    "defaultMessage": "Lumi"
+  },
+  "project-type.world.lowercase": {
+    "defaultMessage": "{count, plural, one {lume} few {lumi} other {lumi}}"
+  },
   "project.about.compatibility.environments": {
     "defaultMessage": "Medii suportate"
   },
@@ -1584,13 +2415,13 @@
     "defaultMessage": "Client și server"
   },
   "project.about.compatibility.environments.client-side": {
-    "defaultMessage": ""
+    "defaultMessage": "Partea clientului"
   },
   "project.about.compatibility.environments.dedicated-servers-only": {
     "defaultMessage": "Numai servere dedicate"
   },
   "project.about.compatibility.environments.server-side": {
-    "defaultMessage": ""
+    "defaultMessage": "Partea serverului"
   },
   "project.about.compatibility.environments.singleplayer": {
     "defaultMessage": "Singleplayer"
@@ -1604,8 +2435,14 @@
   "project.about.compatibility.platforms": {
     "defaultMessage": "Platforme"
   },
+  "project.about.compatibility.platforms-plural": {
+    "defaultMessage": "{count, plural, one {Platformă} other {Platforme}}"
+  },
   "project.about.compatibility.title": {
     "defaultMessage": "Compabilitate"
+  },
+  "project.about.creators.no-members-error": {
+    "defaultMessage": "Eroare: Proiectul nu are membri. Asta nu ar trebui să se întâmple."
   },
   "project.about.creators.organization": {
     "defaultMessage": "Organizație"
@@ -1670,35 +2507,62 @@
   "project.about.links.wiki": {
     "defaultMessage": "Vizitează wiki-ul"
   },
-  "project.about.server.address.tooltip": {
-    "defaultMessage": "Copiază adresa de server Java"
-  },
-  "project.about.server.copied": {
-    "defaultMessage": "Copiată!"
-  },
-  "project.about.server.copiedText": {
-    "defaultMessage": "Adresa serverului a fost copiată în Clipboard"
-  },
-  "project.about.server.downloadModpack": {
-    "defaultMessage": "Descarca pachetul de moduri"
-  },
-  "project.about.server.languages": {
-    "defaultMessage": "Limbi"
-  },
-  "project.about.server.recommendedVersion": {
-    "defaultMessage": "(Recomandat)"
-  },
-  "project.about.server.region": {
-    "defaultMessage": "Regiune"
-  },
-  "project.about.server.requiredContent": {
-    "defaultMessage": "Conținut obligatoriu"
-  },
-  "project.about.server.title": {
-    "defaultMessage": "Detalii server"
-  },
   "project.about.tags.title": {
     "defaultMessage": "Etichete"
+  },
+  "project.compatibility.client-and-server": {
+    "defaultMessage": "Client și server"
+  },
+  "project.compatibility.client-side": {
+    "defaultMessage": "Client"
+  },
+  "project.compatibility.no-mod-loader": {
+    "defaultMessage": "Fără loader de moduri"
+  },
+  "project.compatibility.server-side": {
+    "defaultMessage": "Server"
+  },
+  "project.disclosure.advertising.title": {
+    "defaultMessage": "Conține publicitate"
+  },
+  "project.disclosure.ai-functionality.title": {
+    "defaultMessage": "Funcționalitate de IA generativă"
+  },
+  "project.disclosure.ai-generated-content.title": {
+    "defaultMessage": "Conține {types} generat de IA"
+  },
+  "project.disclosure.ai-generated-content.use.assets": {
+    "defaultMessage": "asseturi"
+  },
+  "project.disclosure.ai-generated-content.use.code": {
+    "defaultMessage": "cod"
+  },
+  "project.disclosure.ai-generated-content.use.content": {
+    "defaultMessage": "conținut"
+  },
+  "project.disclosure.ai-generated-content.use.text": {
+    "defaultMessage": "text"
+  },
+  "project.disclosure.derivative-work.show-fewer": {
+    "defaultMessage": "Afișează mai puține"
+  },
+  "project.disclosure.derivative-work.show-more": {
+    "defaultMessage": "Afișează încă {count}"
+  },
+  "project.disclosure.derivative-work.title": {
+    "defaultMessage": "Aceasta e o lucrare derivată din:"
+  },
+  "project.disclosure.paid-features.title": {
+    "defaultMessage": "Conține funcționalități cu plată"
+  },
+  "project.disclosure.photosensitivity.title": {
+    "defaultMessage": "Avertisment de fotosensibilitate"
+  },
+  "project.disclosure.system-interactions.title": {
+    "defaultMessage": "Conține interacțiuni externe cu sistemul"
+  },
+  "project.disclosure.telemetry.title": {
+    "defaultMessage": "Conține {consent, select, opt_in {telemetrie opt-in} opt_out {telemetrie opt-out} always_active {telemetrie mereu activă} other {telemetrie}}"
   },
   "project.download-count-tooltip": {
     "defaultMessage": "{count, number} {count, plural, one {descărcare} other {descărcări}}"
@@ -1772,6 +2636,15 @@
   "project.follower-count-tooltip": {
     "defaultMessage": "{count, number} {count, plural, one {urmăritor} other {urmăritori}}"
   },
+  "project.license.error": {
+    "defaultMessage": "Textul licenței nu a putut fi preluat."
+  },
+  "project.license.loading": {
+    "defaultMessage": "Se încarcă textul licenței..."
+  },
+  "project.license.title": {
+    "defaultMessage": "Licență"
+  },
   "project.online-player-count": {
     "defaultMessage": "{count, number} activi"
   },
@@ -1786,78 +2659,6 @@
   },
   "project.server.customModpackTooltip": {
     "defaultMessage": "Acest proiect folosește un pachet de resurse personalizat"
-  },
-  "project.server.language.af": {
-    "defaultMessage": "Africană"
-  },
-  "project.server.language.am": {
-    "defaultMessage": "Amharică"
-  },
-  "project.server.language.ar": {
-    "defaultMessage": "Arabă"
-  },
-  "project.server.language.az": {
-    "defaultMessage": "Azerbaijană"
-  },
-  "project.server.language.pa": {
-    "defaultMessage": "Punjabeză"
-  },
-  "project.server.language.pl": {
-    "defaultMessage": "Poloneză"
-  },
-  "project.server.language.pt": {
-    "defaultMessage": "Portugheză"
-  },
-  "project.server.language.ro": {
-    "defaultMessage": "Română"
-  },
-  "project.server.language.ru": {
-    "defaultMessage": "Rusă"
-  },
-  "project.server.language.si": {
-    "defaultMessage": "Sinhaleză"
-  },
-  "project.server.language.sk": {
-    "defaultMessage": "Slovacă"
-  },
-  "project.server.language.sl": {
-    "defaultMessage": "Sloveniană"
-  },
-  "project.server.language.sq": {
-    "defaultMessage": "Albană"
-  },
-  "project.server.language.sv": {
-    "defaultMessage": "Suedeză"
-  },
-  "project.server.language.sw": {
-    "defaultMessage": "Swahileză"
-  },
-  "project.server.language.th": {
-    "defaultMessage": "Thailandeză"
-  },
-  "project.server.language.tl": {
-    "defaultMessage": "Filipineză"
-  },
-  "project.server.language.tr": {
-    "defaultMessage": "Turcă"
-  },
-  "project.server.language.uk": {
-    "defaultMessage": "Ucraineană"
-  },
-  "project.server.language.ur": {
-    "defaultMessage": "Urduneză"
-  },
-  "project.server.language.uz": {
-    "defaultMessage": "Uzbekistaneză"
-  },
-  "project.server.language.vi": {
-    "defaultMessage": "Vietnameză"
-  },
-  "project.server.language.zh": {
-    "defaultMessage": "Chineză"
-  },
-  "project.server.language.zu": {
-    "defaultMessage": "Zuluneză"
   },
   "project.server.ping.ms": {
     "defaultMessage": "{ping, number} ms"
@@ -1906,6 +2707,27 @@
   },
   "project.settings.description.title": {
     "defaultMessage": "Descriere"
+  },
+  "project.settings.disclosures.ai.types-assets": {
+    "defaultMessage": "Asseturi"
+  },
+  "project.settings.disclosures.ai.types-code": {
+    "defaultMessage": "Cod"
+  },
+  "project.settings.disclosures.ai.types-text": {
+    "defaultMessage": "Text"
+  },
+  "project.settings.disclosures.telemetry.consent-always-active": {
+    "defaultMessage": "Mereu activ"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-in": {
+    "defaultMessage": "Opt-in"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-out": {
+    "defaultMessage": "Opt-out"
+  },
+  "project.settings.disclosures.title": {
+    "defaultMessage": "Divulgări"
   },
   "project.settings.environment.client_and_server.title": {
     "defaultMessage": "Client și server"
@@ -1961,6 +2783,12 @@
   "project.settings.view.title": {
     "defaultMessage": "Afișează"
   },
+  "project.stats.downloads-label": {
+    "defaultMessage": "{count, plural, one {descărcare} other {descărcări}}"
+  },
+  "project.stats.followers-label": {
+    "defaultMessage": "{count, plural, one {urmăritor} other {urmăritori}}"
+  },
   "project.versions.channel.alpha.symbol": {
     "defaultMessage": "A"
   },
@@ -1969,6 +2797,36 @@
   },
   "project.versions.channel.release.symbol": {
     "defaultMessage": "R"
+  },
+  "project.versions.create-version": {
+    "defaultMessage": "Creează versiunea"
+  },
+  "project.versions.downloads-tooltip": {
+    "defaultMessage": "{count, plural, one {# descărcare} other {# descărcări}}"
+  },
+  "project.versions.filter.channel": {
+    "defaultMessage": "Canal"
+  },
+  "project.versions.filter.selected-count": {
+    "defaultMessage": "{count, number} selectate"
+  },
+  "project.versions.filter.toggle-tooltip": {
+    "defaultMessage": "Comută filtrul pentru {filter}"
+  },
+  "project.versions.no-mod-loader": {
+    "defaultMessage": "Fără loader de moduri"
+  },
+  "project.versions.platform.modloader.short": {
+    "defaultMessage": "ModLoader"
+  },
+  "project.versions.version.withheld": {
+    "defaultMessage": "Reținut"
+  },
+  "project.versions.version.withheld.tooltip": {
+    "defaultMessage": "Versiune reținută din lipsă de permisiuni"
+  },
+  "project.versions.withheld-versions-warning.resolve-button": {
+    "defaultMessage": "Rezolvă"
   },
   "project.visibility.archived": {
     "defaultMessage": "Arhivat"
@@ -2012,6 +2870,84 @@
   "report.item-type.version": {
     "defaultMessage": "versiune"
   },
+  "report.type.ai-images": {
+    "defaultMessage": "Imagini generate de IA în pictogramă, galerie sau descriere"
+  },
+  "report.type.copyright": {
+    "defaultMessage": "Lucrare reîncărcată"
+  },
+  "report.type.fully-ai-generated": {
+    "defaultMessage": "Proiect integral generat de IA"
+  },
+  "report.type.inappropriate": {
+    "defaultMessage": "Nepotrivit"
+  },
+  "report.type.malicious": {
+    "defaultMessage": "Malițios"
+  },
+  "report.type.missing-disclosure": {
+    "defaultMessage": "Divulgare lipsă sau incorectă"
+  },
+  "report.type.name-squatting": {
+    "defaultMessage": "Ocupare abuzivă de nume"
+  },
+  "report.type.spam": {
+    "defaultMessage": "Spam"
+  },
+  "search.filter.clear-all-filters": {
+    "defaultMessage": "Șterge toate filtrele"
+  },
+  "search.filter.dependency_type.any": {
+    "defaultMessage": "Orice tip de dependență"
+  },
+  "search.filter.dependency_type.embedded": {
+    "defaultMessage": "Încorporat"
+  },
+  "search.filter.dependency_type.optional": {
+    "defaultMessage": "Opțional"
+  },
+  "search.filter.dependency_type.optional_or_embedded": {
+    "defaultMessage": "Opțional sau încorporat"
+  },
+  "search.filter.dependency_type.required": {
+    "defaultMessage": "Necesar"
+  },
+  "search.filter.dependency_type.required_or_embedded": {
+    "defaultMessage": "Necesar sau încorporat"
+  },
+  "search.filter.dependency_type.required_or_optional": {
+    "defaultMessage": "Necesar sau opțional"
+  },
+  "search.filter.dependent_project": {
+    "defaultMessage": "Depinde de: {project}"
+  },
+  "search.filter.dependent_project.clear": {
+    "defaultMessage": "Șterge filtrul de dependență"
+  },
+  "search.filter.dependent_project.search_placeholder": {
+    "defaultMessage": "Caută un proiect..."
+  },
+  "search.filter.excluded_projects": {
+    "defaultMessage": "Exclude: {projects}"
+  },
+  "search.filter.included_content.exclude": {
+    "defaultMessage": "Exclude"
+  },
+  "search.filter.included_content.excluded": {
+    "defaultMessage": "Exclus"
+  },
+  "search.filter.included_content.remove_project": {
+    "defaultMessage": "Elimină {project}"
+  },
+  "search.filter.included_content.remove_project.tooltip": {
+    "defaultMessage": "Elimină proiectul"
+  },
+  "search.filter.included_content.search_placeholder": {
+    "defaultMessage": "Caută conținut..."
+  },
+  "search.filter.included_projects": {
+    "defaultMessage": "Include: {projects}"
+  },
   "search.filter.locked.default": {
     "defaultMessage": "Filtru blocat"
   },
@@ -2042,6 +2978,48 @@
   "search.filter.option.show_more": {
     "defaultMessage": "Afișează mai multe"
   },
+  "search.filter.option.sub_options.collapse.tooltip": {
+    "defaultMessage": "Ascunde mai multe opțiuni"
+  },
+  "search.filter.option.sub_options.expand.tooltip": {
+    "defaultMessage": "Afișează mai multe opțiuni"
+  },
+  "search.filter_type.advanced": {
+    "defaultMessage": "Excluderi avansate"
+  },
+  "search.filter_type.advanced.disclosure.advertisements": {
+    "defaultMessage": "Reclame"
+  },
+  "search.filter_type.advanced.disclosure.ai_content": {
+    "defaultMessage": "Conținut generat de IA"
+  },
+  "search.filter_type.advanced.disclosure.ai_content.usage": {
+    "defaultMessage": "IA {usage}"
+  },
+  "search.filter_type.advanced.disclosure.ai_functionality": {
+    "defaultMessage": "Funcționalitate de IA generativă"
+  },
+  "search.filter_type.advanced.disclosure.archived": {
+    "defaultMessage": "Arhivat"
+  },
+  "search.filter_type.advanced.disclosure.derivative_work": {
+    "defaultMessage": "Conținut derivat"
+  },
+  "search.filter_type.advanced.disclosure.epilepsy_triggers": {
+    "defaultMessage": "Declanșatoare de fotosensibilitate"
+  },
+  "search.filter_type.advanced.disclosure.paid_features": {
+    "defaultMessage": "Funcționalități cu plată"
+  },
+  "search.filter_type.advanced.disclosure.system_interactions": {
+    "defaultMessage": "Interacțiuni externe cu sistemul"
+  },
+  "search.filter_type.advanced.disclosure.telemetry": {
+    "defaultMessage": "Telemetrie"
+  },
+  "search.filter_type.compatible_dependency_project_ids": {
+    "defaultMessage": "Depinde de"
+  },
   "search.filter_type.environment": {
     "defaultMessage": "Mediu"
   },
@@ -2056,6 +3034,9 @@
   },
   "search.filter_type.game_version.all_versions": {
     "defaultMessage": "Afișează toate versiunile"
+  },
+  "search.filter_type.included_content": {
+    "defaultMessage": "Conținut inclus"
   },
   "search.filter_type.license": {
     "defaultMessage": "Licență"
@@ -2078,26 +3059,23 @@
   "search.filter_type.project_id": {
     "defaultMessage": "ID-ul proiectului"
   },
-  "search.filter_type.server_content_type": {
-    "defaultMessage": "Tip"
-  },
-  "search.filter_type.server_language": {
-    "defaultMessage": "Limbă"
-  },
-  "search.filter_type.server_region": {
-    "defaultMessage": "Regiune"
-  },
-  "search.filter_type.server_status": {
-    "defaultMessage": "Stare"
-  },
   "search.filter_type.shader_loader": {
     "defaultMessage": "Loader"
   },
-  "search.server_content_type.modpack": {
-    "defaultMessage": "Modat"
+  "search.photosensitivity-warning-modal.body.1": {
+    "defaultMessage": "Nu putem garanta că tot conținutul de pe Modrinth a fost etichetat corespunzător."
   },
-  "search.server_content_type.vanilla": {
-    "defaultMessage": "Vanilie"
+  "search.photosensitivity-warning-modal.body.2": {
+    "defaultMessage": "Etichetele de conținut pentru declanșatoarele de fotosensibilitate sunt auto-atribuite de creatorii care își încarcă conținutul pe Modrinth. Aceste proiecte nu au trecut prin niciun test de siguranță."
+  },
+  "search.photosensitivity-warning-modal.body.3": {
+    "defaultMessage": "Folosirea oricărui conținut de pe Modrinth e pe propriul risc. Ai grijă de tine! 💚"
+  },
+  "search.photosensitivity-warning-modal.dont-show-again": {
+    "defaultMessage": "Nu mai afișa asta"
+  },
+  "search.photosensitivity-warning-modal.title": {
+    "defaultMessage": "Rezultatele nu sunt garantat sigure"
   },
   "settings.account.title": {
     "defaultMessage": "Cont și securitate"
@@ -2114,6 +3092,66 @@
   "settings.billing.title": {
     "defaultMessage": "Plăți și abonamente"
   },
+  "settings.display.project-list-layouts.datapack": {
+    "defaultMessage": "Pagina Pachetelor de date"
+  },
+  "settings.display.project-list-layouts.description": {
+    "defaultMessage": "Selectează aspectul preferat pentru fiecare pagină care afișează liste de proiecte."
+  },
+  "settings.display.project-list-layouts.mod": {
+    "defaultMessage": "Pagina Modurilor"
+  },
+  "settings.display.project-list-layouts.mode.grid": {
+    "defaultMessage": "Grilă"
+  },
+  "settings.display.project-list-layouts.mode.rows": {
+    "defaultMessage": "Rânduri"
+  },
+  "settings.display.project-list-layouts.modpack": {
+    "defaultMessage": "Pagina Modpackurilor"
+  },
+  "settings.display.project-list-layouts.plugin": {
+    "defaultMessage": "Pagina Pluginurilor"
+  },
+  "settings.display.project-list-layouts.resourcepack": {
+    "defaultMessage": "Pagina Pachetelor de resurse"
+  },
+  "settings.display.project-list-layouts.server": {
+    "defaultMessage": "Pagina Serverelor"
+  },
+  "settings.display.project-list-layouts.shader": {
+    "defaultMessage": "Pagina Shaderelor"
+  },
+  "settings.display.project-list-layouts.title": {
+    "defaultMessage": "Aspecte ale listelor de proiecte"
+  },
+  "settings.display.project-list-layouts.user": {
+    "defaultMessage": "Paginile de profil de utilizator"
+  },
+  "settings.display.sidebar.advanced-rendering.description": {
+    "defaultMessage": "Activează randarea avansată, precum efectele de blur, care pot cauza probleme de performanță fără randare accelerată hardware."
+  },
+  "settings.display.sidebar.advanced-rendering.title": {
+    "defaultMessage": "Randare avansată"
+  },
+  "settings.display.sidebar.external-links-new-tab.description": {
+    "defaultMessage": "Fă ca linkurile care duc în afara Modrinth să se deschide într-o filă nouă. Indiferent de această setare, linkurile din același domeniu și cele din descrierile Markdown se vor deschide în aceeași filă, iar linkurile din reclame și paginile de editare se vor deschide într-o filă nouă."
+  },
+  "settings.display.sidebar.external-links-new-tab.title": {
+    "defaultMessage": "Deschide linkurile externe într-o filă nouă"
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.description": {
+    "defaultMessage": "Aliniază bara laterală la stânga conținutului paginii."
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.title": {
+    "defaultMessage": "Bară laterală aliniată la stânga pe paginile de conținut"
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.description": {
+    "defaultMessage": "Aliniază bara laterală de filtre la dreapta rezultatelor căutării."
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.title": {
+    "defaultMessage": "Bară laterală de filtre aliniată la dreapta pe paginile de căutare"
+  },
   "settings.display.theme.dark": {
     "defaultMessage": "Întunecat"
   },
@@ -2122,6 +3160,9 @@
   },
   "settings.display.theme.oled": {
     "defaultMessage": "OLED"
+  },
+  "settings.display.theme.orbiont-description": {
+    "defaultMessage": "Selectează tema de culoare preferată pentru {productName}."
   },
   "settings.display.theme.preferred-dark-theme": {
     "defaultMessage": "Temă întunecată preferată"
@@ -2138,14 +3179,23 @@
   "settings.display.theme.title": {
     "defaultMessage": "Culoarea temei"
   },
+  "settings.feature-flags.title": {
+    "defaultMessage": "Flaguri experimentale"
+  },
   "settings.language.categories.default": {
     "defaultMessage": "Limbi standard"
   },
   "settings.language.categories.search-result": {
     "defaultMessage": "Rezultate gasite"
   },
-  "settings.language.description": {
-    "defaultMessage": "Alege limba preferata pentru {platform}. Traducerile sunt contribuite de voluntari <crowdin-link>de pe Crowdin</crowdin-link>."
+  "settings.language.coverage.app-tooltip": {
+    "defaultMessage": "Circa {percentage}% din {productName} e disponibil în această limbă."
+  },
+  "settings.language.coverage.label": {
+    "defaultMessage": "{percentage}% acceptat"
+  },
+  "settings.language.description.orbiont": {
+    "defaultMessage": "Alege limba preferată pentru {platform}. Orbiont livrează traducerile comunității ca atare; acoperirea variază în funcție de limbă, iar textul netradus revine la engleză."
   },
   "settings.language.languages.search-field.placeholder": {
     "defaultMessage": "Cauta o limba..."
@@ -2159,9 +3209,6 @@
   "settings.language.platform.app": {
     "defaultMessage": "aplicatie"
   },
-  "settings.language.platform.site": {
-    "defaultMessage": "site"
-  },
   "settings.language.title": {
     "defaultMessage": "Limbă"
   },
@@ -2171,8 +3218,26 @@
   "settings.pats.title": {
     "defaultMessage": "Token-urile personale de acces"
   },
+  "settings.profile.navigation-title": {
+    "defaultMessage": "Profil"
+  },
   "settings.sessions.title": {
     "defaultMessage": "Sesiuni"
+  },
+  "settings.social.title": {
+    "defaultMessage": "Social"
+  },
+  "skin.preview.drag-to-rotate": {
+    "defaultMessage": "Trage pentru a roti"
+  },
+  "skins.select": {
+    "defaultMessage": "Selectează skinul"
+  },
+  "skins.select-named": {
+    "defaultMessage": "Selectează {name}"
+  },
+  "table.empty-state.no-data": {
+    "defaultMessage": "Nicio dată disponibilă."
   },
   "tag.category.128x": {
     "defaultMessage": "128x"
@@ -2185,6 +3250,9 @@
   },
   "tag.category.32x": {
     "defaultMessage": "32x"
+  },
+  "tag.category.3d-packs": {
+    "message": "Pachete 3D"
   },
   "tag.category.48x": {
     "defaultMessage": "48x"
@@ -2206,6 +3274,9 @@
   },
   "tag.category.anarchy": {
     "defaultMessage": "Anarhie"
+  },
+  "tag.category.armor-tools-weapons": {
+    "message": "Armură, unelte și arme"
   },
   "tag.category.atmosphere": {
     "defaultMessage": "Atmosfera"
@@ -2249,6 +3320,12 @@
   "tag.category.core-shaders": {
     "defaultMessage": "Shadere de Bază"
   },
+  "tag.category.cosmetics": {
+    "message": "Cosmetice"
+  },
+  "tag.category.creation": {
+    "defaultMessage": "Creație"
+  },
   "tag.category.creative-mode": {
     "defaultMessage": "Modul Creativ"
   },
@@ -2258,11 +3335,17 @@
   "tag.category.crossplay": {
     "defaultMessage": "Joc Încrucișat"
   },
+  "tag.category.ctm": {
+    "message": "Finalizează Monumentul"
+  },
   "tag.category.cursed": {
     "defaultMessage": "Ciudat"
   },
   "tag.category.custom-content": {
     "defaultMessage": "Conținut Personalizat"
+  },
+  "tag.category.custom-terrain": {
+    "message": "Teren personalizat"
   },
   "tag.category.decoration": {
     "defaultMessage": "Decor"
@@ -2272,6 +3355,9 @@
   },
   "tag.category.economy": {
     "defaultMessage": "Economie"
+  },
+  "tag.category.enhanced-visuals": {
+    "message": "Elemente vizuale îmbunătățite"
   },
   "tag.category.entities": {
     "defaultMessage": "Entitati"
@@ -2297,6 +3383,9 @@
   "tag.category.food": {
     "defaultMessage": "Mancare"
   },
+  "tag.category.game-map": {
+    "defaultMessage": "Hartă de joc"
+  },
   "tag.category.game-mechanics": {
     "defaultMessage": "Mecanici in joc"
   },
@@ -2321,6 +3410,9 @@
   "tag.category.kitchen-sink": {
     "defaultMessage": "Cu de toate"
   },
+  "tag.category.kitpvp": {
+    "defaultMessage": "Kit PvP"
+  },
   "tag.category.library": {
     "defaultMessage": "Librărie"
   },
@@ -2342,6 +3434,9 @@
   "tag.category.management": {
     "defaultMessage": "Administrare"
   },
+  "tag.category.maps": {
+    "message": "Hărți"
+  },
   "tag.category.media": {
     "defaultMessage": "Media"
   },
@@ -2350,6 +3445,9 @@
   },
   "tag.category.microgames": {
     "defaultMessage": "Micro jocuri"
+  },
+  "tag.category.minecraft-addon-maker": {
+    "message": "Minecraft Addon Maker"
   },
   "tag.category.minigame": {
     "defaultMessage": "Minigame"
@@ -2365,6 +3463,9 @@
   },
   "tag.category.modded": {
     "defaultMessage": "Modat"
+  },
+  "tag.category.modded-world": {
+    "defaultMessage": "Lume cu moduri"
   },
   "tag.category.models": {
     "defaultMessage": "Modele"
@@ -2399,14 +3500,29 @@
   "tag.category.personal-worlds": {
     "defaultMessage": "Lumi Personale"
   },
+  "tag.category.players": {
+    "message": "Jucători"
+  },
   "tag.category.plots": {
     "defaultMessage": "Loturi"
+  },
+  "tag.category.pokemon": {
+    "defaultMessage": "Pokémon"
   },
   "tag.category.potato": {
     "defaultMessage": "Cartof"
   },
   "tag.category.prison": {
     "defaultMessage": "Închisoare"
+  },
+  "tag.category.puzzle": {
+    "defaultMessage": "Puzzle"
+  },
+  "tag.category.pve": {
+    "defaultMessage": "PvE"
+  },
+  "tag.category.pvp": {
+    "defaultMessage": "PvP"
   },
   "tag.category.questing": {
     "defaultMessage": "Căutare"
@@ -2429,20 +3545,32 @@
   "tag.category.roleplay": {
     "defaultMessage": "Joc de rol"
   },
+  "tag.category.rollercoaster": {
+    "message": "Rollercoaster"
+  },
   "tag.category.rpg": {
     "defaultMessage": "RPG"
   },
   "tag.category.screenshot": {
     "defaultMessage": "Captură de ecran"
   },
+  "tag.category.scripts": {
+    "message": "Scripturi"
+  },
   "tag.category.semi-realistic": {
     "defaultMessage": "Semi Realist"
+  },
+  "tag.category.shaders": {
+    "message": "Shadere"
   },
   "tag.category.shadows": {
     "defaultMessage": "Umbre"
   },
   "tag.category.simplistic": {
     "defaultMessage": "Simplu"
+  },
+  "tag.category.skins": {
+    "message": "Skinuri"
   },
   "tag.category.skyblock": {
     "defaultMessage": "Skyblock"
@@ -2456,6 +3584,9 @@
   "tag.category.storage": {
     "defaultMessage": "Stocare"
   },
+  "tag.category.survival": {
+    "defaultMessage": "Supraviețuire"
+  },
   "tag.category.survival-mode": {
     "defaultMessage": "Modul Supraviețuire"
   },
@@ -2467,6 +3598,9 @@
   },
   "tag.category.technology": {
     "defaultMessage": "Tehnologie"
+  },
+  "tag.category.texture-packs": {
+    "message": "Pachete de textura"
   },
   "tag.category.themed": {
     "defaultMessage": "Tema"
@@ -2585,7 +3719,220 @@
   "tag.loader.waterfall": {
     "defaultMessage": "Cascadă"
   },
+  "terminal.scroll-to-bottom": {
+    "defaultMessage": "Derulează la final"
+  },
   "ui.component.unsaved-changes-popup.body": {
     "defaultMessage": "Ai schimbări nesalvate."
+  },
+  "ui.confirm-leave-modal.body": {
+    "defaultMessage": "Ai modificări nesalvate care se vor pierde dacă părăsești această pagină."
+  },
+  "ui.confirm-leave-modal.header": {
+    "defaultMessage": "Ai modificări nesalvate"
+  },
+  "ui.confirm-leave-modal.leave": {
+    "defaultMessage": "Părăsește pagina"
+  },
+  "ui.confirm-leave-modal.stay": {
+    "defaultMessage": "Rămâi pe pagină"
+  },
+  "ui.confirm-leave-modal.title": {
+    "defaultMessage": "Părăsești pagina?"
+  },
+  "ui.i18n-debug.close": {
+    "defaultMessage": "Închide inspectorul"
+  },
+  "ui.i18n-debug.copied": {
+    "defaultMessage": "Copiat"
+  },
+  "ui.i18n-debug.copy": {
+    "defaultMessage": "copiază"
+  },
+  "ui.i18n-debug.copy-hint": {
+    "defaultMessage": "clic pentru a copia"
+  },
+  "ui.i18n-debug.discover-hint": {
+    "defaultMessage": "Navighează prin aplicație pentru a descoperi chei i18n"
+  },
+  "ui.i18n-debug.expand": {
+    "defaultMessage": "Extinde panoul"
+  },
+  "ui.i18n-debug.hide-keys": {
+    "defaultMessage": "Ascunde cheile în interfață"
+  },
+  "ui.i18n-debug.key-count": {
+    "defaultMessage": "{count, plural, one {# cheie} other {# chei}}"
+  },
+  "ui.i18n-debug.minimize": {
+    "defaultMessage": "Minimizează panoul"
+  },
+  "ui.i18n-debug.navigate": {
+    "defaultMessage": "navighează"
+  },
+  "ui.i18n-debug.no-keys": {
+    "defaultMessage": "Nicio cheie înregistrată"
+  },
+  "ui.i18n-debug.no-matches": {
+    "defaultMessage": "Nicio potrivire găsită"
+  },
+  "ui.i18n-debug.reveal-keys": {
+    "defaultMessage": "Afișează cheile în interfață"
+  },
+  "ui.i18n-debug.search": {
+    "defaultMessage": "Caută chei sau valori..."
+  },
+  "ui.i18n-debug.search-hint": {
+    "defaultMessage": "Încearcă alt termen de căutare"
+  },
+  "ui.i18n-debug.title": {
+    "defaultMessage": "Inspector i18n"
+  },
+  "ui.i18n-debug.toggle-overlay": {
+    "defaultMessage": "Comută suprapunerea de depanare CSS"
+  },
+  "ui.i18n-debug.watching": {
+    "defaultMessage": "Monitorizare"
+  },
+  "ui.pagination.go-to-page": {
+    "defaultMessage": "Mergi la pagina"
+  },
+  "ui.pagination.next-page": {
+    "defaultMessage": "Pagina următoare"
+  },
+  "ui.pagination.previous-page": {
+    "defaultMessage": "Pagina anterioară"
+  },
+  "ui.stacked-admonitions.alert-count": {
+    "defaultMessage": "{count, plural, one {# alertă} other {# alerte}}"
+  },
+  "ui.stacked-admonitions.dismiss-all": {
+    "defaultMessage": "Ignoră-le pe toate"
+  },
+  "unknown-file-warning-modal.dont-install": {
+    "defaultMessage": "Nu instala"
+  },
+  "unknown-file-warning-modal.dont-show-again": {
+    "defaultMessage": "Nu mai afișa acest avertisment"
+  },
+  "unknown-file-warning-modal.file-unverified-body": {
+    "defaultMessage": "are o sursă care nu a putut fi verificată. Instalează doar fișiere din surse de încredere."
+  },
+  "unknown-file-warning-modal.header": {
+    "defaultMessage": "Confirmă instalarea"
+  },
+  "unknown-file-warning-modal.install-anyway": {
+    "defaultMessage": "Instalează oricum"
+  },
+  "unknown-file-warning-modal.malware-warning": {
+    "defaultMessage": "Malwareul e adesea distribuit prin fișiere de moduri partajate pe platforme precum Discord."
+  },
+  "unknown-file-warning-modal.mod-warning-title": {
+    "defaultMessage": "Avertisment de fișier necunoscut"
+  },
+  "unknown-file-warning-modal.modpack-unverified-body": {
+    "defaultMessage": "conține fișiere a căror sursă nu a putut fi verificată. Instalează doar fișiere din surse de încredere."
+  },
+  "unknown-file-warning-modal.modpack-warning-title": {
+    "defaultMessage": "Avertisment de fișiere necunoscute"
+  },
+  "unknown-file-warning-modal.unrecognized-files": {
+    "defaultMessage": "Fișiere nerecunoscute"
+  },
+  "unknown-file-warning-modal.unverified-files": {
+    "defaultMessage": "Un fișier nerecunoscut poate fi nesigur. Verifică-i sursa înainte de a-l instala."
+  },
+  "version.content.name": {
+    "defaultMessage": "Nume"
+  },
+  "version.content.version": {
+    "defaultMessage": "Versiune"
+  },
+  "version.file-type.dev-jar": {
+    "defaultMessage": "JAR de dezvoltare"
+  },
+  "version.file-type.javadoc-jar": {
+    "defaultMessage": "JAR Javadocs"
+  },
+  "version.file-type.optional-resource-pack": {
+    "defaultMessage": "Pachet de resurse opțional"
+  },
+  "version.file-type.primary": {
+    "defaultMessage": "Principal"
+  },
+  "version.file-type.required-resource-pack": {
+    "defaultMessage": "Pachet de resurse necesar"
+  },
+  "version.file-type.signature": {
+    "defaultMessage": "Fișier de semnătură"
+  },
+  "version.file-type.sources-jar": {
+    "defaultMessage": "JAR de surse"
+  },
+  "version.file-type.unknown": {
+    "defaultMessage": "Altul"
+  },
+  "version.section.changes": {
+    "defaultMessage": "Modificări"
+  },
+  "version.section.compatibility": {
+    "defaultMessage": "Compatibilitate"
+  },
+  "version.section.content": {
+    "defaultMessage": "Conținut"
+  },
+  "version.section.content.search-placeholder": {
+    "defaultMessage": "Caută conținut..."
+  },
+  "version.section.dependencies.any-compatible-version": {
+    "defaultMessage": "Orice versiune compatibilă"
+  },
+  "version.section.dependencies.any-version": {
+    "defaultMessage": "Orice versiune"
+  },
+  "version.section.dependencies.unavailable-version": {
+    "defaultMessage": "Versiune indisponibilă"
+  },
+  "version.section.dependencies.unavailable-version.description": {
+    "defaultMessage": "E posibil ca această versiune să fi fost ștearsă sau să fie verificată de moderatori."
+  },
+  "version.section.dependencies.unavailable-version.description.required": {
+    "defaultMessage": "E posibil ca versiunea necesară să fi fost ștearsă sau să fie verificată de moderatori."
+  },
+  "version.section.files": {
+    "defaultMessage": "Fișiere"
+  },
+  "version.section.included-content": {
+    "defaultMessage": "Conținut inclus"
+  },
+  "version.section.known-incompatibilities": {
+    "defaultMessage": "Incompatibilități cunoscute"
+  },
+  "version.section.no-changes": {
+    "defaultMessage": "Nu s-a furnizat niciun jurnal de modificări."
+  },
+  "version.section.no-modpack-mod-loader": {
+    "defaultMessage": "Fără loader de moduri"
+  },
+  "version.section.optional-dependencies": {
+    "defaultMessage": "Dependențe opționale"
+  },
+  "version.section.required-content": {
+    "defaultMessage": "Conținut necesar"
+  },
+  "version.section.supplementary-resources": {
+    "defaultMessage": "Resurse suplimentare"
+  },
+  "version.supplementary-resources.file": {
+    "defaultMessage": "Fișier"
+  },
+  "version.supplementary-resources.size": {
+    "defaultMessage": "Dimensiune"
+  },
+  "version.supplementary-resources.type": {
+    "defaultMessage": "Tip"
+  },
+  "version.uploaded-by": {
+    "defaultMessage": "Încărcat de"
   }
 }

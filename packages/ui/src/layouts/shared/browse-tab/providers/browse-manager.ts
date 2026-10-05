@@ -5,12 +5,7 @@ import type { RouteLocationRaw } from 'vue-router'
 import { createContext } from '#ui/providers/create-context'
 import type { FilterType, FilterValue, SortType } from '#ui/utils/search'
 
-import type {
-	BrowseInstallContext,
-	BrowseSearchResponse,
-	CardAction,
-	ServerModpackContent,
-} from '../types'
+import type { BrowseInstallContext, BrowseSearchResponse, CardAction } from '../types'
 
 export interface BrowseManagerContext {
 	tags: Ref<{
@@ -19,26 +14,23 @@ export interface BrowseManagerContext {
 		categories: Labrinth.Tags.v2.Category[]
 	}>
 	projectType: Ref<string>
+	/** Optional display label when a provider calls this content type differently. */
+	projectTypeDisplayName?: ComputedRef<string | undefined>
 
 	query: Ref<string>
 	filters: ComputedRef<FilterType[]>
 	currentFilters: Ref<FilterValue[]>
 	toggledGroups: Ref<string[]>
 	overriddenProvidedFilterTypes: Ref<string[]>
-	serverFilterTypes: ComputedRef<FilterType[]>
-	serverCurrentFilters: Ref<FilterValue[]>
-	serverToggledGroups: Ref<string[]>
 	effectiveSortTypes: ComputedRef<readonly SortType[]>
 	effectiveCurrentSortType: Ref<SortType>
 	loading: Ref<boolean>
 	refreshing: Ref<boolean>
 	projectHits: ShallowRef<BrowseSearchResponse['projectHits']>
-	serverHits: ShallowRef<BrowseSearchResponse['serverHits']>
 	totalHits: Ref<number>
 	pageCount: ComputedRef<number>
 	maxResults: Ref<number>
 	currentPage: Ref<number>
-	isServerType: ComputedRef<boolean>
 	effectiveLayout: ComputedRef<'list' | 'grid'>
 	deprioritizedTags: ComputedRef<string[]>
 	excludeLoaders: ComputedRef<boolean>
@@ -50,9 +42,6 @@ export interface BrowseManagerContext {
 	applySavedAdvancedPrefs: () => void
 
 	getProjectLink: (result: Labrinth.Search.v3.ResultSearchProject) => string | RouteLocationRaw
-	getServerProjectLink: (
-		result: Labrinth.Search.v3.ResultSearchProject,
-	) => string | RouteLocationRaw
 	/** Overrides a project card's author link: undefined uses the default, '' shows no link. */
 	getAuthorLink?: (result: Labrinth.Search.v3.ResultSearchProject) => string | undefined
 
@@ -74,9 +63,6 @@ export interface BrowseManagerContext {
 	hideSelected?: Ref<boolean>
 	showHideSelected?: ComputedRef<boolean>
 	hideSelectedLabel?: ComputedRef<string>
-	serverOnly?: Ref<boolean>
-	showServerOnly?: ComputedRef<boolean>
-	serverOnlyLabel?: ComputedRef<string>
 	hiddenFilterTypes?: ComputedRef<string[]>
 	advancedFiltersCollapsed?: Ref<boolean>
 	dismissedPhotosensitivityFilterWarning?: Ref<boolean>
@@ -86,13 +72,7 @@ export interface BrowseManagerContext {
 	cycleDisplayMode?: () => void
 	maxResultsOptions?: ComputedRef<number[]>
 
-	serverPings?: Ref<Record<string, number | undefined>>
-	getServerModpackContent?: (
-		result: Labrinth.Search.v3.ResultSearchProject,
-	) => ServerModpackContent | undefined
-
 	onProjectHover?: (result: Labrinth.Search.v3.ResultSearchProject) => void
-	onServerProjectHover?: (result: Labrinth.Search.v3.ResultSearchProject) => void
 	onProjectHoverEnd?: () => void
 	onContextMenu?: (event: MouseEvent, result: Labrinth.Search.v3.ResultSearchProject) => void
 	offline?: Ref<boolean>

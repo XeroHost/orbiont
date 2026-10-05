@@ -20,22 +20,23 @@
 			</template>
 			<slot />
 			<label v-if="hasToType" for="confirmation">
-				<span>
-					To confirm you want to proceed, type
-					<span class="font-semibold text-contrast">{{ confirmationText }}</span> below:
-				</span>
+				<IntlFormatted :message-id="messages.typeToConfirm">
+					<template #confirmation-text>
+						<span class="font-semibold text-contrast">{{ confirmationText }}</span>
+					</template>
+				</IntlFormatted>
 			</label>
 			<Input
 				v-if="hasToType"
 				id="confirmation"
 				v-model="confirmation_typed"
-				placeholder="Type here..."
+				:placeholder="formatMessage(messages.typeHerePlaceholder)"
 				wrapper-class="max-w-[20rem]"
 			/>
 			<div class="flex gap-2 justify-end">
 				<Button @click="hide()">
 					<XIcon />
-					Cancel
+					{{ formatMessage(commonMessages.cancelButton) }}
 				</Button>
 				<Button
 					type="colored"
@@ -57,9 +58,26 @@ import { renderString } from '@orbiont/utils'
 import { computed, ref } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'
+import IntlFormatted from '#ui/components/base/IntlFormatted.vue'
+import { defineMessages, useVIntl } from '#ui/composables/i18n'
+import { commonMessages } from '#ui/utils/common-messages'
 
 import Input from '../base/inputs/Input.vue'
 import NewModal from './NewModal.vue'
+
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	typeToConfirm: {
+		id: 'modal.confirm.type-to-confirm',
+		defaultMessage:
+			'To confirm you want to proceed, type <confirmation-text></confirmation-text> below:',
+	},
+	typeHerePlaceholder: {
+		id: 'modal.confirm.type-here-placeholder',
+		defaultMessage: 'Type here...',
+	},
+})
 
 const props = defineProps({
 	confirmationText: {

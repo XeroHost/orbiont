@@ -19,7 +19,7 @@ import type { LanguageCoverageStats } from './language-settings-coverage'
 const { formatMessage } = useVIntl()
 
 const props = defineProps<{
-	product: 'app' | 'website'
+	product: 'app'
 	currentLocale: string
 	locales: LocaleDefinition[]
 	onLocaleChange: (locale: string) => void | Promise<void>
@@ -56,10 +56,6 @@ const messages = defineMessages({
 	appCoverageTooltip: {
 		id: 'settings.language.coverage.app-tooltip',
 		defaultMessage: 'About {percentage}% of {productName} is available in this language.',
-	},
-	websiteCoverageTooltip: {
-		id: 'settings.language.coverage.website-tooltip',
-		defaultMessage: 'About {percentage}% of the website is available in this language.',
 	},
 })
 
@@ -199,8 +195,7 @@ function getItemLabel(loc: LocaleInfo) {
 }
 
 function getCoverageTooltip(coverage: LanguageCoverageStats): string {
-	const message =
-		props.product === 'app' ? messages.appCoverageTooltip : messages.websiteCoverageTooltip
+	const message = messages.appCoverageTooltip
 
 	return formatMessage(message, {
 		percentage: coverage.percentage,

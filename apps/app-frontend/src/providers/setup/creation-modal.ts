@@ -7,6 +7,7 @@ import { provide, ref, useTemplateRef } from 'vue'
 import type { ComponentExposed } from 'vue-component-type-helpers'
 import { useRouter } from 'vue-router'
 
+import type OptifineImportModal from '@/components/ui/install_flow/OptifineImportModal.vue'
 import type UnknownPackWarningModal from '@/components/ui/install_flow/UnknownPackWarningModal.vue'
 import type ModpackAlreadyInstalledModal from '@/components/ui/modal/ModpackAlreadyInstalledModal.vue'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
@@ -21,6 +22,11 @@ import {
 } from '@/helpers/install'
 import { list } from '@/helpers/instance'
 import { get_loader_versions as getLoaderManifest } from '@/helpers/metadata.js'
+import {
+	openOptifineDownloads,
+	pickOptifineInstaller,
+	setOptifineImportHandler,
+} from '@/helpers/optifine'
 import type { InstanceIconConfig, InstanceLoader } from '@/helpers/types'
 
 export function setupCreationModal(
@@ -28,6 +34,11 @@ export function setupCreationModal(
 	getGeneratedIconConfig?: (iconPath: string) => InstanceIconConfig | null,
 ) {
 	const { handleError } = notificationManager
+	const optifineImportModal =
+		useTemplateRef<InstanceType<typeof OptifineImportModal>>('optifineImportModal')
+	setOptifineImportHandler(
+		(reference) => optifineImportModal.value?.show(reference) ?? Promise.resolve(null),
+	)
 	const router = useRouter()
 	const appSettings = useAppSettings()
 
@@ -166,6 +177,9 @@ export function setupCreationModal(
 			const name = config.instanceName.value.trim() || config.autoInstanceName.value
 
 			const job = await install_create_instance({
+				optifineInstallerPath: config.optifineEnabled.value
+					? config.optifineInstaller.value?.path
+					: null,
 				name,
 				gameVersion: config.selectedGameVersion.value!,
 				loader: loader as InstanceLoader,
@@ -219,6 +233,8 @@ export function setupCreationModal(
 	}
 
 	return {
+		openOptifineDownloads,
+		pickOptifineInstaller,
 		installationModal,
 		unknownPackWarningModal,
 		fetchExistingInstanceNames,

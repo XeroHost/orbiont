@@ -9,7 +9,6 @@ const SUPPORTED_PROJECT_TYPES = new Set([
 	'datapack',
 	'plugin',
 	'shader',
-	'server',
 	'project',
 ])
 

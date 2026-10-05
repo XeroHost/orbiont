@@ -2,20 +2,98 @@
   "action.no-permission": {
     "defaultMessage": "คุณไม่มีสิทธิ์"
   },
+  "app.appearance-settings.native-decorations.description": {
+    "defaultMessage": "ใช้แถบชื่อเรื่องและการควบคุมหน้าต่างของระบบปฏิบัติการ ต้องรีสตาร์ทแอป"
+  },
+  "app.appearance-settings.native-decorations.title": {
+    "defaultMessage": "กรอบหน้าต่างระบบ"
+  },
+  "badge.alpha": {
+    "defaultMessage": "Alpha"
+  },
   "badge.beta": {
     "defaultMessage": "เบต้า"
+  },
+  "badge.beta-release": {
+    "defaultMessage": "Beta Release"
   },
   "badge.new": {
     "defaultMessage": "ใหม่"
   },
+  "badge.release": {
+    "defaultMessage": "Release"
+  },
+  "browse.advanced-filters.apply-saved-preferences": {
+    "defaultMessage": "ใช้ค่าที่บันทึกไว้"
+  },
+  "browse.advanced-filters.link-overriding-preferences": {
+    "defaultMessage": "ตัวกรองของลิงก์นี้ต่างจากการยกเว้นขั้นสูงที่บันทึกไว้"
+  },
+  "browse.advanced-filters.persistence-note": {
+    "defaultMessage": "การยกเว้นขั้นสูงจะถูกบันทึกข้ามเซสชัน การเปิดลิงก์ที่แชร์พร้อมตัวกรองจะเขียนทับค่าเหล่านั้น"
+  },
+  "browse.display-mode.change": {
+    "defaultMessage": "เปลี่ยนโหมดแสดงผล"
+  },
+  "browse.filter-results": {
+    "defaultMessage": "กรองผลลัพธ์..."
+  },
+  "browse.no-results": {
+    "defaultMessage": "ไม่พบผลลัพธ์สำหรับคำค้น!"
+  },
+  "browse.offline-content": {
+    "defaultMessage": "ขณะนี้ออฟไลน์ เชื่อมต่ออินเทอร์เน็ตเพื่อเรียกดูเนื้อหา"
+  },
+  "browse.search.placeholder": {
+    "defaultMessage": "ค้นหา {projectType}..."
+  },
+  "browse.selected-projects-floating-bar.aria-label": {
+    "defaultMessage": "โปรเจกต์ที่เลือก"
+  },
+  "browse.selected-projects-floating-bar.install": {
+    "defaultMessage": "ติดตั้ง {count, plural, one {# โปรเจกต์} other {# โปรเจกต์}}"
+  },
+  "browse.selected-projects-floating-bar.selected-count": {
+    "defaultMessage": "{count, plural, one {เลือกแล้ว # โปรเจกต์} other {เลือกแล้ว # โปรเจกต์}}"
+  },
+  "browse.selected-projects-leave-modal.admonition-body": {
+    "defaultMessage": "เลือก {count, plural, one {# โปรเจกต์} other {# โปรเจกต์}} เพื่อติดตั้ง ติดตั้งตอนนี้หรือย้อนกลับโดยไม่ติดตั้ง"
+  },
+  "browse.selected-projects-leave-modal.admonition-header": {
+    "defaultMessage": "โปรเจกต์ที่เลือกยังไม่ได้ติดตั้ง"
+  },
+  "browse.selected-projects-leave-modal.discard": {
+    "defaultMessage": "ทิ้ง"
+  },
+  "browse.selected-projects-leave-modal.header": {
+    "defaultMessage": "โปรเจกต์ที่เลือกยังไม่ได้ติดตั้ง"
+  },
+  "browse.view-prefix": {
+    "defaultMessage": "มุมมอง:"
+  },
   "button.accept": {
     "defaultMessage": "ยอมรับ"
+  },
+  "button.add-another": {
+    "defaultMessage": "เพิ่มอีก"
+  },
+  "button.add-server-to-instance": {
+    "defaultMessage": "เพิ่มเซิร์ฟเวอร์ลงในอินสแตนซ์"
+  },
+  "button.affiliate-links": {
+    "defaultMessage": "ลิงก์พันธมิตร"
+  },
+  "button.analytics": {
+    "defaultMessage": "การวิเคราะห์"
   },
   "button.back": {
     "defaultMessage": "กลับ"
   },
   "button.cancel": {
     "defaultMessage": "ยกเลิก"
+  },
+  "button.change-version": {
+    "defaultMessage": "เปลี่ยนเวอร์ชัน"
   },
   "button.clear": {
     "defaultMessage": "ล้าง"
@@ -26,8 +104,17 @@
   "button.continue": {
     "defaultMessage": "ดำเนินการต่อ"
   },
+  "button.copy-filename": {
+    "defaultMessage": "คัดลอกชื่อไฟล์"
+  },
+  "button.copy-full-path": {
+    "defaultMessage": "คัดลอกเส้นทางเต็ม"
+  },
   "button.copy-id": {
     "defaultMessage": "คัดลอก ID"
+  },
+  "button.copy-link": {
+    "defaultMessage": "คัดลอกลิงก์"
   },
   "button.copy-permalink": {
     "defaultMessage": "คัดลอกลิงก์ถาวร"
@@ -35,11 +122,17 @@
   "button.create-a-project": {
     "defaultMessage": "สร้างโปรเจกต์"
   },
+  "button.decline": {
+    "defaultMessage": "ปฏิเสธ"
+  },
   "button.disable": {
     "defaultMessage": "ปิด"
   },
   "button.download": {
     "defaultMessage": "ดาวน์โหลด"
+  },
+  "button.download-files": {
+    "defaultMessage": "ดาวน์โหลดไฟล์"
   },
   "button.downloading": {
     "defaultMessage": "กำลังดาวน์โหลด"
@@ -50,14 +143,29 @@
   "button.enable": {
     "defaultMessage": "เปิด"
   },
+  "button.extract": {
+    "defaultMessage": "แยก"
+  },
   "button.follow": {
     "defaultMessage": "ติดตาม"
+  },
+  "button.hide-snapshots": {
+    "defaultMessage": "ซ่อน snapshot"
+  },
+  "button.i-understand": {
+    "defaultMessage": "เข้าใจแล้ว"
   },
   "button.install": {
     "defaultMessage": "ติดตั้ง"
   },
+  "button.max": {
+    "defaultMessage": "สูงสุด"
+  },
   "button.more-options": {
     "defaultMessage": "ตัวเลือกเพิ่มเติม"
+  },
+  "button.move": {
+    "defaultMessage": "ย้าย"
   },
   "button.next": {
     "defaultMessage": "ถัดไป"
@@ -65,20 +173,50 @@
   "button.open-folder": {
     "defaultMessage": "เปิดโฟลเดอร์"
   },
+  "button.open-in-browser": {
+    "defaultMessage": "เปิดในเบราว์เซอร์"
+  },
+  "button.open-in-folder": {
+    "defaultMessage": "เปิดในโฟลเดอร์"
+  },
+  "button.open-in-modrinth": {
+    "defaultMessage": "เปิดใน Modrinth"
+  },
   "button.play": {
     "defaultMessage": "เล่น"
   },
   "button.refresh": {
     "defaultMessage": "รีเฟรช"
   },
+  "button.reinstall-modpack": {
+    "defaultMessage": "ติดตั้งม็อดแพ็กใหม่"
+  },
+  "button.remove": {
+    "defaultMessage": "ลบ"
+  },
   "button.remove-image": {
     "defaultMessage": "ลบรูป"
+  },
+  "button.rename": {
+    "defaultMessage": "เปลี่ยนชื่อ"
+  },
+  "button.repair": {
+    "defaultMessage": "ซ่อมแซม"
+  },
+  "button.repairing": {
+    "defaultMessage": "กำลังซ่อมแซม..."
   },
   "button.report": {
     "defaultMessage": "รายงาน"
   },
   "button.reset": {
     "defaultMessage": "คืนค่า"
+  },
+  "button.reset-server": {
+    "defaultMessage": "รีเซ็ตเซิร์ฟเวอร์"
+  },
+  "button.retry": {
+    "defaultMessage": "ลองอีกครั้ง"
   },
   "button.save": {
     "defaultMessage": "บันทึก"
@@ -88,6 +226,12 @@
   },
   "button.saving": {
     "defaultMessage": "บันทึก"
+  },
+  "button.show-all-versions": {
+    "defaultMessage": "แสดงเวอร์ชันทั้งหมด"
+  },
+  "button.show-file": {
+    "defaultMessage": "แสดงไฟล์"
   },
   "button.sign-in": {
     "defaultMessage": "เข้าสู่ระบบ"
@@ -101,11 +245,452 @@
   "button.stop": {
     "defaultMessage": "หยุด"
   },
+  "button.switch-to-version": {
+    "defaultMessage": "เปลี่ยนเป็นเวอร์ชันนี้"
+  },
+  "button.switch-version": {
+    "defaultMessage": "เปลี่ยนเวอร์ชัน"
+  },
   "button.unfollow": {
     "defaultMessage": "เลิกติดตาม"
   },
+  "button.unlink-modpack": {
+    "defaultMessage": "ยกเลิกเชื่อมม็อดแพ็ก"
+  },
+  "button.update": {
+    "defaultMessage": "อัปเดต"
+  },
   "button.upload-image": {
     "defaultMessage": "อัพโหลดภาพ"
+  },
+  "card.toggle-details": {
+    "defaultMessage": "สลับรายละเอียด"
+  },
+  "collections.label.private": {
+    "defaultMessage": "ส่วนตัว"
+  },
+  "console.actions.collapse": {
+    "defaultMessage": "ยุบ"
+  },
+  "console.actions.expand": {
+    "defaultMessage": "ขยาย"
+  },
+  "console.actions.share": {
+    "defaultMessage": "แชร์"
+  },
+  "console.command-input-disabled": {
+    "defaultMessage": "ปิดการป้อนคำสั่ง"
+  },
+  "console.crash.problems-detected": {
+    "defaultMessage": "{count, plural, one {พบ # ปัญหา} other {พบ # ปัญหา}}"
+  },
+  "console.delete-log-confirm-body": {
+    "defaultMessage": "การลบไฟล์บันทึกนี้ไม่สามารถย้อนกลับได้ แน่ใจหรือไม่ว่าต้องการดำเนินการต่อ?"
+  },
+  "console.delete-log-failed-title": {
+    "defaultMessage": "ลบไฟล์บันทึกไม่สำเร็จ"
+  },
+  "console.delete-log-file-header": {
+    "defaultMessage": "ลบไฟล์บันทึก"
+  },
+  "console.delete-log-irreversible-header": {
+    "defaultMessage": "การดำเนินการนี้ไม่สามารถย้อนกลับได้"
+  },
+  "console.search-logs-placeholder": {
+    "defaultMessage": "ค้นหาบันทึก"
+  },
+  "console.server-not-running": {
+    "defaultMessage": "เซิร์ฟเวอร์ไม่ได้ทำงาน"
+  },
+  "console.share-logs-failed-title": {
+    "defaultMessage": "แชร์บันทึกไม่สำเร็จ"
+  },
+  "console.share-logs-header": {
+    "defaultMessage": "แชร์บันทึก"
+  },
+  "console.unknown-error": {
+    "defaultMessage": "ข้อผิดพลาดที่ไม่รู้จัก"
+  },
+  "content-type.content.lowercase": {
+    "defaultMessage": "เนื้อหา"
+  },
+  "content-type.item.lowercase": {
+    "defaultMessage": "{count, plural, one {รายการ} other {รายการ}}"
+  },
+  "content.card.frozen": {
+    "defaultMessage": "โปรเจกต์นี้ถูกล็อกไว้ที่เวอร์ชันปัจจุบันจนกว่าจะเลิกตรึง"
+  },
+  "content.card.select-project": {
+    "defaultMessage": "เลือก {project}"
+  },
+  "content.card.sync-update-pending": {
+    "defaultMessage": "สำเนาที่ซิงก์บางรายการกำลังรอการเปลี่ยนแปลง อินสแตนซ์อาจกำลังทำงาน มีเวอร์ชันที่ตรึงหรือไม่เข้ากัน หรือมีสำเนาของตัวเองแล้ว"
+  },
+  "content.card.synced": {
+    "defaultMessage": "ซิงก์ในทุกอินสแตนซ์แล้ว"
+  },
+  "content.card.uploaded": {
+    "defaultMessage": "อัปโหลดแล้ว"
+  },
+  "content.confirm-bulk-update.admonition-body": {
+    "defaultMessage": "แน่ใจหรือไม่ว่าต้องการอัปเดต {count, plural, one {# โปรเจกต์} other {# โปรเจกต์}} เป็นเวอร์ชันล่าสุดที่เข้ากันได้? แนะนำให้อัปเดตเนื้อหาทีละรายการ"
+  },
+  "content.confirm-bulk-update.admonition-header": {
+    "defaultMessage": "คำเตือนการอัปเดต"
+  },
+  "content.confirm-bulk-update.header": {
+    "defaultMessage": "อัปเดตโปรเจกต์"
+  },
+  "content.confirm-bulk-update.shift-click-hint": {
+    "defaultMessage": "กด Shift ค้างขณะคลิก \"อัปเดตทั้งหมด\" เพื่อข้ามการยืนยันนี้ในครั้งต่อไป"
+  },
+  "content.confirm-bulk-update.update-button": {
+    "defaultMessage": "อัปเดต {count, plural, one {# โปรเจกต์} other {# โปรเจกต์}}"
+  },
+  "content.confirm-deletion.admonition-body": {
+    "defaultMessage": "การลบม็อดอาจส่งผลถาวรต่อโลก และอาจทำให้เนื้อหาหายหรือเกิดปัญหาที่ไม่คาดคิดเมื่อโหลดอีกครั้ง"
+  },
+  "content.confirm-deletion.admonition-header": {
+    "defaultMessage": "คำเตือนการลบ"
+  },
+  "content.confirm-deletion.delete-button": {
+    "defaultMessage": "ลบ {count, number} {itemType}"
+  },
+  "content.confirm-deletion.header": {
+    "defaultMessage": "ลบ {itemType}"
+  },
+  "content.confirm-disable.header": {
+    "defaultMessage": "ปิด {itemType}"
+  },
+  "content.confirm-modpack-update.admonition-body": {
+    "defaultMessage": "{action, select, downgrade {การดาวน์เกรด} other {การอัปเดต}} อาจทำให้เกิดปัญหาความเข้ากันได้ ม็อดหรือเนื้อหาที่เพิ่มบนม็อดแพ็กจะถูกเก็บไว้ แต่อาจไม่เข้ากันกับเวอร์ชันใหม่"
+  },
+  "content.confirm-modpack-update.admonition-header": {
+    "defaultMessage": "คำเตือน{action, select, downgrade {การดาวน์เกรด} other {การอัปเดต}}"
+  },
+  "content.confirm-modpack-update.confirm-button": {
+    "defaultMessage": "{action, select, downgrade {ดาวน์เกรด} other {อัปเดต}}ม็อดแพ็ก"
+  },
+  "content.confirm-modpack-update.header": {
+    "defaultMessage": "{action, select, downgrade {ดาวน์เกรด} other {อัปเดต}}ม็อดแพ็ก"
+  },
+  "content.confirm-unlink.admonition-body": {
+    "defaultMessage": "ม็อดและเนื้อหาจะถูกรวมกับสิ่งที่เพิ่มบนม็อดแพ็ก และจะไม่ได้รับการอัปเดตอีก"
+  },
+  "content.confirm-unlink.admonition-header": {
+    "defaultMessage": "กำลังยกเลิกเชื่อมม็อดแพ็ก"
+  },
+  "content.confirm-unlink.header": {
+    "defaultMessage": "ยกเลิกเชื่อมม็อดแพ็ก"
+  },
+  "content.confirm-unlink.unlink-button": {
+    "defaultMessage": "ยกเลิกเชื่อม"
+  },
+  "content.dependency-warning.admonition-header": {
+    "defaultMessage": "เนื้อหานี้จำเป็นสำหรับเนื้อหาอื่น"
+  },
+  "content.dependency-warning.affected-dependents-label": {
+    "defaultMessage": "{count, plural, one {โปรเจกต์ที่ได้รับผลกระทบ # รายการ} other {โปรเจกต์ที่ได้รับผลกระทบ # รายการ}}"
+  },
+  "content.dependency-warning.bulk-admonition-body": {
+    "defaultMessage": "โปรเจกต์ที่เลือกบางรายการถูกติดตั้งเป็น dependency การลบอาจทำให้{context}เสียหายหรือทำให้เนื้อหาที่ขึ้นกันโหลดไม่ถูกต้อง"
+  },
+  "content.dependency-warning.context.instance": {
+    "defaultMessage": "อินสแตนซ์"
+  },
+  "content.dependency-warning.context.server": {
+    "defaultMessage": "เซิร์ฟเวอร์"
+  },
+  "content.dependency-warning.delete-anyway-button": {
+    "defaultMessage": "ลบอยู่ดี"
+  },
+  "content.dependency-warning.delete-many-anyway-button": {
+    "defaultMessage": "ลบ {count, number} {itemType} อยู่ดี"
+  },
+  "content.dependency-warning.deleting-label": {
+    "defaultMessage": "กำลังลบ"
+  },
+  "content.dependency-warning.disable-dependents-label": {
+    "defaultMessage": "ปิดรายการที่ขึ้นกันหลังลบ"
+  },
+  "content.dependency-warning.effect-dependent-content": {
+    "defaultMessage": "เนื้อหาที่ขึ้นกันอาจโหลดไม่สำเร็จหรือปิดตัวเอง"
+  },
+  "content.dependency-warning.effect-instance": {
+    "defaultMessage": "{context} อาจแครช เปิดไม่ขึ้น หรือทำงานผิดปกติ"
+  },
+  "content.dependency-warning.header": {
+    "defaultMessage": "คำเตือน dependency"
+  },
+  "content.dependency-warning.single-admonition-body": {
+    "defaultMessage": "{project} ถูกติดตั้งเป็น dependency การลบอาจทำให้{context}เสียหายหรือทำให้เนื้อหาที่ขึ้นกันโหลดไม่ถูกต้อง"
+  },
+  "content.dependency-warning.what-happens-label": {
+    "defaultMessage": "จะเกิดอะไรขึ้น?"
+  },
+  "content.diff-modal.added-count": {
+    "defaultMessage": "เพิ่ม {count} รายการ"
+  },
+  "content.diff-modal.config-files-updated": {
+    "defaultMessage": "ไฟล์ตั้งค่าที่เปลี่ยน"
+  },
+  "content.diff-modal.diff-type.added": {
+    "defaultMessage": "เพิ่ม (dependency)"
+  },
+  "content.diff-modal.diff-type.removed": {
+    "defaultMessage": "ปิด"
+  },
+  "content.diff-modal.diff-type.removed-disabled": {
+    "defaultMessage": "ลบ (ปิดอยู่)"
+  },
+  "content.diff-modal.diff-type.updated": {
+    "defaultMessage": "อัปเดต"
+  },
+  "content.diff-modal.dont-install": {
+    "defaultMessage": "ไม่ติดตั้ง"
+  },
+  "content.diff-modal.external-diff-type.added": {
+    "defaultMessage": "เพิ่ม"
+  },
+  "content.diff-modal.external-diff-type.removed": {
+    "defaultMessage": "ลบ"
+  },
+  "content.diff-modal.external-diff-type.updated": {
+    "defaultMessage": "อัปเดต"
+  },
+  "content.diff-modal.file-count": {
+    "defaultMessage": "{count, plural, one {# ไฟล์} other {# ไฟล์}}"
+  },
+  "content.diff-modal.game-version-updated": {
+    "defaultMessage": "เวอร์ชันเกม"
+  },
+  "content.diff-modal.install-anyway": {
+    "defaultMessage": "ติดตั้งอยู่ดี"
+  },
+  "content.diff-modal.loader-updated": {
+    "defaultMessage": "Loader"
+  },
+  "content.diff-modal.modpack-linked": {
+    "defaultMessage": "เชื่อมม็อดแพ็กแล้ว"
+  },
+  "content.diff-modal.modpack-unlinked": {
+    "defaultMessage": "ยกเลิกเชื่อมม็อดแพ็กแล้ว"
+  },
+  "content.diff-modal.modpack-updated": {
+    "defaultMessage": "อัปเดตม็อดแพ็กแล้ว"
+  },
+  "content.diff-modal.no-content-changes": {
+    "defaultMessage": "ไม่มีการเปลี่ยนเนื้อหา"
+  },
+  "content.diff-modal.removed-count": {
+    "defaultMessage": "ลบ {count} รายการ"
+  },
+  "content.diff-modal.removed-disabled-count": {
+    "defaultMessage": "ลบ {count} รายการ (ปิดอยู่)"
+  },
+  "content.diff-modal.reviewed-files": {
+    "defaultMessage": "ไฟล์ที่ไม่ได้เผยแพร่บน Modrinth ไม่ได้ผ่านการตรวจสอบ"
+  },
+  "content.diff-modal.unknown-content-body": {
+    "defaultMessage": "เนื้อหาบางส่วนบนเซิร์ฟเวอร์ไม่สามารถวิเคราะห์ได้และอาจได้รับผลกระทบจากการเปลี่ยนนี้"
+  },
+  "content.diff-modal.unknown-files-description": {
+    "defaultMessage": "อัปเดตนี้มีไฟล์ที่ไม่ได้เผยแพร่บน Modrinth แนะนำให้ติดตั้งเฉพาะไฟล์จากแหล่งที่ไว้ใจเท่านั้น"
+  },
+  "content.diff-modal.unknown-files-warning": {
+    "defaultMessage": "คำเตือนไฟล์ที่ไม่รู้จัก"
+  },
+  "content.diff-modal.unknown-project": {
+    "defaultMessage": "ไม่รู้จัก"
+  },
+  "content.diff-modal.updated-count": {
+    "defaultMessage": "อัปเดต {count} รายการ"
+  },
+  "content.filter.disabled": {
+    "defaultMessage": "ปิด"
+  },
+  "content.filter.enabled": {
+    "defaultMessage": "เปิด"
+  },
+  "content.filter.updates": {
+    "defaultMessage": "อัปเดต"
+  },
+  "content.filter.warnings": {
+    "defaultMessage": "คำเตือน"
+  },
+  "content.inline-backup.backing-up": {
+    "defaultMessage": "กำลังสร้างข้อมูลสำรอง..."
+  },
+  "content.inline-backup.backup-complete": {
+    "defaultMessage": "สร้างข้อมูลสำรองสำเร็จ"
+  },
+  "content.inline-backup.backup-failed": {
+    "defaultMessage": "สร้างข้อมูลสำรองไม่สำเร็จ ยังดำเนินการต่อได้"
+  },
+  "content.inline-backup.create-backup": {
+    "defaultMessage": "สร้างข้อมูลสำรอง"
+  },
+  "content.inline-backup.instance-label": {
+    "defaultMessage": "อินสแตนซ์"
+  },
+  "content.inline-backup.shift-click-hint": {
+    "defaultMessage": "กด Shift ค้างขณะคลิกเพื่อข้ามการยืนยัน"
+  },
+  "content.inline-backup.warning-body": {
+    "defaultMessage": "แนะนำให้สร้างข้อมูลสำรองก่อนดำเนินการ เพื่อกู้คืน{type}ได้หากมีปัญหา"
+  },
+  "content.managed-card.modpack-content": {
+    "defaultMessage": "เนื้อม็อดแพ็ก"
+  },
+  "content.managed-card.provided-by": {
+    "defaultMessage": "จัดหาโดย"
+  },
+  "content.managed-card.server-suffix": {
+    "defaultMessage": "เซิร์ฟเวอร์"
+  },
+  "content.managed-card.settings": {
+    "defaultMessage": "การตั้งค่าการติดตั้ง"
+  },
+  "content.managed-card.shared-content": {
+    "defaultMessage": "เนื้อหาร่วม"
+  },
+  "content.managed-card.summary.installing": {
+    "defaultMessage": "กำลังติดตั้งเนื้อหา..."
+  },
+  "content.managed-card.summary.loading": {
+    "defaultMessage": "กำลังโหลดสรุปเนื้อหาที่จัดการ"
+  },
+  "content.managed-card.summary.no-provided-content": {
+    "defaultMessage": "ไม่มีเนื้อหาที่จัดหา"
+  },
+  "content.managed-card.switch-version": {
+    "defaultMessage": "เปลี่ยนเวอร์ชัน"
+  },
+  "content.managed-card.synced": {
+    "defaultMessage": "ซิงก์ {time}"
+  },
+  "content.managed-card.update-available": {
+    "defaultMessage": "มีอัปเดต"
+  },
+  "content.managed-card.updated": {
+    "defaultMessage": "อัปเดต {time}"
+  },
+  "content.managed-card.updating": {
+    "defaultMessage": "กำลังอัปเดต..."
+  },
+  "content.managed-card.view-content": {
+    "defaultMessage": "ดูเนื้อหา"
+  },
+  "content.metadata-filter.author": {
+    "defaultMessage": "ผู้เขียน"
+  },
+  "content.metadata-filter.environment": {
+    "defaultMessage": "สภาพแวดล้อม"
+  },
+  "content.metadata-filter.open-source": {
+    "defaultMessage": "โอเพนซอร์ส"
+  },
+  "content.metadata-filter.shared-content": {
+    "defaultMessage": "เนื้อหาร่วม"
+  },
+  "content.metadata-filter.source.external": {
+    "defaultMessage": "ภายนอก"
+  },
+  "content.metadata-filter.state": {
+    "defaultMessage": "สถานะ"
+  },
+  "content.metadata-filter.state.disabled": {
+    "defaultMessage": "ปิด"
+  },
+  "content.metadata-filter.state.enabled": {
+    "defaultMessage": "เปิด"
+  },
+  "content.metadata-filter.update.available": {
+    "defaultMessage": "มีอัปเดต"
+  },
+  "content.metadata-filter.warning.client-depends": {
+    "defaultMessage": "ไคลเอนต์ขึ้นกับไฟล์"
+  },
+  "content.metadata-filter.warning.client-only": {
+    "defaultMessage": "เนื้อหาเฉพาะไคลเอนต์"
+  },
+  "content.metadata-filter.warning.client-retained": {
+    "defaultMessage": "เก็บไฟล์ไคลเอนต์ไว้"
+  },
+  "content.metadata-filter.warning.none": {
+    "defaultMessage": "ไม่มีคำเตือน"
+  },
+  "content.metadata-filter.warnings": {
+    "defaultMessage": "คำเตือน"
+  },
+  "content.page-layout.additional-content": {
+    "defaultMessage": "เนื้อหาเพิ่มเติม"
+  },
+  "content.page-layout.browse-content": {
+    "defaultMessage": "เรียกดูเนื้อหา"
+  },
+  "content.page-layout.empty.hint": {
+    "defaultMessage": "เรียกดูหรืออัปโหลด {contentType} เพื่อเริ่มต้น"
+  },
+  "content.page-layout.empty.modpack-hint": {
+    "defaultMessage": "เพิ่มเนื้อหาเพิ่มเติมบนม็อดแพ็กนี้"
+  },
+  "content.page-layout.empty.no-content-installed": {
+    "defaultMessage": "ยังไม่ได้ติดตั้งเนื้อหา"
+  },
+  "content.page-layout.empty.no-extra-content-installed": {
+    "defaultMessage": "ยังไม่ได้ติดตั้งเนื้อหาเพิ่มเติม"
+  },
+  "content.page-layout.failed-to-load": {
+    "defaultMessage": "โหลดเนื้อหาไม่สำเร็จ"
+  },
+  "content.page-layout.filter.add": {
+    "defaultMessage": "ตัวกรอง"
+  },
+  "content.page-layout.filter.author-count": {
+    "defaultMessage": "{count, plural, one {# ผู้เขียน} other {# ผู้เขียน}}"
+  },
+  "content.page-layout.loading": {
+    "defaultMessage": "กำลังโหลดเนื้อหา..."
+  },
+  "content.page-layout.no-content-found": {
+    "defaultMessage": "ไม่พบเนื้อหา"
+  },
+  "content.page-layout.please-wait": {
+    "defaultMessage": "โปรดรอ"
+  },
+  "content.page-layout.search-placeholder": {
+    "defaultMessage": "ค้นหา {count, number} {contentType}..."
+  },
+  "content.page-layout.share.file-names": {
+    "defaultMessage": "ชื่อไฟล์"
+  },
+  "content.page-layout.share.label": {
+    "defaultMessage": "แชร์"
+  },
+  "content.page-layout.share.markdown-links": {
+    "defaultMessage": "ลิงก์ Markdown"
+  },
+  "content.page-layout.share.project-links": {
+    "defaultMessage": "ลิงก์โปรเจกต์"
+  },
+  "content.page-layout.share.project-names": {
+    "defaultMessage": "ชื่อโปรเจกต์"
+  },
+  "content.page-layout.sort.alphabetical-ascending": {
+    "defaultMessage": "ชื่อ (ก-ฮ)"
+  },
+  "content.page-layout.sort.alphabetical-descending": {
+    "defaultMessage": "ชื่อ (ฮ-ก)"
+  },
+  "content.page-layout.sort.date-added-newest": {
+    "defaultMessage": "ใหม่สุดก่อน"
+  },
+  "content.page-layout.sort.date-added-oldest": {
+    "defaultMessage": "เก่าสุดก่อน"
+  },
+  "content.page-layout.sort.label": {
+    "defaultMessage": "เรียงตาม {mode}"
   },
   "content.page-layout.update-all": {
     "defaultMessage": "อัปเดตทั้งหมด"
@@ -113,8 +698,17 @@
   "content.page-layout.upload-files": {
     "defaultMessage": "อัปโหลดไฟล์"
   },
+  "content.selection-bar.all-already-disabled": {
+    "defaultMessage": "เนื้อหาที่เลือกทั้งหมดถูกปิดอยู่แล้ว"
+  },
+  "content.selection-bar.all-already-enabled": {
+    "defaultMessage": "เนื้อหาที่เลือกทั้งหมดถูกเปิดอยู่แล้ว"
+  },
   "content.selection-bar.bulk.deleting": {
     "defaultMessage": "กำลังลบ {progress}/{total}{contentType}..."
+  },
+  "content.selection-bar.bulk.deleting-count": {
+    "defaultMessage": "กำลังลบ {count, number} {contentType}"
   },
   "content.selection-bar.bulk.deleting-waiting": {
     "defaultMessage": "กำลังลบ {contentType}..."
@@ -122,11 +716,17 @@
   "content.selection-bar.bulk.disabling": {
     "defaultMessage": "กำลังปิดการใช้งาน {progress}/{total} {contentType}..."
   },
+  "content.selection-bar.bulk.disabling-count": {
+    "defaultMessage": "กำลังปิด {count, number} {contentType}"
+  },
   "content.selection-bar.bulk.disabling-waiting": {
     "defaultMessage": "กำลังปิดการใช้งาน {contentType}..."
   },
   "content.selection-bar.bulk.enabling": {
     "defaultMessage": "กำลังเปิดการใช้งาน {progress}/{total} {contentType}..."
+  },
+  "content.selection-bar.bulk.enabling-count": {
+    "defaultMessage": "กำลังเปิด {count, number} {contentType}"
   },
   "content.selection-bar.bulk.enabling-waiting": {
     "defaultMessage": "กำลังเปิดการใช้งาน {contentType}..."
@@ -134,17 +734,530 @@
   "content.selection-bar.bulk.updating": {
     "defaultMessage": "กำลังอัปเดต {progress}/{total} {contentType}..."
   },
+  "content.selection-bar.bulk.updating-count": {
+    "defaultMessage": "กำลังอัปเดต {count, number} {contentType}"
+  },
   "content.selection-bar.bulk.updating-waiting": {
     "defaultMessage": "กำลังอัปเดต {contentType}..."
+  },
+  "content.selection-bar.selected-count": {
+    "defaultMessage": "เลือก {count, number} {contentType} แล้ว"
   },
   "content.selection-bar.selected-count-simple": {
     "defaultMessage": "{count, number} เลือกแล้ว"
   },
+  "creation-flow.button.create-instance": {
+    "defaultMessage": "สร้างอินสแตนซ์"
+  },
+  "creation-flow.button.import": {
+    "defaultMessage": "นำเข้า"
+  },
+  "creation-flow.button.import-instances": {
+    "defaultMessage": "นำเข้า {count, plural, one {# อินสแตนซ์} other {# อินสแตนซ์}}"
+  },
+  "creation-flow.modal.custom-setup.game-version.placeholder": {
+    "defaultMessage": "เลือกเวอร์ชันเกม"
+  },
+  "creation-flow.modal.custom-setup.game-version.search-placeholder": {
+    "defaultMessage": "ค้นหาเวอร์ชันเกม..."
+  },
+  "creation-flow.modal.custom-setup.icon.customize": {
+    "defaultMessage": "ปรับแต่ง"
+  },
+  "creation-flow.modal.custom-setup.icon.randomize": {
+    "defaultMessage": "สุ่ม"
+  },
+  "creation-flow.modal.custom-setup.icon.select": {
+    "defaultMessage": "อัปโหลด"
+  },
+  "creation-flow.modal.custom-setup.loader-version-type.latest": {
+    "defaultMessage": "ล่าสุด"
+  },
+  "creation-flow.modal.custom-setup.loader-version-type.other": {
+    "defaultMessage": "อื่น"
+  },
+  "creation-flow.modal.custom-setup.loader-version-type.stable": {
+    "defaultMessage": "เสถียร"
+  },
+  "creation-flow.modal.custom-setup.loader-version.label": {
+    "defaultMessage": "เวอร์ชัน Loader"
+  },
+  "creation-flow.modal.custom-setup.loader-version.placeholder": {
+    "defaultMessage": "เลือกเวอร์ชัน Loader"
+  },
+  "creation-flow.modal.custom-setup.loader-version.search-placeholder": {
+    "defaultMessage": "ค้นหาเวอร์ชัน Loader..."
+  },
+  "creation-flow.modal.custom-setup.loader.label": {
+    "defaultMessage": "Loader"
+  },
+  "creation-flow.modal.custom-setup.name.label": {
+    "defaultMessage": "ชื่อ"
+  },
+  "creation-flow.modal.custom-setup.name.placeholder": {
+    "defaultMessage": "ป้อนชื่ออินสแตนซ์"
+  },
+  "creation-flow.modal.custom-setup.options.no-versions-available": {
+    "defaultMessage": "ไม่มีเวอร์ชันที่ใช้ได้"
+  },
+  "creation-flow.modal.import-instance.action.add": {
+    "defaultMessage": "เพิ่ม"
+  },
+  "creation-flow.modal.import-instance.custom-launcher.name": {
+    "defaultMessage": "กำหนดเอง ({pathName})"
+  },
+  "creation-flow.modal.import-instance.detecting-launcher-instances": {
+    "defaultMessage": "กำลังตรวจหาอินสแตนซ์ของลอนเชอร์..."
+  },
+  "creation-flow.modal.import-instance.launcher-instances.title": {
+    "defaultMessage": "อินสแตนซ์ของลอนเชอร์"
+  },
+  "creation-flow.modal.import-instance.launcher-path.add": {
+    "defaultMessage": "เพิ่มเส้นทางลอนเชอร์"
+  },
+  "creation-flow.modal.import-instance.launcher-path.browse": {
+    "defaultMessage": "เรียกดูเส้นทางลอนเชอร์"
+  },
+  "creation-flow.modal.import-instance.launcher-path.placeholder": {
+    "defaultMessage": "เส้นทางไปยังลอนเชอร์..."
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.text": {
+    "defaultMessage": "ไม่พบอินสแตนซ์ที่นำเข้าได้ในเส้นทางที่ระบุ"
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.title": {
+    "defaultMessage": "ไม่พบอินสแตนซ์"
+  },
+  "creation-flow.modal.import-instance.search.placeholder": {
+    "defaultMessage": "ค้นหาชื่ออินสแตนซ์"
+  },
+  "creation-flow.modal.import-instance.selection.clear-all": {
+    "defaultMessage": "ล้างทั้งหมด"
+  },
+  "creation-flow.modal.project.known-project.prompt": {
+    "defaultMessage": "รู้แล้วว่าอยากเล่นอะไร?"
+  },
+  "creation-flow.modal.project.search.create-instance": {
+    "defaultMessage": "สร้างอินสแตนซ์"
+  },
+  "creation-flow.modal.project.search.install-modpack": {
+    "defaultMessage": "ติดตั้งม็อดแพ็ก"
+  },
+  "creation-flow.modal.project.search.no-results": {
+    "defaultMessage": "ไม่พบผลลัพธ์"
+  },
+  "creation-flow.modal.project.search.placeholder": {
+    "defaultMessage": "ค้นหาม็อด ม็อดแพ็ก และอื่น ๆ..."
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.description": {
+    "defaultMessage": "เริ่มจากศูนย์โดยเลือก loader และเวอร์ชันเกม"
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.title": {
+    "defaultMessage": "ตั้งค่าเอง"
+  },
+  "creation-flow.modal.setup-type.option.import-instance.description": {
+    "defaultMessage": "นำเข้าอินสแตนซ์จาก Prism, CurseForge หรืออื่นที่คล้ายกัน"
+  },
+  "creation-flow.modal.setup-type.option.import-instance.title": {
+    "defaultMessage": "นำเข้าอินสแตนซ์"
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.description": {
+    "defaultMessage": "เลือกโปรเจกต์แล้วจะใช้เวอร์ชันล่าสุด"
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.title": {
+    "defaultMessage": "เริ่มจากม็อดหรือม็อดแพ็ก"
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.supported-formats-description": {
+    "defaultMessage": "นำเข้าไฟล์ .orbpack, .mrpack ของ Modrinth หรือ .zip ของ CurseForge จากอุปกรณ์"
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.title": {
+    "defaultMessage": "อัปโหลดม็อดแพ็ก"
+  },
+  "creation-flow.modal.setup-type.title.instance": {
+    "defaultMessage": "เลือกประเภทอินสแตนซ์"
+  },
+  "creation-flow.optifine.description": {
+    "defaultMessage": "ไม่บังคับ เลือกตัวติดตั้งทางการแล้วลอนเชอร์จะตั้งค่าในอินสแตนซ์นี้"
+  },
+  "creation-flow.optifine.download": {
+    "defaultMessage": "ดาวน์โหลดทางการ"
+  },
+  "creation-flow.optifine.name": {
+    "defaultMessage": "OptiFine"
+  },
+  "creation-flow.optifine.none": {
+    "defaultMessage": "ไม่มี"
+  },
+  "creation-flow.optifine.optimization": {
+    "defaultMessage": "การปรับประสิทธิภาพ"
+  },
+  "creation-flow.optifine.required": {
+    "defaultMessage": "เลือก JAR ของ OptiFine ทางการสำหรับ Minecraft {gameVersion} เพื่อดำเนินการต่อ"
+  },
+  "creation-flow.optifine.select": {
+    "defaultMessage": "เลือก JAR"
+  },
+  "creation-flow.optifine.selected": {
+    "defaultMessage": "OptiFine {version} • Minecraft {gameVersion}"
+  },
+  "creation-flow.optifine.validating": {
+    "defaultMessage": "กำลังตรวจสอบตัวติดตั้ง…"
+  },
+  "creation-flow.optifine.vanilla-only": {
+    "defaultMessage": "การติดตั้ง OptiFine พร้อมใช้สำหรับอินสแตนซ์ Vanilla ในขณะนี้"
+  },
+  "creation-flow.title.create-instance": {
+    "defaultMessage": "สร้างอินสแตนซ์"
+  },
+  "creation-flow.title.import-instance": {
+    "defaultMessage": "นำเข้าอินสแตนซ์"
+  },
+  "empty-state.upload-versions.description": {
+    "defaultMessage": "กลับมาเมื่ออัปโหลดเวอร์ชันแล้ว"
+  },
+  "external-project-license-status.no": {
+    "defaultMessage": "ไม่"
+  },
+  "external-project-license-status.permanent-no": {
+    "defaultMessage": "ไม่อย่างถาวร"
+  },
+  "external-project-license-status.unidentified": {
+    "defaultMessage": "ไม่ระบุ"
+  },
+  "external-project-license-status.with-attribution": {
+    "defaultMessage": "พร้อมระบุที่มา"
+  },
+  "external-project-license-status.with-attribution-and-source": {
+    "defaultMessage": "พร้อมระบุที่มาและแหล่งที่มา"
+  },
+  "external-project-license-status.yes": {
+    "defaultMessage": "ใช่"
+  },
+  "file-button.file-too-large.description": {
+    "defaultMessage": "ไฟล์ {filename} ใหญ่เกินไป ขนาดไฟล์สูงสุดคือ {maxSize}"
+  },
+  "file-button.file-too-large.title": {
+    "defaultMessage": "ไฟล์ใหญ่เกินไป"
+  },
+  "files.conflict-modal.header": {
+    "defaultMessage": "สรุปการแยกไฟล์"
+  },
+  "files.conflict-modal.overwrite-button": {
+    "defaultMessage": "เขียนทับ"
+  },
+  "files.conflict-modal.overwrite-file-label": {
+    "defaultMessage": "จะเขียนทับ <file-path>{path}</file-path>"
+  },
+  "files.conflict-modal.overwrite-many-warning": {
+    "defaultMessage": "ไฟล์กว่า 100 ไฟล์จะถูกเขียนทับหากดำเนินการแยกต่อ นี่คือบางส่วน"
+  },
+  "files.conflict-modal.overwrite-warning": {
+    "defaultMessage": "ไฟล์ {count} ไฟล์ต่อไปนี้มีอยู่บนเซิร์ฟเวอร์แล้ว และจะถูกเขียนทับหากดำเนินการแยกต่อ"
+  },
+  "files.conflict-modal.overwritten-count": {
+    "defaultMessage": "เขียนทับ {count} รายการ"
+  },
+  "files.conflict-modal.warning-header": {
+    "defaultMessage": "ไฟล์จะถูกเขียนทับ"
+  },
+  "files.create-modal.create-button": {
+    "defaultMessage": "สร้าง {type}"
+  },
+  "files.create-modal.header": {
+    "defaultMessage": "สร้าง {type}"
+  },
+  "files.create-modal.placeholder-directory": {
+    "defaultMessage": "เช่น my-folder"
+  },
+  "files.create-modal.placeholder-file": {
+    "defaultMessage": "เช่น config.yml"
+  },
+  "files.create-zip-modal.already-exists": {
+    "defaultMessage": "มีไฟล์ชื่อนี้อยู่แล้ว"
+  },
+  "files.create-zip-modal.check-failed": {
+    "defaultMessage": "ไม่สามารถตรวจสอบว่าไฟล์นี้มีอยู่แล้วหรือไม่"
+  },
+  "files.create-zip-modal.create-button": {
+    "defaultMessage": "สร้าง ZIP"
+  },
+  "files.create-zip-modal.header": {
+    "defaultMessage": "สร้าง ZIP"
+  },
+  "files.create-zip-modal.invalid": {
+    "defaultMessage": "ชื่อไฟล์เก็บถาวรต้องเป็นชื่อไฟล์เดียว"
+  },
+  "files.create-zip-modal.name-label": {
+    "defaultMessage": "ชื่อไฟล์เก็บถาวร"
+  },
+  "files.create-zip-modal.name-placeholder": {
+    "defaultMessage": "ไฟล์บีบอัด.zip"
+  },
+  "files.create-zip-modal.required": {
+    "defaultMessage": "ป้อนชื่อไฟล์เก็บถาวร"
+  },
+  "files.delete-modal.deleting-name": {
+    "defaultMessage": "กำลังลบ \"{name}\""
+  },
+  "files.delete-modal.header": {
+    "defaultMessage": "ลบไฟล์"
+  },
+  "files.delete-modal.warning.file": {
+    "defaultMessage": "ไฟล์นี้จะถูกลบถาวร การดำเนินการนี้ไม่สามารถย้อนกลับได้"
+  },
+  "files.delete-modal.warning.folder": {
+    "defaultMessage": "โฟลเดอร์นี้และเนื้อหาทั้งหมดจะถูกลบถาวร การดำเนินการนี้ไม่สามารถย้อนกลับได้"
+  },
   "files.editor.failed-to-open-text": {
     "defaultMessage": "ไม่สามารถโหลดไฟล์เนื้อหา"
   },
-  "files.zip-url-modal.install-button": {
-    "defaultMessage": "ติดตั้ง"
+  "files.editor.failed-to-open-title": {
+    "defaultMessage": "เปิดไฟล์ไม่สำเร็จ"
+  },
+  "files.editor.failed-to-share-text": {
+    "defaultMessage": "ไม่สามารถอัปโหลดไปยัง mclo.gs ได้"
+  },
+  "files.editor.failed-to-share-title": {
+    "defaultMessage": "แชร์ไฟล์ไม่สำเร็จ"
+  },
+  "files.editor.file-saved-text": {
+    "defaultMessage": "บันทึกไฟล์แล้ว"
+  },
+  "files.editor.file-saved-title": {
+    "defaultMessage": "บันทึกไฟล์แล้ว"
+  },
+  "files.editor.find-in-file": {
+    "defaultMessage": "ค้นหา"
+  },
+  "files.editor.find-match-count": {
+    "defaultMessage": "{current} จาก {total}"
+  },
+  "files.editor.find-next-match": {
+    "defaultMessage": "ผลถัดไป"
+  },
+  "files.editor.find-no-results": {
+    "defaultMessage": "ไม่มีผลลัพธ์"
+  },
+  "files.editor.find-previous-match": {
+    "defaultMessage": "ผลก่อนหน้า"
+  },
+  "files.editor.find-toggle-replace": {
+    "defaultMessage": "สลับแทนที่"
+  },
+  "files.editor.log-url-copied-text": {
+    "defaultMessage": "คัดลอก URL ไฟล์บันทึกไปยังคลิปบอร์ดแล้ว"
+  },
+  "files.editor.log-url-copied-title": {
+    "defaultMessage": "คัดลอก URL บันทึกแล้ว"
+  },
+  "files.editor.replace": {
+    "defaultMessage": "แทนที่"
+  },
+  "files.editor.replace-all": {
+    "defaultMessage": "แทนที่ทั้งหมด"
+  },
+  "files.editor.replace-in-file": {
+    "defaultMessage": "แทนที่"
+  },
+  "files.editor.save-failed-text": {
+    "defaultMessage": "ไม่สามารถบันทึกไฟล์ได้"
+  },
+  "files.editor.save-failed-title": {
+    "defaultMessage": "บันทึกไม่สำเร็จ"
+  },
+  "files.error.go-to-home": {
+    "defaultMessage": "ไปที่โฟลเดอร์หลัก"
+  },
+  "files.error.try-again": {
+    "defaultMessage": "ลองอีกครั้ง"
+  },
+  "files.image_viewer.image_too_large": {
+    "defaultMessage": "รูปใหญ่เกินไปที่จะดู (สูงสุด {maxDimension}x{maxDimension} พิกเซล)"
+  },
+  "files.image_viewer.invalid_image": {
+    "defaultMessage": "ไฟล์รูปไม่ถูกต้องหรือว่างเปล่า"
+  },
+  "files.image_viewer.load_failed": {
+    "defaultMessage": "โหลดรูปไม่สำเร็จ"
+  },
+  "files.image_viewer.reset_zoom": {
+    "defaultMessage": "รีเซ็ตซูม"
+  },
+  "files.image_viewer.viewed_image_alt": {
+    "defaultMessage": "รูปที่ดู"
+  },
+  "files.image_viewer.zoom_in": {
+    "defaultMessage": "ซูมเข้า"
+  },
+  "files.image_viewer.zoom_out": {
+    "defaultMessage": "ซูมออก"
+  },
+  "files.item-type.file": {
+    "defaultMessage": "ไฟล์"
+  },
+  "files.item-type.files": {
+    "defaultMessage": "ไฟล์"
+  },
+  "files.item-type.folder": {
+    "defaultMessage": "โฟลเดอร์"
+  },
+  "files.item-type.folders": {
+    "defaultMessage": "โฟลเดอร์"
+  },
+  "files.layout.create-zip": {
+    "defaultMessage": "สร้าง ZIP"
+  },
+  "files.layout.dry-run-failed-text": {
+    "defaultMessage": "เกิดข้อผิดพลาดขณะทดลองรัน"
+  },
+  "files.layout.dry-run-failed-title": {
+    "defaultMessage": "ทดลองรันไม่สำเร็จ"
+  },
+  "files.layout.empty-folder-description": {
+    "defaultMessage": "ไม่มีไฟล์หรือโฟลเดอร์"
+  },
+  "files.layout.empty-folder-title": {
+    "defaultMessage": "โฟลเดอร์นี้ว่างเปล่า"
+  },
+  "files.layout.error-message": {
+    "defaultMessage": "โฟลเดอร์อาจไม่มีอยู่"
+  },
+  "files.layout.error-title": {
+    "defaultMessage": "ไม่สามารถโหลดไฟล์ได้"
+  },
+  "files.layout.extraction-started-title": {
+    "defaultMessage": "เริ่มแยกไฟล์แล้ว"
+  },
+  "files.layout.selected-count": {
+    "defaultMessage": "เลือก {count} รายการ"
+  },
+  "files.layout.unsaved-changes": {
+    "defaultMessage": "มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก"
+  },
+  "files.move-modal.current-location": {
+    "defaultMessage": "ตำแหน่งปัจจุบัน"
+  },
+  "files.move-modal.destination-path": {
+    "defaultMessage": "เส้นทางปลายทาง"
+  },
+  "files.move-modal.destination-placeholder": {
+    "defaultMessage": "เช่น /my-folder"
+  },
+  "files.move-modal.header": {
+    "defaultMessage": "ย้าย {type}"
+  },
+  "files.navbar.back-to-home": {
+    "defaultMessage": "กลับสู่หน้าหลัก"
+  },
+  "files.navbar.breadcrumb-navigation": {
+    "defaultMessage": "การนำทางแบบ breadcrumb"
+  },
+  "files.navbar.create-new": {
+    "defaultMessage": "สร้างใหม่..."
+  },
+  "files.navbar.file-navigation": {
+    "defaultMessage": "การนำทางไฟล์"
+  },
+  "files.navbar.find-in-file": {
+    "defaultMessage": "ค้นหาในไฟล์"
+  },
+  "files.navbar.home": {
+    "defaultMessage": "หน้าหลัก"
+  },
+  "files.navbar.new-file": {
+    "defaultMessage": "ไฟล์ใหม่"
+  },
+  "files.navbar.new-folder": {
+    "defaultMessage": "โฟลเดอร์ใหม่"
+  },
+  "files.navbar.search-files": {
+    "defaultMessage": "ค้นหาไฟล์"
+  },
+  "files.navbar.share-to-mclogs": {
+    "defaultMessage": "แชร์ไปยัง mclo.gs"
+  },
+  "files.navbar.upload-file": {
+    "defaultMessage": "อัปโหลดไฟล์"
+  },
+  "files.navbar.upload-from-zip": {
+    "defaultMessage": "อัปโหลดจากไฟล์ .zip"
+  },
+  "files.rename-modal.header": {
+    "defaultMessage": "เปลี่ยนชื่อ {name}"
+  },
+  "files.rename-modal.new-name-label": {
+    "defaultMessage": "ชื่อใหม่"
+  },
+  "files.row.create-zip": {
+    "defaultMessage": "สร้าง ZIP"
+  },
+  "files.row.item-count": {
+    "defaultMessage": "{count, plural, one {# รายการ} other {# รายการ}}"
+  },
+  "files.row.parent-folder": {
+    "defaultMessage": "โฟลเดอร์แม่"
+  },
+  "files.table-header.created": {
+    "defaultMessage": "สร้าง"
+  },
+  "files.table-header.modified": {
+    "defaultMessage": "แก้ไข"
+  },
+  "files.table-header.name": {
+    "defaultMessage": "ชื่อ"
+  },
+  "files.table-header.size": {
+    "defaultMessage": "ขนาด"
+  },
+  "files.unsaved-changes-modal.body": {
+    "defaultMessage": "มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึกซึ่งจะหายไปหากออก ต้องการบันทึกก่อนออกหรือไม่?"
+  },
+  "files.unsaved-changes-modal.discard": {
+    "defaultMessage": "ทิ้ง"
+  },
+  "files.unsaved-changes-modal.header": {
+    "defaultMessage": "การเปลี่ยนแปลงที่ยังไม่ได้บันทึก"
+  },
+  "files.upload.drag-and-drop.drop-to-upload": {
+    "defaultMessage": "วาง {type} ที่นี่เพื่ออัปโหลด"
+  },
+  "files.validation.name-invalid-directory": {
+    "defaultMessage": "ชื่อต้องมีเฉพาะอักษรตัวเลข ขีด ขีดล่าง หรือเว้นวรรค"
+  },
+  "files.validation.name-invalid-file": {
+    "defaultMessage": "ชื่อต้องมีเฉพาะอักษรตัวเลข ขีด ขีดล่าง จุด หรือเว้นวรรค"
+  },
+  "files.validation.name-label": {
+    "defaultMessage": "ชื่อ"
+  },
+  "files.validation.name-required": {
+    "defaultMessage": "ต้องระบุชื่อ"
+  },
+  "filter-bar.add": {
+    "defaultMessage": "เพิ่ม"
+  },
+  "filter-bar.clear": {
+    "defaultMessage": "ล้าง"
+  },
+  "filter-bar.clear-named-filter": {
+    "defaultMessage": "ล้างตัวกรอง {name}"
+  },
+  "filter-bar.filtered-by": {
+    "defaultMessage": "กรองตาม"
+  },
+  "filter-bar.no-options": {
+    "defaultMessage": "ไม่มีตัวเลือก"
+  },
+  "filter-bar.no-search-results": {
+    "defaultMessage": "ไม่พบตัวเลือก"
+  },
+  "filter-bar.search-placeholder": {
+    "defaultMessage": "ค้นหา..."
+  },
+  "filter-bar.select-all": {
+    "defaultMessage": "เลือกทั้งหมด"
+  },
+  "form.label.address-line": {
+    "defaultMessage": "บรรทัดที่อยู่"
   },
   "form.label.address-line-2": {
     "defaultMessage": "ที่อยู่บรรทัดที่ 2 (ไม่จำเป็น)"
@@ -185,6 +1298,9 @@
   "form.placeholder.address": {
     "defaultMessage": "กรอกที่อยู่"
   },
+  "form.placeholder.address-2": {
+    "defaultMessage": "อพาร์ตเมนต์ ห้องชุด ฯลฯ"
+  },
   "form.placeholder.amount": {
     "defaultMessage": "กรอกจำนวน"
   },
@@ -218,8 +1334,155 @@
   "form.placeholder.state": {
     "defaultMessage": "กรอกรัฐหรือจังหวัด"
   },
+  "format.bytes.0": {
+    "defaultMessage": "{count, plural, one {# ไบต์} other {# ไบต์}}"
+  },
+  "format.bytes.1": {
+    "defaultMessage": "{count, number} KiB"
+  },
+  "format.bytes.2": {
+    "defaultMessage": "{count, number} MiB"
+  },
+  "format.bytes.3": {
+    "defaultMessage": "{count, number} GiB"
+  },
+  "format.bytes.4": {
+    "defaultMessage": "{count, number} TiB"
+  },
+  "header.category.category": {
+    "defaultMessage": "หมวดหมู่"
+  },
+  "header.category.feature": {
+    "defaultMessage": "ฟีเจอร์"
+  },
+  "header.category.minecraft-server-community": {
+    "defaultMessage": "ชุมชน"
+  },
+  "header.category.minecraft-server-features": {
+    "defaultMessage": "ฟีเจอร์"
+  },
+  "header.category.minecraft-server-gameplay": {
+    "defaultMessage": "เกมเพลย์"
+  },
+  "header.category.minecraft-server-meta": {
+    "defaultMessage": "เมตา"
+  },
+  "header.category.performance-impact": {
+    "defaultMessage": "ผลกระทบประสิทธิภาพ"
+  },
+  "header.category.resolutions": {
+    "defaultMessage": "ความละเอียด"
+  },
+  "image-viewer.close": {
+    "defaultMessage": "ปิด"
+  },
+  "image-viewer.edit": {
+    "defaultMessage": "แก้ไข"
+  },
+  "image-viewer.editor.colour": {
+    "defaultMessage": "สี"
+  },
+  "image-viewer.editor.crop.dimensions": {
+    "defaultMessage": "{width} • {height} px"
+  },
+  "image-viewer.editor.crop.reset": {
+    "defaultMessage": "รีเซ็ตครอป"
+  },
+  "image-viewer.editor.delete-selection": {
+    "defaultMessage": "ลบคำอธิบายที่เลือก"
+  },
+  "image-viewer.editor.eraser.area": {
+    "defaultMessage": "พื้นที่"
+  },
+  "image-viewer.editor.eraser.element": {
+    "defaultMessage": "องค์ประกอบ"
+  },
+  "image-viewer.editor.eraser.mode": {
+    "defaultMessage": "โหมดยางลบ"
+  },
+  "image-viewer.editor.image-editing-tools": {
+    "defaultMessage": "เครื่องมือแก้ไขรูป"
+  },
+  "image-viewer.editor.more-save-options": {
+    "defaultMessage": "ตัวเลือกบันทึกเพิ่มเติม"
+  },
+  "image-viewer.editor.overwrite": {
+    "defaultMessage": "เขียนทับ"
+  },
+  "image-viewer.editor.redo": {
+    "defaultMessage": "ทำซ้ำ"
+  },
+  "image-viewer.editor.save-as-new": {
+    "defaultMessage": "บันทึกสำเนา"
+  },
+  "image-viewer.editor.save-image": {
+    "defaultMessage": "บันทึกรูป"
+  },
+  "image-viewer.editor.size": {
+    "defaultMessage": "ขนาด"
+  },
+  "image-viewer.editor.tool.arrow": {
+    "defaultMessage": "ลูกศร"
+  },
+  "image-viewer.editor.tool.censor": {
+    "defaultMessage": "เซ็นเซอร์"
+  },
+  "image-viewer.editor.tool.crop": {
+    "defaultMessage": "ครอป"
+  },
+  "image-viewer.editor.tool.ellipse": {
+    "defaultMessage": "วงรี"
+  },
+  "image-viewer.editor.tool.eraser": {
+    "defaultMessage": "ยางลบ"
+  },
+  "image-viewer.editor.tool.highlight": {
+    "defaultMessage": "เน้น"
+  },
+  "image-viewer.editor.tool.pen": {
+    "defaultMessage": "ปากกา"
+  },
+  "image-viewer.editor.tool.rectangle": {
+    "defaultMessage": "สี่เหลี่ยม"
+  },
+  "image-viewer.editor.tool.select": {
+    "defaultMessage": "เลือก"
+  },
+  "image-viewer.editor.tool.text": {
+    "defaultMessage": "ข้อความ"
+  },
+  "image-viewer.editor.undo": {
+    "defaultMessage": "ย้อนกลับ"
+  },
+  "image-viewer.editor.width": {
+    "defaultMessage": "ความกว้าง"
+  },
+  "image-viewer.editor.zoom-fit": {
+    "defaultMessage": "พอดี"
+  },
+  "image-viewer.editor.zoom-fit-workspace": {
+    "defaultMessage": "พอดีพื้นที่ทำงาน"
+  },
+  "image-viewer.editor.zoom-in": {
+    "defaultMessage": "ซูมเข้า"
+  },
+  "image-viewer.editor.zoom-out": {
+    "defaultMessage": "ซูมออก"
+  },
+  "image-viewer.next": {
+    "defaultMessage": "รูปถัดไป"
+  },
+  "image-viewer.previous": {
+    "defaultMessage": "รูปก่อนหน้า"
+  },
+  "input.search-version.placeholder": {
+    "defaultMessage": "ค้นหาเวอร์ชัน..."
+  },
   "input.search.placeholder": {
     "defaultMessage": "ค้นหา..."
+  },
+  "input.select-version.placeholder": {
+    "defaultMessage": "เลือกเวอร์ชัน"
   },
   "input.view.gallery": {
     "defaultMessage": "มุมมองแกลเลอรี"
@@ -229,6 +1492,135 @@
   },
   "input.view.list": {
     "defaultMessage": "มุมมองแถว"
+  },
+  "installation-settings.aria.select-game-version": {
+    "defaultMessage": "เลือกเวอร์ชันเกม"
+  },
+  "installation-settings.aria.select-loader-version": {
+    "defaultMessage": "เลือกเวอร์ชัน {loader}"
+  },
+  "installation-settings.aria.select-platform": {
+    "defaultMessage": "เลือกแพลตฟอร์ม"
+  },
+  "installation-settings.confirm-version-change": {
+    "defaultMessage": "ยืนยัน"
+  },
+  "installation-settings.confirm-version-change-description": {
+    "defaultMessage": "การเปลี่ยนเป็น {gameVersion} จะแก้ไขเนื้อหาต่อไปนี้บนเซิร์ฟเวอร์"
+  },
+  "installation-settings.confirm-version-change-header": {
+    "defaultMessage": "ตรวจสอบการเปลี่ยนเนื้อหา"
+  },
+  "installation-settings.edit-installation.title": {
+    "defaultMessage": "แก้ไขการติดตั้ง"
+  },
+  "installation-settings.edit.warning-instance": {
+    "defaultMessage": "ไม่แนะนำให้แก้ไขการตั้งค่าการติดตั้งหลังติดตั้งเนื้อหาแล้ว หากต้องการแก้ไข โปรดระวังเพราะอาจทำให้เกิดปัญหา"
+  },
+  "installation-settings.incompatible-content.auto-fix-button": {
+    "defaultMessage": "แก้ไขอัตโนมัติ"
+  },
+  "installation-settings.incompatible-content.change-loader-button": {
+    "defaultMessage": "เปลี่ยน loader"
+  },
+  "installation-settings.incompatible-content.disable-conflicts-button": {
+    "defaultMessage": "ปิดรายการขัดแย้ง"
+  },
+  "installation-settings.incompatible-content.game-version-warning-body": {
+    "defaultMessage": "เมื่อเปลี่ยนเวอร์ชันเกม สามารถปิดเนื้อหาที่ติดตั้งซึ่งไม่เข้ากัน หรือพยายามแก้ไขความไม่เข้ากัน"
+  },
+  "installation-settings.incompatible-content.game-version-warning-title": {
+    "defaultMessage": "คำเตือนความไม่เข้ากัน"
+  },
+  "installation-settings.incompatible-content.header": {
+    "defaultMessage": "ติดตั้งเนื้อหาที่ไม่เข้ากัน"
+  },
+  "installation-settings.incompatible-content.loader-change-body": {
+    "defaultMessage": "เมื่อเปลี่ยน loader เนื้อหาที่ติดตั้งทั้งหมดจะถูกปิด แนะนำให้รีเซ็ตเซิร์ฟเวอร์แทน"
+  },
+  "installation-settings.incompatible-content.loader-change-title": {
+    "defaultMessage": "การเปลี่ยน loader มีผลรุนแรง"
+  },
+  "installation-settings.linked-instance.title": {
+    "defaultMessage": "{projectType} ที่เชื่อม"
+  },
+  "installation-settings.linked.modpack": {
+    "defaultMessage": "ม็อดแพ็ก"
+  },
+  "installation-settings.linked.server-project": {
+    "defaultMessage": "โปรเจกต์เซิร์ฟเวอร์"
+  },
+  "installation-settings.loader-version": {
+    "defaultMessage": "เวอร์ชัน {loader}"
+  },
+  "installation-settings.platform-lock-tooltip": {
+    "defaultMessage": "ต้องรีเซ็ตเซิร์ฟเวอร์เพื่อเปลี่ยน loader"
+  },
+  "installation-settings.reinstall-modpack.description": {
+    "defaultMessage": "การติดตั้งม็อดแพ็กใหม่จะรีเซ็ตเนื้อหา {type} กลับสู่สถานะเดิม โดยลบม็อดหรือเนื้อหาที่เพิ่มไว้"
+  },
+  "installation-settings.reinstall-modpack.title": {
+    "defaultMessage": "ติดตั้งม็อดแพ็กใหม่"
+  },
+  "installation-settings.reinstalling-modpack": {
+    "defaultMessage": "กำลังติดตั้งม็อดแพ็กใหม่"
+  },
+  "installation-settings.removed-incompatible": {
+    "defaultMessage": "ลบ (ไม่เข้ากัน)"
+  },
+  "installation-settings.repair.instance-description": {
+    "defaultMessage": "ติดตั้ง dependency ของ Minecraft ใหม่และตรวจความเสียหาย อาจแก้ปัญหาได้หากเกมเปิดไม่ขึ้นเพราะข้อผิดพลาดเกี่ยวกับลอนเชอร์"
+  },
+  "installation-settings.repair.instance-title": {
+    "defaultMessage": "ซ่อมแซมอินสแตนซ์"
+  },
+  "installation-settings.saving": {
+    "defaultMessage": "กำลังบันทึก..."
+  },
+  "installation-settings.search-game-version": {
+    "defaultMessage": "ค้นหาเวอร์ชันเกม..."
+  },
+  "installation-settings.type.instance": {
+    "defaultMessage": "อินสแตนซ์"
+  },
+  "installation-settings.type.instance-possessive": {
+    "defaultMessage": "ของอินสแตนซ์"
+  },
+  "installation-settings.type.server": {
+    "defaultMessage": "เซิร์ฟเวอร์"
+  },
+  "installation-settings.unlink": {
+    "defaultMessage": "ยกเลิกเชื่อม"
+  },
+  "installation-settings.unlink.description": {
+    "defaultMessage": "การยกเลิกเชื่อมจะตัด {type} นี้ออกจากโปรเจกต์ {projectType} ถาวร ทำให้เปลี่ยน loader และเวอร์ชัน Minecraft ได้ แต่จะไม่ได้รับการอัปเดตในอนาคต"
+  },
+  "installation-settings.verifying": {
+    "defaultMessage": "กำลังตรวจสอบ..."
+  },
+  "instance.confirm-reinstall.admonition-body": {
+    "defaultMessage": "การติดตั้งใหม่จะรีเซ็ตเนื้อหาที่ติดตั้งหรือแก้ไขทั้งหมดกลับเป็นสิ่งที่ม็อดแพ็กจัดหา โดยลบม็อดหรือเนื้อหาที่เพิ่มบนการติดตั้งเดิม"
+  },
+  "instance.confirm-reinstall.admonition-header": {
+    "defaultMessage": "คำเตือนการติดตั้งใหม่"
+  },
+  "instance.confirm-reinstall.header": {
+    "defaultMessage": "ติดตั้งม็อดแพ็กใหม่"
+  },
+  "instance.confirm-reinstall.reinstall-button": {
+    "defaultMessage": "ติดตั้งม็อดแพ็กใหม่"
+  },
+  "instance.confirm-repair.body.instance": {
+    "defaultMessage": "การซ่อมแซมจะติดตั้ง loader และ dependency ของ Minecraft ใหม่โดยไม่ลบเนื้อหา อาจแก้ปัญหาได้หากเกมเปิดไม่ขึ้นเพราะข้อผิดพลาดเกี่ยวกับลอนเชอร์"
+  },
+  "instance.confirm-repair.header": {
+    "defaultMessage": "ซ่อมแซม {type}"
+  },
+  "instance.confirm-repair.instance-label": {
+    "defaultMessage": "อินสแตนซ์"
+  },
+  "instance.confirm-repair.repair-button": {
+    "defaultMessage": "ซ่อมแซม"
   },
   "instance.worlds.game_mode.adventure": {
     "defaultMessage": "โหมดผจญภัย"
@@ -245,11 +1637,23 @@
   "instance.worlds.game_mode.unknown": {
     "defaultMessage": "ไม่ทราบเกมโหมด"
   },
+  "instances.content-install.compatible-count": {
+    "defaultMessage": "{count} {count, plural, one {อินสแตนซ์} other {อินสแตนซ์}} ที่เข้ากันได้"
+  },
+  "instances.content-install.existing-tab": {
+    "defaultMessage": "อินสแตนซ์ที่มีอยู่"
+  },
   "instances.content-install.game-version-placeholder": {
     "defaultMessage": "เลือกเวอร์ชั่น"
   },
   "instances.content-install.header": {
     "defaultMessage": "ติดตั้งโปรเจกต์"
+  },
+  "instances.content-install.hide-unavailable": {
+    "defaultMessage": "ซ่อนรายการที่ไม่พร้อม"
+  },
+  "instances.content-install.incompatible-tooltip": {
+    "defaultMessage": "อินสแตนซ์นี้ใช้ loader หรือเวอร์ชันเกมต่างจากที่โปรเจกต์รองรับ"
   },
   "instances.content-install.install-button": {
     "defaultMessage": "ติดตั้ง"
@@ -260,6 +1664,9 @@
   "instances.content-install.instance-type": {
     "defaultMessage": "ประเถทอินสแตนซ์"
   },
+  "instances.content-install.loader-label": {
+    "defaultMessage": "Loader"
+  },
   "instances.content-install.name-label": {
     "defaultMessage": "ชื่อ"
   },
@@ -269,20 +1676,164 @@
   "instances.content-install.new-tab": {
     "defaultMessage": "อินสแตนซ์อันใหม่"
   },
+  "instances.content-install.no-instances": {
+    "defaultMessage": "ไม่พบอินสแตนซ์ที่เข้ากันได้"
+  },
   "instances.content-install.search-placeholder": {
     "defaultMessage": "ค้นหาอินสแตนซ์"
+  },
+  "instances.content-install.show-unavailable": {
+    "defaultMessage": "แสดงรายการที่ไม่พร้อม"
+  },
+  "instances.managed-content-modal.disabled": {
+    "defaultMessage": "ปิด"
+  },
+  "instances.managed-content-modal.download-file": {
+    "defaultMessage": "ดาวน์โหลดไฟล์"
+  },
+  "instances.managed-content-modal.empty-description": {
+    "defaultMessage": "แหล่งนี้ไม่มีเนื้อหาที่จัดการ"
+  },
+  "instances.managed-content-modal.empty-title": {
+    "defaultMessage": "ไม่พบเนื้อหา"
+  },
+  "instances.managed-content-modal.enabled": {
+    "defaultMessage": "เปิด"
+  },
+  "instances.managed-content-modal.external-content": {
+    "defaultMessage": "ภายนอก"
+  },
+  "instances.managed-content-modal.external-content-description": {
+    "defaultMessage": "ไฟล์นี้ไม่ได้เผยแพร่บน Modrinth"
+  },
+  "instances.managed-content-modal.header": {
+    "defaultMessage": "เนื้อหาที่จัดการ"
+  },
+  "instances.managed-content-modal.loading": {
+    "defaultMessage": "กำลังโหลดเนื้อหา..."
+  },
+  "instances.managed-content-modal.no-results": {
+    "defaultMessage": "ไม่มีโปรเจกต์ตรงกับการค้นหา"
+  },
+  "instances.managed-content-modal.open-in-slicer": {
+    "defaultMessage": "เปิดใน Slicer"
+  },
+  "instances.managed-content-modal.search-placeholder": {
+    "defaultMessage": "ค้นหา {count, number} {count, plural, one {โปรเจกต์} other {โปรเจกต์}}"
+  },
+  "instances.managed-content-modal.warnings": {
+    "defaultMessage": "คำเตือน"
+  },
+  "instances.updater-modal.badge.current": {
+    "defaultMessage": "ปัจจุบัน"
+  },
+  "instances.updater-modal.badge.incompatible": {
+    "defaultMessage": "ไม่เข้ากัน"
+  },
+  "instances.updater-modal.downgrade-to": {
+    "defaultMessage": "ดาวน์เกรดเป็น {version}"
+  },
+  "instances.updater-modal.header": {
+    "defaultMessage": "อัปเดตเวอร์ชัน"
+  },
+  "instances.updater-modal.header-modpack": {
+    "defaultMessage": "เปลี่ยนเวอร์ชันม็อดแพ็ก"
+  },
+  "instances.updater-modal.header-switch": {
+    "defaultMessage": "เปลี่ยนเวอร์ชัน"
+  },
+  "instances.updater-modal.hide-incompatible": {
+    "defaultMessage": "ซ่อนรายการไม่เข้ากัน"
+  },
+  "instances.updater-modal.incompatibility-warning": {
+    "defaultMessage": "เวอร์ชันนี้ไม่ได้ระบุว่าเข้ากันกับอินสแตนซ์นี้ dependency จะไม่ถูกติดตั้งอัตโนมัติ"
+  },
+  "instances.updater-modal.incompatibility-warning-header": {
+    "defaultMessage": "เลือกเวอร์ชัน"
+  },
+  "instances.updater-modal.incompatible-update.description": {
+    "defaultMessage": "{version} ไม่ได้ระบุว่าเข้ากันกับการติดตั้งนี้ อาจเปิดไม่ขึ้นหรือทำงานผิดปกติ"
+  },
+  "instances.updater-modal.incompatible-update.header": {
+    "defaultMessage": "อัปเดตเป็นเวอร์ชันที่ไม่เข้ากันใช่หรือไม่?"
+  },
+  "instances.updater-modal.incompatible-update.proceed": {
+    "defaultMessage": "อัปเดตอยู่ดี"
+  },
+  "instances.updater-modal.install-anyway": {
+    "defaultMessage": "ติดตั้งอยู่ดี"
+  },
+  "instances.updater-modal.loading-changelog": {
+    "defaultMessage": "กำลังโหลดบันทึกเปลี่ยน..."
+  },
+  "instances.updater-modal.loading-versions": {
+    "defaultMessage": "กำลังโหลดเวอร์ชัน..."
+  },
+  "instances.updater-modal.no-changelog": {
+    "defaultMessage": "ไม่มีบันทึกเปลี่ยนสำหรับเวอร์ชันนี้"
+  },
+  "instances.updater-modal.no-versions": {
+    "defaultMessage": "ไม่พบเวอร์ชัน"
+  },
+  "instances.updater-modal.search-placeholder": {
+    "defaultMessage": "ค้นหาเวอร์ชัน..."
+  },
+  "instances.updater-modal.select-version": {
+    "defaultMessage": "เลือกเวอร์ชันเพื่อดูบันทึกเปลี่ยน"
+  },
+  "instances.updater-modal.show-incompatible": {
+    "defaultMessage": "แสดงรายการไม่เข้ากัน"
+  },
+  "instances.updater-modal.switch-to": {
+    "defaultMessage": "เปลี่ยนเป็น {version}"
+  },
+  "instances.updater-modal.update-to": {
+    "defaultMessage": "อัปเดตเป็น {version}"
+  },
+  "instances.updater-modal.warning-app": {
+    "defaultMessage": "การอัปเดตอาจทำให้อินสแตนซ์เสียหาย ตรวจสอบบันทึกเปลี่ยนและสำรองข้อมูลก่อน"
+  },
+  "instances.updater-modal.warning-web": {
+    "defaultMessage": "การอัปเดตอาจทำให้โลกเสียหาย ตรวจสอบบันทึกเปลี่ยนและสำรองข้อมูลก่อน"
+  },
+  "label.actions": {
+    "defaultMessage": "การดำเนินการ"
   },
   "label.available": {
     "defaultMessage": "ว่างอยู่ {amount}"
   },
+  "label.changelog": {
+    "defaultMessage": "บันทึกเปลี่ยน"
+  },
   "label.changes-saved": {
     "defaultMessage": "บันทึกการเปลี่ยนแปลงแล้ว"
+  },
+  "label.client-depends-warning": {
+    "defaultMessage": "ม็อดนี้ขึ้นกับม็อดฝั่งไคลเอนต์และอาจมีปัญหาเมื่อเปิดเซิร์ฟเวอร์"
+  },
+  "label.client-only-warning": {
+    "defaultMessage": "นี่คือม็อดฝั่งไคลเอนต์และอาจมีปัญหาเมื่อเปิดเซิร์ฟเวอร์"
+  },
+  "label.client-retained-warning": {
+    "defaultMessage": "นี่คือม็อดฝั่งไคลเอนต์ที่ติดตั้งเป็น dependency และอาจมีปัญหาเมื่อเปิดเซิร์ฟเวอร์"
   },
   "label.collections": {
     "defaultMessage": "คอลเลกชัน"
   },
+  "label.confirm-password": {
+    "defaultMessage": "ยืนยันรหัสผ่าน"
+  },
   "label.content": {
     "defaultMessage": "เนื้อหา"
+  },
+  "label.copied-filename": {
+    "defaultMessage": "คัดลอกชื่อไฟล์แล้ว"
+  },
+  "label.copied-path": {
+    "defaultMessage": "คัดลอกเส้นทางแล้ว"
+  },
+  "label.create-failed": {
+    "defaultMessage": "สร้างไม่สำเร็จ"
   },
   "label.created-ago": {
     "defaultMessage": "สร้างขึ้นเมื่อ {ago}"
@@ -293,20 +1844,92 @@
   "label.delete": {
     "defaultMessage": "ลบ"
   },
+  "label.delete-failed": {
+    "defaultMessage": "ลบไม่สำเร็จ"
+  },
+  "label.delete-immediately": {
+    "defaultMessage": "ลบทันที"
+  },
   "label.description": {
     "defaultMessage": "คำอธิบาย"
+  },
+  "label.details": {
+    "defaultMessage": "รายละเอียด"
+  },
+  "label.discover-content": {
+    "defaultMessage": "ค้นพบเนื้อหา"
+  },
+  "label.done": {
+    "defaultMessage": "เสร็จ"
+  },
+  "label.download-failed": {
+    "defaultMessage": "ดาวน์โหลดไม่สำเร็จ"
+  },
+  "label.email": {
+    "defaultMessage": "อีเมล"
+  },
+  "label.email-username": {
+    "defaultMessage": "อีเมลหรือชื่อผู้ใช้"
   },
   "label.error": {
     "defaultMessage": "ข้อผิดพลาด"
   },
+  "label.explanation": {
+    "defaultMessage": "คำอธิบาย"
+  },
+  "label.extract-failed": {
+    "defaultMessage": "แยกไม่สำเร็จ"
+  },
+  "label.filter-by": {
+    "defaultMessage": "กรองตาม"
+  },
+  "label.filters": {
+    "defaultMessage": "ตัวกรอง"
+  },
   "label.followed-projects": {
     "defaultMessage": "โปรเจกต์ที่ติดตาม"
+  },
+  "label.game-version": {
+    "defaultMessage": "เวอร์ชันเกม"
+  },
+  "label.hide-installed-content": {
+    "defaultMessage": "ซ่อนเนื้อหาที่ติดตั้งแล้ว"
+  },
+  "label.hide-selected-content": {
+    "defaultMessage": "ซ่อนเนื้อหาที่เลือก"
+  },
+  "label.installation-info": {
+    "defaultMessage": "ข้อมูลการติดตั้ง"
+  },
+  "label.installed": {
+    "defaultMessage": "ติดตั้งแล้ว"
+  },
+  "label.installed-modpack": {
+    "defaultMessage": "ม็อดแพ็กที่ติดตั้ง"
+  },
+  "label.installing": {
+    "defaultMessage": "กำลังติดตั้ง..."
+  },
+  "label.installing-content": {
+    "defaultMessage": "กำลังติดตั้งเนื้อหา"
   },
   "label.loading": {
     "defaultMessage": "กำลังโหลด..."
   },
   "label.moderation": {
     "defaultMessage": "การกลั่นกรอง"
+  },
+  "label.modpack": {
+    "defaultMessage": "ม็อดแพ็ก"
+  },
+  "label.move-failed": {
+    "defaultMessage": "ย้ายไม่สำเร็จ"
+  },
+  "label.no": {
+    "defaultMessage": "ไม่"
+  },
+  "label.no-items": {
+    "defaultMessage": "ไม่มีรายการ"
   },
   "label.notifications": {
     "defaultMessage": "แจ้งเตือน"
@@ -317,17 +1940,62 @@
   "label.password": {
     "defaultMessage": "รหัสผ่าน"
   },
+  "label.permissions": {
+    "defaultMessage": "สิทธิ์"
+  },
+  "label.plan-custom": {
+    "defaultMessage": "กำหนดเอง"
+  },
+  "label.plan-large": {
+    "defaultMessage": "ใหญ่"
+  },
+  "label.plan-medium": {
+    "defaultMessage": "กลาง"
+  },
+  "label.plan-small": {
+    "defaultMessage": "เล็ก"
+  },
+  "label.plan-unknown": {
+    "defaultMessage": "ไม่รู้จัก"
+  },
+  "label.platform": {
+    "defaultMessage": "แพลตฟอร์ม"
+  },
+  "label.played": {
+    "defaultMessage": "เล่น {ago}"
+  },
+  "label.project": {
+    "defaultMessage": "โปรเจกต์"
+  },
   "label.public": {
     "defaultMessage": "สาธารณะ"
   },
   "label.rejected": {
     "defaultMessage": "ไม่อนุมัติ"
   },
+  "label.rename-failed": {
+    "defaultMessage": "เปลี่ยนชื่อไม่สำเร็จ"
+  },
+  "label.rewards-program-terms-agreement": {
+    "defaultMessage": "ยอมรับ<terms-link>ข้อกำหนดโปรแกรมรางวัล</terms-link>"
+  },
   "label.saved": {
     "defaultMessage": "บันทึกแล้ว"
   },
   "label.scopes": {
     "defaultMessage": "ขอบเขต"
+  },
+  "label.search": {
+    "defaultMessage": "ค้นหา"
+  },
+  "label.select-all": {
+    "defaultMessage": "เลือกทั้งหมด"
+  },
+  "label.selected": {
+    "defaultMessage": "เลือกแล้ว"
+  },
+  "label.selection-actions": {
+    "defaultMessage": "การดำเนินการที่เลือก"
   },
   "label.server": {
     "defaultMessage": "เซิร์ฟเวอร์"
@@ -341,20 +2009,284 @@
   "label.singleplayer": {
     "defaultMessage": "เล่นคนเดียว"
   },
+  "label.sort-by": {
+    "defaultMessage": "เรียงตาม:"
+  },
+  "label.success": {
+    "defaultMessage": "สำเร็จ"
+  },
   "label.title": {
     "defaultMessage": "ชื่อ"
+  },
+  "label.unknown": {
+    "defaultMessage": "ไม่รู้จัก"
   },
   "label.unlisted": {
     "defaultMessage": "ไม่เปิดเผย"
   },
+  "label.update-available": {
+    "defaultMessage": "มีอัปเดต"
+  },
+  "label.updating": {
+    "defaultMessage": "กำลังอัปเดต..."
+  },
+  "label.upload-failed": {
+    "defaultMessage": "อัปโหลดไม่สำเร็จ"
+  },
+  "label.username": {
+    "defaultMessage": "ชื่อผู้ใช้"
+  },
+  "label.validating": {
+    "defaultMessage": "กำลังตรวจสอบ"
+  },
+  "label.version": {
+    "defaultMessage": "เวอร์ชัน"
+  },
+  "label.view": {
+    "defaultMessage": "ดู"
+  },
   "label.visibility": {
     "defaultMessage": "การเปิดเผย"
+  },
+  "label.visit-your-profile": {
+    "defaultMessage": "ไปที่โปรไฟล์"
+  },
+  "label.yes": {
+    "defaultMessage": "ใช่"
+  },
+  "locale.cs-CZ": {
+    "defaultMessage": "เช็ก"
+  },
+  "locale.da-DK": {
+    "defaultMessage": "เดนมาร์ก"
+  },
+  "locale.de-CH": {
+    "defaultMessage": "เยอรมัน (สวิตเซอร์แลนด์)"
+  },
+  "locale.de-DE": {
+    "defaultMessage": "เยอรมัน (เยอรมนี)"
+  },
+  "locale.en-US": {
+    "defaultMessage": "อังกฤษ (สหรัฐอเมริกา)"
+  },
+  "locale.es-419": {
+    "defaultMessage": "สเปน (ลาตินอเมริกา)"
+  },
+  "locale.es-ES": {
+    "defaultMessage": "สเปน (สเปน)"
+  },
+  "locale.fi-FI": {
+    "defaultMessage": "ฟินแลนด์"
+  },
+  "locale.fil-PH": {
+    "defaultMessage": "ฟิลิปปินส์"
+  },
+  "locale.fr-FR": {
+    "defaultMessage": "ฝรั่งเศส"
+  },
+  "locale.he-IL": {
+    "defaultMessage": "ฮีบรู"
+  },
+  "locale.hu-HU": {
+    "defaultMessage": "ฮังการี"
+  },
+  "locale.id-ID": {
+    "defaultMessage": "อินโดนีเซีย"
+  },
+  "locale.it-IT": {
+    "defaultMessage": "อิตาลี (อิตาลี)"
+  },
+  "locale.ja-JP": {
+    "defaultMessage": "ญี่ปุ่น"
+  },
+  "locale.ko-KR": {
+    "defaultMessage": "เกาหลี"
+  },
+  "locale.ms-MY": {
+    "defaultMessage": "มาเลย์"
+  },
+  "locale.nl-NL": {
+    "defaultMessage": "ดัตช์"
+  },
+  "locale.no-NO": {
+    "defaultMessage": "นอร์เวย์ (บุ๊กมอล)"
+  },
+  "locale.pl-PL": {
+    "defaultMessage": "โปแลนด์"
+  },
+  "locale.pt-BR": {
+    "defaultMessage": "โปรตุเกส (บราซิล)"
+  },
+  "locale.pt-PT": {
+    "defaultMessage": "โปรตุเกส (โปรตุเกส)"
+  },
+  "locale.ro-RO": {
+    "defaultMessage": "โรมาเนีย"
+  },
+  "locale.ru-RU": {
+    "defaultMessage": "รัสเซีย"
+  },
+  "locale.sr-CS": {
+    "defaultMessage": "เซอร์เบีย (ละติน)"
+  },
+  "locale.sv-SE": {
+    "defaultMessage": "สวีเดน"
+  },
+  "locale.th-TH": {
+    "defaultMessage": "ไทย"
+  },
+  "locale.tr-TR": {
+    "defaultMessage": "ตุรกี"
+  },
+  "locale.uk-UA": {
+    "defaultMessage": "ยูเครน"
+  },
+  "locale.vi-VN": {
+    "defaultMessage": "เวียดนาม"
+  },
+  "locale.zh-CN": {
+    "defaultMessage": "จีน (ตัวย่อ)"
+  },
+  "locale.zh-TW": {
+    "defaultMessage": "จีน (ตัวเต็ม)"
+  },
+  "modal.confirm.type-here-placeholder": {
+    "defaultMessage": "พิมพ์ที่นี่..."
+  },
+  "modal.confirm.type-to-confirm": {
+    "defaultMessage": "เพื่อยืนยันว่าต้องการดำเนินการต่อ พิมพ์ <confirmation-text></confirmation-text> ด้านล่าง:"
+  },
+  "modal.share.copy-failed-title": {
+    "defaultMessage": "คัดลอกข้อความไม่สำเร็จ"
+  },
+  "modal.share.copy-link": {
+    "defaultMessage": "คัดลอกลิงก์"
+  },
+  "modal.share.copy-qr-code": {
+    "defaultMessage": "คัดลอก QR code"
+  },
+  "modal.share.copy-text": {
+    "defaultMessage": "คัดลอกข้อความ"
+  },
+  "modal.share.link-copied-text": {
+    "defaultMessage": "คัดลอกลิงก์ไปยังคลิปบอร์ดแล้ว"
+  },
+  "modal.share.link-copied-title": {
+    "defaultMessage": "คัดลอกลิงก์แล้ว"
+  },
+  "modal.share.open-in-new-tab": {
+    "defaultMessage": "เปิดในแท็บใหม่"
+  },
+  "modal.share.open-link-in-browser": {
+    "defaultMessage": "เปิดลิงก์ในเบราว์เซอร์"
+  },
+  "modal.share.send-email": {
+    "defaultMessage": "ส่งเป็นอีเมล"
+  },
+  "modal.share.share": {
+    "defaultMessage": "แชร์"
+  },
+  "modal.share.share-on-reddit": {
+    "defaultMessage": "แชร์บน Reddit"
+  },
+  "modal.share.toot-about-it": {
+    "defaultMessage": "ทูตเกี่ยวกับเรื่องนี้"
+  },
+  "modal.share.tweet-about-it": {
+    "defaultMessage": "ทวีตเกี่ยวกับเรื่องนี้"
+  },
+  "multi-select.clear-all": {
+    "defaultMessage": "ล้างทั้งหมด"
+  },
+  "multi-select.selection-count": {
+    "defaultMessage": "{count, plural, one {เลือก # รายการ} other {เลือก # รายการ}}"
   },
   "notification.error.title": {
     "defaultMessage": "เกิดข้อผิดพลาด"
   },
-  "omorphia.component.copy.action.copy": {
-    "defaultMessage": "คัดลอกโค้ดไปยังคลิปบอร์ด"
+  "notifications.actor.unknown": {
+    "defaultMessage": "ใครบางคน"
+  },
+  "notifications.close": {
+    "defaultMessage": "ปิด"
+  },
+  "notifications.dismiss": {
+    "defaultMessage": "ปิดการแจ้งเตือน"
+  },
+  "notifications.friend-request.body": {
+    "defaultMessage": "<actor>{actor}</actor> ส่งคำขอเป็นเพื่อน"
+  },
+  "notifications.instance-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> เชิญไปยังอินสแตนซ์ <entity>{entity}</entity>"
+  },
+  "notifications.instance-ready.launch-game": {
+    "defaultMessage": "เปิดเกม"
+  },
+  "notifications.instance-ready.open-instance": {
+    "defaultMessage": "อินสแตนซ์"
+  },
+  "notifications.instance-ready.status": {
+    "defaultMessage": "ติดตั้งแล้วพร้อมเล่น"
+  },
+  "notifications.invite.accept": {
+    "defaultMessage": "ยอมรับ"
+  },
+  "notifications.invite.decline": {
+    "defaultMessage": "ปฏิเสธ"
+  },
+  "notifications.server-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> เชิญให้จัดการเซิร์ฟเวอร์ <entity>{entity}</entity>"
+  },
+  "payment-method.amazon_pay": {
+    "defaultMessage": "Amazon Pay"
+  },
+  "payment-method.amex": {
+    "defaultMessage": "American Express"
+  },
+  "payment-method.card_display": {
+    "defaultMessage": "{card_brand} ลงท้ายด้วย {last_four}"
+  },
+  "payment-method.cashapp": {
+    "defaultMessage": "Cash App"
+  },
+  "payment-method.charity": {
+    "defaultMessage": "การกุศล"
+  },
+  "payment-method.charity-plural": {
+    "defaultMessage": "การกุศล"
+  },
+  "payment-method.diners": {
+    "defaultMessage": "Diners Club"
+  },
+  "payment-method.discover": {
+    "defaultMessage": "Discover"
+  },
+  "payment-method.eftpos": {
+    "defaultMessage": "EFTPOS"
+  },
+  "payment-method.gift-card": {
+    "defaultMessage": "บัตรของขวัญ"
+  },
+  "payment-method.gift-card-plural": {
+    "defaultMessage": "บัตรของขวัญ"
+  },
+  "payment-method.jcb": {
+    "defaultMessage": "JCB"
+  },
+  "payment-method.mastercard": {
+    "defaultMessage": "Mastercard"
+  },
+  "payment-method.paypal": {
+    "defaultMessage": "PayPal"
+  },
+  "payment-method.paypal_international": {
+    "defaultMessage": "PayPal International"
+  },
+  "payment-method.unionpay": {
+    "defaultMessage": "UnionPay"
+  },
+  "payment-method.unknown": {
+    "defaultMessage": "วิธีชำระเงินที่ไม่รู้จัก"
   },
   "payment-method.venmo": {
     "defaultMessage": "Venmo"
@@ -365,32 +2297,158 @@
   "payment-method.virtual-visa-plural": {
     "defaultMessage": "Virtual Visas"
   },
+  "payment-method.visa": {
+    "defaultMessage": "Visa"
+  },
+  "project-card.date.published.tooltip": {
+    "defaultMessage": "เผยแพร่ {date}"
+  },
+  "project-card.date.updated.tooltip": {
+    "defaultMessage": "อัปเดต {date}"
+  },
+  "project-card.environment.client": {
+    "defaultMessage": "ไคลเอนต์"
+  },
+  "project-card.environment.client-and-server": {
+    "defaultMessage": "ไคลเอนต์และเซิร์ฟเวอร์"
+  },
+  "project-card.environment.client-or-server": {
+    "defaultMessage": "ไคลเอนต์หรือเซิร์ฟเวอร์"
+  },
+  "project-card.environment.dedicated-server": {
+    "defaultMessage": "เซิร์ฟเวอร์เฉพาะ"
+  },
+  "project-card.environment.server": {
+    "defaultMessage": "เซิร์ฟเวอร์"
+  },
+  "project-card.environment.singleplayer": {
+    "defaultMessage": "ผู้เล่นคนเดียว"
+  },
   "project-type.all": {
     "defaultMessage": "ทั้งหมด"
+  },
+  "project-type.datapack.capital": {
+    "defaultMessage": "{count, plural, one {ดาต้าแพ็ก} other {ดาต้าแพ็ก}}"
+  },
+  "project-type.datapack.category": {
+    "defaultMessage": "ดาต้าแพ็ก"
+  },
+  "project-type.datapack.lowercase": {
+    "defaultMessage": "{count, plural, one {ดาต้าแพ็ก} other {ดาต้าแพ็ก}}"
+  },
+  "project-type.mod.capital": {
+    "defaultMessage": "{count, plural, one {ม็อด} other {ม็อด}}"
   },
   "project-type.mod.category": {
     "defaultMessage": "ม็อด"
   },
+  "project-type.mod.lowercase": {
+    "defaultMessage": "{count, plural, one {ม็อด} other {ม็อด}}"
+  },
+  "project-type.modpack.capital": {
+    "defaultMessage": "{count, plural, one {ม็อดแพ็ก} other {ม็อดแพ็ก}}"
+  },
   "project-type.modpack.category": {
     "defaultMessage": "ม็อดแพ็ก"
+  },
+  "project-type.modpack.lowercase": {
+    "defaultMessage": "{count, plural, one {ม็อดแพ็ก} other {ม็อดแพ็ก}}"
+  },
+  "project-type.plugin.capital": {
+    "defaultMessage": "{count, plural, one {ปลั๊กอิน} other {ปลั๊กอิน}}"
   },
   "project-type.plugin.category": {
     "defaultMessage": "ปลั๊กอิน"
   },
+  "project-type.plugin.lowercase": {
+    "defaultMessage": "{count, plural, one {ปลั๊กอิน} other {ปลั๊กอิน}}"
+  },
+  "project-type.project.capital": {
+    "defaultMessage": "{count, plural, one {โปรเจกต์} other {โปรเจกต์}}"
+  },
+  "project-type.project.category": {
+    "defaultMessage": "โปรเจกต์"
+  },
+  "project-type.project.lowercase": {
+    "defaultMessage": "{count, plural, one {โปรเจกต์} other {โปรเจกต์}}"
+  },
+  "project-type.resourcepack.capital": {
+    "defaultMessage": "{count, plural, one {รีซอร์ซแพ็ก} other {รีซอร์ซแพ็ก}}"
+  },
   "project-type.resourcepack.category": {
     "defaultMessage": "รีซอร์ซแพ็ก"
+  },
+  "project-type.resourcepack.lowercase": {
+    "defaultMessage": "{count, plural, one {รีซอร์ซแพ็ก} other {รีซอร์ซแพ็ก}}"
+  },
+  "project-type.server.capital": {
+    "defaultMessage": "{count, plural, one {เซิร์ฟเวอร์} other {เซิร์ฟเวอร์}}"
   },
   "project-type.server.category": {
     "defaultMessage": "เซิร์ฟเวอร์"
   },
+  "project-type.server.lowercase": {
+    "defaultMessage": "{count, plural, one {เซิร์ฟเวอร์} other {เซิร์ฟเวอร์}}"
+  },
+  "project-type.shader.capital": {
+    "defaultMessage": "{count, plural, one {เชเดอร์} other {เชเดอร์}}"
+  },
   "project-type.shader.category": {
     "defaultMessage": "แสงเงา"
+  },
+  "project-type.shader.lowercase": {
+    "defaultMessage": "{count, plural, one {เชเดอร์} other {เชเดอร์}}"
+  },
+  "project-type.world.capital": {
+    "defaultMessage": "{count, plural, other {โลก}}"
+  },
+  "project-type.world.category": {
+    "defaultMessage": "โลก"
+  },
+  "project-type.world.lowercase": {
+    "defaultMessage": "{count, plural, other {โลก}}"
+  },
+  "project.about.compatibility.environments": {
+    "defaultMessage": "สภาพแวดล้อมที่รองรับ"
+  },
+  "project.about.compatibility.environments.client-and-server": {
+    "defaultMessage": "ไคลเอนต์และเซิร์ฟเวอร์"
+  },
+  "project.about.compatibility.environments.client-side": {
+    "defaultMessage": "ฝั่งไคลเอนต์"
+  },
+  "project.about.compatibility.environments.dedicated-servers-only": {
+    "defaultMessage": "เฉพาะเซิร์ฟเวอร์เฉพาะ"
+  },
+  "project.about.compatibility.environments.server-side": {
+    "defaultMessage": "ฝั่งเซิร์ฟเวอร์"
+  },
+  "project.about.compatibility.environments.singleplayer": {
+    "defaultMessage": "ผู้เล่นคนเดียว"
+  },
+  "project.about.compatibility.environments.singleplayer-only": {
+    "defaultMessage": "เฉพาะผู้เล่นคนเดียว"
   },
   "project.about.compatibility.game.minecraftJava": {
     "defaultMessage": "Minecraft: Java Edition"
   },
   "project.about.compatibility.platforms": {
     "defaultMessage": "แพลตฟอร์ม"
+  },
+  "project.about.compatibility.platforms-plural": {
+    "defaultMessage": "{count, plural, one {แพลตฟอร์ม} other {แพลตฟอร์ม}}"
+  },
+  "project.about.compatibility.title": {
+    "defaultMessage": "ความเข้ากันได้"
+  },
+  "project.about.creators.no-members-error": {
+    "defaultMessage": "ข้อผิดพลาด: โปรเจกต์ไม่มีสมาชิก ไม่ควรเกิดขึ้น"
+  },
+  "project.about.creators.organization": {
+    "defaultMessage": "องค์กร"
+  },
+  "project.about.creators.owner": {
+    "defaultMessage": "เจ้าของโปรเจกต์"
   },
   "project.about.creators.title": {
     "defaultMessage": "ผู้สร้าง"
@@ -403,6 +2461,9 @@
   },
   "project.about.details.published": {
     "defaultMessage": "เผยแพร่เมื่อ {date}"
+  },
+  "project.about.details.submitted": {
+    "defaultMessage": "ส่ง {date}"
   },
   "project.about.details.updated": {
     "defaultMessage": "อัพเดทเมื่อ {date}"
@@ -431,8 +2492,203 @@
   "project.about.links.issues": {
     "defaultMessage": "รายงานปัญหา"
   },
+  "project.about.links.site": {
+    "defaultMessage": "ไปเว็บไซต์"
+  },
+  "project.about.links.source": {
+    "defaultMessage": "ดูซอร์ส"
+  },
+  "project.about.links.store": {
+    "defaultMessage": "ไปหน้าร้าน"
+  },
   "project.about.links.title": {
     "defaultMessage": "ลิงก์"
+  },
+  "project.about.links.wiki": {
+    "defaultMessage": "ไปวิกิ"
+  },
+  "project.about.tags.title": {
+    "defaultMessage": "แท็ก"
+  },
+  "project.compatibility.client-and-server": {
+    "defaultMessage": "ไคลเอนต์และเซิร์ฟเวอร์"
+  },
+  "project.compatibility.client-side": {
+    "defaultMessage": "ฝั่งไคลเอนต์"
+  },
+  "project.compatibility.no-mod-loader": {
+    "defaultMessage": "ไม่มี mod loader"
+  },
+  "project.compatibility.server-side": {
+    "defaultMessage": "ฝั่งเซิร์ฟเวอร์"
+  },
+  "project.disclosure.advertising.title": {
+    "defaultMessage": "มีการโฆษณา"
+  },
+  "project.disclosure.ai-functionality.title": {
+    "defaultMessage": "ฟังก์ชัน AI สร้างเนื้อหา"
+  },
+  "project.disclosure.ai-generated-content.title": {
+    "defaultMessage": "มี {types} ที่สร้างโดย AI"
+  },
+  "project.disclosure.ai-generated-content.use.assets": {
+    "defaultMessage": "แอสเซ็ต"
+  },
+  "project.disclosure.ai-generated-content.use.code": {
+    "defaultMessage": "โค้ด"
+  },
+  "project.disclosure.ai-generated-content.use.content": {
+    "defaultMessage": "เนื้อหา"
+  },
+  "project.disclosure.ai-generated-content.use.text": {
+    "defaultMessage": "ข้อความ"
+  },
+  "project.disclosure.derivative-work.show-fewer": {
+    "defaultMessage": "แสดงน้อยลง"
+  },
+  "project.disclosure.derivative-work.show-more": {
+    "defaultMessage": "แสดงอีก {count} รายการ"
+  },
+  "project.disclosure.derivative-work.title": {
+    "defaultMessage": "นี่คือผลงานต่อยอดจาก:"
+  },
+  "project.disclosure.paid-features.title": {
+    "defaultMessage": "มีฟีเจอร์แบบเสียเงิน"
+  },
+  "project.disclosure.photosensitivity.title": {
+    "defaultMessage": "คำเตือนไวต่อแสง"
+  },
+  "project.disclosure.system-interactions.title": {
+    "defaultMessage": "มีการโต้ตอบกับระบบภายนอก"
+  },
+  "project.disclosure.telemetry.title": {
+    "defaultMessage": "มี {consent, select, opt_in {telemetry แบบ opt-in} opt_out {telemetry แบบ opt-out} always_active {telemetry ที่เปิดตลอด} other {telemetry}}"
+  },
+  "project.download-count-tooltip": {
+    "defaultMessage": "{count, number} {count, plural, one {ดาวน์โหลด} other {ดาวน์โหลด}}"
+  },
+  "project.environment.client-and-server.description": {
+    "defaultMessage": "ต้องมีทั้งบนไคลเอนต์และเซิร์ฟเวอร์"
+  },
+  "project.environment.client-and-server.title": {
+    "defaultMessage": "ไคลเอนต์และเซิร์ฟเวอร์ ต้องมีทั้งสอง"
+  },
+  "project.environment.client-only-server-optional.description": {
+    "defaultMessage": "ฟังก์ชันส่วนใหญ่เป็นฝั่งไคลเอนต์ แต่ติดตั้งบนเซิร์ฟเวอร์จะเพิ่มความสามารถ"
+  },
+  "project.environment.client-only-server-optional.title": {
+    "defaultMessage": "ไคลเอนต์และเซิร์ฟเวอร์ ไม่บังคับบนเซิร์ฟเวอร์"
+  },
+  "project.environment.client-only.description": {
+    "defaultMessage": "ฟังก์ชันทั้งหมดทำฝั่งไคลเอนต์และเข้ากันกับเซิร์ฟเวอร์วานิลลา"
+  },
+  "project.environment.client-only.title": {
+    "defaultMessage": "เฉพาะฝั่งไคลเอนต์"
+  },
+  "project.environment.client-or-server-prefers-both.description": {
+    "defaultMessage": "มีฟังก์ชันบางส่วนทั้งบนไคลเอนต์และเซิร์ฟเวอร์ ติดตั้งทั้งสองจะได้ประสบการณ์ดีสุด"
+  },
+  "project.environment.client-or-server-prefers-both.title": {
+    "defaultMessage": "ไคลเอนต์และเซิร์ฟเวอร์ ดีสุดเมื่อติดตั้งทั้งสอง"
+  },
+  "project.environment.client-or-server.description": {
+    "defaultMessage": "มีฟังก์ชันบางส่วนทั้งบนไคลเอนต์และเซิร์ฟเวอร์"
+  },
+  "project.environment.client-or-server.title": {
+    "defaultMessage": "ไคลเอนต์และเซิร์ฟเวอร์ ไม่บังคับทั้งสอง"
+  },
+  "project.environment.dedicated-server-only.description": {
+    "defaultMessage": "ฟังก์ชันทั้งหมดทำฝั่งเซิร์ฟเวอร์และเข้ากันกับไคลเอนต์วานิลลา ใช้ได้เฉพาะเซิร์ฟเวอร์เฉพาะ"
+  },
+  "project.environment.dedicated-server-only.title": {
+    "defaultMessage": "เฉพาะฝั่งเซิร์ฟเวอร์"
+  },
+  "project.environment.server-only-client-optional.description": {
+    "defaultMessage": "ฟังก์ชันส่วนใหญ่เป็นฝั่งเซิร์ฟเวอร์ แต่ติดตั้งบนไคลเอนต์จะเพิ่มความสามารถ"
+  },
+  "project.environment.server-only-client-optional.title": {
+    "defaultMessage": "ไคลเอนต์และเซิร์ฟเวอร์ ไม่บังคับบนไคลเอนต์"
+  },
+  "project.environment.server-only.description": {
+    "defaultMessage": "ฟังก์ชันทั้งหมดทำฝั่งเซิร์ฟเวอร์และเข้ากันกับไคลเอนต์วานิลลา ใช้ได้บนเซิร์ฟเวอร์ภายในในผู้เล่นคนเดียวด้วย"
+  },
+  "project.environment.server-only.title": {
+    "defaultMessage": "เฉพาะฝั่งเซิร์ฟเวอร์ ใช้ในผู้เล่นคนเดียวได้ด้วย"
+  },
+  "project.environment.singleplayer-only.description": {
+    "defaultMessage": "ใช้ได้เฉพาะในผู้เล่นคนเดียวหรือเมื่อไม่ได้เชื่อมต่อเซิร์ฟเวอร์มัลติเพลเยอร์"
+  },
+  "project.environment.singleplayer-only.title": {
+    "defaultMessage": "เฉพาะผู้เล่นคนเดียว"
+  },
+  "project.environment.tag.not-applicable": {
+    "defaultMessage": "ไม่มี"
+  },
+  "project.environment.tag.unknown": {
+    "defaultMessage": "ไม่รู้จัก"
+  },
+  "project.environment.unknown.description": {
+    "defaultMessage": "ไม่สามารถระบุสภาพแวดล้อมของเวอร์ชันนี้ได้"
+  },
+  "project.environment.unknown.title": {
+    "defaultMessage": "สภาพแวดล้อมที่ไม่รู้จัก"
+  },
+  "project.follower-count-tooltip": {
+    "defaultMessage": "{count, number} {count, plural, one {ผู้ติดตาม} other {ผู้ติดตาม}}"
+  },
+  "project.license.error": {
+    "defaultMessage": "ไม่สามารถดึงข้อความใบอนุญาตได้"
+  },
+  "project.license.loading": {
+    "defaultMessage": "กำลังโหลดข้อความใบอนุญาต..."
+  },
+  "project.license.title": {
+    "defaultMessage": "ใบอนุญาต"
+  },
+  "project.online-player-count": {
+    "defaultMessage": "{count, number} ออนไลน์"
+  },
+  "project.online-player-count.tooltip": {
+    "defaultMessage": "{count} {countPlural, plural, one {ผู้เล่น} other {ผู้เล่น}} ออนไลน์"
+  },
+  "project.recent-plays": {
+    "defaultMessage": "{count} {countPlural, plural, one {การเล่นล่าสุด} other {การเล่นล่าสุด}}"
+  },
+  "project.recent-plays.tooltip": {
+    "defaultMessage": "{count} {countPlural, plural, one {การเล่นล่าสุด} other {การเล่นล่าสุด}} จาก Modrinth ใน 2 สัปดาห์ที่ผ่านมา"
+  },
+  "project.server.customModpackTooltip": {
+    "defaultMessage": "โปรเจกต์นี้ใช้ม็อดแพ็กกำหนดเอง"
+  },
+  "project.server.ping.ms": {
+    "defaultMessage": "{ping, number} ms"
+  },
+  "project.server.region.asia": {
+    "defaultMessage": "เอเชีย"
+  },
+  "project.server.region.australia": {
+    "defaultMessage": "ออสเตรเลีย"
+  },
+  "project.server.region.europe": {
+    "defaultMessage": "ยุโรป"
+  },
+  "project.server.region.middle_east": {
+    "defaultMessage": "ตะวันออกกลาง"
+  },
+  "project.server.region.russia": {
+    "defaultMessage": "รัสเซีย"
+  },
+  "project.server.region.south_america": {
+    "defaultMessage": "อเมริกาใต้"
+  },
+  "project.server.region.tooltip": {
+    "defaultMessage": "เซิร์ฟเวอร์โฮสต์ใน {regionName}"
+  },
+  "project.server.region.us_east": {
+    "defaultMessage": "สหรัฐตะวันออก"
+  },
+  "project.server.region.us_west": {
+    "defaultMessage": "สหรัฐตะวันตก"
   },
   "project.server.status.offline": {
     "defaultMessage": "ออฟไลน์"
@@ -443,14 +2699,95 @@
   "project.server.status.online": {
     "defaultMessage": "ออนไลน์"
   },
+  "project.settings.analytics.title": {
+    "defaultMessage": "การวิเคราะห์"
+  },
+  "project.settings.content.title": {
+    "defaultMessage": "เนื้อหา"
+  },
   "project.settings.description.title": {
     "defaultMessage": "คำอธิบาย"
+  },
+  "project.settings.disclosures.ai.types-assets": {
+    "defaultMessage": "แอสเซ็ต"
+  },
+  "project.settings.disclosures.ai.types-code": {
+    "defaultMessage": "โค้ด"
+  },
+  "project.settings.disclosures.ai.types-text": {
+    "defaultMessage": "ข้อความ"
+  },
+  "project.settings.disclosures.telemetry.consent-always-active": {
+    "defaultMessage": "เปิดตลอด"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-in": {
+    "defaultMessage": "Opt-in"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-out": {
+    "defaultMessage": "Opt-out"
+  },
+  "project.settings.disclosures.title": {
+    "defaultMessage": "การเปิดเผย"
   },
   "project.settings.environment.client_and_server.title": {
     "defaultMessage": "ไคลเอ็นต์และเซิร์ฟเวอร์"
   },
   "project.settings.environment.client_only.title": {
     "defaultMessage": "ฝั่งไคลเอนต์เท่านั้น"
+  },
+  "project.settings.environment.server_only.title": {
+    "defaultMessage": "เฉพาะฝั่งเซิร์ฟเวอร์"
+  },
+  "project.settings.environment.singleplayer.title": {
+    "defaultMessage": "เฉพาะผู้เล่นคนเดียว"
+  },
+  "project.settings.environment.title": {
+    "defaultMessage": "สภาพแวดล้อม"
+  },
+  "project.settings.gallery.title": {
+    "defaultMessage": "แกลเลอรี"
+  },
+  "project.settings.general.title": {
+    "defaultMessage": "ทั่วไป"
+  },
+  "project.settings.license.title": {
+    "defaultMessage": "ใบอนุญาต"
+  },
+  "project.settings.links.title": {
+    "defaultMessage": "ลิงก์"
+  },
+  "project.settings.members.title": {
+    "defaultMessage": "สมาชิก"
+  },
+  "project.settings.notice.no-permission.description": {
+    "defaultMessage": "ไม่มีสิทธิ์แก้ไขรายการนี้"
+  },
+  "project.settings.notice.no-permission.title": {
+    "defaultMessage": "ไม่มีสิทธิ์"
+  },
+  "project.settings.server.title": {
+    "defaultMessage": "เซิร์ฟเวอร์"
+  },
+  "project.settings.tags.title": {
+    "defaultMessage": "แท็ก"
+  },
+  "project.settings.upload.title": {
+    "defaultMessage": "อัปโหลด"
+  },
+  "project.settings.versions.permissions": {
+    "defaultMessage": "สิทธิ์"
+  },
+  "project.settings.versions.title": {
+    "defaultMessage": "เวอร์ชัน"
+  },
+  "project.settings.view.title": {
+    "defaultMessage": "ดู"
+  },
+  "project.stats.downloads-label": {
+    "defaultMessage": "{count, plural, one {ดาวน์โหลด} other {ดาวน์โหลด}}"
+  },
+  "project.stats.followers-label": {
+    "defaultMessage": "{count, plural, one {ผู้ติดตาม} other {ผู้ติดตาม}}"
   },
   "project.versions.channel.alpha.symbol": {
     "defaultMessage": "A"
@@ -460,6 +2797,39 @@
   },
   "project.versions.channel.release.symbol": {
     "defaultMessage": "R"
+  },
+  "project.versions.create-version": {
+    "defaultMessage": "สร้างเวอร์ชัน"
+  },
+  "project.versions.downloads-tooltip": {
+    "defaultMessage": "{count, plural, one {# ดาวน์โหลด} other {# ดาวน์โหลด}}"
+  },
+  "project.versions.filter.channel": {
+    "defaultMessage": "ช่อง"
+  },
+  "project.versions.filter.selected-count": {
+    "defaultMessage": "เลือก {count, number} รายการ"
+  },
+  "project.versions.filter.toggle-tooltip": {
+    "defaultMessage": "สลับตัวกรองสำหรับ {filter}"
+  },
+  "project.versions.no-mod-loader": {
+    "defaultMessage": "ไม่มี mod loader"
+  },
+  "project.versions.platform.modloader.short": {
+    "defaultMessage": "ModLoader"
+  },
+  "project.versions.version.withheld": {
+    "defaultMessage": "ระงับ"
+  },
+  "project.versions.version.withheld.tooltip": {
+    "defaultMessage": "ระงับเวอร์ชันเนื่องจากสิทธิ์ไม่พอ"
+  },
+  "project.versions.withheld-versions-warning.resolve-button": {
+    "defaultMessage": "แก้ไข"
+  },
+  "project.visibility.archived": {
+    "defaultMessage": "เก็บถาวร"
   },
   "project.visibility.draft": {
     "defaultMessage": "แบบร่าง"
@@ -473,6 +2843,9 @@
   "project.visibility.rejected": {
     "defaultMessage": "ไม่อนุมัติ"
   },
+  "project.visibility.scheduled": {
+    "defaultMessage": "กำหนดเวลา"
+  },
   "project.visibility.under-review": {
     "defaultMessage": "อยู่ภายใต้การพิจารณา"
   },
@@ -482,20 +2855,302 @@
   "project.visibility.unlisted": {
     "defaultMessage": "ไม่เปิดเผย"
   },
+  "project.visibility.unlisted-by-staff": {
+    "defaultMessage": "ซ่อนโดยทีมงาน"
+  },
+  "report.item-type.content": {
+    "defaultMessage": "เนื้อหา"
+  },
+  "report.item-type.project": {
+    "defaultMessage": "โปรเจกต์"
+  },
+  "report.item-type.user": {
+    "defaultMessage": "ผู้ใช้"
+  },
+  "report.item-type.version": {
+    "defaultMessage": "เวอร์ชัน"
+  },
+  "report.type.ai-images": {
+    "defaultMessage": "รูปที่สร้างโดย AI ในไอคอน แกลเลอรี หรือคำอธิบาย"
+  },
+  "report.type.copyright": {
+    "defaultMessage": "งานที่อัปโหลดซ้ำ"
+  },
+  "report.type.fully-ai-generated": {
+    "defaultMessage": "โปรเจกต์ที่สร้างโดย AI ทั้งหมด"
+  },
+  "report.type.inappropriate": {
+    "defaultMessage": "ไม่เหมาะสม"
+  },
+  "report.type.malicious": {
+    "defaultMessage": "มุ่งร้าย"
+  },
+  "report.type.missing-disclosure": {
+    "defaultMessage": "ขาดหรือไม่ระบุการเปิดเผย"
+  },
+  "report.type.name-squatting": {
+    "defaultMessage": "จองชื่อ"
+  },
+  "report.type.spam": {
+    "defaultMessage": "สแปม"
+  },
+  "search.filter.clear-all-filters": {
+    "defaultMessage": "ล้างตัวกรองทั้งหมด"
+  },
+  "search.filter.dependency_type.any": {
+    "defaultMessage": "ประเภท dependency ใดก็ได้"
+  },
+  "search.filter.dependency_type.embedded": {
+    "defaultMessage": "ฝังใน"
+  },
+  "search.filter.dependency_type.optional": {
+    "defaultMessage": "ไม่บังคับ"
+  },
+  "search.filter.dependency_type.optional_or_embedded": {
+    "defaultMessage": "ไม่บังคับหรือฝังใน"
+  },
+  "search.filter.dependency_type.required": {
+    "defaultMessage": "จำเป็น"
+  },
+  "search.filter.dependency_type.required_or_embedded": {
+    "defaultMessage": "จำเป็นหรือฝังใน"
+  },
+  "search.filter.dependency_type.required_or_optional": {
+    "defaultMessage": "จำเป็นหรือไม่บังคับ"
+  },
+  "search.filter.dependent_project": {
+    "defaultMessage": "ขึ้นกับ: {project}"
+  },
+  "search.filter.dependent_project.clear": {
+    "defaultMessage": "ล้างตัวกรอง dependency"
+  },
+  "search.filter.dependent_project.search_placeholder": {
+    "defaultMessage": "ค้นหาโปรเจกต์..."
+  },
+  "search.filter.excluded_projects": {
+    "defaultMessage": "ยกเว้น: {projects}"
+  },
+  "search.filter.included_content.exclude": {
+    "defaultMessage": "ยกเว้น"
+  },
+  "search.filter.included_content.excluded": {
+    "defaultMessage": "ยกเว้นแล้ว"
+  },
+  "search.filter.included_content.remove_project": {
+    "defaultMessage": "ลบ {project}"
+  },
+  "search.filter.included_content.remove_project.tooltip": {
+    "defaultMessage": "ลบโปรเจกต์"
+  },
+  "search.filter.included_content.search_placeholder": {
+    "defaultMessage": "ค้นหาเนื้อหา..."
+  },
+  "search.filter.included_projects": {
+    "defaultMessage": "รวมถึง: {projects}"
+  },
+  "search.filter.locked.default": {
+    "defaultMessage": "ตัวกรองถูกล็อก"
+  },
+  "search.filter.locked.default.description": {
+    "defaultMessage": "การปลดล็อกตัวกรองนี้อาจทำให้ติดตั้งเนื้อหาที่ไม่เข้ากันได้"
+  },
+  "search.filter.locked.default.sync": {
+    "defaultMessage": "ซิงก์ตัวกรอง"
+  },
+  "search.filter.locked.default.title": {
+    "defaultMessage": "{type} ถูกล็อก"
+  },
+  "search.filter.locked.default.unlock": {
+    "defaultMessage": "ปลดล็อกตัวกรอง"
+  },
+  "search.filter.option.exclusion.add.tooltip": {
+    "defaultMessage": "ยกเว้น"
+  },
+  "search.filter.option.search.clear.aria_label": {
+    "defaultMessage": "ล้างการค้นหา"
+  },
+  "search.filter.option.search.placeholder": {
+    "defaultMessage": "ค้นหา..."
+  },
+  "search.filter.option.show_fewer": {
+    "defaultMessage": "แสดงน้อยลง"
+  },
+  "search.filter.option.show_more": {
+    "defaultMessage": "แสดงเพิ่มเติม"
+  },
+  "search.filter.option.sub_options.collapse.tooltip": {
+    "defaultMessage": "ซ่อนตัวเลือกเพิ่มเติม"
+  },
+  "search.filter.option.sub_options.expand.tooltip": {
+    "defaultMessage": "แสดงตัวเลือกเพิ่มเติม"
+  },
+  "search.filter_type.advanced": {
+    "defaultMessage": "การยกเว้นขั้นสูง"
+  },
+  "search.filter_type.advanced.disclosure.advertisements": {
+    "defaultMessage": "โฆษณา"
+  },
+  "search.filter_type.advanced.disclosure.ai_content": {
+    "defaultMessage": "เนื้อหาที่สร้างโดย AI"
+  },
+  "search.filter_type.advanced.disclosure.ai_content.usage": {
+    "defaultMessage": "AI {usage}"
+  },
+  "search.filter_type.advanced.disclosure.ai_functionality": {
+    "defaultMessage": "ฟังก์ชัน AI สร้างเนื้อหา"
+  },
+  "search.filter_type.advanced.disclosure.archived": {
+    "defaultMessage": "เก็บถาวร"
+  },
+  "search.filter_type.advanced.disclosure.derivative_work": {
+    "defaultMessage": "เนื้อหาต่อยอด"
+  },
+  "search.filter_type.advanced.disclosure.epilepsy_triggers": {
+    "defaultMessage": "ตัวกระตุ้นไวต่อแสง"
+  },
+  "search.filter_type.advanced.disclosure.paid_features": {
+    "defaultMessage": "ฟีเจอร์แบบเสียเงิน"
+  },
+  "search.filter_type.advanced.disclosure.system_interactions": {
+    "defaultMessage": "การโต้ตอบกับระบบภายนอก"
+  },
+  "search.filter_type.advanced.disclosure.telemetry": {
+    "defaultMessage": "Telemetry"
+  },
+  "search.filter_type.compatible_dependency_project_ids": {
+    "defaultMessage": "ขึ้นกับ"
+  },
+  "search.filter_type.environment": {
+    "defaultMessage": "สภาพแวดล้อม"
+  },
+  "search.filter_type.environment.client": {
+    "defaultMessage": "ไคลเอนต์"
+  },
   "search.filter_type.environment.server": {
     "defaultMessage": "เซิร์ฟเวอร์"
+  },
+  "search.filter_type.game_version": {
+    "defaultMessage": "เวอร์ชันเกม"
   },
   "search.filter_type.game_version.all_versions": {
     "defaultMessage": "ดูทุกเวอร์ชั่น"
   },
-  "search.filter_type.server_content_type": {
-    "defaultMessage": "ประเภท"
+  "search.filter_type.included_content": {
+    "defaultMessage": "เนื้อหาที่รวม"
+  },
+  "search.filter_type.license": {
+    "defaultMessage": "ใบอนุญาต"
+  },
+  "search.filter_type.license.open_source": {
+    "defaultMessage": "โอเพนซอร์ส"
+  },
+  "search.filter_type.mod_loader": {
+    "defaultMessage": "Loader"
+  },
+  "search.filter_type.modpack_loader": {
+    "defaultMessage": "Loader"
+  },
+  "search.filter_type.plugin_loader": {
+    "defaultMessage": "Loader"
+  },
+  "search.filter_type.plugin_platform": {
+    "defaultMessage": "แพลตฟอร์ม"
+  },
+  "search.filter_type.project_id": {
+    "defaultMessage": "ID โปรเจกต์"
+  },
+  "search.filter_type.shader_loader": {
+    "defaultMessage": "Loader"
+  },
+  "search.photosensitivity-warning-modal.body.1": {
+    "defaultMessage": "ไม่สามารถรับประกันได้ว่าเนื้อหาทั้งหมดบน Modrinth ถูกติดป้ายอย่างเหมาะสม"
+  },
+  "search.photosensitivity-warning-modal.body.2": {
+    "defaultMessage": "ป้ายเนื้อหาสำหรับตัวกระตุ้นไวต่อแสงระบุโดยครีเอเตอร์ที่อัปโหลดเนื้อหาบน Modrinth โปรเจกต์เหล่านี้ยังไม่ผ่านการทดสอบความปลอดภัย"
+  },
+  "search.photosensitivity-warning-modal.body.3": {
+    "defaultMessage": "การใช้เนื้อหาใดบน Modrinth มีความเสี่ยงเอง โปรดระวัง!"
+  },
+  "search.photosensitivity-warning-modal.dont-show-again": {
+    "defaultMessage": "ไม่แสดงอีก"
+  },
+  "search.photosensitivity-warning-modal.title": {
+    "defaultMessage": "ผลลัพธ์อาจไม่ปลอดภัย"
   },
   "settings.account.title": {
     "defaultMessage": "บัญชีและความปลอดภัย"
   },
+  "settings.appearance.title": {
+    "defaultMessage": "ลักษณะ"
+  },
+  "settings.applications.title": {
+    "defaultMessage": "แอปพลิเคชันของคุณ"
+  },
   "settings.authorized-apps.title": {
     "defaultMessage": "แอพที่ได้รับอนุญาต"
+  },
+  "settings.billing.title": {
+    "defaultMessage": "การเรียกเก็บเงินและการสมัคร"
+  },
+  "settings.display.project-list-layouts.datapack": {
+    "defaultMessage": "หน้าดาต้าแพ็ก"
+  },
+  "settings.display.project-list-layouts.description": {
+    "defaultMessage": "เลือกเลย์เอาต์ที่ต้องการสำหรับแต่ละหน้าที่แสดงรายการโปรเจกต์"
+  },
+  "settings.display.project-list-layouts.mod": {
+    "defaultMessage": "หน้าม็อด"
+  },
+  "settings.display.project-list-layouts.mode.grid": {
+    "defaultMessage": "ตาราง"
+  },
+  "settings.display.project-list-layouts.mode.rows": {
+    "defaultMessage": "แถว"
+  },
+  "settings.display.project-list-layouts.modpack": {
+    "defaultMessage": "หน้าม็อดแพ็ก"
+  },
+  "settings.display.project-list-layouts.plugin": {
+    "defaultMessage": "หน้าปลั๊กอิน"
+  },
+  "settings.display.project-list-layouts.resourcepack": {
+    "defaultMessage": "หน้ารีซอร์ซแพ็ก"
+  },
+  "settings.display.project-list-layouts.server": {
+    "defaultMessage": "หน้าเซิร์ฟเวอร์"
+  },
+  "settings.display.project-list-layouts.shader": {
+    "defaultMessage": "หน้าเชเดอร์"
+  },
+  "settings.display.project-list-layouts.title": {
+    "defaultMessage": "เลย์เอาต์รายการโปรเจกต์"
+  },
+  "settings.display.project-list-layouts.user": {
+    "defaultMessage": "หน้าโปรไฟล์ผู้ใช้"
+  },
+  "settings.display.sidebar.advanced-rendering.description": {
+    "defaultMessage": "เปิดการเรนเดอร์ขั้นสูงอย่างเอฟเฟกต์เบลอซึ่งอาจทำให้เกิดปัญหาประสิทธิภาพหากไม่มีการเรนเดอร์ด้วยฮาร์ดแวร์"
+  },
+  "settings.display.sidebar.advanced-rendering.title": {
+    "defaultMessage": "การเรนเดอร์ขั้นสูง"
+  },
+  "settings.display.sidebar.external-links-new-tab.description": {
+    "defaultMessage": "ทำให้ลิงก์ที่ออกนอก Modrinth เปิดในแท็บใหม่ ไม่ว่าการตั้งค่านี้จะเป็นอย่างไร ลิงก์ในโดเมนเดียวกันและในคำอธิบาย Markdown จะเปิดในแท็บเดิม ส่วนลิงก์บนโฆษณาและหน้าแก้ไขจะเปิดในแท็บใหม่"
+  },
+  "settings.display.sidebar.external-links-new-tab.title": {
+    "defaultMessage": "เปิดลิงก์ภายนอกในแท็บใหม่"
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.description": {
+    "defaultMessage": "จัดแถบด้านข้างชิดซ้ายของเนื้อหาหน้า"
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.title": {
+    "defaultMessage": "แถบด้านข้างชิดซ้ายในหน้าเนื้อหา"
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.description": {
+    "defaultMessage": "จัดแถบด้านข้างตัวกรองชิดขวาของผลค้นหา"
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.title": {
+    "defaultMessage": "แถบตัวกรองชิดขวาในหน้าค้นหา"
   },
   "settings.display.theme.dark": {
     "defaultMessage": "มืด"
@@ -506,10 +3161,778 @@
   "settings.display.theme.oled": {
     "defaultMessage": "OLED"
   },
+  "settings.display.theme.orbiont-description": {
+    "defaultMessage": "เลือกธีมสีที่ต้องการสำหรับ {productName}"
+  },
+  "settings.display.theme.preferred-dark-theme": {
+    "defaultMessage": "ธีมมืดที่ต้องการ"
+  },
+  "settings.display.theme.preferred-light-theme": {
+    "defaultMessage": "ธีมสว่างที่ต้องการ"
+  },
+  "settings.display.theme.retro": {
+    "defaultMessage": "เรโทร"
+  },
+  "settings.display.theme.system": {
+    "defaultMessage": "ซิงก์กับระบบ"
+  },
   "settings.display.theme.title": {
     "defaultMessage": "ธีมสี"
   },
+  "settings.feature-flags.title": {
+    "defaultMessage": "แฟล็กฟีเจอร์"
+  },
+  "settings.language.categories.default": {
+    "defaultMessage": "ภาษามาตรฐาน"
+  },
+  "settings.language.categories.search-result": {
+    "defaultMessage": "ผลค้นหา"
+  },
+  "settings.language.coverage.app-tooltip": {
+    "defaultMessage": "ประมาณ {percentage}% ของ {productName} พร้อมใช้ในภาษานี้"
+  },
+  "settings.language.coverage.label": {
+    "defaultMessage": "รองรับ {percentage}%"
+  },
+  "settings.language.description.orbiont": {
+    "defaultMessage": "เลือกภาษาที่ต้องการสำหรับ {platform} Orbiont จัดส่งคำแปลจากชุมชนตามสภาพ ความครอบคลุมต่างกันตามภาษาและข้อความที่ไม่ได้แปลจะแสดงเป็นภาษาอังกฤษ"
+  },
+  "settings.language.languages.search-field.placeholder": {
+    "defaultMessage": "ค้นหาภาษา..."
+  },
+  "settings.language.languages.search-results-announcement": {
+    "defaultMessage": "{matches, plural, =0 {ไม่มีภาษาตรง} one {# ภาษาตรง} other {# ภาษาตรง}}กับการค้นหา"
+  },
+  "settings.language.languages.search.no-results": {
+    "defaultMessage": "ไม่มีภาษาตรงกับการค้นหา"
+  },
+  "settings.language.platform.app": {
+    "defaultMessage": "แอป"
+  },
   "settings.language.title": {
     "defaultMessage": "ภาษา"
+  },
+  "settings.language.warning": {
+    "defaultMessage": "การเปลี่ยนภาษา {platform} อาจทำให้เนื้อหาบางส่วนปรากฏเป็นภาษาอังกฤษหากไม่มีคำแปล {platform} ยังแปลไม่ครบ เนื้อหาบางส่วนอาจยังเป็นภาษาอังกฤษในบางภาษา"
+  },
+  "settings.pats.title": {
+    "defaultMessage": "โทเค็นเข้าถึงส่วนตัว"
+  },
+  "settings.profile.navigation-title": {
+    "defaultMessage": "โปรไฟล์"
+  },
+  "settings.sessions.title": {
+    "defaultMessage": "เซสชัน"
+  },
+  "settings.social.title": {
+    "defaultMessage": "โซเชียล"
+  },
+  "skin.preview.drag-to-rotate": {
+    "defaultMessage": "ลากเพื่อหมุน"
+  },
+  "skins.select": {
+    "defaultMessage": "เลือกสกิน"
+  },
+  "skins.select-named": {
+    "defaultMessage": "เลือก {name}"
+  },
+  "table.empty-state.no-data": {
+    "defaultMessage": "ไม่มีข้อมูล"
+  },
+  "tag.category.128x": {
+    "defaultMessage": "128x"
+  },
+  "tag.category.16x": {
+    "defaultMessage": "16x"
+  },
+  "tag.category.256x": {
+    "defaultMessage": "256x"
+  },
+  "tag.category.32x": {
+    "defaultMessage": "32x"
+  },
+  "tag.category.3d-packs": {
+    "message": "แพ็ค 3 มิติ"
+  },
+  "tag.category.48x": {
+    "defaultMessage": "48x"
+  },
+  "tag.category.512x+": {
+    "defaultMessage": "512x ขึ้นไป"
+  },
+  "tag.category.64x": {
+    "defaultMessage": "64x"
+  },
+  "tag.category.8x-": {
+    "defaultMessage": "8x ลงมา"
+  },
+  "tag.category.adventure": {
+    "defaultMessage": "ผจญภัย"
+  },
+  "tag.category.adventure-mode": {
+    "defaultMessage": "โหมดผจญภัย"
+  },
+  "tag.category.anarchy": {
+    "defaultMessage": "อนาธิปไตย"
+  },
+  "tag.category.armor-tools-weapons": {
+    "message": "ชุดเกราะ เครื่องมือ และอาวุธ"
+  },
+  "tag.category.atmosphere": {
+    "defaultMessage": "บรรยากาศ"
+  },
+  "tag.category.audio": {
+    "defaultMessage": "เสียง"
+  },
+  "tag.category.battle-royale": {
+    "defaultMessage": "Battle Royale"
+  },
+  "tag.category.bedwars": {
+    "defaultMessage": "Bed Wars"
+  },
+  "tag.category.blocks": {
+    "defaultMessage": "บล็อก"
+  },
+  "tag.category.bloom": {
+    "defaultMessage": "Bloom"
+  },
+  "tag.category.bosses": {
+    "defaultMessage": "บอส"
+  },
+  "tag.category.cartoon": {
+    "defaultMessage": "การ์ตูน"
+  },
+  "tag.category.challenging": {
+    "defaultMessage": "ท้าทาย"
+  },
+  "tag.category.classes": {
+    "defaultMessage": "คลาส"
+  },
+  "tag.category.colored-lighting": {
+    "defaultMessage": "แสงสี"
+  },
+  "tag.category.combat": {
+    "defaultMessage": "ต่อสู้"
+  },
+  "tag.category.competitive": {
+    "defaultMessage": "แข่งขัน"
+  },
+  "tag.category.core-shaders": {
+    "defaultMessage": "Core Shaders"
+  },
+  "tag.category.cosmetics": {
+    "message": "ของตกแต่ง"
+  },
+  "tag.category.creation": {
+    "defaultMessage": "การสร้างสรรค์"
+  },
+  "tag.category.creative-mode": {
+    "defaultMessage": "โหมดสร้างสรรค์"
+  },
+  "tag.category.creator-community": {
+    "defaultMessage": "ชุมชนครีเอเตอร์"
+  },
+  "tag.category.crossplay": {
+    "defaultMessage": "เล่นข้ามแพลตฟอร์ม"
+  },
+  "tag.category.ctm": {
+    "message": "เสร็จสิ้นอนุสาวรีย์"
+  },
+  "tag.category.cursed": {
+    "defaultMessage": "ต้องคำสาป"
+  },
+  "tag.category.custom-content": {
+    "defaultMessage": "เนื้อหากำหนดเอง"
+  },
+  "tag.category.custom-terrain": {
+    "message": "ภูมิประเทศที่กำหนดเอง"
+  },
+  "tag.category.decoration": {
+    "defaultMessage": "ตกแต่ง"
+  },
+  "tag.category.dungeons": {
+    "defaultMessage": "ดันเจี้ยน"
+  },
+  "tag.category.economy": {
+    "defaultMessage": "เศรษฐกิจ"
+  },
+  "tag.category.enhanced-visuals": {
+    "message": "ปรับปรุงภาพ"
+  },
+  "tag.category.entities": {
+    "defaultMessage": "เอนทิตี"
+  },
+  "tag.category.environment": {
+    "defaultMessage": "สภาพแวดล้อม"
+  },
+  "tag.category.equipment": {
+    "defaultMessage": "อุปกรณ์"
+  },
+  "tag.category.factions": {
+    "defaultMessage": "แฟกชัน"
+  },
+  "tag.category.fantasy": {
+    "defaultMessage": "แฟนตาซี"
+  },
+  "tag.category.foliage": {
+    "defaultMessage": "ใบไม้"
+  },
+  "tag.category.fonts": {
+    "defaultMessage": "ฟอนต์"
+  },
+  "tag.category.food": {
+    "defaultMessage": "อาหาร"
+  },
+  "tag.category.game-map": {
+    "defaultMessage": "แผนที่เกม"
+  },
+  "tag.category.game-mechanics": {
+    "defaultMessage": "กลไกเกม"
+  },
+  "tag.category.gens": {
+    "defaultMessage": "Gens"
+  },
+  "tag.category.gui": {
+    "defaultMessage": "GUI"
+  },
+  "tag.category.hardcore-mode": {
+    "defaultMessage": "โหมดฮาร์ดคอร์"
+  },
+  "tag.category.high": {
+    "defaultMessage": "สูง"
+  },
+  "tag.category.items": {
+    "defaultMessage": "ไอเท็ม"
+  },
+  "tag.category.keep-inventory": {
+    "defaultMessage": "เก็บของเมื่อตาย"
+  },
+  "tag.category.kitchen-sink": {
+    "defaultMessage": "รวมทุกอย่าง"
+  },
+  "tag.category.kitpvp": {
+    "defaultMessage": "Kit PvP"
+  },
+  "tag.category.library": {
+    "defaultMessage": "ไลบรารี"
+  },
+  "tag.category.lifesteal": {
+    "defaultMessage": "ดูดเลือด"
+  },
+  "tag.category.lightweight": {
+    "defaultMessage": "เบา"
+  },
+  "tag.category.locale": {
+    "defaultMessage": "ภาษา"
+  },
+  "tag.category.low": {
+    "defaultMessage": "ต่ำ"
+  },
+  "tag.category.magic": {
+    "defaultMessage": "เวทมนตร์"
+  },
+  "tag.category.management": {
+    "defaultMessage": "จัดการ"
+  },
+  "tag.category.maps": {
+    "message": "แผนที่"
+  },
+  "tag.category.media": {
+    "defaultMessage": "สื่อ"
+  },
+  "tag.category.medium": {
+    "defaultMessage": "กลาง"
+  },
+  "tag.category.microgames": {
+    "defaultMessage": "ไมโครเกม"
+  },
+  "tag.category.minecraft-addon-maker": {
+    "message": "Minecraft Addon Maker"
+  },
+  "tag.category.minigame": {
+    "defaultMessage": "มินิเกม"
+  },
+  "tag.category.minigames": {
+    "defaultMessage": "มินิเกม"
+  },
+  "tag.category.mmo": {
+    "defaultMessage": "MMO"
+  },
+  "tag.category.mobs": {
+    "defaultMessage": "ม็อบ"
+  },
+  "tag.category.modded": {
+    "defaultMessage": "ม็อด"
+  },
+  "tag.category.modded-world": {
+    "defaultMessage": "โลกที่ใช้ม็อด"
+  },
+  "tag.category.models": {
+    "defaultMessage": "โมเดล"
+  },
+  "tag.category.multiplayer": {
+    "defaultMessage": "มัลติเพลเยอร์"
+  },
+  "tag.category.network": {
+    "defaultMessage": "เครือข่าย"
+  },
+  "tag.category.offline-mode": {
+    "defaultMessage": "โหมดออฟไลน์"
+  },
+  "tag.category.oneblock": {
+    "defaultMessage": "One Block"
+  },
+  "tag.category.op": {
+    "defaultMessage": "OP"
+  },
+  "tag.category.optimization": {
+    "defaultMessage": "ปรับประสิทธิภาพ"
+  },
+  "tag.category.parkour": {
+    "defaultMessage": "ปาร์กัวร์"
+  },
+  "tag.category.path-tracing": {
+    "defaultMessage": "Path Tracing"
+  },
+  "tag.category.pbr": {
+    "defaultMessage": "PBR"
+  },
+  "tag.category.personal-worlds": {
+    "defaultMessage": "โลกส่วนตัว"
+  },
+  "tag.category.players": {
+    "message": "ผู้เล่น"
+  },
+  "tag.category.plots": {
+    "defaultMessage": "แปลง"
+  },
+  "tag.category.pokemon": {
+    "defaultMessage": "Pokémon"
+  },
+  "tag.category.potato": {
+    "defaultMessage": "มันฝรั่ง"
+  },
+  "tag.category.prison": {
+    "defaultMessage": "คุก"
+  },
+  "tag.category.puzzle": {
+    "defaultMessage": "ปริศนา"
+  },
+  "tag.category.pve": {
+    "defaultMessage": "PvE"
+  },
+  "tag.category.pvp": {
+    "defaultMessage": "PvP"
+  },
+  "tag.category.questing": {
+    "defaultMessage": "ทำเควสต์"
+  },
+  "tag.category.quests": {
+    "defaultMessage": "เควสต์"
+  },
+  "tag.category.racing": {
+    "defaultMessage": "แข่ง"
+  },
+  "tag.category.realistic": {
+    "defaultMessage": "สมจริง"
+  },
+  "tag.category.recording-smp": {
+    "defaultMessage": "SMP บันทึก"
+  },
+  "tag.category.reflections": {
+    "defaultMessage": "สะท้อน"
+  },
+  "tag.category.roleplay": {
+    "defaultMessage": "สวมบทบาท"
+  },
+  "tag.category.rollercoaster": {
+    "message": "รถไฟเหาะ"
+  },
+  "tag.category.rpg": {
+    "defaultMessage": "RPG"
+  },
+  "tag.category.screenshot": {
+    "defaultMessage": "ภาพหน้าจอ"
+  },
+  "tag.category.scripts": {
+    "message": "สคริปต์"
+  },
+  "tag.category.semi-realistic": {
+    "defaultMessage": "กึ่งสมจริง"
+  },
+  "tag.category.shaders": {
+    "message": "แสงเงา"
+  },
+  "tag.category.shadows": {
+    "defaultMessage": "เงา"
+  },
+  "tag.category.simplistic": {
+    "defaultMessage": "เรียบง่าย"
+  },
+  "tag.category.skins": {
+    "message": "สกิน"
+  },
+  "tag.category.skyblock": {
+    "defaultMessage": "Skyblock"
+  },
+  "tag.category.smp": {
+    "defaultMessage": "SMP"
+  },
+  "tag.category.social": {
+    "defaultMessage": "โซเชียล"
+  },
+  "tag.category.storage": {
+    "defaultMessage": "จัดเก็บ"
+  },
+  "tag.category.survival": {
+    "defaultMessage": "เอาชีวิตรอด"
+  },
+  "tag.category.survival-mode": {
+    "defaultMessage": "โหมดเอาตัวรอด"
+  },
+  "tag.category.teams": {
+    "defaultMessage": "ทีม"
+  },
+  "tag.category.technical": {
+    "defaultMessage": "เทคนิค"
+  },
+  "tag.category.technology": {
+    "defaultMessage": "เทคโนโลยี"
+  },
+  "tag.category.texture-packs": {
+    "message": "แพ็คพื้นผิว"
+  },
+  "tag.category.themed": {
+    "defaultMessage": "ตามธีม"
+  },
+  "tag.category.towns": {
+    "defaultMessage": "เมือง"
+  },
+  "tag.category.transportation": {
+    "defaultMessage": "ขนส่ง"
+  },
+  "tag.category.tweaks": {
+    "defaultMessage": "ปรับแต่ง"
+  },
+  "tag.category.utility": {
+    "defaultMessage": "อรรถประโยชน์"
+  },
+  "tag.category.vanilla-like": {
+    "defaultMessage": "คล้ายวานิลลา"
+  },
+  "tag.category.whitelisted": {
+    "defaultMessage": "ไวต์ลิสต์"
+  },
+  "tag.category.world-resets": {
+    "defaultMessage": "รีเซ็ตโลก"
+  },
+  "tag.category.worldgen": {
+    "defaultMessage": "สร้างโลก"
+  },
+  "tag.loader.babric": {
+    "defaultMessage": "Babric"
+  },
+  "tag.loader.bta-babric": {
+    "defaultMessage": "BTA (Babric)"
+  },
+  "tag.loader.bukkit": {
+    "defaultMessage": "Bukkit"
+  },
+  "tag.loader.bungeecord": {
+    "defaultMessage": "BungeeCord"
+  },
+  "tag.loader.canvas": {
+    "defaultMessage": "Canvas"
+  },
+  "tag.loader.datapack": {
+    "defaultMessage": "Data Pack"
+  },
+  "tag.loader.fabric": {
+    "defaultMessage": "Fabric"
+  },
+  "tag.loader.folia": {
+    "defaultMessage": "Folia"
+  },
+  "tag.loader.forge": {
+    "defaultMessage": "Forge"
+  },
+  "tag.loader.geyser": {
+    "defaultMessage": "ส่วนเสริม Geyser"
+  },
+  "tag.loader.iris": {
+    "defaultMessage": "Iris"
+  },
+  "tag.loader.java-agent": {
+    "defaultMessage": "Java Agent"
+  },
+  "tag.loader.legacy-fabric": {
+    "defaultMessage": "Legacy Fabric"
+  },
+  "tag.loader.liteloader": {
+    "defaultMessage": "LiteLoader"
+  },
+  "tag.loader.minecraft": {
+    "defaultMessage": "Resource Pack"
+  },
+  "tag.loader.modloader": {
+    "defaultMessage": "Risugami's ModLoader"
+  },
+  "tag.loader.mrpack": {
+    "defaultMessage": "Modpack"
+  },
+  "tag.loader.neoforge": {
+    "defaultMessage": "NeoForge"
+  },
+  "tag.loader.nilloader": {
+    "defaultMessage": "NilLoader"
+  },
+  "tag.loader.optifine": {
+    "defaultMessage": "OptiFine"
+  },
+  "tag.loader.ornithe": {
+    "defaultMessage": "Ornithe"
+  },
+  "tag.loader.paper": {
+    "defaultMessage": "Paper"
+  },
+  "tag.loader.purpur": {
+    "defaultMessage": "Purpur"
+  },
+  "tag.loader.quilt": {
+    "defaultMessage": "Quilt"
+  },
+  "tag.loader.rift": {
+    "defaultMessage": "Rift"
+  },
+  "tag.loader.spigot": {
+    "defaultMessage": "Spigot"
+  },
+  "tag.loader.sponge": {
+    "defaultMessage": "Sponge"
+  },
+  "tag.loader.vanilla": {
+    "defaultMessage": "Vanilla Shader"
+  },
+  "tag.loader.velocity": {
+    "defaultMessage": "Velocity"
+  },
+  "tag.loader.waterfall": {
+    "defaultMessage": "Waterfall"
+  },
+  "terminal.scroll-to-bottom": {
+    "defaultMessage": "เลื่อนลงล่างสุด"
+  },
+  "ui.component.unsaved-changes-popup.body": {
+    "defaultMessage": "มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก"
+  },
+  "ui.confirm-leave-modal.body": {
+    "defaultMessage": "มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึกซึ่งจะหายไปหากออกจากหน้านี้"
+  },
+  "ui.confirm-leave-modal.header": {
+    "defaultMessage": "มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก"
+  },
+  "ui.confirm-leave-modal.leave": {
+    "defaultMessage": "ออกจากหน้า"
+  },
+  "ui.confirm-leave-modal.stay": {
+    "defaultMessage": "อยู่หน้านี้"
+  },
+  "ui.confirm-leave-modal.title": {
+    "defaultMessage": "ออกจากหน้าใช่หรือไม่?"
+  },
+  "ui.i18n-debug.close": {
+    "defaultMessage": "ปิดตัวตรวจสอบ"
+  },
+  "ui.i18n-debug.copied": {
+    "defaultMessage": "คัดลอกแล้ว"
+  },
+  "ui.i18n-debug.copy": {
+    "defaultMessage": "คัดลอก"
+  },
+  "ui.i18n-debug.copy-hint": {
+    "defaultMessage": "คลิกเพื่อคัดลอก"
+  },
+  "ui.i18n-debug.discover-hint": {
+    "defaultMessage": "นำทางในแอปเพื่อค้นหาคีย์ i18n"
+  },
+  "ui.i18n-debug.expand": {
+    "defaultMessage": "ขยายแผง"
+  },
+  "ui.i18n-debug.hide-keys": {
+    "defaultMessage": "ซ่อนคีย์ในบรรทัด"
+  },
+  "ui.i18n-debug.key-count": {
+    "defaultMessage": "{count, plural, one {# คีย์} other {# คีย์}}"
+  },
+  "ui.i18n-debug.minimize": {
+    "defaultMessage": "ย่อแผง"
+  },
+  "ui.i18n-debug.navigate": {
+    "defaultMessage": "นำทาง"
+  },
+  "ui.i18n-debug.no-keys": {
+    "defaultMessage": "ไม่มีคีย์ที่ลงทะเบียน"
+  },
+  "ui.i18n-debug.no-matches": {
+    "defaultMessage": "ไม่พบรายการ"
+  },
+  "ui.i18n-debug.reveal-keys": {
+    "defaultMessage": "แสดงคีย์ในบรรทัด"
+  },
+  "ui.i18n-debug.search": {
+    "defaultMessage": "ค้นหาคีย์หรือค่า..."
+  },
+  "ui.i18n-debug.search-hint": {
+    "defaultMessage": "ลองคำค้นอื่น"
+  },
+  "ui.i18n-debug.title": {
+    "defaultMessage": "ตัวตรวจสอบ i18n"
+  },
+  "ui.i18n-debug.toggle-overlay": {
+    "defaultMessage": "สลับโอเวอร์เลย์ดีบัก CSS"
+  },
+  "ui.i18n-debug.watching": {
+    "defaultMessage": "กำลังเฝ้าดู"
+  },
+  "ui.pagination.go-to-page": {
+    "defaultMessage": "ไปหน้า"
+  },
+  "ui.pagination.next-page": {
+    "defaultMessage": "หน้าถัดไป"
+  },
+  "ui.pagination.previous-page": {
+    "defaultMessage": "หน้าก่อนหน้า"
+  },
+  "ui.stacked-admonitions.alert-count": {
+    "defaultMessage": "{count, plural, one {# การแจ้งเตือน} other {# การแจ้งเตือน}}"
+  },
+  "ui.stacked-admonitions.dismiss-all": {
+    "defaultMessage": "ปิดทั้งหมด"
+  },
+  "unknown-file-warning-modal.dont-install": {
+    "defaultMessage": "ไม่ติดตั้ง"
+  },
+  "unknown-file-warning-modal.dont-show-again": {
+    "defaultMessage": "ไม่แสดงคำเตือนนี้อีก"
+  },
+  "unknown-file-warning-modal.file-unverified-body": {
+    "defaultMessage": " มีแหล่งที่ไม่สามารถยืนยันได้ ติดตั้งเฉพาะไฟล์จากแหล่งที่ไว้ใจเท่านั้น"
+  },
+  "unknown-file-warning-modal.header": {
+    "defaultMessage": "ยืนยันการติดตั้ง"
+  },
+  "unknown-file-warning-modal.install-anyway": {
+    "defaultMessage": "ติดตั้งอยู่ดี"
+  },
+  "unknown-file-warning-modal.malware-warning": {
+    "defaultMessage": "มัลแวร์มักแพร่ผ่านไฟล์ม็อดโดยแชร์บนแพลตฟอร์มอย่าง Discord"
+  },
+  "unknown-file-warning-modal.mod-warning-title": {
+    "defaultMessage": "คำเตือนไฟล์ที่ไม่รู้จัก"
+  },
+  "unknown-file-warning-modal.modpack-unverified-body": {
+    "defaultMessage": " มีไฟล์ที่แหล่งไม่สามารถยืนยันได้ ติดตั้งเฉพาะไฟล์จากแหล่งที่ไว้ใจเท่านั้น"
+  },
+  "unknown-file-warning-modal.modpack-warning-title": {
+    "defaultMessage": "คำเตือนไฟล์ที่ไม่รู้จัก"
+  },
+  "unknown-file-warning-modal.unrecognized-files": {
+    "defaultMessage": "ไฟล์ที่ไม่รู้จัก"
+  },
+  "unknown-file-warning-modal.unverified-files": {
+    "defaultMessage": "ไฟล์ที่ไม่รู้จักอาจไม่ปลอดภัย ตรวจสอบแหล่งก่อนติดตั้ง"
+  },
+  "version.content.name": {
+    "defaultMessage": "ชื่อ"
+  },
+  "version.content.version": {
+    "defaultMessage": "เวอร์ชัน"
+  },
+  "version.file-type.dev-jar": {
+    "defaultMessage": "Dev jar"
+  },
+  "version.file-type.javadoc-jar": {
+    "defaultMessage": "Javadocs jar"
+  },
+  "version.file-type.optional-resource-pack": {
+    "defaultMessage": "รีซอร์ซแพ็กไม่บังคับ"
+  },
+  "version.file-type.primary": {
+    "defaultMessage": "หลัก"
+  },
+  "version.file-type.required-resource-pack": {
+    "defaultMessage": "รีซอร์ซแพ็กจำเป็น"
+  },
+  "version.file-type.signature": {
+    "defaultMessage": "ไฟล์ลายเซ็น"
+  },
+  "version.file-type.sources-jar": {
+    "defaultMessage": "Sources jar"
+  },
+  "version.file-type.unknown": {
+    "defaultMessage": "อื่น"
+  },
+  "version.section.changes": {
+    "defaultMessage": "การเปลี่ยน"
+  },
+  "version.section.compatibility": {
+    "defaultMessage": "ความเข้ากันได้"
+  },
+  "version.section.content": {
+    "defaultMessage": "เนื้อหา"
+  },
+  "version.section.content.search-placeholder": {
+    "defaultMessage": "ค้นหาเนื้อหา..."
+  },
+  "version.section.dependencies.any-compatible-version": {
+    "defaultMessage": "เวอร์ชันใดที่เข้ากันได้"
+  },
+  "version.section.dependencies.any-version": {
+    "defaultMessage": "เวอร์ชันใดก็ได้"
+  },
+  "version.section.dependencies.unavailable-version": {
+    "defaultMessage": "เวอร์ชันไม่พร้อม"
+  },
+  "version.section.dependencies.unavailable-version.description": {
+    "defaultMessage": "เวอร์ชันนี้อาจถูกลบหรือกำลังถูกตรวจสอบโดยผู้ดูแล"
+  },
+  "version.section.dependencies.unavailable-version.description.required": {
+    "defaultMessage": "เวอร์ชันที่จำเป็นอาจถูกลบหรือกำลังถูกตรวจสอบโดยผู้ดูแล"
+  },
+  "version.section.files": {
+    "defaultMessage": "ไฟล์"
+  },
+  "version.section.included-content": {
+    "defaultMessage": "เนื้อหาที่รวม"
+  },
+  "version.section.known-incompatibilities": {
+    "defaultMessage": "ความไม่เข้ากันที่ทราบ"
+  },
+  "version.section.no-changes": {
+    "defaultMessage": "ไม่มีบันทึกเปลี่ยน"
+  },
+  "version.section.no-modpack-mod-loader": {
+    "defaultMessage": "ไม่มี mod loader"
+  },
+  "version.section.optional-dependencies": {
+    "defaultMessage": "dependency ไม่บังคับ"
+  },
+  "version.section.required-content": {
+    "defaultMessage": "เนื้อหาจำเป็น"
+  },
+  "version.section.supplementary-resources": {
+    "defaultMessage": "ทรัพยากรเสริม"
+  },
+  "version.supplementary-resources.file": {
+    "defaultMessage": "ไฟล์"
+  },
+  "version.supplementary-resources.size": {
+    "defaultMessage": "ขนาด"
+  },
+  "version.supplementary-resources.type": {
+    "defaultMessage": "ประเภท"
+  },
+  "version.uploaded-by": {
+    "defaultMessage": "อัปโหลดโดย"
   }
 }

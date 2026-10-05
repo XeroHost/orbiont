@@ -32,6 +32,8 @@ pub struct PackFormat {
     pub summary: Option<String>,
     pub files: Vec<PackFile>,
     pub dependencies: HashMap<PackDependency, String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub optifine: Option<crate::optifine::OptifineReference>,
 }
 
 #[derive(Serialize, Deserialize, Eq, PartialEq)]
@@ -118,6 +120,8 @@ pub struct CreatePackInstance {
     pub external_files_in_modpack: Vec<String>,
     pub skip_install_profile: Option<bool>,
     pub no_watch: Option<bool>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub optifine: Option<crate::optifine::OptifineReference>,
 }
 
 // default
@@ -135,6 +139,7 @@ impl Default for CreatePackInstance {
             external_files_in_modpack: Vec::new(),
             skip_install_profile: Some(true),
             no_watch: Some(false),
+            optifine: None,
         }
     }
 }
@@ -154,6 +159,13 @@ pub struct CreatePack {
 }
 
 const MAX_LOCAL_FILE_HASH_LOOKUP_SIZE: u64 = 1024 * 1024 * 1024;
+
+pub async fn get_optifine_reference(
+    path: PathBuf,
+) -> crate::Result<Option<crate::optifine::OptifineReference>> {
+    super::install_mrpack::get_optifine_reference(&CreatePackFile::Path(path))
+        .await
+}
 
 pub(crate) fn get_local_pack_instance(path: &Path) -> CreatePackInstance {
     CreatePackInstance {
@@ -201,6 +213,9 @@ pub async fn get_instance_from_pack(
             let archive_hashing_bytes =
                 if hashes_archive { file_size } else { 0 };
             let pack_file = CreatePackFile::Path(path.clone());
+            instance.optifine =
+                super::install_mrpack::get_optifine_reference(&pack_file)
+                    .await?;
             let external_file_hashing_bytes =
                 super::install_mrpack::get_external_file_hashing_size_from_mrpack(
                     &pack_file,

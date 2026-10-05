@@ -8,8 +8,17 @@
   "app.action-bar.downloads": {
     "message": "Lataukset"
   },
+  "app.action-bar.hide-downloads": {
+    "message": "Piilota aktiiviset lataukset"
+  },
   "app.action-bar.hide-more-running-instances": {
     "message": "Piilota enemmän käynnissä olevia instansseja"
+  },
+  "app.action-bar.install.copied-details": {
+    "message": "Kopioitu"
+  },
+  "app.action-bar.install.copy-details": {
+    "message": "Kopioi tiedot"
   },
   "app.action-bar.install.dismiss": {
     "message": "Hylkää"
@@ -20,8 +29,17 @@
   "app.action-bar.install.retry": {
     "message": "Yritä uudelleen"
   },
+  "app.action-bar.install.summary.app-closing": {
+    "message": "Peruttu sovelluksen sulkeutumisen vuoksi"
+  },
+  "app.action-bar.install.summary.bad-modpack-file": {
+    "message": "Modipakettia ei voitu lukea"
+  },
   "app.action-bar.install.summary.canceled": {
     "message": "Peruutettu"
+  },
+  "app.action-bar.install.summary.cleanup-incomplete": {
+    "message": "Siivous ei valmistunut"
   },
   "app.action-bar.install.summary.content-download-failed": {
     "message": "Ei voitu ladata tiedostoja"
@@ -31,6 +49,45 @@
   },
   "app.action-bar.install.summary.could-not-save-files": {
     "message": "Ei voitu tallentaa tiedostoja"
+  },
+  "app.action-bar.install.summary.download-failed": {
+    "message": "Lataus ei valmistunut"
+  },
+  "app.action-bar.install.summary.instance-not-found": {
+    "message": "Instanssia ei löytynyt"
+  },
+  "app.action-bar.install.summary.invalid-file-path": {
+    "message": "Tiedostopolku on virheellinen"
+  },
+  "app.action-bar.install.summary.invalid-modpack": {
+    "message": "Modipaketin tiedot ovat virheelliset"
+  },
+  "app.action-bar.install.summary.invalid-modpack-files": {
+    "message": "Modipaketin tiedostojen metatiedot ovat virheelliset"
+  },
+  "app.action-bar.install.summary.java-setup-failed": {
+    "message": "Javan asennus ei valmistunut"
+  },
+  "app.action-bar.install.summary.loader-setup-failed": {
+    "message": "Modilataajan asennus epäonnistui"
+  },
+  "app.action-bar.install.summary.local-data-error": {
+    "message": "Paikallisia tietoja ei voitu päivittää"
+  },
+  "app.action-bar.install.summary.minecraft-setup-failed": {
+    "message": "Minecraftin asennus epäonnistui"
+  },
+  "app.action-bar.install.summary.modrinth-unreachable": {
+    "message": "Modrinthiin ei saatu yhteyttä"
+  },
+  "app.action-bar.install.summary.no-write-permission": {
+    "message": "Ei kirjoitusoikeutta"
+  },
+  "app.action-bar.install.summary.pack-download-failed": {
+    "message": "Pakettia ei voitu ladata"
+  },
+  "app.action-bar.install.summary.unexpected-error": {
+    "message": "Jotain meni pieleen"
   },
   "app.action-bar.install.unknown-instance": {
     "message": "Tuntematon instanssi"
@@ -50,6 +107,9 @@
   "app.action-bar.reload-to-update": {
     "message": "Lataa uudelleen päivittääksesi"
   },
+  "app.action-bar.show-downloads": {
+    "message": "Näytä aktiiviset lataukset"
+  },
   "app.action-bar.show-more-running-instances": {
     "message": "Näytä enemmän käynnissä olevia instansseja"
   },
@@ -68,23 +128,296 @@
   "app.action-bar.view-logs": {
     "message": "Katso lokeja"
   },
+  "app.appearance-settings.compact-mode.description": {
+    "message": "Näytä kirjaston instanssit tiiviinä riviasetteluna."
+  },
+  "app.appearance-settings.compact-mode.title": {
+    "message": "Tiivis tila"
+  },
   "app.appearance-settings.default-landing-page.home": {
     "message": "Koti"
   },
   "app.appearance-settings.default-landing-page.library": {
     "message": "Kirjasto"
   },
+  "app.appearance-settings.hide-nametag.description": {
+    "message": "Piilota käyttäjänimesi pelaajan esikatselun yläpuolelta ulkoasun valintasivulla."
+  },
   "app.appearance-settings.hide-nametag.title": {
     "message": "Piilota nimikyltti"
+  },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Animoi kuvakkeet osoittimen ollessa niiden päällä ja näppäimistökohdistuksessa."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Poista animaatiot käytöstä"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Animoi aina"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Noudata järjestelmää"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Kuvakkeiden animaatiot"
+  },
+  "app.appearance-settings.minimize-launcher.description": {
+    "message": "Pienennä {productName}, kun Minecraft käynnistyy."
+  },
+  "app.appearance-settings.minimize-launcher.title": {
+    "message": "Pienennä sovellus"
+  },
+  "app.appearance-settings.show-play-time.description": {
+    "message": "Näytä, kuinka kauan olet pelannut kutakin instanssia."
   },
   "app.appearance-settings.show-play-time.title": {
     "message": "Näyttää peliaika"
   },
+  "app.appearance-settings.skip-non-essential-warnings.description": {
+    "message": "Ohita vähäriskisten toimintojen vahvistukset, kuten päällekkäiset asennukset, normaali sisällön poisto, massapäivitykset, linkityksen purku ja korjaukset. Vaarallisten toimintojen varoitukset näytetään aina."
+  },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Ohita ei olennaiset varoitukset"
   },
+  "app.appearance-settings.toggle-sidebar.description": {
+    "message": "Piilota oikea sivupalkki oletuksena ja lisää painike sen näyttämiseen tai piilottamiseen."
+  },
+  "app.appearance-settings.toggle-sidebar.title": {
+    "message": "Piilota oikea sivupalkki"
+  },
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Näytä turvavaroitus ennen tuodun modipaketin (.mrpack tai CurseForge .zip) asentamista, jonka lähdettä ei voitu varmistaa."
+  },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Varoita minua ennen tuntemattomien modipakettien asentamista"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Ota yhteyttä tukeen"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Kopioi vianmääritystiedot"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Vianmääritystiedot"
+  },
+  "app.auth-error.header": {
+    "message": "Kirjautuminen epäonnistui"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Näin korjaat sen"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Vie henkilöllisyyden vahvistus loppuun"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Tämä tili vaatii täysi-ikäisyyden vahvistuksen Etelä-Korean säännösten mukaisesti."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Minecraft-kirjautuminen"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Tarkista, että internetyhteytesi toimii"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Salli {product} palomuurin, virustorjunnan, välityspalvelimen, VPN:n ja hosts-tiedoston säännöissä"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Kokeile toista verkkoa tai poista VPN- tai välityspalvelinohjelmisto tilapäisesti käytöstä, jos käytät sellaista"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Käynnistä {product} uudelleen ja yritä kirjautua uudelleen"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Jos ongelma on reitityksessä tai DNS:ssä, Cloudflare WARP -palvelu voi joskus auttaa"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} ei saanut yhteyttä Microsoftin, Xboxin tai Minecraftin palveluun, jota kirjautuminen edellyttää. Syynä on yleensä paikallinen verkko-, DNS-, välityspalvelin-, palomuuri-, hosts-tiedosto-, VPN- tai virustorjuntaongelma."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Ei virheilmoitusta."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Voit tarkistaa, mikä tili sen omistaa, osoitteessa <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Varmista, että kirjaudut Microsoft-tilillä, jolla Minecraft on ostettu (tai jolla on aktiivinen Game Pass tietokonekäytöllä)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Tämä Microsoft-tili ei omista Minecraft: Java Editionia, ja {product} toimii vain premium-tileillä."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Käynnistä Minecraft: Java Edition kerran virallisesta launcherista"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Varmista, että käytät Minecraftin omistavaa Microsoft-tiliä. Voit tarkistaa, mikä tili sen omistaa, osoitteessa <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Odota jopa tunti, jos osto tai profiilin luonti on äskettäinen"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Minecraft-palvelut eivät palauttaneet Java Edition -profiilia tälle tilille. Näin käy useimmiten, kun peli on ostettu äskettäin, Java-profiilin luonti on kesken tai käytössä on väärä Microsoft-tili."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Varmista, että Minecraft on ostettu tälle tilille"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Vie Xbox-profiilin asennus loppuun, jos sitä pyydetään"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Tällä tilillä ei ole Xbox-profiilia tai se ei omista Minecraftia."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Käynnistä {product} uudelleen odotettuasi"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Yritä kirjautua vielä kerran"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Odota noin tunti ennen kuin yrität uudelleen"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Jos sama ilmoitus toistuu, odota pidempään ennen uudelleenyritystä, jotta tilapäinen rajoitus ehtii poistua"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft tai Minecraft esti tilapäisesti kirjautumispyynnön, koska yrityksiä on ollut viime aikoina liikaa."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Tarkista tuetut alueet kohdasta <a href=\"https://www.xbox.com/en-US/regions\">Xbox-saatavuus</a>"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Xbox-palveluiden on oltava tuettuja maassasi, ennen kuin voit kirjautua"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live ei ole saatavilla alueellasi, joten kirjautuminen on estetty."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Pyydä huoltajaa kirjautumaan palveluun <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Päivitä verkkopelaamisen käyttöoikeudet"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Tämä tili on rajoitettu eikä sillä ole lupaa pelata verkossa."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Jos palvelu toimii normaalisti ja tämä toistuu, ota yhteyttä tukeen ja liitä mukaan alla olevat vianmääritystiedot"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Kokeile kirjautua <a href=\"https://www.minecraft.net/en-us/download\">virallisella Minecraft-launcherilla</a> varmistaaksesi, onko Minecraft-kirjautuminen häiriintynyt myös siellä"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Tarkista käynnissä olevat palveluhäiriöt sivulta <a href=\"https://support.xbox.com/xbox-live-status\">Xboxin tila</a>"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Odota muutama minuutti ja yritä kirjautua uudelleen"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Minecraftin todennuspalvelu palauttaa palvelinvirheen, joten {product} ei voi viedä kirjautumistasi loppuun juuri nyt."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Kirjaudu uudelleen"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Kun olet valmis, yritä kirjautua uudelleen"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Kirjaudu <a href=\"https://www.minecraft.net/en-us/download\">virallisella Minecraft-launcherilla</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Yritä kirjautua uudelleen palveluun {product}"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Siirry sivulle <a href=\"https://www.minecraft.net/en-us/login\">Minecraft-kirjautuminen</a> ja kirjaudu"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Siirry sivustoon <a href=\"https://www.xbox.com\">Xbox</a> ja kirjaudu"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Lähetä valitus, jos se on mahdollista"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Siirry sivuun <a href=\"https://support.xbox.com\">Xbox-tuki</a> ja tarkista täytäntöönpanon tiedot"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Tämä tili on jäädytetty Xboxin yhteisösääntöjen rikkomisen vuoksi."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Kun uusi kirjautuminen on valmis, yritä käynnistää Minecraft uudelleen"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Kirjaudu tiliin uudelleen"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Kirjaudu ulos kyseiseltä Minecraft-tililtä palvelussa {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Tallennettu Microsoft-kirjautumistunnisteesi on vanhentunut tai se on peruutettu, joten {product} ei voi päivittää Minecraft-istuntoasi."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Hyväksy käyttöehdot, jos niitä pyydetään"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Tämä tili ei ole hyväksynyt Xboxin käyttöehtoja."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Kokeile sivustoa"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Lisäapua löydät sivulta <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">iän vahvistus Xboxissa Isossa-Britanniassa</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Siirry <a href=\"https://www.minecraft.net/en-us/login\">Minecraft-kirjautumisen</a> sivulle ja kirjaudu"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Kun ikäsi on vahvistettu, yritä kirjautua uudelleen"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Vahvista ikäsi ohjeiden mukaisesti"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Minecraft- tai Xbox Live -tilisi vaatii iän vahvistuksen Ison-Britannian säännösten mukaisesti. Sinun on suoritettava se ennen kirjautumista."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Tutustu <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">perheen asennusoppaaseen</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Liity perheryhmään tai luo sellainen ohjeiden mukaisesti"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Tämä tili on alaikäinen eikä sitä ole liitetty Microsoft-perheryhmään."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Tuntematon virhe"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Emme tunnista tätä virhettä emmekä voi suositella tarkkoja korjausvaiheita."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "ja kirjautumalla uudelleen, sillä se voi näyttää tarvittavat vaiheet. Voit myös ottaa yhteyttä tukeen, niin selvitämme asiaa tarkemmin."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Emme voineet kirjautua Microsoft-tiliisi. Syynä voivat olla tilirajoitukset tai aluerajoitukset."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Mitä luultavasti tapahtui"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Hyväksy näytetyt ehdot tai vie profiilin asennus loppuun"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Kirjaudu kerran sivustossa <a href=\"https://www.xbox.com\">Xbox.com</a> samalla Microsoft-tilillä"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live ei hyväksynyt Microsoft-kirjautumista. Yleensä tämä tarkoittaa, ettei Microsoft-tilillä ole koskaan kirjauduttu Xboxiin tai että päivitetyt ehdot on hyväksyttävä."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Jos virallinen launcherkaan ei toimi, seuraa siellä näytettyä virhettä tai ota yhteyttä Xbox-tukeen"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Vie loppuun Microsoftin, Xboxin tai Minecraftin näyttämät kehotteet"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Xbox-palvelut hylkäsivät pyynnön valtuuttaa tämä tili Minecraft-palveluihin, mutta eivät palauttaneet tarkkaa tilirajoitusta, jonka {product} tunnistaisi."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Minecraftin todennuspalvelimet eivät ehkä ole tällä hetkellä tavoitettavissa. Tarkista internetyhteytesi ja yritä myöhemmin uudelleen."
@@ -92,38 +425,563 @@
   "app.auth-servers.unreachable.header": {
     "message": "Todennuspalvelimiin ei saada yhteyttä"
   },
-  "app.browse.add-servers-to-instance": {
-    "message": "Lisää palvelin instanssiin"
+  "app.bedrock.account": {
+    "message": "Minecraft ja Microsoft Store tarkista Bedrock-lisenssisi. Kirjaudu sisään tilillä, joka omistaa Minecraft; Java-tilisi tässä käynnistysohjelmassa voi olla erilainen."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Paikalliset käyttäytymispaketit ja komentosarjat. Määritä ne Minecraft:n maailmanasetuksissa."
+  },
+  "app.bedrock.addons": {
+    "message": "Lisäosat"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Käyttäytymispaketti"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Lisäykset"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Selaa CurseForge:n lisäosia, resurssipaketteja, maailmoja ja skriptejä."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Tutustu Bedrock-sisältöön"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Tutustu lisäosiin"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Tutustu käsikirjoituksiin"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Sulje Minecraft ennen kuin lisäät paketteja maailmaan ja yritä sitten uudelleen."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Asenna sisään Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft avautuu tämän sisällön tuomiseksi. Tarkista tulos pelissä ja aktivoi sitten paketit maailmanasetuksissasi. Tarvittavat paketit ja kokeelliset asetukset on lueteltu projektin kuvauksessa."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Tämä arkisto ei sisällä tuettua Bedrock-sisältöä."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Projektiversioita tai maailmoja ei voitu ladata. Yritä uudelleen."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Tämä pakkaus vaatii toisen paketin, joka ei ole aktiivinen tässä maailmassa. Asenna ensin tekijän ilmoittamat riippuvuudet."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Tuettuja .mcaddon-, .mcpack-, .mcworld- tai ZIP-tiedostoja ei ole saatavilla tälle projektille."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Luo ensin maailma Minecraft:ssä ja päivitä sitten tämä luettelo."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Käsikirjoitukset"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Sisällön versio"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Kohteen maailma"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Sulje Minecraft ennen asennusta. Nämä paketit lisätään ja aktivoidaan vain valitussa maailmassa. Tarkista tarvittavat riippuvuudet ja kokeelliset asetukset projektin kuvauksesta."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Paketit lisätty malliin {world}. Avaa Minecraft pelataksesi tätä maailmaa."
+  },
+  "app.bedrock.checking": {
+    "message": "Etsitkö Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Sulje Minecraft muokataksesi tiedostoja, poistaaksesi sisältöä tai palauttaaksesi kopion."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Tämä sisältö on muuttunut tai alkuperäinen sijainti on varattu. Palautuskopio on säilytetty, jotta muutoksiasi ei korvata."
+  },
+  "app.bedrock.content": {
+    "message": "Sisältö"
+  },
+  "app.bedrock.content-help": {
+    "message": "Paikalliset resurssit ja ihopakkaukset. Aktivoi ne kohdassa Minecraft; osa sisällöstä kuuluu yksittäisiin maailmoihin."
+  },
+  "app.bedrock.data-error": {
+    "message": "Minecraft-tietoja ei voitu lukea. Päivitä ja yritä uudelleen."
+  },
+  "app.bedrock.data-location": {
+    "message": "Minecraft tietojen sijainti"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Nämä kohteet poistetaan tiedostosta Minecraft. Palautuskopio säilytetään, mukaan lukien vaikuttaneet maailmanpaketin asetukset. Maailmat, jotka ovat riippuvaisia ​​poistetusta paketista, voivat menettää lohkonsa tai käyttäytymisensä; palauttaa sen ennen kuin avaat nämä maailmat."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Poista paikallinen sisältö"
+  },
+  "app.bedrock.description": {
+    "message": "Pelaa Minecraft for Windows ja tuo maailmasi ja lisäosasi."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Minecraft-asennusta ei voitu tarkistaa. Yritä uudelleen."
+  },
+  "app.bedrock.development": {
+    "message": "Kehitys"
+  },
+  "app.bedrock.edition": {
+    "message": "Minecraft-versio"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Tämä kansio on tyhjä."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock maailmat ja lisäosat"
+  },
+  "app.bedrock.file-size": {
+    "message": "Koko"
+  },
+  "app.bedrock.files": {
+    "message": "Tiedostot"
+  },
+  "app.bedrock.folder": {
+    "message": "Kansio"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Tätä Minecraft-kansiota ei voitu avata. Päivitä tietosi ja yritä uudelleen."
+  },
+  "app.bedrock.import-button": {
+    "message": "Tuo tiedosto"
+  },
+  "app.bedrock.import-description": {
+    "message": "Valitse tiedosto .mcworld, .mcpack tai .mcaddon. Minecraft avaa ja käsittelee tuonnin."
+  },
+  "app.bedrock.import-error": {
+    "message": "Tiedostoa ei voitu lähettää osoitteeseen Minecraft. Tarkista, että Minecraft for Windows on asennettu, ja yritä uudelleen."
+  },
+  "app.bedrock.import-title": {
+    "message": "Maailmat ja lisäosat"
+  },
+  "app.bedrock.installation": {
+    "message": "Virallinen asennus"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows on asennettu"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Valitse kelvollinen paikallinen .mcworld-, .mcpack- tai .mcaddon-arkisto."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Tämä tiedosto ylittää 8 GiB-tuontirajan."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Ei voitu avata Minecraft. Avaa virallinen käynnistysohjelma tai Microsoft Store tarkistaaksesi asennuksen."
+  },
+  "app.bedrock.launcher": {
+    "message": "Avaa virallinen käynnistysohjelma"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Virallinen kantoraketti havaittu. Asenna Minecraft for Windows sinne jatkaaksesi."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Luetaan Minecraft-tietoja…"
+  },
+  "app.bedrock.location": {
+    "message": "Sijainti"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Näytetään tämän lokin viimeinen 1 MiB."
+  },
+  "app.bedrock.logs": {
+    "message": "Lokit"
+  },
+  "app.bedrock.missing": {
+    "message": "Aloita asentamalla Minecraft for Windows"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Tätä sisältöä ei voitu muuttaa. Sulje Minecraft ja päivitä. Palautuskopiosi on säilytetty."
+  },
+  "app.bedrock.name": {
+    "message": "Nimi"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Paikallisia lisäosia ei löytynyt. Aloita tuomalla .mcpack- tai .mcaddon-tiedosto."
+  },
+  "app.bedrock.no-content": {
+    "message": "Paikallista sisältöä ei löytynyt."
+  },
+  "app.bedrock.no-data": {
+    "message": "Avaa Minecraft kerran luodaksesi sen tietokansiot ja päivitä sitten tähän."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Sisältölokeja ei löytynyt. Ota sisällön kirjaus käyttöön kohdassa Minecraft Asetukset > Creator ja avaa sitten maailma."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Ei palautuskopioita vielä."
+  },
+  "app.bedrock.no-results": {
+    "message": "Ei vastaavia kohteita."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Paikallisia maailmoja ei löytynyt. Luo tiedosto kohteessa Minecraft tai tuo .mcworld-tiedosto."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Avaa kansio"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Yläkansio"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Joitakin kansioita ei voitu lukea tai ne saavuttivat näyttörajan. Voit tarkistaa ne File Explorerissa."
+  },
+  "app.bedrock.play": {
+    "message": "Pelaa"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Alkuperäiset tiedostot ja poistettu sisältö säilytetään täällä. Palauta kopio, kun Minecraft on suljettu. Olemassa olevaa sisältöä ja myöhempiä muokkauksia ei koskaan kirjoiteta päälle."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Palautuskopiot"
+  },
+  "app.bedrock.refresh": {
+    "message": "Tarkista uudelleen"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Päivitä"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Lataa tämä tiedosto uudelleen ennen tallentamista."
+  },
+  "app.bedrock.repair": {
+    "message": "Korjaa tai päivitä asennus käyttämällä Microsoft Store:tä tai virallista käynnistysohjelmaa."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Resurssipakkaus"
+  },
+  "app.bedrock.restore": {
+    "message": "Palauta"
+  },
+  "app.bedrock.running": {
+    "message": "Käynnissä"
+  },
+  "app.bedrock.save-error": {
+    "message": "Ei voitu tallentaa. Tiedosto on saattanut muuttua, sisältää virheellisen JSON tai olla käytössä. Lataa se uudelleen ja yritä uudelleen."
+  },
+  "app.bedrock.search": {
+    "message": "Hae paikallista sisältöä…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Valitse loki lukeaksesi sen."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Skinipaketti"
+  },
+  "app.bedrock.store": {
+    "message": "Asenna tai päivitä"
+  },
+  "app.bedrock.store-error": {
+    "message": "Ei voitu avata Microsoft Store. Avaa se Windows Käynnistä-valikosta."
+  },
+  "app.bedrock.submitted": {
+    "message": "Tiedosto lähetetty osoitteeseen Minecraft. Tarkista tuontitulos pelissä."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Bedrock-integrointi vaatii Windows:n. Voit jatkaa Java Edition:n pelaamista tällä laitteella."
+  },
+  "app.bedrock.update": {
+    "message": "Päivitä Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "Tarkista Microsoft Store:ssä päivitykset ja valitse Minecraft for Windows. Asennettu versio päivittyy, kun palaat."
+  },
+  "app.bedrock.version": {
+    "message": "Windows asennus {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Versio"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Maailma: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Maailmat"
+  },
+  "app.behavior-settings.confirmations.title": {
+    "message": "Vahvistukset"
+  },
+  "app.behavior-settings.content.title": {
+    "message": "Koti ja sisältö"
+  },
+  "app.behavior-settings.startup-and-navigation.title": {
+    "message": "Käynnistys ja navigointi"
   },
   "app.browse.add-to-an-instance": {
     "message": "Lisää instanssiin"
   },
-  "app.browse.add-to-instance": {
-    "message": "Lisää instanssiin"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Lisää instanssiin {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Lisätty"
-  },
-  "app.browse.already-added": {
-    "message": "On jo asennettu"
-  },
   "app.browse.back-to-instance": {
     "message": "Takaisin instanssiin"
   },
-  "app.browse.discover-servers": {
-    "message": "Löydä palvelimia"
+  "app.browse.discover-project-type": {
+    "message": "Löydä kohde {projectType}"
+  },
+  "app.browse.hide-installed-modpacks": {
+    "message": "Piilota jo asennetut"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Avaa CurseForgessa"
+  },
+  "app.browse.project-actions.label": {
+    "message": "Projektin toiminnot"
+  },
+  "app.browse.project-type.data-packs": {
+    "message": "Datapaketit"
   },
   "app.browse.project-type.modpacks": {
     "message": "Modipaketit"
   },
-  "app.browse.server.installing": {
-    "message": "Asennetaan"
+  "app.browse.project-type.mods": {
+    "message": "Modit"
+  },
+  "app.browse.project-type.resource-packs": {
+    "message": "Resurssipaketit"
+  },
+  "app.browse.project-type.shaders": {
+    "message": "Shaderit"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Yhtään versiota ei ole saatavilla yhteensopivuudella {compatibilityLabel}. Valitse asennettava versio siitä huolimatta. Riippuvuuksia ei asenneta automaattisesti."
+  },
+  "app.content.desync-pack": {
+    "message": "Poista synkronointi"
+  },
+  "app.content.sync-data-packs-disabled": {
+    "message": "Ota datapakettien synkronointi ensin käyttöön sovelluksen asetuksissa."
+  },
+  "app.content.sync-pack": {
+    "message": "Synkronoi"
+  },
+  "app.content.sync-packs-override": {
+    "message": "Poista ensin pakettien synkronoinnin ohitus tämän instanssin asetuksissa."
+  },
+  "app.content.sync-resource-packs-disabled": {
+    "message": "Ota resurssipakettien synkronointi ensin käyttöön sovelluksen asetuksissa."
+  },
+  "app.curseforge.rate-limit.text": {
+    "message": "Jaettu pyyntöraja on täyttynyt. Odota hetki ja yritä uudelleen."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge on tilapäisesti ruuhkainen"
+  },
+  "app.download-manager.active": {
+    "message": "Aktiivinen"
+  },
+  "app.download-manager.attention": {
+    "message": "Vaatii huomiota"
+  },
+  "app.download-manager.cancel": {
+    "message": "Peruuta asennus"
+  },
+  "app.download-manager.canceling": {
+    "message": "Perutaan asennusta…"
+  },
+  "app.download-manager.clear-all": {
+    "message": "Tyhjennä kaikki"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Tyhjennä kaikki valmistuneet tehtävät"
+  },
+  "app.download-manager.complete": {
+    "message": "Valmis"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Monistettu instanssi"
+  },
+  "app.download-manager.empty": {
+    "message": "Ei asennustehtäviä"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Arvioitu latausnopeus"
+  },
+  "app.download-manager.eta": {
+    "message": "Tämän latauksen arvioitu jäljellä oleva aika"
+  },
+  "app.download-manager.hide": {
+    "message": "Piilota asennustehtävät"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Tuotu instanssi"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Instanssin asennus"
+  },
+  "app.download-manager.modpack": {
+    "message": "Modipaketti"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Modipaketin asennus"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Uusi instanssi"
+  },
+  "app.download-manager.pause": {
+    "message": "Keskeytä asennus"
+  },
+  "app.download-manager.paused": {
+    "message": "Keskeytetty"
+  },
+  "app.download-manager.remove": {
+    "message": "Poista historiasta"
+  },
+  "app.download-manager.resume": {
+    "message": "Jatka asennusta"
+  },
+  "app.download-manager.show": {
+    "message": "Näytä asennustehtävät"
+  },
+  "app.download-manager.tasks": {
+    "message": "Tehtävät"
+  },
+  "app.download-manager.title": {
+    "message": "Latausten hallinta"
+  },
+  "app.download-manager.verifying": {
+    "message": "Vahvistetaan"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Peruuta kansion vaihto"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Kopioi vianmääritystiedot"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Vianmääritystiedot"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "ensin. Kun olet valmis, palaa tänne ja kirjaudu!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Kokeile kirjautua"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Käytätkö PC Game Passia, tuletko Bedrockista vai ostitko juuri pelin?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "virallisella Minecraft-launcherilla"
+  },
+  "app.error.get-support.button": {
+    "message": "Hae tukea"
+  },
+  "app.error.help.end": {
+    "message": "niin autamme mielellämme! Liitä mukaan seuraavat vianmääritystiedot:"
+  },
+  "app.error.help.start": {
+    "message": "Jos mikään ei toimi ja tarvitset apua, käy sivulla"
+  },
+  "app.error.help.support-link": {
+    "message": "tukisivumme"
+  },
+  "app.error.hosts.body-end": {
+    "message": "yritti yhdistää Microsoftin, Xboxin ja Minecraftin palveluihin, mutta etäpalvelin hylkäsi yhteyden. Tämä voi tarkoittaa, että hosts-tiedosto estää nämä palvelut. Käy sivulla"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "ohjeiden hakemiseksi ongelman korjaamiseen."
+  },
+  "app.error.migrate.body-end": {
+    "message": "ei voi siirtää tietoja valitsemaasi uuteen kansioon. Ota yhteyttä tukeen tai peruuta kansion vaihto."
+  },
+  "app.error.network.body-end": {
+    "message": "yhteydessä Microsoftin palvelimiin. Taustalla on usein heikko yhteys, joten suosittelemme yrittämään uudelleen. Jos ongelmat jatkuvat, seuraa ohjeita kohdassa"
+  },
+  "app.error.network.body-start": {
+    "message": "Näyttää siltä, että ongelmia oli"
+  },
+  "app.error.network.heading": {
+    "message": "Verkko-ongelmat"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "vianmääritykseen."
+  },
+  "app.error.no-error-message": {
+    "message": "Ei virheilmoitusta."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "ei löytänyt tämän instanssin lataajaversiota."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Korjataksesi tämän sinun on korjattava instanssi. Napsauta alla olevaa painiketta."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Näyttää siltä, että valitsemasi kansion levyllä ei ole tarpeeksi tilaa. Vapauta tilaa ja yritä uudelleen tai peruuta kansion vaihto."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Tilaa ei ole tarpeeksi"
+  },
+  "app.error.read-only.body-end": {
+    "message": "ei voi kirjoittaa valitsemaasi kansioon. Muuta kansion käyttöoikeuksia ja yritä uudelleen tai peruuta kansion vaihto."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Näyttää siltä, että"
+  },
+  "app.error.read-only.heading": {
+    "message": "Vaihda kansion käyttöoikeudet"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Korjaa instanssi"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Yritä kansion vaihtoa uudelleen"
+  },
+  "app.error.state-init.body-end": {
+    "message": "ei latautunut oikein. Syynä voi olla vioittunut tiedosto tai se, että sovelluksesta puuttuu tärkeitä tiedostoja."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Voit ehkä korjata sen jollakin seuraavista tavoista:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Varmista internetyhteys ja käynnistä sovellus uudelleen."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Lataa sovellus uudelleen."
+  },
+  "app.error.state-init.open-backups-folder": {
+    "message": "Avaa varmuuskopiokansio"
+  },
+  "app.error.support-article-link": {
+    "message": "tukiartikkelimme"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Sovelluskansiota ei voitu vaihtaa"
+  },
+  "app.error.title.generic": {
+    "message": "Tapahtui virhe"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Lataajaa ei ole valittu"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Minecraftiin kirjautuminen ei onnistu"
+  },
+  "app.error.title.state-init": {
+    "message": "Virhe käynnistettäessä kohdetta {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Yritä kirjautua uudelleen"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Tarkista, että kirjauduit oikealla tilillä. Saatat omistaa Minecraftin toisella Microsoft-tilillä."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Kokeile toista tiliä"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Kokeile toista Microsoft-tiliä"
   },
   "app.export-modal.description-placeholder": {
     "message": "Lisää modipaketin kuvaus..."
@@ -131,8 +989,38 @@
   "app.export-modal.export-button": {
     "message": "Vie"
   },
+  "app.export-modal.export-complete": {
+    "message": "Vienti valmis"
+  },
+  "app.export-modal.export-complete-description": {
+    "message": "{name} vietiin onnistuneesti."
+  },
+  "app.export-modal.format-label": {
+    "message": "Vientimuoto"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "CurseForge-ZIP, jossa manifest.json ja valitut tiedostot overrides-kansiossa."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Launchereille, jotka tukevat Modrinth-paketteja. Sisältää latausviittaukset ja valitut lisätiedostot."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Kannettava {productName}-paketti, joka sisältää valitut tiedostot. Avaa se suoraan launcherissa."
+  },
   "app.export-modal.header": {
     "message": "Vie modipaketti"
+  },
+  "app.export-modal.modpack-name-label": {
+    "message": "Modipaketin nimi"
   },
   "app.export-modal.modpack-name-placeholder": {
     "message": "Modipaketin nimi"
@@ -142,6 +1030,75 @@
   },
   "app.export-modal.version-number-placeholder": {
     "message": "1.0.0"
+  },
+  "app.features-settings.instance-pages.title": {
+    "message": "Instanssit"
+  },
+  "app.features-settings.play-page.title": {
+    "message": "Pelisivu"
+  },
+  "app.features-settings.quick-instances.description": {
+    "message": "Valitse vasemmassa sivupalkissa näytettävien viimeisimpien instanssien enimmäismäärä. Voit säätää tätä myös vetämällä jakajaa."
+  },
+  "app.features-settings.quick-instances.title": {
+    "message": "Pikainstanssit sivupalkissa"
+  },
+  "app.features-settings.show-all-screenshots.description": {
+    "message": "Näytä vasemmassa sivupalkissa painike, josta näet kaikkien instanssiesi kuvakaappaukset."
+  },
+  "app.features-settings.show-all-screenshots.title": {
+    "message": "Näytä kaikki kuvakaappaukset sivupalkissa"
+  },
+  "app.features-settings.show-files-tab.title": {
+    "message": "Näytä Tiedostot-välilehti instansseissa"
+  },
+  "app.features-settings.show-jump-in.description": {
+    "message": "Näytä viimeksi pelatut maailmat ja instanssit Pelisivun yläosassa."
+  },
+  "app.features-settings.show-jump-in.title": {
+    "message": "Näytä Hyppää mukaan -osio"
+  },
+  "app.features-settings.show-screenshots-tab.title": {
+    "message": "Näytä Kuvakaappaukset-välilehti instansseissa"
+  },
+  "app.features-settings.show-skin-selector.description": {
+    "message": "Näytä vasemmassa sivupalkissa painike ulkoasun valitsimen avaamiseen."
+  },
+  "app.features-settings.show-skin-selector.title": {
+    "message": "Näytä ulkoasun valitsin sivupalkissa"
+  },
+  "app.features-settings.show-worlds-tab.title": {
+    "message": "Näytä Maailmat-välilehti instansseissa"
+  },
+  "app.features-settings.sidebar.title": {
+    "message": "Sivupalkki"
+  },
+  "app.home.jump-back-in.actions.label": {
+    "message": "Instanssin toiminnot"
+  },
+  "app.home.jump-back-in.instance-locked": {
+    "message": "Tämä instanssi on lukittu"
+  },
+  "app.home.jump-back-in.instance-open": {
+    "message": "Instanssi on jo auki"
+  },
+  "app.home.jump-back-in.more-options": {
+    "message": "Lisää vaihtoehtoja"
+  },
+  "app.home.jump-back-in.never-played": {
+    "message": "Ei pelattu koskaan"
+  },
+  "app.home.jump-back-in.new-instance": {
+    "message": "Uusi instanssi"
+  },
+  "app.home.jump-back-in.resize": {
+    "message": "Vedä koon muuttamiseksi"
+  },
+  "app.home.jump-back-in.title": {
+    "message": "Hyppää mukaan"
+  },
+  "app.home.jump-back-in.view-instance": {
+    "message": "Näytä instanssi"
   },
   "app.install.phase.downloading_content": {
     "message": "Ladataan sisältöä"
@@ -157,6 +1114,9 @@
   },
   "app.install.phase.finalizing": {
     "message": "Viimeistellään"
+  },
+  "app.install.phase.preparing_instance": {
+    "message": "Jonossa asennettavaksi"
   },
   "app.install.phase.preparing_java": {
     "message": "Valmistellaan Javaa"
@@ -194,17 +1154,56 @@
   "app.install.phase.running_loader_processors": {
     "message": "Suoritetaan lataajan käsittelijöitä"
   },
+  "app.instance.action.add-content": {
+    "message": "Lisää sisältöä"
+  },
+  "app.instance.action.copy-path": {
+    "message": "Kopioi polku"
+  },
+  "app.instance.action.edit": {
+    "message": "Muokkaa"
+  },
+  "app.instance.action.open-folder": {
+    "message": "Avaa kansio"
+  },
+  "app.instance.action.play": {
+    "message": "Pelaa"
+  },
+  "app.instance.action.stop": {
+    "message": "Pysäytä"
+  },
+  "app.instance.actions.label": {
+    "message": "Instanssin toiminnot"
+  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Kaikki sinun instanssisi data poistetaan pysyvästi, sisältäen maailmasi, konfiguraatiosi ja asennetun sisällön."
   },
   "app.instance.confirm-delete.admonition-header": {
     "message": "Tätä toimintoa ei voi peruuttaa"
   },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "Kaikki näiden {count} instanssin tiedot poistetaan pysyvästi, mukaan lukien maailmat, asetukset ja kaikki asennettu sisältö."
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "Poista {count} instanssia"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "Poista {count} instanssia"
+  },
   "app.instance.confirm-delete.delete-button": {
     "message": "Poista instannsi"
   },
   "app.instance.confirm-delete.header": {
     "message": "Poista instanssi"
+  },
+  "app.instance.confirm-delete.instances-label": {
+    "message": "{count, plural, one {Instanssi} other {Instanssia ({count})}}"
+  },
+  "app.instance.content.managed-content.modpack-header": {
+    "message": "Modipaketin sisältö"
+  },
+  "app.instance.content.managed-content.server-header": {
+    "message": "Palvelimen sisältö"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Tämä modipaketti on jo asennettu instanssiin <bold>{instanceName}</bold>. Oletko varma että haluat kopioida sen?"
@@ -230,6 +1229,12 @@
   "app.instance.mods.content-type-project": {
     "message": "projekti"
   },
+  "app.instance.mods.freeze-content": {
+    "message": "Jäädytä versio"
+  },
+  "app.instance.mods.locked-content": {
+    "message": "Lukittujen instanssien sisältöä ei voi muuttaa."
+  },
   "app.instance.mods.project-was-added": {
     "message": "\"{name}\" lisättiin"
   },
@@ -245,11 +1250,38 @@
   "app.instance.mods.successfully-uploaded": {
     "message": "Onnistuneesti ladattu"
   },
+  "app.instance.mods.unfreeze-content": {
+    "message": "Poista version jäädytys"
+  },
+  "app.instance.navigation.back-to-instance": {
+    "message": "Takaisin instanssiin"
+  },
+  "app.instance.shortcut.created": {
+    "message": "Pikakuvake luotu"
+  },
+  "app.instance.shortcut.creation-error": {
+    "message": "Virhe pikakuvaketta luotaessa"
+  },
+  "app.instance.tab.content": {
+    "message": "Sisältö"
+  },
+  "app.instance.tab.files": {
+    "message": "Tiedostot"
+  },
+  "app.instance.tab.logs": {
+    "message": "Lokit"
+  },
+  "app.instance.tab.screenshots": {
+    "message": "Kuvakaappaukset"
+  },
+  "app.instance.tab.worlds": {
+    "message": "Maailmat"
+  },
   "app.instance.worlds.add-server": {
     "message": "Lisää palvelin"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Selaa palvelimia"
+  "app.instance.worlds.browse": {
+    "message": "Selaa maailmoja"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Poista maailma"
@@ -281,8 +1313,23 @@
   "app.instance.worlds.no-worlds-heading": {
     "message": "Ei palvelimia tai maailmoja lisättynä"
   },
+  "app.instance.worlds.refreshing": {
+    "message": "Päivitetään…"
+  },
   "app.instance.worlds.remove-server-modal.remove-button": {
     "message": "Poista palvelin"
+  },
+  "app.instance.worlds.remove-server-modal.remove-everywhere": {
+    "message": "Poista kaikkialta"
+  },
+  "app.instance.worlds.remove-server-modal.remove-here": {
+    "message": "Poista täältä"
+  },
+  "app.instance.worlds.remove-server-modal.synced-description": {
+    "message": "Voit poistaa sen vain tästä instanssista tai kaikista synkronoiduista instansseista. Jos poistat sen vain tästä instanssista, ohitukset otetaan käyttöön eikä tämä instanssi saa enää synkronoituja palvelinmuutoksia."
+  },
+  "app.instance.worlds.remove-server-modal.synced-header": {
+    "message": "Tämä palvelin on synkronoitu"
   },
   "app.instance.worlds.remove-server-modal.title": {
     "message": "Poista palvelin"
@@ -296,32 +1343,404 @@
   "app.instance.worlds.search-worlds-placeholder": {
     "message": "Hae {count} maailmasta..."
   },
-  "app.modal.install-to-play.header": {
-    "message": "Asenna pelataksesi"
+  "app.java-detection.cancel": {
+    "message": "Peruuta"
   },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Asenna silti"
+  "app.java-detection.columns.actions": {
+    "message": "Toiminnot"
   },
-  "app.modal.install-to-play.install-button": {
-    "message": "Asenna"
+  "app.java-detection.columns.path": {
+    "message": "Polku"
   },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {# mod} other {# modia}}"
+  "app.java-detection.columns.version": {
+    "message": "Versio"
   },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Jaettu instanssi"
+  "app.java-detection.no-installations-found": {
+    "message": "Java-asennuksia ei löytynyt."
   },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Tarkastele sisältöä"
+  "app.java-detection.select": {
+    "message": "Valitse"
   },
-  "app.modal.update-to-play.header": {
-    "message": "Päivitä pelataksesi"
+  "app.java-detection.selected": {
+    "message": "Valittu"
+  },
+  "app.java-detection.title": {
+    "message": "Valitse Java-asennus"
+  },
+  "app.java-selector.already-installed": {
+    "message": "Jo asennettu"
+  },
+  "app.java-selector.browse": {
+    "message": "Selaa"
+  },
+  "app.java-selector.detect": {
+    "message": "Tunnista"
+  },
+  "app.java-selector.install-recommended": {
+    "message": "Asenna suositeltu"
+  },
+  "app.java-selector.installing": {
+    "message": "Asennetaan…"
+  },
+  "app.java-selector.path.placeholder": {
+    "message": "/polku/javaan"
+  },
+  "app.java-selector.test-installation": {
+    "message": "Testaa Java-asennus"
+  },
+  "app.launch-link.instance": {
+    "message": "Linkki haluaa käynnistää kohteen {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Käynnistä"
+  },
+  "app.launch-link.server": {
+    "message": "Linkki haluaa käynnistää kohteen {instance} ja liittyä palvelimelle {target}. Jatka vain, jos luotat linkin lähteeseen."
+  },
+  "app.launch-link.title": {
+    "message": "Avataanko Minecraft linkistä?"
+  },
+  "app.launch-link.world": {
+    "message": "Linkki haluaa käynnistää kohteen {instance} ja avata maailman {target}."
+  },
+  "app.library.actions.label": {
+    "message": "Kirjaston toiminnot"
+  },
+  "app.library.context-menu.create-instance": {
+    "message": "Uusi instanssi"
+  },
+  "app.library.filter.add": {
+    "message": "Lisää suodatin"
+  },
+  "app.library.filter.clear": {
+    "message": "Tyhjennä suodattimet"
+  },
+  "app.library.filter.game-version": {
+    "message": "Peliversio"
+  },
+  "app.library.filter.instance-type": {
+    "message": "Instanssin tyyppi"
+  },
+  "app.library.filter.instance-type.custom": {
+    "message": "Mukautettu"
+  },
+  "app.library.filter.instance-type.modpack": {
+    "message": "Modipaketti"
+  },
+  "app.library.filter.instance-type.server": {
+    "message": "Palvelin"
+  },
+  "app.library.filter.label": {
+    "message": "Suodata"
+  },
+  "app.library.filter.loader": {
+    "message": "Lataaja"
+  },
+  "app.library.group-by.custom-group": {
+    "message": "Mukautettu ryhmä"
+  },
+  "app.library.group-by.game-version": {
+    "message": "Peliversio"
+  },
+  "app.library.group-by.instance-type": {
+    "message": "Instanssin tyyppi"
+  },
+  "app.library.group-by.label": {
+    "message": "Ryhmittele"
+  },
+  "app.library.group-by.loader": {
+    "message": "Lataaja"
+  },
+  "app.library.group-by.none": {
+    "message": "Ei ryhmittelyä"
+  },
+  "app.library.group.actions.label": {
+    "message": "Ryhmän toiminnot"
+  },
+  "app.library.group.collapse": {
+    "message": "Supista ryhmä"
+  },
+  "app.library.group.context-menu.add-to-group": {
+    "message": "Lisää ryhmään"
+  },
+  "app.library.group.create": {
+    "message": "Luo ryhmä"
+  },
+  "app.library.group.create.cancel": {
+    "message": "Peruuta"
+  },
+  "app.library.group.delete": {
+    "message": "Poista ryhmä"
+  },
+  "app.library.group.delete-description": {
+    "message": "Tämän ryhmän instanssien ryhmitys puretaan."
+  },
+  "app.library.group.edit-name": {
+    "message": "Muokkaa ryhmän nimeä"
+  },
+  "app.library.group.empty": {
+    "message": "Vedä ja pudota lisätäksesi instansseja."
+  },
+  "app.library.group.expand": {
+    "message": "Laajenna ryhmä"
+  },
+  "app.library.group.favorites": {
+    "message": "Suosikit"
+  },
+  "app.library.group.instance.add": {
+    "message": "Lisää"
+  },
+  "app.library.group.instance.added": {
+    "message": "Lisätty"
+  },
+  "app.library.group.instances-modal.add": {
+    "message": "Lisää"
+  },
+  "app.library.group.instances-modal.added": {
+    "message": "Lisätty"
+  },
+  "app.library.group.instances-modal.no-instances-found": {
+    "message": "Instansseja ei löytynyt"
+  },
+  "app.library.group.instances-modal.search-placeholder": {
+    "message": "Hae instanssia"
+  },
+  "app.library.group.instances-modal.title": {
+    "message": "Lisää instansseja ryhmään ”{groupName}”"
+  },
+  "app.library.group.move-down": {
+    "message": "Siirrä ryhmää alaspäin"
+  },
+  "app.library.group.move-up": {
+    "message": "Siirrä ryhmää ylöspäin"
+  },
+  "app.library.group.name": {
+    "message": "Ryhmän nimi"
+  },
+  "app.library.group.name-empty": {
+    "message": "Ryhmän nimi ei voi olla tyhjä."
+  },
+  "app.library.group.name-placeholder": {
+    "message": "Anna ryhmän nimi"
+  },
+  "app.library.group.name-reserved": {
+    "message": "”Ei mitään” on varattu eikä sitä voi käyttää ryhmän nimenä."
+  },
+  "app.library.group.name-too-long": {
+    "message": "Ryhmän nimet voivat olla enintään {maxLength} merkkiä pitkiä."
+  },
+  "app.library.group.new": {
+    "message": "Uusi ryhmä"
+  },
+  "app.library.group.no-instances-found": {
+    "message": "Instansseja ei löytynyt"
+  },
+  "app.library.group.rename-failed": {
+    "message": "Ryhmää ei voitu nimetä uudelleen"
+  },
+  "app.library.group.search-instance": {
+    "message": "Hae instanssia"
+  },
+  "app.library.group.ungrouped": {
+    "message": "Ryhmittämättömät"
+  },
+  "app.library.group.unknown": {
+    "message": "Tuntematon ryhmä"
+  },
+  "app.library.instance.action.add-content": {
+    "message": "Lisää sisältöä"
+  },
+  "app.library.instance.action.add-to-favorites": {
+    "message": "Lisää suosikkeihin"
+  },
+  "app.library.instance.action.copy-path": {
+    "message": "Kopioi polku"
+  },
+  "app.library.instance.action.delete": {
+    "message": "Poista"
+  },
+  "app.library.instance.action.duplicate": {
+    "message": "Monista instanssi"
+  },
+  "app.library.instance.action.open-folder": {
+    "message": "Avaa kansio"
+  },
+  "app.library.instance.action.play": {
+    "message": "Pelaa"
+  },
+  "app.library.instance.action.remove-from-favorites": {
+    "message": "Poista suosikeista"
+  },
+  "app.library.instance.action.remove-from-group": {
+    "message": "Poista ryhmästä"
+  },
+  "app.library.instance.action.stop": {
+    "message": "Pysäytä"
+  },
+  "app.library.instance.action.view-instance": {
+    "message": "Näytä instanssi"
+  },
+  "app.library.instance.actions.label": {
+    "message": "Instanssin toiminnot"
+  },
+  "app.library.instance.deselect": {
+    "message": "Poista instanssin valinta"
+  },
+  "app.library.instance.deselect-with-name": {
+    "message": "Poista valinta kohteelta {name}"
+  },
+  "app.library.instance.installing": {
+    "message": "Asennetaan…"
+  },
+  "app.library.instance.loading": {
+    "message": "Instanssi latautuu…"
+  },
+  "app.library.instance.new": {
+    "message": "Uusi instanssi"
+  },
+  "app.library.instance.open-with-name": {
+    "message": "Avaa {name}"
+  },
+  "app.library.instance.play": {
+    "message": "Pelaa"
+  },
+  "app.library.instance.repair": {
+    "message": "Korjaa"
+  },
+  "app.library.instance.select": {
+    "message": "Valitse instanssi"
+  },
+  "app.library.instance.select-with-name": {
+    "message": "Valitse {name}"
+  },
+  "app.library.instance.stop": {
+    "message": "Pysäytä"
+  },
+  "app.library.search.no-results.title": {
+    "message": "Yksikään instanssi ei vastaa hakuasi."
+  },
+  "app.library.search.placeholder": {
+    "message": "Hae"
+  },
+  "app.library.selection.aria-label": {
+    "message": "Valitut instanssit"
+  },
+  "app.library.selection.deleting": {
+    "message": "Poistetaan valittuja instansseja"
+  },
+  "app.library.selection.new-group": {
+    "message": "Uusi ryhmä"
+  },
+  "app.library.selection.remove-from-group": {
+    "message": "Poista ryhmästä"
+  },
+  "app.library.selection.selected-count": {
+    "message": "{count} valittu"
+  },
+  "app.library.sort.date-created": {
+    "message": "Luontipäivä"
+  },
+  "app.library.sort.date-modified": {
+    "message": "Muokkauspäivä"
+  },
+  "app.library.sort.game-version": {
+    "message": "Peliversio"
+  },
+  "app.library.sort.hours-played": {
+    "message": "Pelatut tunnit"
+  },
+  "app.library.sort.label": {
+    "message": "Järjestä"
+  },
+  "app.library.sort.last-played": {
+    "message": "Viimeksi pelattu"
+  },
+  "app.library.sort.loader": {
+    "message": "Lataaja"
+  },
+  "app.library.sort.name": {
+    "message": "Nimi"
+  },
+  "app.library.title": {
+    "message": "Kirjasto"
+  },
+  "app.nav.collapse-sidebar": {
+    "message": "Supista sivupalkki"
+  },
+  "app.nav.create-new-instance": {
+    "message": "Luo uusi instanssi"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Laajenna sivupalkki"
+  },
+  "app.nav.home": {
+    "message": "Koti"
+  },
+  "app.nav.screenshots": {
+    "message": "Kuvakaappaukset"
+  },
+  "app.navigation.go-back": {
+    "message": "Siirry takaisin"
+  },
+  "app.navigation.go-forward": {
+    "message": "Siirry eteenpäin"
+  },
+  "app.navigation.home": {
+    "message": "Koti"
+  },
+  "app.navigation.next-image": {
+    "message": "Seuraava kuva"
+  },
+  "app.notification.warning": {
+    "message": "Varoitus"
+  },
+  "app.project.actions.label": {
+    "message": "Projektin toiminnot"
+  },
+  "app.project.coming-soon": {
+    "message": "Tulossa pian"
+  },
+  "app.project.gallery.image-fallback": {
+    "message": "Gallerian kuva"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Avaa kuva uudessa välilehdessä"
   },
   "app.project.install-button.already-installed": {
     "message": "Tämä projekti on jo asennettu"
   },
+  "app.project.install-button.switch-version": {
+    "message": "Vaihda versiota"
+  },
   "app.project.install-context.back-to-browse": {
     "message": "Takaisin sisällön löytöön"
+  },
+  "app.project.install-context.back-to-instance": {
+    "message": "Takaisin instanssiin"
+  },
+  "app.project.load-error": {
+    "message": "Projektin tietoja ei voitu ladata."
+  },
+  "app.project.more-options": {
+    "message": "Lisää vaihtoehtoja"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Avaa CurseForgessa"
+  },
+  "app.project.tab.description": {
+    "message": "Kuvaus"
+  },
+  "app.project.tab.gallery": {
+    "message": "Galleria"
+  },
+  "app.project.tab.versions": {
+    "message": "Versiot"
+  },
+  "app.project.version.all-versions": {
+    "message": "Kaikki versiot"
+  },
+  "app.project.version.download-in-browser": {
+    "message": "Lataa selaimessa"
   },
   "app.project.version.installing": {
     "message": "Asennetaan"
@@ -329,14 +1748,1664 @@
   "app.project.versions.already-installed": {
     "message": "On jo asennettu"
   },
+  "app.quick-instance-switcher.actions.label": {
+    "message": "Instanssin toiminnot"
+  },
+  "app.quick-instance-switcher.drag-show-tooltip": {
+    "message": "Vedä näyttääksesi viimeisimmät instanssit"
+  },
+  "app.quick-instance-switcher.drag-tooltip": {
+    "message": "Vedä koon muuttamiseksi"
+  },
+  "app.quick-instance-switcher.instance-locked": {
+    "message": "Tämä instanssi on lukittu"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Viimeisimmät instanssit"
+  },
+  "app.quick-instance-switcher.view-instance": {
+    "message": "Näytä instanssi"
+  },
+  "app.restarting": {
+    "message": "Käynnistetään uudelleen…"
+  },
+  "app.screenshots.copied": {
+    "message": "Kopioitu"
+  },
+  "app.screenshots.copy": {
+    "message": "Kopioi kuva"
+  },
+  "app.screenshots.delete-description": {
+    "message": "Poistetaanko {name} pysyvästi? Tätä ei voi kumota."
+  },
+  "app.screenshots.delete-success": {
+    "message": "Kuvakaappaus poistettu"
+  },
+  "app.screenshots.delete-title": {
+    "message": "Poista kuvakaappaus"
+  },
+  "app.screenshots.deselect": {
+    "message": "Poista valinta kohteelta {name}"
+  },
+  "app.screenshots.edit": {
+    "message": "Muokkaa kuvakaappausta"
+  },
+  "app.screenshots.empty-description": {
+    "message": "Pelissä ottamasi kuvakaappaukset näkyvät täällä."
+  },
+  "app.screenshots.empty-heading": {
+    "message": "Ei kuvakaappauksia vielä"
+  },
+  "app.screenshots.error-heading": {
+    "message": "Kuvakaappauksia ei voitu ladata"
+  },
+  "app.screenshots.go-to-instance": {
+    "message": "Siirry instanssiin"
+  },
+  "app.screenshots.group-by": {
+    "message": "Ryhmittele"
+  },
+  "app.screenshots.group.all-screenshots": {
+    "message": "Kaikki kuvakaappaukset"
+  },
+  "app.screenshots.group.collapse": {
+    "message": "Supista ryhmä"
+  },
+  "app.screenshots.group.custom": {
+    "message": "Mukautettu ryhmä"
+  },
+  "app.screenshots.group.date": {
+    "message": "Päivämäärä"
+  },
+  "app.screenshots.group.delete": {
+    "message": "Poista ryhmä"
+  },
+  "app.screenshots.group.delete-description": {
+    "message": "Tämän ryhmän kuvakaappausten ryhmitys puretaan."
+  },
+  "app.screenshots.group.edit": {
+    "message": "Muokkaa ryhmän nimeä"
+  },
+  "app.screenshots.group.empty": {
+    "message": "Vedä ja pudota lisätäksesi kuvakaappauksia."
+  },
+  "app.screenshots.group.expand": {
+    "message": "Laajenna ryhmä"
+  },
+  "app.screenshots.group.instance": {
+    "message": "Instanssi"
+  },
+  "app.screenshots.group.new": {
+    "message": "Uusi ryhmä"
+  },
+  "app.screenshots.group.none": {
+    "message": "Ei ryhmittelyä"
+  },
+  "app.screenshots.group.this-month": {
+    "message": "Tässä kuussa"
+  },
+  "app.screenshots.group.this-week": {
+    "message": "Tällä viikolla"
+  },
+  "app.screenshots.group.today": {
+    "message": "Tänään"
+  },
+  "app.screenshots.group.ungrouped": {
+    "message": "Ryhmittämättömät"
+  },
+  "app.screenshots.group.yesterday": {
+    "message": "Eilen"
+  },
+  "app.screenshots.heading": {
+    "message": "Kuvakaappaukset"
+  },
+  "app.screenshots.more-actions": {
+    "message": "Lisää toimintoja"
+  },
+  "app.screenshots.no-results-description": {
+    "message": "Kokeile toista hakua tai suodatinta."
+  },
+  "app.screenshots.no-results-heading": {
+    "message": "Ei vastaavia kuvakaappauksia"
+  },
+  "app.screenshots.preview.instance-and-date": {
+    "message": "{instance} · {date}"
+  },
+  "app.screenshots.search": {
+    "message": "Hae"
+  },
+  "app.screenshots.select": {
+    "message": "Valitse {name}"
+  },
+  "app.screenshots.selection.aria-label": {
+    "message": "Valitut kuvakaappaukset"
+  },
+  "app.screenshots.selection.delete-description": {
+    "message": "Poistetaanko {count, plural, one {# kuvakaappaus} other {# kuvakaappausta}}? Tätä ei voi kumota."
+  },
+  "app.screenshots.selection.delete-success": {
+    "message": "{count, plural, one {# kuvakaappaus poistettu} other {# kuvakaappausta poistettu}}"
+  },
+  "app.screenshots.selection.delete-title": {
+    "message": "Poista valitut kuvakaappaukset"
+  },
+  "app.screenshots.selection.export-zip": {
+    "message": "Vie ZIP"
+  },
+  "app.screenshots.selection.global-export-filename": {
+    "message": "{productName} kuvakaappaukset.zip"
+  },
+  "app.screenshots.selection.instance-export-filename": {
+    "message": "{instance} kuvakaappaukset.zip"
+  },
+  "app.screenshots.selection.remove-from-group": {
+    "message": "Poista ryhmästä"
+  },
+  "app.screenshots.selection.selected-count": {
+    "message": "{count} valittu"
+  },
+  "app.screenshots.selection.zip-archive": {
+    "message": "ZIP-arkisto"
+  },
+  "app.screenshots.show-in-folder": {
+    "message": "Näytä kansiossa"
+  },
+  "app.screenshots.sort-by": {
+    "message": "Järjestä"
+  },
+  "app.screenshots.sort.name": {
+    "message": "Nimi"
+  },
+  "app.screenshots.sort.newest": {
+    "message": "Uusin"
+  },
+  "app.screenshots.sort.oldest": {
+    "message": "Vanhin"
+  },
+  "app.settings.app-version": {
+    "message": "{productName} {version}"
+  },
+  "app.settings.default-instance-options.environment-variables.description": {
+    "message": "Ympäristömuuttujat, jotka asetetaan instanssia käynnistettäessä."
+  },
+  "app.settings.default-instance-options.environment-variables.placeholder": {
+    "message": "Anna ympäristömuuttujat…"
+  },
+  "app.settings.default-instance-options.environment-variables.title": {
+    "message": "Ympäristömuuttujat"
+  },
+  "app.settings.default-instance-options.fullscreen.description": {
+    "message": "Käynnistä instanssit koko näytössä päivittämällä niiden options.txt-tiedosto."
+  },
+  "app.settings.default-instance-options.fullscreen.title": {
+    "message": "Koko näyttö"
+  },
+  "app.settings.default-instance-options.height.description": {
+    "message": "Peli-ikkunan korkeus käynnistettäessä."
+  },
+  "app.settings.default-instance-options.height.placeholder": {
+    "message": "Anna korkeus…"
+  },
+  "app.settings.default-instance-options.height.title": {
+    "message": "Korkeus"
+  },
+  "app.settings.default-instance-options.java-and-memory.title": {
+    "message": "Java ja muisti"
+  },
+  "app.settings.default-instance-options.java-arguments.description": {
+    "message": "Argumentit, jotka välitetään Javalle instanssia käynnistettäessä."
+  },
+  "app.settings.default-instance-options.java-arguments.placeholder": {
+    "message": "Anna Java-argumentit…"
+  },
+  "app.settings.default-instance-options.java-arguments.title": {
+    "message": "Java-argumentit"
+  },
+  "app.settings.default-instance-options.launch-hooks.title": {
+    "message": "Käynnistyskomennot"
+  },
+  "app.settings.default-instance-options.memory-allocation.description": {
+    "message": "Kullekin instanssille käytettävissä oleva muistin enimmäismäärä."
+  },
+  "app.settings.default-instance-options.memory-allocation.title": {
+    "message": "Muistin varaus"
+  },
+  "app.settings.default-instance-options.post-exit-hook.description": {
+    "message": "Suoritetaan pelin sulkeuduttua."
+  },
+  "app.settings.default-instance-options.post-exit-hook.placeholder": {
+    "message": "Anna sulkeutumisen jälkeinen komento…"
+  },
+  "app.settings.default-instance-options.post-exit-hook.title": {
+    "message": "Sulkeutumisen jälkeinen komento"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.description": {
+    "message": "Suoritetaan ennen instanssin käynnistymistä."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.placeholder": {
+    "message": "Anna käynnistystä edeltävä komento…"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "Käynnistystä edeltävä komento"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "Peli-ikkunan leveys käynnistettäessä."
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "Anna leveys…"
+  },
+  "app.settings.default-instance-options.width.title": {
+    "message": "Leveys"
+  },
+  "app.settings.default-instance-options.window.title": {
+    "message": "Ikkuna"
+  },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "Komento, jolla Minecraftin käynnistysprosessi kääritään."
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "Anna wrapper-komento…"
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "Wrapper-komento"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "Vaihda kehittäjätilaa"
+  },
   "app.settings.developer-mode-enabled": {
     "message": "Kehittäjätila käytössä."
   },
   "app.settings.downloading": {
     "message": "Ladataan v{version}"
   },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Ei lippuja haulla ”{query}”"
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Palauta oletukseksi"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Hae lippuja…"
+  },
+  "app.settings.game-options.category.accessibility.description": {
+    "message": "Esteettömyysasetukset"
+  },
+  "app.settings.game-options.category.accessibility.label": {
+    "message": "Esteettömyys"
+  },
+  "app.settings.game-options.category.chat.description": {
+    "message": "Chatin näkyvyys ja ulkoasu"
+  },
+  "app.settings.game-options.category.chat.label": {
+    "message": "Chat"
+  },
+  "app.settings.game-options.category.controls.description": {
+    "message": "Hiiri, liikkuminen ja näppäinsidonnat"
+  },
+  "app.settings.game-options.category.controls.label": {
+    "message": "Ohjaus"
+  },
+  "app.settings.game-options.category.custom.description": {
+    "message": "Modien lisäämät asetukset"
+  },
+  "app.settings.game-options.category.custom.label": {
+    "message": "Mukautetut asetukset"
+  },
+  "app.settings.game-options.category.language.description": {
+    "message": "Pelin kieli"
+  },
+  "app.settings.game-options.category.language.label": {
+    "message": "Kieli"
+  },
+  "app.settings.game-options.category.music-and-sound.description": {
+    "message": "Äänenvoimakkuus ja ääniasetukset"
+  },
+  "app.settings.game-options.category.music-and-sound.label": {
+    "message": "Musiikki ja ääni"
+  },
+  "app.settings.game-options.category.online.description": {
+    "message": "Verkko- ja Realms-asetukset"
+  },
+  "app.settings.game-options.category.online.label": {
+    "message": "Verkossa"
+  },
+  "app.settings.game-options.category.skin-customization.description": {
+    "message": "Ulkoasun kerrokset ja kätisyys"
+  },
+  "app.settings.game-options.category.skin-customization.label": {
+    "message": "Ulkoasun mukautus"
+  },
+  "app.settings.game-options.category.video.description": {
+    "message": "Kamera- ja näyttöasetukset"
+  },
+  "app.settings.game-options.category.video.label": {
+    "message": "Video"
+  },
+  "app.settings.game-options.choice.all": {
+    "message": "Kaikki"
+  },
+  "app.settings.game-options.choice.balanced": {
+    "message": "Tasapainotettu"
+  },
+  "app.settings.game-options.choice.by-player": {
+    "message": "Pelaajan mukaan"
+  },
+  "app.settings.game-options.choice.chat": {
+    "message": "Chat"
+  },
+  "app.settings.game-options.choice.commands-only": {
+    "message": "Vain komennot"
+  },
+  "app.settings.game-options.choice.constant": {
+    "message": "Jatkuva"
+  },
+  "app.settings.game-options.choice.crosshair": {
+    "message": "Tähtäin"
+  },
+  "app.settings.game-options.choice.custom": {
+    "message": "Mukautettu"
+  },
+  "app.settings.game-options.choice.decreased": {
+    "message": "Vähennetty"
+  },
+  "app.settings.game-options.choice.default": {
+    "message": "Oletus"
+  },
+  "app.settings.game-options.choice.fabulous": {
+    "message": "Upea"
+  },
+  "app.settings.game-options.choice.fancy": {
+    "message": "Hieno"
+  },
+  "app.settings.game-options.choice.far": {
+    "message": "Kaukana"
+  },
+  "app.settings.game-options.choice.fast": {
+    "message": "Nopea"
+  },
+  "app.settings.game-options.choice.frequent": {
+    "message": "Usein"
+  },
+  "app.settings.game-options.choice.hidden": {
+    "message": "Piilotettu"
+  },
+  "app.settings.game-options.choice.hotbar": {
+    "message": "Pikavalikko"
+  },
+  "app.settings.game-options.choice.left": {
+    "message": "Vasen"
+  },
+  "app.settings.game-options.choice.limited": {
+    "message": "Rajoitettu"
+  },
+  "app.settings.game-options.choice.max-fps": {
+    "message": "FPS enintään"
+  },
+  "app.settings.game-options.choice.maximum": {
+    "message": "Enimmäis"
+  },
+  "app.settings.game-options.choice.minimal": {
+    "message": "Minimaalinen"
+  },
+  "app.settings.game-options.choice.minimum": {
+    "message": "Vähimmäis"
+  },
+  "app.settings.game-options.choice.nearby": {
+    "message": "Lähellä"
+  },
+  "app.settings.game-options.choice.never": {
+    "message": "Ei koskaan"
+  },
+  "app.settings.game-options.choice.none": {
+    "message": "Ei mitään"
+  },
+  "app.settings.game-options.choice.normal": {
+    "message": "Normaali"
+  },
+  "app.settings.game-options.choice.off": {
+    "message": "Pois"
+  },
+  "app.settings.game-options.choice.on": {
+    "message": "Päällä"
+  },
+  "app.settings.game-options.choice.opengl": {
+    "message": "OpenGL"
+  },
+  "app.settings.game-options.choice.pause": {
+    "message": "Taukovalikko"
+  },
+  "app.settings.game-options.choice.pause-and-toast": {
+    "message": "Taukovalikko ja ilmoitus"
+  },
+  "app.settings.game-options.choice.power-saver": {
+    "message": "Virransäästö"
+  },
+  "app.settings.game-options.choice.right": {
+    "message": "Oikea"
+  },
+  "app.settings.game-options.choice.short": {
+    "message": "Lyhyt"
+  },
+  "app.settings.game-options.choice.shown": {
+    "message": "Näytetty"
+  },
+  "app.settings.game-options.choice.system": {
+    "message": "Järjestelmä"
+  },
+  "app.settings.game-options.choice.tiny": {
+    "message": "Pieni"
+  },
+  "app.settings.game-options.choice.vulkan": {
+    "message": "Vulkan"
+  },
+  "app.settings.game-options.choice.when-minimized": {
+    "message": "Pienennettynä"
+  },
+  "app.settings.game-options.choice.while-afk": {
+    "message": "Poissa ollessa"
+  },
+  "app.settings.game-options.compatibility.none": {
+    "message": "Osa instansseistasi ei voi käyttää tätä asetusta"
+  },
+  "app.settings.game-options.compatibility.reason.launcher-controlled": {
+    "message": "Tätä asetusta hallitaan kohteen {productName} käynnistysasetuksissa."
+  },
+  "app.settings.game-options.custom-value.placeholder": {
+    "message": "Anna arvo"
+  },
+  "app.settings.game-options.keybind.assigned-status": {
+    "message": "{setting} on nyt sidottu kohteeseen {binding}."
+  },
+  "app.settings.game-options.keybind.cancelled-status": {
+    "message": "Näppäinsidonnan muutos peruttu."
+  },
+  "app.settings.game-options.keybind.change": {
+    "message": "{setting}: {binding}. Aktivoi vaihtaaksesi sidonnan."
+  },
+  "app.settings.game-options.keybind.choose": {
+    "message": "Valitse näppäin"
+  },
+  "app.settings.game-options.keybind.conflict-description": {
+    "message": "Tämä on jo käytössä kohteessa {settings}."
+  },
+  "app.settings.game-options.keybind.key.arrow-down": {
+    "message": "Nuoli alas"
+  },
+  "app.settings.game-options.keybind.key.arrow-left": {
+    "message": "Nuoli vasemmalle"
+  },
+  "app.settings.game-options.keybind.key.arrow-right": {
+    "message": "Nuoli oikealle"
+  },
+  "app.settings.game-options.keybind.key.arrow-up": {
+    "message": "Nuoli ylös"
+  },
+  "app.settings.game-options.keybind.key.backspace": {
+    "message": "Askelpalautin"
+  },
+  "app.settings.game-options.keybind.key.caps-lock": {
+    "message": "Caps Lock"
+  },
+  "app.settings.game-options.keybind.key.delete": {
+    "message": "Delete"
+  },
+  "app.settings.game-options.keybind.key.end": {
+    "message": "End"
+  },
+  "app.settings.game-options.keybind.key.enter": {
+    "message": "Enter"
+  },
+  "app.settings.game-options.keybind.key.escape": {
+    "message": "Esc"
+  },
+  "app.settings.game-options.keybind.key.home": {
+    "message": "Home"
+  },
+  "app.settings.game-options.keybind.key.insert": {
+    "message": "Insert"
+  },
+  "app.settings.game-options.keybind.key.keypad-key": {
+    "message": "Numeronäppäin {key}"
+  },
+  "app.settings.game-options.keybind.key.left-alt": {
+    "message": "Vasen Alt"
+  },
+  "app.settings.game-options.keybind.key.left-command": {
+    "message": "Vasen Command"
+  },
+  "app.settings.game-options.keybind.key.left-control": {
+    "message": "Vasen Ctrl"
+  },
+  "app.settings.game-options.keybind.key.left-shift": {
+    "message": "Vasen vaihto"
+  },
+  "app.settings.game-options.keybind.key.left-super": {
+    "message": "Vasen Super"
+  },
+  "app.settings.game-options.keybind.key.menu": {
+    "message": "Valikko"
+  },
+  "app.settings.game-options.keybind.key.num-lock": {
+    "message": "Num Lock"
+  },
+  "app.settings.game-options.keybind.key.page-down": {
+    "message": "Page Down"
+  },
+  "app.settings.game-options.keybind.key.page-up": {
+    "message": "Page Up"
+  },
+  "app.settings.game-options.keybind.key.pause": {
+    "message": "Pause"
+  },
+  "app.settings.game-options.keybind.key.print-screen": {
+    "message": "Print Screen"
+  },
+  "app.settings.game-options.keybind.key.right-alt": {
+    "message": "Oikea Alt"
+  },
+  "app.settings.game-options.keybind.key.right-command": {
+    "message": "Oikea Command"
+  },
+  "app.settings.game-options.keybind.key.right-control": {
+    "message": "Oikea Ctrl"
+  },
+  "app.settings.game-options.keybind.key.right-shift": {
+    "message": "Oikea vaihto"
+  },
+  "app.settings.game-options.keybind.key.right-super": {
+    "message": "Oikea Super"
+  },
+  "app.settings.game-options.keybind.key.scroll-lock": {
+    "message": "Scroll Lock"
+  },
+  "app.settings.game-options.keybind.key.space": {
+    "message": "Välilyönti"
+  },
+  "app.settings.game-options.keybind.key.tab": {
+    "message": "Tab"
+  },
+  "app.settings.game-options.keybind.key.unbound": {
+    "message": "Sitomaton"
+  },
+  "app.settings.game-options.keybind.key.unknown": {
+    "message": "Tuntematon näppäin"
+  },
+  "app.settings.game-options.keybind.listen": {
+    "message": "Paina näppäintä…"
+  },
+  "app.settings.game-options.keybind.listening-status": {
+    "message": "Kuunnellaan näppäintä tai hiiren painiketta. Tyhjennä sidonta painamalla Esc."
+  },
+  "app.settings.game-options.keybind.mixed": {
+    "message": "Vaihtelee instansseittain"
+  },
+  "app.settings.game-options.keybind.modifier.alt": {
+    "message": "Alt"
+  },
+  "app.settings.game-options.keybind.modifier.command": {
+    "message": "Command"
+  },
+  "app.settings.game-options.keybind.modifier.control": {
+    "message": "Ctrl"
+  },
+  "app.settings.game-options.keybind.modifier.shift": {
+    "message": "Vaihto"
+  },
+  "app.settings.game-options.keybind.modifier.super": {
+    "message": "Super"
+  },
+  "app.settings.game-options.keybind.mouse.button": {
+    "message": "Hiiri {button}"
+  },
+  "app.settings.game-options.keybind.mouse.left": {
+    "message": "Hiiren vasen"
+  },
+  "app.settings.game-options.keybind.mouse.middle": {
+    "message": "Hiiren keskinäppäin"
+  },
+  "app.settings.game-options.keybind.mouse.right": {
+    "message": "Hiiren oikea"
+  },
+  "app.settings.game-options.keybind.recording-label": {
+    "message": "{setting}: kuunnellaan näppäintä tai hiiren painiketta. Tyhjennä sidonta painamalla Esc."
+  },
+  "app.settings.game-options.keybind.scancode": {
+    "message": "Skannauskoodi {code}"
+  },
+  "app.settings.game-options.keybind.unsupported-status": {
+    "message": "Minecraft ei voi käyttää tätä syötettä. Paina toista näppäintä."
+  },
+  "app.settings.game-options.setting.advanced-opengl.label": {
+    "message": "Edistynyt OpenGL"
+  },
+  "app.settings.game-options.setting.allow-cursor-changes.label": {
+    "message": "Salli kohdistimen muutokset"
+  },
+  "app.settings.game-options.setting.allow-server-listing.description": {
+    "message": "Salli pelaajan nimen näkyminen palvelinlistauksissa."
+  },
+  "app.settings.game-options.setting.allow-server-listing.label": {
+    "message": "Palvelinlistaukset"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "Vaihtoehtoiset lohkot"
+  },
+  "app.settings.game-options.setting.ambient-occlusion.label": {
+    "message": "Pehmeä valaistus"
+  },
+  "app.settings.game-options.setting.ambient-volume.label": {
+    "message": "Ympäristö"
+  },
+  "app.settings.game-options.setting.anaglyph-3d.label": {
+    "message": "3D-anaglyfi"
+  },
+  "app.settings.game-options.setting.anisotropic-filtering.label": {
+    "message": "Anisotrooppinen suodatus"
+  },
+  "app.settings.game-options.setting.anisotropy.label": {
+    "message": "Anisotropia"
+  },
+  "app.settings.game-options.setting.attack-indicator.label": {
+    "message": "Hyökkäysilmaisin"
+  },
+  "app.settings.game-options.setting.auto-jump.description": {
+    "message": "Hyppää automaattisesti yhden lohkon korkuisten esteiden yli."
+  },
+  "app.settings.game-options.setting.auto-jump.label": {
+    "message": "Automaattihyppy"
+  },
+  "app.settings.game-options.setting.auto-suggestions.label": {
+    "message": "Komentoehdotukset"
+  },
+  "app.settings.game-options.setting.autosave-indicator.label": {
+    "message": "Automaattitallennuksen ilmaisin"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.description": {
+    "message": "Etäisyys, jolla elinympäristöjen värit sulautuvat."
+  },
+  "app.settings.game-options.setting.biome-blend-radius.label": {
+    "message": "Elinympäristöjen sulautus"
+  },
+  "app.settings.game-options.setting.blocks-volume.label": {
+    "message": "Lohkot"
+  },
+  "app.settings.game-options.setting.brightness.label": {
+    "message": "Kirkkaus"
+  },
+  "app.settings.game-options.setting.cape.description": {
+    "message": "Näytä pelaajan viitta, mukaan lukien sen elytra-tekstuuri."
+  },
+  "app.settings.game-options.setting.cape.label": {
+    "message": "Viitta"
+  },
+  "app.settings.game-options.setting.chat-background-only.label": {
+    "message": "Vain chatin tausta"
+  },
+  "app.settings.game-options.setting.chat-colors.label": {
+    "message": "Chatin värit"
+  },
+  "app.settings.game-options.setting.chat-delay.label": {
+    "message": "Chatin viive"
+  },
+  "app.settings.game-options.setting.chat-line-spacing.label": {
+    "message": "Chatin riviväli"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.description": {
+    "message": "Kysy ennen chatin linkkien avaamista."
+  },
+  "app.settings.game-options.setting.chat-links-prompt.label": {
+    "message": "Vahvista linkit"
+  },
+  "app.settings.game-options.setting.chat-links.description": {
+    "message": "Salli verkkolinkkien avaaminen chatista."
+  },
+  "app.settings.game-options.setting.chat-links.label": {
+    "message": "Verkkolinkit"
+  },
+  "app.settings.game-options.setting.chat-opacity.description": {
+    "message": "Chat-tekstin läpinäkyvyys."
+  },
+  "app.settings.game-options.setting.chat-opacity.label": {
+    "message": "Chatin läpinäkyvyys"
+  },
+  "app.settings.game-options.setting.chat-preview.label": {
+    "message": "Chatin esikatselu"
+  },
+  "app.settings.game-options.setting.chat-scale.label": {
+    "message": "Chatin koko"
+  },
+  "app.settings.game-options.setting.chat-visibility.label": {
+    "message": "Chatin näkyvyys"
+  },
+  "app.settings.game-options.setting.chat-width.label": {
+    "message": "Chatin leveys"
+  },
+  "app.settings.game-options.setting.chunk-fade-time.label": {
+    "message": "Palojen häivytysaika"
+  },
+  "app.settings.game-options.setting.cloud-range.label": {
+    "message": "Pilvien etäisyys"
+  },
+  "app.settings.game-options.setting.clouds.label": {
+    "message": "Pilvet"
+  },
+  "app.settings.game-options.setting.ctrl-click-right-click.label": {
+    "message": "Control-klikkaus oikeana klikkauksena"
+  },
+  "app.settings.game-options.setting.cutout-leaves.label": {
+    "message": "Leikatut lehdet"
+  },
+  "app.settings.game-options.setting.damage-tilt.label": {
+    "message": "Vahinkokeikahdus"
+  },
+  "app.settings.game-options.setting.dark-splash.description": {
+    "message": "Vaihda Mojang Studiosin latausnäyttö punaisesta mustaksi."
+  },
+  "app.settings.game-options.setting.dark-splash.label": {
+    "message": "Yksivärinen logo"
+  },
+  "app.settings.game-options.setting.darkness-pulsing.label": {
+    "message": "Pimeyden sykkiminen"
+  },
+  "app.settings.game-options.setting.debug-gui-scale.label": {
+    "message": "Vianmäärityksen käyttöliittymän koko"
+  },
+  "app.settings.game-options.setting.directional-audio.label": {
+    "message": "Suuntaääni"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.description": {
+    "message": "Käsittele jokaista hiiren rullan syötettä yhtenä vieritysaskeleena."
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.label": {
+    "message": "Askeltava vieritys"
+  },
+  "app.settings.game-options.setting.entity-distance.label": {
+    "message": "Olentojen etäisyys"
+  },
+  "app.settings.game-options.setting.entity-shadows.label": {
+    "message": "Olentojen varjot"
+  },
+  "app.settings.game-options.setting.exclusive-fullscreen.label": {
+    "message": "Yksinomainen koko näyttö"
+  },
+  "app.settings.game-options.setting.extra-telemetry.label": {
+    "message": "Valinnainen telemetria"
+  },
+  "app.settings.game-options.setting.focused-chat-height.label": {
+    "message": "Aktiivisen chatin korkeus"
+  },
+  "app.settings.game-options.setting.force-unicode-font.label": {
+    "message": "Pakota Unicode-fontti"
+  },
+  "app.settings.game-options.setting.fov-effects.label": {
+    "message": "Näkökenttätehosteet"
+  },
+  "app.settings.game-options.setting.fov.label": {
+    "message": "Näkökenttä"
+  },
+  "app.settings.game-options.setting.fullscreen.label": {
+    "message": "Koko näyttö"
+  },
+  "app.settings.game-options.setting.glint-speed.label": {
+    "message": "Kimalluksen nopeus"
+  },
+  "app.settings.game-options.setting.glint-strength.label": {
+    "message": "Kimalluksen voimakkuus"
+  },
+  "app.settings.game-options.setting.graphics-backend.label": {
+    "message": "Grafiikkatausta"
+  },
+  "app.settings.game-options.setting.graphics.description": {
+    "message": "Hallitsee visuaalista laatua ja suorituskykyä."
+  },
+  "app.settings.game-options.setting.graphics.label": {
+    "message": "Grafiikka"
+  },
+  "app.settings.game-options.setting.gui-scale.description": {
+    "message": "Pelin käyttöliittymän ja HUDin koko."
+  },
+  "app.settings.game-options.setting.gui-scale.label": {
+    "message": "Käyttöliittymän koko"
+  },
+  "app.settings.game-options.setting.hat.description": {
+    "message": "Näytä hatun ulkoasutaso."
+  },
+  "app.settings.game-options.setting.hat.label": {
+    "message": "Hattu"
+  },
+  "app.settings.game-options.setting.held-item-tooltips.label": {
+    "message": "Kädessä pidettyjen esineiden vihjeet"
+  },
+  "app.settings.game-options.setting.hide-lightning-flashes.label": {
+    "message": "Piilota salamanvälähdykset"
+  },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "Piilota täsmäävät nimet"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "Piilota palvelimen osoite"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "Piilota aloitustekstit"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "Korkeakontrastinen lohkorajaus"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "Paranna käyttöliittymäelementtien kontrastia."
+  },
+  "app.settings.game-options.setting.high-contrast.label": {
+    "message": "Korkea kontrasti"
+  },
+  "app.settings.game-options.setting.hostile-volume.label": {
+    "message": "Vihamieliset olennot"
+  },
+  "app.settings.game-options.setting.improved-transparency.label": {
+    "message": "Parannettu läpinäkyvyys"
+  },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "Pelin sisäiset ilmoitukset"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "Alennettu kuvataajuus"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "Käänteinen hiiri vaakasuunnassa"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "Käännä hiiren pystyliike."
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "Käänteinen hiiri"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "Näytä takin ulkoasutaso."
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "Takki"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "Japanilaisten merkkien variantit"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "Edistysaskeleet"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "Hyökkää"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "Liiku taaksepäin"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "Avaa chat"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "Komento"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "Näytä edistyneet vihjeet"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "Näytä palojen rajat"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "Tyhjennä chat"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "Kopioi sijainti"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "Kopioi uudelleenluontikomento"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "Aiheuta vianmäärityskaatuminen"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "Vedosta dynaamiset tekstuurit"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "Vedosta versio"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "Keskeytä fokuksen kadotessa"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "FPS-kaaviot"
+  },
+  "app.settings.game-options.setting.key-debug-hitboxes.label": {
+    "message": "Näytä osuma-alueet"
+  },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "Parannetun läpinäkyvyyden vianmääritysnäkymä"
+  },
+  "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
+    "message": "Valokartan tekstuuri"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "Vianmäärityksen muuntonäppäin"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "Verkkokaaviot"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "Vianmääritysasetukset"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "Vianmäärityspeittokuva"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "Profilointikaavio"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "Aloita profilointi"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "Lataa palat uudelleen"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "Lataa resurssipaketit uudelleen"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "Tarkkaile olentoa"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "Vaihda pelimuotoa"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "Pudota esine"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "Liiku eteenpäin"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "Kaverit"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "Vaihda koko näyttöä"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "Pikavalikko 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "Pikavalikko 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "Pikavalikko 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "Pikavalikko 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "Pikavalikko 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "Pikavalikko 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "Pikavalikko 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "Pikavalikko 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "Pikavalikko 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "Tavaraluettelo"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "Hyppää"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "Sivuliiku vasemmalle"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "Lataa työkalurivi"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "Vaihda kuvakulmaa"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "Valitse lohko"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "Pelaajalista"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "Pikatoiminnot"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "Sivuliiku oikealle"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "Tallenna työkalurivi"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "Kuvakaappaus"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "Vaihda elokuvakameraa"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "Hiivi"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "Sosiaaliset vuorovaikutukset"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "Tarkkailijan pikavalikko"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "Korosta tarkkailijat"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "Juokse"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "Vaihda toissijaista kättä"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "Vaihda HUDia"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "Vaihda tarkkailijan shaderia"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "Käytä esinettä"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "Kieli"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "Vasen housunlahje"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "Vasen hiha"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "Kuvataajuusraja"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "Näköetäisyys"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "Näytä macOS-valikko koko näytössä"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "Valitse, onko pääkäsi vasen vai oikea."
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "Pääkäsi"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "Päävoimakkuus"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "Kuvataajuus enintään"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "Valikon taustan sumennus"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "Tekstuurien pehmennys etäisyydellä."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "Mipmap-tasot"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "Hiiren rullan herkkyys"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "Musiikin taajuus"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "Valitse, näkyvätkö musiikin nimet taukovalikossa ja ilmoituksina."
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "Musiikki-ilmoitus"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "Musiikki"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "Kertojan pikanäppäin"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "Valitse, mitä kertoja lukee."
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "Kertoja"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "Rauhalliset olennot"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "Kuinka kauan ponnahdusilmoitukset pysyvät näkyvissä."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "Ilmoituksen kesto"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "Ylläpitäjän esinevälilehti"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "Panoraaman nopeus"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "Partikkelit"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "Pelaajat"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "Priorisoi palojen päivitykset"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "Lopetuksen pikanäppäimet"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "Raaka hiirisyöte"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "Realms-ilmoitukset"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "Levysoitin ja nuottilohkot"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "Supistetut vianmääritystiedot"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "Piirtoetäisyys"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "Oikea housunlahje"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "Oikea hiha"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "Käänny vaunun mukana"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "Tallenna chat-luonnokset"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "Ruututehosteet"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "Näytä vain suojattu chat"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "Hiiren herkkyys"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "Palvelimen tekstuurit"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "Jaa läsnäolo"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "Kuinka kaukana olennot päivittyvät ja lohkot sekä nesteet toimivat."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "Simulaatioetäisyys"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Snooper"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "Juoksuikkuna"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "Näytä pelin äänille tekstitykset."
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "Tekstitykset"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "Tekstin taustan läpinäkyvyys"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "Tekstuurisuodatus"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "Hyökkäyksen lukitus"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "Paina kerran jäädäksesi kyykkyyn."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "Kyykyn lukitus"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "Paina kerran jatkaaksesi juoksemista."
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "Juoksun lukitus"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "Käytön lukitus"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "Kosketusnäyttötila"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "Käyttöliittymä"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "Epäaktiivisen chatin korkeus"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "Käytä VBO:ita"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "Lisää kameraan huojuntaa kävellessä."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "Kameran huojunta"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "Vinjetti"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "Ääni ja puhe"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "Rajoita kuvataajuus näytön virkistystaajuuteen ruudun repeilyn estämiseksi."
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "Sään säde"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "Sää"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "Tämä asetus muuttui muualla. Tarkista se ja yritä uudelleen."
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "Valitse kelvollinen arvo."
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "Valitse ensin arvo."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "Osa instansseistasi ei voi käyttää tätä asetusta"
+  },
+  "app.settings.java-installations.location.title": {
+    "message": "Javan {version, number} sijainti"
+  },
+  "app.settings.operating-system.macos": {
+    "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Näytä {productName} nykyisenä toimintanasi Discordissa. Tämä ei vaikuta modien instansseihin lisäämiin Rich Presence -tiloihin."
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord Rich Presence"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "Näytä Kopioi tiedot -toiminto asennuksen ollessa jonossa tai käynnissä. Se on aina käytettävissä epäonnistuneille tai keskeytyneille asennuksille."
+  },
+  "app.settings.resource-management.always-show-copy-details.title": {
+    "message": "Näytä kopiointitiedot aina"
+  },
+  "app.settings.resource-management.app-cache.confirm.description": {
+    "message": "Sovellus voi latautua hitaammin, kunnes välimuisti rakennetaan uudelleen."
+  },
+  "app.settings.resource-management.app-cache.confirm.title": {
+    "message": "Tyhjennetäänkö sovelluksen välimuisti?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Tyhjennä välimuistissa olevat tiedot ja lataa ne uudelleen. Sovellus voi latautua hitaammin, kunnes välimuisti rakennetaan uudelleen."
+  },
+  "app.settings.resource-management.app-cache.purge": {
+    "message": "Tyhjennä välimuisti"
+  },
+  "app.settings.resource-management.app-cache.title": {
+    "message": "Sovelluksen välimuisti"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "Tärkeiden sovellustietojen varmuuskopiot säilytetään täällä siltä varalta, että ne on palautettava myöhemmin."
+  },
+  "app.settings.resource-management.app-database-backups.open-folder": {
+    "message": "Avaa varmuuskopiokansio"
+  },
+  "app.settings.resource-management.app-database-backups.title": {
+    "message": "Sovellustietokannan varmuuskopiot"
+  },
+  "app.settings.resource-management.app-directory.browse": {
+    "message": "Selaa sovelluskansiota"
+  },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "Paikka, jossa {productName} säilyttää instanssit ja muut tiedostot. Muutokset astuvat voimaan sovelluksen uudelleenkäynnistyksen jälkeen."
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "Valitse uusi sovelluskansio"
+  },
+  "app.settings.resource-management.app-directory.title": {
+    "message": "Sovelluskansio"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "Tiedostojen määrä, jonka sovellus voi ladata kerralla. Pienennä tätä, jos lataukset ovat epäluotettavia yhteydelläsi. Vaatii sovelluksen uudelleenkäynnistyksen."
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "Samanaikaisten latausten enimmäismäärä"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "Tiedostojen määrä, jonka sovellus voi kirjoittaa levylle kerralla. Pienennä tätä, jos kohtaat usein I/O-virheitä. Vaatii sovelluksen uudelleenkäynnistyksen."
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "Samanaikaisten kirjoitusten enimmäismäärä"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Osa tiedostoista vaatii vielä huomiota"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Säilytä enintään tämä määrä käyttämätöntä sisältöä tulevia asennuksia varten. Suurempi määrä voi säästää latausaikaa."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Säilytä käyttämättömät lataukset"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "Gt"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Lasketaan"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Tyhjennä käyttämättömät"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Poista käyttämätön ladattu sisältö"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "Vapautettiin {size} levytilaa."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Tyhjennetään…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Säästä tilaa käyttämällä peliasennuksia, modeja ja paketteja uudelleen instanssiesi kesken."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Asenna modeja tai paketteja nähdäksesi tallennustilasi kulutuksen täällä."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Näytä {count, plural, one {# ongelma} other {# ongelmaa}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Ei tyhjennettävää käyttämätöntä sisältöä."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Vahvista ja korjaa"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Tämä sulkee kaikki käynnissä olevat instanssit."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Tarkista puuttuvat tai vahingoittuneet tiedostot ja korjaa ne."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Vahvistetaan ja korjataan…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Jaettu"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Sisällön tallennus"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} tallennettu"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Yksilöllinen"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Orpo"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "Tarkistettiin {checked, plural, one {# tiedosto} other {# tiedostoa}} ja tehtiin {repaired, plural, one {# korjaus} other {# korjausta}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Vahvistus valmis"
+  },
+  "app.settings.sidebar.label.instances": {
+    "message": "Instanssit"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Valitse, mistä instanssista komentohistoriasi kopioidaan. Tätä historiaa käytetään vain ensimmäiseen synkronointiin, ja voit muokata sitä mistä tahansa instanssista jälkikäteen."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Valitse komentohistorian lähde"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Valitse, mistä instanssista tallennetut luovan tilan pikavalikkosi kopioidaan. Näitä pikavalikkoja käytetään vain ensimmäiseen synkronointiin, ja voit muokata niitä mistä tahansa instanssista jälkikäteen."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Valitse luovan tilan pikavalikkojen lähde"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Valitse datapakettien lähde"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Valitse, mistä instanssista peliasetuksesi kopioidaan. Näitä asetuksia käytetään vain ensimmäiseen synkronointiin, ja voit muokata niitä mistä tahansa instanssista jälkikäteen."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Valitse peliasetusten lähde"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Et voi valita tätä instanssia synkronoinnin lähteeksi"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Synkronointilähteitä ei voitu ladata. Yritä uudelleen."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Valitse, mistä instanssista moninpelipalvelimesi kopioidaan. Näitä palvelimia käytetään vain ensimmäiseen synkronointiin, ja voit muokata niitä mistä tahansa instanssista jälkikäteen."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Valitse moninpelipalvelinten lähde"
+  },
+  "app.settings.synced-options.choose-sync-source.no-instances-found": {
+    "message": "Instansseja ei löytynyt"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Valitse resurssipakettien lähde"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Yritä uudelleen"
+  },
+  "app.settings.synced-options.choose-sync-source.search-placeholder": {
+    "message": "Hae instanssia"
+  },
+  "app.settings.synced-options.choose-sync-source.sync": {
+    "message": "Synkronoi"
+  },
+  "app.settings.synced-options.command-history": {
+    "message": "Synkronoi komentohistoria"
+  },
+  "app.settings.synced-options.command-history.description": {
+    "message": "Käytä samaa komentohistoriaa instansseissasi."
+  },
+  "app.settings.synced-options.command-history.editor-title": {
+    "message": "Muokkaa komentohistoriaa"
+  },
+  "app.settings.synced-options.creative-hotbars": {
+    "message": "Synkronoi tallennetut luovan tilan pikavalikot"
+  },
+  "app.settings.synced-options.creative-hotbars.description": {
+    "message": "Käytä samoja tallennettuja luovan tilan pikavalikkoja instansseissasi."
+  },
+  "app.settings.synced-options.data-packs": {
+    "message": "Synkronoi datapaketit"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Käytä samoja datapaketteja instansseissasi"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Et ole synkronoinut vielä yhtään datapakettia"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Lisää instanssi ennen synkronoitujen tietojen muokkaamista."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Valitse synkronoinnin lähde ennen tämän asetuksen muokkaamista."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "Synkronoi peliasetukset"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Muokkaa peliasetuksia"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "Latasimme uusimmat asetukset. Tarkista muutoksesi ja tallenna uudelleen."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Nämä asetukset muuttuivat muualla"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Modien lisäämät asetukset näkyvät täällä, kun {productName} löytää ne jostakin instanssistasi."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Käytä samoja peliasetuksia instansseissasi."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "Poista kaikkien synkronointi"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Ota peliasetusten synkronointi käyttöön ennen yksittäisten asetusten valintaa."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Yksikään asetus ei vastaa hakuasi tai suodatintasi."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "Synkronoi kaikki"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "Peliasetuksiasi ei voitu ladata."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Ladataan asetuksia…"
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Sinulla ei ole vielä muokattavia vaihtoehtoja"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Ei synkronoida"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "Yritä uudelleen"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "Tallenna asetukset"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Hae asetuksia…"
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Synkronoidut asetukset otetaan käyttöön jokaisessa instanssissa ja ne ohittavat modipaketin mukana tulevat arvot."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "Synkronoi {setting} instanssien kesken"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "Synkronoi peliasetukset"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Synkronoitu instanssien kesken"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Peliasetukset"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Sinulla on tallentamattomia muutoksia."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "Lopeta kohteen {setting} synkronointi instanssien kesken"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "Vaihtelee instansseittain"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "Pois"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "Päällä"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Valitse arvo"
+  },
+  "app.settings.synced-options.multiplayer-servers": {
+    "message": "Synkronoi moninpelipalvelimet"
+  },
+  "app.settings.synced-options.multiplayer-servers.address": {
+    "message": "Palvelimen osoite"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Kopioi osoite"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {# palvelin} other {# palvelinta}}"
+  },
+  "app.settings.synced-options.multiplayer-servers.description": {
+    "message": "Käytä samoja moninpelipalvelimia instansseissasi."
+  },
+  "app.settings.synced-options.multiplayer-servers.editor-title": {
+    "message": "Muokkaa synkronoituja palvelimia"
+  },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "Synkronoituja itse lisättyjä palvelimia ei ole."
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "Offline"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "Online"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "Lisää palvelinasetuksia"
+  },
+  "app.settings.synced-options.multiplayer-servers.name": {
+    "message": "Palvelimen nimi"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Yksikään synkronoitu palvelin ei vastaa hakuasi tai suodattimiasi."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Et ole synkronoinut vielä yhtään palvelinta"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} paikalla"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "Hae {count, number} {count, plural, one {synkronoidusta palvelimesta} other {synkronoidusta palvelimesta}}…"
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Tila"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Ota synkronointi käyttöön ennen jaettujen pakettien muokkaamista."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "Synkronoi resurssipaketit"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Käytä samoja resurssipaketteja instansseissasi."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "Et ole synkronoinut vielä yhtään resurssipakettia"
+  },
   "app.settings.tabs.appearance": {
     "message": "Ulkonäkö"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "Käyttäytyminen"
+  },
+  "app.settings.tabs.features": {
+    "message": "Ominaisuudet"
   },
   "app.settings.tabs.java-installations": {
     "message": "Java asennukset"
@@ -350,6 +3419,45 @@
   "app.settings.tabs.resource-management": {
     "message": "Resurssien hallinta"
   },
+  "app.settings.tabs.synced-options": {
+    "message": "Synkronoidut asetukset"
+  },
+  "app.sidebar.advertising.label": {
+    "message": "Mainos"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Esikatselu · paikka {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Seuraava modipaketti"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Keskeytä vaihtuminen"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} / {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Edellinen modipaketti"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Jatka vaihtumista"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Suositellut modipaketit"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Suositellut modipaketit eivät ole juuri nyt saatavilla."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Näytä projekti"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Tutustu palvelinhostingiin"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Seuraava Minecraft-palvelimesi"
+  },
   "app.skins.add-button": {
     "message": "Lisää ulkoasu"
   },
@@ -358,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Käytä"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Kaikki mallit"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klassinen"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Oletus"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Ulkoasuja ei löytynyt. Kokeile toista hakua."
+  },
+  "app.skins.catalog.error": {
+    "message": "Tämä ulkoasun tarjoaja ei ole käytettävissä. Yritä myöhemmin uudelleen."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Ladataan ulkoasuja…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Etsi koko julkisesta MineSkin-galleriasta."
+  },
+  "app.skins.catalog.model": {
+    "message": "Malli"
+  },
+  "app.skins.catalog.next": {
+    "message": "Seuraava sivu"
+  },
+  "app.skins.catalog.page": {
+    "message": "Sivu {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Suosittu"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Edellinen sivu"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Ulkoasun tarjoajat"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Tämän tarjoajan pyyntöraja on saavutettu. Odota hetki ennen uutta yritystä."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Viimeisimmät"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Yritä uudelleen"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Ulkoasu tallennettu Oletukseen"
+  },
+  "app.skins.catalog.search": {
+    "message": "Etsi ulkoasuja…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Hae"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Ohut"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Järjestä"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tunniste (valinnainen)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Trendaavat"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Tätä tarjoajaa ei ole vielä määritetty."
   },
   "app.skins.delete-button": {
     "message": "Poista ulkoasu"
@@ -368,11 +3548,23 @@
   "app.skins.delete-modal.title": {
     "message": "Haluatko varmasti poistaa ulkoasun?"
   },
+  "app.skins.demo.apply-tooltip": {
+    "message": "Kirjaudu käyttääksesi ulkoasuja."
+  },
+  "app.skins.demo.description": {
+    "message": "Kirjaudu Minecraft-tilillesi tallentaaksesi ja käyttääksesi ulkoasuja!"
+  },
+  "app.skins.demo.title": {
+    "message": "Muokataan demo-tilillä"
+  },
   "app.skins.dropped-file-error.text": {
     "message": "Tiedoston lukeminen epäonnistui."
   },
   "app.skins.dropped-file-error.title": {
     "message": "Virhe prosessoidessa tiedostoa"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "Tämä ulkoasu käyttää {ears}-modin ominaisuuksia"
   },
   "app.skins.edit-button": {
     "message": "Muokkaa ulkoasua"
@@ -397,6 +3589,9 @@
   },
   "app.skins.modal.cape-section": {
     "message": "Viitta"
+  },
+  "app.skins.modal.demo-save-tooltip": {
+    "message": "Kirjaudu tallentaaksesi ulkoasuja."
   },
   "app.skins.modal.edit-title": {
     "message": "Muokataan ulkoasua"
@@ -446,6 +3641,9 @@
   "app.skins.section.builders-and-biomes": {
     "message": "Builders & Biomes"
   },
+  "app.skins.section.chaos-cubed": {
+    "message": "Chaos Cubed"
+  },
   "app.skins.section.chase-the-skies": {
     "message": "Chase the Skies"
   },
@@ -473,6 +3671,9 @@
   "app.skins.section.tiny-takeover": {
     "message": "Pienten vallankumous"
   },
+  "app.skins.sign-in.button": {
+    "message": "Kirjaudu Microsoftilla"
+  },
   "app.skins.title": {
     "message": "Skinivalinta"
   },
@@ -482,8 +3683,137 @@
   "app.skins.toggle-ears-features-on": {
     "message": "Ota käyttöön"
   },
+  "app.sync-instances-update.badge": {
+    "message": "Uutta tässä päivityksessä"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "Valitse, mistä instanssista peliasetukset, resurssipaketit, komentohistoria, luovan tilan pikavalikot ja moninpelipalvelimet kopioidaan. Näitä asetuksia käytetään vain ensimmäiseen synkronointiin, ja voit muokata niitä mistä tahansa instanssista jälkikäteen."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "Valitse synkronoinnin lähde"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Valitse, mistä instanssista datapakettisi kopioidaan. Näitä paketteja käytetään vain ensimmäiseen synkronointiin, ja voit muokata niitä mistä tahansa instanssista jälkikäteen."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Valitse, mistä instanssista resurssipakettisi kopioidaan. Näitä paketteja käytetään vain ensimmäiseen synkronointiin, ja voit muokata niitä mistä tahansa instanssista jälkikäteen."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "Synkronoi luovan tilan pikavalikot"
+  },
+  "app.sync-instances-update.description": {
+    "message": "Voit nyt synkronoida esimerkiksi peliasetukset, palvelimet ja resurssipaketit instanssiesi kesken, joten kaikki pysyy samana joka pelikerralla!"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "Synkronointiasetuksiasi ei voitu ladata. Yritä uudelleen."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "Voit ottaa synkronoinnin käyttöön nyt ja hallita sitä myöhemmin sovelluksen asetuksissa."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "Pidä peliasetukset, palvelimet, resurssipaketit ja muut synkronoituina instanssiesi kesken."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "Hylkää"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "Synkronoi instanssisi"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "Näytä päivitys"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "Yritä uudelleen"
+  },
+  "app.sync-instances-update.skip": {
+    "message": "Ohita"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "Synkronoi kaikki"
+  },
+  "app.sync-instances-update.title": {
+    "message": "Synkronoi instanssisi"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "Poista se käytöstä kaikissa synkronoiduissa instansseissa tai vain tässä instanssissa. Jos poistat sen käytöstä vain täällä, ohitukset otetaan käyttöön tässä instanssissa."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "Poista käytöstä kaikkialla"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "Poista tämä sisältö käytöstä kaikissa synkronoiduissa instansseissa."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "Poista käytöstä täällä"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "Poistetaanko sisältö käytöstä?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "Ota se käyttöön kaikissa synkronoiduissa instansseissa tai vain tässä instanssissa. Jos otat sen käyttöön vain täällä, ohitukset otetaan käyttöön tässä instanssissa."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Ota käyttöön kaikkialla"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Ota tämä sisältö käyttöön kaikissa synkronoiduissa instansseissa."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Ota käyttöön täällä"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "Otetaanko sisältö käyttöön?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Poista kaikkialta"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Poista täältä"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Tämän sisällön poistaminen poistaa sen kaikista instansseistasi"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Valittu synkronoimaton sisältö poistetaan vain tästä instanssista."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Voit poistaa sen vain tästä instanssista tai kaikista synkronoiduista instansseista. Jos poistat sen vain tästä instanssista, ohitukset otetaan käyttöön eikä tämä instanssi saa enää näiden sisältötyyppien synkronoituja muutoksia."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "Voit poistaa {count, plural, one {sen} other {ne}} vain tästä instanssista tai kaikista synkronoiduista instansseista. Jos poistat {count, plural, one {sen} other {ne}} vain tästä instanssista, ohitukset otetaan käyttöön eikä tämä instanssi saa enää synkronoituja resurssipakettimuutoksia."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {Tämä resurssipaketti on synkronoitu} other {Nämä resurssipaketit on synkronoitu}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Tämä instanssi pitää oman kopionsa. Haluatko pitää tämän sisällön synkronoituna muissa instansseissa vai poistaa sen niistä?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "Pidä"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "Poista"
+  },
+  "app.synced-content.desync.title": {
+    "message": "Poista sisällön synkronointi"
+  },
+  "app.synced-content.warning.title": {
+    "message": "Tämä sisältö on synkronoitu"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "Synkronoidut datapaketit"
+  },
+  "app.synced-packs.empty": {
+    "message": "Lisää paketteja instanssin sisältösivulta aloittaaksesi synkronoinnin."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "Paketteja ei voitu ladata. Kokeile päivittää."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Synkronoidut resurssipaketit"
+  },
   "app.update-popup.body.download-complete": {
-    "message": "{productName} versio {version} on ladattu. Voit käynnistää sovelluksen uudelleen päivittääksesi heti tai antaa päivityksen asentua automaattisesti, kun suljet Modrinth Appin."
+    "message": "{productName} versio {version} on ladattu. Voit käynnistää sovelluksen uudelleen päivittääksesi heti tai antaa päivityksen asentua automaattisesti, kun suljet {productName}in."
   },
   "app.update-popup.body.linux": {
     "message": "{productName} versio {version} on saatavilla. Käytä paketinhallintasi ja päivitä käyttääksesi uusimpia ominaisuuksia ja korjauksia!"
@@ -512,6 +3842,90 @@
   "app.update.complete-toast.title": {
     "message": "Versio {version} asennettiin onnistuneesti!"
   },
+  "app.update.download-error.missing-version": {
+    "message": "Päivityksen lataus epäonnistui: versiota ei ole saatavilla"
+  },
+  "app.welcome-screen.create-instance": {
+    "message": "Luo instanssi"
+  },
+  "app.welcome-screen.description": {
+    "message": "Valmiina pelaamaan?"
+  },
+  "app.welcome-screen.import-from-launcher": {
+    "message": "Tuo launcherista"
+  },
+  "app.welcome-screen.import-prompt": {
+    "message": "Pakoon toisesta launcherista?"
+  },
+  "app.welcome-screen.quick-create-hint": {
+    "message": "Paina <shortcut>N</shortcut> luodaksesi instanssin nopeasti"
+  },
+  "app.welcome-screen.title": {
+    "message": "Tervetuloa kohteeseen {productName}"
+  },
+  "app.window-controls.close": {
+    "message": "Sulje ikkuna"
+  },
+  "app.window-controls.minimize": {
+    "message": "Pienennä ikkuna"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Vaihda ikkunan maksimointia"
+  },
+  "app.world-install.backup": {
+    "message": "Korvaa säilyttää varmuuskopion olemassa olevasta maailmasta. Säilytä ja Peruuta eivät asenna mitään. Toisen kopion asentaminen luo numeroidun maailman."
+  },
+  "app.world-install.backup-location": {
+    "message": "Edellinen maailma tallennettiin instanssin sisällä sijaintiin {path}."
+  },
+  "app.world-install.conflict": {
+    "message": "Tämänniminen tai tästä projektista peräisin oleva maailma on jo olemassa."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Asenna versioerosta huolimatta"
+  },
+  "app.world-install.copy": {
+    "message": "Asenna toinen kopio"
+  },
+  "app.world-install.description": {
+    "message": "Asenna uusi maailma instanssiin. Olemassa olevat maailmat säilyvät, ellet valitse jonkin niistä korvaamista."
+  },
+  "app.world-install.incompatible": {
+    "message": "Tämä tiedosto ei ilmoita yhteensopivuutta Minecraft-version {version} kanssa. Tarkista tekijän vaatima versio ja modit ennen jatkamista."
+  },
+  "app.world-install.installed": {
+    "message": "Maailma asennettu: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Kohdeinstanssi"
+  },
+  "app.world-install.keep": {
+    "message": "Säilytä olemassa oleva"
+  },
+  "app.world-install.no-instances": {
+    "message": "Luo ensin Minecraft-instanssi ja palaa sitten tänne asentamaan maailma."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Näytä maailmat"
+  },
+  "app.world-install.replace": {
+    "message": "Korvaa"
+  },
+  "app.world-install.replace-target": {
+    "message": "Korvattava maailma"
+  },
+  "app.world-install.requirements": {
+    "message": "Tarvittavien modien tai modipakettien on oltava jo asennettuina kohdeinstanssiin. Tutustu projektin kuvaukseen."
+  },
+  "app.world-install.title": {
+    "message": "Asenna maailma"
+  },
+  "app.world-install.version": {
+    "message": "Maailman versio"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
+  },
   "app.world.server-modal.select-an-option": {
     "message": "Valitse vaihtoehto"
   },
@@ -524,8 +3938,44 @@
   "app.world.world-item.offline": {
     "message": "Offline-tilassa"
   },
+  "app.world.world-item.players-online": {
+    "message": "{count} paikalla"
+  },
+  "curseforge.manual.description": {
+    "message": "Lataa {file} sen viralliselta CurseForge-sivulta ja valitse ladattu tiedosto jatkaaksesi. Sen koko ja SHA-1 tarkistetaan."
+  },
+  "curseforge.manual.select": {
+    "message": "Valitse ladattu tiedosto"
+  },
+  "curseforge.manual.title": {
+    "message": "Manuaalinen lataus vaaditaan"
+  },
   "instance.action.create-shortcut": {
     "message": "Luo pikakuvake"
+  },
+  "instance.action.export-modpack": {
+    "message": "Vie modipaketti"
+  },
+  "instance.action.launch-instance": {
+    "message": "Käynnistä instanssi"
+  },
+  "instance.action.more-actions": {
+    "message": "Lisää toimintoja"
+  },
+  "instance.action.open-folder": {
+    "message": "Avaa kansio"
+  },
+  "instance.action.repair": {
+    "message": "Korjaa"
+  },
+  "instance.action.settings": {
+    "message": "Instanssin asetukset"
+  },
+  "instance.action.starting": {
+    "message": "Käynnistetään…"
+  },
+  "instance.action.stopping": {
+    "message": "Pysäytetään…"
   },
   "instance.add-server.add-and-play": {
     "message": "Lisää ja pelaa"
@@ -566,8 +4016,257 @@
   "instance.files.adding-files": {
     "message": "Lisätään tiedostoja ({completed}/{total})"
   },
+  "instance.files.managed-content-read-only": {
+    "message": "Hallitse asennettua sisältöä Sisältö-välilehdeltä"
+  },
   "instance.files.save-as": {
     "message": "Tallenna nimellä..."
+  },
+  "instance.icon-editor.background": {
+    "message": "Tausta"
+  },
+  "instance.icon-editor.background.blue": {
+    "message": "Sininen"
+  },
+  "instance.icon-editor.background.dark-gray": {
+    "message": "Tummanharmaa"
+  },
+  "instance.icon-editor.background.dark-green": {
+    "message": "Tummanvihreä"
+  },
+  "instance.icon-editor.background.gray": {
+    "message": "Harmaa"
+  },
+  "instance.icon-editor.background.green": {
+    "message": "Vihreä"
+  },
+  "instance.icon-editor.background.indigo": {
+    "message": "Indigo"
+  },
+  "instance.icon-editor.background.lavender": {
+    "message": "Laventeli"
+  },
+  "instance.icon-editor.background.light-gray": {
+    "message": "Vaaleanharmaa"
+  },
+  "instance.icon-editor.background.lime": {
+    "message": "Lime"
+  },
+  "instance.icon-editor.background.orange": {
+    "message": "Oranssi"
+  },
+  "instance.icon-editor.background.pink": {
+    "message": "Pinkki"
+  },
+  "instance.icon-editor.background.purple": {
+    "message": "Violetti"
+  },
+  "instance.icon-editor.background.red": {
+    "message": "Punainen"
+  },
+  "instance.icon-editor.background.rose": {
+    "message": "Ruusu"
+  },
+  "instance.icon-editor.background.yellow": {
+    "message": "Keltainen"
+  },
+  "instance.icon-editor.description": {
+    "message": "Yhdistele elementtejä luodaksesi mukautetun kuvakkeen."
+  },
+  "instance.icon-editor.recents": {
+    "message": "Viimeisimmät"
+  },
+  "instance.icon-editor.save": {
+    "message": "Tallenna kuvake"
+  },
+  "instance.icon-editor.surprise-me": {
+    "message": "Satunnaista"
+  },
+  "instance.icon-editor.symbol": {
+    "message": "Symboli"
+  },
+  "instance.icon-editor.symbol.backpack": {
+    "message": "Reppu"
+  },
+  "instance.icon-editor.symbol.beacon": {
+    "message": "Majakkabloki"
+  },
+  "instance.icon-editor.symbol.blue-shark": {
+    "message": "Sininen hai"
+  },
+  "instance.icon-editor.symbol.bookshelf": {
+    "message": "Kirjahylly"
+  },
+  "instance.icon-editor.symbol.brown-bear": {
+    "message": "Ruskea karhu"
+  },
+  "instance.icon-editor.symbol.cake": {
+    "message": "Kakku"
+  },
+  "instance.icon-editor.symbol.campfire": {
+    "message": "Nuotio"
+  },
+  "instance.icon-editor.symbol.chest": {
+    "message": "Arkku"
+  },
+  "instance.icon-editor.symbol.cogwheel": {
+    "message": "Hammaspyörä"
+  },
+  "instance.icon-editor.symbol.command-block": {
+    "message": "Komentolohko"
+  },
+  "instance.icon-editor.symbol.cooking-pot": {
+    "message": "Keittoastia"
+  },
+  "instance.icon-editor.symbol.couch": {
+    "message": "Sohva"
+  },
+  "instance.icon-editor.symbol.crafting-table": {
+    "message": "Työpöytä"
+  },
+  "instance.icon-editor.symbol.create-wrench": {
+    "message": "Jakoavain"
+  },
+  "instance.icon-editor.symbol.creeper": {
+    "message": "Creeper"
+  },
+  "instance.icon-editor.symbol.enchanting-table": {
+    "message": "Lumouspöytä"
+  },
+  "instance.icon-editor.symbol.ender-chest": {
+    "message": "Ender-arkku"
+  },
+  "instance.icon-editor.symbol.ender-dragon": {
+    "message": "Ender-lohikäärme"
+  },
+  "instance.icon-editor.symbol.engine": {
+    "message": "Moottori"
+  },
+  "instance.icon-editor.symbol.fabric": {
+    "message": "Fabric"
+  },
+  "instance.icon-editor.symbol.forge": {
+    "message": "Forge"
+  },
+  "instance.icon-editor.symbol.furnace": {
+    "message": "Sulatusuuni"
+  },
+  "instance.icon-editor.symbol.gizmo": {
+    "message": "Vempele"
+  },
+  "instance.icon-editor.symbol.globe": {
+    "message": "Maapallo"
+  },
+  "instance.icon-editor.symbol.grass-block": {
+    "message": "Ruohoblokki"
+  },
+  "instance.icon-editor.symbol.lantern": {
+    "message": "Lyhty"
+  },
+  "instance.icon-editor.symbol.moobloom": {
+    "message": "Moobloom"
+  },
+  "instance.icon-editor.symbol.neoforge": {
+    "message": "NeoForge"
+  },
+  "instance.icon-editor.symbol.orb": {
+    "message": "Pallo"
+  },
+  "instance.icon-editor.symbol.oxygen-distributor": {
+    "message": "Hapen jakaja"
+  },
+  "instance.icon-editor.symbol.pancakes": {
+    "message": "Letut"
+  },
+  "instance.icon-editor.symbol.pickaxe": {
+    "message": "Hakku"
+  },
+  "instance.icon-editor.symbol.poke-ball": {
+    "message": "Pokepallo"
+  },
+  "instance.icon-editor.symbol.quilt": {
+    "message": "Quilt"
+  },
+  "instance.icon-editor.symbol.redstone-block": {
+    "message": "Redstone-lohko"
+  },
+  "instance.icon-editor.symbol.sculk-sensor": {
+    "message": "Sculk-sensori"
+  },
+  "instance.icon-editor.symbol.skeleton": {
+    "message": "Luuranko"
+  },
+  "instance.icon-editor.symbol.skillet": {
+    "message": "Paistinpannu"
+  },
+  "instance.icon-editor.symbol.slime-block": {
+    "message": "Limabloki"
+  },
+  "instance.icon-editor.symbol.space-helmet": {
+    "message": "Avaruuskypärä"
+  },
+  "instance.icon-editor.symbol.sticky-piston": {
+    "message": "Tahmea mäntä"
+  },
+  "instance.icon-editor.symbol.sword": {
+    "message": "Miekka"
+  },
+  "instance.icon-editor.symbol.terminal": {
+    "message": "Pääte"
+  },
+  "instance.icon-editor.symbol.tiny-potato": {
+    "message": "Pieni peruna"
+  },
+  "instance.icon-editor.symbol.tire": {
+    "message": "Rengas"
+  },
+  "instance.icon-editor.symbol.tnt": {
+    "message": "TNT"
+  },
+  "instance.icon-editor.symbol.zombie": {
+    "message": "Zombi"
+  },
+  "instance.icon-editor.title": {
+    "message": "Kuvakkeen muokkain"
+  },
+  "instance.last-played": {
+    "message": "Viimeksi pelattu"
+  },
+  "instance.locked.badge": {
+    "message": "Lukittu"
+  },
+  "instance.locked.delete-button": {
+    "message": "Poista instanssi"
+  },
+  "instance.locked.info-label": {
+    "message": "Lukitun instanssin tiedot"
+  },
+  "instance.locked.play-tooltip": {
+    "message": "Tämä instanssi on lukittu"
+  },
+  "instance.locked.text": {
+    "message": "Tämä instanssi on lukittu eikä sitä voi pelata tai muuttaa. Voit poistaa sen."
+  },
+  "instance.locked.title": {
+    "message": "Instanssi lukittu"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Modilataaja ja Minecraft-versio"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# tunti} other {# tuntia}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# minuutti} other {# minuuttia}}"
+  },
+  "instance.playtime.never-played": {
+    "message": "Ei pelattu koskaan"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# sekunti} other {# sekuntia}}"
+  },
+  "instance.playtime.total": {
+    "message": "Peliaika yhteensä"
   },
   "instance.server-modal.address": {
     "message": "Osoite"
@@ -580,6 +4279,33 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "Resurssipakkaus"
+  },
+  "instance.settings.synced-options.data-override": {
+    "message": "Poista tämä ohitus käytöstä muokataksesi synkronoituja tietoja."
+  },
+  "instance.settings.synced-options.data-packs": {
+    "message": "Poista datapakettien synkronointi"
+  },
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Pidä tämän instanssin datapaketit erillään synkronoiduista paketeista."
+  },
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "Datapakettien synkronointi on pois käytöstä sovelluksen asetuksissa."
+  },
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Muokkaa synkronoituja paketteja"
+  },
+  "instance.settings.synced-options.packs-override": {
+    "message": "Poista tämä ohitus käytöstä muokataksesi synkronoituja paketteja. Itsenäisiä paketteja voi hallita sisältövälilehdeltä."
+  },
+  "instance.settings.synced-options.resource-packs": {
+    "message": "Poista resurssipakettien synkronointi"
+  },
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Pidä tämän instanssin resurssipaketit erillään synkronoiduista paketeista."
+  },
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "Resurssipakettien synkronointi on pois käytöstä sovelluksen asetuksissa."
   },
   "instance.settings.tabs.general": {
     "message": "Yleiset"
@@ -611,6 +4337,12 @@
   "instance.settings.tabs.general.edit-icon": {
     "message": "Muokkaa kuvaketta"
   },
+  "instance.settings.tabs.general.edit-icon.create": {
+    "message": "Luo kuvake"
+  },
+  "instance.settings.tabs.general.edit-icon.edit-created": {
+    "message": "Muokkaa kuvaketta"
+  },
   "instance.settings.tabs.general.edit-icon.remove": {
     "message": "Poista kuvake"
   },
@@ -619,6 +4351,9 @@
   },
   "instance.settings.tabs.general.edit-icon.select": {
     "message": "Valitse kuvake"
+  },
+  "instance.settings.tabs.general.icon": {
+    "message": "Kuvake"
   },
   "instance.settings.tabs.general.name": {
     "message": "Nimi"
@@ -647,6 +4382,9 @@
   "instance.settings.tabs.general.update-channel.select": {
     "message": "Valitse päivitys kanava"
   },
+  "instance.settings.tabs.hooks.description": {
+    "message": "Suorita instanssikohtaisia järjestelmäkomentoja ennen pelin käynnistystä ja sen jälkeen."
+  },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "Sulkemisen jälkeen"
   },
@@ -665,6 +4403,30 @@
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "Syötä ennen käynnistystä komento..."
   },
+  "instance.settings.tabs.hooks.title": {
+    "message": "Mukautetut pelin käynnistyskomennot"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "Komennot suoritetaan instanssin työkansiossa seuraavien muuttujien kanssa:"
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR: instanssin kansion absoluuttinen polku"
+  },
+  "instance.settings.tabs.hooks.variables.inst-id.description": {
+    "message": "$INST_ID: instanssin kansion nimi"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS: pelille annetut JVM-argumentit"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA: java-binäärin absoluuttinen polku"
+  },
+  "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
+    "message": "$INST_MC_DIR: $INST_DIR-muuttujan alias"
+  },
+  "instance.settings.tabs.hooks.variables.inst-name.description": {
+    "message": "$INST_NAME: instanssin nimi"
+  },
   "instance.settings.tabs.hooks.wrapper": {
     "message": "Wrapper"
   },
@@ -680,17 +4442,110 @@
   "instance.settings.tabs.installation.loader-version": {
     "message": "{loader} versio"
   },
+  "instance.settings.tabs.installation.locked": {
+    "message": "Asennusasetukset eivät ole käytettävissä tämän instanssin ollessa lukittu."
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "Aseta ympäristömuuttujat erikseen tälle instanssille."
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "Aseta Java-argumentit erikseen tälle instanssille."
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "Valitse toinen Java-asennus tälle instanssille."
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "Aseta muistin varaus erikseen tälle instanssille."
+  },
   "instance.settings.tabs.java.enter-environment-variables": {
     "message": "Syötä ympäristö muuttujat..."
   },
   "instance.settings.tabs.java.enter-java-arguments": {
     "message": "Syötä Java argumentit..."
   },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "Mukautetut ympäristömuuttujat"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "Koukut"
   },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "Mukautetut Java-argumentit"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "Mukautettu Java-asennus"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "Mukautettu muistin varaus"
+  },
   "instance.settings.tabs.java.java-path-placeholder": {
     "message": "/javaan/johtava/polku/"
+  },
+  "instance.settings.tabs.settings-overrides": {
+    "message": "Synkronoinnin ohitukset"
+  },
+  "instance.settings.tabs.synced-options.command-history": {
+    "message": "Poista komentohistorian synkronointi"
+  },
+  "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
+    "message": "Komentohistorian synkronointi on pois käytöstä sovelluksen asetuksissa."
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "Pidä tämän instanssin komentohistoria erillään synkronoidusta komentohistoriasta."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "Poista tallennettujen luovan tilan pikavalikkojen synkronointi"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "Tallennettujen luovan tilan pikavalikkojen synkronointi on pois käytöstä sovelluksen asetuksissa."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "Pidä tämän instanssin tallennetut luovan tilan pikavalikot erillään synkronoiduista pikavalikoista."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "Poista peliasetusten synkronointi"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Pidä tämän instanssin options.txt erillään synkronoidusta kopiosta."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "Peliasetusten synkronointi on pois käytöstä sovelluksen asetuksissa."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "Korvattava versio varmuuskopioidaan ennen muutoksia."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "Kohteen {instance} ja synkronoidun version luovan tilan pikavalikot eroavat. Valitse, mitä käytetään instansseissasi."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "Valitse luovan tilan pikavalikot"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "Korvaa muut"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "Käytä synkronoitua"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "Poista moninpelipalvelinten synkronointi"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "Moninpelipalvelinten synkronointi on pois käytöstä sovelluksen asetuksissa."
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "Pidä tämän instanssin moninpelipalvelimet erillään synkronoiduista palvelimista."
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "Hallitse synkronoituja asetuksia"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "Ota ohitus käyttöön pitääksesi synkronoidun asetuksen erillisenä tälle instanssille."
+  },
+  "instance.settings.tabs.window": {
+    "message": "Mukautetut ikkuna-asetukset"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "Määritä koko näyttö ja käynnistysresoluutio erikseen tälle instanssille."
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "Koko näyttö"
@@ -719,6 +4574,9 @@
   "instance.worlds.a_minecraft_server": {
     "message": "Minecraft palvelin"
   },
+  "instance.worlds.actions.label": {
+    "message": "Maailman toiminnot"
+  },
   "instance.worlds.cant_connect": {
     "message": "Palvelimeen ei voida yhdistää"
   },
@@ -727,6 +4585,21 @@
   },
   "instance.worlds.create_shortcut": {
     "message": "Luo pikakuvake"
+  },
+  "instance.worlds.desync-server.description": {
+    "message": "Haluatko pitää tämän palvelimen muissa synkronoiduissa instansseissa vai poistaa sen niistä?"
+  },
+  "instance.worlds.desync-server.keep": {
+    "message": "Pidä"
+  },
+  "instance.worlds.desync-server.remove": {
+    "message": "Poista"
+  },
+  "instance.worlds.desync-server.title": {
+    "message": "Poista palvelimen synkronointi"
+  },
+  "instance.worlds.desync_server": {
+    "message": "Poista synkronointi"
   },
   "instance.worlds.dont_show_on_home": {
     "message": "Älä näytä koti näkymässä"
@@ -740,8 +4613,14 @@
   "instance.worlds.incompatible_server": {
     "message": "Palvelin on yhteensopimaton"
   },
+  "instance.worlds.instance-locked": {
+    "message": "Tämä instanssi on lukittu"
+  },
   "instance.worlds.linked_server": {
     "message": "Palvelimen projektin hallinnoima"
+  },
+  "instance.worlds.more-options": {
+    "message": "Lisää vaihtoehtoja"
   },
   "instance.worlds.no_contact": {
     "message": "Palvelimeen ei saatu yhteyttä"
@@ -755,17 +4634,32 @@
   "instance.worlds.play_instance": {
     "message": "Pelaa instanssia"
   },
+  "instance.worlds.play_world": {
+    "message": "Pelaa maailmaa"
+  },
+  "instance.worlds.shortcut-created": {
+    "message": "Pikakuvake luotu"
+  },
+  "instance.worlds.shortcut-creation-failed": {
+    "message": "Pikakuvakkeen luonti epäonnistui"
+  },
+  "instance.worlds.synced_server": {
+    "message": "Synkronoitu instanssien kesken"
+  },
   "instance.worlds.view_instance": {
     "message": "Näytä instanssi"
   },
   "instance.worlds.world_in_use": {
     "message": "Maailma on käytössä"
   },
+  "minecraft-account.accounts": {
+    "message": "Minecraft-tilit"
+  },
   "minecraft-account.add-account": {
     "message": "Lisää tili"
   },
-  "minecraft-account.label": {
-    "message": "Minecraft tili"
+  "minecraft-account.getting-started": {
+    "message": "Aloitus"
   },
   "minecraft-account.not-signed-in": {
     "message": "Ei kirjautuneena sisään"
@@ -773,11 +4667,77 @@
   "minecraft-account.remove-account": {
     "message": "Poista tili"
   },
-  "minecraft-account.select-account": {
-    "message": "Valitse tili"
-  },
   "minecraft-account.sign-in": {
     "message": "Kirjaudu sisään Minecraftiin"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Kirjaudu"
+  },
+  "minecraft-required.description": {
+    "message": "Tarvitset Microsoft-tilin, joka omistaa Minecraftin, ennen kuin voit käynnistää ja pelata."
+  },
+  "minecraft-required.description-header": {
+    "message": "Kirjaudu Microsoft-tiliin"
+  },
+  "minecraft-required.dont-have-account": {
+    "message": "Eikö sinulla ole tiliä?"
+  },
+  "minecraft-required.get-minecraft": {
+    "message": "Hanki Minecraft"
+  },
+  "minecraft-required.get-support": {
+    "message": "Hae tukea"
+  },
+  "minecraft-required.header": {
+    "message": "Minecraft vaaditaan"
+  },
+  "minecraft-required.sign-in": {
+    "message": "Kirjaudu Microsoftilla"
+  },
+  "onboarding-checklist.create-instance": {
+    "message": "Luo ensimmäinen instanssi"
+  },
+  "onboarding-checklist.login-minecraft": {
+    "message": "Kirjaudu Minecraftiin"
+  },
+  "onboarding-checklist.title": {
+    "message": "Aloitus"
+  },
+  "optifine.add-component": {
+    "message": "Asenna OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Valitse JAR ja jatka"
+  },
+  "optifine.download-official": {
+    "message": "Virallinen lataus"
+  },
+  "optifine.export-notice": {
+    "message": "OptiFinen binäärit jätetään pois. Orbpack säilyttää sen vaaditun version; Modrinth- ja CurseForge-paketit vaativat OptiFinen asentamisen erikseen."
+  },
+  "optifine.import-canceled": {
+    "message": "OptiFinen valinta peruttu. Pakettia ei asennettu."
+  },
+  "optifine.import-description": {
+    "message": "Tämä paketti vaatii OptiFine-version {version} Minecraft-versiolle {gameVersion}. Lataa sen virallinen JAR ja valitse se jatkaaksesi. OptiFine ei sisälly pakettiin."
+  },
+  "optifine.import-title": {
+    "message": "Tämä paketti vaatii OptiFinen"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Valitse virallinen OptiFine-asennusohjelma Minecraft-versiolle {gameVersion}. Tuodussa paketissa version ja tiedoston tiivisteen on myös täsmättävä."
+  },
+  "optifine.remove-component": {
+    "message": "Poista OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Valitse virallinen OptiFine-JAR"
+  },
+  "project-type.world.category": {
+    "message": "Maailmat"
   },
   "search.filter.locked.instance": {
     "message": "Annettu instanssin toimesta"
@@ -791,7 +4751,10 @@
   "search.filter.locked.instance.sync": {
     "message": "Synkronoi instanssin kanssa"
   },
-  "search.filter.locked.server-environment.title": {
-    "message": "Voit lisätä vain paikallisia modeja palvelin instanssiin"
+  "settings.sidebar.label.account": {
+    "message": "Tili"
+  },
+  "settings.sidebar.label.display": {
+    "message": "Näyttö"
   }
 }

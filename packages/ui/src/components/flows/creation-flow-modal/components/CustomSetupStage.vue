@@ -173,6 +173,7 @@
 				</div>
 			</Collapsible>
 		</template>
+		<OptifineSetup v-if="ctx.pickOptifineInstaller && !ctx.projectInstall.value" />
 	</div>
 </template>
 
@@ -201,6 +202,7 @@ import Input from '../../../base/inputs/Input.vue'
 import type { LoaderVersionEntry, LoaderVersionType } from '../creation-flow-context'
 import { injectCreationFlowContext } from '../creation-flow-context'
 import { formatLoaderLabel } from '../shared'
+import OptifineSetup from './OptifineSetup.vue'
 
 const debug = useDebugLogger('CustomSetupStage')
 const ctx = injectCreationFlowContext()

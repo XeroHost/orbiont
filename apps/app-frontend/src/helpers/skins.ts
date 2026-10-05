@@ -165,7 +165,10 @@ export async function save_custom_skin(
 }
 
 export async function get_normalized_skin_texture(skin: Skin): Promise<string> {
-	const data = await normalize_skin_texture(skin.texture)
+	const data =
+		skin.section === 'catalog' && !skin.texture.startsWith('data:')
+			? await (await import('./skin-catalog')).getCatalogTexture(skin.texture)
+			: await normalize_skin_texture(skin.texture)
 	const base64 = arrayBufferToBase64(data)
 	return `data:image/png;base64,${base64}`
 }

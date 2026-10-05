@@ -19,7 +19,7 @@
 				<Input
 					v-model="searchQuery"
 					:icon="SearchIcon"
-					placeholder="Search logs"
+					:placeholder="formatMessage(messages.searchLogsPlaceholder)"
 					wrapper-class="flex-1"
 					size="medium"
 					clearable
@@ -73,22 +73,32 @@
 			@ready="handleTerminalReady"
 		/>
 	</div>
-	<ShareModal ref="shareModal" header="Share Logs" link :social-buttons="false" />
-	<NewModal ref="deleteModal" header="Delete log file" :fade="'danger'" max-width="500px">
+	<ShareModal
+		ref="shareModal"
+		:header="formatMessage(messages.shareLogsHeader)"
+		link
+		:social-buttons="false"
+	/>
+	<NewModal
+		ref="deleteModal"
+		:header="formatMessage(messages.deleteLogFileHeader)"
+		:fade="'danger'"
+		max-width="500px"
+	>
 		<div class="flex flex-col gap-6">
-			<Admonition type="critical" header="This is irreversible">
-				Deleting this log file cannot be undone. Are you sure you want to continue?
+			<Admonition type="critical" :header="formatMessage(messages.irreversibleHeader)">
+				{{ formatMessage(messages.deleteLogConfirmBody) }}
 			</Admonition>
 		</div>
 		<template #actions>
 			<div class="flex justify-end gap-2">
 				<Button type="outlined" @click="deleteModal?.hide()">
 					<XIcon />
-					Cancel
+					{{ formatMessage(commonMessages.cancelButton) }}
 				</Button>
 				<Button type="colored" color="red" :disabled="isDeleting" @click="confirmDelete">
 					<TrashIcon />
-					Delete
+					{{ formatMessage(commonMessages.deleteLabel) }}
 				</Button>
 			</div>
 		</template>
@@ -109,10 +119,12 @@ import Combobox from '#ui/components/base/Combobox.vue'
 import Input from '#ui/components/base/inputs/Input.vue'
 import NewModal from '#ui/components/modal/NewModal.vue'
 import ShareModal from '#ui/components/modal/ShareModal.vue'
+import { defineMessages, useVIntl } from '#ui/composables/i18n'
 import { useModalStack } from '#ui/composables/modal-stack'
 import { injectApiClient } from '#ui/providers'
 import { injectModalBehavior } from '#ui/providers/modal-behavior'
 import { injectNotificationManager } from '#ui/providers/web-notifications.ts'
+import { commonMessages } from '#ui/utils/common-messages'
 
 import ConsoleActionButtons from './components/ConsoleActionButtons.vue'
 import ConsoleFilterPills from './components/ConsoleFilterPills.vue'
@@ -133,11 +145,58 @@ const client = injectApiClient()
 const modalBehavior = injectModalBehavior()
 const { addNotification } = injectNotificationManager()
 const { hasModal } = useModalStack()
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	searchLogsPlaceholder: {
+		id: 'console.search-logs-placeholder',
+		defaultMessage: 'Search logs',
+	},
+	shareLogsHeader: {
+		id: 'console.share-logs-header',
+		defaultMessage: 'Share Logs',
+	},
+	deleteLogFileHeader: {
+		id: 'console.delete-log-file-header',
+		defaultMessage: 'Delete log file',
+	},
+	irreversibleHeader: {
+		id: 'console.delete-log-irreversible-header',
+		defaultMessage: 'This is irreversible',
+	},
+	deleteLogConfirmBody: {
+		id: 'console.delete-log-confirm-body',
+		defaultMessage: 'Deleting this log file cannot be undone. Are you sure you want to continue?',
+	},
+	problemsDetected: {
+		id: 'console.crash.problems-detected',
+		defaultMessage: '{count, plural, one {# problem detected} other {# problems detected}}',
+	},
+	commandInputDisabled: {
+		id: 'console.command-input-disabled',
+		defaultMessage: 'Command input disabled',
+	},
+	serverNotRunning: {
+		id: 'console.server-not-running',
+		defaultMessage: 'Server is not running',
+	},
+	unknownError: {
+		id: 'console.unknown-error',
+		defaultMessage: 'Unknown error.',
+	},
+	deleteLogFailedTitle: {
+		id: 'console.delete-log-failed-title',
+		defaultMessage: 'Failed to delete log file',
+	},
+	shareLogsFailedTitle: {
+		id: 'console.share-logs-failed-title',
+		defaultMessage: 'Failed to share logs',
+	},
+})
 
 const crashHeader = computed(() => {
 	const problems = ctx.crashAnalysis?.value?.analysis.problems ?? []
-	const count = problems.length
-	return `${count} problem${count !== 1 ? 's' : ''} detected`
+	return formatMessage(messages.problemsDetected, { count: problems.length })
 })
 
 const crashItems = computed<CollapsibleAdmonitionItem[]>(() => {
@@ -238,7 +297,9 @@ const resolvedInputDisabledTooltip = computed(() =>
 )
 
 const resolvedInputDisabledPlaceholder = computed(() =>
-	resolvedInputDisabledTooltip.value ? 'Command input disabled' : 'Server is not running',
+	resolvedInputDisabledTooltip.value
+		? formatMessage(messages.commandInputDisabled)
+		: formatMessage(messages.serverNotRunning),
 )
 
 const resolvedShareDisabled = computed(() => {
@@ -410,8 +471,8 @@ async function confirmDelete() {
 		console.error('Failed to delete log file:', err)
 		addNotification({
 			type: 'error',
-			title: 'Failed to delete log file',
-			text: typeof err === 'string' ? err : 'Unknown error.',
+			title: formatMessage(messages.deleteLogFailedTitle),
+			text: typeof err === 'string' ? err : formatMessage(messages.unknownError),
 		})
 	} finally {
 		isDeleting.value = false
@@ -433,8 +494,8 @@ async function handleShare() {
 		console.error('Failed to share logs:', err)
 		addNotification({
 			type: 'error',
-			title: 'Failed to share logs',
-			text: typeof err === 'string' ? err : 'Unknown error.',
+			title: formatMessage(messages.shareLogsFailedTitle),
+			text: typeof err === 'string' ? err : formatMessage(messages.unknownError),
 		})
 	} finally {
 		isSharing.value = false

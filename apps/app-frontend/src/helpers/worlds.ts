@@ -336,55 +336,6 @@ export function normalizeServerAddress(address: string): string {
 
 	return `${host}:${port}`
 }
-export function resolveManagedServerWorld(
-	worlds: World[],
-	managedName: string | null | undefined,
-	managedAddress: string | null | undefined,
-): ServerWorld | null {
-	if (!managedName || !managedAddress) return null
-
-	const normalizedManagedAddress = normalizeServerAddress(managedAddress)
-	if (!normalizedManagedAddress) return null
-
-	const servers = worlds
-		.filter(isServerWorld)
-		.slice()
-		.sort((a, b) => a.index - b.index)
-
-	const exactMatch = servers.find(
-		(server) =>
-			server.name === managedName &&
-			normalizeServerAddress(server.address) === normalizedManagedAddress,
-	)
-	if (exactMatch) return exactMatch
-
-	return (
-		servers.find((server) => normalizeServerAddress(server.address) === normalizedManagedAddress) ??
-		null
-	)
-}
-
-export function getServerAddress(javaServer?: { address?: string | null } | null) {
-	if (!javaServer) return null
-	return javaServer.address ?? null
-}
-
-export async function ensureManagedServerWorldExists(
-	instanceId: string,
-	serverName: string | null,
-	serverAddress: string | null,
-) {
-	if (!instanceId || !serverName || !serverAddress) return
-	try {
-		await invoke('plugin:worlds|ensure_managed_server_in_instance', {
-			instanceId,
-			name: serverName,
-			address: serverAddress,
-		})
-	} catch (err) {
-		console.error('Failed to ensure managed server world exists:', err)
-	}
-}
 
 export async function getServerLatency(
 	address: string,

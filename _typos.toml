@@ -19,6 +19,13 @@ extend-ignore-re = [
   "(#|//)\\s*typos:ignore\\n.*",
   # Ignore blocks between `// typos:off` and `// typos:on`
   "(?s)(#|//)\\s*typos:off.*?\\n\\s*(#|//)\\s*typos:on",
+  # Spanish messages intentionally retained in the local translation CLI.
+  "El JSON debe ser un objeto",
+  "requiere un número",
+  "debe ser un entero >= 0",
+  "--scope debe ser app o ui",
+  "--hint requiere uno o varios códigos de idioma",
+  "Ruta del JSON \\(alternativa al argumento posicional\\)",
 ]
 
 [default.extend-words]

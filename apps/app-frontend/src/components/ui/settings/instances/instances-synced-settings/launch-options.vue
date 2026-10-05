@@ -8,11 +8,13 @@ import {
 	Input,
 	Slider,
 	Toggle,
+	useSavable,
 	useVIntl,
 } from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
-import { ref, watch } from 'vue'
+import { computed, watch } from 'vue'
 
+import { useSettingsChanges } from '@/composables/use-settings-changes'
 import useMemorySlider from '@/composables/useMemorySlider'
 import {
 	type AppSettings,
@@ -45,7 +47,6 @@ type LaunchSettingsUpdate = Pick<
 >
 
 const settingsQuery = useQuery(appSettingsQueryOptions())
-const settings = ref<LaunchSettings | null>(null)
 const mutation = useMutation({
 	mutationKey: appSettingsKeys.update,
 	scope: { id: 'app-settings' },
@@ -53,44 +54,37 @@ const mutation = useMutation({
 		await set({ ...(await get()), ...changes })
 	},
 	onMutate: () => queryClient.cancelQueries({ queryKey: appSettingsKeys.all }),
-	onError: handleError,
+	onSuccess: (_result, changes) => {
+		queryClient.setQueryData<AppSettings>(appSettingsKeys.all, (settings) =>
+			settings ? { ...settings, ...changes } : settings,
+		)
+	},
 	onSettled: async () => {
 		if (queryClient.isMutating({ mutationKey: appSettingsKeys.update }) === 1) {
 			await queryClient.invalidateQueries({ queryKey: appSettingsKeys.all })
 		}
 	},
 })
-watch(
-	settingsQuery.data,
-	(value) => {
-		if (
-			!value ||
-			(settings.value && queryClient.isMutating({ mutationKey: appSettingsKeys.update }))
-		) {
-			return
-		}
-		settings.value = {
-			force_fullscreen: value.force_fullscreen,
-			game_resolution: [...value.game_resolution],
-			memory: { ...value.memory },
-			hooks: { ...value.hooks },
-			launchArgs: value.extra_launch_args.join(' '),
-			envVars: serializeEnvVars(value.custom_env_vars),
+const draft = useSavable(
+	() => {
+		const value = settingsQuery.data.value
+		return {
+			settings: value
+				? ({
+						force_fullscreen: value.force_fullscreen,
+						game_resolution: [...value.game_resolution],
+						memory: { ...value.memory },
+						hooks: { ...value.hooks },
+						launchArgs: value.extra_launch_args.join(' '),
+						envVars: serializeEnvVars(value.custom_env_vars),
+					} as LaunchSettings)
+				: null,
 		}
 	},
-	{ immediate: true, flush: 'sync' },
-)
-watch(settingsQuery.error, (error) => {
-	if (error) handleError(error)
-})
-watch(
-	settings,
-	(value, previous) => {
-		if (!value || value !== previous) return
-		if (!value.game_resolution.every((dimension) => Number.isInteger(dimension) && dimension > 0)) {
-			return
-		}
-		mutation.mutate({
+	async () => {
+		const value = settings.value
+		if (!value || !validResolution.value) throw new Error(formatMessage(invalidValueMessage))
+		await mutation.mutateAsync({
 			force_fullscreen: value.force_fullscreen,
 			game_resolution: [...value.game_resolution],
 			memory: { ...value.memory },
@@ -99,8 +93,29 @@ watch(
 			custom_env_vars: parseEnvVars(value.envVars),
 		})
 	},
-	{ deep: true },
 )
+const settings = computed(() => draft.current.value.settings)
+const validResolution = computed(() =>
+	settings.value?.game_resolution.every(
+		(dimension) => Number.isInteger(dimension) && dimension > 0,
+	),
+)
+const invalidValueMessage = {
+	id: 'app.settings.game-options.validation.invalid-value',
+	defaultMessage: 'Choose a valid value.',
+}
+useSettingsChanges('launch-options', {
+	hasChanges: () => draft.hasChanges.value,
+	getOriginal: () => draft.saved.value,
+	getModified: () => draft.changes.value,
+	isSaving: () => draft.saving.value,
+	canSave: () => !draft.hasChanges.value || !!validResolution.value,
+	reset: draft.reset,
+	save: draft.save,
+})
+watch(settingsQuery.error, (error) => {
+	if (error) handleError(error)
+})
 
 const { maxMemory, snapPoints, memoryQuery } = useMemorySlider()
 

@@ -205,6 +205,10 @@ export async function list_all_screenshots(): Promise<InstanceScreenshot[]> {
 	return await invoke('plugin:instance|instance_list_all_screenshots')
 }
 
+export async function list_bedrock_screenshots(): Promise<InstanceScreenshot[]> {
+	return await invoke('plugin:instance|instance_list_bedrock_screenshots')
+}
+
 export async function list_synced_screenshots(): Promise<InstanceScreenshot[]> {
 	return await invoke('plugin:instance|instance_list_synced_screenshots')
 }
@@ -577,7 +581,7 @@ export async function update_repair_modrinth(instanceId: string): Promise<Instal
 	return await invoke('plugin:instance|instance_repair_managed_modrinth', { instanceId })
 }
 
-// Export an instance to .mrpack
+// Export to .mrpack or CurseForge .zip; the legacy command name stays compatible.
 // included_overrides and excluded_overrides are inherited path rules for files in the export.
 // Version id is optional (ie: 1.1.5)
 export async function export_instance_mrpack(
@@ -588,6 +592,7 @@ export async function export_instance_mrpack(
 	versionId?: string,
 	description?: string,
 	name?: string,
+	format: 'orbpack' | 'mrpack' | 'curseforge' = 'orbpack',
 ): Promise<void> {
 	return await invoke('plugin:instance|instance_export_mrpack', {
 		instanceId,
@@ -597,6 +602,7 @@ export async function export_instance_mrpack(
 		versionId,
 		description,
 		name,
+		format,
 	})
 }
 

@@ -35,6 +35,8 @@ export const FILE_TEXT_EXTENSIONS = [
 	'properties',
 	'ini',
 	'sk',
+	'lang',
+	'mcfunction',
 ] as const
 
 export const FILE_IMAGE_EXTENSIONS = ['png', 'jpg', 'jpeg', 'gif', 'svg', 'webp'] as const

@@ -271,6 +271,7 @@ const { selectedFilters, filterOptions, toggleFilter, applyFilters } = useConten
 		showEnvironmentWarnings: ctx.showEnvironmentWarnings,
 		isPackLocked: ctx.isPackLocked,
 		persistKey: ctx.filterPersistKey,
+		getTypeLabel: ctx.getTypeLabel,
 	},
 )
 

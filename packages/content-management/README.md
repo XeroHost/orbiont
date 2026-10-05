@@ -1,2 +1,3 @@
-Lógica de gestión de contenido de las instancias (planes de instalación,
-resolución de dependencias, diffs), usada por el núcleo (`packages/app-lib`).
+# Content management
+
+Instance content logic used by the Rust core in `packages/app-lib`, including installation plans, dependency resolution, and content differences.

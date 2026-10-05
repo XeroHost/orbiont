@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Onbekende instantie"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Gedeelde inhoud bijwerken"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Tot hoofdinstantie maken"
   },
@@ -149,8 +146,23 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "Verberg nametag"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Animeer pictogrammen bij aanwijzen en toetsenbordfocus."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Animaties uitschakelen"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Altijd animeren"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Systeem volgen"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Pictogramanimaties"
+  },
   "app.appearance-settings.minimize-launcher.description": {
-    "message": "Minimaliseer de Modrinth-app zodra Minecraft opstart."
+    "message": "Minimaliseer de {productName}-app zodra Minecraft opstart."
   },
   "app.appearance-settings.minimize-launcher.title": {
     "message": "App minimaliseren"
@@ -173,17 +185,533 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "Rechterzijbalk verbergen"
   },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Geef een veiligheidswaarschuwing weer voordat een Modrinth-pakket (.mrpack) wordt geïnstalleerd dat niet op Modrinth wordt gehost."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Toon een veiligheidswaarschuwing voordat een geïmporteerde modpack (.mrpack of CurseForge .zip) waarvan de bron niet kon worden geverifieerd, wordt geïnstalleerd."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Waarschuw mij voordat ik onbekende modpacks installeer"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Contact opnemen met support"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Foutopsporingsinfo kopiëren"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Foutopsporingsinformatie"
+  },
+  "app.auth-error.header": {
+    "message": "Aanmelden mislukt"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Zo los je het op"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Voltooi het identiteitsverificatieproces"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Voor dit account is volwassenverificatie vereist volgens de Zuid-Koreaanse regelgeving."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Minecraft-aanmelding"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Controleer of je internetverbinding werkt"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Sta {product} toe in je firewall, antivirus, proxy, VPN en de regels van je hosts-bestand"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Probeer een ander netwerk of schakel VPN-/proxysoftware tijdelijk uit als je die gebruikt"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Herstart {product} en probeer je opnieuw aan te melden"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Als routing of DNS het probleem is, kan een dienst zoals Cloudflare WARP soms helpen"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} kon geen verbinding maken met een Microsoft-, Xbox- of Minecraft-dienst die nodig is om aan te melden. Dit komt meestal door een probleem met je lokale netwerk, DNS, proxy, firewall, hosts-bestand, VPN of antivirus."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Geen foutmelding."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Je kunt op <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a> controleren welk account het spel bezit"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Controleer of je aanmeldt met het Microsoft-account dat Minecraft heeft gekocht (of een actieve Game Pass met pc-toegang heeft)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Dit Microsoft-account bezit Minecraft: Java Edition niet, en {product} werkt alleen met premium accounts."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Start Minecraft: Java Edition één keer via de officiële launcher"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Controleer of je het Microsoft-account gebruikt dat Minecraft bezit. Je kunt op <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a> controleren welk account het spel bezit"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Wacht tot een uur als de aankoop of het instellen van het profiel recent was"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "De Minecraft-diensten konden geen Java Edition-profiel voor dit account teruggeven. Dit gebeurt meestal als het spel recent is gekocht, het Java-profiel nog niet is aangemaakt of het verkeerde Microsoft-account wordt gebruikt."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Controleer of Minecraft op dit account is gekocht"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Voltooi het instellen van je Xbox-profiel als daarom wordt gevraagd"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Voor dit account is geen Xbox-profiel ingesteld, of het bezit Minecraft niet."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Herstart {product} nadat je hebt gewacht"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Probeer je nog één keer aan te melden"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Wacht ongeveer een uur voordat je het opnieuw probeert"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Als hetzelfde bericht verschijnt, wacht dan langer voordat je het opnieuw probeert, zodat de tijdelijke limiet kan verlopen"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft of Minecraft heeft het aanmeldverzoek tijdelijk geblokkeerd omdat er te veel recente pogingen waren."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Controleer de <a href=\"https://www.xbox.com/en-US/regions\">Xbox-beschikbaarheid</a> voor ondersteunde regio's"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Xbox-diensten moeten in je land worden ondersteund voordat je kunt aanmelden"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live is niet beschikbaar in jouw regio, dus aanmelden is geblokkeerd."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Laat een voogd zich aanmelden bij <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Werk de machtigingen voor online spelen bij"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Dit account is beperkt en heeft geen toestemming om online te spelen."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Als de dienst gezond is en dit blijft gebeuren, neem dan contact op met support en stuur de onderstaande foutopsporingsinformatie mee"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Probeer je aan te melden met de <a href=\"https://www.minecraft.net/en-us/download\">officiële Minecraft Launcher</a> om te controleren of aanmelden bij Minecraft daar ook is getroffen"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Controleer de <a href=\"https://support.xbox.com/xbox-live-status\">Xbox-status</a> op actuele storingen"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Wacht een paar minuten en probeer je opnieuw aan te melden"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "De authenticatiedienst van Minecraft geeft een serverfout terug, dus {product} kan je aanmelding nu niet afronden."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Meld je opnieuw aan"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Probeer je daarna opnieuw aan te melden"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Meld je aan met de <a href=\"https://www.minecraft.net/en-us/download\">officiële Minecraft Launcher</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Probeer je opnieuw aan te melden bij {product}"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Open <a href=\"https://www.minecraft.net/en-us/login\">Minecraft-aanmelding</a> en meld je aan"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Open <a href=\"https://www.xbox.com\">Xbox</a> en meld je aan"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Dien een beroep in als dat beschikbaar is"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Open <a href=\"https://support.xbox.com\">Xbox-support</a> en bekijk de details van de maatregel"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Dit account is opgeschort wegens het overtreden van de Xbox-communityrichtlijnen."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Probeer Minecraft opnieuw te starten zodra de nieuwe aanmelding is voltooid"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Meld je opnieuw aan bij het account"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Meld je af bij het getroffen Minecraft-account in {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Je opgeslagen Microsoft-aanmeldingstoken is verlopen of ingetrokken, dus {product} kan je Minecraft-sessie niet vernieuwen."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Accepteer de voorwaarden als daarom wordt gevraagd"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Dit account heeft de servicevoorwaarden van Xbox niet geaccepteerd."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Probeer te openen"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Voor extra hulp, bezoek <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">UK age verification on Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Ga naar de pagina <a href=\"https://www.minecraft.net/en-us/login\">Minecraft-aanmelding</a> en meld je aan"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Probeer je na de verificatie opnieuw aan te melden"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Volg de instructies om je leeftijd te verifiëren"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Je Minecraft-/Xbox Live-account vereist leeftijdsverificatie om te voldoen aan de Britse regelgeving. Je moet dit afronden voordat je je kunt aanmelden."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Lees de <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">handleiding voor gezinsinstellingen</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Word lid van een gezinsgroep of maak er een aan, zoals beschreven"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Dit account is minderjarig en is niet gekoppeld aan een Microsoft-gezinsgroep."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Onbekende fout"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "We herkennen deze fout niet en kunnen geen specifieke stappen aanbevelen om het op te lossen."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "en het aanmelden, omdat je daar mogelijk de benodigde stappen te zien krijgt. Je kunt ook contact opnemen met support; dan kijken we er verder naar."
+  },
+  "app.auth-error.warning-body": {
+    "message": "We konden je niet aanmelden bij je Microsoft-account. Dit kan komen door accountbeperkingen of regionale beperkingen."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Wat er volgens ons is gebeurd"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Accepteer alle voorwaarden of voltooi de getoonde profielinstellingen"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Meld je één keer aan op <a href=\"https://www.xbox.com\">Xbox.com</a> met hetzelfde Microsoft-account"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live heeft de Microsoft-aanmelding niet geaccepteerd. Dit betekent meestal dat het Microsoft-account zich nog nooit bij Xbox heeft aangemeld of bijgewerkte voorwaarden moet accepteren."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Als de officiële launcher ook mislukt, volg dan de fout die daar wordt weergegeven of neem contact op met Xbox-support"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Voltooi alle prompts die Microsoft, Xbox of Minecraft tonen"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "De Xbox-diensten hebben het verzoek geweigerd om dit account te autoriseren voor Minecraft-diensten, maar gaven geen specifieke accountbeperking terug die {product} herkent."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Minecraft authenticatie servers zijn mogelijk offline. Controleer je internetverbinding en probeer opnieuw later."
   },
   "app.auth-servers.unreachable.header": {
     "message": "Authenticatieservers kunnen niet worden bereikt"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft en Microsoft Store controleren uw Bedrock-licentie. Log daar in met het account dat eigenaar is van Minecraft; uw Java-account in dit opstartprogramma kan afwijken."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Lokale gedragspakketten en scripts. Configureer ze in de wereldinstellingen binnen Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Add-ons"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Gedragspakket"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Add-ons"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Blader door add-ons, resourcepakketten, werelden en scripts van CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Ontdek Bedrock-inhoud"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Ontdek add-ons"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Ontdek scripts"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Sluit Minecraft voordat je pakketten aan een wereld toevoegt en probeer het vervolgens opnieuw."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Installeer in Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft wordt geopend om deze inhoud te importeren. Controleer het resultaat in het spel en activeer vervolgens de pakketten in je wereldinstellingen. Vereiste pakketten en experimentele instellingen worden vermeld in de projectbeschrijving."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Dit archief bevat geen ondersteunde Bedrock-inhoud."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Kon de projectversies of werelden niet laden. Probeer het opnieuw."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Dit pakket vereist een ander pakket dat niet actief is in deze wereld. Installeer eerst de afhankelijkheden die door de auteur zijn vermeld."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Er zijn geen ondersteunde .mcaddon-, .mcpack-, .mcworld- of ZIP-bestanden beschikbaar voor dit project."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Creëer eerst een wereld in Minecraft en vernieuw vervolgens deze lijst."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Scripts"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Inhoud versie"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Bestemmingswereld"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Sluit Minecraft voordat u installeert. Deze pakketten worden alleen in de geselecteerde wereld toegevoegd en geactiveerd. Controleer de vereiste afhankelijkheden en experimentele instellingen in de projectbeschrijving."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Pakketten toegevoegd aan {world}. Open Minecraft om deze wereld te spelen."
+  },
+  "app.bedrock.checking": {
+    "message": "Op zoek naar Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Sluit Minecraft om bestanden te bewerken, inhoud te verwijderen of een kopie te herstellen."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Deze inhoud is gewijzigd of de oorspronkelijke locatie is bezet. De herstelkopie is bewaard om te voorkomen dat uw wijzigingen worden overschreven."
+  },
+  "app.bedrock.content": {
+    "message": "Inhoud"
+  },
+  "app.bedrock.content-help": {
+    "message": "Lokale hulpbronnen en skinpakketten. Activeer ze in Minecraft; sommige inhoud behoort tot individuele werelden."
+  },
+  "app.bedrock.data-error": {
+    "message": "Kon Minecraft-gegevens niet lezen. Vernieuw om het opnieuw te proberen."
+  },
+  "app.bedrock.data-location": {
+    "message": "Minecraft-gegevenslocatie"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Deze items worden verwijderd uit Minecraft. Er wordt een herstelkopie bewaard, inclusief de getroffen wereldpakketinstellingen. Werelden die afhankelijk zijn van een verwijderd pakket kunnen hun blokken of gedrag verliezen; herstel het voordat je die werelden opent."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Verwijder lokale inhoud"
+  },
+  "app.bedrock.description": {
+    "message": "Speel Minecraft for Windows en importeer je werelden en add-ons."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Kan de Minecraft-installatie niet controleren. Probeer het opnieuw."
+  },
+  "app.bedrock.development": {
+    "message": "Ontwikkeling"
+  },
+  "app.bedrock.edition": {
+    "message": "Minecraft-editie"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Deze map is leeg."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock-werelden en add-ons"
+  },
+  "app.bedrock.file-size": {
+    "message": "Grootte"
+  },
+  "app.bedrock.files": {
+    "message": "Bestanden"
+  },
+  "app.bedrock.folder": {
+    "message": "Map"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Kan deze map Minecraft niet openen. Vernieuw uw gegevens en probeer het opnieuw."
+  },
+  "app.bedrock.import-button": {
+    "message": "Bestand importeren"
+  },
+  "app.bedrock.import-description": {
+    "message": "Kies een .mcworld-, .mcpack- of .mcaddon-bestand. Minecraft zal de import openen en afhandelen."
+  },
+  "app.bedrock.import-error": {
+    "message": "Kan het bestand niet naar Minecraft verzenden. Controleer of Minecraft for Windows is geïnstalleerd en probeer het opnieuw."
+  },
+  "app.bedrock.import-title": {
+    "message": "Werelden en add-ons"
+  },
+  "app.bedrock.installation": {
+    "message": "Officiële installatie"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows is geïnstalleerd"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Kies een geldig lokaal .mcworld-, .mcpack- of .mcaddon-archief."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Dit bestand overschrijdt de importlimiet van 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Kan Minecraft niet openen. Open het officiële opstartprogramma of Microsoft Store om de installatie te controleren."
+  },
+  "app.bedrock.launcher": {
+    "message": "Open de officiële launcher"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Officiële draagraket gedetecteerd. Installeer daar Minecraft for Windows om door te gaan."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Minecraft-gegevens lezen…"
+  },
+  "app.bedrock.location": {
+    "message": "Locatie"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Toont de laatste 1 MiB van dit logboek."
+  },
+  "app.bedrock.logs": {
+    "message": "Logboeken"
+  },
+  "app.bedrock.missing": {
+    "message": "Installeer Minecraft for Windows om aan de slag te gaan"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Kan deze inhoud niet wijzigen. Sluit Minecraft en vernieuw. Uw herstelkopie is bewaard."
+  },
+  "app.bedrock.name": {
+    "message": "Naam"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Geen lokale add-ons gevonden. Importeer een .mcpack- of .mcaddon-bestand om aan de slag te gaan."
+  },
+  "app.bedrock.no-content": {
+    "message": "Geen lokale inhoud gevonden."
+  },
+  "app.bedrock.no-data": {
+    "message": "Open Minecraft één keer om de gegevensmappen te maken en vernieuw vervolgens hier."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Geen inhoudslogboeken gevonden. Schakel inhoudregistratie in Minecraft Instellingen > Maker in en open vervolgens uw wereld."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Nog geen herstelkopieën."
+  },
+  "app.bedrock.no-results": {
+    "message": "Geen overeenkomende artikelen."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Geen lokale werelden gevonden. Maak er een in Minecraft of importeer een .mcworld-bestand."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Map openen"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Bovenliggende map"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Sommige mappen konden niet worden gelezen of bereikten de weergavelimiet. U kunt ze inspecteren in Verkenner."
+  },
+  "app.bedrock.play": {
+    "message": "Speel"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Originele bestanden en verwijderde inhoud worden hier bewaard. Een kopie herstellen terwijl Minecraft is gesloten. Bestaande inhoud en latere bewerkingen worden nooit overschreven."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Herstelkopieën"
+  },
+  "app.bedrock.refresh": {
+    "message": "Controleer opnieuw"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Ververs"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Laad dit bestand opnieuw voordat u het opslaat."
+  },
+  "app.bedrock.repair": {
+    "message": "Repareer of update uw installatie met Microsoft Store of het officiële opstartprogramma."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Bronpakket"
+  },
+  "app.bedrock.restore": {
+    "message": "Herstellen"
+  },
+  "app.bedrock.running": {
+    "message": "Actief"
+  },
+  "app.bedrock.save-error": {
+    "message": "Kan niet opslaan. Het bestand is mogelijk gewijzigd, bevat mogelijk ongeldige JSON of is in gebruik. Laad het opnieuw en probeer het opnieuw."
+  },
+  "app.bedrock.search": {
+    "message": "Lokale inhoud zoeken..."
+  },
+  "app.bedrock.select-log": {
+    "message": "Selecteer een logboek om het te lezen."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Skinpakket"
+  },
+  "app.bedrock.store": {
+    "message": "Installeren of updaten"
+  },
+  "app.bedrock.store-error": {
+    "message": "Kan Microsoft Store niet openen. Open het vanuit het Windows Startmenu."
+  },
+  "app.bedrock.submitted": {
+    "message": "Bestand verzonden naar Minecraft. Controleer het importresultaat in het spel."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Voor Bedrock-integratie is Windows vereist. Je kunt Java Edition op dit apparaat blijven spelen."
+  },
+  "app.bedrock.update": {
+    "message": "Minecraft bijwerken"
+  },
+  "app.bedrock.update-help": {
+    "message": "Controleer in Microsoft Store op updates en selecteer Minecraft for Windows. Uw geïnstalleerde versie wordt vernieuwd wanneer u terugkeert."
+  },
+  "app.bedrock.version": {
+    "message": "Windows installatie {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Versie"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Wereld: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Werelden"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "Bevestigingen"
@@ -194,32 +722,8 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "Opstarten en navigeren"
   },
-  "app.behavior-settings.sync-across-devices.description": {
-    "message": "Gebruik dit thema overal waar je bent aangemeld. Schakel dit uit om een apart thema op dit apparaat te houden."
-  },
-  "app.behavior-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Log in op een Modrinth account om instellingen te synchroniseren."
-  },
-  "app.behavior-settings.sync-across-devices.title": {
-    "message": "Thema synchroniseren tussen apparaten"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "Server toevoegen aan instantie"
-  },
   "app.browse.add-to-an-instance": {
     "message": "Voeg toe aan een instantie"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Voeg aan instantie toe"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Voeg aan {instanceName} toe"
-  },
-  "app.browse.added": {
-    "message": "Toegevoegd"
-  },
-  "app.browse.already-added": {
-    "message": "Al toegevoegd"
   },
   "app.browse.back-to-instance": {
     "message": "Terug naar instantie"
@@ -227,14 +731,11 @@
   "app.browse.discover-project-type": {
     "message": "Ontdek {projectType}"
   },
-  "app.browse.discover-servers": {
-    "message": "Ontdek servers"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "Al toegevoegde servers verbergen"
-  },
   "app.browse.hide-installed-modpacks": {
     "message": "Verberg al geïnstalleerd"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Openen in CurseForge"
   },
   "app.browse.project-actions.label": {
     "message": "Projectacties"
@@ -251,17 +752,8 @@
   "app.browse.project-type.resource-packs": {
     "message": "Bronpakketten"
   },
-  "app.browse.project-type.servers": {
-    "message": "Servers"
-  },
   "app.browse.project-type.shaders": {
     "message": "Shaders"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "Als je inhoud toevoegt, kan dit ertoe leiden dat je geen toegang hebt tot deze server. Alle inhoud die je toevoegt, wordt verwijderd wanneer de beheerde inhoud van de server wordt bijgewerkt."
-  },
-  "app.browse.server.installing": {
-    "message": "Installeren"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Er zijn geen beschikbare versies die overeenkomen met {compatibilityLabel}. Selecteer toch een versie om te installeren. Afhankelijkheden worden niet automatisch geïnstalleerd."
@@ -281,8 +773,215 @@
   "app.content.sync-resource-packs-disabled": {
     "message": "Schakel eerst resource pakket syncen aan in de appinstellingen."
   },
+  "app.curseforge.rate-limit.text": {
+    "message": "De gedeelde aanvraaglimiet is bereikt. Wacht even en probeer het daarna opnieuw."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge is tijdelijk druk"
+  },
+  "app.download-manager.active": {
+    "message": "Actief"
+  },
+  "app.download-manager.attention": {
+    "message": "Heeft aandacht nodig"
+  },
+  "app.download-manager.cancel": {
+    "message": "Installatie annuleren"
+  },
+  "app.download-manager.canceling": {
+    "message": "Installatie annuleren..."
+  },
+  "app.download-manager.clear-all": {
+    "message": "Alles wissen"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Alle voltooide taken wissen"
+  },
+  "app.download-manager.complete": {
+    "message": "Klaar"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Gedupliceerde instantie"
+  },
+  "app.download-manager.empty": {
+    "message": "Geen installatietaken"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Verwachte downloadsnelheid"
+  },
+  "app.download-manager.eta": {
+    "message": "Geschatte resterende tijd voor deze download"
+  },
+  "app.download-manager.hide": {
+    "message": "Verberg installatietaken"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Geïmporteerde instantie"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Instantie installatie"
+  },
+  "app.download-manager.modpack": {
+    "message": "Modpack"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Modpack installatie"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Nieuwe instantie"
+  },
+  "app.download-manager.pause": {
+    "message": "Pauzeer installatie"
+  },
+  "app.download-manager.paused": {
+    "message": "Gepauzeerd"
+  },
+  "app.download-manager.remove": {
+    "message": "Verwijder uit geschiedenis"
+  },
+  "app.download-manager.resume": {
+    "message": "Hervat installatie"
+  },
+  "app.download-manager.show": {
+    "message": "Toon installatietaken"
+  },
+  "app.download-manager.tasks": {
+    "message": "Taken"
+  },
+  "app.download-manager.title": {
+    "message": "Downloadbeheerder"
+  },
+  "app.download-manager.verifying": {
+    "message": "Bezig met controleren"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Mapwijziging annuleren"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Foutopsporingsinfo kopiëren"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Foutopsporingsinformatie"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "eerst. Kom daarna terug en meld je aan!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Probeer je eerst aan te melden met de"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Gebruik je pc Game Pass, kom je van Bedrock of heb je het spel net gekocht?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "officiële Minecraft Launcher"
+  },
+  "app.error.get-support.button": {
+    "message": "Hulp krijgen"
+  },
+  "app.error.help.end": {
+    "message": "en we helpen je graag verder! Voeg zeker de volgende foutopsporingsinformatie toe:"
+  },
+  "app.error.help.start": {
+    "message": "Als niets werkt en je hulp nodig hebt, bezoek"
+  },
+  "app.error.help.support-link": {
+    "message": "onze supportpagina"
+  },
+  "app.error.hosts.body-end": {
+    "message": "geprobeerd verbinding te maken met Microsoft-/Xbox-/Minecraft-diensten, maar de externe server weigerde de verbinding. Dit kan betekenen dat deze diensten worden geblokkeerd door het hosts-bestand. Bezoek"
+  },
+  "app.error.hosts.fix-end": {
+    "message": " voor stappen om het probleem op te lossen."
+  },
+  "app.error.migrate.body-end": {
+    "message": "kan niet migreren naar de nieuwe map die je hebt gekozen. Neem contact op met support voor hulp of annuleer de mapwijziging."
+  },
+  "app.error.network.body-end": {
+    "message": "bij het verbinden met de servers van Microsoft. Dit komt vaak door een slechte verbinding, dus we raden aan het opnieuw te proberen. Als de problemen aanhouden, volg dan de stappen in"
+  },
+  "app.error.network.body-start": {
+    "message": "Het lijkt erop dat er problemen waren met"
+  },
+  "app.error.network.heading": {
+    "message": "Netwerkproblemen"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "om het probleem op te lossen."
+  },
+  "app.error.no-error-message": {
+    "message": "Geen foutmelding."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "kon de loaderversie voor deze instantie niet vinden."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Om dit op te lossen moet je de instantie herstellen. Klik op de knop hieronder."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Het lijkt erop dat er niet genoeg ruimte is op de schijf met de map die je hebt gekozen. Maak wat ruimte vrij en probeer het opnieuw, of annuleer de mapwijziging."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Niet genoeg ruimte"
+  },
+  "app.error.read-only.body-end": {
+    "message": "kan niet schrijven naar de map die je hebt gekozen. Pas de machtigingen van de map aan en probeer het opnieuw, of annuleer de mapwijziging."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Het lijkt erop dat"
+  },
+  "app.error.read-only.heading": {
+    "message": "Machtigingen van map wijzigen"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Instantie herstellen"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Mapwijziging opnieuw proberen"
+  },
+  "app.error.state-init.body-end": {
+    "message": "niet correct kon laden. Dit kan komen door een beschadigd bestand of doordat de app cruciale bestanden mist."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Misschien kun je het op een van de volgende manieren oplossen:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Controleer of je verbonden bent met internet en start de app vervolgens opnieuw."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Download de app opnieuw."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "Open back-up-map"
+  },
+  "app.error.support-article-link": {
+    "message": "ons supportartikel"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Kan app-map niet wijzigen"
+  },
+  "app.error.title.generic": {
+    "message": "Er is een fout opgetreden"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Geen loader geselecteerd"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Kan niet aanmelden bij Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Fout bij initialiseren van {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Probeer je opnieuw aan te melden"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Controleer of je met het juiste account bent aangemeld. Misschien bezit je Minecraft op een ander Microsoft-account."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Ander account proberen"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Probeer een ander Microsoft-account"
   },
   "app.export-modal.description-placeholder": {
     "message": "Voeg modpack beschrijving in..."
@@ -295,6 +994,27 @@
   },
   "app.export-modal.export-complete-description": {
     "message": "{name} is succesvol geëxporteerd."
+  },
+  "app.export-modal.format-label": {
+    "message": "Exportformaat"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "CurseForge-ZIP met manifest.json en de geselecteerde bestanden in overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Voor launchers die Modrinth-pakketten ondersteunen. Bevat downloadverwijzingen en geselecteerde extra bestanden."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Een draagbaar {productName}-pakket met de geselecteerde bestanden. Open het direct in de launcher."
   },
   "app.export-modal.header": {
     "message": "Exporteer modpack"
@@ -352,15 +1072,6 @@
   },
   "app.features-settings.sidebar.title": {
     "message": "Zijbalk"
-  },
-  "app.features-settings.sync-across-devices.description": {
-    "message": "Gebruik deze instellingen overal waar u ingelogd bent. Zet dit uit om uw instellingen apart te houden op dit apparaat."
-  },
-  "app.features-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Log in up uw Modrinth-account om instellingen te synchroniseren."
-  },
-  "app.features-settings.sync-across-devices.title": {
-    "message": "Synchroniseer instellingen tussen apparaten"
   },
   "app.home.jump-back-in.actions.label": {
     "message": "Instellingen voor instantie"
@@ -464,57 +1175,6 @@
   "app.instance.actions.label": {
     "message": "Instellingen voor instantie"
   },
-  "app.instance.add-server.add": {
-    "message": "Toevoegen"
-  },
-  "app.instance.add-server.added": {
-    "message": "Toegevoegd"
-  },
-  "app.instance.add-server.adding": {
-    "message": "Toevoegen..."
-  },
-  "app.instance.add-server.cancel": {
-    "message": "Annuleren"
-  },
-  "app.instance.add-server.compatibility-warning": {
-    "message": "Deze server is mogelijk niet compatibel met alle instanties."
-  },
-  "app.instance.add-server.search-placeholder": {
-    "message": "Zoek naar een instantie"
-  },
-  "app.instance.add-server.title": {
-    "message": "Voeg server toevoegen aan instantie"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Toegevoegd"
-  },
-  "app.instance.admonitions.shared-instance.changes-body": {
-    "message": "Je lokale instantie loopt voor op de gebruikers met wie je deze hebt gedeeld."
-  },
-  "app.instance.admonitions.shared-instance.changes-header": {
-    "message": "Je wijzigingen zijn nog niet gedeeld"
-  },
-  "app.instance.admonitions.shared-instance.publish-button": {
-    "message": "Update verzenden"
-  },
-  "app.instance.admonitions.shared-instance.publishing-button": {
-    "message": "Verzenden..."
-  },
-  "app.instance.admonitions.shared-instance.removed-label": {
-    "message": "Verwijderd"
-  },
-  "app.instance.admonitions.shared-instance.review-admonition-header": {
-    "message": "Update verzenden"
-  },
-  "app.instance.admonitions.shared-instance.review-description": {
-    "message": "Bekijk de inhoudelijke wijzigingen die met alle gebruikers van deze instantie zullen worden gedeeld."
-  },
-  "app.instance.admonitions.shared-instance.review-header": {
-    "message": "Wijzigingen bekijken"
-  },
-  "app.instance.admonitions.shared-instance.reviewing-button": {
-    "message": "Controleren..."
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Alle gegevens van je instantie worden definitief verwijderd, inclusief je werelden, configuraties en alle geïnstalleerde inhoud."
   },
@@ -542,8 +1202,8 @@
   "app.instance.content.managed-content.modpack-header": {
     "message": "Inhoud van modpack"
   },
-  "app.instance.content.managed-content.shared-header": {
-    "message": "Gedeelde inhoud"
+  "app.instance.content.managed-content.server-header": {
+    "message": "Serverinhoud"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Deze modpakket is al in de <bold>{instanceName}</bold> instantie geïnstalleerd. Ben je zeker dat je het geen wil dupliceren?"
@@ -596,36 +1256,6 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Terug naar de instantie"
   },
-  "app.instance.shared-instance-already-installed.body": {
-    "message": "Deze gedeelde instantie is al geïnstalleerd als <bold>{instanceName}</bold>. Weet je zeker dat je nog een exemplaar wilt installeren?"
-  },
-  "app.instance.shared-instance-already-installed.header": {
-    "message": "Gedeelde instantie al geïnstalleerd"
-  },
-  "app.instance.shared-instance-already-installed.install-anyway": {
-    "message": "Toch installeren"
-  },
-  "app.instance.shared-instance-already-installed.instance": {
-    "message": "Instantie"
-  },
-  "app.instance.shared-instance-wrong-account.fallback-username": {
-    "message": "het gekoppelde account"
-  },
-  "app.instance.shared-instance-wrong-account.owner-admonition-body-v2": {
-    "message": "om deze gedeelde instantie te beheren. Je kunt geen updates naar gebruikers verzenden."
-  },
-  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
-    "message": "Log in als"
-  },
-  "app.instance.shared-instance-wrong-account.signed-out-header": {
-    "message": "Je moet je aanmelden bij Modrinth"
-  },
-  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
-    "message": "om updates voor deze gedeelde instantie te ontvangen."
-  },
-  "app.instance.shared-instance-wrong-account.warning-header": {
-    "message": "Je gebruikt het verkeerde Modrinth-account"
-  },
   "app.instance.shortcut.created": {
     "message": "Snelkoppeling gemaakt"
   },
@@ -644,17 +1274,14 @@
   "app.instance.tab.screenshots": {
     "message": "Schermafbeeldingen"
   },
-  "app.instance.tab.share": {
-    "message": "Delen"
-  },
   "app.instance.tab.worlds": {
     "message": "Werelden"
   },
   "app.instance.worlds.add-server": {
     "message": "Voeg server toe"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Zoek servers"
+  "app.instance.worlds.browse": {
+    "message": "Werelden verkennen"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Wereld verwijderen"
@@ -760,6 +1387,21 @@
   },
   "app.java-selector.test-installation": {
     "message": "Java-installatie testen"
+  },
+  "app.launch-link.instance": {
+    "message": "Een link wil {instance} starten."
+  },
+  "app.launch-link.proceed": {
+    "message": "Starten"
+  },
+  "app.launch-link.server": {
+    "message": "Een link wil {instance} starten en verbinding maken met de server {target}. Ga alleen verder als je de herkomst van deze link vertrouwt."
+  },
+  "app.launch-link.title": {
+    "message": "Minecraft openen vanuit een link?"
+  },
+  "app.launch-link.world": {
+    "message": "Een link wil {instance} starten en de wereld {target} openen."
   },
   "app.library.actions.label": {
     "message": "Bibliotheek acties"
@@ -1022,122 +1664,14 @@
   "app.library.title": {
     "message": "Bibliotheek"
   },
-  "app.modal.install-to-play.additional-context": {
-    "message": "Aanvullende context"
-  },
-  "app.modal.install-to-play.additional-context-placeholder": {
-    "message": "Voeg links en afbeeldingen toe als dat mogelijk en relevant is"
-  },
-  "app.modal.install-to-play.block-user": {
-    "message": "Gebruiker blokkeren"
-  },
-  "app.modal.install-to-play.content-you-are-reporting": {
-    "message": "Instantie die je meldt"
-  },
-  "app.modal.install-to-play.delete-instance": {
-    "message": "Instantie verwijderen"
-  },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "Niet installeren"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "Installeer om te spelen"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Toch installeren"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "Installeer"
-  },
-  "app.modal.install-to-play.invite-warning": {
-    "message": "Deze uitnodiging is aangemaakt door een andere Modrinth-gebruiker, niet door Modrinth zelf. Accepteer alleen uitnodigingen van mensen die je vertrouwt."
-  },
-  "app.modal.install-to-play.invite-warning-with-creator": {
-    "message": "Deze uitnodiging is aangemaakt door <creator>{username}</creator>, niet door Modrinth. Accepteer alleen uitnodigingen van mensen die je vertrouwt."
-  },
-  "app.modal.install-to-play.managed-content.modpack-header": {
-    "message": "Inhoud van modpack"
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural,one {# mod}other {# mods}}"
-  },
-  "app.modal.install-to-play.report-description": {
-    "message": "Gebruik dit formulier om instanties te melden die mogelijk in strijd zijn met onze <rules-link>Regels</rules-link> of <terms-link>Gebruiksvoorwaarden</terms-link>."
-  },
-  "app.modal.install-to-play.report-image-invalid-type": {
-    "message": "Bestand is geen ondersteund afbeeldingstype"
-  },
-  "app.modal.install-to-play.report-image-too-large": {
-    "message": "Bestand overschrijdt maximale grootte van 1 MiB"
-  },
-  "app.modal.install-to-play.report-legal-claims": {
-    "message": "Voor DMCA-meldingen of andere juridische vorderingen, zie ons <copyright-link>auteursrechtbeleid</copyright-link>."
-  },
-  "app.modal.install-to-play.report-reason": {
-    "message": "Welke regel wordt in deze instantie overtreden?"
-  },
-  "app.modal.install-to-play.report-shared-instance-header": {
-    "message": "Gedeelde instantie melden"
-  },
-  "app.modal.install-to-play.report-submitted": {
-    "message": "Melding ingediend"
-  },
-  "app.modal.install-to-play.report-support-and-bugs": {
-    "message": "Neem voor ondersteuningsverzoeken contact op met ons <support-link>ondersteuningsteam</support-link>. Voor bugmeldingen kun je een <github-link>GitHub-issue</github-link> aanmaken."
-  },
-  "app.modal.install-to-play.reviewed-files": {
-    "message": "Bestanden die niet op Modrinth worden gepubliceerd, worden niet beoordeeld."
-  },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Gedeelde instantie"
-  },
-  "app.modal.install-to-play.shared-instance-content": {
-    "message": "Inhoud van de gedeelde instantie"
-  },
-  "app.modal.install-to-play.shared-instance-unknown-files-description": {
-    "message": "Deze gedeelde instantie bevat bestanden die niet op Modrinth zijn gepubliceerd. We raden je ten zeerste aan om alleen bestanden te installeren uit bronnen die je vertrouwt."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "Dit server-modpack bevat bestanden die niet op Modrinth zijn gepubliceerd. We raden je ten zeerste aan om alleen bestanden te installeren uit bronnen die je vertrouwt."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Waarschuwing voor onbekende bestanden"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Onbekende bestanden"
-  },
-  "app.modal.install-to-play.user-blocked": {
-    "message": "Gebruiker geblokkeerd"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Inhoud bekijken"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Update om te spelen"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "Verwijderde"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "Deze update voor de server-modpack bevat bestanden die niet op Modrinth zijn gepubliceerd. We raden je ten zeerste aan om alleen bestanden te installeren uit bronnen die je vertrouwt."
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "Toegevoegd"
-  },
-  "app.modal.update-to-play.shared-instance-removed-label": {
-    "message": "Verwijderd"
-  },
-  "app.modal.update-to-play.shared-instance-unknown-files-description": {
-    "message": "Deze update voor de gedeelde instantie bevat bestanden die niet op Modrinth zijn gepubliceerd. We raden je ten zeerste aan om alleen bestanden te installeren uit bronnen die je vertrouwt."
-  },
-  "app.modal.update-to-play.update-required": {
-    "message": "Update vereist"
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "Er is een update nodig om {name} te spelen. Werk het spel bij naar de nieuwste versie om het te kunnen starten."
+  "app.nav.collapse-sidebar": {
+    "message": "Zijbalk inklappen"
   },
   "app.nav.create-new-instance": {
     "message": "Nieuwe instantie aanmaken"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Zijbalk uitvouwen"
   },
   "app.nav.home": {
     "message": "Start"
@@ -1166,6 +1700,12 @@
   "app.project.coming-soon": {
     "message": "Binnenkort beschikbaar"
   },
+  "app.project.gallery.image-fallback": {
+    "message": "Galerijafbeelding"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Afbeelding openen in nieuw tabblad"
+  },
   "app.project.install-button.already-installed": {
     "message": "Dit project is al geïnstalleerd"
   },
@@ -1183,6 +1723,9 @@
   },
   "app.project.more-options": {
     "message": "Meer opties"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Openen in CurseForge"
   },
   "app.project.tab.description": {
     "message": "Omschrijving"
@@ -1216,6 +1759,9 @@
   },
   "app.quick-instance-switcher.instance-locked": {
     "message": "Deze instantie is vergrendeld"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Recente instanties"
   },
   "app.quick-instance-switcher.view-instance": {
     "message": "Bekijk instantie"
@@ -1377,7 +1923,7 @@
     "message": "Oudste"
   },
   "app.settings.app-version": {
-    "message": "Modrinth-app {version}"
+    "message": "{productName} {version}"
   },
   "app.settings.default-instance-options.environment-variables.description": {
     "message": "Omgevingsvariabelen die bij het opstarten van een instantie worden ingesteld."
@@ -1471,6 +2017,15 @@
   },
   "app.settings.downloading": {
     "message": "v{version} wordt gedownload"
+  },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Geen vlaggen gevonden voor \"{query}\""
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Terugzetten naar standaard"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Vlaggen zoeken..."
   },
   "app.settings.game-options.category.accessibility.description": {
     "message": "Toegankelijkheid-voorkeuren"
@@ -2291,6 +2846,12 @@
   "app.settings.game-options.setting.menu-background-blur.label": {
     "message": "Menu achtergrondblur"
   },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "Textuurverzachting op afstand."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "Mipmapniveaus"
+  },
   "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
     "message": "Scrollgevoeligheid"
   },
@@ -2300,8 +2861,14 @@
   "app.settings.game-options.setting.music-toast.description": {
     "message": "Kies of je muziek titels wil zien in het pauzemenu als pop-ups."
   },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "Muziekmelding"
+  },
   "app.settings.game-options.setting.music-volume.label": {
     "message": "Muziek"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "Verteller hotkey"
   },
   "app.settings.game-options.setting.narrator.description": {
     "message": "Kies wat de Verteller voorleest."
@@ -2312,6 +2879,15 @@
   "app.settings.game-options.setting.neutral-volume.label": {
     "message": "Vriendelijke wezens"
   },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "Hoe lang meldingen zichtbaar blijven."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "Meldingstijd"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "Tabblad operatorvoorwerpen"
+  },
   "app.settings.game-options.setting.panorama-speed.label": {
     "message": "Panorama snelheid"
   },
@@ -2321,20 +2897,128 @@
   "app.settings.game-options.setting.players-volume.label": {
     "message": "Spelers"
   },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "Chunkupdates prioriteren"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "Sneltoetsen voor afsluiten"
+  },
   "app.settings.game-options.setting.raw-mouse-input.label": {
     "message": "Onbewerkte invoer"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "Realms-meldingen"
   },
   "app.settings.game-options.setting.record-volume.label": {
     "message": "Platenspeler/nootblokken"
   },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "Verminderde foutopsporingsinformatie"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "Weergaveafstand"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "Rechter broek been"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "Rechtermouw"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "Meedraaien met mijnkar"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "Chatconcepten opslaan"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "Schermeffecten"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "Alleen veilige chat tonen"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "Muisgevoeligheid"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "Servertexturen"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "Status delen"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "Hoe ver weg entiteiten worden bijgewerkt en blokken en vloeistoffen ticken."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "Simulatieafstand"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Snooper"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "Sprintvenster"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "Toon ondertiteling voor geluiden in het spel."
+  },
   "app.settings.game-options.setting.subtitles.label": {
     "message": "Ondertiteling"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "Dekking tekstachtergrond"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "Textuurfiltering"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "Aanvallen wisselen"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "Druk één keer om gehurkt te blijven."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "Hurken wisselen"
   },
   "app.settings.game-options.setting.toggle-sprint.description": {
     "message": "Druk één keer om te blijven sprinten."
   },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "Sprinten wisselen"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "Gebruiken wisselen"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "Touchscreenmodus"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "Interface"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "Ongefocuste chat-hoogte"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "VBO's gebruiken"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "Voegt een wiebelende beweging aan de camera toe tijdens het lopen."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "Bewegingswiebel"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "Vignet"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "Spraak"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "Beperk de framerate tot de verversingssnelheid van het scherm om beeldschermscheuren te voorkomen."
+  },
   "app.settings.game-options.setting.vsync.label": {
     "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "Weerstraal"
   },
   "app.settings.game-options.setting.weather-volume.label": {
     "message": "Weer"
@@ -2342,14 +3026,23 @@
   "app.settings.game-options.validation.changed-since-opened": {
     "message": "Deze instelling is ergens anders veranderd. Controleer dit en probeer het opnieuw."
   },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "Kies een geldige waarde."
+  },
   "app.settings.game-options.validation.missing-value": {
     "message": "Kies eerst een optie."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "Sommige van je instanties kunnen deze instelling niet gebruiken"
   },
   "app.settings.java-installations.location.title": {
     "message": "Java {version, number} locatie"
   },
   "app.settings.operating-system.macos": {
     "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Toon {productName} als je huidige activiteit op Discord. Dit heeft geen invloed op Rich Presence die mods aan instanties toevoegen."
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
@@ -2365,6 +3058,9 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "De cache van de app wissen?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Wis de cache en download de gegevens opnieuw. De app kan langzamer laden totdat de cache opnieuw is opgebouwd."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Cache leegmaken"
@@ -2385,7 +3081,7 @@
     "message": "Zoek naar een app-folder"
   },
   "app.settings.resource-management.app-directory.description": {
-    "message": "Hier slaat de Modrinth-app instanties en andere bestanden op. Wijzigingen worden pas van kracht nadat de app opnieuw is opgestart."
+    "message": "Hier slaat de {productName}-app instanties en andere bestanden op. Wijzigingen worden pas van kracht nadat de app opnieuw is opgestart."
   },
   "app.settings.resource-management.app-directory.select": {
     "message": "Kies een nieuwe app-folder"
@@ -2405,11 +3101,122 @@
   "app.settings.resource-management.maximum-concurrent-writes.title": {
     "message": "Maximaal aantal gelijktijdige schrijfbewerkingen"
   },
+  "app.settings.resource-management.store.attention": {
+    "message": "Sommige bestanden hebben nog aandacht nodig"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Bewaar tot deze hoeveelheid ongebruikte inhoud voor toekomstige installaties. Meer bewaren kan downloadtijd besparen."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Ongebruikte downloads bewaren"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Berekenen"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Ongebruikte wissen"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Ongebruikte gedownloade inhoud verwijderen"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "{size} schijfruimte vrijgemaakt."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Wissen…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Bespaar ruimte door spelinstallaties, mods en pakketten te hergebruiken in je instanties."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Installeer mods of pakketten om je opslaggebruik hier te zien."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "{count, plural, one {# probleem} other {# problemen}} bekijken"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Geen ongebruikte inhoud om te wissen."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Controleren en herstellen"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Hiermee worden alle actieve instanties afgesloten."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Controleer op ontbrekende of beschadigde bestanden en herstel ze."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Controleren en herstellen…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Gedeeld"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Inhoudsopslag"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} opgeslagen"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Uniek"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Verweesd"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "{checked, plural, one {# bestand} other {# bestanden}} gecontroleerd en {repaired, plural, one {# reparatie} other {# reparaties}} uitgevoerd."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Controle voltooid"
+  },
   "app.settings.sidebar.label.instances": {
     "message": "Instanties"
   },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Kies van welke instantie je opdrachtgeschiedenis wilt kopiëren. Deze geschiedenis wordt alleen gebruikt voor de eerste synchronisatie; daarna kun je hem vanuit elke instantie bewerken."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Kies bron voor opdrachtgeschiedenis"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Kies van welke instantie je opgeslagen creatieve hotbars wilt kopiëren. Deze hotbars worden alleen gebruikt voor de eerste synchronisatie; daarna kun je ze vanuit elke instantie bewerken."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Kies bron voor creatieve hotbars"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Kies bron voor gegevenspakketten"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Kies van welke instantie je spelinstellingen wilt kopiëren. Deze instellingen worden alleen gebruikt voor de eerste synchronisatie; daarna kun je ze vanuit elke instantie bewerken."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Kies bron voor spelinstellingen"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Je kunt deze instantie niet als synchronisatiebron kiezen"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Synchronisatiebronnen konden niet worden geladen. Probeer het opnieuw."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Kies van welke instantie je multiplayerservers wilt kopiëren. Deze servers worden alleen gebruikt voor de eerste synchronisatie; daarna kun je ze vanuit elke instantie bewerken."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Kies bron voor multiplayerservers"
+  },
   "app.settings.synced-options.choose-sync-source.no-instances-found": {
     "message": "Geen instanties gevonden"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Kies bron voor bronpakketten"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Opnieuw proberen"
   },
   "app.settings.synced-options.choose-sync-source.search-placeholder": {
     "message": "Zoek instantie"
@@ -2432,17 +3239,116 @@
   "app.settings.synced-options.creative-hotbars.description": {
     "message": "Gebruik dezelfde opgeslagen creatieve hotbars tussen uw instanties."
   },
+  "app.settings.synced-options.data-packs": {
+    "message": "Gegevenspakketten synchroniseren"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Gebruik dezelfde gegevenspakketten in al je instanties"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Je hebt nog geen gegevenspakketten gesynchroniseerd"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Voeg een instantie toe voordat je gesynchroniseerde gegevens bewerkt."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Kies een synchronisatiebron voordat je deze instelling bewerkt."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "Spelinstellingen synchroniseren"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Spelinstellingen bewerken"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "We hebben de nieuwste instellingen geladen. Controleer je wijzigingen en sla opnieuw op."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Deze instellingen zijn elders gewijzigd"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Instellingen die door mods worden toegevoegd, verschijnen hier zodra {productName} ze in een van je instanties vindt."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Gebruik dezelfde spelinstellingen in al je instanties."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "Alles desynchroniseren"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Schakel het synchroniseren van spelinstellingen in voordat je afzonderlijke instellingen kiest."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Geen instellingen komen overeen met je zoekopdracht of filter."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "Alles synchroniseren"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "We konden je spelinstellingen niet laden."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Instellingen laden..."
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Je hebt nog geen opties om te bewerken"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Wordt niet gesynchroniseerd"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "Opnieuw proberen"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "Instellingen opslaan"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Instellingen zoeken..."
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Gesynchroniseerde opties worden op elke instantie toegepast en overschrijven de waarden uit een modpack."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "{setting} tussen instanties synchroniseren"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "Spelinstellingen synchroniseren"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Tussen instanties gesynchroniseerd"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Spelinstellingen"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Je hebt niet-opgeslagen wijzigingen."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "Stop met het synchroniseren van {setting} tussen instanties"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "Verschilt tussen instanties"
+  },
   "app.settings.synced-options.game-settings.value-off": {
     "message": "Uit"
   },
   "app.settings.synced-options.game-settings.value-on": {
     "message": "Aan"
   },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Kies een waarde"
+  },
   "app.settings.synced-options.multiplayer-servers": {
     "message": "Desynchroniseer multiplayerservers"
   },
   "app.settings.synced-options.multiplayer-servers.address": {
     "message": "Serveradres"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Adres kopiëren"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {# server} other {# servers}}"
   },
   "app.settings.synced-options.multiplayer-servers.description": {
     "message": "Gebruik dezelfde opdrachtgeschiedenis voor al je instanties."
@@ -2465,8 +3371,29 @@
   "app.settings.synced-options.multiplayer-servers.name": {
     "message": "Servernaam"
   },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Geen gesynchroniseerde servers komen overeen met je zoekopdracht of filters."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Je hebt nog geen servers gesynchroniseerd"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} online"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "Zoek tussen {count, number} {count, plural, one {gesynchroniseerde server} other {gesynchroniseerde servers}}..."
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Status"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Schakel synchroniseren in voordat je gedeelde pakketten bewerkt."
+  },
   "app.settings.synced-options.resource-packs": {
     "message": "Synchroniseer bronpakketten"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Gebruik dezelfde bronpakketten in al je instanties."
   },
   "app.settings.synced-options.resource-packs.none-synced-yet": {
     "message": "U heeft nog geen bronpakketten gesynchroniseerd"
@@ -2476,6 +3403,9 @@
   },
   "app.settings.tabs.behavior": {
     "message": "Gedrag"
+  },
+  "app.settings.tabs.features": {
+    "message": "Functies"
   },
   "app.settings.tabs.java-installations": {
     "message": "Java installaties"
@@ -2492,8 +3422,41 @@
   "app.settings.tabs.synced-options": {
     "message": "Gesynchroniseerde instellingen"
   },
-  "app.sidebar.playing-as": {
-    "message": "Spelen als"
+  "app.sidebar.advertising.label": {
+    "message": "Advertentie"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Voorbeeld · plaatsing {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Volgend modpack"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Wisselen pauzeren"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} van {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Vorig modpack"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Wisselen hervatten"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Uitgelichte modpacks"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Uitgelichte modpacks zijn momenteel niet beschikbaar."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Project bekijken"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Hosting ontdekken"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Je volgende Minecraft-server"
   },
   "app.skins.add-button": {
     "message": "Skin toevoegen"
@@ -2503,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Toepassen"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Alle modellen"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klassiek"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Standaard"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Geen skins gevonden. Probeer een andere zoekopdracht."
+  },
+  "app.skins.catalog.error": {
+    "message": "Deze skinprovider is niet beschikbaar. Probeer het later opnieuw."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Skins laden…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Zoek in de volledige openbare MineSkin-gallerij."
+  },
+  "app.skins.catalog.model": {
+    "message": "Model"
+  },
+  "app.skins.catalog.next": {
+    "message": "Volgende pagina"
+  },
+  "app.skins.catalog.page": {
+    "message": "Pagina {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Populair"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Vorige pagina"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Skinproviders"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "De provider heeft zijn aanvraaglimiet bereikt. Wacht even voordat je het opnieuw probeert."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Recente"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Opnieuw proberen"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Skin opgeslagen in Standaard"
+  },
+  "app.skins.catalog.search": {
+    "message": "Skins zoeken…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Zoeken"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Slank"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Sorteer op"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tag (optioneel)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Trending"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Deze provider is nog niet geconfigureerd."
   },
   "app.skins.delete-button": {
     "message": "Skin verwijderen"
@@ -2657,6 +3692,12 @@
   "app.sync-instances-update.choose-source.all-title": {
     "message": "Kies synchronisatiebron"
   },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Kies van welke instantie je gegevenspakketten wilt kopiëren. Deze pakketten worden alleen gebruikt voor de eerste synchronisatie; daarna kun je ze vanuit elke instantie bewerken."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Kies van welke instantie je bronpakketten wilt kopiëren. Deze pakketten worden alleen gebruikt voor de eerste synchronisatie; daarna kun je ze vanuit elke instantie bewerken."
+  },
   "app.sync-instances-update.creative-hotbars": {
     "message": "Sync creatieve werkbalken"
   },
@@ -2693,6 +3734,9 @@
   "app.sync-instances-update.title": {
     "message": "Synchroniseer uw instanties"
   },
+  "app.synced-content.change.disable-description": {
+    "message": "Schakel dit uit voor alle gesynchroniseerde instanties of alleen voor deze instantie. Als je het alleen hier uitschakelt, worden overschrijvingen voor deze instantie ingeschakeld."
+  },
   "app.synced-content.change.disable-everywhere": {
     "message": "Overal uitschakelen"
   },
@@ -2708,23 +3752,71 @@
   "app.synced-content.change.enable-description": {
     "message": "Schakel het in op alle gesynchroniseerde instanties, of alleen in deze instantie. Als je het alleen hier inschakelt, worden overrides voor deze instantie ingeschakeld."
   },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Overal inschakelen"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Schakel deze inhoud in voor alle gesynchroniseerde instanties."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Hier inschakelen"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "Inhoud inschakelen?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Overal verwijderen"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Hier verwijderen"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Als je deze inhoud verwijdert, wordt het uit al je instanties verwijderd"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Geselecteerde inhoud die niet wordt gesynchroniseerd, wordt alleen uit deze instantie verwijderd."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Je kunt het alleen uit deze instantie of uit alle gesynchroniseerde instanties verwijderen. Als je het alleen uit deze instantie verwijdert, worden overschrijvingen ingeschakeld en ontvangt deze instantie geen gesynchroniseerde wijzigingen meer voor deze inhoudstypen."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "Je kunt {count, plural, one {het} other {ze}} alleen uit deze instantie of uit alle gesynchroniseerde instanties verwijderen. Als je {count, plural, one {het} other {ze}} alleen uit deze instantie verwijdert, worden overschrijvingen ingeschakeld en ontvangt deze instantie geen gesynchroniseerde wijzigingen aan bronpakketten meer."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {Dit bronpakket is gesynchroniseerd} other {Deze bronpakketten zijn gesynchroniseerd}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Deze instantie behoudt zijn eigen kopie. Wil je deze inhoud in andere instanties gesynchroniseerd houden of eruit verwijderen?"
+  },
   "app.synced-content.desync.keep": {
     "message": "Behouden"
   },
   "app.synced-content.desync.remove": {
     "message": "Verwijderen"
   },
+  "app.synced-content.desync.title": {
+    "message": "Inhoud desynchroniseren"
+  },
   "app.synced-content.warning.title": {
     "message": "Deze content is gesynchroniseerd"
   },
+  "app.synced-packs.data-packs.title": {
+    "message": "Gesynchroniseerde gegevenspakketten"
+  },
+  "app.synced-packs.empty": {
+    "message": "Voeg pakketten toe vanaf de inhoudspagina van een instantie om te beginnen met synchroniseren."
+  },
   "app.synced-packs.load-failed": {
     "message": "Pakketten konden niet worden geladen. Probeer deze te herladen."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Gesynchroniseerde bronpakketten"
   },
   "app.update-popup.body.download-complete": {
     "message": "{productName} v{version} is klaar met downloaden. Herlaad om nu te updaten, of automatisch wanneer je de {productName} afsluit."
   },
   "app.update-popup.body.linux": {
-    "message": "De Modrinth-app v{version} is beschikbaar. Gebruik je pakketbeheerder om bij te werken en zo de nieuwste functies en verbeteringen te krijgen!"
+    "message": "De {productName}-app v{version} is beschikbaar. Gebruik je pakketbeheerder om bij te werken en zo de nieuwste functies en verbeteringen te krijgen!"
   },
   "app.update-popup.body.metered": {
     "message": "{productName} v{version} is nu beschikbaar! Omdat je nu op een netwerk met datalimiet zit, is de download niet automatisch gestart."
@@ -2753,9 +3845,6 @@
   "app.update.download-error.missing-version": {
     "message": "Update downloaden mislukt: geen versie beschikbaar"
   },
-  "app.user.project.install-to-instance": {
-    "message": "Op instantie installeren"
-  },
   "app.welcome-screen.create-instance": {
     "message": "Nieuwe instantie aanmaken"
   },
@@ -2774,6 +3863,69 @@
   "app.welcome-screen.title": {
     "message": "Welkom bij {productName}"
   },
+  "app.window-controls.close": {
+    "message": "Venster sluiten"
+  },
+  "app.window-controls.minimize": {
+    "message": "Venster minimaliseren"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Venster maximaliseren wisselen"
+  },
+  "app.world-install.backup": {
+    "message": "Vervangen bewaart een back-up van de bestaande wereld. Behouden en Annuleren installeren niets. Nog een kopie installeren maakt een genummerde wereld."
+  },
+  "app.world-install.backup-location": {
+    "message": "De vorige wereld is opgeslagen in {path} binnen de instantie."
+  },
+  "app.world-install.conflict": {
+    "message": "Er bestaat al een wereld met deze naam of van dit project."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Installeren ondanks het versieverschil"
+  },
+  "app.world-install.copy": {
+    "message": "Nog een kopie installeren"
+  },
+  "app.world-install.description": {
+    "message": "Installeer een nieuwe wereld in een instantie. Bestaande werelden blijven behouden, tenzij je ervoor kiest er een te vervangen."
+  },
+  "app.world-install.incompatible": {
+    "message": "Dit bestand vermeldt Minecraft {version} niet als compatibel. Controleer de versie en mods die de auteur vereist voordat je doorgaat."
+  },
+  "app.world-install.installed": {
+    "message": "Wereld geïnstalleerd: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Doelinstantie"
+  },
+  "app.world-install.keep": {
+    "message": "Bestaande wereld behouden"
+  },
+  "app.world-install.no-instances": {
+    "message": "Maak eerst een Minecraft-instantie en keer dan hier terug om de wereld te installeren."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Werelden bekijken"
+  },
+  "app.world-install.replace": {
+    "message": "Vervangen"
+  },
+  "app.world-install.replace-target": {
+    "message": "Te vervangen wereld"
+  },
+  "app.world-install.requirements": {
+    "message": "Vereiste mods of modpacks moeten al in de doelinstantie zijn geïnstalleerd. Bekijk de projectbeschrijving."
+  },
+  "app.world-install.title": {
+    "message": "Wereld installeren"
+  },
+  "app.world-install.version": {
+    "message": "Wereldversie"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
+  },
   "app.world.server-modal.select-an-option": {
     "message": "Kies een keuze"
   },
@@ -2789,80 +3941,14 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
-  "content.shared-instance.change-version-body": {
-    "message": "Als je de versie wijzigt, wordt alleen je lokale kopie aangepast. Bij toekomstige updates van de gedeelde instantie kan deze weer worden teruggezet of opnieuw worden gewijzigd."
+  "curseforge.manual.description": {
+    "message": "Download {file} vanaf de officiële CurseForge-pagina en selecteer het gedownloade bestand om door te gaan. De grootte en SHA-1 worden gecontroleerd."
   },
-  "content.shared-instance.delete-bulk-body": {
-    "message": "Sommige geselecteerde projecten maken deel uit van de gedeelde instantie. Als je ze verwijdert, wordt alleen je lokale kopie aangepast; bij toekomstige updates van de gedeelde instantie kunnen ze weer worden hersteld of opnieuw worden gewijzigd."
+  "curseforge.manual.select": {
+    "message": "Gedownload bestand selecteren"
   },
-  "content.shared-instance.delete-button": {
-    "message": "Toch verwijderen"
-  },
-  "content.shared-instance.delete-many-button": {
-    "message": "{count, plural, one {# project} other {# projecten}} toch verwijderen"
-  },
-  "content.shared-instance.delete-single-body": {
-    "message": "Het verwijderen past alleen je lokale kopie aan. Bij toekomstige updates van de gedeelde instantie kan deze weer worden teruggezet of opnieuw worden gewijzigd."
-  },
-  "content.shared-instance.disable-bulk-body": {
-    "message": "Sommige geselecteerde projecten maken deel uit van de gedeelde instantie. Als je ze uitschakelt, heeft dit alleen gevolgen voor je lokale kopie; bij toekomstige updates van de gedeelde instantie kunnen ze opnieuw worden ingeschakeld, hersteld of gewijzigd."
-  },
-  "content.shared-instance.disable-button": {
-    "message": "Toch uitschakelen"
-  },
-  "content.shared-instance.disable-many-button": {
-    "message": "{count, plural, one {# project} other {# projecten}} toch uitschakelen"
-  },
-  "content.shared-instance.disable-single-body": {
-    "message": "Het uitschakelen heeft alleen gevolgen voor je lokale kopie. Bij toekomstige updates van de gedeelde instantie kan deze functie opnieuw worden ingeschakeld, hersteld of gewijzigd."
-  },
-  "content.shared-instance.unlink-body": {
-    "message": "Het ontkoppelen heeft alleen invloed op je lokale kopie. Bij toekomstige updates van de gedeelde instantie kan deze weer worden hersteld of opnieuw worden gewijzigd."
-  },
-  "content.shared-instance.warning-header": {
-    "message": "Dit maakt deel uit van de gedeelde instantie"
-  },
-  "installation-settings.shared-instance.linked-title": {
-    "message": "Gekoppelde gedeelde instantie"
-  },
-  "installation-settings.shared-instance.title": {
-    "message": "Instantie terugtrekken"
-  },
-  "installation-settings.shared-instance.unlink-button": {
-    "message": "Gedeelde instantie ontkoppelen"
-  },
-  "installation-settings.shared-instance.unlink-description": {
-    "message": "Koppel deze lokale instantie los van toekomstige gedeelde updates."
-  },
-  "installation-settings.shared-instance.unlinking-button": {
-    "message": "Ontkoppelen..."
-  },
-  "installation-settings.shared-instance.unpublish-button": {
-    "message": "Gedeelde instantie terugtrekken"
-  },
-  "installation-settings.shared-instance.unpublish-description": {
-    "message": "Verwijder deze gedeelde instantie uit Modrinth en stuur geen updates meer naar gebruikers ervan. Je lokale instantie merkt hier geen gevolgen van."
-  },
-  "installation-settings.shared-instance.unpublishing-button": {
-    "message": "Terugtrekken..."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-body": {
-    "message": "Dit heeft alleen gevolgen voor je lokale instantie. Je geïnstalleerde inhoud blijft op dit apparaat staan, en de gedeelde instantie en andere gebruikers ervan ondervinden hier geen hinder van."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-header": {
-    "message": "Gedeelde instantie ontkoppelen"
-  },
-  "installation-settings.unlink-shared-instance.modal.header": {
-    "message": "Gedeelde instantie ontkoppelen"
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-body": {
-    "message": "Hiermee wordt de gedeelde instantie van de servers van Modrinth verwijderd. Gebruikers die deze instantie in de Modrinth-app gebruiken, ontvangen geen updates meer, maar je lokale instantie en de inhoud daarvan blijven op dit apparaat staan."
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-header": {
-    "message": "Gedeelde instantie terugtrekken"
-  },
-  "installation-settings.unpublish-shared-instance.modal.header": {
-    "message": "Gedeelde instantie terugtrekken"
+  "curseforge.manual.title": {
+    "message": "Handmatige download vereist"
   },
   "instance.action.create-shortcut": {
     "message": "Snelkoppeling maken"
@@ -2929,6 +4015,9 @@
   },
   "instance.files.adding-files": {
     "message": "Bestanden toevoegen ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "Beheer je geïnstalleerde inhoud via het tabblad Inhoud"
   },
   "instance.files.save-as": {
     "message": "Opslaan als..."
@@ -3077,9 +4166,6 @@
   "instance.icon-editor.symbol.moobloom": {
     "message": "Moobloom"
   },
-  "instance.icon-editor.symbol.mr-pack": {
-    "message": "Meneer Pack"
-  },
   "instance.icon-editor.symbol.neoforge": {
     "message": "NeoForge"
   },
@@ -3146,14 +4232,41 @@
   "instance.last-played": {
     "message": "Laatst gespeeld"
   },
+  "instance.locked.badge": {
+    "message": "Vergrendeld"
+  },
   "instance.locked.delete-button": {
     "message": "Instantie verwijderen"
+  },
+  "instance.locked.info-label": {
+    "message": "Informatie over vergrendelde instantie"
   },
   "instance.locked.play-tooltip": {
     "message": "Deze instantie is vergrendeld"
   },
+  "instance.locked.text": {
+    "message": "Deze instantie is vergrendeld en kan niet worden gespeeld of gewijzigd. Je kunt haar verwijderen."
+  },
+  "instance.locked.title": {
+    "message": "Instantie vergrendeld"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Modloader en Minecraft-versie"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# uur} other {# uur}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# minuut} other {# minuten}}"
+  },
   "instance.playtime.never-played": {
     "message": "Nog nooit gespeeld"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# seconde} other {# seconden}}"
+  },
+  "instance.playtime.total": {
+    "message": "Totale speeltijd"
   },
   "instance.server-modal.address": {
     "message": "Adres"
@@ -3167,44 +4280,32 @@
   "instance.server-modal.resource-pack": {
     "message": "Bronpakket"
   },
-  "instance.settings.sharing.active-invites.actions": {
-    "message": "Acties"
+  "instance.settings.synced-options.data-override": {
+    "message": "Schakel deze overschrijving uit om gesynchroniseerde gegevens te bewerken."
   },
-  "instance.settings.sharing.active-invites.code": {
-    "message": "Uitnodigingslink"
+  "instance.settings.synced-options.data-packs": {
+    "message": "Gegevenspakketten desynchroniseren"
   },
-  "instance.settings.sharing.active-invites.description": {
-    "message": "Iedereen die zo'n uitnodigingslink heeft, kan meedoen zolang deze actief is."
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Houd de gegevenspakketten van deze instantie gescheiden van gesynchroniseerde pakketten."
   },
-  "instance.settings.sharing.active-invites.empty": {
-    "message": "Er zijn geen actieve uitnodigingen."
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "Het synchroniseren van gegevenspakketten is uitgeschakeld in de app-instellingen."
   },
-  "instance.settings.sharing.active-invites.expires": {
-    "message": "Vervalt"
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Gesynchroniseerde pakketten bewerken"
   },
-  "instance.settings.sharing.active-invites.revoke": {
-    "message": "Uitnodiging intrekken"
+  "instance.settings.synced-options.packs-override": {
+    "message": "Schakel deze overschrijving uit om gesynchroniseerde pakketten te bewerken. Onafhankelijke pakketten kun je beheren op het tabblad Inhoud."
   },
-  "instance.settings.sharing.active-invites.revoke-with-code": {
-    "message": "Uitnodiging {code} intrekken"
+  "instance.settings.synced-options.resource-packs": {
+    "message": "Bronpakketten desynchroniseren"
   },
-  "instance.settings.sharing.active-invites.title": {
-    "message": "Actieve uitnodigingen"
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Houd de bronpakketten van deze instantie gescheiden van gesynchroniseerde pakketten."
   },
-  "instance.settings.sharing.active-invites.uses": {
-    "message": "Keren gebruikt"
-  },
-  "instance.settings.sharing.revoke-invite.admonition-body": {
-    "message": "De uitnodigingslink <monospace>{code}</monospace> zal gelijk niet meer werken. Mensen die zich al hebben aangemeld, behouden hun toegang."
-  },
-  "instance.settings.sharing.revoke-invite.admonition-header": {
-    "message": "Deze actie kan niet ongedaan worden gemaakt"
-  },
-  "instance.settings.sharing.revoke-invite.confirm": {
-    "message": "Uitnodiging intrekken"
-  },
-  "instance.settings.sharing.revoke-invite.header": {
-    "message": "Uitnodiging intrekken"
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "Het synchroniseren van bronpakketten is uitgeschakeld in de app-instellingen."
   },
   "instance.settings.tabs.general": {
     "message": "Algemeen"
@@ -3383,9 +4484,6 @@
   "instance.settings.tabs.settings-overrides": {
     "message": "Synchroniseer overschrijvingen"
   },
-  "instance.settings.tabs.sharing": {
-    "message": "Delen"
-  },
   "instance.settings.tabs.synced-options.command-history": {
     "message": "Opdrachtgeschiedenis desynchroniseren"
   },
@@ -3403,6 +4501,15 @@
   },
   "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
     "message": "Houd deze instantie de opgeslagen creatieve hotbars gescheiden van gesynchroniseerde hotbars."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "Spelinstellingen desynchroniseren"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Houd de options.txt van deze instantie gescheiden van de gesynchroniseerde kopie."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "Het synchroniseren van spelinstellingen is uitgeschakeld in de app-instellingen."
   },
   "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
     "message": "De versie die wordt vervangen zal worden geback-upt voordat er iets verandert."
@@ -3463,63 +4570,6 @@
   },
   "instance.settings.tabs.window.width.enter": {
     "message": "Voer breedte in..."
-  },
-  "instance.shared-instance.error.title": {
-    "message": "Er is iets misgegaan"
-  },
-  "instance.shared-instance.network-error.text": {
-    "message": "Kan geen verbinding maken met de API voor gedeelde instanties"
-  },
-  "instance.shared-instance.network-error.title": {
-    "message": "Netwerkfout"
-  },
-  "instance.shared-instance.owner-tooltip": {
-    "message": "De inhoud van deze instantie wordt gedeeld met andere gebruikers."
-  },
-  "instance.shared-instance.publish-review.added-label": {
-    "message": "Toegevoegd"
-  },
-  "instance.shared-instance.publish-review.admonition-header": {
-    "message": "Update naar spelers verzenden"
-  },
-  "instance.shared-instance.publish-review.config-title-v2": {
-    "message": "Configuratiebestanden selecteren"
-  },
-  "instance.shared-instance.publish-review.description": {
-    "message": "Bekijk de inhoudelijke wijzigingen en selecteer de configuratiebestanden die je in deze update wilt opnemen."
-  },
-  "instance.shared-instance.publish-review.header": {
-    "message": "Wijzigingen bekijken"
-  },
-  "instance.shared-instance.publish-review.publish-button": {
-    "message": "Update verzenden"
-  },
-  "instance.shared-instance.publish-review.removed-label": {
-    "message": "Verwijderd"
-  },
-  "instance.shared-instance.tooltip": {
-    "message": "De inhoud van deze instantie wordt door iemand anders beheerd."
-  },
-  "instance.shared-instance.unavailable.access-revoked-text": {
-    "message": "Je toegang tot de gedeelde instantie is ingetrokken. Deze instantie is nog steeds beschikbaar, maar is niet langer gekoppeld en ontvangt geen updates meer."
-  },
-  "instance.shared-instance.unavailable.deleted-text": {
-    "message": "De hoofdinstantie is verwijderd. Deze instantie is nog steeds beschikbaar, maar is niet meer gekoppeld en ontvangt geen updates meer."
-  },
-  "instance.shared-instance.unavailable.locked-text": {
-    "message": "Deze gedeelde instantie is vergrendeld door het inhoudsmoderatieteam. De instantie ontvangt geen updates meer van de hoofdinstantie en je kunt er niet meer in spelen."
-  },
-  "instance.shared-instance.unavailable.locked-title": {
-    "message": "Instantie vergrendeld"
-  },
-  "instance.shared-instance.unavailable.manager-fallback": {
-    "message": "de instantiebeheerder"
-  },
-  "instance.shared-instance.unavailable.text": {
-    "message": "Je lokale instantie is nog steeds beschikbaar, maar is niet langer gekoppeld en ontvangt geen updates meer."
-  },
-  "instance.shared-instance.unavailable.title": {
-    "message": "Gedeelde instantie niet meer beschikbaar"
   },
   "instance.worlds.a_minecraft_server": {
     "message": "Een Minecraft server"
@@ -3593,17 +4643,23 @@
   "instance.worlds.shortcut-creation-failed": {
     "message": "Kan snelkoppeling niet maken"
   },
+  "instance.worlds.synced_server": {
+    "message": "Tussen instanties gesynchroniseerd"
+  },
   "instance.worlds.view_instance": {
     "message": "Bekijk instantie"
   },
   "instance.worlds.world_in_use": {
     "message": "Wereld wordt gebruikt"
   },
+  "minecraft-account.accounts": {
+    "message": "Minecraft-accounts"
+  },
   "minecraft-account.add-account": {
     "message": "Voeg account toe"
   },
-  "minecraft-account.label": {
-    "message": "Minecraft account"
+  "minecraft-account.getting-started": {
+    "message": "Aan de slag"
   },
   "minecraft-account.not-signed-in": {
     "message": "Niet aangemeld"
@@ -3611,11 +4667,11 @@
   "minecraft-account.remove-account": {
     "message": "Verwijder account"
   },
-  "minecraft-account.select-account": {
-    "message": "Selecteer account"
-  },
   "minecraft-account.sign-in": {
     "message": "Meld je aan bij Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Aanmelden"
   },
   "minecraft-required.description": {
     "message": "Je hebt een Microsoft-account nodig waarop Minecraft is geregistreerd voordat je het spel kunt starten en spelen."
@@ -3638,39 +4694,6 @@
   "minecraft-required.sign-in": {
     "message": "Aanmelden bij Microsoft"
   },
-  "modal.modrinth-account-required.browser-description": {
-    "message": "Er is een nieuw tabblad geopend om je aan te melden. Log daar in en ga vervolgens terug naar de app."
-  },
-  "modal.modrinth-account-required.continue-in-browser-heading": {
-    "message": "Doorgaan in je browser"
-  },
-  "modal.modrinth-account-required.create-account-button": {
-    "message": "Een account aanmaken"
-  },
-  "modal.modrinth-account-required.description": {
-    "message": "Je moet je aanmelden bij je Modrinth-account voordat je deze functie kunt gebruiken."
-  },
-  "modal.modrinth-account-required.header": {
-    "message": "Account vereist"
-  },
-  "modal.modrinth-account-required.open-browser-again-button": {
-    "message": "Opnieuw de browser openen"
-  },
-  "modal.modrinth-account-required.sign-in-button": {
-    "message": "Bij Modrinth aanmelden"
-  },
-  "modal.modrinth-account-required.sign-in-heading": {
-    "message": "Meld je aan bij een Modrinth-account"
-  },
-  "modal.modrinth-account-required.signing-in-header": {
-    "message": "Aanmelden"
-  },
-  "modal.modrinth-account-required.support-prompt": {
-    "message": "Problemen bij het aanmelden? <support>Hulp krijgen</support>"
-  },
-  "modal.modrinth-account-required.waiting-for-browser": {
-    "message": "Wachten op bevestiging van de browser..."
-  },
   "onboarding-checklist.create-instance": {
     "message": "Nieuwe instantie aanmaken"
   },
@@ -3679,6 +4702,42 @@
   },
   "onboarding-checklist.title": {
     "message": "Aan de slag"
+  },
+  "optifine.add-component": {
+    "message": "OptiFine installeren"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "JAR selecteren en doorgaan"
+  },
+  "optifine.download-official": {
+    "message": "Officiële download"
+  },
+  "optifine.export-notice": {
+    "message": "OptiFine-binaries zijn uitgesloten. Orbpack behoudt de vereiste versie; voor Modrinth- en CurseForge-packs moet je OptiFine apart installeren."
+  },
+  "optifine.import-canceled": {
+    "message": "OptiFine-selectie geannuleerd. Het pack is niet geïnstalleerd."
+  },
+  "optifine.import-description": {
+    "message": "Dit pack vereist OptiFine {version} voor Minecraft {gameVersion}. Download de officiële JAR en selecteer deze om door te gaan. OptiFine is niet in het pack inbegrepen."
+  },
+  "optifine.import-title": {
+    "message": "Dit pack vereist OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Selecteer het officiële OptiFine-installatieprogramma voor Minecraft {gameVersion}. Voor een geïmporteerd pack moeten versie en bestandshash ook overeenkomen."
+  },
+  "optifine.remove-component": {
+    "message": "OptiFine verwijderen"
+  },
+  "optifine.select-installer": {
+    "message": "Officiële OptiFine-JAR selecteren"
+  },
+  "project-type.world.category": {
+    "message": "Werelden"
   },
   "search.filter.locked.instance": {
     "message": "Aangeboden door de instantie"
@@ -3691,9 +4750,6 @@
   },
   "search.filter.locked.instance.sync": {
     "message": "Synchroniseer installatie"
-  },
-  "search.filter.locked.server-environment.title": {
-    "message": "Alleen client-side mods kunnen toegevoegd worden aan de server instantie"
   },
   "settings.sidebar.label.account": {
     "message": "Account"

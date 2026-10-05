@@ -21,7 +21,7 @@
 			<div class="flex flex-wrap gap-1">
 				<template v-if="noModpackLoader">
 					<TagItem class="border !border-solid border-surface-5 hover:no-underline">
-						No mod loader
+						{{ formatMessage(sidebarMessages.noModLoader) }}
 					</TagItem>
 				</template>
 				<template v-else>
@@ -62,7 +62,7 @@
 					"
 				>
 					<ClientIcon aria-hidden="true" />
-					Client-side
+					{{ formatMessage(sidebarMessages.clientSide) }}
 				</TagItem>
 				<TagItem
 					v-if="
@@ -71,11 +71,7 @@
 					"
 				>
 					<ServerIcon aria-hidden="true" />
-					Server-side
-				</TagItem>
-				<TagItem v-if="false">
-					<UserIcon aria-hidden="true" />
-					Singleplayer
+					{{ formatMessage(sidebarMessages.serverSide) }}
 				</TagItem>
 				<TagItem
 					v-if="
@@ -88,7 +84,7 @@
 					"
 				>
 					<MonitorSmartphoneIcon aria-hidden="true" />
-					Client and server
+					{{ formatMessage(sidebarMessages.clientAndServer) }}
 				</TagItem>
 			</div>
 		</section>
@@ -96,23 +92,36 @@
 </template>
 <script setup lang="ts">
 import type { Labrinth } from '@orbiont/api-client'
-import {
-	ClientIcon,
-	getLoaderIcon,
-	MonitorSmartphoneIcon,
-	ServerIcon,
-	UserIcon,
-} from '@orbiont/assets'
+import { ClientIcon, getLoaderIcon, MonitorSmartphoneIcon, ServerIcon } from '@orbiont/assets'
 import { FormattedTag, projectCompatibilityMessages, TagItem } from '@orbiont/ui'
 import type { GameVersionTag, PlatformTag } from '@orbiont/utils'
 import { getVersionsToDisplay } from '@orbiont/utils'
 import { computed } from 'vue'
 import { useRouter } from 'vue-router'
 
-import { useVIntl } from '../../composables/i18n'
+import { defineMessages, useVIntl } from '../../composables/i18n'
 import EnvironmentTags from './EnvironmentTags.vue'
 
 const { formatMessage } = useVIntl()
+
+const sidebarMessages = defineMessages({
+	noModLoader: {
+		id: 'project.compatibility.no-mod-loader',
+		defaultMessage: 'No mod loader',
+	},
+	clientSide: {
+		id: 'project.compatibility.client-side',
+		defaultMessage: 'Client-side',
+	},
+	serverSide: {
+		id: 'project.compatibility.server-side',
+		defaultMessage: 'Server-side',
+	},
+	clientAndServer: {
+		id: 'project.compatibility.client-and-server',
+		defaultMessage: 'Client and server',
+	},
+})
 // TODO: anything in this component that uses the router will not work in the app. and this component is used in the app.
 // fix is to replace any router stuff with click handlers and pass in the handlers as props from the parent component
 const router = useRouter()

@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Nieznana instancja"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Aktualizowanie udostępnionych zasobów"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Ustaw jako główną instancję"
   },
@@ -149,6 +146,21 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "Ukryj nazwę"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Animuj ikony po najechaniu kursorem i przy ustawieniu fokusu klawiaturą."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Wyłącz animacje"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Zawsze animuj"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Zgodnie z systemem"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Animacje ikon"
+  },
   "app.appearance-settings.minimize-launcher.description": {
     "message": "Minimalizuje {productName} po uruchomieniu Minecraft."
   },
@@ -173,17 +185,533 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "Ukryj prawy pasek boczny"
   },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Pokaż ostrzeżenie o bezpieczeństwie przed zainstalowaniem Pakietu Modrinth (.mrpack), które nie jest hostowane na Modrinth."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Pokaż ostrzeżenie o bezpieczeństwie przed zainstalowaniem zaimportowanej paczki modów (.mrpack lub CurseForge .zip), której źródła nie można było zweryfikować."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Ostrzegaj mnie przed instalowaniem nieznanych paczek modów"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Skontaktuj się z pomocą techniczną"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Kopiuj informacje debugowania"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Informacje debugowania"
+  },
+  "app.auth-error.header": {
+    "message": "Logowanie nie powiodło się"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Jak to naprawić"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Ukończ proces weryfikacji tożsamości"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "To konto wymaga weryfikacji wieku dorosłego zgodnie z przepisami Korei Południowej."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Logowanie do Minecraft"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Sprawdź, czy Twoje połączenie z internetem działa"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Zezwól {product} w regułach zapory sieciowej, programu antywirusowego, proxy, VPN i pliku hosts"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Wypróbuj inne połączenie sieciowe lub tymczasowo wyłącz oprogramowanie VPN/proxy, jeśli go używasz"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Uruchom ponownie {product} i spróbuj zalogować się ponownie"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Jeśli problemem jest routing lub DNS, czasem może pomóc usługa taka jak Cloudflare WARP"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} nie mógł połączyć się z usługą Microsoft, Xbox lub Minecraft wymaganą do zalogowania się. Zwykle jest to spowodowane problemem z siecią lokalną, DNS, proxy, zaporą sieciową, plikiem hosts, VPN lub programem antywirusowym."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Brak komunikatu o błędzie."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Możesz sprawdzić, które konto jest właścicielem na <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Upewnij się, że logujesz się kontem Microsoft, które kupiło Minecraft (lub ma aktywne Game Pass z dostępem na PC)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "To konto Microsoft nie jest właścicielem Minecraft: Java Edition, a {product} działa tylko z kontami premium."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Uruchom Minecraft: Java Edition raz z oficjalnego launchera"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Upewnij się, że używasz konta Microsoft będącego właścicielem Minecraft. Możesz sprawdzić, które konto jest właścicielem na <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Jeśli zakup lub konfiguracja profilu nastąpiły niedawno, poczekaj do godziny"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Usługi Minecraft nie mogły zwrócić profilu Java Edition dla tego konta. Najczęściej dzieje się tak, gdy gra została kupiona niedawno, profil Java nie został jeszcze utworzony lub używane jest niewłaściwe konto Microsoft."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Upewnij się, że Minecraft został kupiony na tym koncie"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Ukończ konfigurację profilu Xbox, jeśli zostaniesz o to poproszony"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "To konto nie ma skonfigurowanego profilu Xbox lub nie jest właścicielem Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Po odczekaniu uruchom ponownie {product}"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Spróbuj zalogować się jeszcze raz"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Poczekaj około godziny przed kolejną próbą"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Jeśli pojawi się ten sam komunikat, poczekaj dłużej przed ponowną próbą, aby tymczasowy limit wygasł"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft lub Minecraft tymczasowo zablokował żądanie logowania z powodu zbyt wielu niedawnych prób."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Sprawdź <a href=\"https://www.xbox.com/en-US/regions\">Dostępność Xbox</a>, aby poznać obsługiwane regiony"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Usługi Xbox muszą być obsługiwane w Twoim kraju, zanim będziesz mógł się zalogować"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live nie jest dostępny w Twoim regionie, więc logowanie jest zablokowane."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Poproś opiekuna o zalogowanie się do <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Zaktualizuj uprawnienia do gry online"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "To konto jest ograniczone i nie ma uprawnień do gry online."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Jeśli usługa działa prawidłowo, a problem nadal występuje, skontaktuj się z pomocą techniczną, dołączając poniższe informacje debugowania"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Spróbuj zalogować się przez <a href=\"https://www.minecraft.net/en-us/download\">oficjalny launcher Minecraft</a>, aby sprawdzić, czy logowanie do Minecraft tam również jest zaburzone"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Sprawdź <a href=\"https://support.xbox.com/xbox-live-status\">Status Xbox</a>, aby poznać bieżące problemy z usługą"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Poczekaj kilka minut i spróbuj zalogować się ponownie"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Usługa uwierzytelniania Minecraft zwraca błąd serwera, więc {product} nie może teraz dokończyć logowania."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Zaloguj się ponownie"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Po zakończeniu spróbuj zalogować się ponownie"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Zaloguj się przez <a href=\"https://www.minecraft.net/en-us/download\">oficjalny launcher Minecraft</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Spróbuj ponownie zalogować się do {product}"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Odwiedź stronę <a href=\"https://www.minecraft.net/en-us/login\">logowania do Minecraft</a> i zaloguj się"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Odwiedź <a href=\"https://www.xbox.com\">Xbox</a> i zaloguj się"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Złóż odwołanie, jeśli jest dostępne"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Odwiedź <a href=\"https://support.xbox.com\">Pomoc Xbox</a> i zapoznaj się ze szczegółami egzekwowania"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "To konto zostało zawieszone za naruszenie Standardów społeczności Xbox."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Gdy nowe logowanie się zakończy, spróbuj ponownie uruchomić Minecraft"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Zaloguj się ponownie na to konto"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Wyloguj się z dotkniętego konta Minecraft w {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Zapisany token logowania Microsoft wygasł lub został odwołany, więc {product} nie może odświeżyć Twojej sesji Minecraft."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Zaakceptuj warunki, jeśli zostaniesz o to poproszony"
+  },
+  "app.auth-error.tos.what": {
+    "message": "To konto nie zaakceptowało Warunków korzystania z usługi Xbox."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Spróbuj odwiedzić"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Aby uzyskać dodatkową pomoc, odwiedź <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">weryfikację wieku w Wielkiej Brytanii na Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Przejdź do strony <a href=\"https://www.minecraft.net/en-us/login\">logowania do Minecraft</a> i zaloguj się"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Po weryfikacji spróbuj zalogować się ponownie"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Postępuj zgodnie z instrukcjami, aby zweryfikować swój wiek"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Twoje konto Minecraft/Xbox Live wymaga weryfikacji wieku zgodnie z przepisami Wielkiej Brytanii. Musisz to ukończyć przed zalogowaniem się."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Zapoznaj się z <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">przewodnikiem po konfiguracji rodziny</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Dołącz do grupy rodzinnej lub utwórz ją zgodnie z instrukcjami"
+  },
+  "app.auth-error.underage.what": {
+    "message": "To konto jest niepełnoletnie i nie jest powiązane z grupą rodzinną Microsoft."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Nieznany błąd"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Nie rozpoznajemy tego błędu i nie możemy zaproponować konkretnych kroków, aby go rozwiązać."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "i zalogować się, ponieważ może wyświetlić Ci niezbędne kroki. Możesz też skontaktować się z pomocą techniczną, a my zajmiemy się tym dalej."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Nie udało się zalogować Cię na Twoje konto Microsoft. Może to być spowodowane ograniczeniami konta lub ograniczeniami regionalnymi."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Co naszym zdaniem się stało"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Zaakceptuj wszelkie wyświetlone warunki lub ukończ wyświetloną konfigurację profilu"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Zaloguj się raz na <a href=\"https://www.xbox.com\">Xbox.com</a> tym samym kontem Microsoft"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live nie zaakceptował logowania Microsoft. Zwykle oznacza to, że konto Microsoft nigdy nie logowało się do Xbox lub musi zaakceptować zaktualizowane warunki."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Jeśli oficjalny launcher również zawiedzie, postępuj zgodnie z wyświetlonym tam błędem lub skontaktuj się z pomocą Xbox"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Ukończ wszystkie monity wyświetlone przez Microsoft, Xbox lub Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Usługi Xbox odrzuciły żądanie autoryzacji tego konta do usług Minecraft, ale nie zwróciły konkretnego ograniczenia konta rozpoznawanego przez {product}."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Serwery uwierzytelniania Minecraft mogą aktualnie nie działać. Sprawdź swoje połączenie z internetem i spróbuj ponownie później."
   },
   "app.auth-servers.unreachable.header": {
     "message": "Nie udało się połączyć się z serwerami uwierzytelniania"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft i Microsoft Store sprawdzają Twoją licencję Bedrock. Zaloguj się tam na konto, które jest właścicielem Minecraft; Twoje konto Java w tym programie uruchamiającym może być inne."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Lokalne pakiety zachowań i skrypty. Skonfiguruj je w ustawieniach świata w Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Dodatki"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Pakiet zachowań"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Dodatki"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Przeglądaj dodatki, pakiety zasobów, światy i skrypty z CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Odkryj zawartość Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Odkryj dodatki"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Odkryj skrypty"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Zamknij Minecraft przed dodaniem pakietów do świata, a następnie spróbuj ponownie."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Zainstaluj w Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Otworzy się Minecraft, aby zaimportować tę zawartość. Sprawdź wynik w grze, a następnie aktywuj pakiety w ustawieniach świata. Wymagane pakiety i ustawienia eksperymentalne są wymienione w opisie projektu."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "To archiwum nie zawiera obsługiwanej zawartości Bedrock."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Nie można załadować wersji projektu lub światów. Spróbuj ponownie."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Ten pakiet wymaga innego pakietu, który nie jest aktywny w tym świecie. Najpierw zainstaluj zależności wymienione przez autora."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Dla tego projektu nie są dostępne żadne obsługiwane pliki .mcaddon, .mcpack, .mcworld ani ZIP."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Najpierw utwórz świat w Minecraft, a następnie odśwież tę listę."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Skrypty"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Wersja treści"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Świat docelowy"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Zamknij Minecraft przed instalacją. Pakiety te zostaną dodane i aktywowane tylko w wybranym świecie. Sprawdź wymagane zależności i ustawienia eksperymentalne w opisie projektu."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Pakiety dodane do {world}. Otwórz Minecraft, aby zagrać w ten świat."
+  },
+  "app.bedrock.checking": {
+    "message": "Szukasz Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Zamknij Minecraft, aby edytować pliki, usunąć zawartość lub przywrócić kopię."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Ta treść uległa zmianie lub pierwotna lokalizacja jest zajęta. Kopia odzyskiwania została zachowana, aby uniknąć nadpisania zmian."
+  },
+  "app.bedrock.content": {
+    "message": "Zawartość"
+  },
+  "app.bedrock.content-help": {
+    "message": "Lokalne zasoby i pakiety skórek. Aktywuj je w Minecraft; część treści należy do poszczególnych światów."
+  },
+  "app.bedrock.data-error": {
+    "message": "Nie można odczytać danych Minecraft. Odśwież, aby spróbować ponownie."
+  },
+  "app.bedrock.data-location": {
+    "message": "Lokalizacja danych Minecraft"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Elementy te zostaną usunięte z Minecraft. Zostanie zachowana kopia przywracania zawierająca ustawienia pakietu światowego, których dotyczy problem. Światy zależne od usuniętego pakietu mogą utracić swoje bloki lub zachowanie; przywróć go przed otwarciem tych światów."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Usuń zawartość lokalną"
+  },
+  "app.bedrock.description": {
+    "message": "Graj w Minecraft for Windows i importuj swoje światy i dodatki."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Nie można sprawdzić instalacji Minecraft. Spróbuj ponownie."
+  },
+  "app.bedrock.development": {
+    "message": "Rozwój"
+  },
+  "app.bedrock.edition": {
+    "message": "Wersja Minecraft"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Ten folder jest pusty."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Światy i dodatki Bedrock"
+  },
+  "app.bedrock.file-size": {
+    "message": "Rozmiar"
+  },
+  "app.bedrock.files": {
+    "message": "Pliki"
+  },
+  "app.bedrock.folder": {
+    "message": "Folder"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Nie można otworzyć tego folderu Minecraft. Odśwież dane i spróbuj ponownie."
+  },
+  "app.bedrock.import-button": {
+    "message": "Importuj plik"
+  },
+  "app.bedrock.import-description": {
+    "message": "Wybierz plik .mcworld, .mcpack lub .mcaddon. Minecraft otworzy się i obsłuży import."
+  },
+  "app.bedrock.import-error": {
+    "message": "Nie można wysłać pliku do Minecraft. Sprawdź, czy Minecraft for Windows jest zainstalowany i spróbuj ponownie."
+  },
+  "app.bedrock.import-title": {
+    "message": "Światy i dodatki"
+  },
+  "app.bedrock.installation": {
+    "message": "Oficjalna instalacja"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows jest zainstalowany"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Wybierz prawidłowe lokalne archiwum .mcworld, .mcpack lub .mcaddon."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Ten plik przekracza limit importu 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Nie można otworzyć Minecraft. Otwórz oficjalny program uruchamiający lub Microsoft Store, aby sprawdzić instalację."
+  },
+  "app.bedrock.launcher": {
+    "message": "Otwórz oficjalny program uruchamiający"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Wykryto oficjalny program uruchamiający. Zainstaluj tam Minecraft for Windows, aby kontynuować."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Odczytywanie danych Minecraft…"
+  },
+  "app.bedrock.location": {
+    "message": "Lokalizacja"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Wyświetlanie ostatniego 1 MiB tego dziennika."
+  },
+  "app.bedrock.logs": {
+    "message": "Logi"
+  },
+  "app.bedrock.missing": {
+    "message": "Aby rozpocząć, zainstaluj Minecraft for Windows"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Nie można zmienić tej treści. Zamknij Minecraft i odśwież. Twoja kopia odzyskiwania została zachowana."
+  },
+  "app.bedrock.name": {
+    "message": "Nazwa"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Nie znaleziono żadnych lokalnych dodatków. Aby rozpocząć, zaimportuj plik .mcpack lub .mcaddon."
+  },
+  "app.bedrock.no-content": {
+    "message": "Nie znaleziono treści lokalnych."
+  },
+  "app.bedrock.no-data": {
+    "message": "Otwórz Minecraft raz, aby utworzyć foldery z danymi, a następnie odśwież tutaj."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Nie znaleziono dzienników zawartości. Włącz rejestrowanie treści w Minecraft Ustawienia > Kreator, a następnie otwórz swój świat."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Nie ma jeszcze kopii odzyskiwania."
+  },
+  "app.bedrock.no-results": {
+    "message": "Brak pasujących elementów."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Nie znaleziono światów lokalnych. Utwórz go w Minecraft lub zaimportuj plik .mcworld."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Otwórz katalog"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Folder nadrzędny"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Niektórych folderów nie można odczytać lub osiągnięto limit wyświetlania. Możesz je sprawdzić w Eksploratorze plików."
+  },
+  "app.bedrock.play": {
+    "message": "Graj"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Tutaj przechowywane są oryginalne pliki i usunięta zawartość. Przywróć kopię, gdy Minecraft jest zamknięty. Istniejąca treść i późniejsze zmiany nigdy nie są nadpisywane."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Kopie odzyskiwania"
+  },
+  "app.bedrock.refresh": {
+    "message": "Sprawdź ponownie"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Odśwież"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Załaduj ponownie ten plik przed zapisaniem."
+  },
+  "app.bedrock.repair": {
+    "message": "Napraw lub zaktualizuj swoją instalację za pomocą Microsoft Store lub oficjalnego programu uruchamiającego."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Paczka zasobów"
+  },
+  "app.bedrock.restore": {
+    "message": "Przywróć"
+  },
+  "app.bedrock.running": {
+    "message": "W trakcie działania"
+  },
+  "app.bedrock.save-error": {
+    "message": "Nie udało się zapisać. Plik mógł się zmienić, zawierać nieprawidłowy JSON lub być w użyciu. Załaduj go ponownie i spróbuj ponownie."
+  },
+  "app.bedrock.search": {
+    "message": "Wyszukaj treści lokalne…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Wybierz dziennik, aby go przeczytać."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Pakiet skórek"
+  },
+  "app.bedrock.store": {
+    "message": "Zainstaluj lub zaktualizuj"
+  },
+  "app.bedrock.store-error": {
+    "message": "Nie można otworzyć Microsoft Store. Otwórz go z menu Start Windows."
+  },
+  "app.bedrock.submitted": {
+    "message": "Plik wysłany do Minecraft. Sprawdź wynik importu w grze."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Integracja Bedrock wymaga Windows. Możesz dalej grać w Java Edition na tym urządzeniu."
+  },
+  "app.bedrock.update": {
+    "message": "Zaktualizuj Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "W Microsoft Store sprawdź dostępność aktualizacji i wybierz Minecraft for Windows. Zainstalowana wersja zostanie odświeżona po powrocie."
+  },
+  "app.bedrock.version": {
+    "message": "Instalacja Windows {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Wersja"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Świat: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Światy"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "Potwierdzenia"
@@ -194,32 +722,8 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "Uruchamianie i nawigacja"
   },
-  "app.behavior-settings.sync-across-devices.description": {
-    "message": "Używaj tych ustawień wszędzie, gdzie jesteś zalogowany. Wyłącz, by mieć inne ustawienia na tym urządzeniu."
-  },
-  "app.behavior-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Zaloguj się na konto Modrinth, aby synchronizować ustawienia."
-  },
-  "app.behavior-settings.sync-across-devices.title": {
-    "message": "Synchronizuj ustawienia między urządzeniami"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "Dodawanie serwera do instancji"
-  },
   "app.browse.add-to-an-instance": {
     "message": "Dodaj do instancji"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Dodaj do instancji"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Dodaj do {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Dodano"
-  },
-  "app.browse.already-added": {
-    "message": "Już dodano"
   },
   "app.browse.back-to-instance": {
     "message": "Powrót do instancji"
@@ -227,14 +731,11 @@
   "app.browse.discover-project-type": {
     "message": "Odkrywaj {projectType}"
   },
-  "app.browse.discover-servers": {
-    "message": "Odkryj serwery"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "Ukryj już dodane serwery"
-  },
   "app.browse.hide-installed-modpacks": {
     "message": "Ukryj już zainstalowane"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Otwórz w CurseForge"
   },
   "app.browse.project-actions.label": {
     "message": "Opcje projektu"
@@ -251,17 +752,8 @@
   "app.browse.project-type.resource-packs": {
     "message": "Paczki zasobów"
   },
-  "app.browse.project-type.servers": {
-    "message": "Serwery"
-  },
   "app.browse.project-type.shaders": {
     "message": "Shadery"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "Dodawanie treści może uniemożliwić Ci dołączenie do tego serwera. Każda dodana zawartość zostanie usunięta po aktualizacji zarządzanej zawartości serwera."
-  },
-  "app.browse.server.installing": {
-    "message": "Instalowanie"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Nie znaleziono żadnych wersji pasujących do {compatibilityLabel}. Wybierz wersję, by zainstalować ją mimo tego. Zależności nie zostaną zainstalowane automatycznie."
@@ -281,8 +773,215 @@
   "app.content.sync-resource-packs-disabled": {
     "message": "Najpierw włącz synchronizację paczek zasobów w ustawieniach aplikacji."
   },
+  "app.curseforge.rate-limit.text": {
+    "message": "Osiągnięto wspólny limit żądań. Odczekaj chwilę i spróbuj ponownie."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge jest tymczasowo zajęty"
+  },
+  "app.download-manager.active": {
+    "message": "Aktywne"
+  },
+  "app.download-manager.attention": {
+    "message": "Wymaga działania"
+  },
+  "app.download-manager.cancel": {
+    "message": "Przerwij instalację"
+  },
+  "app.download-manager.canceling": {
+    "message": "Przerywanie instalacji"
+  },
+  "app.download-manager.clear-all": {
+    "message": "Wyczyść wszystko"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Wyczyść wszystkie ukończone zadania"
+  },
+  "app.download-manager.complete": {
+    "message": "Gotowe"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Duplikuj instancję"
+  },
+  "app.download-manager.empty": {
+    "message": "Brak zadań instalacyjnych"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Szacowana prędkość pobierania"
+  },
+  "app.download-manager.eta": {
+    "message": "Szacowany czas pozostały na pobranie"
+  },
+  "app.download-manager.hide": {
+    "message": "Ukryj zadania instalacji"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Importowana instancja"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Instalacja instancji"
+  },
+  "app.download-manager.modpack": {
+    "message": "Paczka modów"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Instalacja paczki modów"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Nowa instancja"
+  },
+  "app.download-manager.pause": {
+    "message": "Wstrzymaj instalacje"
+  },
+  "app.download-manager.paused": {
+    "message": "Wstrzymano"
+  },
+  "app.download-manager.remove": {
+    "message": "Usuń z historii"
+  },
+  "app.download-manager.resume": {
+    "message": "Wznów instalację"
+  },
+  "app.download-manager.show": {
+    "message": "Pokaż zadania instalacji"
+  },
+  "app.download-manager.tasks": {
+    "message": "Zadania"
+  },
+  "app.download-manager.title": {
+    "message": "Menedżer pobierania"
+  },
+  "app.download-manager.verifying": {
+    "message": "Weryfikowanie"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Anuluj zmianę katalogu"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Kopiuj informacje debugowania"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Informacje debugowania"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "najpierw. Gdy skończysz, wróć tutaj i zaloguj się!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Najpierw spróbuj zalogować się przez"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Używasz PC Game Pass, przechodzisz z Bedrock lub właśnie kupiłeś grę?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "oficjalny launcher Minecraft"
+  },
+  "app.error.get-support.button": {
+    "message": "Zdobądź pomoc techniczną"
+  },
+  "app.error.help.end": {
+    "message": ", a my chętnie pomożemy! Pamiętaj, aby dołączyć następujące informacje debugowania:"
+  },
+  "app.error.help.start": {
+    "message": "Jeśli nic nie działa i potrzebujesz pomocy, odwiedź"
+  },
+  "app.error.help.support-link": {
+    "message": "naszą stronę pomocy"
+  },
+  "app.error.hosts.body-end": {
+    "message": "próbował połączyć się z usługami Microsoft / Xbox / Minecraft, ale zdalny serwer odrzucił połączenie. Może to oznaczać, że usługi te są blokowane przez plik hosts. Odwiedź"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "aby poznać kroki naprawy tego problemu."
+  },
+  "app.error.migrate.body-end": {
+    "message": "nie może przenieść się do wybranego nowego katalogu. Skontaktuj się z pomocą techniczną lub anuluj zmianę katalogu."
+  },
+  "app.error.network.body-end": {
+    "message": "podczas łączenia z serwerami Microsoft. Często jest to skutek słabego połączenia, dlatego zalecamy ponowną próbę. Jeśli problem nadal występuje, wykonaj kroki opisane w"
+  },
+  "app.error.network.body-start": {
+    "message": "Wygląda na to, że wystąpiły problemy z"
+  },
+  "app.error.network.heading": {
+    "message": "Problemy z siecią"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": ", aby rozwiązać problem."
+  },
+  "app.error.no-error-message": {
+    "message": "Brak komunikatu o błędzie."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "nie udało się znaleźć wersji loadera dla tej instancji."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Aby to rozwiązać, musisz naprawić instancję. Kliknij poniższy przycisk."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Wygląda na to, że na dysku zawierającym wybrany katalog brakuje miejsca. Zwolnij trochę miejsca i spróbuj ponownie lub anuluj zmianę katalogu."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Za mało miejsca"
+  },
+  "app.error.read-only.body-end": {
+    "message": "nie może zapisać w wybranym katalogu. Dostosuj uprawnienia katalogu i spróbuj ponownie lub anuluj zmianę katalogu."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Wygląda na to, że"
+  },
+  "app.error.read-only.heading": {
+    "message": "Zmień uprawnienia katalogu"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Napraw instancję"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Ponów zmianę katalogu"
+  },
+  "app.error.state-init.body-end": {
+    "message": "nie udało się poprawnie załadować. Może to być spowodowane uszkodzonym plikiem lub brakiem kluczowych plików aplikacji."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Możesz spróbować to naprawić na jeden z następujących sposobów:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Upewnij się, że masz połączenie z internetem, a następnie spróbuj ponownie uruchomić aplikację."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Ponowne pobranie aplikacji."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "Otwórz folder kopii zapasowych"
+  },
+  "app.error.support-article-link": {
+    "message": "nasz artykuł pomocy"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Nie udało się zmienić katalogu aplikacji"
+  },
+  "app.error.title.generic": {
+    "message": "Wystąpił błąd"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Nie wybrano loadera"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Nie można zalogować się do Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Błąd podczas inicjowania {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Spróbuj zalogować się ponownie"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Sprawdź dwukrotnie, czy zalogowano się na właściwe konto. Minecraft może należeć do innego konta Microsoft."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Wypróbuj inne konto"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Wypróbuj inne konto Microsoft"
   },
   "app.export-modal.description-placeholder": {
     "message": "Wprowadź opis paczki modów..."
@@ -295,6 +994,27 @@
   },
   "app.export-modal.export-complete-description": {
     "message": "Wyeksportowano {name} pomyślnie."
+  },
+  "app.export-modal.format-label": {
+    "message": "Format eksportu"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "ZIP CurseForge z plikiem manifest.json i wybranymi plikami w katalogu overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Dla launcherów obsługujących paczki Modrinth. Zawiera odnośniki do pobierania i wybrane dodatkowe pliki."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Przenośna paczka {productName} z wybranymi plikami. Otwórz ją bezpośrednio w launcherze."
   },
   "app.export-modal.header": {
     "message": "Eksportuj paczkę modów"
@@ -352,15 +1072,6 @@
   },
   "app.features-settings.sidebar.title": {
     "message": "Pasek boczny"
-  },
-  "app.features-settings.sync-across-devices.description": {
-    "message": "Używaj tych ustawień funkcji na wszystkich urządzeniach, na których się logujesz. Wyłącz tę opcję, aby zachować osobne ustawienia na tym urządzeniu."
-  },
-  "app.features-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Zaloguj się na konto Modrinth, aby synchronizować ustawienia."
-  },
-  "app.features-settings.sync-across-devices.title": {
-    "message": "Synchronizuj funkcje między urządzeniami"
   },
   "app.home.jump-back-in.actions.label": {
     "message": "Opcje instancji"
@@ -464,57 +1175,6 @@
   "app.instance.actions.label": {
     "message": "Opcje instancji"
   },
-  "app.instance.add-server.add": {
-    "message": "Dodaj"
-  },
-  "app.instance.add-server.added": {
-    "message": "Dodano"
-  },
-  "app.instance.add-server.adding": {
-    "message": "Dodawanie..."
-  },
-  "app.instance.add-server.cancel": {
-    "message": "Anuluj"
-  },
-  "app.instance.add-server.compatibility-warning": {
-    "message": "Ten serwer może nie być kompatybilny ze wszystkimi instancjami."
-  },
-  "app.instance.add-server.search-placeholder": {
-    "message": "Szukaj instancji"
-  },
-  "app.instance.add-server.title": {
-    "message": "Dodaj serwer do instancji"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Dodano"
-  },
-  "app.instance.admonitions.shared-instance.changes-body": {
-    "message": "Twoja lokalna przesłana instalacja wyprzedza te, które zostały przesłane użytkownikom."
-  },
-  "app.instance.admonitions.shared-instance.changes-header": {
-    "message": "Twoje zmiany nie zostały jeszcze udostępnione"
-  },
-  "app.instance.admonitions.shared-instance.publish-button": {
-    "message": "Opublikuj aktualizację"
-  },
-  "app.instance.admonitions.shared-instance.publishing-button": {
-    "message": "Publikowanie..."
-  },
-  "app.instance.admonitions.shared-instance.removed-label": {
-    "message": "Usunięto"
-  },
-  "app.instance.admonitions.shared-instance.review-admonition-header": {
-    "message": "Opublikuj aktualizację"
-  },
-  "app.instance.admonitions.shared-instance.review-description": {
-    "message": "Zobacz zmienione treści, które zostaną przesłane wszystkim użytkownikom tej instalacji."
-  },
-  "app.instance.admonitions.shared-instance.review-header": {
-    "message": "Sprawdź zmiany"
-  },
-  "app.instance.admonitions.shared-instance.reviewing-button": {
-    "message": "Trwa przegląd..."
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Wszystkie dane z Twojej instancji zostaną trwale usunięte, w tym Twoje światy, pliki konfiguracji i jakakolwiek dodana zawartość."
   },
@@ -523,6 +1183,12 @@
   },
   "app.instance.confirm-delete.bulk-admonition-body": {
     "message": "Wszystkie dane z tych {count} instancji zostaną trwale usunięte, w tym światy, pliki konfiguracji i jakakolwiek dodana zawartość."
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "Usuń {count} instancji"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "Usuń {count} instancji"
   },
   "app.instance.confirm-delete.delete-button": {
     "message": "Usuń instancję"
@@ -536,8 +1202,8 @@
   "app.instance.content.managed-content.modpack-header": {
     "message": "Zawartość paczki modów"
   },
-  "app.instance.content.managed-content.shared-header": {
-    "message": "Udostępniona zawartość"
+  "app.instance.content.managed-content.server-header": {
+    "message": "Zawartość serwera"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Ta paczka modów jest już zainstalowana w instancji <bold>{instanceName}</bold>. Czy na pewno chcesz utworzyć duplikat?"
@@ -572,6 +1238,9 @@
   "app.instance.mods.project-was-added": {
     "message": "Dodano \"{name}\""
   },
+  "app.instance.mods.projects-were-added": {
+    "message": "Dodano {count} projektów"
+  },
   "app.instance.mods.share-text": {
     "message": "Sprawdź projekty, których używam w mojej paczce modów!"
   },
@@ -586,36 +1255,6 @@
   },
   "app.instance.navigation.back-to-instance": {
     "message": "Powrót do instancji"
-  },
-  "app.instance.shared-instance-already-installed.body": {
-    "message": "Ta przesłana instalacja jest zainstalowana jako <bold>{instanceName} </bold>. Czy na pewno chcesz zainstalować jej kopię?"
-  },
-  "app.instance.shared-instance-already-installed.header": {
-    "message": "Przesłana instalacja jest już zainstalowana"
-  },
-  "app.instance.shared-instance-already-installed.install-anyway": {
-    "message": "Instaluj mimo to"
-  },
-  "app.instance.shared-instance-already-installed.instance": {
-    "message": "Instancja"
-  },
-  "app.instance.shared-instance-wrong-account.fallback-username": {
-    "message": "połączone konto"
-  },
-  "app.instance.shared-instance-wrong-account.owner-admonition-body-v2": {
-    "message": "aby zarządzać przesłaną instalacją, gdy to zrobisz, twoja wersja instalacji wyprzedzi instalacje zainstalowaną przez innych użytkowników."
-  },
-  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
-    "message": "Zaloguj się jako"
-  },
-  "app.instance.shared-instance-wrong-account.signed-out-header": {
-    "message": "Musisz zalogować się na Modrinth"
-  },
-  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
-    "message": ", by otrzymywać aktualizacje dla tej udostępnionej instancji."
-  },
-  "app.instance.shared-instance-wrong-account.warning-header": {
-    "message": "Korzystasz z niewłaściwego konta Modrith"
   },
   "app.instance.shortcut.created": {
     "message": "Skrót utworzony"
@@ -635,17 +1274,14 @@
   "app.instance.tab.screenshots": {
     "message": "Zrzuty ekranu"
   },
-  "app.instance.tab.share": {
-    "message": "Udostępnianie"
-  },
   "app.instance.tab.worlds": {
     "message": "Światy"
   },
   "app.instance.worlds.add-server": {
     "message": "Dodaj serwer"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Szukaj serwerów"
+  "app.instance.worlds.browse": {
+    "message": "Przeglądaj światy"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Usuń świat"
@@ -751,6 +1387,21 @@
   },
   "app.java-selector.test-installation": {
     "message": "Testuj instalację Java"
+  },
+  "app.launch-link.instance": {
+    "message": "Łącze chce uruchomić {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Uruchom"
+  },
+  "app.launch-link.server": {
+    "message": "Łącze chce uruchomić {instance} i dołączyć do serwera {target}. Kontynuuj tylko, jeśli ufasz źródłu tego łącza."
+  },
+  "app.launch-link.title": {
+    "message": "Otworzyć Minecraft z łącza?"
+  },
+  "app.launch-link.world": {
+    "message": "Łącze chce uruchomić {instance} i otworzyć świat {target}."
   },
   "app.library.actions.label": {
     "message": "Opcje biblioteki"
@@ -1013,122 +1664,14 @@
   "app.library.title": {
     "message": "Biblioteka"
   },
-  "app.modal.install-to-play.additional-context": {
-    "message": "Dodatkowy kontekst"
-  },
-  "app.modal.install-to-play.additional-context-placeholder": {
-    "message": "Jeżeli to będzie możliwe, dodaj linki i obrazki"
-  },
-  "app.modal.install-to-play.block-user": {
-    "message": "Zablokuj użytkownika"
-  },
-  "app.modal.install-to-play.content-you-are-reporting": {
-    "message": "Instancja, którą zgłaszasz"
-  },
-  "app.modal.install-to-play.delete-instance": {
-    "message": "Usuń instancję"
-  },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "Nie instaluj"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "Zainstaluj, aby grać"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Instaluj mimo to"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "Zainstaluj"
-  },
-  "app.modal.install-to-play.invite-warning": {
-    "message": "To zaproszenie zostało utworzone przez innego użytkownika Modrinth, nie przez firmę Modrinth. Tylko akceptuj zaproszenia od osób, którym ufasz."
-  },
-  "app.modal.install-to-play.invite-warning-with-creator": {
-    "message": "To zaproszenie zostało utworzone przez <creator>{username}</creator>, nie przez firmę Modrinth. Akceptuj zaproszenia tylko od osób, którym ufasz."
-  },
-  "app.modal.install-to-play.managed-content.modpack-header": {
-    "message": "Zawartość paczki modów"
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {# mod} few {# mody} other {# modów}}"
-  },
-  "app.modal.install-to-play.report-description": {
-    "message": "Użyj tego formularza zgłoszeniowego, aby zgłosić przypadki, które naruszają nasze <rules-link>Zasady</rules-link> albo <terms-link>Warunki Korzystania</terms-link>."
-  },
-  "app.modal.install-to-play.report-image-invalid-type": {
-    "message": "Plik nie jest dozwolonym formatem zdjęcia"
-  },
-  "app.modal.install-to-play.report-image-too-large": {
-    "message": "Plik przekracza limit rozmiaru (1MiB)"
-  },
-  "app.modal.install-to-play.report-legal-claims": {
-    "message": "W przypadku powiadomień DMCA lub innych roszczeń prawnych zapoznaj się z naszą <copyright-link>Polityką Praw Autorskich</copyright-link>."
-  },
-  "app.modal.install-to-play.report-reason": {
-    "message": "Którą zasadę narusza ta instancja?"
-  },
-  "app.modal.install-to-play.report-shared-instance-header": {
-    "message": "Zgłoś przesłaną Instalacje"
-  },
-  "app.modal.install-to-play.report-submitted": {
-    "message": "Zgłoszenie przesłane"
-  },
-  "app.modal.install-to-play.report-support-and-bugs": {
-    "message": "W przypadku pytań technicznych prosimy o kontakt z <support-link>Zespołem Obsługi Klienta</support-link>. Aby, zgłosić błąd wejdź na <github-link>GitHub issue</github-link>."
-  },
-  "app.modal.install-to-play.reviewed-files": {
-    "message": "Pliki nieopublikowane w Modrinth nie są sprawdzane."
-  },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Przesłana Instalacja"
-  },
-  "app.modal.install-to-play.shared-instance-content": {
-    "message": "Treści w przesłanej ci instalacji"
-  },
-  "app.modal.install-to-play.shared-instance-unknown-files-description": {
-    "message": "Ta udostępniona instancja zawiera pliki, które nie zostały opublikowane na Modrinth. Zalecamy instalowanie plików tylko ze źródeł, którym ufasz."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "Ta serwerowa paczka modów zawiera pliki, które nie zostały opublikowane na Modrinth. Zalecamy instalowanie plików tylko ze źródeł, którym ufasz."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Ostrzeżenie o nieznanych plikach"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Nieznane plki"
-  },
-  "app.modal.install-to-play.user-blocked": {
-    "message": "Zablokowano użytkownika"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Pokaż zawartość"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Zaktualizuj, by grać"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "Usunięto"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "Ta serwerowa paczka modów zawiera pliki, które nie zostały opublikowane na Modrinth. Zalecamy instalowanie plików tylko ze źródeł, którym ufasz."
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "Dodano"
-  },
-  "app.modal.update-to-play.shared-instance-removed-label": {
-    "message": "Usunięto"
-  },
-  "app.modal.update-to-play.shared-instance-unknown-files-description": {
-    "message": "Ta aktualizacja udostępnionej instancji zawiera pliki, które nie zostały opublikowane na Modrinth. Zalecamy instalowanie plików tylko ze źródeł, którym ufasz."
-  },
-  "app.modal.update-to-play.update-required": {
-    "message": "Wymagana jest aktualizacja"
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "Aktualizacja jest wymagana, by grać w {name}. Zaktualizuj do najnowszej wersji, aby uruchomić grę."
+  "app.nav.collapse-sidebar": {
+    "message": "Zwiń pasek boczny"
   },
   "app.nav.create-new-instance": {
     "message": "Utwórz instancję"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Rozwiń pasek boczny"
   },
   "app.nav.home": {
     "message": "Strona główna"
@@ -1157,6 +1700,12 @@
   "app.project.coming-soon": {
     "message": "Już wkrótce"
   },
+  "app.project.gallery.image-fallback": {
+    "message": "Obraz galerii"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Otwórz obraz w nowej karcie"
+  },
   "app.project.install-button.already-installed": {
     "message": "Ten projekt jest już zainstalowany"
   },
@@ -1174,6 +1723,9 @@
   },
   "app.project.more-options": {
     "message": "Więcej opcji"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Otwórz w CurseForge"
   },
   "app.project.tab.description": {
     "message": "Opis"
@@ -1465,6 +2017,15 @@
   },
   "app.settings.downloading": {
     "message": "Pobieranie v{version}"
+  },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Nie znaleziono flag pasujących do „{query}”"
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Przywróć domyślne"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Szukaj flag..."
   },
   "app.settings.game-options.category.accessibility.description": {
     "message": "Preferencje ułatwień dostępu"
@@ -2480,6 +3041,9 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Pokazuj {productName} jako bieżącą aktywność na Discordzie. Nie wpływa to na Rich Presence dodawane do instancji przez mody."
+  },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
   },
@@ -2494,6 +3058,9 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "Wyczyścić pamięć podręczną aplikacji?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Wyczyść dane pamięci podręcznej i pobierz je ponownie. Aplikacja może ładować się wolniej, dopóki pamięć podręczna nie zostanie odbudowana."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Wyczyść pamięć podręczną"
@@ -2514,7 +3081,7 @@
     "message": "Przeglądaj lokalizację aplikacji"
   },
   "app.settings.resource-management.app-directory.description": {
-    "message": "Gdzie aplikacja Modrinth przechowuje instancje i inne pliki. Wymaga ponownego uruchomienia aplikacji."
+    "message": "Gdzie aplikacja {productName} przechowuje instancje i inne pliki. Wymaga ponownego uruchomienia aplikacji."
   },
   "app.settings.resource-management.app-directory.select": {
     "message": "Wybierz nową lokalizację aplikacji"
@@ -2533,6 +3100,78 @@
   },
   "app.settings.resource-management.maximum-concurrent-writes.title": {
     "message": "Maksymalna liczba równoczesnych operacji na dysku"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Niektóre pliki nadal wymagają uwagi"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Zachowaj do tej bardzo nieużywanej zawartości dla przyszłych instalacji. Zachowywanie więcej może zaoszczędzić czas pobierania."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Zachowaj nieużywane pobierania"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Obliczanie"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Wyczyść nieużywane"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Usuń niewykorzystane pobrane treści"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "Zwolniono {size} miejsca na dysku."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Czyszczenie…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Oszczędzaj miejsce poprzez ponowne użycie instalacji gry, modów i paczek w swoich instancjach."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Zainstaluj mody lub paczki, aby zobaczyć użycie miejsca na dysku."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "{count, plural, one {# godzina} few {# godziny} other {# godzin}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Brak niewykorzystanej zawartości do usunięcia."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Zweryfikuj i napraw"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Spowoduje to zamknięcie wszystkich uruchomionych instancji."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Sprawdź, czy nie ma brakujących lub uszkodzonych plików i napraw je."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Weryfikacja i naprawa…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Współdzielone"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Magazyn zawartości"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} przechowywane"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Unikalne"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Nieużywany"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "Sprawdzono {checked, plural, one {# plik} few {# pliki} other {# plików}} i wykonano {repaired, plural, one {# naprawę} few {# naprawy} other {# napraw}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Weryfikacja zakończona"
   },
   "app.settings.sidebar.label.instances": {
     "message": "Instancje"
@@ -2783,8 +3422,41 @@
   "app.settings.tabs.synced-options": {
     "message": "Synchronizowane ustawienia"
   },
-  "app.sidebar.playing-as": {
-    "message": "Graj jako"
+  "app.sidebar.advertising.label": {
+    "message": "Reklama"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Podgląd · miejsce {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Następny modpack"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Wstrzymaj przewijanie"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} z {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Poprzedni modpack"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Wznów przewijanie"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Polecane modpacki"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Polecane modpacki są obecnie niedostępne."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Zobacz projekt"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Poznaj hosting"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Twój następny serwer Minecraft"
   },
   "app.skins.add-button": {
     "message": "Dodaj skórkę"
@@ -2794,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Zastosuj"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Wszystkie modele"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klasyczna"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Domyślne"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Nie znaleziono skórek. Spróbuj innego wyszukiwania."
+  },
+  "app.skins.catalog.error": {
+    "message": "Ten dostawca skórek jest niedostępny. Spróbuj ponownie później."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Ładowanie skórek…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Przeszukaj całą publiczną galerię MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "Model"
+  },
+  "app.skins.catalog.next": {
+    "message": "Następna strona"
+  },
+  "app.skins.catalog.page": {
+    "message": "Strona {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Popularna"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Poprzednia strona"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Dostawcy skórek"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Dostawca osiągnął limit żądań. Poczekaj przed ponowną próbą."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Ostatnio używane"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Spróbuj ponownie"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Skórka zapisana w Domyślnych"
+  },
+  "app.skins.catalog.search": {
+    "message": "Szukaj skórek…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Szukaj"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Smukłe"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Sortuj według"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tag (opcjonalny)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "W trendach"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Ten dostawca nie jest jeszcze skonfigurowany."
   },
   "app.skins.delete-button": {
     "message": "Usuń skórkę"
@@ -3101,9 +3845,6 @@
   "app.update.download-error.missing-version": {
     "message": "Nie udało się pobrać aktualizacji: brak dostępnej wersji"
   },
-  "app.user.project.install-to-instance": {
-    "message": "Zainstaluj do instancji"
-  },
   "app.welcome-screen.create-instance": {
     "message": "Utwórz instancję"
   },
@@ -3122,6 +3863,69 @@
   "app.welcome-screen.title": {
     "message": "Witaj na {productName}"
   },
+  "app.window-controls.close": {
+    "message": "Zamknij okno"
+  },
+  "app.window-controls.minimize": {
+    "message": "Minimalizuj okno"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Przełącz maksymalizację okna"
+  },
+  "app.world-install.backup": {
+    "message": "Zastąp zachowuje kopię zapasową istniejącego świata. Zachowaj i Anuluj niczego nie instalują. Zainstaluj kolejną kopię tworzy świat z numerem."
+  },
+  "app.world-install.backup-location": {
+    "message": "Poprzedni świat zapisano w {path} wewnątrz instancji."
+  },
+  "app.world-install.conflict": {
+    "message": "Świat o tej nazwie lub z tego projektu już istnieje."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Zainstaluj mimo różnicy wersji"
+  },
+  "app.world-install.copy": {
+    "message": "Zainstaluj kolejną kopię"
+  },
+  "app.world-install.description": {
+    "message": "Zainstaluj nowy świat w instancji. Istniejące światy zostaną zachowane, chyba że zdecydujesz się któryś zastąpić."
+  },
+  "app.world-install.incompatible": {
+    "message": "Ten plik nie wskazuje zgodności z Minecraft {version}. Przed kontynuowaniem sprawdź wersję i mody wymagane przez autora."
+  },
+  "app.world-install.installed": {
+    "message": "Zainstalowano świat: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Instancja docelowa"
+  },
+  "app.world-install.keep": {
+    "message": "Zachowaj istniejący"
+  },
+  "app.world-install.no-instances": {
+    "message": "Najpierw utwórz instancję Minecrafta, a następnie wróć tutaj, aby zainstalować świat."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Pokaż światy"
+  },
+  "app.world-install.replace": {
+    "message": "Zastąp"
+  },
+  "app.world-install.replace-target": {
+    "message": "Świat do zastąpienia"
+  },
+  "app.world-install.requirements": {
+    "message": "Wymagane mody lub modpacki muszą być już zainstalowane w instancji docelowej. Sprawdź opis projektu."
+  },
+  "app.world-install.title": {
+    "message": "Zainstaluj świat"
+  },
+  "app.world-install.version": {
+    "message": "Wersja świata"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
+  },
   "app.world.server-modal.select-an-option": {
     "message": "Wybierz opcję"
   },
@@ -3137,80 +3941,14 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
-  "content.shared-instance.change-version-body": {
-    "message": "Zmiana wersji tylko zmienia twoją lokalną kopię. Przyszłe aktualizacje współdzielonych instancji mogą przywrócić lub zmienić ją ponownie."
+  "curseforge.manual.description": {
+    "message": "Pobierz {file} z oficjalnej strony CurseForge, a następnie wybierz pobrany plik, aby kontynuować. Rozmiar i SHA-1 zostaną sprawdzone."
   },
-  "content.shared-instance.delete-bulk-body": {
-    "message": "Niektóre wybrane projekty są częścią współdzielonej instancji. Usunięcie ich zmienia tylko twoją kopię lokalną, a przyszłe aktualizacje współdzielonej instancji mogą przywrócić lub zmienić je ponownie."
+  "curseforge.manual.select": {
+    "message": "Wybierz pobrany plik"
   },
-  "content.shared-instance.delete-button": {
-    "message": "Usuń mimo to"
-  },
-  "content.shared-instance.delete-many-button": {
-    "message": "Usuń {count, number} projekty/ów mimo to"
-  },
-  "content.shared-instance.delete-single-body": {
-    "message": "Zmiana wersji tylko zmienia twoją lokalną kopię. Przyszłe aktualizacje współdzielonych instancji mogą przywrócić lub zmienić ją ponownie."
-  },
-  "content.shared-instance.disable-bulk-body": {
-    "message": "Niektóre wybrane projekty są częścią współdzielonej instancji. Usunięcie ich zmienia tylko twoją kopię lokalną, a przyszłe aktualizacje współdzielonej instancji mogą przywrócić lub zmienić je ponownie."
-  },
-  "content.shared-instance.disable-button": {
-    "message": "Wyłącz mimo to"
-  },
-  "content.shared-instance.disable-many-button": {
-    "message": "Wyłącz {count, number} projekty/ów mimo to"
-  },
-  "content.shared-instance.disable-single-body": {
-    "message": "Wyłączenie tej opcji zmienia tylko twoją kopię lokalną. Przyszłe aktualizacje współdzielonych instancji mogą zostać ponownie włączone, przywrócone lub ponownie zmienione."
-  },
-  "content.shared-instance.unlink-body": {
-    "message": "Odłączanie zmienia tylko twoją kopię lokalną. Przyszłe aktualizacje współdzielonej instancji mogą przywrócić lub zmienić ją ponownie."
-  },
-  "content.shared-instance.warning-header": {
-    "message": "Jest to część udostępnionej instancji"
-  },
-  "installation-settings.shared-instance.linked-title": {
-    "message": "Powiązana udostępniona instancja"
-  },
-  "installation-settings.shared-instance.title": {
-    "message": "Wycofaj instancję"
-  },
-  "installation-settings.shared-instance.unlink-button": {
-    "message": "Odłącz udostępnioną instancję"
-  },
-  "installation-settings.shared-instance.unlink-description": {
-    "message": "Odłącz lokalną instancję od aktualizacji z udostępnionej instancji."
-  },
-  "installation-settings.shared-instance.unlinking-button": {
-    "message": "Odłączanie..."
-  },
-  "installation-settings.shared-instance.unpublish-button": {
-    "message": "Wycofaj udostępnioną instancję"
-  },
-  "installation-settings.shared-instance.unpublish-description": {
-    "message": "Usuń tę udostępnioną instancję z Modrinth i przestań wysyłać aktualizacje do użytkowników, którym jest udostępniona. Nie wpłynie to na twoją lokalną instancję."
-  },
-  "installation-settings.shared-instance.unpublishing-button": {
-    "message": "Anulowanie publikacji..."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-body": {
-    "message": "Dotyczy to tylko Twojej instancji lokalnej. Twoja zainstalowana zawartość pozostanie na tym urządzeniu, a współdzielona instancja i inne osoby korzystające z niej nie zostaną dotknięte."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-header": {
-    "message": "Odłączanie wspólnej instancji"
-  },
-  "installation-settings.unlink-shared-instance.modal.header": {
-    "message": "Odłącz wspólną instancję"
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-body": {
-    "message": "Spowoduje to usunięcie przesyłanej instalacji z serwerów Modrith. Użytkownicy korzystający z niej na {productName} przestaną otrzymywać aktualizacje, ale twoja lokalna instalacja zostanie na tym urządzeniu."
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-header": {
-    "message": "Wycofywanie udostępnionej instancji"
-  },
-  "installation-settings.unpublish-shared-instance.modal.header": {
-    "message": "Wycofaj udostępnioną instancję"
+  "curseforge.manual.title": {
+    "message": "Wymagane ręczne pobranie"
   },
   "instance.action.create-shortcut": {
     "message": "Utwórz skrót"
@@ -3277,6 +4015,9 @@
   },
   "instance.files.adding-files": {
     "message": "Dodawanie plików ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "Zarządzaj swoimi zainstalowanymi zasobami poprzez zakładkę \"Zawartość\""
   },
   "instance.files.save-as": {
     "message": "Zapisz jako..."
@@ -3425,9 +4166,6 @@
   "instance.icon-editor.symbol.moobloom": {
     "message": "Moobloom"
   },
-  "instance.icon-editor.symbol.mr-pack": {
-    "message": "Mr Pack"
-  },
   "instance.icon-editor.symbol.neoforge": {
     "message": "NeoForge"
   },
@@ -3494,14 +4232,41 @@
   "instance.last-played": {
     "message": "Ostatnio grane"
   },
+  "instance.locked.badge": {
+    "message": "Zablokowana"
+  },
   "instance.locked.delete-button": {
     "message": "Usuń instancję"
+  },
+  "instance.locked.info-label": {
+    "message": "Informacje o zablokowanej instancji"
   },
   "instance.locked.play-tooltip": {
     "message": "Ta instancja została zablokowana"
   },
+  "instance.locked.text": {
+    "message": "Ta instancja jest zablokowana i nie można jej uruchomić ani zmieniać. Możesz ją usunąć."
+  },
+  "instance.locked.title": {
+    "message": "Instancja zablokowana"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Loader modów i wersja Minecraft"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# godzina} few {# godziny} other {# godzin}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# minuta} few {# minuty} other {# minut}}"
+  },
   "instance.playtime.never-played": {
     "message": "Nigdy nie grano"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# sekunda} few {# sekundy} other {# sekund}}"
+  },
+  "instance.playtime.total": {
+    "message": "Całkowity czas gry"
   },
   "instance.server-modal.address": {
     "message": "Adres"
@@ -3514,45 +4279,6 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "Paczka zasobów"
-  },
-  "instance.settings.sharing.active-invites.actions": {
-    "message": "Akcje"
-  },
-  "instance.settings.sharing.active-invites.code": {
-    "message": "Link zaproszenia"
-  },
-  "instance.settings.sharing.active-invites.description": {
-    "message": "Każdy, kto ma jeden z tych linków, może dołaczyć, dopóki jest aktywny"
-  },
-  "instance.settings.sharing.active-invites.empty": {
-    "message": "Brak aktywnych zaproszeń."
-  },
-  "instance.settings.sharing.active-invites.expires": {
-    "message": "Wygasa"
-  },
-  "instance.settings.sharing.active-invites.revoke": {
-    "message": "Cofnij zaproszenie"
-  },
-  "instance.settings.sharing.active-invites.revoke-with-code": {
-    "message": "Cofnij zaproszenie {code}"
-  },
-  "instance.settings.sharing.active-invites.title": {
-    "message": "Aktywne zaproszenia"
-  },
-  "instance.settings.sharing.active-invites.uses": {
-    "message": "Użyć"
-  },
-  "instance.settings.sharing.revoke-invite.admonition-body": {
-    "message": "Link zaproszenia <monospace>{code}</monospace> przestanie natychmiastowo działać. Osoby, które już dołączyły, będą mieć do niego dostęp."
-  },
-  "instance.settings.sharing.revoke-invite.admonition-header": {
-    "message": "Tej akcji nie można cofnąć"
-  },
-  "instance.settings.sharing.revoke-invite.confirm": {
-    "message": "Cofnij zaproszenie"
-  },
-  "instance.settings.sharing.revoke-invite.header": {
-    "message": "Cofnij zaproszenie"
   },
   "instance.settings.synced-options.data-override": {
     "message": "Wyłącz ten wyjątek synchronizacji, aby móc edytować synchronizowane dane."
@@ -3758,9 +4484,6 @@
   "instance.settings.tabs.settings-overrides": {
     "message": "Wyjątki synchronizacji"
   },
-  "instance.settings.tabs.sharing": {
-    "message": "Udostępnianie"
-  },
   "instance.settings.tabs.synced-options.command-history": {
     "message": "Wyłącz synchronizację historii poleceń"
   },
@@ -3848,63 +4571,6 @@
   "instance.settings.tabs.window.width.enter": {
     "message": "Wprowadź szerokość..."
   },
-  "instance.shared-instance.error.title": {
-    "message": "Coś poszło nie tak"
-  },
-  "instance.shared-instance.network-error.text": {
-    "message": "Nie można połączyć się ze współdzielonymi instancjami API"
-  },
-  "instance.shared-instance.network-error.title": {
-    "message": "Błąd sieci"
-  },
-  "instance.shared-instance.owner-tooltip": {
-    "message": "Zawartość tej instancji jest udostępniana dla innych użytkowników."
-  },
-  "instance.shared-instance.publish-review.added-label": {
-    "message": "Dodano"
-  },
-  "instance.shared-instance.publish-review.admonition-header": {
-    "message": "Opublikuj aktualizację graczom"
-  },
-  "instance.shared-instance.publish-review.config-title-v2": {
-    "message": "Wybierz pliki konfiguracji"
-  },
-  "instance.shared-instance.publish-review.description": {
-    "message": "Sprawdź zmiany zawartości i wybierz pliki konfiguracji, które mają być zawarte w tej aktualizacji."
-  },
-  "instance.shared-instance.publish-review.header": {
-    "message": "Sprawdź zmiany"
-  },
-  "instance.shared-instance.publish-review.publish-button": {
-    "message": "Opublikuj aktualizację"
-  },
-  "instance.shared-instance.publish-review.removed-label": {
-    "message": "Usunięto"
-  },
-  "instance.shared-instance.tooltip": {
-    "message": "Zawartość tej instancji jest zarządzana przez kogoś innego."
-  },
-  "instance.shared-instance.unavailable.access-revoked-text": {
-    "message": "Twój dostęp do udostępnionej instancji został odwołany. Instancja jest nadal dostępna, ale nie jest już połączona i nie będzie otrzymywać aktualizacji."
-  },
-  "instance.shared-instance.unavailable.deleted-text": {
-    "message": "Instancja źródłowa została usunięta. Instancja jest nadal dostępna, ale nie jest już połączona i nie będzie otrzymywać aktualizacji."
-  },
-  "instance.shared-instance.unavailable.locked-text": {
-    "message": "Ta udostępniona instancja została zablokowana przez zespół moderacyjny Modrinth. Nie będzie otrzymywać dalszych aktualizacji z instancji źródłowej."
-  },
-  "instance.shared-instance.unavailable.locked-title": {
-    "message": "Instancja zablokowana"
-  },
-  "instance.shared-instance.unavailable.manager-fallback": {
-    "message": "zarządcę instancji"
-  },
-  "instance.shared-instance.unavailable.text": {
-    "message": "Twoja lokalna instancja jest nadal dostępna, ale nie jest już połączona i nie będzie otrzymywać aktualizacji."
-  },
-  "instance.shared-instance.unavailable.title": {
-    "message": "Udostępniona instancja nie jest już dostępna"
-  },
   "instance.worlds.a_minecraft_server": {
     "message": "Serwer Minecraft"
   },
@@ -3986,11 +4652,14 @@
   "instance.worlds.world_in_use": {
     "message": "Świat jest w użytku"
   },
+  "minecraft-account.accounts": {
+    "message": "Konta Minecraft"
+  },
   "minecraft-account.add-account": {
     "message": "Dodaj konto"
   },
-  "minecraft-account.label": {
-    "message": "Konto Minecraft"
+  "minecraft-account.getting-started": {
+    "message": "Pierwsze kroki"
   },
   "minecraft-account.not-signed-in": {
     "message": "Nie zalogowano"
@@ -3998,11 +4667,11 @@
   "minecraft-account.remove-account": {
     "message": "Usuń konto"
   },
-  "minecraft-account.select-account": {
-    "message": "Wybierz konto"
-  },
   "minecraft-account.sign-in": {
     "message": "Zaloguj się do Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Zaloguj się"
   },
   "minecraft-required.description": {
     "message": "Potrzebujesz konto Microsoft, które posiada Minecraft, zanim będziesz mógł włączyć i zacząć grać."
@@ -4025,39 +4694,6 @@
   "minecraft-required.sign-in": {
     "message": "Zaloguj się do Microsoft"
   },
-  "modal.modrinth-account-required.browser-description": {
-    "message": "Nowa karta otwarta do zalogowania. Ukończ logowanie, a następnie wróć do aplikacji."
-  },
-  "modal.modrinth-account-required.continue-in-browser-heading": {
-    "message": "Kontynuuj w przeglądarce"
-  },
-  "modal.modrinth-account-required.create-account-button": {
-    "message": "Utwórz konto"
-  },
-  "modal.modrinth-account-required.description": {
-    "message": "Musisz zalogować się na swoje konto Modrinth, zanim będziesz mógł korzystać z tej funkcji."
-  },
-  "modal.modrinth-account-required.header": {
-    "message": "Konto wymagane"
-  },
-  "modal.modrinth-account-required.open-browser-again-button": {
-    "message": "Otwórz ponownie przeglądarkę"
-  },
-  "modal.modrinth-account-required.sign-in-button": {
-    "message": "Zaloguj się na Modrinth"
-  },
-  "modal.modrinth-account-required.sign-in-heading": {
-    "message": "Zaloguj się na konto Modrinth"
-  },
-  "modal.modrinth-account-required.signing-in-header": {
-    "message": "Trwa logowanie"
-  },
-  "modal.modrinth-account-required.support-prompt": {
-    "message": "Masz problem z logowaniem? Skorzystaj z <support>Obsługi klienta</support>"
-  },
-  "modal.modrinth-account-required.waiting-for-browser": {
-    "message": "Oczekiwanie na twoje potwierdzenie..."
-  },
   "onboarding-checklist.create-instance": {
     "message": "Utwórz pierwszą instancję"
   },
@@ -4066,6 +4702,42 @@
   },
   "onboarding-checklist.title": {
     "message": "Pierwsze kroki"
+  },
+  "optifine.add-component": {
+    "message": "Zainstaluj OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Wybierz plik JAR i kontynuuj"
+  },
+  "optifine.download-official": {
+    "message": "Oficjalne pobieranie"
+  },
+  "optifine.export-notice": {
+    "message": "Pliki binarne OptiFine są wykluczone. Orbpack zachowuje wymaganą wersję; paczki Modrinth i CurseForge wymagają osobnej instalacji OptiFine."
+  },
+  "optifine.import-canceled": {
+    "message": "Wybór OptiFine anulowany. Paczka modów nie została zainstalowana."
+  },
+  "optifine.import-description": {
+    "message": "Ta paczka modów wymaga OptiFine {version} dla Minecraft {gameVersion}. Pobierz jej oficjalny plik JAR i wybierz go, aby kontynuować. OptiFine nie jest dołączony do paczki."
+  },
+  "optifine.import-title": {
+    "message": "Ta paczka modów wymaga OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Wybierz oficjalny instalator OptiFine dla Minecraft {gameVersion}. W przypadku zaimportowanej paczki modów jej wersja i suma kontrolna pliku również muszą się zgadzać."
+  },
+  "optifine.remove-component": {
+    "message": "Usuń OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Wybierz oficjalny plik JAR OptiFine"
+  },
+  "project-type.world.category": {
+    "message": "Światy"
   },
   "search.filter.locked.instance": {
     "message": "Podane przez instancję"
@@ -4078,9 +4750,6 @@
   },
   "search.filter.locked.instance.sync": {
     "message": "Synchronizuj z instancją"
-  },
-  "search.filter.locked.server-environment.title": {
-    "message": "Tylko mody po stronie klienta mogą być dodane do instancji serwera"
   },
   "settings.sidebar.label.account": {
     "message": "Konto"

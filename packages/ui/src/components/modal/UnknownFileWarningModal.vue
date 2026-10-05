@@ -153,18 +153,18 @@ const messages = defineMessages({
 		defaultMessage: 'Unknown file warning',
 	},
 	modpackWarningBody: {
-		id: 'unknown-file-warning-modal.modpack-warning-body',
+		id: 'unknown-file-warning-modal.modpack-unverified-body',
 		defaultMessage:
-			' contains files that aren’t published on Modrinth. We strongly recommend only installing files from sources you trust.',
+			' contains files whose source could not be verified. Only install files from sources you trust.',
 	},
 	modWarningBody: {
-		id: 'unknown-file-warning-modal.mod-warning-body',
+		id: 'unknown-file-warning-modal.file-unverified-body',
 		defaultMessage:
-			' isn’t published on Modrinth. We strongly recommend only installing files from sources you trust.',
+			' has a source that could not be verified. Only install files from sources you trust.',
 	},
 	reviewedFiles: {
-		id: 'unknown-file-warning-modal.reviewed-files',
-		defaultMessage: "Files that aren't published to Modrinth aren't reviewed.",
+		id: 'unknown-file-warning-modal.unverified-files',
+		defaultMessage: 'An unrecognized file may be unsafe. Check its source before installing it.',
 	},
 	unrecognizedFiles: {
 		id: 'unknown-file-warning-modal.unrecognized-files',

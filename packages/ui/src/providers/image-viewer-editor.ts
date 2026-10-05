@@ -7,6 +7,7 @@ import { createContext } from '.'
 
 export interface ImageViewerEditorContext {
 	loadEditorData: (source: ImageViewerEditorSource) => Promise<ImageViewerEditorData>
+	loadRemoteData?: (url: string) => Promise<ImageViewerEditorData>
 	onShow?: () => void
 	onHide?: () => void
 }

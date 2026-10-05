@@ -47,8 +47,9 @@ pub use self::content::{
     list_content_sets, refresh_content_updates, sync_content_files,
 };
 pub use self::export_mrpack::{
-    PackExportCandidate, create_mrpack_json, export_mrpack,
-    get_pack_export_candidates, get_pack_export_candidates_for_parent,
+    PackExportCandidate, PackExportFormat, create_mrpack_json, export_modpack,
+    export_mrpack, get_pack_export_candidates,
+    get_pack_export_candidates_for_parent,
 };
 pub use self::get::{get, get_many, list};
 pub use self::groups::{
@@ -88,8 +89,8 @@ pub(crate) use self::screenshots::reconcile_screenshots;
 pub use self::screenshots::{
     InstanceScreenshot, ScreenshotEditSaveMode, ScreenshotKey,
     delete_screenshots, export_screenshots, get_screenshot_path,
-    list_all_screenshots, list_screenshots, list_synced_screenshots,
-    move_screenshots, save_edited_screenshot,
+    list_all_screenshots, list_bedrock_screenshots, list_screenshots,
+    list_synced_screenshots, move_screenshots, save_edited_screenshot,
 };
 pub use self::synced_options::game_options::{
     CanonicalValue as GameOptionCanonicalValue, EditableGameSetting,

@@ -570,6 +570,31 @@ export const categoryMessages = defineMessages({
 		id: 'tag.category.worldgen',
 		defaultMessage: 'World Generation',
 	},
+	creation: { id: 'tag.category.creation', defaultMessage: 'Creation' },
+	'game map': { id: 'tag.category.game-map', defaultMessage: 'Game Map' },
+	'modded world': { id: 'tag.category.modded-world', defaultMessage: 'Modded World' },
+	puzzle: { id: 'tag.category.puzzle', defaultMessage: 'Puzzle' },
+	survival: { id: 'tag.category.survival', defaultMessage: 'Survival' },
+	'armor, tools, and weapons': {
+		id: 'tag.category.armor-tools-weapons',
+		defaultMessage: 'Armor, Tools, and Weapons',
+	},
+	'texture packs': { id: 'tag.category.texture-packs', defaultMessage: 'Texture Packs' },
+	players: { id: 'tag.category.players', defaultMessage: 'Players' },
+	maps: { id: 'tag.category.maps', defaultMessage: 'Maps' },
+	skins: { id: 'tag.category.skins', defaultMessage: 'Skins' },
+	cosmetics: { id: 'tag.category.cosmetics', defaultMessage: 'Cosmetics' },
+	'minecraft addon maker': {
+		id: 'tag.category.minecraft-addon-maker',
+		defaultMessage: 'Minecraft Addon Maker',
+	},
+	shaders: { id: 'tag.category.shaders', defaultMessage: 'Shaders' },
+	'l 3d packs': { id: 'tag.category.3d-packs', defaultMessage: '3D Packs' },
+	'enhanced visuals': { id: 'tag.category.enhanced-visuals', defaultMessage: 'Enhanced Visuals' },
+	rollercoaster: { id: 'tag.category.rollercoaster', defaultMessage: 'Rollercoaster' },
+	ctm: { id: 'tag.category.ctm', defaultMessage: 'Complete the Monument' },
+	'custom terrain': { id: 'tag.category.custom-terrain', defaultMessage: 'Custom Terrain' },
+	scripts: { id: 'tag.category.scripts', defaultMessage: 'Scripts' },
 })
 
 export const DEFAULT_MOD_LOADERS: string[] = ['fabric', 'forge', 'neoforge']
@@ -638,9 +663,9 @@ export function getTagMessage(
 	if (enforceType === 'loader') {
 		return loaderMessages[tag]
 	} else if (enforceType === 'category') {
-		return categoryMessages[tag]
+		return categoryMessages[tag.toLowerCase()]
 	} else {
-		return loaderMessages[tag] ?? categoryMessages[tag]
+		return loaderMessages[tag] ?? categoryMessages[tag.toLowerCase()]
 	}
 }
 

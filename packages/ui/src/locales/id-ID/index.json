@@ -2,6 +2,12 @@
   "action.no-permission": {
     "defaultMessage": "Anda tidak memiliki izin."
   },
+  "app.appearance-settings.native-decorations.description": {
+    "defaultMessage": "Gunakan bilah judul dan kontrol jendela sistem operasi Anda. Memerlukan mulai ulang aplikasi."
+  },
+  "app.appearance-settings.native-decorations.title": {
+    "defaultMessage": "Bingkai jendela sistem"
+  },
   "badge.alpha": {
     "defaultMessage": "Alpha"
   },
@@ -14,14 +20,29 @@
   "badge.new": {
     "defaultMessage": "Baru"
   },
+  "badge.release": {
+    "defaultMessage": "Rilis"
+  },
+  "browse.advanced-filters.apply-saved-preferences": {
+    "defaultMessage": "Terapkan preferensi tersimpan"
+  },
+  "browse.advanced-filters.link-overriding-preferences": {
+    "defaultMessage": "Penapis tautan ini berbeda dari pengecualian lanjutan yang Anda simpan"
+  },
+  "browse.advanced-filters.persistence-note": {
+    "defaultMessage": "Pengecualian lanjutan disimpan di seluruh sesi. Membuka tautan bersama dengan penapis akan menggantikannya."
+  },
+  "browse.display-mode.change": {
+    "defaultMessage": "Ubah mode tampilan"
+  },
   "browse.filter-results": {
     "defaultMessage": "Saring hasil..."
   },
   "browse.no-results": {
     "defaultMessage": "Hasil tidak ditemukan untuk pencarian Anda!"
   },
-  "browse.offline": {
-    "defaultMessage": "Anda saat ini luring. Sambungkan ke internet untuk menelusuri Modrinth!"
+  "browse.offline-content": {
+    "defaultMessage": "Anda sedang luring. Sambungkan ke internet untuk menjelajahi konten."
   },
   "browse.search.placeholder": {
     "defaultMessage": "Cari {projectType}..."
@@ -52,6 +73,9 @@
   },
   "button.accept": {
     "defaultMessage": "Terima"
+  },
+  "button.add-another": {
+    "defaultMessage": "Tambah lainnya"
   },
   "button.add-server-to-instance": {
     "defaultMessage": "Tambah server ke instans"
@@ -107,6 +131,9 @@
   "button.download": {
     "defaultMessage": "Unduh"
   },
+  "button.download-files": {
+    "defaultMessage": "Unduh berkas"
+  },
   "button.downloading": {
     "defaultMessage": "Mengunduh"
   },
@@ -124,6 +151,9 @@
   },
   "button.hide-snapshots": {
     "defaultMessage": "Sembunyikan citra"
+  },
+  "button.i-understand": {
+    "defaultMessage": "Saya mengerti"
   },
   "button.install": {
     "defaultMessage": "Pasang"
@@ -143,6 +173,9 @@
   "button.open-folder": {
     "defaultMessage": "Buka folder"
   },
+  "button.open-in-browser": {
+    "defaultMessage": "Buka di peramban"
+  },
   "button.open-in-folder": {
     "defaultMessage": "Buka di folder"
   },
@@ -157,6 +190,9 @@
   },
   "button.reinstall-modpack": {
     "defaultMessage": "Pasang ulang paket mod"
+  },
+  "button.remove": {
+    "defaultMessage": "Hapus"
   },
   "button.remove-image": {
     "defaultMessage": "Hapus gambar"
@@ -209,6 +245,9 @@
   "button.stop": {
     "defaultMessage": "Hentikan"
   },
+  "button.switch-to-version": {
+    "defaultMessage": "Alihkan ke versi"
+  },
   "button.switch-version": {
     "defaultMessage": "Beralih versi"
   },
@@ -224,8 +263,53 @@
   "button.upload-image": {
     "defaultMessage": "Unggah gambar"
   },
+  "card.toggle-details": {
+    "defaultMessage": "Alihkan detail"
+  },
   "collections.label.private": {
     "defaultMessage": "Pribadi"
+  },
+  "console.actions.collapse": {
+    "defaultMessage": "Lipat"
+  },
+  "console.actions.expand": {
+    "defaultMessage": "Bentangkan"
+  },
+  "console.actions.share": {
+    "defaultMessage": "Bagikan"
+  },
+  "console.command-input-disabled": {
+    "defaultMessage": "Masukan perintah dinonaktifkan"
+  },
+  "console.crash.problems-detected": {
+    "defaultMessage": "{count, plural, other {# masalah terdeteksi}}"
+  },
+  "console.delete-log-confirm-body": {
+    "defaultMessage": "Menghapus berkas log ini tidak dapat dibatalkan. Apakah Anda yakin ingin melanjutkan?"
+  },
+  "console.delete-log-failed-title": {
+    "defaultMessage": "Gagal menghapus berkas log"
+  },
+  "console.delete-log-file-header": {
+    "defaultMessage": "Hapus berkas log"
+  },
+  "console.delete-log-irreversible-header": {
+    "defaultMessage": "Ini tidak dapat dibatalkan"
+  },
+  "console.search-logs-placeholder": {
+    "defaultMessage": "Cari log"
+  },
+  "console.server-not-running": {
+    "defaultMessage": "Server tidak berjalan"
+  },
+  "console.share-logs-failed-title": {
+    "defaultMessage": "Gagal membagikan log"
+  },
+  "console.share-logs-header": {
+    "defaultMessage": "Bagikan Log"
+  },
+  "console.unknown-error": {
+    "defaultMessage": "Kesalahan tidak diketahui."
   },
   "content-type.content.lowercase": {
     "defaultMessage": "konten"
@@ -233,8 +317,20 @@
   "content-type.item.lowercase": {
     "defaultMessage": "{count, plural, other {benda}}"
   },
+  "content.card.frozen": {
+    "defaultMessage": "Proyek ini dikunci pada versi saat ini hingga dibuka kuncinya."
+  },
   "content.card.select-project": {
     "defaultMessage": "Pilih {project}"
+  },
+  "content.card.sync-update-pending": {
+    "defaultMessage": "Beberapa salinan tersinkronkan menunggu perubahan. Instans mungkin sedang berjalan, memiliki versi yang dibekukan atau tidak cocok, atau sudah berisi salinannya sendiri."
+  },
+  "content.card.synced": {
+    "defaultMessage": "Disinkronkan di seluruh instans"
+  },
+  "content.card.uploaded": {
+    "defaultMessage": "Diunggah"
   },
   "content.confirm-bulk-update.admonition-body": {
     "defaultMessage": "Apakah Anda yakin ingin memperbarui  {count, plural, one {# project} other {# projects}} ke versi terbaru yang kompatibel? Disarankan untuk memperbarui konten satu per satu."
@@ -263,6 +359,9 @@
   "content.confirm-deletion.header": {
     "defaultMessage": "Hapus {itemType}"
   },
+  "content.confirm-disable.header": {
+    "defaultMessage": "Nonaktifkan {itemType}"
+  },
   "content.confirm-modpack-update.admonition-body": {
     "defaultMessage": "{action, select, downgrade {Menurunkan versi} other {Memperbarui versi}} dapat menyebabkan masalah kompatibilitas. Mod atau konten yang Anda tambahkan di atas paket akan tetap tersimpan, tetapi mungkin tidak cocok dengan versi baru."
   },
@@ -287,6 +386,15 @@
   "content.confirm-unlink.unlink-button": {
     "defaultMessage": "Lepas tautan"
   },
+  "content.dependency-warning.admonition-header": {
+    "defaultMessage": "Konten ini diperlukan oleh konten lain"
+  },
+  "content.dependency-warning.affected-dependents-label": {
+    "defaultMessage": "{count, plural, other {proyek terdampak}}"
+  },
+  "content.dependency-warning.bulk-admonition-body": {
+    "defaultMessage": "Beberapa proyek terpilih diinstal sebagai dependensi. Menghapusnya dapat merusak {context} Anda atau menghentikan konten dependen agar tidak dimuat dengan benar."
+  },
   "content.dependency-warning.context.instance": {
     "defaultMessage": "instans"
   },
@@ -296,8 +404,26 @@
   "content.dependency-warning.delete-anyway-button": {
     "defaultMessage": "Tetap hapus"
   },
+  "content.dependency-warning.delete-many-anyway-button": {
+    "defaultMessage": "Hapus {count, number} {itemType} juga"
+  },
   "content.dependency-warning.deleting-label": {
     "defaultMessage": "Menghapus"
+  },
+  "content.dependency-warning.disable-dependents-label": {
+    "defaultMessage": "Nonaktifkan dependen setelah menghapus"
+  },
+  "content.dependency-warning.effect-dependent-content": {
+    "defaultMessage": "Konten dependen mungkin gagal dimuat atau menonaktifkan dirinya sendiri"
+  },
+  "content.dependency-warning.effect-instance": {
+    "defaultMessage": "{context} Anda mungkin mogok, menolak untuk dimulai, atau berperilaku tidak terduga"
+  },
+  "content.dependency-warning.header": {
+    "defaultMessage": "Peringatan dependensi"
+  },
+  "content.dependency-warning.single-admonition-body": {
+    "defaultMessage": "{project} diinstal sebagai dependensi. Menghapusnya dapat merusak {context} Anda atau menghentikan konten dependen agar tidak dimuat dengan benar."
   },
   "content.dependency-warning.what-happens-label": {
     "defaultMessage": "Apa yang akan terjadi?"
@@ -305,20 +431,77 @@
   "content.diff-modal.added-count": {
     "defaultMessage": "{count} ditambahkan"
   },
+  "content.diff-modal.config-files-updated": {
+    "defaultMessage": "Berkas konfigurasi berubah"
+  },
   "content.diff-modal.diff-type.added": {
     "defaultMessage": "Ditambahkan (depedensi)"
   },
   "content.diff-modal.diff-type.removed": {
     "defaultMessage": "Dimatikan"
   },
+  "content.diff-modal.diff-type.removed-disabled": {
+    "defaultMessage": "Dihapus (dinonaktifkan)"
+  },
   "content.diff-modal.diff-type.updated": {
     "defaultMessage": "Diperbarui"
+  },
+  "content.diff-modal.dont-install": {
+    "defaultMessage": "Jangan instal"
+  },
+  "content.diff-modal.external-diff-type.added": {
+    "defaultMessage": "Ditambahkan"
+  },
+  "content.diff-modal.external-diff-type.removed": {
+    "defaultMessage": "Dihapus"
+  },
+  "content.diff-modal.external-diff-type.updated": {
+    "defaultMessage": "Diperbarui"
+  },
+  "content.diff-modal.file-count": {
+    "defaultMessage": "{count, plural, other {# berkas}}"
+  },
+  "content.diff-modal.game-version-updated": {
+    "defaultMessage": "Versi permainan"
+  },
+  "content.diff-modal.install-anyway": {
+    "defaultMessage": "Instal juga"
+  },
+  "content.diff-modal.loader-updated": {
+    "defaultMessage": "Pemuat"
+  },
+  "content.diff-modal.modpack-linked": {
+    "defaultMessage": "Paket mod tertaut"
+  },
+  "content.diff-modal.modpack-unlinked": {
+    "defaultMessage": "Paket mod tidak tertaut"
+  },
+  "content.diff-modal.modpack-updated": {
+    "defaultMessage": "Paket mod diperbarui"
+  },
+  "content.diff-modal.no-content-changes": {
+    "defaultMessage": "Tidak ada perubahan konten"
   },
   "content.diff-modal.removed-count": {
     "defaultMessage": "{count} dihapus"
   },
+  "content.diff-modal.removed-disabled-count": {
+    "defaultMessage": "{count} dihapus (dinonaktifkan)"
+  },
+  "content.diff-modal.reviewed-files": {
+    "defaultMessage": "Berkas yang tidak diterbitkan ke Modrinth tidak ditinjau."
+  },
   "content.diff-modal.unknown-content-body": {
     "defaultMessage": "Beberapa konten pada server Anda tidak dapat dianalisis dan mungkin dipengaruhi oleh perubahan ini."
+  },
+  "content.diff-modal.unknown-files-description": {
+    "defaultMessage": "Pembaruan ini berisi berkas yang tidak diterbitkan di Modrinth. Kami sangat menyarankan hanya menginstal berkas dari sumber yang Anda percayai."
+  },
+  "content.diff-modal.unknown-files-warning": {
+    "defaultMessage": "Peringatan berkas tidak diketahui"
+  },
+  "content.diff-modal.unknown-project": {
+    "defaultMessage": "Tidak diketahui"
   },
   "content.diff-modal.updated-count": {
     "defaultMessage": "{count} diperbarui"
@@ -344,12 +527,6 @@
   "content.inline-backup.backup-failed": {
     "defaultMessage": "Gagal membuat cadangan. Anda tetap dapat melanjutkan."
   },
-  "content.inline-backup.backup-in-progress": {
-    "defaultMessage": "Proses pencadangan sedang berlangsung; disarankan untuk menunggu hingga proses tersebut selesai sebelum melakukan tindakan ini."
-  },
-  "content.inline-backup.backup-takes-a-while": {
-    "defaultMessage": "Pembuatan cadangan mungkin memerlukan waktu beberapa menit, tergantung pada ukuran server Anda."
-  },
   "content.inline-backup.create-backup": {
     "defaultMessage": "Buat cadangan"
   },
@@ -362,8 +539,89 @@
   "content.inline-backup.warning-body": {
     "defaultMessage": "Kami menyarankan Anda membuat cadangan terlebih dahulu sebelum melanjutkan, sehingga Anda dapat memulihkan {type} Anda bila terjadi masalah."
   },
-  "content.inline-backup.world-label": {
-    "defaultMessage": "dunia"
+  "content.managed-card.modpack-content": {
+    "defaultMessage": "Konten paket mod"
+  },
+  "content.managed-card.provided-by": {
+    "defaultMessage": "Disediakan oleh"
+  },
+  "content.managed-card.server-suffix": {
+    "defaultMessage": "server"
+  },
+  "content.managed-card.settings": {
+    "defaultMessage": "Pengaturan instalasi"
+  },
+  "content.managed-card.shared-content": {
+    "defaultMessage": "Konten bersama"
+  },
+  "content.managed-card.summary.installing": {
+    "defaultMessage": "Menginstal konten..."
+  },
+  "content.managed-card.summary.loading": {
+    "defaultMessage": "Memuat ringkasan konten terkelola"
+  },
+  "content.managed-card.summary.no-provided-content": {
+    "defaultMessage": "Tidak ada konten yang disediakan"
+  },
+  "content.managed-card.switch-version": {
+    "defaultMessage": "Alihkan versi"
+  },
+  "content.managed-card.synced": {
+    "defaultMessage": "Disinkronkan {time}"
+  },
+  "content.managed-card.update-available": {
+    "defaultMessage": "Pembaruan tersedia"
+  },
+  "content.managed-card.updated": {
+    "defaultMessage": "Diperbarui {time}"
+  },
+  "content.managed-card.updating": {
+    "defaultMessage": "Memperbarui..."
+  },
+  "content.managed-card.view-content": {
+    "defaultMessage": "Lihat konten"
+  },
+  "content.metadata-filter.author": {
+    "defaultMessage": "Penulis"
+  },
+  "content.metadata-filter.environment": {
+    "defaultMessage": "Lingkungan"
+  },
+  "content.metadata-filter.open-source": {
+    "defaultMessage": "Sumber terbuka"
+  },
+  "content.metadata-filter.shared-content": {
+    "defaultMessage": "Konten bersama"
+  },
+  "content.metadata-filter.source.external": {
+    "defaultMessage": "Eksternal"
+  },
+  "content.metadata-filter.state": {
+    "defaultMessage": "Status"
+  },
+  "content.metadata-filter.state.disabled": {
+    "defaultMessage": "Dinonaktifkan"
+  },
+  "content.metadata-filter.state.enabled": {
+    "defaultMessage": "Diaktifkan"
+  },
+  "content.metadata-filter.update.available": {
+    "defaultMessage": "Pembaruan tersedia"
+  },
+  "content.metadata-filter.warning.client-depends": {
+    "defaultMessage": "Klien bergantung pada berkas"
+  },
+  "content.metadata-filter.warning.client-only": {
+    "defaultMessage": "Konten khusus klien"
+  },
+  "content.metadata-filter.warning.client-retained": {
+    "defaultMessage": "Berkas klien dipertahankan"
+  },
+  "content.metadata-filter.warning.none": {
+    "defaultMessage": "Tidak ada peringatan"
+  },
+  "content.metadata-filter.warnings": {
+    "defaultMessage": "Peringatan"
   },
   "content.page-layout.additional-content": {
     "defaultMessage": "Konten tambahan"
@@ -385,6 +643,12 @@
   },
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Gagal memuat konten"
+  },
+  "content.page-layout.filter.add": {
+    "defaultMessage": "Penapis"
+  },
+  "content.page-layout.filter.author-count": {
+    "defaultMessage": "{count, plural, other {# penulis}}"
   },
   "content.page-layout.loading": {
     "defaultMessage": "Sedang memuat konten..."
@@ -413,6 +677,12 @@
   "content.page-layout.share.project-names": {
     "defaultMessage": "Nama proyek"
   },
+  "content.page-layout.sort.alphabetical-ascending": {
+    "defaultMessage": "Nama (A-Z)"
+  },
+  "content.page-layout.sort.alphabetical-descending": {
+    "defaultMessage": "Nama (Z-A)"
+  },
   "content.page-layout.sort.date-added-newest": {
     "defaultMessage": "Terbaru dahulu"
   },
@@ -437,11 +707,17 @@
   "content.selection-bar.bulk.deleting": {
     "defaultMessage": "Menghapus {progress}/{total} {contentType}..."
   },
+  "content.selection-bar.bulk.deleting-count": {
+    "defaultMessage": "Menghapus {count, number} {contentType}"
+  },
   "content.selection-bar.bulk.deleting-waiting": {
     "defaultMessage": "Menghapus {contentType}..."
   },
   "content.selection-bar.bulk.disabling": {
     "defaultMessage": "Mematikan {progress}/{total} {contentType}..."
+  },
+  "content.selection-bar.bulk.disabling-count": {
+    "defaultMessage": "Menonaktifkan {count, number} {contentType}"
   },
   "content.selection-bar.bulk.disabling-waiting": {
     "defaultMessage": "Mematikan {contentType}..."
@@ -449,11 +725,17 @@
   "content.selection-bar.bulk.enabling": {
     "defaultMessage": "Menghidupkan {progress}/{total} {contentType}..."
   },
+  "content.selection-bar.bulk.enabling-count": {
+    "defaultMessage": "Mengaktifkan {count, number} {contentType}"
+  },
   "content.selection-bar.bulk.enabling-waiting": {
     "defaultMessage": "Menghidupkan {contentType}..."
   },
   "content.selection-bar.bulk.updating": {
     "defaultMessage": "Memperbarui {progress}/{total} {contentType}..."
+  },
+  "content.selection-bar.bulk.updating-count": {
+    "defaultMessage": "Memperbarui {count, number} {contentType}"
   },
   "content.selection-bar.bulk.updating-waiting": {
     "defaultMessage": "Memperbarui {contentType}..."
@@ -467,29 +749,26 @@
   "creation-flow.button.create-instance": {
     "defaultMessage": "Buat instans"
   },
-  "creation-flow.button.create-world": {
-    "defaultMessage": "Buat dunia"
-  },
-  "creation-flow.button.finish": {
-    "defaultMessage": "Selesai"
-  },
   "creation-flow.button.import": {
     "defaultMessage": "Impor"
   },
   "creation-flow.button.import-instances": {
     "defaultMessage": "Impor {count, plural, other {# instans}}"
   },
-  "creation-flow.button.setup-server": {
-    "defaultMessage": "Buat server"
-  },
-  "creation-flow.modal.custom-setup.content-loader.label": {
-    "defaultMessage": "Pemuat konten"
-  },
   "creation-flow.modal.custom-setup.game-version.placeholder": {
     "defaultMessage": "Pilih versi permainan"
   },
   "creation-flow.modal.custom-setup.game-version.search-placeholder": {
     "defaultMessage": "Cari versi permainan..."
+  },
+  "creation-flow.modal.custom-setup.icon.customize": {
+    "defaultMessage": "Sesuaikan"
+  },
+  "creation-flow.modal.custom-setup.icon.randomize": {
+    "defaultMessage": "Acak"
+  },
+  "creation-flow.modal.custom-setup.icon.select": {
+    "defaultMessage": "Unggah"
   },
   "creation-flow.modal.custom-setup.loader-version-type.latest": {
     "defaultMessage": "Terbaru"
@@ -521,99 +800,6 @@
   "creation-flow.modal.custom-setup.options.no-versions-available": {
     "defaultMessage": "Tidak ada versi tersedia"
   },
-  "creation-flow.modal.final-config.additional-settings.title": {
-    "defaultMessage": "Pengaturan tambahan"
-  },
-  "creation-flow.modal.final-config.backup.before-reset-server.name": {
-    "defaultMessage": "Pra-pengaturan ulang server"
-  },
-  "creation-flow.modal.final-config.difficulty.easy": {
-    "defaultMessage": "Mudah"
-  },
-  "creation-flow.modal.final-config.difficulty.hard": {
-    "defaultMessage": "Sulit"
-  },
-  "creation-flow.modal.final-config.difficulty.label": {
-    "defaultMessage": "Kesulitan"
-  },
-  "creation-flow.modal.final-config.difficulty.normal": {
-    "defaultMessage": "Normal"
-  },
-  "creation-flow.modal.final-config.difficulty.peaceful": {
-    "defaultMessage": "Damai"
-  },
-  "creation-flow.modal.final-config.game-version.placeholder": {
-    "defaultMessage": "Pilih versi permainan"
-  },
-  "creation-flow.modal.final-config.gamemode.creative": {
-    "defaultMessage": "Kreatif"
-  },
-  "creation-flow.modal.final-config.gamemode.hardcore": {
-    "defaultMessage": "Menantang"
-  },
-  "creation-flow.modal.final-config.gamemode.label": {
-    "defaultMessage": "Mode permainan"
-  },
-  "creation-flow.modal.final-config.gamemode.survival": {
-    "defaultMessage": "Sintas"
-  },
-  "creation-flow.modal.final-config.generator-settings-json.placeholder": {
-    "defaultMessage": "Masukkan JSON untuk pengaturan penghasil"
-  },
-  "creation-flow.modal.final-config.generator-settings.custom": {
-    "defaultMessage": "Tersuai"
-  },
-  "creation-flow.modal.final-config.generator-settings.default": {
-    "defaultMessage": "Bawaan"
-  },
-  "creation-flow.modal.final-config.generator-settings.description": {
-    "defaultMessage": "Digunakan untuk penyesuaian dunia lanjutan seperti lapisan Superrata tersuai."
-  },
-  "creation-flow.modal.final-config.generator-settings.flat": {
-    "defaultMessage": "Superrata"
-  },
-  "creation-flow.modal.final-config.generator-settings.label": {
-    "defaultMessage": "Pengaturan penghasil"
-  },
-  "creation-flow.modal.final-config.generator-settings.placeholder": {
-    "defaultMessage": "Pilih pengaturan penghasil"
-  },
-  "creation-flow.modal.final-config.world-name.label": {
-    "defaultMessage": "Nama dunia"
-  },
-  "creation-flow.modal.final-config.world-name.placeholder": {
-    "defaultMessage": "Masukkan nama dunia"
-  },
-  "creation-flow.modal.final-config.world-seed.description": {
-    "defaultMessage": "Kosongkan untuk benih acak."
-  },
-  "creation-flow.modal.final-config.world-seed.label-with-optional": {
-    "defaultMessage": "Benih dunia <optional>(Opsional)</optional>"
-  },
-  "creation-flow.modal.final-config.world-seed.placeholder": {
-    "defaultMessage": "Masukkan benih dunia"
-  },
-  "creation-flow.modal.final-config.world-type.amplified": {
-    "defaultMessage": "Diperkuat"
-  },
-  "creation-flow.modal.final-config.world-type.default": {
-    "defaultMessage": "Bawaan"
-  },
-  "creation-flow.modal.final-config.world-type.label": {
-    "defaultMessage": "Jenis dunia"
-  },
-  "creation-flow.modal.final-config.world-type.large-biomes": {
-    "defaultMessage": "Bioma Besar"
-  },
-  "creation-flow.modal.final-config.world-type.placeholder": {
-    "defaultMessage": "Pilih jenis dunia"
-  },
-  "creation-flow.modal.final-config.world-type.single-biome": {
-    "defaultMessage": "Bioma Tunggal"
-  },
-  "creation-flow.modal.final-config.world-type.superflat": {
-    "defaultMessage": "Superrata"
-  },
   "creation-flow.modal.import-instance.action.add": {
     "defaultMessage": "Tambah"
   },
@@ -629,8 +815,14 @@
   "creation-flow.modal.import-instance.launcher-path.add": {
     "defaultMessage": "Tambah jalur peluncur"
   },
+  "creation-flow.modal.import-instance.launcher-path.browse": {
+    "defaultMessage": "Jelajahi jalur peluncur"
+  },
   "creation-flow.modal.import-instance.launcher-path.placeholder": {
     "defaultMessage": "Jalur ke peluncur..."
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.text": {
+    "defaultMessage": "Tidak ada instans yang dapat diimpor ditemukan di jalur yang ditentukan."
   },
   "creation-flow.modal.import-instance.notification.no-instances-found.title": {
     "defaultMessage": "Instans tidak ditemukan"
@@ -641,14 +833,86 @@
   "creation-flow.modal.import-instance.selection.clear-all": {
     "defaultMessage": "Kosongkan semua"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
-    "defaultMessage": "Minecraft klasik tanpa mod atau pasang-masuk."
+  "creation-flow.modal.project.known-project.prompt": {
+    "defaultMessage": "Sudah tahu apa yang ingin Anda mainkan?"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "Minecraft Vanila"
+  "creation-flow.modal.project.search.create-instance": {
+    "defaultMessage": "Buat instans"
   },
-  "creation-flow.modal.setup-type.title.installation": {
-    "defaultMessage": "Pilih jenis pemasangan"
+  "creation-flow.modal.project.search.install-modpack": {
+    "defaultMessage": "Instal paket mod"
+  },
+  "creation-flow.modal.project.search.no-results": {
+    "defaultMessage": "Tidak ada hasil ditemukan"
+  },
+  "creation-flow.modal.project.search.placeholder": {
+    "defaultMessage": "Cari mod, paket mod, dan lainnya..."
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.description": {
+    "defaultMessage": "Mulai dari awal dengan memilih pemuat dan versi permainan."
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.title": {
+    "defaultMessage": "Persiapan kustom"
+  },
+  "creation-flow.modal.setup-type.option.import-instance.description": {
+    "defaultMessage": "Impor instans dari Prism, CurseForge, atau sejenisnya."
+  },
+  "creation-flow.modal.setup-type.option.import-instance.title": {
+    "defaultMessage": "Impor instans"
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.description": {
+    "defaultMessage": "Pilih proyek dan kami akan menggunakan versi terbarunya."
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.title": {
+    "defaultMessage": "Mulai dari mod atau paket mod"
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.supported-formats-description": {
+    "defaultMessage": "Impor berkas .orbpack, .mrpack Modrinth, atau .zip CurseForge dari perangkat Anda."
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.title": {
+    "defaultMessage": "Unggah paket mod"
+  },
+  "creation-flow.modal.setup-type.title.instance": {
+    "defaultMessage": "Pilih jenis instans"
+  },
+  "creation-flow.optifine.description": {
+    "defaultMessage": "Opsional. Pilih pemasang resmi dan peluncur akan mengonfigurasinya di instans ini."
+  },
+  "creation-flow.optifine.download": {
+    "defaultMessage": "Unduhan resmi"
+  },
+  "creation-flow.optifine.name": {
+    "defaultMessage": "OptiFine"
+  },
+  "creation-flow.optifine.none": {
+    "defaultMessage": "Tidak ada"
+  },
+  "creation-flow.optifine.optimization": {
+    "defaultMessage": "Optimasi"
+  },
+  "creation-flow.optifine.required": {
+    "defaultMessage": "Pilih JAR OptiFine resmi untuk Minecraft {gameVersion} untuk melanjutkan."
+  },
+  "creation-flow.optifine.select": {
+    "defaultMessage": "Pilih JAR"
+  },
+  "creation-flow.optifine.selected": {
+    "defaultMessage": "OptiFine {version} · Minecraft {gameVersion}"
+  },
+  "creation-flow.optifine.validating": {
+    "defaultMessage": "Memeriksa pemasang…"
+  },
+  "creation-flow.optifine.vanilla-only": {
+    "defaultMessage": "Instalasi OptiFine saat ini tersedia untuk instans Vanilla."
+  },
+  "creation-flow.title.create-instance": {
+    "defaultMessage": "Buat instans"
+  },
+  "creation-flow.title.import-instance": {
+    "defaultMessage": "Impor instans"
+  },
+  "empty-state.upload-versions.description": {
+    "defaultMessage": "Kembali setelah Anda mengunggah versi Anda."
   },
   "external-project-license-status.no": {
     "defaultMessage": "Tidak"
@@ -667,6 +931,12 @@
   },
   "external-project-license-status.yes": {
     "defaultMessage": "Ya"
+  },
+  "file-button.file-too-large.description": {
+    "defaultMessage": "Berkas {filename} terlalu besar. Ukuran berkas maksimum adalah {maxSize}."
+  },
+  "file-button.file-too-large.title": {
+    "defaultMessage": "Berkas terlalu besar"
   },
   "files.conflict-modal.header": {
     "defaultMessage": "Ringkasan pengekstrakan"
@@ -692,17 +962,50 @@
   "files.create-modal.create-button": {
     "defaultMessage": "Buat {type}"
   },
+  "files.create-modal.header": {
+    "defaultMessage": "Buat {type}"
+  },
   "files.create-modal.placeholder-directory": {
     "defaultMessage": "cth: folder-saya"
   },
   "files.create-modal.placeholder-file": {
     "defaultMessage": "cth: config.yml"
   },
+  "files.create-zip-modal.already-exists": {
+    "defaultMessage": "Berkas dengan nama ini sudah ada."
+  },
+  "files.create-zip-modal.check-failed": {
+    "defaultMessage": "Gagal memeriksa apakah berkas ini sudah ada."
+  },
+  "files.create-zip-modal.create-button": {
+    "defaultMessage": "Buat ZIP"
+  },
+  "files.create-zip-modal.header": {
+    "defaultMessage": "Buat ZIP"
+  },
+  "files.create-zip-modal.invalid": {
+    "defaultMessage": "Nama arsip harus berupa satu nama berkas."
+  },
+  "files.create-zip-modal.name-label": {
+    "defaultMessage": "Nama arsip"
+  },
+  "files.create-zip-modal.name-placeholder": {
+    "defaultMessage": "arsip.zip"
+  },
+  "files.create-zip-modal.required": {
+    "defaultMessage": "Masukkan nama arsip."
+  },
   "files.delete-modal.deleting-name": {
     "defaultMessage": "Menghapus \"{name}\""
   },
   "files.delete-modal.header": {
     "defaultMessage": "Hapus berkas"
+  },
+  "files.delete-modal.warning.file": {
+    "defaultMessage": "Berkas ini akan dihapus secara permanen. Tindakan ini tidak dapat dibatalkan."
+  },
+  "files.delete-modal.warning.folder": {
+    "defaultMessage": "Folder ini dan semua isinya akan dihapus secara permanen. Tindakan ini tidak dapat dibatalkan."
   },
   "files.editor.failed-to-open-text": {
     "defaultMessage": "Tidak dapat memuat isi berkas."
@@ -800,6 +1103,9 @@
   "files.item-type.folders": {
     "defaultMessage": "folder"
   },
+  "files.layout.create-zip": {
+    "defaultMessage": "Buat ZIP"
+  },
   "files.layout.dry-run-failed-text": {
     "defaultMessage": "Terjadi kesalahan saat menguji coba"
   },
@@ -808,6 +1114,51 @@
   },
   "files.layout.empty-folder-description": {
     "defaultMessage": "Tidak ada berkas atau folder."
+  },
+  "files.layout.empty-folder-title": {
+    "defaultMessage": "Folder ini kosong"
+  },
+  "files.layout.error-message": {
+    "defaultMessage": "Folder mungkin tidak ada."
+  },
+  "files.layout.error-title": {
+    "defaultMessage": "Gagal memuat berkas"
+  },
+  "files.layout.extraction-started-title": {
+    "defaultMessage": "Ekstraksi dimulai"
+  },
+  "files.layout.selected-count": {
+    "defaultMessage": "{count} dipilih"
+  },
+  "files.layout.unsaved-changes": {
+    "defaultMessage": "Anda memiliki perubahan yang belum disimpan."
+  },
+  "files.move-modal.current-location": {
+    "defaultMessage": "Lokasi saat ini"
+  },
+  "files.move-modal.destination-path": {
+    "defaultMessage": "Jalur tujuan"
+  },
+  "files.move-modal.destination-placeholder": {
+    "defaultMessage": "mis. /folder-saya"
+  },
+  "files.move-modal.header": {
+    "defaultMessage": "Pindahkan {type}"
+  },
+  "files.navbar.back-to-home": {
+    "defaultMessage": "Kembali ke beranda"
+  },
+  "files.navbar.breadcrumb-navigation": {
+    "defaultMessage": "Navigasi breadcrumb"
+  },
+  "files.navbar.create-new": {
+    "defaultMessage": "Buat baru..."
+  },
+  "files.navbar.file-navigation": {
+    "defaultMessage": "Navigasi berkas"
+  },
+  "files.navbar.find-in-file": {
+    "defaultMessage": "Cari dalam berkas"
   },
   "files.navbar.home": {
     "defaultMessage": "Beranda"
@@ -830,14 +1181,20 @@
   "files.navbar.upload-from-zip": {
     "defaultMessage": "Unggah dari berkas .zip"
   },
-  "files.navbar.upload-from-zip-url": {
-    "defaultMessage": "Unggah dari URL .zip"
-  },
   "files.rename-modal.header": {
     "defaultMessage": "Ganti nama {name}"
   },
   "files.rename-modal.new-name-label": {
     "defaultMessage": "Nama baru"
+  },
+  "files.row.create-zip": {
+    "defaultMessage": "Buat ZIP"
+  },
+  "files.row.item-count": {
+    "defaultMessage": "{count, plural, other {# item}}"
+  },
+  "files.row.parent-folder": {
+    "defaultMessage": "Folder induk"
   },
   "files.table-header.created": {
     "defaultMessage": "Dibuat"
@@ -874,6 +1231,30 @@
   },
   "files.validation.name-required": {
     "defaultMessage": "Nama diperlukan."
+  },
+  "filter-bar.add": {
+    "defaultMessage": "Tambah"
+  },
+  "filter-bar.clear": {
+    "defaultMessage": "Kosongkan"
+  },
+  "filter-bar.clear-named-filter": {
+    "defaultMessage": "Kosongkan penapis {name}"
+  },
+  "filter-bar.filtered-by": {
+    "defaultMessage": "Difilter berdasarkan"
+  },
+  "filter-bar.no-options": {
+    "defaultMessage": "Tidak ada opsi tersedia."
+  },
+  "filter-bar.no-search-results": {
+    "defaultMessage": "Tidak ada opsi ditemukan."
+  },
+  "filter-bar.search-placeholder": {
+    "defaultMessage": "Cari..."
+  },
+  "filter-bar.select-all": {
+    "defaultMessage": "Pilih semua"
   },
   "form.label.address-line": {
     "defaultMessage": "Baris alamat"
@@ -953,6 +1334,21 @@
   "form.placeholder.state": {
     "defaultMessage": "Masukkan provinsi"
   },
+  "format.bytes.0": {
+    "defaultMessage": "{count, plural, other {# byte}}"
+  },
+  "format.bytes.1": {
+    "defaultMessage": "{count, number} KiB"
+  },
+  "format.bytes.2": {
+    "defaultMessage": "{count, number} MiB"
+  },
+  "format.bytes.3": {
+    "defaultMessage": "{count, number} GiB"
+  },
+  "format.bytes.4": {
+    "defaultMessage": "{count, number} TiB"
+  },
   "header.category.category": {
     "defaultMessage": "Kategori"
   },
@@ -977,8 +1373,116 @@
   "header.category.resolutions": {
     "defaultMessage": "Resolusi"
   },
+  "image-viewer.close": {
+    "defaultMessage": "Tutup"
+  },
+  "image-viewer.edit": {
+    "defaultMessage": "Sunting"
+  },
+  "image-viewer.editor.colour": {
+    "defaultMessage": "Warna"
+  },
+  "image-viewer.editor.crop.dimensions": {
+    "defaultMessage": "{width} × {height} px"
+  },
+  "image-viewer.editor.crop.reset": {
+    "defaultMessage": "Atur ulang potongan"
+  },
+  "image-viewer.editor.delete-selection": {
+    "defaultMessage": "Hapus anotasi terpilih"
+  },
+  "image-viewer.editor.eraser.area": {
+    "defaultMessage": "Area"
+  },
+  "image-viewer.editor.eraser.element": {
+    "defaultMessage": "Elemen"
+  },
+  "image-viewer.editor.eraser.mode": {
+    "defaultMessage": "Mode penghapus"
+  },
+  "image-viewer.editor.image-editing-tools": {
+    "defaultMessage": "Alat penyuntingan gambar"
+  },
+  "image-viewer.editor.more-save-options": {
+    "defaultMessage": "Opsi simpan lainnya"
+  },
+  "image-viewer.editor.overwrite": {
+    "defaultMessage": "Timpa"
+  },
+  "image-viewer.editor.redo": {
+    "defaultMessage": "Lakukan lagi"
+  },
+  "image-viewer.editor.save-as-new": {
+    "defaultMessage": "Simpan salinan"
+  },
+  "image-viewer.editor.save-image": {
+    "defaultMessage": "Simpan gambar"
+  },
+  "image-viewer.editor.size": {
+    "defaultMessage": "Ukuran"
+  },
+  "image-viewer.editor.tool.arrow": {
+    "defaultMessage": "Panah"
+  },
+  "image-viewer.editor.tool.censor": {
+    "defaultMessage": "Sensor"
+  },
+  "image-viewer.editor.tool.crop": {
+    "defaultMessage": "Potong"
+  },
+  "image-viewer.editor.tool.ellipse": {
+    "defaultMessage": "Elips"
+  },
+  "image-viewer.editor.tool.eraser": {
+    "defaultMessage": "Penghapus"
+  },
+  "image-viewer.editor.tool.highlight": {
+    "defaultMessage": "Sorot"
+  },
+  "image-viewer.editor.tool.pen": {
+    "defaultMessage": "Pena"
+  },
+  "image-viewer.editor.tool.rectangle": {
+    "defaultMessage": "Persegi panjang"
+  },
+  "image-viewer.editor.tool.select": {
+    "defaultMessage": "Pilih"
+  },
+  "image-viewer.editor.tool.text": {
+    "defaultMessage": "Teks"
+  },
+  "image-viewer.editor.undo": {
+    "defaultMessage": "Urungkan"
+  },
+  "image-viewer.editor.width": {
+    "defaultMessage": "Lebar"
+  },
+  "image-viewer.editor.zoom-fit": {
+    "defaultMessage": "Pas"
+  },
+  "image-viewer.editor.zoom-fit-workspace": {
+    "defaultMessage": "Pas ke ruang kerja"
+  },
+  "image-viewer.editor.zoom-in": {
+    "defaultMessage": "Perbesar"
+  },
+  "image-viewer.editor.zoom-out": {
+    "defaultMessage": "Perkecil"
+  },
+  "image-viewer.next": {
+    "defaultMessage": "Gambar berikutnya"
+  },
+  "image-viewer.previous": {
+    "defaultMessage": "Gambar sebelumnya"
+  },
+  "input.search-version.placeholder": {
+    "defaultMessage": "Cari versi..."
+  },
   "input.search.placeholder": {
     "defaultMessage": "Cari..."
+  },
+  "input.select-version.placeholder": {
+    "defaultMessage": "Pilih versi"
   },
   "input.view.gallery": {
     "defaultMessage": "Tampilan galeri"
@@ -988,6 +1492,135 @@
   },
   "input.view.list": {
     "defaultMessage": "Tampilan baris"
+  },
+  "installation-settings.aria.select-game-version": {
+    "defaultMessage": "Pilih versi permainan"
+  },
+  "installation-settings.aria.select-loader-version": {
+    "defaultMessage": "Pilih versi {loader}"
+  },
+  "installation-settings.aria.select-platform": {
+    "defaultMessage": "Pilih platform"
+  },
+  "installation-settings.confirm-version-change": {
+    "defaultMessage": "Konfirmasi"
+  },
+  "installation-settings.confirm-version-change-description": {
+    "defaultMessage": "Mengubah ke {gameVersion} akan mengubah konten berikut di server Anda."
+  },
+  "installation-settings.confirm-version-change-header": {
+    "defaultMessage": "Tinjau perubahan konten"
+  },
+  "installation-settings.edit-installation.title": {
+    "defaultMessage": "Sunting instalasi"
+  },
+  "installation-settings.edit.warning-instance": {
+    "defaultMessage": "Kami tidak menyarankan mengubah pengaturan instalasi Anda setelah menginstal konten. Jika ingin mengubahnya, berhati-hatilah karena dapat menimbulkan masalah."
+  },
+  "installation-settings.incompatible-content.auto-fix-button": {
+    "defaultMessage": "Perbaiki otomatis"
+  },
+  "installation-settings.incompatible-content.change-loader-button": {
+    "defaultMessage": "Ubah pemuat"
+  },
+  "installation-settings.incompatible-content.disable-conflicts-button": {
+    "defaultMessage": "Nonaktifkan yang bentrok"
+  },
+  "installation-settings.incompatible-content.game-version-warning-body": {
+    "defaultMessage": "Saat mengubah versi permainan, kami dapat menonaktifkan konten terinstal yang tidak cocok atau mencoba mengatasi ketidakcocokan."
+  },
+  "installation-settings.incompatible-content.game-version-warning-title": {
+    "defaultMessage": "Peringatan ketidakcocokan"
+  },
+  "installation-settings.incompatible-content.header": {
+    "defaultMessage": "Konten tidak cocok terinstal"
+  },
+  "installation-settings.incompatible-content.loader-change-body": {
+    "defaultMessage": "Saat mengubah pemuat, semua konten terinstal akan dinonaktifkan. Kami menyarankan mengatur ulang server Anda sebagai gantinya."
+  },
+  "installation-settings.incompatible-content.loader-change-title": {
+    "defaultMessage": "Mengubah pemuat bersifat merusak"
+  },
+  "installation-settings.linked-instance.title": {
+    "defaultMessage": "{projectType} tertaut"
+  },
+  "installation-settings.linked.modpack": {
+    "defaultMessage": "paket mod"
+  },
+  "installation-settings.linked.server-project": {
+    "defaultMessage": "proyek server"
+  },
+  "installation-settings.loader-version": {
+    "defaultMessage": "Versi {loader}"
+  },
+  "installation-settings.platform-lock-tooltip": {
+    "defaultMessage": "Anda perlu mengatur ulang server Anda untuk mengubah pemuat."
+  },
+  "installation-settings.reinstall-modpack.description": {
+    "defaultMessage": "Menginstal ulang paket mod akan mengatur ulang konten {type} ke keadaan aslinya, menghapus mod atau konten yang telah Anda tambahkan."
+  },
+  "installation-settings.reinstall-modpack.title": {
+    "defaultMessage": "Instal ulang paket mod"
+  },
+  "installation-settings.reinstalling-modpack": {
+    "defaultMessage": "Menginstal ulang paket mod"
+  },
+  "installation-settings.removed-incompatible": {
+    "defaultMessage": "Dihapus (tidak cocok)"
+  },
+  "installation-settings.repair.instance-description": {
+    "defaultMessage": "Menginstal ulang dependensi Minecraft dan memeriksa kerusakan. Ini dapat mengatasi masalah jika permainan Anda tidak diluncurkan karena kesalahan terkait peluncur."
+  },
+  "installation-settings.repair.instance-title": {
+    "defaultMessage": "Perbaiki instans"
+  },
+  "installation-settings.saving": {
+    "defaultMessage": "Menyimpan..."
+  },
+  "installation-settings.search-game-version": {
+    "defaultMessage": "Cari versi permainan..."
+  },
+  "installation-settings.type.instance": {
+    "defaultMessage": "instans"
+  },
+  "installation-settings.type.instance-possessive": {
+    "defaultMessage": "instans"
+  },
+  "installation-settings.type.server": {
+    "defaultMessage": "server"
+  },
+  "installation-settings.unlink": {
+    "defaultMessage": "Lepas tautan"
+  },
+  "installation-settings.unlink.description": {
+    "defaultMessage": "Melepas tautan akan memutuskan sambungan {type} ini dari proyek {projectType} secara permanen, memungkinkan Anda mengubah pemuat dan versi Minecraft, tetapi Anda tidak akan menerima pembaruan di masa mendatang."
+  },
+  "installation-settings.verifying": {
+    "defaultMessage": "Memverifikasi..."
+  },
+  "instance.confirm-reinstall.admonition-body": {
+    "defaultMessage": "Menginstal ulang akan mengatur ulang semua konten terinstal atau yang dimodifikasi ke apa yang disediakan oleh paket mod, menghapus mod atau konten yang telah Anda tambahkan di atas instalasi awal."
+  },
+  "instance.confirm-reinstall.admonition-header": {
+    "defaultMessage": "Peringatan instalasi ulang"
+  },
+  "instance.confirm-reinstall.header": {
+    "defaultMessage": "Instal ulang paket mod"
+  },
+  "instance.confirm-reinstall.reinstall-button": {
+    "defaultMessage": "Instal ulang paket mod"
+  },
+  "instance.confirm-repair.body.instance": {
+    "defaultMessage": "Memperbaiki akan menginstal ulang pemuat dan dependensi Minecraft tanpa menghapus konten Anda. Ini dapat mengatasi masalah jika permainan Anda tidak diluncurkan karena kesalahan terkait peluncur."
+  },
+  "instance.confirm-repair.header": {
+    "defaultMessage": "Perbaiki {type}"
+  },
+  "instance.confirm-repair.instance-label": {
+    "defaultMessage": "instans"
+  },
+  "instance.confirm-repair.repair-button": {
+    "defaultMessage": "Perbaiki"
   },
   "instance.worlds.game_mode.adventure": {
     "defaultMessage": "Mode petualangan"
@@ -1004,17 +1637,137 @@
   "instance.worlds.game_mode.unknown": {
     "defaultMessage": "Mode permainan tak dikenal"
   },
+  "instances.content-install.compatible-count": {
+    "defaultMessage": "{count} {count, plural, other {instans}} kompatibel"
+  },
+  "instances.content-install.existing-tab": {
+    "defaultMessage": "Instans yang sudah ada"
+  },
+  "instances.content-install.game-version-placeholder": {
+    "defaultMessage": "Pilih versi permainan"
+  },
+  "instances.content-install.header": {
+    "defaultMessage": "Pasang proyek"
+  },
+  "instances.content-install.hide-unavailable": {
+    "defaultMessage": "Sembunyikan yang tidak tersedia"
+  },
+  "instances.content-install.incompatible-tooltip": {
+    "defaultMessage": "Instans ini menggunakan pemuat atau versi permainan yang berbeda dari yang didukung oleh proyek ini."
+  },
+  "instances.content-install.install-button": {
+    "defaultMessage": "Pasang"
+  },
+  "instances.content-install.installed-badge": {
+    "defaultMessage": "Terpasang"
+  },
+  "instances.content-install.instance-type": {
+    "defaultMessage": "Jenis instans"
+  },
+  "instances.content-install.loader-label": {
+    "defaultMessage": "Pemuat"
+  },
+  "instances.content-install.name-label": {
+    "defaultMessage": "Nama"
+  },
+  "instances.content-install.name-placeholder": {
+    "defaultMessage": "Masukkan nama instans"
+  },
+  "instances.content-install.new-tab": {
+    "defaultMessage": "Instans baru"
+  },
+  "instances.content-install.no-instances": {
+    "defaultMessage": "Tidak ada instans yang kompatibel ditemukan"
+  },
+  "instances.content-install.search-placeholder": {
+    "defaultMessage": "Cari instans"
+  },
+  "instances.content-install.show-unavailable": {
+    "defaultMessage": "Tampilkan yang tidak tersedia"
+  },
+  "instances.managed-content-modal.disabled": {
+    "defaultMessage": "Dinonaktifkan"
+  },
+  "instances.managed-content-modal.download-file": {
+    "defaultMessage": "Unduh Berkas"
+  },
+  "instances.managed-content-modal.empty-description": {
+    "defaultMessage": "Sumber ini tidak menyertakan konten terkelola apa pun."
+  },
+  "instances.managed-content-modal.empty-title": {
+    "defaultMessage": "Tidak ada konten ditemukan"
+  },
+  "instances.managed-content-modal.enabled": {
+    "defaultMessage": "Diaktifkan"
+  },
+  "instances.managed-content-modal.external-content": {
+    "defaultMessage": "Eksternal"
+  },
+  "instances.managed-content-modal.external-content-description": {
+    "defaultMessage": "Berkas ini tidak diterbitkan di Modrinth."
+  },
+  "instances.managed-content-modal.header": {
+    "defaultMessage": "Konten Terkelola"
+  },
+  "instances.managed-content-modal.loading": {
+    "defaultMessage": "Memuat konten..."
+  },
+  "instances.managed-content-modal.no-results": {
+    "defaultMessage": "Tidak ada proyek yang cocok dengan pencarian Anda."
+  },
+  "instances.managed-content-modal.open-in-slicer": {
+    "defaultMessage": "Buka di Slicer"
+  },
+  "instances.managed-content-modal.search-placeholder": {
+    "defaultMessage": "Cari {count, number} {count, plural, other {proyek}}"
+  },
+  "instances.managed-content-modal.warnings": {
+    "defaultMessage": "Peringatan"
+  },
   "instances.updater-modal.badge.current": {
     "defaultMessage": "Saat ini"
   },
   "instances.updater-modal.badge.incompatible": {
     "defaultMessage": "Tidak cocok"
   },
+  "instances.updater-modal.downgrade-to": {
+    "defaultMessage": "Turunkan versi ke {version}"
+  },
   "instances.updater-modal.header": {
     "defaultMessage": "Perbarui versi"
   },
+  "instances.updater-modal.header-modpack": {
+    "defaultMessage": "Ganti versi paket mod"
+  },
+  "instances.updater-modal.header-switch": {
+    "defaultMessage": "Ganti versi"
+  },
   "instances.updater-modal.hide-incompatible": {
     "defaultMessage": "Sembunyikan versi tidak cocok"
+  },
+  "instances.updater-modal.incompatibility-warning": {
+    "defaultMessage": "Versi ini tidak ditandai sebagai kompatibel dengan instans ini. Ketergantungan tidak akan dipasang secara otomatis."
+  },
+  "instances.updater-modal.incompatibility-warning-header": {
+    "defaultMessage": "Pilih versi"
+  },
+  "instances.updater-modal.incompatible-update.description": {
+    "defaultMessage": "{version} tidak ditandai sebagai kompatibel dengan instalasi ini. Mungkin gagal diluncurkan atau berperilaku tidak terduga."
+  },
+  "instances.updater-modal.incompatible-update.header": {
+    "defaultMessage": "Perbarui ke versi yang tidak kompatibel?"
+  },
+  "instances.updater-modal.incompatible-update.proceed": {
+    "defaultMessage": "Perbarui tetap"
+  },
+  "instances.updater-modal.install-anyway": {
+    "defaultMessage": "Pasang tetap"
+  },
+  "instances.updater-modal.loading-changelog": {
+    "defaultMessage": "Memuat log perubahan..."
+  },
+  "instances.updater-modal.loading-versions": {
+    "defaultMessage": "Memuat versi..."
   },
   "instances.updater-modal.no-changelog": {
     "defaultMessage": "Catatan perubahan tidak tersedia untuk versi ini."
@@ -1031,6 +1784,18 @@
   "instances.updater-modal.show-incompatible": {
     "defaultMessage": "Tampilkan versi tidak cocok"
   },
+  "instances.updater-modal.switch-to": {
+    "defaultMessage": "Ganti ke {version}"
+  },
+  "instances.updater-modal.update-to": {
+    "defaultMessage": "Perbarui ke {version}"
+  },
+  "instances.updater-modal.warning-app": {
+    "defaultMessage": "Memperbarui dapat merusak instans Anda. Periksa log perubahan versi dan buat cadangan terlebih dahulu."
+  },
+  "instances.updater-modal.warning-web": {
+    "defaultMessage": "Memperbarui dapat merusak dunia Anda. Periksa log perubahan versi dan buat cadangan terlebih dahulu."
+  },
   "label.actions": {
     "defaultMessage": "Tindakan"
   },
@@ -1043,6 +1808,15 @@
   "label.changes-saved": {
     "defaultMessage": "Perubahan disimpan"
   },
+  "label.client-depends-warning": {
+    "defaultMessage": "Mod ini bergantung pada mod sisi klien dan dapat menimbulkan masalah saat memulai peladen Anda"
+  },
+  "label.client-only-warning": {
+    "defaultMessage": "Ini adalah mod sisi klien dan dapat menimbulkan masalah saat memulai peladen Anda"
+  },
+  "label.client-retained-warning": {
+    "defaultMessage": "Ini adalah mod sisi klien yang dipasang sebagai ketergantungan dan dapat menimbulkan masalah saat memulai peladen Anda"
+  },
   "label.collections": {
     "defaultMessage": "Koleksi"
   },
@@ -1051,6 +1825,15 @@
   },
   "label.content": {
     "defaultMessage": "Konten"
+  },
+  "label.copied-filename": {
+    "defaultMessage": "Nama berkas disalin"
+  },
+  "label.copied-path": {
+    "defaultMessage": "Jalur disalin"
+  },
+  "label.create-failed": {
+    "defaultMessage": "Pembuatan gagal"
   },
   "label.created-ago": {
     "defaultMessage": "Dibuat {ago}"
@@ -1061,11 +1844,26 @@
   "label.delete": {
     "defaultMessage": "Hapus"
   },
+  "label.delete-failed": {
+    "defaultMessage": "Penghapusan gagal"
+  },
+  "label.delete-immediately": {
+    "defaultMessage": "Hapus segera"
+  },
   "label.description": {
     "defaultMessage": "Keterangan"
   },
   "label.details": {
     "defaultMessage": "Perincian"
+  },
+  "label.discover-content": {
+    "defaultMessage": "Temukan konten"
+  },
+  "label.done": {
+    "defaultMessage": "Selesai"
+  },
+  "label.download-failed": {
+    "defaultMessage": "Unduh gagal"
   },
   "label.email": {
     "defaultMessage": "Sur-el"
@@ -1076,17 +1874,56 @@
   "label.error": {
     "defaultMessage": "Kesalahan"
   },
+  "label.explanation": {
+    "defaultMessage": "Penjelasan"
+  },
+  "label.extract-failed": {
+    "defaultMessage": "Ekstraksi gagal"
+  },
   "label.filter-by": {
     "defaultMessage": "Saring berdasarkan"
   },
+  "label.filters": {
+    "defaultMessage": "Penapis"
+  },
   "label.followed-projects": {
     "defaultMessage": "Proyek yang diikuti"
+  },
+  "label.game-version": {
+    "defaultMessage": "Versi permainan"
+  },
+  "label.hide-installed-content": {
+    "defaultMessage": "Sembunyikan konten yang sudah terpasang"
+  },
+  "label.hide-selected-content": {
+    "defaultMessage": "Sembunyikan konten yang dipilih"
+  },
+  "label.installation-info": {
+    "defaultMessage": "Informasi instalasi"
+  },
+  "label.installed": {
+    "defaultMessage": "Terpasang"
+  },
+  "label.installed-modpack": {
+    "defaultMessage": "Paket mod terpasang"
+  },
+  "label.installing": {
+    "defaultMessage": "Memasang..."
+  },
+  "label.installing-content": {
+    "defaultMessage": "Memasang konten"
   },
   "label.loading": {
     "defaultMessage": "Memuat..."
   },
   "label.moderation": {
     "defaultMessage": "Moderasi"
+  },
+  "label.modpack": {
+    "defaultMessage": "Paket Mod"
+  },
+  "label.move-failed": {
+    "defaultMessage": "Pemindahan gagal"
   },
   "label.no": {
     "defaultMessage": "Tidak"
@@ -1103,6 +1940,27 @@
   "label.password": {
     "defaultMessage": "Kata sandi"
   },
+  "label.permissions": {
+    "defaultMessage": "Izin"
+  },
+  "label.plan-custom": {
+    "defaultMessage": "Khusus"
+  },
+  "label.plan-large": {
+    "defaultMessage": "Besar"
+  },
+  "label.plan-medium": {
+    "defaultMessage": "Sedang"
+  },
+  "label.plan-small": {
+    "defaultMessage": "Kecil"
+  },
+  "label.plan-unknown": {
+    "defaultMessage": "Tidak diketahui"
+  },
+  "label.platform": {
+    "defaultMessage": "Platform"
+  },
   "label.played": {
     "defaultMessage": "Dimainkan {ago}"
   },
@@ -1115,6 +1973,9 @@
   "label.rejected": {
     "defaultMessage": "Ditolak"
   },
+  "label.rename-failed": {
+    "defaultMessage": "Pengubahan nama gagal"
+  },
   "label.rewards-program-terms-agreement": {
     "defaultMessage": "Saya setuju dengan <terms-link>Ketentuan Program Ganjaran</terms-link>"
   },
@@ -1126,6 +1987,15 @@
   },
   "label.search": {
     "defaultMessage": "Cari"
+  },
+  "label.select-all": {
+    "defaultMessage": "Pilih semua"
+  },
+  "label.selected": {
+    "defaultMessage": "Dipilih"
+  },
+  "label.selection-actions": {
+    "defaultMessage": "Tindakan pilihan"
   },
   "label.server": {
     "defaultMessage": "Server"
@@ -1148,17 +2018,32 @@
   "label.title": {
     "defaultMessage": "Judul"
   },
+  "label.unknown": {
+    "defaultMessage": "Tidak diketahui"
+  },
   "label.unlisted": {
     "defaultMessage": "Tidak terdaftar"
   },
   "label.update-available": {
     "defaultMessage": "Pembaruan tersedia"
   },
+  "label.updating": {
+    "defaultMessage": "Memperbarui..."
+  },
+  "label.upload-failed": {
+    "defaultMessage": "Unggah gagal"
+  },
   "label.username": {
     "defaultMessage": "Nama pengguna"
   },
+  "label.validating": {
+    "defaultMessage": "Memvalidasi"
+  },
   "label.version": {
     "defaultMessage": "Versi"
+  },
+  "label.view": {
+    "defaultMessage": "Lihat"
   },
   "label.visibility": {
     "defaultMessage": "Visibilitas"
@@ -1265,11 +2150,92 @@
   "locale.zh-TW": {
     "defaultMessage": "Bahasa China (Aksara Tradisional)"
   },
+  "modal.confirm.type-here-placeholder": {
+    "defaultMessage": "Ketik di sini..."
+  },
+  "modal.confirm.type-to-confirm": {
+    "defaultMessage": "Untuk memastikan Anda ingin melanjutkan, ketik <confirmation-text></confirmation-text> di bawah:"
+  },
+  "modal.share.copy-failed-title": {
+    "defaultMessage": "Gagal menyalin teks"
+  },
+  "modal.share.copy-link": {
+    "defaultMessage": "Salin Tautan"
+  },
+  "modal.share.copy-qr-code": {
+    "defaultMessage": "Salin kode QR"
+  },
+  "modal.share.copy-text": {
+    "defaultMessage": "Salin Teks"
+  },
+  "modal.share.link-copied-text": {
+    "defaultMessage": "Tautan telah disalin ke papan klip Anda."
+  },
+  "modal.share.link-copied-title": {
+    "defaultMessage": "Tautan disalin"
+  },
+  "modal.share.open-in-new-tab": {
+    "defaultMessage": "Buka di tab baru"
+  },
+  "modal.share.open-link-in-browser": {
+    "defaultMessage": "Buka tautan di peramban"
+  },
+  "modal.share.send-email": {
+    "defaultMessage": "Kirim sebagai e-mail"
+  },
+  "modal.share.share": {
+    "defaultMessage": "Bagikan"
+  },
+  "modal.share.share-on-reddit": {
+    "defaultMessage": "Bagikan di Reddit"
+  },
+  "modal.share.toot-about-it": {
+    "defaultMessage": "Buat Toot tentang ini"
+  },
+  "modal.share.tweet-about-it": {
+    "defaultMessage": "Buat Tweet tentang ini"
+  },
+  "multi-select.clear-all": {
+    "defaultMessage": "Bersihkan semua"
+  },
+  "multi-select.selection-count": {
+    "defaultMessage": "{count, plural, other {# terpilih}}"
+  },
   "notification.error.title": {
     "defaultMessage": "Terjadi kesalahan"
   },
-  "omorphia.component.copy.action.copy": {
-    "defaultMessage": "Salin kode ke papan klip"
+  "notifications.actor.unknown": {
+    "defaultMessage": "Seseorang"
+  },
+  "notifications.close": {
+    "defaultMessage": "Tutup"
+  },
+  "notifications.dismiss": {
+    "defaultMessage": "Abaikan pemberitahuan"
+  },
+  "notifications.friend-request.body": {
+    "defaultMessage": "<actor>{actor}</actor> mengirimkan permintaan pertemanan kepada Anda."
+  },
+  "notifications.instance-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> mengundang Anda ke instans <entity>{entity}</entity>."
+  },
+  "notifications.instance-ready.launch-game": {
+    "defaultMessage": "Jalankan permainan"
+  },
+  "notifications.instance-ready.open-instance": {
+    "defaultMessage": "Instans"
+  },
+  "notifications.instance-ready.status": {
+    "defaultMessage": "Terpasang dan siap dimainkan."
+  },
+  "notifications.invite.accept": {
+    "defaultMessage": "Terima"
+  },
+  "notifications.invite.decline": {
+    "defaultMessage": "Tolak"
+  },
+  "notifications.server-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> mengundang Anda untuk mengelola peladen <entity>{entity}</entity>."
   },
   "payment-method.amazon_pay": {
     "defaultMessage": "Amazon Pay"
@@ -1306,6 +2272,9 @@
   },
   "payment-method.jcb": {
     "defaultMessage": "JCB"
+  },
+  "payment-method.mastercard": {
+    "defaultMessage": "Mastercard"
   },
   "payment-method.paypal": {
     "defaultMessage": "PayPal"
@@ -1346,8 +2315,14 @@
   "project-card.environment.client-or-server": {
     "defaultMessage": "Klien atau server"
   },
+  "project-card.environment.dedicated-server": {
+    "defaultMessage": "Peladen khusus"
+  },
   "project-card.environment.server": {
     "defaultMessage": "Server"
+  },
+  "project-card.environment.singleplayer": {
+    "defaultMessage": "Pemain tunggal"
   },
   "project-type.all": {
     "defaultMessage": "Semua"
@@ -1424,6 +2399,15 @@
   "project-type.shader.lowercase": {
     "defaultMessage": "{count, plural, one {efek gambar} other {efek gambar}}"
   },
+  "project-type.world.capital": {
+    "defaultMessage": "{count, plural, other {Dunia}}"
+  },
+  "project-type.world.category": {
+    "defaultMessage": "Dunia"
+  },
+  "project-type.world.lowercase": {
+    "defaultMessage": "{count, plural, other {dunia}}"
+  },
   "project.about.compatibility.environments": {
     "defaultMessage": "Lingkungan yang didukung"
   },
@@ -1451,8 +2435,17 @@
   "project.about.compatibility.platforms": {
     "defaultMessage": "Platform"
   },
+  "project.about.compatibility.platforms-plural": {
+    "defaultMessage": "{count, plural, other {platform}}"
+  },
   "project.about.compatibility.title": {
     "defaultMessage": "Kompatibilitas"
+  },
+  "project.about.creators.no-members-error": {
+    "defaultMessage": "Kesalahan: Proyek tidak memiliki anggota. Ini seharusnya tidak terjadi."
+  },
+  "project.about.creators.organization": {
+    "defaultMessage": "Organisasi"
   },
   "project.about.creators.owner": {
     "defaultMessage": "Pemilik proyek"
@@ -1514,17 +2507,62 @@
   "project.about.links.wiki": {
     "defaultMessage": "Kunjungi wiki"
   },
-  "project.about.server.copied": {
-    "defaultMessage": "Disalin!"
+  "project.about.tags.title": {
+    "defaultMessage": "Tag"
   },
-  "project.about.server.languages": {
-    "defaultMessage": "Bahasa"
+  "project.compatibility.client-and-server": {
+    "defaultMessage": "Klien dan peladen"
   },
-  "project.about.server.region": {
-    "defaultMessage": "Wilayah"
+  "project.compatibility.client-side": {
+    "defaultMessage": "Sisi klien"
   },
-  "project.about.server.title": {
-    "defaultMessage": "Perincian server"
+  "project.compatibility.no-mod-loader": {
+    "defaultMessage": "Tidak ada pemuat mod"
+  },
+  "project.compatibility.server-side": {
+    "defaultMessage": "Sisi peladen"
+  },
+  "project.disclosure.advertising.title": {
+    "defaultMessage": "Berisi iklan"
+  },
+  "project.disclosure.ai-functionality.title": {
+    "defaultMessage": "Fungsi AI generatif"
+  },
+  "project.disclosure.ai-generated-content.title": {
+    "defaultMessage": "Berisi {types} yang dibuat AI"
+  },
+  "project.disclosure.ai-generated-content.use.assets": {
+    "defaultMessage": "aset"
+  },
+  "project.disclosure.ai-generated-content.use.code": {
+    "defaultMessage": "kode"
+  },
+  "project.disclosure.ai-generated-content.use.content": {
+    "defaultMessage": "konten"
+  },
+  "project.disclosure.ai-generated-content.use.text": {
+    "defaultMessage": "teks"
+  },
+  "project.disclosure.derivative-work.show-fewer": {
+    "defaultMessage": "Tampilkan lebih sedikit"
+  },
+  "project.disclosure.derivative-work.show-more": {
+    "defaultMessage": "Tampilkan {count} lagi"
+  },
+  "project.disclosure.derivative-work.title": {
+    "defaultMessage": "Ini adalah karya turunan dari:"
+  },
+  "project.disclosure.paid-features.title": {
+    "defaultMessage": "Berisi fitur berbayar"
+  },
+  "project.disclosure.photosensitivity.title": {
+    "defaultMessage": "Peringatan fotosensitivitas"
+  },
+  "project.disclosure.system-interactions.title": {
+    "defaultMessage": "Berisi interaksi sistem eksternal"
+  },
+  "project.disclosure.telemetry.title": {
+    "defaultMessage": "Berisi {consent, select, other {telemetri}}"
   },
   "project.download-count-tooltip": {
     "defaultMessage": "{count, number} {count, plural, other {pengunduhan}}"
@@ -1547,6 +2585,9 @@
   "project.environment.client-only.title": {
     "defaultMessage": "Sisi klien saja"
   },
+  "project.environment.client-or-server-prefers-both.description": {
+    "defaultMessage": "Memiliki beberapa fungsi di klien dan peladen, meskipun hanya sebagian. Memasangnya di keduanya memberikan pengalaman terbaik."
+  },
   "project.environment.client-or-server-prefers-both.title": {
     "defaultMessage": "Klien dan server, paling baik bila diunduh di keduanya"
   },
@@ -1562,8 +2603,14 @@
   "project.environment.dedicated-server-only.title": {
     "defaultMessage": "Sisi server saja"
   },
+  "project.environment.server-only-client-optional.description": {
+    "defaultMessage": "Sebagian besar fungsi bersifat sisi peladen, tetapi memasangnya di klien mengaktifkan fungsi tambahan."
+  },
   "project.environment.server-only-client-optional.title": {
     "defaultMessage": "Klien dan server, opsional di klien"
+  },
+  "project.environment.server-only.description": {
+    "defaultMessage": "Semua fungsi berjalan di sisi peladen dan kompatibel dengan klien vanilla. Juga berfungsi di peladen internal dalam pemain tunggal."
   },
   "project.environment.server-only.title": {
     "defaultMessage": "Sisi server saja, dapat bekerja di bermain sendiri"
@@ -1589,227 +2636,29 @@
   "project.follower-count-tooltip": {
     "defaultMessage": "{count, number} {count, plural, other {pengikut}}"
   },
+  "project.license.error": {
+    "defaultMessage": "Teks lisensi tidak dapat diambil."
+  },
+  "project.license.loading": {
+    "defaultMessage": "Memuat teks lisensi..."
+  },
+  "project.license.title": {
+    "defaultMessage": "Lisensi"
+  },
   "project.online-player-count": {
     "defaultMessage": "{count, number} orang daring"
   },
-  "project.server.language.af": {
-    "defaultMessage": "Afrikans"
+  "project.online-player-count.tooltip": {
+    "defaultMessage": "{count} {countPlural, plural, other {pemain}} daring"
   },
-  "project.server.language.am": {
-    "defaultMessage": "Amharik"
+  "project.recent-plays": {
+    "defaultMessage": "{count} {countPlural, plural, other {sesi bermain terkini}}"
   },
-  "project.server.language.ar": {
-    "defaultMessage": "Arab"
+  "project.recent-plays.tooltip": {
+    "defaultMessage": "{count} {countPlural, plural, other {sesi bermain terkini}} dari Modrinth dalam 2 minggu terakhir"
   },
-  "project.server.language.az": {
-    "defaultMessage": "Azerbaijan"
-  },
-  "project.server.language.be": {
-    "defaultMessage": "Belarus"
-  },
-  "project.server.language.bg": {
-    "defaultMessage": "Bulgaria"
-  },
-  "project.server.language.bn": {
-    "defaultMessage": "Bengali"
-  },
-  "project.server.language.bs": {
-    "defaultMessage": "Bosnia"
-  },
-  "project.server.language.ca": {
-    "defaultMessage": "Katalan"
-  },
-  "project.server.language.cs": {
-    "defaultMessage": "Ceko"
-  },
-  "project.server.language.da": {
-    "defaultMessage": "Denmark"
-  },
-  "project.server.language.de": {
-    "defaultMessage": "Jerman"
-  },
-  "project.server.language.el": {
-    "defaultMessage": "Yunani"
-  },
-  "project.server.language.en": {
-    "defaultMessage": "Inggris"
-  },
-  "project.server.language.eo": {
-    "defaultMessage": "Esperanto"
-  },
-  "project.server.language.es": {
-    "defaultMessage": "Spanyol"
-  },
-  "project.server.language.et": {
-    "defaultMessage": "Estonia"
-  },
-  "project.server.language.eu": {
-    "defaultMessage": "Bask"
-  },
-  "project.server.language.fa": {
-    "defaultMessage": "Persia"
-  },
-  "project.server.language.fi": {
-    "defaultMessage": "Finlandia"
-  },
-  "project.server.language.fr": {
-    "defaultMessage": "Prancis"
-  },
-  "project.server.language.ga": {
-    "defaultMessage": "Irlandia"
-  },
-  "project.server.language.gl": {
-    "defaultMessage": "Galisia"
-  },
-  "project.server.language.he": {
-    "defaultMessage": "Ibrani"
-  },
-  "project.server.language.hi": {
-    "defaultMessage": "Hindi"
-  },
-  "project.server.language.hr": {
-    "defaultMessage": "Kroasia"
-  },
-  "project.server.language.hu": {
-    "defaultMessage": "Hungaria"
-  },
-  "project.server.language.hy": {
-    "defaultMessage": "Armenia"
-  },
-  "project.server.language.id": {
-    "defaultMessage": "Indonesia"
-  },
-  "project.server.language.is": {
-    "defaultMessage": "Islandia"
-  },
-  "project.server.language.it": {
-    "defaultMessage": "Italia"
-  },
-  "project.server.language.ja": {
-    "defaultMessage": "Jepang"
-  },
-  "project.server.language.ka": {
-    "defaultMessage": "Georgia"
-  },
-  "project.server.language.kk": {
-    "defaultMessage": "Kazak"
-  },
-  "project.server.language.km": {
-    "defaultMessage": "Khmer"
-  },
-  "project.server.language.kn": {
-    "defaultMessage": "Kannada"
-  },
-  "project.server.language.ko": {
-    "defaultMessage": "Korea"
-  },
-  "project.server.language.lo": {
-    "defaultMessage": "Lao"
-  },
-  "project.server.language.lt": {
-    "defaultMessage": "Lituania"
-  },
-  "project.server.language.lv": {
-    "defaultMessage": "Latvia"
-  },
-  "project.server.language.mk": {
-    "defaultMessage": "Masedonia"
-  },
-  "project.server.language.ml": {
-    "defaultMessage": "Malayalam"
-  },
-  "project.server.language.mn": {
-    "defaultMessage": "Mongol"
-  },
-  "project.server.language.mr": {
-    "defaultMessage": "Marati"
-  },
-  "project.server.language.ms": {
-    "defaultMessage": "Melayu"
-  },
-  "project.server.language.my": {
-    "defaultMessage": "Burma"
-  },
-  "project.server.language.ne": {
-    "defaultMessage": "Nepali"
-  },
-  "project.server.language.nl": {
-    "defaultMessage": "Belanda"
-  },
-  "project.server.language.no": {
-    "defaultMessage": "Norwegia"
-  },
-  "project.server.language.pa": {
-    "defaultMessage": "Punjabi"
-  },
-  "project.server.language.pl": {
-    "defaultMessage": "Polandia"
-  },
-  "project.server.language.pt": {
-    "defaultMessage": "Portugis"
-  },
-  "project.server.language.ro": {
-    "defaultMessage": "Rumania"
-  },
-  "project.server.language.ru": {
-    "defaultMessage": "Rusia"
-  },
-  "project.server.language.si": {
-    "defaultMessage": "Sinhala"
-  },
-  "project.server.language.sk": {
-    "defaultMessage": "Slowakia"
-  },
-  "project.server.language.sl": {
-    "defaultMessage": "Slowenia"
-  },
-  "project.server.language.sq": {
-    "defaultMessage": "Albania"
-  },
-  "project.server.language.sr": {
-    "defaultMessage": "Serbia"
-  },
-  "project.server.language.sv": {
-    "defaultMessage": "Swedia"
-  },
-  "project.server.language.sw": {
-    "defaultMessage": "Swahili"
-  },
-  "project.server.language.ta": {
-    "defaultMessage": "Tamil"
-  },
-  "project.server.language.te": {
-    "defaultMessage": "Telugu"
-  },
-  "project.server.language.th": {
-    "defaultMessage": "Thai"
-  },
-  "project.server.language.tl": {
-    "defaultMessage": "Filipino"
-  },
-  "project.server.language.tr": {
-    "defaultMessage": "Turki"
-  },
-  "project.server.language.uk": {
-    "defaultMessage": "Ukraina"
-  },
-  "project.server.language.ur": {
-    "defaultMessage": "Urdu"
-  },
-  "project.server.language.uz": {
-    "defaultMessage": "Uzbek"
-  },
-  "project.server.language.vi": {
-    "defaultMessage": "Vietnam"
-  },
-  "project.server.language.yo": {
-    "defaultMessage": "Yoruba"
-  },
-  "project.server.language.zh": {
-    "defaultMessage": "China"
-  },
-  "project.server.language.zu": {
-    "defaultMessage": "Zulu"
+  "project.server.customModpackTooltip": {
+    "defaultMessage": "Proyek ini menggunakan paket mod khusus"
   },
   "project.server.ping.ms": {
     "defaultMessage": "{ping, number} ms"
@@ -1841,6 +2690,15 @@
   "project.server.region.us_west": {
     "defaultMessage": "AS Barat"
   },
+  "project.server.status.offline": {
+    "defaultMessage": "Luring"
+  },
+  "project.server.status.offline.tooltip": {
+    "defaultMessage": "Peladen sedang luring"
+  },
+  "project.server.status.online": {
+    "defaultMessage": "Daring"
+  },
   "project.settings.analytics.title": {
     "defaultMessage": "Analisis"
   },
@@ -1849,6 +2707,27 @@
   },
   "project.settings.description.title": {
     "defaultMessage": "Keterangan"
+  },
+  "project.settings.disclosures.ai.types-assets": {
+    "defaultMessage": "Aset"
+  },
+  "project.settings.disclosures.ai.types-code": {
+    "defaultMessage": "Kode"
+  },
+  "project.settings.disclosures.ai.types-text": {
+    "defaultMessage": "Teks"
+  },
+  "project.settings.disclosures.telemetry.consent-always-active": {
+    "defaultMessage": "Selalu aktif"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-in": {
+    "defaultMessage": "Opt-in"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-out": {
+    "defaultMessage": "Opt-out"
+  },
+  "project.settings.disclosures.title": {
+    "defaultMessage": "Pengungkapan"
   },
   "project.settings.environment.client_and_server.title": {
     "defaultMessage": "Klien dan server"
@@ -1895,11 +2774,20 @@
   "project.settings.upload.title": {
     "defaultMessage": "Unggah"
   },
+  "project.settings.versions.permissions": {
+    "defaultMessage": "Izin"
+  },
   "project.settings.versions.title": {
     "defaultMessage": "Versi"
   },
   "project.settings.view.title": {
     "defaultMessage": "Lihat"
+  },
+  "project.stats.downloads-label": {
+    "defaultMessage": "{count, plural, other {unduhan}}"
+  },
+  "project.stats.followers-label": {
+    "defaultMessage": "{count, plural, other {pengikut}}"
   },
   "project.versions.channel.alpha.symbol": {
     "defaultMessage": "A"
@@ -1909,6 +2797,36 @@
   },
   "project.versions.channel.release.symbol": {
     "defaultMessage": "R"
+  },
+  "project.versions.create-version": {
+    "defaultMessage": "Buat versi"
+  },
+  "project.versions.downloads-tooltip": {
+    "defaultMessage": "{count, plural, other {# unduhan}}"
+  },
+  "project.versions.filter.channel": {
+    "defaultMessage": "Saluran"
+  },
+  "project.versions.filter.selected-count": {
+    "defaultMessage": "{count, number} terpilih"
+  },
+  "project.versions.filter.toggle-tooltip": {
+    "defaultMessage": "Alihkan penapis untuk {filter}"
+  },
+  "project.versions.no-mod-loader": {
+    "defaultMessage": "Tidak ada pemuat mod"
+  },
+  "project.versions.platform.modloader.short": {
+    "defaultMessage": "ModLoader"
+  },
+  "project.versions.version.withheld": {
+    "defaultMessage": "Ditahan"
+  },
+  "project.versions.version.withheld.tooltip": {
+    "defaultMessage": "Versi ditahan karena izin tidak mencukupi"
+  },
+  "project.versions.withheld-versions-warning.resolve-button": {
+    "defaultMessage": "Selesaikan"
   },
   "project.visibility.archived": {
     "defaultMessage": "Diarsipkan"
@@ -1940,6 +2858,96 @@
   "project.visibility.unlisted-by-staff": {
     "defaultMessage": "Disembunyikan oleh staf"
   },
+  "report.item-type.content": {
+    "defaultMessage": "konten"
+  },
+  "report.item-type.project": {
+    "defaultMessage": "proyek"
+  },
+  "report.item-type.user": {
+    "defaultMessage": "pengguna"
+  },
+  "report.item-type.version": {
+    "defaultMessage": "versi"
+  },
+  "report.type.ai-images": {
+    "defaultMessage": "Gambar hasil AI di ikon, galeri, atau deskripsi"
+  },
+  "report.type.copyright": {
+    "defaultMessage": "Karya diunggah ulang"
+  },
+  "report.type.fully-ai-generated": {
+    "defaultMessage": "Proyek sepenuhnya dibuat AI"
+  },
+  "report.type.inappropriate": {
+    "defaultMessage": "Tidak pantas"
+  },
+  "report.type.malicious": {
+    "defaultMessage": "Berbahaya"
+  },
+  "report.type.missing-disclosure": {
+    "defaultMessage": "Pengungkapan hilang atau salah"
+  },
+  "report.type.name-squatting": {
+    "defaultMessage": "Perampasan nama"
+  },
+  "report.type.spam": {
+    "defaultMessage": "Spam"
+  },
+  "search.filter.clear-all-filters": {
+    "defaultMessage": "Bersihkan semua penapis"
+  },
+  "search.filter.dependency_type.any": {
+    "defaultMessage": "Jenis ketergantungan apa pun"
+  },
+  "search.filter.dependency_type.embedded": {
+    "defaultMessage": "Tersemat"
+  },
+  "search.filter.dependency_type.optional": {
+    "defaultMessage": "Opsional"
+  },
+  "search.filter.dependency_type.optional_or_embedded": {
+    "defaultMessage": "Opsional atau tersemat"
+  },
+  "search.filter.dependency_type.required": {
+    "defaultMessage": "Diperlukan"
+  },
+  "search.filter.dependency_type.required_or_embedded": {
+    "defaultMessage": "Diperlukan atau tersemat"
+  },
+  "search.filter.dependency_type.required_or_optional": {
+    "defaultMessage": "Diperlukan atau opsional"
+  },
+  "search.filter.dependent_project": {
+    "defaultMessage": "Bergantung pada: {project}"
+  },
+  "search.filter.dependent_project.clear": {
+    "defaultMessage": "Bersihkan penapis ketergantungan"
+  },
+  "search.filter.dependent_project.search_placeholder": {
+    "defaultMessage": "Cari proyek..."
+  },
+  "search.filter.excluded_projects": {
+    "defaultMessage": "Mengecualikan: {projects}"
+  },
+  "search.filter.included_content.exclude": {
+    "defaultMessage": "Kecualikan"
+  },
+  "search.filter.included_content.excluded": {
+    "defaultMessage": "Dikecualikan"
+  },
+  "search.filter.included_content.remove_project": {
+    "defaultMessage": "Hapus {project}"
+  },
+  "search.filter.included_content.remove_project.tooltip": {
+    "defaultMessage": "Hapus proyek"
+  },
+  "search.filter.included_content.search_placeholder": {
+    "defaultMessage": "Cari konten..."
+  },
+  "search.filter.included_projects": {
+    "defaultMessage": "Mencakup: {projects}"
+  },
   "search.filter.locked.default": {
     "defaultMessage": "Saringan terkunci"
   },
@@ -1970,6 +2978,48 @@
   "search.filter.option.show_more": {
     "defaultMessage": "Tampilkan lebih banyak"
   },
+  "search.filter.option.sub_options.collapse.tooltip": {
+    "defaultMessage": "Sembunyikan opsi lain"
+  },
+  "search.filter.option.sub_options.expand.tooltip": {
+    "defaultMessage": "Tampilkan opsi lain"
+  },
+  "search.filter_type.advanced": {
+    "defaultMessage": "Pengecualian lanjutan"
+  },
+  "search.filter_type.advanced.disclosure.advertisements": {
+    "defaultMessage": "Iklan"
+  },
+  "search.filter_type.advanced.disclosure.ai_content": {
+    "defaultMessage": "Konten yang dibuat AI"
+  },
+  "search.filter_type.advanced.disclosure.ai_content.usage": {
+    "defaultMessage": "AI {usage}"
+  },
+  "search.filter_type.advanced.disclosure.ai_functionality": {
+    "defaultMessage": "Fungsi AI generatif"
+  },
+  "search.filter_type.advanced.disclosure.archived": {
+    "defaultMessage": "Diarsipkan"
+  },
+  "search.filter_type.advanced.disclosure.derivative_work": {
+    "defaultMessage": "Konten turunan"
+  },
+  "search.filter_type.advanced.disclosure.epilepsy_triggers": {
+    "defaultMessage": "Pemicu fotosensitivitas"
+  },
+  "search.filter_type.advanced.disclosure.paid_features": {
+    "defaultMessage": "Fitur berbayar"
+  },
+  "search.filter_type.advanced.disclosure.system_interactions": {
+    "defaultMessage": "Interaksi sistem eksternal"
+  },
+  "search.filter_type.advanced.disclosure.telemetry": {
+    "defaultMessage": "Telemetri"
+  },
+  "search.filter_type.compatible_dependency_project_ids": {
+    "defaultMessage": "Bergantung pada"
+  },
   "search.filter_type.environment": {
     "defaultMessage": "Lingkungan"
   },
@@ -1984,6 +3034,9 @@
   },
   "search.filter_type.game_version.all_versions": {
     "defaultMessage": "Tampilkan semua versi"
+  },
+  "search.filter_type.included_content": {
+    "defaultMessage": "Konten yang disertakan"
   },
   "search.filter_type.license": {
     "defaultMessage": "Lisensi"
@@ -2006,14 +3059,23 @@
   "search.filter_type.project_id": {
     "defaultMessage": "Pengenal proyek"
   },
-  "search.filter_type.server_language": {
-    "defaultMessage": "Bahasa"
-  },
-  "search.filter_type.server_region": {
-    "defaultMessage": "Wilayah"
-  },
   "search.filter_type.shader_loader": {
     "defaultMessage": "Pemuat"
+  },
+  "search.photosensitivity-warning-modal.body.1": {
+    "defaultMessage": "Kami tidak dapat menjamin bahwa semua konten di Modrinth telah dilabeli dengan benar."
+  },
+  "search.photosensitivity-warning-modal.body.2": {
+    "defaultMessage": "Label konten untuk pemicu fotosensitivitas ditetapkan sendiri oleh kreator yang mengunggah konten mereka ke Modrinth. Proyek ini belum melalui pengujian keamanan apa pun."
+  },
+  "search.photosensitivity-warning-modal.body.3": {
+    "defaultMessage": "Menggunakan konten apa pun di Modrinth adalah atas risiko Anda sendiri. Tetap berhati-hati! 💚"
+  },
+  "search.photosensitivity-warning-modal.dont-show-again": {
+    "defaultMessage": "Jangan tampilkan ini lagi"
+  },
+  "search.photosensitivity-warning-modal.title": {
+    "defaultMessage": "Hasil tidak dijamin aman"
   },
   "settings.account.title": {
     "defaultMessage": "Akun dan keamanan"
@@ -2030,6 +3092,66 @@
   "settings.billing.title": {
     "defaultMessage": "Tagihan dan langganan"
   },
+  "settings.display.project-list-layouts.datapack": {
+    "defaultMessage": "Halaman Paket Data"
+  },
+  "settings.display.project-list-layouts.description": {
+    "defaultMessage": "Pilih tata letak pilihan Anda untuk setiap halaman yang menampilkan daftar proyek."
+  },
+  "settings.display.project-list-layouts.mod": {
+    "defaultMessage": "Halaman Mod"
+  },
+  "settings.display.project-list-layouts.mode.grid": {
+    "defaultMessage": "Grid"
+  },
+  "settings.display.project-list-layouts.mode.rows": {
+    "defaultMessage": "Baris"
+  },
+  "settings.display.project-list-layouts.modpack": {
+    "defaultMessage": "Halaman Paket Mod"
+  },
+  "settings.display.project-list-layouts.plugin": {
+    "defaultMessage": "Halaman Pemalam"
+  },
+  "settings.display.project-list-layouts.resourcepack": {
+    "defaultMessage": "Halaman Paket Sumber"
+  },
+  "settings.display.project-list-layouts.server": {
+    "defaultMessage": "Halaman Peladen"
+  },
+  "settings.display.project-list-layouts.shader": {
+    "defaultMessage": "Halaman Shader"
+  },
+  "settings.display.project-list-layouts.title": {
+    "defaultMessage": "Tata letak daftar proyek"
+  },
+  "settings.display.project-list-layouts.user": {
+    "defaultMessage": "Halaman profil pengguna"
+  },
+  "settings.display.sidebar.advanced-rendering.description": {
+    "defaultMessage": "Mengaktifkan render lanjutan seperti efek kabur yang dapat menimbulkan masalah kinerja tanpa render yang dipercepat perangkat keras."
+  },
+  "settings.display.sidebar.advanced-rendering.title": {
+    "defaultMessage": "Render lanjutan"
+  },
+  "settings.display.sidebar.external-links-new-tab.description": {
+    "defaultMessage": "Buka tautan yang keluar dari Modrinth di tab baru. Terlepas dari pengaturan ini, tautan pada domain yang sama dan dalam deskripsi Markdown akan dibuka di tab yang sama, dan tautan pada iklan serta halaman suntingan akan dibuka di tab baru."
+  },
+  "settings.display.sidebar.external-links-new-tab.title": {
+    "defaultMessage": "Buka tautan eksternal di tab baru"
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.description": {
+    "defaultMessage": "Menjajarkan bilah sisi ke kiri konten halaman."
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.title": {
+    "defaultMessage": "Bilah sisi sejajar kiri pada halaman konten"
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.description": {
+    "defaultMessage": "Menjajarkan bilah sisi penapis ke kanan hasil pencarian."
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.title": {
+    "defaultMessage": "Bilah sisi penapis sejajar kanan pada halaman pencarian"
+  },
   "settings.display.theme.dark": {
     "defaultMessage": "Gelap"
   },
@@ -2038,6 +3160,9 @@
   },
   "settings.display.theme.oled": {
     "defaultMessage": "OLED"
+  },
+  "settings.display.theme.orbiont-description": {
+    "defaultMessage": "Pilih tema warna pilihan Anda untuk {productName}."
   },
   "settings.display.theme.preferred-dark-theme": {
     "defaultMessage": "Tema gelap pilihan"
@@ -2054,14 +3179,23 @@
   "settings.display.theme.title": {
     "defaultMessage": "Tema warna"
   },
+  "settings.feature-flags.title": {
+    "defaultMessage": "Penanda fitur"
+  },
   "settings.language.categories.default": {
     "defaultMessage": "Bahasa standar"
   },
   "settings.language.categories.search-result": {
     "defaultMessage": "Hasil pencarian"
   },
-  "settings.language.description": {
-    "defaultMessage": "Pilih bahasa pilihan Anda untuk {platform} ini. Terjemahan disumbangkan oleh para sukarelawan <crowdin-link>di Crowdin</crowdin-link>."
+  "settings.language.coverage.app-tooltip": {
+    "defaultMessage": "Sekitar {percentage}% dari {productName} tersedia dalam bahasa ini."
+  },
+  "settings.language.coverage.label": {
+    "defaultMessage": "{percentage}% didukung"
+  },
+  "settings.language.description.orbiont": {
+    "defaultMessage": "Pilih bahasa pilihan Anda untuk {platform}. Orbiont menyertakan terjemahan komunitas apa adanya; cakupan bervariasi menurut bahasa dan teks yang tidak diterjemahkan akan kembali ke bahasa Inggris."
   },
   "settings.language.languages.search-field.placeholder": {
     "defaultMessage": "Cari bahasa..."
@@ -2075,9 +3209,6 @@
   "settings.language.platform.app": {
     "defaultMessage": "aplikasi"
   },
-  "settings.language.platform.site": {
-    "defaultMessage": "situs"
-  },
   "settings.language.title": {
     "defaultMessage": "Bahasa"
   },
@@ -2087,8 +3218,26 @@
   "settings.pats.title": {
     "defaultMessage": "Token akses pribadi"
   },
+  "settings.profile.navigation-title": {
+    "defaultMessage": "Profil"
+  },
   "settings.sessions.title": {
     "defaultMessage": "Sesi"
+  },
+  "settings.social.title": {
+    "defaultMessage": "Sosial"
+  },
+  "skin.preview.drag-to-rotate": {
+    "defaultMessage": "Seret untuk memutar"
+  },
+  "skins.select": {
+    "defaultMessage": "Pilih skin"
+  },
+  "skins.select-named": {
+    "defaultMessage": "Pilih {name}"
+  },
+  "table.empty-state.no-data": {
+    "defaultMessage": "Tidak ada data tersedia."
   },
   "tag.category.128x": {
     "defaultMessage": "128x"
@@ -2101,6 +3250,9 @@
   },
   "tag.category.32x": {
     "defaultMessage": "32x"
+  },
+  "tag.category.3d-packs": {
+    "message": "Paket 3D"
   },
   "tag.category.48x": {
     "defaultMessage": "48x"
@@ -2122,6 +3274,9 @@
   },
   "tag.category.anarchy": {
     "defaultMessage": "Anarki"
+  },
+  "tag.category.armor-tools-weapons": {
+    "message": "Armor, Peralatan, dan Senjata"
   },
   "tag.category.atmosphere": {
     "defaultMessage": "Suasana"
@@ -2165,6 +3320,12 @@
   "tag.category.core-shaders": {
     "defaultMessage": "Efek Gambar Inti"
   },
+  "tag.category.cosmetics": {
+    "message": "Kosmetik"
+  },
+  "tag.category.creation": {
+    "defaultMessage": "Kreasi"
+  },
   "tag.category.creative-mode": {
     "defaultMessage": "Mode Kreatif"
   },
@@ -2174,11 +3335,17 @@
   "tag.category.crossplay": {
     "defaultMessage": "Lintas Platform"
   },
+  "tag.category.ctm": {
+    "message": "Selesaikan Monumen"
+  },
   "tag.category.cursed": {
     "defaultMessage": "Di Luar Nalar"
   },
   "tag.category.custom-content": {
     "defaultMessage": "Konten Tersuai"
+  },
+  "tag.category.custom-terrain": {
+    "message": "Medan Khusus"
   },
   "tag.category.decoration": {
     "defaultMessage": "Hiasan"
@@ -2188,6 +3355,9 @@
   },
   "tag.category.economy": {
     "defaultMessage": "Keuangan"
+  },
+  "tag.category.enhanced-visuals": {
+    "message": "Visual yang Ditingkatkan"
   },
   "tag.category.entities": {
     "defaultMessage": "Entitas"
@@ -2213,6 +3383,9 @@
   "tag.category.food": {
     "defaultMessage": "Makanan"
   },
+  "tag.category.game-map": {
+    "defaultMessage": "Peta Permainan"
+  },
   "tag.category.game-mechanics": {
     "defaultMessage": "Mekanisme Permainan"
   },
@@ -2237,6 +3410,9 @@
   "tag.category.kitchen-sink": {
     "defaultMessage": "Aneka Macam"
   },
+  "tag.category.kitpvp": {
+    "defaultMessage": "Kit PvP"
+  },
   "tag.category.library": {
     "defaultMessage": "Pustaka"
   },
@@ -2258,6 +3434,9 @@
   "tag.category.management": {
     "defaultMessage": "Pengelolaan"
   },
+  "tag.category.maps": {
+    "message": "Peta"
+  },
   "tag.category.media": {
     "defaultMessage": "Media"
   },
@@ -2266,6 +3445,9 @@
   },
   "tag.category.microgames": {
     "defaultMessage": "Permainan Mikro"
+  },
+  "tag.category.minecraft-addon-maker": {
+    "message": "Minecraft Addon Maker"
   },
   "tag.category.minigame": {
     "defaultMessage": "Permainan Kecil"
@@ -2281,6 +3463,9 @@
   },
   "tag.category.modded": {
     "defaultMessage": "Untuk Mod"
+  },
+  "tag.category.modded-world": {
+    "defaultMessage": "Dunia Bermod"
   },
   "tag.category.models": {
     "defaultMessage": "Model"
@@ -2315,14 +3500,29 @@
   "tag.category.personal-worlds": {
     "defaultMessage": "Dunia Pribadi"
   },
+  "tag.category.players": {
+    "message": "Pemain"
+  },
   "tag.category.plots": {
     "defaultMessage": "Petak"
+  },
+  "tag.category.pokemon": {
+    "defaultMessage": "Pokémon"
   },
   "tag.category.potato": {
     "defaultMessage": "Kentang"
   },
   "tag.category.prison": {
     "defaultMessage": "Penjara"
+  },
+  "tag.category.puzzle": {
+    "defaultMessage": "Teka-teki"
+  },
+  "tag.category.pve": {
+    "defaultMessage": "PvE"
+  },
+  "tag.category.pvp": {
+    "defaultMessage": "PvP"
   },
   "tag.category.questing": {
     "defaultMessage": "Misi-misian"
@@ -2345,20 +3545,32 @@
   "tag.category.roleplay": {
     "defaultMessage": "Permainan Peran"
   },
+  "tag.category.rollercoaster": {
+    "message": "Rollercoaster"
+  },
   "tag.category.rpg": {
     "defaultMessage": "RPG"
   },
   "tag.category.screenshot": {
     "defaultMessage": "Tangkapan Layar"
   },
+  "tag.category.scripts": {
+    "message": "Skrip"
+  },
   "tag.category.semi-realistic": {
     "defaultMessage": "Semirealistis"
+  },
+  "tag.category.shaders": {
+    "message": "Efek Gambar"
   },
   "tag.category.shadows": {
     "defaultMessage": "Bayangan"
   },
   "tag.category.simplistic": {
     "defaultMessage": "Sederhana"
+  },
+  "tag.category.skins": {
+    "message": "Skin"
   },
   "tag.category.skyblock": {
     "defaultMessage": "Skyblock"
@@ -2372,6 +3584,9 @@
   "tag.category.storage": {
     "defaultMessage": "Penyimpanan"
   },
+  "tag.category.survival": {
+    "defaultMessage": "Bertahan Hidup"
+  },
   "tag.category.survival-mode": {
     "defaultMessage": "Mode Sintas"
   },
@@ -2383,6 +3598,9 @@
   },
   "tag.category.technology": {
     "defaultMessage": "Teknologi"
+  },
+  "tag.category.texture-packs": {
+    "message": "Paket Tekstur"
   },
   "tag.category.themed": {
     "defaultMessage": "Bertema"
@@ -2501,7 +3719,220 @@
   "tag.loader.waterfall": {
     "defaultMessage": "Waterfall"
   },
+  "terminal.scroll-to-bottom": {
+    "defaultMessage": "Gulir ke bawah"
+  },
   "ui.component.unsaved-changes-popup.body": {
     "defaultMessage": "Anda memiliki perubahan yang belum tersimpan."
+  },
+  "ui.confirm-leave-modal.body": {
+    "defaultMessage": "Anda memiliki perubahan yang belum disimpan yang akan hilang jika Anda meninggalkan halaman ini."
+  },
+  "ui.confirm-leave-modal.header": {
+    "defaultMessage": "Anda memiliki perubahan yang belum disimpan"
+  },
+  "ui.confirm-leave-modal.leave": {
+    "defaultMessage": "Tinggalkan halaman"
+  },
+  "ui.confirm-leave-modal.stay": {
+    "defaultMessage": "Tetap di halaman"
+  },
+  "ui.confirm-leave-modal.title": {
+    "defaultMessage": "Tinggalkan halaman?"
+  },
+  "ui.i18n-debug.close": {
+    "defaultMessage": "Tutup pemeriksa"
+  },
+  "ui.i18n-debug.copied": {
+    "defaultMessage": "Disalin"
+  },
+  "ui.i18n-debug.copy": {
+    "defaultMessage": "salin"
+  },
+  "ui.i18n-debug.copy-hint": {
+    "defaultMessage": "klik untuk menyalin"
+  },
+  "ui.i18n-debug.discover-hint": {
+    "defaultMessage": "Navigasi aplikasi untuk menemukan kunci i18n"
+  },
+  "ui.i18n-debug.expand": {
+    "defaultMessage": "Kembangkan panel"
+  },
+  "ui.i18n-debug.hide-keys": {
+    "defaultMessage": "Sembunyikan kunci sebaris"
+  },
+  "ui.i18n-debug.key-count": {
+    "defaultMessage": "{count, plural, other {# kunci}}"
+  },
+  "ui.i18n-debug.minimize": {
+    "defaultMessage": "Kecilkan panel"
+  },
+  "ui.i18n-debug.navigate": {
+    "defaultMessage": "navigasi"
+  },
+  "ui.i18n-debug.no-keys": {
+    "defaultMessage": "Tidak ada kunci terdaftar"
+  },
+  "ui.i18n-debug.no-matches": {
+    "defaultMessage": "Tidak ada kecocokan ditemukan"
+  },
+  "ui.i18n-debug.reveal-keys": {
+    "defaultMessage": "Tampilkan kunci sebaris"
+  },
+  "ui.i18n-debug.search": {
+    "defaultMessage": "Cari kunci atau nilai..."
+  },
+  "ui.i18n-debug.search-hint": {
+    "defaultMessage": "Coba istilah pencarian lain"
+  },
+  "ui.i18n-debug.title": {
+    "defaultMessage": "Pemeriksa i18n"
+  },
+  "ui.i18n-debug.toggle-overlay": {
+    "defaultMessage": "Alihkan tindihan debug CSS"
+  },
+  "ui.i18n-debug.watching": {
+    "defaultMessage": "Memantau"
+  },
+  "ui.pagination.go-to-page": {
+    "defaultMessage": "Pergi ke halaman"
+  },
+  "ui.pagination.next-page": {
+    "defaultMessage": "Halaman berikutnya"
+  },
+  "ui.pagination.previous-page": {
+    "defaultMessage": "Halaman sebelumnya"
+  },
+  "ui.stacked-admonitions.alert-count": {
+    "defaultMessage": "{count, plural, other {# peringatan}}"
+  },
+  "ui.stacked-admonitions.dismiss-all": {
+    "defaultMessage": "Abaikan semua"
+  },
+  "unknown-file-warning-modal.dont-install": {
+    "defaultMessage": "Jangan pasang"
+  },
+  "unknown-file-warning-modal.dont-show-again": {
+    "defaultMessage": "Jangan tampilkan peringatan ini lagi"
+  },
+  "unknown-file-warning-modal.file-unverified-body": {
+    "defaultMessage": "memiliki sumber yang tidak dapat diverifikasi. Hanya pasang berkas dari sumber yang Anda percayai."
+  },
+  "unknown-file-warning-modal.header": {
+    "defaultMessage": "Konfirmasi instalasi"
+  },
+  "unknown-file-warning-modal.install-anyway": {
+    "defaultMessage": "Pasang tetap"
+  },
+  "unknown-file-warning-modal.malware-warning": {
+    "defaultMessage": "Malware sering disebarkan melalui berkas mod dengan membagikannya di platform seperti Discord."
+  },
+  "unknown-file-warning-modal.mod-warning-title": {
+    "defaultMessage": "Peringatan berkas tidak diketahui"
+  },
+  "unknown-file-warning-modal.modpack-unverified-body": {
+    "defaultMessage": "berisi berkas yang sumbernya tidak dapat diverifikasi. Hanya pasang berkas dari sumber yang Anda percayai."
+  },
+  "unknown-file-warning-modal.modpack-warning-title": {
+    "defaultMessage": "Peringatan berkas tidak diketahui"
+  },
+  "unknown-file-warning-modal.unrecognized-files": {
+    "defaultMessage": "Berkas tidak dikenali"
+  },
+  "unknown-file-warning-modal.unverified-files": {
+    "defaultMessage": "Berkas yang tidak dikenali mungkin tidak aman. Periksa sumbernya sebelum memasangnya."
+  },
+  "version.content.name": {
+    "defaultMessage": "Nama"
+  },
+  "version.content.version": {
+    "defaultMessage": "Versi"
+  },
+  "version.file-type.dev-jar": {
+    "defaultMessage": "JAR pengembangan"
+  },
+  "version.file-type.javadoc-jar": {
+    "defaultMessage": "JAR Javadocs"
+  },
+  "version.file-type.optional-resource-pack": {
+    "defaultMessage": "Paket sumber opsional"
+  },
+  "version.file-type.primary": {
+    "defaultMessage": "Utama"
+  },
+  "version.file-type.required-resource-pack": {
+    "defaultMessage": "Paket sumber yang diperlukan"
+  },
+  "version.file-type.signature": {
+    "defaultMessage": "Berkas tanda tangan"
+  },
+  "version.file-type.sources-jar": {
+    "defaultMessage": "JAR sumber"
+  },
+  "version.file-type.unknown": {
+    "defaultMessage": "Lainnya"
+  },
+  "version.section.changes": {
+    "defaultMessage": "Perubahan"
+  },
+  "version.section.compatibility": {
+    "defaultMessage": "Kompatibilitas"
+  },
+  "version.section.content": {
+    "defaultMessage": "Konten"
+  },
+  "version.section.content.search-placeholder": {
+    "defaultMessage": "Cari konten..."
+  },
+  "version.section.dependencies.any-compatible-version": {
+    "defaultMessage": "Versi kompatibel apa pun"
+  },
+  "version.section.dependencies.any-version": {
+    "defaultMessage": "Versi apa pun"
+  },
+  "version.section.dependencies.unavailable-version": {
+    "defaultMessage": "Versi tidak tersedia"
+  },
+  "version.section.dependencies.unavailable-version.description": {
+    "defaultMessage": "Versi ini mungkin telah dihapus atau sedang ditinjau oleh moderator."
+  },
+  "version.section.dependencies.unavailable-version.description.required": {
+    "defaultMessage": "Versi yang diperlukan mungkin telah dihapus atau sedang ditinjau oleh moderator."
+  },
+  "version.section.files": {
+    "defaultMessage": "Berkas"
+  },
+  "version.section.included-content": {
+    "defaultMessage": "Konten yang disertakan"
+  },
+  "version.section.known-incompatibilities": {
+    "defaultMessage": "Ketidakkompatibelan yang diketahui"
+  },
+  "version.section.no-changes": {
+    "defaultMessage": "Tidak ada log perubahan yang diberikan."
+  },
+  "version.section.no-modpack-mod-loader": {
+    "defaultMessage": "Tidak ada pemuat mod"
+  },
+  "version.section.optional-dependencies": {
+    "defaultMessage": "Ketergantungan opsional"
+  },
+  "version.section.required-content": {
+    "defaultMessage": "Konten yang diperlukan"
+  },
+  "version.section.supplementary-resources": {
+    "defaultMessage": "Sumber daya tambahan"
+  },
+  "version.supplementary-resources.file": {
+    "defaultMessage": "Berkas"
+  },
+  "version.supplementary-resources.size": {
+    "defaultMessage": "Ukuran"
+  },
+  "version.supplementary-resources.type": {
+    "defaultMessage": "Jenis"
+  },
+  "version.uploaded-by": {
+    "defaultMessage": "Diunggah oleh"
   }
 }

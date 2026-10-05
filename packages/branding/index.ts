@@ -1,12 +1,8 @@
 /**
  * Single source of truth for Orbiont's brand strings and colors.
  *
- * "Orbiont" is a placeholder codename (see the build plan's Fase 5):
- * it collides with an existing UK company and is awkward to spell in
- * Spanish. Everything that identifies the product reads from here so
- * that renaming later is "change six lines", not a repo-wide search
- * and replace. Never hardcode "Orbiont", the bundle identifier, the
- * deep-link scheme, or the domain anywhere else.
+ * Keep the product name, bundle identifier, deep-link scheme, and domain
+ * here so that every consumer uses the same identity.
  */
 
 export const productName = 'Orbiont'
@@ -28,6 +24,8 @@ export const deepLinkScheme = 'orbiont'
  * ORBIONT_* values in packages/app-lib/.env.* (read by the Rust side).
  */
 export const domain = 'xerohost.net'
+export const companyName = 'XeroHost'
+export const companySiteUrl = `https://${domain}`
 export const siteUrl = `https://${domain}/orbiont`
 export const supportEmail = `support@${domain}`
 export const supportUrl = `${siteUrl}/support`

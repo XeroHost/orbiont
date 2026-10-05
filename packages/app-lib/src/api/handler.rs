@@ -26,10 +26,6 @@ pub async fn handle_url(sublink: &str) -> crate::Result<CommandPayload> {
         Some(("modpack", id)) => {
             CommandPayload::InstallModpack { id: id.to_string() }
         }
-        // /server/{id}   -    Opens a server project page and triggers play flow
-        Some(("server", id)) => {
-            CommandPayload::InstallServer { id: id.to_string() }
-        }
         // /launch/instance/{id}   -    Launches an instance
         Some(("launch", rest)) if rest.starts_with("instance/") => {
             let raw = rest.trim_start_matches("instance/");
@@ -103,11 +99,17 @@ pub async fn parse_command(
     {
         Ok(handle_url(sublink).await?)
     } else {
-        // We assume anything else is a filepath to an .mrpack file
+        // Associated pack files use the existing local-import command event.
         let path = PathBuf::from(command_string);
         let path = io::canonicalize(path)?;
-        if let Some(ext) = path.extension()
-            && ext == "mrpack"
+        if path
+            .extension()
+            .and_then(|ext| ext.to_str())
+            .is_some_and(|ext| {
+                ["orbpack", "mrpack", "zip"]
+                    .iter()
+                    .any(|format| ext.eq_ignore_ascii_case(format))
+            })
         {
             return Ok(CommandPayload::RunMRPack {
                 path: path.to_string_lossy().into_owned(),
@@ -130,4 +132,26 @@ pub async fn parse_and_emit_command(command_string: &str) -> crate::Result<()> {
     let command = parse_command(command_string).await?;
     emit_command(command).await?;
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn associated_pack_files_open_as_import_commands() {
+        for extension in ["orbpack", "ORBPACK", "mrpack", "zip"] {
+            let path = std::env::temp_dir().join(format!(
+                "orbiont-command-{}.{}",
+                uuid::Uuid::new_v4(),
+                extension
+            ));
+            std::fs::write(&path, b"command test").unwrap();
+            assert!(matches!(
+                parse_command(path.to_str().unwrap()).await.unwrap(),
+                CommandPayload::RunMRPack { .. }
+            ));
+            std::fs::remove_file(path).unwrap();
+        }
+    }
 }

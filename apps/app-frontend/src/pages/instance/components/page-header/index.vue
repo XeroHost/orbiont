@@ -13,10 +13,10 @@
 		<template v-if="instance.quarantined" #badges>
 			<PageHeaderBadgeItem
 				:icon="LockIcon"
-				aria-label="Locked instance information"
+				:aria-label="formatMessage(messages.lockedInstanceInfo)"
 				class="!border-orange !bg-highlight-orange !text-orange"
 			>
-				Locked
+				{{ formatMessage(messages.lockedBadge) }}
 			</PageHeaderBadgeItem>
 		</template>
 
@@ -35,14 +35,14 @@
 				<PageHeaderMetadataItem
 					:icon="TagIcon"
 					:icon-props="{ tag: loaderDisplayName, enforceType: 'loader' }"
-					tooltip="Mod loader and Minecraft version"
+					:tooltip="formatMessage(messages.loaderVersionTooltip)"
 				>
 					{{ loaderLabel }}
 				</PageHeaderMetadataItem>
 				<PageHeaderMetadataItem
 					v-if="showInstancePlayTime && playtimeLabel"
 					:icon="TimerIcon"
-					tooltip="Total playtime"
+					:tooltip="formatMessage(messages.totalPlaytime)"
 				>
 					{{ playtimeLabel }}
 				</PageHeaderMetadataItem>
@@ -52,7 +52,11 @@
 					:date="instance.last_played"
 					:label="formatMessage(messages.lastPlayed)"
 				/>
-				<PageHeaderMetadataItem v-else :icon="ClockIcon" tooltip="Last played">
+				<PageHeaderMetadataItem
+					v-else
+					:icon="ClockIcon"
+					:tooltip="formatMessage(messages.lastPlayed)"
+				>
 					{{ formatMessage(messages.neverPlayed) }}
 				</PageHeaderMetadataItem>
 			</PageHeaderMetadata>
@@ -244,6 +248,34 @@ const messages = defineMessages({
 		id: 'instance.action.stopping',
 		defaultMessage: 'Stopping...',
 	},
+	lockedBadge: {
+		id: 'instance.locked.badge',
+		defaultMessage: 'Locked',
+	},
+	lockedInstanceInfo: {
+		id: 'instance.locked.info-label',
+		defaultMessage: 'Locked instance information',
+	},
+	loaderVersionTooltip: {
+		id: 'instance.metadata.loader-version-tooltip',
+		defaultMessage: 'Mod loader and Minecraft version',
+	},
+	totalPlaytime: {
+		id: 'instance.playtime.total',
+		defaultMessage: 'Total playtime',
+	},
+	playtimeHours: {
+		id: 'instance.playtime.hours',
+		defaultMessage: '{count, plural, one {# hour} other {# hours}}',
+	},
+	playtimeMinutes: {
+		id: 'instance.playtime.minutes',
+		defaultMessage: '{count, plural, one {# minute} other {# minutes}}',
+	},
+	playtimeSeconds: {
+		id: 'instance.playtime.seconds',
+		defaultMessage: '{count, plural, one {# second} other {# seconds}}',
+	},
 })
 
 const props = withDefaults(
@@ -312,15 +344,15 @@ const playtimeLabel = computed(() => {
 
 	const hours = Math.floor(seconds / 3600)
 	if (hours >= 1) {
-		return `${hours} hour${hours > 1 ? 's' : ''}`
+		return formatMessage(messages.playtimeHours, { count: hours })
 	}
 
 	const minutes = Math.floor(seconds / 60)
 	if (minutes >= 1) {
-		return `${minutes} minute${minutes > 1 ? 's' : ''}`
+		return formatMessage(messages.playtimeMinutes, { count: minutes })
 	}
 
-	return `${seconds} second${seconds === 1 ? '' : 's'}`
+	return formatMessage(messages.playtimeSeconds, { count: seconds })
 })
 const serverPlayOptions = computed<ButtonMenuOption[]>(() => [
 	{

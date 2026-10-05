@@ -1039,10 +1039,8 @@ a:not(.no-click-animation),
 				width: 1.25rem;
 				height: 1.25rem;
 				background-color: currentColor;
-				mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M19 9L12 16L5 9' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
-					center / contain no-repeat;
-				-webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M19 9L12 16L5 9' stroke='black' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")
-					center / contain no-repeat;
+				mask: url('../icons/chevron-down.svg') center / contain no-repeat;
+				-webkit-mask: url('../icons/chevron-down.svg') center / contain no-repeat;
 				transition: transform 0.3s ease-in-out;
 			}
 		}

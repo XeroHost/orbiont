@@ -8,11 +8,27 @@ import { type Ref, ref } from 'vue'
 export class AppNotificationManager extends AbstractWebNotificationManager {
 	private readonly state: Ref<WebNotification[]>
 	private readonly locationState: Ref<NotificationPanelLocation>
+	private readonly curseforgeLimitNotification: () => Pick<WebNotification, 'title' | 'text'>
 
-	public constructor() {
+	public constructor(curseforgeLimitNotification: () => Pick<WebNotification, 'title' | 'text'>) {
 		super()
+		this.curseforgeLimitNotification = curseforgeLimitNotification
 		this.state = ref<WebNotification[]>([])
 		this.locationState = ref<NotificationPanelLocation>('right')
+	}
+
+	// The shared upstream limit is one incident, regardless of the requested path.
+	override handleError = (error: Error): void => {
+		const text = String(error?.message ?? error)
+		if (/CurseForge/i.test(text) && /\b429\b/.test(text)) {
+			this.addNotification({
+				...this.curseforgeLimitNotification(),
+				type: 'warning',
+				supportData: { cause: text },
+			})
+			return
+		}
+		this.addNotification({ title: 'An error occurred', text, type: 'error' })
 	}
 
 	public getNotificationLocation(): NotificationPanelLocation {

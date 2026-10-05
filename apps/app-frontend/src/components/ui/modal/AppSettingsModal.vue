@@ -1,17 +1,7 @@
 <script setup lang="ts">
-import {
-	CoffeeIcon,
-	LanguagesIcon,
-	LightBulbIcon,
-	MicrochipIcon,
-	PaintbrushIcon,
-	RefreshCwIcon,
-	Settings2Icon,
-	ShieldIcon,
-	ToggleRightIcon,
-} from '@orbiont/assets'
 import { productName } from '@orbiont/branding'
 import {
+	animatedIcon,
 	commonMessages,
 	commonSettingsMessages,
 	defineMessage,
@@ -25,7 +15,7 @@ import {
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { getVersion } from '@tauri-apps/api/app'
 import { platform as getOsPlatform, version as getOsVersion } from '@tauri-apps/plugin-os'
-import { computed, provide, ref } from 'vue'
+import { computed, provide, ref, shallowReactive } from 'vue'
 
 import PrivacySettings from '@/components/ui/settings/account/PrivacySettings.vue'
 import AppearanceSettings from '@/components/ui/settings/display/AppearanceSettings.vue'
@@ -40,9 +30,20 @@ import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { appSettingsKeys, appSettingsQueryOptions, set } from '@/helpers/settings.ts'
 import {
 	appSettingsModalContextKey,
+	combineSettingsChanges,
 	type UnsavedChangesController,
 } from '@/providers/app-settings-modal'
 import { injectAppUpdateDownloadProgress } from '@/providers/download-progress.ts'
+
+const CoffeeIcon = animatedIcon('coffee')
+const LanguagesIcon = animatedIcon('language')
+const LightBulbIcon = animatedIcon('lightbulb')
+const MicrochipIcon = animatedIcon('cpu')
+const PaintbrushIcon = animatedIcon('paintbrush')
+const RefreshCwIcon = animatedIcon('refresh')
+const Settings2Icon = animatedIcon('sliders')
+const ShieldIcon = animatedIcon('shield')
+const ToggleRightIcon = animatedIcon('toggle')
 
 // TODO: Apply COMPONENT_STRUCTURE.md here and extract out common setting option components
 const appSettings = useAppSettings()
@@ -109,7 +110,6 @@ const tabs = [
 		category: tabCategories.display,
 		icon: LanguagesIcon,
 		content: LanguageSettings,
-		badge: commonMessages.beta,
 	},
 	{
 		name: commonSettingsMessages.featureFlags,
@@ -162,26 +162,23 @@ const availableTabs = computed(() =>
 
 const modal = ref<InstanceType<typeof TabbedModal> | null>(null)
 const unsavedChangesPopup = ref<{ nudge: () => void } | null>(null)
-const unsavedChangesController = ref<UnsavedChangesController | null>(null)
+const changesControllers = shallowReactive(new Map<string, UnsavedChangesController>())
+const unsavedChangesController = combineSettingsChanges(changesControllers)
 const emptyUnsavedChangesState: Record<string, unknown> = {}
 const originalUnsavedChangesState = computed(
-	() => unsavedChangesController.value?.getOriginal() ?? emptyUnsavedChangesState,
+	() => unsavedChangesController.getOriginal() ?? emptyUnsavedChangesState,
 )
 const modifiedUnsavedChangesState = computed(
-	() => unsavedChangesController.value?.getModified() ?? emptyUnsavedChangesState,
+	() => unsavedChangesController.getModified() ?? emptyUnsavedChangesState,
 )
-const savingUnsavedChanges = computed(() => unsavedChangesController.value?.isSaving() ?? false)
+const savingUnsavedChanges = computed(() => unsavedChangesController.isSaving())
+const canSaveUnsavedChanges = computed(() => unsavedChangesController.canSave?.() ?? true)
 const hasUnsavedChanges = computed(
-	() =>
-		(unsavedChangesController.value?.hasChanges() ?? false) ||
-		(unsavedChangesController.value?.isSaving() ?? false),
+	() => unsavedChangesController.hasChanges() || unsavedChangesController.isSaving(),
 )
 
 function canLeaveCurrentTab(): boolean {
-	if (
-		!unsavedChangesController.value?.hasChanges() &&
-		!unsavedChangesController.value?.isSaving()
-	) {
+	if (!unsavedChangesController.hasChanges() && !unsavedChangesController.isSaving()) {
 		return true
 	}
 	unsavedChangesPopup.value?.nudge()
@@ -192,8 +189,12 @@ function close(): boolean {
 	return modal.value?.hide() ?? false
 }
 
-function registerUnsavedChangesController(controller: UnsavedChangesController | null): void {
-	unsavedChangesController.value = controller
+function registerUnsavedChangesController(
+	controller: UnsavedChangesController | null,
+	key = 'current-tab',
+): void {
+	if (controller) changesControllers.set(key, controller)
+	else changesControllers.delete(key)
 }
 
 provide(appSettingsModalContextKey, {
@@ -202,11 +203,15 @@ provide(appSettingsModalContextKey, {
 })
 
 function resetUnsavedChanges(): void {
-	unsavedChangesController.value?.reset()
+	if (!unsavedChangesController.isSaving()) unsavedChangesController.reset()
 }
 
-function saveUnsavedChanges(): void {
-	void unsavedChangesController.value?.save()
+async function saveUnsavedChanges(): Promise<void> {
+	try {
+		await unsavedChangesController.save()
+	} catch (error) {
+		handleError(error)
+	}
 }
 
 function show() {
@@ -320,6 +325,7 @@ const messages = defineMessages({
 				:original="originalUnsavedChangesState"
 				:modified="modifiedUnsavedChangesState"
 				:saving="savingUnsavedChanges"
+				:can-save="canSaveUnsavedChanges"
 				inline
 				@reset="resetUnsavedChanges"
 				@save="saveUnsavedChanges"

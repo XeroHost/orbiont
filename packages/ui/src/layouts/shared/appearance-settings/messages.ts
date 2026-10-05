@@ -6,8 +6,8 @@ export const appearanceSettingsMessages = defineMessages({
 		defaultMessage: 'Color theme',
 	},
 	colorThemeDescription: {
-		id: 'settings.display.theme.description',
-		defaultMessage: 'Select your preferred color theme across Modrinth.',
+		id: 'settings.display.theme.orbiont-description',
+		defaultMessage: 'Select your preferred color theme for {productName}.',
 	},
 	projectListLayoutsTitle: {
 		id: 'settings.display.project-list-layouts.title',

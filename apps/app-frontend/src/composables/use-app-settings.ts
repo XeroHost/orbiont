@@ -33,7 +33,6 @@ function getFeatureFlag(key: FeatureFlag): boolean {
 
 const appSettings = reactive({
 	hideNametagSkinsPage: false,
-	toggleSidebar: false,
 	showFilesTabInInstances: true,
 	showWorldsTabInInstances: true,
 	showScreenshotsTabInInstances: false,

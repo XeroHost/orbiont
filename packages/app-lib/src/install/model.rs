@@ -167,6 +167,8 @@ pub enum InstallRequest {
         #[serde(default)]
         icon_config: Option<InstanceIconConfig>,
         link: InstanceLink,
+        #[serde(default)]
+        optifine: Option<crate::optifine::OptifineReference>,
     },
     CreateModpackInstance {
         location: CreatePackLocation,
@@ -184,6 +186,12 @@ pub enum InstallRequest {
     InstallExistingInstance {
         instance_id: String,
         force: bool,
+        #[serde(
+            default,
+            skip_serializing_if = "Option::is_none",
+            with = "serde_with::rust::double_option"
+        )]
+        optifine: Option<Option<crate::optifine::OptifineReference>>,
     },
     InstallPackToExistingInstance {
         instance_id: String,
@@ -539,6 +547,12 @@ pub struct InstallJobDisplay {
 pub struct InstallRollbackState {
     pub instance: InstanceMetadata,
     pub install_stage: InstanceInstallStage,
+    #[serde(
+        default,
+        skip_serializing_if = "Option::is_none",
+        with = "serde_with::rust::double_option"
+    )]
+    pub optifine: Option<Option<crate::optifine::OptifineReference>>,
 }
 
 #[derive(Clone, Debug)]

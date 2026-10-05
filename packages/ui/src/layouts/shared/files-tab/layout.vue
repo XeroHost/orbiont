@@ -31,7 +31,8 @@
 					:search-query="searchQuery"
 					:show-refresh-button="showRefreshButton"
 					:base-id="baseId"
-					:disabled="isBusy"
+					:browse-only="ctx.browseOnly"
+					:disabled="isBusy || fileEditorRef?.isSaving"
 					:disabled-tooltip="busyTooltip"
 					@navigate="navigateToSegment"
 					@navigate-home="() => navigateToSegment(-1)"
@@ -43,13 +44,15 @@
 					@refresh="ctx.refresh"
 					@share="() => fileEditorRef?.shareToMclogs()"
 					@find="() => fileEditorRef?.toggleFind()"
-				/>
+				>
+					<template #location><slot name="location" /></template>
+				</FileNavbar>
 
 				<div v-if="!isEditing">
 					<FileUploadDragAndDrop
 						ref="fileUploadRef"
 						class="@container relative flex flex-col overflow-clip rounded-[20px] border border-solid border-surface-4 shadow-sm"
-						:disabled="isBusy"
+						:disabled="isBusy || ctx.browseOnly"
 						@drop-error="handleDropError"
 						@files-dropped="handleDroppedFiles"
 					>
@@ -149,7 +152,7 @@
 					v-tooltip="isBusy ? busyTooltip : undefined"
 					type="colored"
 					color="brand"
-					:disabled="isBusy"
+					:disabled="isBusy || fileEditorRef?.isSaving"
 					@click="fileEditorRef?.saveFileContent(false)"
 				>
 					<SaveIcon /> {{ formatMessage(commonMessages.saveButton) }}
@@ -166,7 +169,7 @@
 					<span class="bar-label">{{ formatMessage(commonMessages.clearButton) }}</span>
 				</Button>
 			</div>
-			<div class="ml-auto flex items-center gap-0.5">
+			<div v-if="!ctx.browseOnly" class="ml-auto flex items-center gap-0.5">
 				<Button
 					v-if="ctx.zipPaths"
 					v-tooltip="busyTooltip"
@@ -384,10 +387,12 @@ async function confirmDiscardChanges(): Promise<boolean> {
 	if (result === 'save') {
 		if (isBusy.value) return false
 		await fileEditorRef.value?.saveFileContent(false)
-		return true
+		return !hasUnsavedChanges.value
 	}
 	return result === 'discard'
 }
+
+defineExpose({ confirmDiscardChanges })
 
 // Navigation
 async function navigateToSegment(index: number) {
@@ -415,6 +420,7 @@ function handleNavigateToFolder(item: FileItem) {
 
 // Editing
 function handleEditFile(item: { name: string; type: string; path: string }) {
+	if (ctx.browseOnly && !ctx.allowEditing) return
 	ctx.startEditing({ name: item.name, path: item.path })
 }
 

@@ -36,7 +36,11 @@
 				<ButtonLink
 					v-tooltip="formatMessage(commonMessages.openInBrowserButton)"
 					type="quiet"
-					:href="`${config.siteUrl}/${project.project_type}/${project.slug}/version/${version.id}`"
+					:href="
+						isCurseforgeId(project.id)
+							? `${project.page_url}/files/${version.id.split('-')[2]}`
+							: `${config.siteUrl}/${project.project_type}/${project.slug}/version/${version.id}`
+					"
 					target="_blank"
 					class="!w-9 !px-0 !rounded-full"
 				>
@@ -64,6 +68,7 @@ import { useRoute } from 'vue-router'
 import { SwapIcon } from '@/assets/icons/index.js'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { config } from '@/config'
+import { getBedrockGameVersions, isCurseforgeId } from '@/helpers/curseforge'
 import { get_game_versions, get_loaders } from '@/helpers/tags.js'
 
 const { formatMessage } = useVIntl()
@@ -124,8 +129,12 @@ function buildProjectHref(path) {
 }
 
 const [loaders, gameVersions] = await Promise.all([
-	get_loaders().catch(handleError).then(ref),
-	get_game_versions().catch(handleError).then(ref),
+	(route.query.edition === 'bedrock' ? Promise.resolve([]) : get_loaders())
+		.catch(handleError)
+		.then(ref),
+	(route.query.edition === 'bedrock' ? getBedrockGameVersions() : get_game_versions())
+		.catch(handleError)
+		.then(ref),
 ])
 </script>
 

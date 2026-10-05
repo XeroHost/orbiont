@@ -3,6 +3,16 @@ import { DropdownIcon } from '@orbiont/assets'
 import { reactive } from 'vue'
 
 import { IconButton } from '#ui/components/base/buttons'
+import { defineMessages, useVIntl } from '#ui/composables/i18n'
+
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	toggleDetails: {
+		id: 'card.toggle-details',
+		defaultMessage: 'Toggle details',
+	},
+})
 
 const props = defineProps({
 	collapsible: {
@@ -33,7 +43,7 @@ function toggleCollapsed() {
 		<div v-if="!!$slots.header || collapsible" class="header">
 			<slot name="header"></slot>
 			<div v-if="collapsible" class="btn-group">
-				<IconButton label="Toggle details" @click="toggleCollapsed">
+				<IconButton :label="formatMessage(messages.toggleDetails)" @click="toggleCollapsed">
 					<DropdownIcon :style="{ transform: `rotate(${state.collapsed ? 0 : 180}deg)` }" />
 				</IconButton>
 			</div>

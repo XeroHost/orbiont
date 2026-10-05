@@ -464,10 +464,6 @@ export const commonMessages = defineMessages({
 		id: 'label.hide-selected-content',
 		defaultMessage: 'Hide selected content',
 	},
-	serverOnlyLabel: {
-		id: 'label.server-only',
-		defaultMessage: 'Server only',
-	},
 	installedModpackTitle: {
 		id: 'label.installed-modpack',
 		defaultMessage: 'Installed modpack',
@@ -842,6 +838,7 @@ export function normalizeProjectType(type: string): string {
 type FormatMessage = (descriptor: MessageDescriptor, values?: Record<string, unknown>) => string
 
 export const commonProjectTypeCategoryMessages = defineMessages({
+	world: { id: 'project-type.world.category', defaultMessage: 'Worlds' },
 	datapack: {
 		id: 'project-type.datapack.category',
 		defaultMessage: 'Data Packs',
@@ -877,6 +874,10 @@ export const commonProjectTypeCategoryMessages = defineMessages({
 })
 
 export const commonProjectTypeTitleMessages = defineMessages({
+	world: {
+		id: 'project-type.world.capital',
+		defaultMessage: '{count, plural, one {World} other {Worlds}}',
+	},
 	datapack: {
 		id: 'project-type.datapack.capital',
 		defaultMessage: '{count, plural, one {Data Pack} other {Data Packs}}',
@@ -912,6 +913,10 @@ export const commonProjectTypeTitleMessages = defineMessages({
 })
 
 export const commonProjectTypeSentenceMessages = defineMessages({
+	world: {
+		id: 'project-type.world.lowercase',
+		defaultMessage: '{count, plural, one {world} other {worlds}}',
+	},
 	datapack: {
 		id: 'project-type.datapack.lowercase',
 		defaultMessage: '{count, plural, one {data pack} other {data packs}}',
@@ -1266,14 +1271,10 @@ export const languageSelectorMessages = defineMessages({
 		id: 'settings.language.platform.app',
 		defaultMessage: 'app',
 	},
-	platformSite: {
-		id: 'settings.language.platform.site',
-		defaultMessage: 'site',
-	},
-	languagesDescription: {
-		id: 'settings.language.description',
+	languagesDescriptionOrbiont: {
+		id: 'settings.language.description.orbiont',
 		defaultMessage:
-			'Choose your preferred language for the {platform}. Translations are contributed by volunteers <crowdin-link>on Crowdin</crowdin-link>.',
+			'Choose your preferred language for the {platform}. Orbiont ships community translations as-is; coverage varies by language and untranslated text falls back to English.',
 	},
 	languageWarning: {
 		id: 'settings.language.warning',

@@ -15,6 +15,7 @@ import {
 	ConfirmModal,
 	defineMessages,
 	injectNotificationManager,
+	NavTabs,
 	SkinPreviewRenderer,
 	Toggle,
 	useVIntl,
@@ -29,11 +30,13 @@ import { computed, inject, onMounted, onUnmounted, ref, useTemplateRef, watch } 
 import EarsModIcon from '@/assets/skins/ears-mod.png'
 import type AccountsCard from '@/components/ui/AccountsCard.vue'
 import EditSkinModal from '@/components/ui/skin/EditSkinModal.vue'
+import SkinCatalog from '@/components/ui/skin/SkinCatalog.vue'
 import VirtualSkinSectionList from '@/components/ui/skin/VirtualSkinSectionList.vue'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { handleSevereError } from '@/composables/use-error.js'
 import { check_reachable, get_default_user, login as login_flow, users } from '@/helpers/auth'
 import { cleanupUnusedPreviews } from '@/helpers/rendering/skin-previews'
+import { prepareCatalogSkin, type SkinProvider } from '@/helpers/skin-catalog'
 import type { Cape, Skin, SkinTextureUrl } from '@/helpers/skins.ts'
 import {
 	equip_skin,
@@ -72,6 +75,9 @@ const HIDDEN_SKIN_SECTIONS = new Set(['Modrinth', 'Modrinth Pride'])
 const DEFAULT_SKIN_SECTION_SORT_ORDER = ['Default skins']
 const EARS_NOTICE_PLACEHOLDER = '__EARS_MOD_NAME__'
 const messages = defineMessages({
+	defaultProvider: { id: 'app.skins.catalog.default-provider', defaultMessage: 'Default' },
+	providers: { id: 'app.skins.catalog.providers', defaultMessage: 'Skin providers' },
+	catalogSaved: { id: 'app.skins.catalog.saved', defaultMessage: 'Skin saved to Default' },
 	defaultSkinsSection: {
 		id: 'app.skins.section.default-skins',
 		defaultMessage: 'Default skins',
@@ -206,6 +212,51 @@ const currentUserId = ref<string | undefined>(undefined)
 
 const username = computed(() => currentUser.value?.profile?.name ?? undefined)
 const selectedSkin = ref<Skin | null>(null)
+const skinProvider = ref<SkinProvider>('default')
+const skinProviders: SkinProvider[] = ['default', 'mineskin', 'mcstat']
+const providerLinks = computed(() => [
+	{ href: 'default', label: formatMessage(messages.defaultProvider) },
+	{ href: 'mineskin', label: 'MineSkin' },
+	{ href: 'mcstat', label: 'MCStat' },
+])
+
+function selectProvider(index: number) {
+	const provider = skinProviders[index]
+	if (provider) skinProvider.value = provider
+}
+const isSavingCatalogSkin = ref(false)
+let catalogSelection = 0
+
+async function selectCatalogSkin(skin: Skin) {
+	const selection = ++catalogSelection
+	try {
+		const prepared = await prepareCatalogSkin(skin)
+		if (selection === catalogSelection && !isUnmounted) selectedSkin.value = prepared.skin
+	} catch (error) {
+		handleError(error as Error)
+	}
+}
+
+async function saveCatalogSkin(skin: Skin) {
+	if (!currentUser.value || isSkinManagementReadOnly.value || isSavingCatalogSkin.value) return
+	const profileId = currentUserId.value
+	isSavingCatalogSkin.value = true
+	try {
+		const { skin: prepared, bytes } = await prepareCatalogSkin(skin)
+		if (profileId !== currentUserId.value || isUnmounted) return
+		const saved = await save_custom_skin(prepared, bytes, prepared.variant, undefined, true)
+		await onSkinSaved({ applied: false, skin: { ...saved, source: 'custom' } })
+		addNotification({ type: 'success', title: formatMessage(messages.catalogSaved) })
+	} catch (error) {
+		handleError(error as Error)
+	} finally {
+		isSavingCatalogSkin.value = false
+	}
+}
+
+watch(skinProvider, () => {
+	catalogSelection++
+})
 const isApplyingSkin = ref(false)
 const earsFeaturesEnabled = ref(true)
 const selectedSkinHasEarsFeatures = ref(false)
@@ -1203,7 +1254,27 @@ await loadSkins()
 		</div>
 
 		<div class="pt-2">
+			<div class="mb-5">
+				<NavTabs
+					:links="providerLinks"
+					mode="local"
+					:active-index="skinProviders.indexOf(skinProvider)"
+					:aria-label="formatMessage(messages.providers)"
+					@tab-click="selectProvider"
+				/>
+			</div>
+			<SkinCatalog
+				v-if="skinProvider !== 'default'"
+				:key="skinProvider"
+				:provider="skinProvider"
+				:selected-skin="selectedSkin"
+				:read-only="!currentUser || isSkinManagementReadOnly"
+				:saving="isSavingCatalogSkin"
+				@select="selectCatalogSkin"
+				@save="saveCatalogSkin"
+			/>
 			<VirtualSkinSectionList
+				v-else
 				ref="skinSectionList"
 				:saved-skins="savedSkins"
 				:default-skin-sections="defaultSkinSections"

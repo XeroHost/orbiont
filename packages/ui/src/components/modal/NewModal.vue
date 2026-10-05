@@ -100,7 +100,7 @@
 							:style="{ maxHeight: maxContentHeight }"
 							@scroll="checkScrollState"
 						>
-							<slot> You just lost the game.</slot>
+							<slot />
 						</div>
 
 						<Transition
@@ -127,7 +127,7 @@
 							{ 'pt-12': props.mergeHeader && closable && !props.noPadding },
 						]"
 					>
-						<slot> You just lost the game.</slot>
+						<slot />
 					</div>
 
 					<div

@@ -18,7 +18,7 @@ use crate::state::{
 use crate::util::io::{self, IOError};
 use futures::{StreamExt, stream};
 use path_util::SafeRelativeUtf8UnixPathBuf;
-use serde::Serialize;
+use serde::{Deserialize, Serialize};
 use std::collections::{HashMap, HashSet};
 use std::io::{Read, Seek, Write};
 use std::path::{Path, PathBuf};
@@ -37,7 +37,11 @@ const EXPORT_CANDIDATE_METADATA_CONCURRENCY: usize = 32;
 const EXPORT_COPY_BUFFER_SIZE: usize = 256 * 1024;
 const STANDARD_ZIP_FILE_SIZE_ERROR: &str = "Your modpack cannot be exported as it contains a file over the size limit of 4 GB";
 
+#[cfg(test)]
+mod tests;
+
 const NEVER_EXPORTABLE_PATH_PREFIXES: &[&str] = &[
+    ".orbiont",
     "profile.json",
     "modrinth_logs",
     "mods/.connector",
@@ -54,6 +58,66 @@ const NEVER_EXPORTABLE_PATH_PREFIXES: &[&str] = &[
     "__MACOSX",
 ];
 const NEVER_EXPORTABLE_PATH_SUFFIXES: &[&str] = &[".DS_Store"];
+
+#[derive(Debug, Clone, Copy, Default, Deserialize, Serialize)]
+#[serde(rename_all = "snake_case")]
+pub enum PackExportFormat {
+    #[default]
+    Orbpack,
+    Mrpack,
+    Curseforge,
+}
+
+impl PackExportFormat {
+    fn index_name(self) -> &'static str {
+        match self {
+            Self::Orbpack => crate::pack::orbpack::INDEX_NAME,
+            Self::Mrpack => "modrinth.index.json",
+            Self::Curseforge => "manifest.json",
+        }
+    }
+
+    fn extension(self) -> &'static str {
+        match self {
+            Self::Orbpack => "orbpack",
+            Self::Mrpack => "mrpack",
+            Self::Curseforge => "zip",
+        }
+    }
+}
+
+fn curseforge_manifest(
+    game_version: &str,
+    loader: ModLoader,
+    loader_version: Option<&str>,
+    name: &str,
+    version: &str,
+    description: Option<&str>,
+) -> crate::Result<serde_json::Value> {
+    let mod_loaders = match (loader, loader_version) {
+        (ModLoader::Vanilla, _) => Vec::new(),
+        (_, Some(version)) if !version.is_empty() => {
+            vec![serde_json::json!({
+                "id": format!("{}-{version}", loader.as_str()),
+                "primary": true,
+            })]
+        }
+        _ => return Err(input("Loader version mismatch")),
+    };
+    Ok(serde_json::json!({
+        "minecraft": { "version": game_version, "modLoaders": mod_loaders },
+        "manifestType": "minecraftModpack",
+        "manifestVersion": 1,
+        "name": name,
+        "version": version,
+        "author": crate::api::orbiont::PRODUCT_NAME,
+        "description": description,
+        // Selected files are embedded in overrides, including content from
+        // other providers. No CurseForge identifiers are inferred from names.
+        "files": [],
+        "overrides": "overrides",
+    }))
+}
 
 #[derive(Debug, Clone, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -172,8 +236,42 @@ pub async fn export_mrpack(
     excluded_export_candidates: Vec<String>,
     version_id: Option<String>,
     description: Option<String>,
-    _name: Option<String>,
+    name: Option<String>,
 ) -> crate::Result<()> {
+    export_modpack(
+        instance_id,
+        export_path,
+        included_export_candidates,
+        excluded_export_candidates,
+        version_id,
+        description,
+        name,
+        PackExportFormat::Mrpack,
+    )
+    .await
+}
+
+#[tracing::instrument(skip_all)]
+#[allow(clippy::too_many_arguments)]
+pub async fn export_modpack(
+    instance_id: &str,
+    export_path: PathBuf,
+    included_export_candidates: Vec<String>,
+    excluded_export_candidates: Vec<String>,
+    version_id: Option<String>,
+    description: Option<String>,
+    name: Option<String>,
+    format: PackExportFormat,
+) -> crate::Result<()> {
+    if !export_path.extension().is_some_and(|extension| {
+        extension
+            .to_string_lossy()
+            .eq_ignore_ascii_case(format.extension())
+    }) {
+        return Err(input(
+            "The export file extension does not match the selected format",
+        ));
+    }
     let state = State::get().await?;
     let destination = Path::new(&export_path);
     let parent = destination.parent().ok_or_else(|| {
@@ -206,28 +304,83 @@ pub async fn export_mrpack(
     );
 
     let instance_base_path = get_full_path(instance_id).await?;
-    let version_id = version_id.unwrap_or("1.0.0".to_string());
-    let mut packfile =
-        create_mrpack_json(&metadata, version_id, description).await?;
-    packfile.files.retain(|f| {
-        let logical = SafeRelativeUtf8UnixPathBuf::try_from(
-            f.path.as_str().trim_end_matches(".disabled").to_string(),
-        );
-        is_path_exportable(&f.path)
-            && logical.is_ok_and(|path| export_selection.is_included(&path))
-    });
-    let packfile_paths = packfile
-        .files
-        .iter()
-        .map(|file| file.path.as_str().to_string())
-        .collect::<HashSet<_>>();
-
     let stored_files =
         content_rows::get_instance_files(instance_id, &state.pool)
             .await?
             .into_iter()
             .map(|file| (content_file_path(&file), file))
             .collect::<HashMap<_, _>>();
+    let version_id = version_id.unwrap_or("1.0.0".to_string());
+    let name = name
+        .filter(|name| !name.trim().is_empty())
+        .unwrap_or_else(|| metadata.instance.name.clone());
+    let (data, packfile_paths) = match format {
+        PackExportFormat::Orbpack => {
+            let mut manifest = crate::pack::orbpack::OrbpackManifest::new(
+                metadata.applied_content_set.game_version.clone(),
+                metadata.applied_content_set.loader,
+                metadata.applied_content_set.loader_version.clone(),
+                name,
+                version_id,
+                description,
+            )?;
+            manifest.optifine =
+                crate::optifine::read_reference(&instance_base_path).await?;
+            manifest.validate()?;
+            (serde_json::to_vec_pretty(&manifest)?, HashSet::new())
+        }
+        PackExportFormat::Mrpack => {
+            let mut packfile =
+                create_mrpack_json(&metadata, version_id, description).await?;
+            packfile.name = name;
+            packfile.files.retain(|f| {
+                let logical = SafeRelativeUtf8UnixPathBuf::try_from(
+                    f.path.as_str().trim_end_matches(".disabled").to_string(),
+                );
+                is_path_exportable(&f.path)
+                    && logical
+                        .is_ok_and(|path| export_selection.is_included(&path))
+            });
+            let mut files = Vec::new();
+            for file in std::mem::take(&mut packfile.files) {
+                let path = instance_base_path.join(file.path.as_str());
+                let symlink = tokio::fs::symlink_metadata(&path)
+                    .await
+                    .is_ok_and(|metadata| metadata.file_type().is_symlink());
+                if let Some(content) = export_content(
+                    &state,
+                    stored_files.get(file.path.as_str()),
+                    &path,
+                    symlink,
+                )
+                .await?
+                    && !crate::optifine::is_optifine_binary(content.path())
+                        .await?
+                {
+                    files.push(file);
+                }
+            }
+            packfile.files = files;
+            let paths = packfile
+                .files
+                .iter()
+                .map(|file| file.path.as_str().to_string())
+                .collect::<HashSet<_>>();
+            (serde_json::to_vec_pretty(&packfile)?, paths)
+        }
+        PackExportFormat::Curseforge => {
+            let manifest = curseforge_manifest(
+                &metadata.applied_content_set.game_version,
+                metadata.applied_content_set.loader,
+                metadata.applied_content_set.loader_version.as_deref(),
+                &name,
+                &version_id,
+                description.as_deref(),
+            )?;
+            (serde_json::to_vec_pretty(&manifest)?, HashSet::new())
+        }
+    };
+
     let mut override_files = Vec::new();
     let mut directories = vec![instance_base_path.clone()];
     while let Some(directory) = directories.pop() {
@@ -272,6 +425,9 @@ pub async fn export_mrpack(
                 continue;
             };
             let size = tokio::fs::metadata(content.path()).await?.len();
+            if crate::optifine::is_optifine_binary(content.path()).await? {
+                continue;
+            }
             ensure_standard_zip_file_size(size)?;
             override_files.push((content, relative_path, size));
         }
@@ -286,19 +442,54 @@ pub async fn export_mrpack(
             instance_name: metadata.instance.name.clone(),
         },
         total_bytes as f64,
-        "Exporting instance to .mrpack",
+        "Exporting modpack",
     )
     .await?;
-    let data = serde_json::to_vec_pretty(&packfile)?;
     tokio::task::spawn_blocking(move || {
-        let file = std::fs::File::create(&export_path)
-            .map_err(|error| IOError::with_path(error, &export_path))?;
-        write_mrpack_archive(file, override_files, &data, |bytes_written| {
-            emit_loading(&loading_bar, bytes_written as f64, None)
-        })
+        write_pack_archive_to_path(
+            &export_path,
+            override_files,
+            format.index_name(),
+            &data,
+            |bytes_written| {
+                emit_loading(&loading_bar, bytes_written as f64, None)
+            },
+        )
     })
     .await??;
 
+    Ok(())
+}
+
+fn write_pack_archive_to_path<F>(
+    export_path: &Path,
+    override_files: Vec<(ReadableContent, SafeRelativeUtf8UnixPathBuf, u64)>,
+    index_name: &str,
+    packfile_data: &[u8],
+    emit_progress: F,
+) -> crate::Result<()>
+where
+    F: FnMut(u64) -> crate::Result<()>,
+{
+    let parent = export_path
+        .parent()
+        .ok_or_else(|| input("Invalid export destination"))?;
+    let mut temporary = tempfile::NamedTempFile::new_in(parent)
+        .map_err(|error| IOError::with_path(error, parent))?;
+    write_pack_archive(
+        temporary.as_file_mut(),
+        override_files,
+        index_name,
+        packfile_data,
+        emit_progress,
+    )?;
+    temporary
+        .as_file()
+        .sync_all()
+        .map_err(|error| IOError::with_path(error, temporary.path()))?;
+    temporary
+        .persist(export_path)
+        .map_err(|error| IOError::with_path(error.error, export_path))?;
     Ok(())
 }
 
@@ -313,9 +504,10 @@ fn ensure_standard_zip_file_size(size: u64) -> crate::Result<()> {
     Ok(())
 }
 
-fn write_mrpack_archive<W, F>(
+fn write_pack_archive<W, F>(
     writer: W,
     override_files: Vec<(ReadableContent, SafeRelativeUtf8UnixPathBuf, u64)>,
+    index_name: &str,
     packfile_data: &[u8],
     mut emit_progress: F,
 ) -> crate::Result<()>
@@ -348,7 +540,7 @@ where
     }
 
     writer
-        .start_file("modrinth.index.json", options)
+        .start_file(index_name, options)
         .map_err(std::io::Error::from)?;
     writer.write_all(packfile_data)?;
     writer.finish().map_err(std::io::Error::from)?;
@@ -359,6 +551,17 @@ where
 
 fn is_path_exportable(relative_path: &SafeRelativeUtf8UnixPathBuf) -> bool {
     let path = relative_path.as_str();
+    let lower = path.to_ascii_lowercase();
+    if lower == ".orbiont" || lower.starts_with(".orbiont/") {
+        return false;
+    }
+    let filename = lower.rsplit('/').next().unwrap_or("");
+    if (filename.starts_with("optifine")
+        || filename.starts_with("preview_optifine"))
+        && (filename.ends_with(".jar") || filename.ends_with(".jar.disabled"))
+    {
+        return false;
+    }
 
     !NEVER_EXPORTABLE_PATH_PREFIXES.iter().any(|prefix| {
         path == *prefix
@@ -472,6 +675,11 @@ async fn build_pack_export_candidate(
         content
     };
     let metadata = tokio::fs::metadata(content.path()).await?;
+    if metadata.is_file()
+        && crate::optifine::is_optifine_binary(content.path()).await?
+    {
+        return Ok(None);
+    }
     let relative_path = if metadata.is_file() {
         logical_content_path(&relative_path)?
     } else {
@@ -717,5 +925,6 @@ pub async fn create_mrpack_json(
         summary: description,
         files,
         dependencies,
+        optifine: None,
     })
 }

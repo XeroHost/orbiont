@@ -10,12 +10,35 @@
 		"active": true,
 		"category": "Game",
 		"copyright": "",
+		"license": "GPL-3.0-only",
+		"resources": {
+			"../../README.md": "legal/README.md",
+			"../../.github/workflows/LICENSE": "legal/.github/workflows/LICENSE",
+			"../../.github/workflows/COPYING.md": "legal/.github/workflows/COPYING.md",
+			"LICENSE": "legal/apps/app/LICENSE",
+			"COPYING.md": "legal/apps/app/COPYING.md",
+			"../app-frontend/LICENSE": "legal/apps/app-frontend/LICENSE",
+			"../app-frontend/COPYING.md": "legal/apps/app-frontend/COPYING.md",
+			"../../packages/app-lib/LICENSE": "legal/packages/app-lib/LICENSE",
+			"../../packages/app-lib/COPYING.md": "legal/packages/app-lib/COPYING.md",
+			"../../packages/ui/LICENSE": "legal/packages/ui/LICENSE",
+			"../../packages/ui/COPYING.md": "legal/packages/ui/COPYING.md",
+			"../../packages/ui/src/components/base/animated-icons/LICENSE-Hugeicons.md": "legal/third-party/Hugeicons-MIT.md",
+			"../../packages/assets/LICENSE": "legal/packages/assets/LICENSE",
+			"../../packages/assets/COPYING.md": "legal/packages/assets/COPYING.md",
+			"../../packages/utils/LICENSE": "legal/packages/utils/LICENSE",
+			"../../packages/api-client/LICENSE": "legal/packages/api-client/LICENSE",
+			"../../packages/daedalus/LICENSE": "legal/packages/daedalus/LICENSE",
+			"../../packages/async-minecraft-ping/LICENSE-MIT": "legal/packages/async-minecraft-ping/LICENSE-MIT",
+			"../../packages/async-minecraft-ping/LICENSE-APACHE": "legal/packages/async-minecraft-ping/LICENSE-APACHE"
+		},
 		"targets": ["nsis", "app", "dmg", "appimage", "deb", "rpm"],
 		"externalBin": [],
 		"icon": ["icons/128x128.png", "icons/128x128@2x.png", "icons/icon.icns", "icons/icon.ico"],
 		"windows": {
 			"nsis": {
 				"installMode": "currentUser",
+				"installerIcon": "icons/icon.ico",
 				"installerHooks": "./nsis/hooks.nsi"
 			}
 		},
@@ -49,6 +72,13 @@
 			}
 		},
 		"fileAssociations": [
+			{
+				"ext": ["orbpack"],
+				"name": "Orbiont modpack",
+				"description": "Orbiont modpack",
+				"mimeType": "application/x-orbiont-modpack+zip",
+				"role": "Viewer"
+			},
 			{
 				"ext": ["mrpack"],
 				"mimeType": "application/x-orbiont-modpack+zip"

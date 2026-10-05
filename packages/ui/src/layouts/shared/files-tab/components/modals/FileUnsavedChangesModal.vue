@@ -1,5 +1,11 @@
 <template>
-	<NewModal ref="modal" fade="warning" :header="formatMessage(messages.header)" max-width="500px">
+	<NewModal
+		ref="modal"
+		fade="warning"
+		:header="formatMessage(messages.header)"
+		max-width="500px"
+		:on-hide="() => settle('cancel')"
+	>
 		<p class="m-0 text-secondary">
 			{{ formatMessage(messages.body) }}
 		</p>
@@ -24,7 +30,7 @@
 
 <script setup lang="ts">
 import { SaveIcon, TrashIcon, XIcon } from '@orbiont/assets'
-import { ref } from 'vue'
+import { onUnmounted, ref } from 'vue'
 
 import { Button } from '#ui/components/base/buttons'
 import NewModal from '#ui/components/modal/NewModal.vue'
@@ -61,11 +67,16 @@ function prompt(): Promise<UnsavedChangesResult> {
 	})
 }
 
-function resolve(result: UnsavedChangesResult) {
-	modal.value?.hide()
-	resolvePromise?.(result)
+function settle(result: UnsavedChangesResult) {
+	const callback = resolvePromise
 	resolvePromise = null
+	callback?.(result)
 }
+function resolve(result: UnsavedChangesResult) {
+	settle(result)
+	modal.value?.hide()
+}
+onUnmounted(() => settle('cancel'))
 
 function handleCancel() {
 	resolve('cancel')

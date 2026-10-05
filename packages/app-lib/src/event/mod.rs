@@ -390,9 +390,6 @@ pub enum CommandPayload {
     InstallModpack {
         id: String,
     },
-    InstallServer {
-        id: String,
-    },
     LaunchInstance {
         id: String,
         server: Option<String>,

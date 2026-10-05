@@ -27,8 +27,7 @@
 							v-if="option.icon"
 							class="inline-flex items-center justify-center shrink-0 h-4 w-4"
 						>
-							<div v-if="typeof option.icon === 'string'" class="h-4 w-4" v-html="option.icon" />
-							<component :is="option.icon" v-else class="h-4 w-4" />
+							<SearchOptionIcon :icon="option.icon" class="h-4 w-4" />
 						</span>
 						<span class="truncate text-sm">
 							{{ option.formatted_name ?? option.id }}
@@ -46,6 +45,7 @@ import { ref } from 'vue'
 
 import type { FilterMode, FilterOption } from '../../utils/search'
 import SearchFilterOption from './SearchFilterOption.vue'
+import SearchOptionIcon from './SearchOptionIcon.vue'
 
 defineProps<{
 	groupName: string

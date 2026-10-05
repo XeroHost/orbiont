@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "אקסמפלר לא מוכר"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "מעדכן תוכן משותף"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "הפוך למקרה ראשי"
   },
@@ -117,7 +114,7 @@
     "message": "הצג אקסמפלרים פועלים נוספים"
   },
   "app.action-bar.stop-instance": {
-    "message": ""
+    "message": "עצור את ההתקנה"
   },
   "app.action-bar.update": {
     "message": "עדכן"
@@ -149,8 +146,23 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "הסתר שם משתמש"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "הנפשת סמלים בריחוף הסמן ובמיקוד באמצעות המקלדת."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "השבתת הנפשות"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "להנפיש תמיד"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "לפי המערכת"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "הנפשות סמלים"
+  },
   "app.appearance-settings.minimize-launcher.description": {
-    "message": "מזער את אפליקציית Modrinth בעת הפעלת Minecraft."
+    "message": "מזער את אפליקציית {productName} בעת הפעלת Minecraft."
   },
   "app.appearance-settings.minimize-launcher.title": {
     "message": "הקטן אפליקציה"
@@ -173,17 +185,533 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "הסתר את סרגל הצד הימני"
   },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "הצג אזהרת בטיחות לפני התקנת חבילת Modrinth (.mrpack) שאינה מאורחת ב-Modrinth."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "הצג אזהרת בטיחות לפני התקנת חבילת מודים מיובאת (.mrpack או .zip של CurseForge) שמקורה לא אומת."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "הזהר אותי לפני התקנת חבילות תוכן לא מוכרות"
+  },
+  "app.auth-error.contact-support": {
+    "message": "צור קשר עם התמיכה"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "העתק מידע לניפוי באגים"
+  },
+  "app.auth-error.debug-info": {
+    "message": "מידע לניפוי באגים"
+  },
+  "app.auth-error.header": {
+    "message": "ההתחברות נכשלה"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "איך לתקן את זה"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "השלם את תהליך אימות הזהות"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "חשבון זה דורש אימות בגירות לפי התקנות של דרום קוריאה."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "התחברות Minecraft"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "בדוק שחיבור האינטרנט שלך עובד"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "אשר את {product} בחומת האש, באנטי־וירוס, בפרוקסי, ב־VPN ובכללי קובץ ה־hosts"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "נסה רשת אחרת או השבת זמנית תוכנת VPN או פרוקסי אם אתה משתמש בה"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "הפעל מחדש את {product} ונסה להתחבר שוב"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "אם הבעיה היא בניתוב או ב־DNS, שירות כמו Cloudflare WARP יכול לפעמים לעזור"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} לא הצליח להתחבר לשירות של Microsoft,‏ Xbox או Minecraft הדרוש להתחברות. בדרך כלל זה נגרם מבעיית רשת מקומית, DNS, פרוקסי, חומת אש, קובץ hosts, VPN או אנטי־וירוס."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "אין הודעת שגיאה."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "תוכל לבדוק איזה חשבון מחזיק בו ב־<a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "ודא שאתה מתחבר עם חשבון Microsoft שרכש את Minecraft (או שיש לו Game Pass פעיל עם גישת PC)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "חשבון Microsoft זה אינו מחזיק ב־Minecraft: Java Edition, ו־{product} עובד רק עם חשבונות פרימיום."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "הפעל את Minecraft: Java Edition פעם אחת מהמשגר הרשמי"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "ודא שאתה משתמש בחשבון Microsoft שמחזיק ב־Minecraft. תוכל לבדוק איזה חשבון מחזיק בו ב־<a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "המתן עד שעה אם הרכישה או הגדרת הפרופיל בוצעו לאחרונה"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "שירותי Minecraft לא הצליחו להחזיר פרופיל Java Edition עבור חשבון זה. לרוב זה קורה כשהמשחק נרכש לאחרונה, פרופיל ה־Java טרם נוצר במלואו, או שנעשה שימוש בחשבון Microsoft שגוי."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "ודא ש־Minecraft נרכש בחשבון זה"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "השלם את הגדרת פרופיל ה־Xbox אם תתבקש"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "לחשבון זה אין פרופיל Xbox מוגדר או שהוא אינו מחזיק ב־Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "הפעל מחדש את {product} לאחר ההמתנה"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "נסה להתחבר פעם נוספת"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "המתן כשעה לפני שתנסה שוב"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "אם אותה הודעה מופיעה, המתן זמן רב יותר לפני שתנסה שוב כדי שההגבלה הזמנית תפוג"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft או Minecraft חסמו זמנית את בקשת ההתחברות בגלל ניסיונות רבים מדי לאחרונה."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "בדוק את <a href=\"https://www.xbox.com/en-US/regions\">זמינות Xbox</a> לאזורים נתמכים"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "שירותי Xbox חייבים להיות נתמכים במדינה שלך כדי שתוכל להתחבר"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live אינו זמין באזור שלך, ולכן ההתחברות חסומה."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "בקש מאפוטרופוס להתחבר ל־<a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "עדכן את הרשאות המשחק המקוון"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "חשבון זה מוגבל ואין לו הרשאה לשחק באופן מקוון."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "אם השירות תקין וזה ממשיך לקרות, צור קשר עם התמיכה עם מידע ניפוי הבאגים שלהלן"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "נסה להתחבר עם <a href=\"https://www.minecraft.net/en-us/download\">המשגר הרשמי של Minecraft</a> כדי לוודא אם ההתחברות ל־Minecraft מושפעת גם שם"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "בדוק את <a href=\"https://support.xbox.com/xbox-live-status\">מצב Xbox</a> לבעיות שירות עדכניות"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "המתן כמה דקות ונסה להתחבר שוב"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "שירות האימות של Minecraft מחזיר שגיאת שרת, ולכן {product} אינו יכול להשלים את התחברותך כעת."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "התחבר שוב"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "בסיום, נסה להתחבר שוב"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "התחבר עם <a href=\"https://www.minecraft.net/en-us/download\">המשגר הרשמי של Minecraft</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "נסה להתחבר ל־{product} שוב"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "בקר ב־<a href=\"https://www.minecraft.net/en-us/login\">התחברות Minecraft</a> והתחבר"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "בקר ב־<a href=\"https://www.xbox.com\">Xbox</a> והתחבר"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "הגש ערעור אם קיימת אפשרות כזו"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "בקר ב־<a href=\"https://support.xbox.com\">תמיכת Xbox</a> ועיין בפרטי האכיפה"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "חשבון זה הושעה בשל הפרת כללי הקהילה של Xbox."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "לאחר סיום ההתחברות החדשה, נסה להפעיל את Minecraft שוב"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "התחבר שוב לחשבון"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "התנתק מחשבון ה־Minecraft המושפע ב־{product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "אסימון ההתחברות השמור של Microsoft פג או בוטל, ולכן {product} אינו יכול לרענן את הפעלת ה־Minecraft שלך."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "אשר את התנאים אם תתבקש"
+  },
+  "app.auth-error.tos.what": {
+    "message": "חשבון זה לא אישר את תנאי השירות של Xbox."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "נסה לבקר ב־"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "לעזרה נוספת, בקר ב־<a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">אימות גיל בבריטניה ב־Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "עבור לדף <a href=\"https://www.minecraft.net/en-us/login\">התחברות Minecraft</a> והתחבר"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "לאחר האימות, נסה להתחבר שוב"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "פעל לפי ההוראות כדי לאמת את גילך"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "חשבון ה־Minecraft/Xbox Live שלך דורש אימות גיל כדי לעמוד בתקנות בריטניה. עליך להשלים זאת לפני ההתחברות."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "עיין ב־<a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">מדריך הגדרת המשפחה</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "הצטרף לקבוצת משפחה או צור אחת לפי ההוראות"
+  },
+  "app.auth-error.underage.what": {
+    "message": "חשבון זה הוא של קטין ואינו מקושר לקבוצת משפחה של Microsoft."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "שגיאה לא ידועה"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "איננו מזהים שגיאה זו ואיננו יכולים להמליץ על צעדים ספציפיים לפתרונה."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "והתחבר, שכן ייתכן שיוצגו לך הצעדים הדרושים. תוכל גם ליצור קשר עם התמיכה ונבדוק זאת לעומק."
+  },
+  "app.auth-error.warning-body": {
+    "message": "לא הצלחנו לחבר אותך לחשבון Microsoft שלך. ייתכן שזה נובע מהגבלות חשבון או ממגבלות אזוריות."
+  },
+  "app.auth-error.what-happened": {
+    "message": "מה לדעתנו קרה"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "אשר תנאים כלשהם או השלם כל הגדרת פרופיל שמוצגת"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "התחבר פעם אחת ב־<a href=\"https://www.xbox.com\">Xbox.com</a> עם אותו חשבון Microsoft"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live לא קיבל את ההתחברות של Microsoft. בדרך כלל זה אומר שחשבון Microsoft מעולם לא התחבר ל־Xbox או שעליו לאשר תנאים מעודכנים."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "אם המשגר הרשמי נכשל גם הוא, פעל לפי השגיאה המוצגת שם או צור קשר עם תמיכת Xbox"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "השלם כל הנחיה שמוצגת על ידי Microsoft,‏ Xbox או Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "שירותי Xbox דחו את הבקשה לאשר חשבון זה לשירותי Minecraft, אך לא החזירו הגבלת חשבון ספציפית ש־{product} מזהה."
   },
   "app.auth-servers.unreachable.body": {
     "message": "ייתכן ששרתי האימות של Minecraft מושבתים כרגע. יש לבדוק את חיבור האינטרנט שלך ולנסות שוב מאוחר יותר."
   },
   "app.auth-servers.unreachable.header": {
     "message": "לא ניתן לגשת לשרתי האימות"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft ו-Microsoft Store בדוק את רישיון ה-Bedrock שלך. היכנס שם עם החשבון שבבעלותו Minecraft; חשבון Java שלך במפעיל זה עשוי להיות שונה."
+  },
+  "app.bedrock.addon-help": {
+    "message": "ערכות התנהגות מקומיות ותסריטים. הגדר אותם בהגדרות העולם בתוך Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "תוספות"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "חבילת התנהגות"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "תוספות"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "עיין בתוספות, בחבילות משאבים, בעולמות ובסקריפטים מ-CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "גלה תוכן Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "גלה תוספות"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "גלה סקריפטים"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "סגור את Minecraft לפני הוספת חבילות לעולם, ואז נסה שוב."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "התקן ב-Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft ייפתח לייבא תוכן זה. בדוק את התוצאה במשחק, ואז הפעל את החבילות בהגדרות העולם שלך. חבילות נדרשות והגדרות ניסיוניות מפורטות בתיאור הפרויקט."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "ארכיון זה אינו מכיל תוכן Bedrock נתמך."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "לא ניתן היה לטעון את גרסאות הפרויקט או העולמות. נסה שוב."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "חבילה זו דורשת חבילה אחרת שאינה פעילה בעולם הזה. התקן תחילה את התלות הרשומה על ידי המחבר."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "אין קבצים נתמכים של .mcaddon, .mcpack, .mcworld או ZIP עבור פרויקט זה."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "תחילה צור עולם ב-Minecraft, ולאחר מכן רענן רשימה זו."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "תסריטים"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "גרסת תוכן"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "עולם היעד"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "סגור את Minecraft לפני ההתקנה. חבילות אלו יתווספו ויופעלו רק בעולם הנבחר. בדוק את התלות הנדרשות ואת הגדרות הניסוי בתיאור הפרויקט."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "חבילות נוספו ל-{world}. פתח את Minecraft כדי לשחק בעולם הזה."
+  },
+  "app.bedrock.checking": {
+    "message": "מחפש את Minecraft for Windows..."
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "סגור את Minecraft כדי לערוך קבצים, למחוק תוכן או לשחזר עותק."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "תוכן זה השתנה או שהמיקום המקורי תפוס. עותק השחזור נשמר כדי למנוע החלפת השינויים שלך."
+  },
+  "app.bedrock.content": {
+    "message": "תוכן"
+  },
+  "app.bedrock.content-help": {
+    "message": "חבילות משאבים ועור מקומיים. הפעל אותם ב-Minecraft; חלק מהתוכן שייך לעולמות בודדים."
+  },
+  "app.bedrock.data-error": {
+    "message": "לא ניתן היה לקרוא נתוני Minecraft. רענן כדי לנסות שוב."
+  },
+  "app.bedrock.data-location": {
+    "message": "מיקום נתונים Minecraft"
+  },
+  "app.bedrock.delete-help": {
+    "message": "פריטים אלה יוסרו מ-Minecraft. עותק שחזור יישמר, כולל הגדרות World Pack המושפעות. עולמות התלויים בחבילה שנמחקה עלולים לאבד את החסימות או ההתנהגות שלה; לשחזר אותו לפני פתיחת העולמות האלה."
+  },
+  "app.bedrock.delete-title": {
+    "message": "מחק תוכן מקומי"
+  },
+  "app.bedrock.description": {
+    "message": "שחקו Minecraft for Windows וייבאו את העולמות והתוספות שלכם."
+  },
+  "app.bedrock.detection-error": {
+    "message": "לא ניתן לבדוק את התקנת Minecraft. נסה שוב."
+  },
+  "app.bedrock.development": {
+    "message": "פיתוח"
+  },
+  "app.bedrock.edition": {
+    "message": "מהדורת Minecraft"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "התיקיה הזו ריקה."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock עולמות ותוספות"
+  },
+  "app.bedrock.file-size": {
+    "message": "גודל"
+  },
+  "app.bedrock.files": {
+    "message": "קבצים"
+  },
+  "app.bedrock.folder": {
+    "message": "תיקיה"
+  },
+  "app.bedrock.folder-error": {
+    "message": "לא ניתן היה לפתוח את תיקיית Minecraft זו. רענן את הנתונים ונסה שוב."
+  },
+  "app.bedrock.import-button": {
+    "message": "ייבוא קובץ"
+  },
+  "app.bedrock.import-description": {
+    "message": "בחר קובץ .mcworld, .mcpack או .mcaddon. Minecraft יפתח ויטפל בייבוא."
+  },
+  "app.bedrock.import-error": {
+    "message": "לא ניתן לשלוח את הקובץ אל Minecraft. בדוק ש-Minecraft for Windows מותקן ונסה שוב."
+  },
+  "app.bedrock.import-title": {
+    "message": "עולמות ותוספות"
+  },
+  "app.bedrock.installation": {
+    "message": "התקנה רשמית"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows מותקן"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "בחר ארכיון מקומי חוקי של .mcworld, .mcpack או .mcaddon."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "קובץ זה חורג ממגבלת הייבוא 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "לא ניתן היה לפתוח את Minecraft. פתח את המשגר ​​הרשמי או Microsoft Store כדי לבדוק את ההתקנה."
+  },
+  "app.bedrock.launcher": {
+    "message": "פתח את המשגר הרשמי"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "זוהה משגר רשמי. התקן את Minecraft for Windows שם כדי להמשיך."
+  },
+  "app.bedrock.loading-data": {
+    "message": "קורא נתוני Minecraft..."
+  },
+  "app.bedrock.location": {
+    "message": "מיקום"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "מציג את ה-1 MiB האחרון של יומן זה."
+  },
+  "app.bedrock.logs": {
+    "message": "יומני מערכת"
+  },
+  "app.bedrock.missing": {
+    "message": "התקן את Minecraft for Windows כדי להתחיל"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "לא ניתן לשנות את התוכן הזה. סגור את Minecraft ורענן. עותק השחזור שלך נשמר."
+  },
+  "app.bedrock.name": {
+    "message": "שם"
+  },
+  "app.bedrock.no-addons": {
+    "message": "לא נמצאו תוספות מקומיות. ייבא קובץ .mcpack או .mcaddon כדי להתחיל."
+  },
+  "app.bedrock.no-content": {
+    "message": "לא נמצא תוכן מקומי."
+  },
+  "app.bedrock.no-data": {
+    "message": "פתח את Minecraft פעם אחת כדי ליצור את תיקיות הנתונים שלו, ולאחר מכן רענן כאן."
+  },
+  "app.bedrock.no-logs": {
+    "message": "לא נמצאו יומני תוכן. אפשר רישום תוכן בהגדרות Minecraft > יוצר, ואז פתח את העולם שלך."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "אין עדיין עותקי שחזור."
+  },
+  "app.bedrock.no-results": {
+    "message": "אין פריטים תואמים."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "לא נמצאו עולמות מקומיים. צור אחד ב-Minecraft או ייבא קובץ .mcworld."
+  },
+  "app.bedrock.open-folder": {
+    "message": "פתח תיקיה"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "תיקיית אב"
+  },
+  "app.bedrock.partial-data": {
+    "message": "לא ניתן היה לקרוא חלק מהתיקיות או שהגיעו למגבלת התצוגה. אתה יכול לבדוק אותם בסייר הקבצים."
+  },
+  "app.bedrock.play": {
+    "message": "שחק"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "קבצים מקוריים ותוכן שנמחק נשמרים כאן. שחזר עותק בזמן ש-Minecraft סגור. תוכן קיים ועריכות מאוחרות יותר לעולם אינם מוחלפים."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "עותקי שחזור"
+  },
+  "app.bedrock.refresh": {
+    "message": "בדוק שוב"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "רענן"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "טען מחדש את הקובץ הזה לפני השמירה."
+  },
+  "app.bedrock.repair": {
+    "message": "תקן או עדכן את ההתקנה שלך באמצעות Microsoft Store או המשגר הרשמי."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "חבילת משאבים"
+  },
+  "app.bedrock.restore": {
+    "message": "שחזר"
+  },
+  "app.bedrock.running": {
+    "message": "פועל"
+  },
+  "app.bedrock.save-error": {
+    "message": "לא ניתן היה לשמור. ייתכן שהקובץ השתנה, מכיל JSON לא חוקי או שהוא בשימוש. טען אותו מחדש ונסה שוב."
+  },
+  "app.bedrock.search": {
+    "message": "חפש תוכן מקומי..."
+  },
+  "app.bedrock.select-log": {
+    "message": "בחר יומן כדי לקרוא אותו."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "חבילת סקינים"
+  },
+  "app.bedrock.store": {
+    "message": "התקן או עדכן"
+  },
+  "app.bedrock.store-error": {
+    "message": "לא ניתן היה לפתוח את Microsoft Store. פתח אותו מתפריט ההתחלה Windows."
+  },
+  "app.bedrock.submitted": {
+    "message": "הקובץ נשלח אל Minecraft. בדוק את תוצאת הייבוא ​​במשחק."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "שילוב Bedrock דורש Windows. אתה יכול להמשיך לשחק Java Edition במכשיר זה."
+  },
+  "app.bedrock.update": {
+    "message": "עדכון Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "ב-Microsoft Store, בדוק אם יש עדכונים ובחר Minecraft for Windows. הגרסה המותקנת שלך תרענן כשתחזור."
+  },
+  "app.bedrock.version": {
+    "message": "התקנת Windows {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "גרסה"
+  },
+  "app.bedrock.world-scope": {
+    "message": "עולם: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "עולמות"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "אישורים"
@@ -194,32 +722,8 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "הפעלה וניווט"
   },
-  "app.behavior-settings.sync-across-devices.description": {
-    "message": "שתמש בהגדרות התנהגות אלו בכל מקום שבו אתה מחובר. כבה אפשרות זו כדי לשמור על הגדרות נפרדות במכשיר זה."
-  },
-  "app.behavior-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "התחבר לחשבון Modrinth כדי לסנכרן הגדרות."
-  },
-  "app.behavior-settings.sync-across-devices.title": {
-    "message": "סנכרן התנהגות בין מכשירים"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "מוסיף שרת לאקסמפלר"
-  },
   "app.browse.add-to-an-instance": {
     "message": "הוסף לאקסמפלר"
-  },
-  "app.browse.add-to-instance": {
-    "message": "הוספה להתקנה"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "הוסף אל {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "נוסף"
-  },
-  "app.browse.already-added": {
-    "message": "כבר נוסף"
   },
   "app.browse.back-to-instance": {
     "message": "חזרה לאקסמפלר"
@@ -227,14 +731,11 @@
   "app.browse.discover-project-type": {
     "message": "גלה {projectType}"
   },
-  "app.browse.discover-servers": {
-    "message": "גלה שרתים"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "הסתר שרתים שכבר נוספו"
-  },
   "app.browse.hide-installed-modpacks": {
     "message": "הסתר פריטים שכבר הותקנו"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "פתח ב־CurseForge"
   },
   "app.browse.project-actions.label": {
     "message": "פעולות פרויקט"
@@ -251,17 +752,8 @@
   "app.browse.project-type.resource-packs": {
     "message": "טקסטורות"
   },
-  "app.browse.project-type.servers": {
-    "message": "שרתים"
-  },
   "app.browse.project-type.shaders": {
     "message": "שיידרס"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "הוספת תוכן עשויה למנוע ממך להצטרף לשרת זה. כל תוכן שתוסיף יוסר בעת עדכון התוכן המנוהל של השרת."
-  },
-  "app.browse.server.installing": {
-    "message": "מוריד"
   },
   "app.content-install.no-compatible-versions": {
     "message": "אין גרסאות זמינות התואמות ל-{compatibilityLabel}. בחר גרסה להתקנה בכל זאת. תלויות לא יותקנו באופן אוטומטי."
@@ -281,8 +773,215 @@
   "app.content.sync-resource-packs-disabled": {
     "message": "הפעל סנכרון טקסטורות בהדרות האפליקציה קודם."
   },
+  "app.curseforge.rate-limit.text": {
+    "message": "מכסת הבקשות המשותפת מוצתה. המתן רגע ונסה שוב."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge עסוק זמנית"
+  },
+  "app.download-manager.active": {
+    "message": "פעיל"
+  },
+  "app.download-manager.attention": {
+    "message": "דורש תשומת לב"
+  },
+  "app.download-manager.cancel": {
+    "message": "בטל התקנה"
+  },
+  "app.download-manager.canceling": {
+    "message": "מבטל התקנה…"
+  },
+  "app.download-manager.clear-all": {
+    "message": "נקה הכל"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "נקה את כל המשימות שהושלמו"
+  },
+  "app.download-manager.complete": {
+    "message": "הושלם"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "התקנה משוכפלת"
+  },
+  "app.download-manager.empty": {
+    "message": "אין משימות התקנה"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "מהירות הורדה משוערת"
+  },
+  "app.download-manager.eta": {
+    "message": "זמן משוער שנותר להורדה זו"
+  },
+  "app.download-manager.hide": {
+    "message": "הסתר משימות התקנה"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "התקנה מיובאת"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "התקנת מופע"
+  },
+  "app.download-manager.modpack": {
+    "message": "חבילת מודים"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "התקנת חבילת מודים"
+  },
+  "app.download-manager.new-instance": {
+    "message": "התקנה חדשה"
+  },
+  "app.download-manager.pause": {
+    "message": "השהה התקנה"
+  },
+  "app.download-manager.paused": {
+    "message": "מושהה"
+  },
+  "app.download-manager.remove": {
+    "message": "הסר מההיסטוריה"
+  },
+  "app.download-manager.resume": {
+    "message": "המשך התקנה"
+  },
+  "app.download-manager.show": {
+    "message": "הצג משימות התקנה"
+  },
+  "app.download-manager.tasks": {
+    "message": "משימות"
+  },
+  "app.download-manager.title": {
+    "message": "מנהל ההורדות"
+  },
+  "app.download-manager.verifying": {
+    "message": "מאמת"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "בטל שינוי תיקייה"
+  },
+  "app.error.copy-debug-info": {
+    "message": "העתק מידע לניפוי באגים"
+  },
+  "app.error.debug-info.heading": {
+    "message": "מידע לניפוי באגים"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "תחילה. בסיום, חזור לכאן והתחבר!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "נסה להתחבר עם"
+  },
+  "app.error.game-pass.heading": {
+    "message": "משתמש ב־PC Game Pass, מגיע מ־Bedrock, או שזה עתה קנית את המשחק?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "המשגר הרשמי של Minecraft"
+  },
+  "app.error.get-support.button": {
+    "message": "קבל תמיכה"
+  },
+  "app.error.help.end": {
+    "message": "ונשמח לעזור! הקפד לכלול את מידע ניפוי הבאגים הבא:"
+  },
+  "app.error.help.start": {
+    "message": "אם שום דבר לא עובד ואתה זקוק לעזרה, בקר ב־"
+  },
+  "app.error.help.support-link": {
+    "message": "דף התמיכה שלנו"
+  },
+  "app.error.hosts.body-end": {
+    "message": "ניסה להתחבר לשירותי Microsoft / Xbox / Minecraft, אך השרת המרוחק דחה את החיבור. ייתכן שהדבר מעיד ששירותים אלה חסומים על ידי קובץ ה־hosts. בקר ב־"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "להוראות לתיקון הבעיה."
+  },
+  "app.error.migrate.body-end": {
+    "message": "אינו יכול לעבור לתיקייה החדשה שבחרת. צור קשר עם התמיכה לקבלת עזרה או בטל את שינוי התיקייה."
+  },
+  "app.error.network.body-end": {
+    "message": "התחברות לשרתי Microsoft. לרוב זה נובע מחיבור גרוע, לכן מומלץ לנסות שוב כדי לראות אם זה עובד. אם הבעיות נמשכות, פעל לפי הצעדים ב־"
+  },
+  "app.error.network.body-start": {
+    "message": "נראה שהיו בעיות עם"
+  },
+  "app.error.network.heading": {
+    "message": "בעיות רשת"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "כדי לאבחן את הבעיה."
+  },
+  "app.error.no-error-message": {
+    "message": "אין הודעת שגיאה."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "לא הצליח למצוא את גרסת הטוען עבור התקנה זו."
+  },
+  "app.error.no-loader.fix": {
+    "message": "כדי לפתור זאת, עליך לתקן את ההתקנה. לחץ על הכפתור למטה כדי לעשות זאת."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "נראה שאין מספיק מקום בדיסק המכיל את התיקייה שבחרת. פנה מקום ונסה שוב או בטל את שינוי התיקייה."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "אין מספיק מקום"
+  },
+  "app.error.read-only.body-end": {
+    "message": "אינו יכול לכתוב לתיקייה שבחרת. התאם את הרשאות התיקייה ונסה שוב או בטל את שינוי התיקייה."
+  },
+  "app.error.read-only.body-start": {
+    "message": "נראה ש־"
+  },
+  "app.error.read-only.heading": {
+    "message": "שנה הרשאות תיקייה"
+  },
+  "app.error.repair-instance.button": {
+    "message": "תקן התקנה"
+  },
+  "app.error.retry-dir.button": {
+    "message": "נסה שוב שינוי תיקייה"
+  },
+  "app.error.state-init.body-end": {
+    "message": "נכשל בטעינה תקינה. ייתכן שזה בגלל קובץ פגום, או בגלל שהאפליקציה חסרה קבצים חיוניים."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "ייתכן שתוכל לתקן זאת באחת הדרכים הבאות:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "ודא שאתה מחובר לאינטרנט, ואז נסה להפעיל מחדש את האפליקציה."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "הורדה מחדש של האפליקציה."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "לפתוח תיקיית גיבויים"
+  },
+  "app.error.support-article-link": {
+    "message": "מאמר התמיכה שלנו"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "לא ניתן לשנות את תיקיית האפליקציה"
+  },
+  "app.error.title.generic": {
+    "message": "אירעה שגיאה"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "לא נבחר טוען"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "לא ניתן להתחבר ל־Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "שגיאה באתחול {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "נסה להתחבר שוב"
+  },
+  "app.error.try-another-account.body": {
+    "message": "ודא שהתחברת עם החשבון הנכון. ייתכן ש־Minecraft שייך לך בחשבון Microsoft אחר."
+  },
+  "app.error.try-another-account.button": {
+    "message": "נסה חשבון אחר"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "נסה חשבון Microsoft אחר"
   },
   "app.export-modal.description-placeholder": {
     "message": "הזן את תיאור חבילת המודים..."
@@ -295,6 +994,27 @@
   },
   "app.export-modal.export-complete-description": {
     "message": "{name} ייוצא בהצלחה."
+  },
+  "app.export-modal.format-label": {
+    "message": "פורמט ייצוא"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "ZIP של CurseForge עם manifest.json והקבצים הנבחרים בתוך overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "עבור משגרים התומכים בחבילות Modrinth. כולל הפניות להורדה וקבצים נוספים נבחרים."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "חבילת {productName} ניידת המכילה את הקבצים הנבחרים. פתח אותה ישירות במשגר."
   },
   "app.export-modal.header": {
     "message": "יצוא חבילת מודים"
@@ -352,15 +1072,6 @@
   },
   "app.features-settings.sidebar.title": {
     "message": "סרגל צד"
-  },
-  "app.features-settings.sync-across-devices.description": {
-    "message": "שמור הגדרות הפיצ'רים האלה בכל מקום שאתה מחובר. כבה הגדרה זאת כדי להשאיר הגדרות שונות במכשיר זה."
-  },
-  "app.features-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "התחבר לחשבון Modrinth כדי לסנכרן הגדרות."
-  },
-  "app.features-settings.sync-across-devices.title": {
-    "message": "סנכרן פיצ'רים בין מכשירים"
   },
   "app.home.jump-back-in.actions.label": {
     "message": "פעולות אקסמפלר"
@@ -464,57 +1175,6 @@
   "app.instance.actions.label": {
     "message": "פעולות"
   },
-  "app.instance.add-server.add": {
-    "message": "להוסיף"
-  },
-  "app.instance.add-server.added": {
-    "message": "הוסף"
-  },
-  "app.instance.add-server.adding": {
-    "message": "מוסיף..."
-  },
-  "app.instance.add-server.cancel": {
-    "message": "ביטול"
-  },
-  "app.instance.add-server.compatibility-warning": {
-    "message": "ייתכן והשרת הזה לא תואם לכל ההעתקים שלך."
-  },
-  "app.instance.add-server.search-placeholder": {
-    "message": "חיפוש העתק"
-  },
-  "app.instance.add-server.title": {
-    "message": "הוספת שרת להעתק"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "הוסף"
-  },
-  "app.instance.admonitions.shared-instance.changes-body": {
-    "message": "ההעתק המקומי שלך עוקף בגרסה את המשתמשים שאיתם שיתפת אותו."
-  },
-  "app.instance.admonitions.shared-instance.changes-header": {
-    "message": "השינויים שלך עדיין לא נשמרו"
-  },
-  "app.instance.admonitions.shared-instance.publish-button": {
-    "message": "קדם עדכון"
-  },
-  "app.instance.admonitions.shared-instance.publishing-button": {
-    "message": "מקדם..."
-  },
-  "app.instance.admonitions.shared-instance.removed-label": {
-    "message": "הוסר"
-  },
-  "app.instance.admonitions.shared-instance.review-admonition-header": {
-    "message": "קדם עדכון"
-  },
-  "app.instance.admonitions.shared-instance.review-description": {
-    "message": "תבקר את שינויי התוכן שישותפו עם כל מי שמשתמש בהעתק הזה."
-  },
-  "app.instance.admonitions.shared-instance.review-header": {
-    "message": "בקר שינויים"
-  },
-  "app.instance.admonitions.shared-instance.reviewing-button": {
-    "message": "מבקר..."
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "כל הנתונים של ההתקנה שלך ימחקו לתמיד, זה כולל את העולמות שלך, ההגדרות וכל התוכן שהתקנת."
   },
@@ -542,8 +1202,8 @@
   "app.instance.content.managed-content.modpack-header": {
     "message": "תוכן מארז המודים"
   },
-  "app.instance.content.managed-content.shared-header": {
-    "message": "תוכן משותף"
+  "app.instance.content.managed-content.server-header": {
+    "message": "תוכן שרת"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "חבילת המודים הזו כבר מותקנת בתוך ההתקנה <bold>{instanceName}</bold>. האם אתה בטוח שברצונך לשכפל אותה?"
@@ -596,36 +1256,6 @@
   "app.instance.navigation.back-to-instance": {
     "message": "חזרה להעתק"
   },
-  "app.instance.shared-instance-already-installed.body": {
-    "message": "ההתקנה המשותפת הזו כבר מותקנת בשם <bold>{instanceName}</bold>. האם אתם בטוחים שברצונכם להתקין עותק נוסף?"
-  },
-  "app.instance.shared-instance-already-installed.header": {
-    "message": "ההתקנה המשותפת כבר מותקנת"
-  },
-  "app.instance.shared-instance-already-installed.install-anyway": {
-    "message": "התקן בכל זאת"
-  },
-  "app.instance.shared-instance-already-installed.instance": {
-    "message": "התקנה"
-  },
-  "app.instance.shared-instance-wrong-account.fallback-username": {
-    "message": "החשבון המקושר"
-  },
-  "app.instance.shared-instance-wrong-account.owner-admonition-body-v2": {
-    "message": "כדי לנהל את ההתקנה המשותפת הזו. לא תוכלו לשלוח עדכונים למשתמשים."
-  },
-  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
-    "message": "התחברו בתור"
-  },
-  "app.instance.shared-instance-wrong-account.signed-out-header": {
-    "message": "צריך להתחבר ל-Modrinth"
-  },
-  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
-    "message": "כדי לקבל עדכונים עבור ההתקנה המשותפת הזו."
-  },
-  "app.instance.shared-instance-wrong-account.warning-header": {
-    "message": "אתם משתמשים בחשבון Modrinth הלא נכון"
-  },
   "app.instance.shortcut.created": {
     "message": "קיצור הדרך נוצר"
   },
@@ -644,17 +1274,14 @@
   "app.instance.tab.screenshots": {
     "message": "צילומי מסך"
   },
-  "app.instance.tab.share": {
-    "message": "שיתוף"
-  },
   "app.instance.tab.worlds": {
     "message": "עולמות"
   },
   "app.instance.worlds.add-server": {
     "message": "הוסף שרת"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "עיון בשרתים"
+  "app.instance.worlds.browse": {
+    "message": "עיון בעולמות"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "מחיקת עולם"
@@ -760,6 +1387,21 @@
   },
   "app.java-selector.test-installation": {
     "message": "בדוק את הגרסה המותקנת של ג'אבה"
+  },
+  "app.launch-link.instance": {
+    "message": "קישור מבקש להפעיל את {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "התחל"
+  },
+  "app.launch-link.server": {
+    "message": "קישור מבקש להפעיל את {instance} ולהצטרף לשרת {target}. המשך רק אם אתה סומך על מקור הקישור."
+  },
+  "app.launch-link.title": {
+    "message": "לפתוח את Minecraft מקישור?"
+  },
+  "app.launch-link.world": {
+    "message": "קישור מבקש להפעיל את {instance} ולפתוח את העולם {target}."
   },
   "app.library.actions.label": {
     "message": "פעולות ספרייה"
@@ -1022,122 +1664,14 @@
   "app.library.title": {
     "message": "ספרייה"
   },
-  "app.modal.install-to-play.additional-context": {
-    "message": "הוספת הקשר"
-  },
-  "app.modal.install-to-play.additional-context-placeholder": {
-    "message": "כלול קישורים ותמונות אם אפשר ורלוונטי"
-  },
-  "app.modal.install-to-play.block-user": {
-    "message": "חסום משתמש"
-  },
-  "app.modal.install-to-play.content-you-are-reporting": {
-    "message": "התקן מדווח"
-  },
-  "app.modal.install-to-play.delete-instance": {
-    "message": "מחק התקן"
-  },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "אל תתקין"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "צריך להתקין כדי לשחק"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "התקן בכל זאת"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "התקנה"
-  },
-  "app.modal.install-to-play.invite-warning": {
-    "message": "הזמנה זאת נוצרה על ידי משתמש \"Modrinth\" לא \"Modrinth\" עצמו. תאשר\\י הזמנות רק מאנשים שאפשר לסמוך עליהם."
-  },
-  "app.modal.install-to-play.invite-warning-with-creator": {
-    "message": "הזמנה זאת נוצרה על ידי <creator>{username}</creator> לא \"Modrinth\". תאשר\\י הזמנות רק מאנשים שאפשר לסמוך עליהם."
-  },
-  "app.modal.install-to-play.managed-content.modpack-header": {
-    "message": "תוכן החבילת מודים"
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {מוד אחד} other {# מודים}}"
-  },
-  "app.modal.install-to-play.report-description": {
-    "message": "השתמש בפורום זה כדי לדווח על התקנים העלולים להפר את <rules-link>החוקים</rules-link> או <terms-link>תנאי השימוש</terms-link> שלנו."
-  },
-  "app.modal.install-to-play.report-image-invalid-type": {
-    "message": "קובץ זה לא מקובל סוג תמונה"
-  },
-  "app.modal.install-to-play.report-image-too-large": {
-    "message": "קובץ עבר את הגבלת הגדול 1 MiB"
-  },
-  "app.modal.install-to-play.report-legal-claims": {
-    "message": "עבור הודעות DMCA או תביעות משפטיות אחרות, עיינו ב<copyright-link>מדיניות זכויות היוצרים</copyright-link> שלנו."
-  },
-  "app.modal.install-to-play.report-reason": {
-    "message": "איזה חוק ההתקן הזה הפר?"
-  },
-  "app.modal.install-to-play.report-shared-instance-header": {
-    "message": "דווח התקן משותף"
-  },
-  "app.modal.install-to-play.report-submitted": {
-    "message": "דיווח נשלח"
-  },
-  "app.modal.install-to-play.report-support-and-bugs": {
-    "message": "לפניות בנושא תמיכה, צרו קשר עם <support-link>צוות התמיכה</support-link> שלנו. לדיווח על באגים, פתחו <github-link>בעיית Github</github-link>."
-  },
-  "app.modal.install-to-play.reviewed-files": {
-    "message": "קבצים שלא עלו בModrinth לא מקבלים בדיקה."
-  },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "התקנה משותפת"
-  },
-  "app.modal.install-to-play.shared-instance-content": {
-    "message": "שתף תוכן ההתקן"
-  },
-  "app.modal.install-to-play.shared-instance-unknown-files-description": {
-    "message": "התקן משותף זה מכיל קבצים שאינם מפורסמים ב-Modrinth. אנו ממליצים בחום להתקין קבצים אך ורק ממקורות שאתם סומכים עליהם."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "שרת חבילת מודים זה מכיל קבצים שאינם מפורסמים ב-Modrinth. אנו ממליצים בחום להתקין קבצים אך ורק ממקורות שאתם סומכים עליהם."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "הזהרת קבצים לא ידועים"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "קבצים לא מוכרים"
-  },
-  "app.modal.install-to-play.user-blocked": {
-    "message": "משתמש נחסם"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "הצג תוכן"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "צריך לעדכן כדי לשחק"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "נמחק"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "עדכון שרת חבילת מודים זה מכיל קבצים שאינם מפורסמים ב-Modrinth. אנו ממליצים בחום להתקין קבצים אך ורק ממקורות שאתם סומכים עליהם."
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "נוסף"
-  },
-  "app.modal.update-to-play.shared-instance-removed-label": {
-    "message": "נמחק"
-  },
-  "app.modal.update-to-play.shared-instance-unknown-files-description": {
-    "message": "עדכון התקן משותף זה מכיל קבצים שאינם מפורסמים ב-Modrinth. אנו ממליצים בחום להתקין קבצים אך ורק ממקורות שאתם סומכים עליהם."
-  },
-  "app.modal.update-to-play.update-required": {
-    "message": "נדרש עדכון"
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "עדכון נדרש בשביל לשחק {name}. בבקשה עדכן לגרסה האחרונה בשביל להפעיל את המשחק."
+  "app.nav.collapse-sidebar": {
+    "message": "כווץ את סרגל הצד"
   },
   "app.nav.create-new-instance": {
     "message": "צור התקן חדש"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "הרחב את סרגל הצד"
   },
   "app.nav.home": {
     "message": "בית"
@@ -1166,6 +1700,12 @@
   "app.project.coming-soon": {
     "message": "יגיעה בקרוב"
   },
+  "app.project.gallery.image-fallback": {
+    "message": "תמונת גלריה"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "פתח תמונה בכרטיסייה חדשה"
+  },
   "app.project.install-button.already-installed": {
     "message": "פרויקט זה כבר מותקן"
   },
@@ -1183,6 +1723,9 @@
   },
   "app.project.more-options": {
     "message": "עוד אפשרויות"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "פתח ב־CurseForge"
   },
   "app.project.tab.description": {
     "message": "תיאור"
@@ -1216,6 +1759,9 @@
   },
   "app.quick-instance-switcher.instance-locked": {
     "message": "התקן זה ננעל"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "התקנות אחרונות"
   },
   "app.quick-instance-switcher.view-instance": {
     "message": "ראה התקן"
@@ -1259,6 +1805,144 @@
   "app.screenshots.group-by": {
     "message": "קבץ לפי"
   },
+  "app.screenshots.group.all-screenshots": {
+    "message": "כל צילומי המסך"
+  },
+  "app.screenshots.group.collapse": {
+    "message": "כווץ קבוצה"
+  },
+  "app.screenshots.group.custom": {
+    "message": "קבוצה מותאמת אישית"
+  },
+  "app.screenshots.group.date": {
+    "message": "תאריך"
+  },
+  "app.screenshots.group.delete": {
+    "message": "מחק קבוצה"
+  },
+  "app.screenshots.group.delete-description": {
+    "message": "צילומי המסך בקבוצה זו יוסרו מהקבוצה."
+  },
+  "app.screenshots.group.edit": {
+    "message": "ערוך שם קבוצה"
+  },
+  "app.screenshots.group.empty": {
+    "message": "גרור ושחרר כדי להוסיף צילומי מסך."
+  },
+  "app.screenshots.group.expand": {
+    "message": "הרחב קבוצה"
+  },
+  "app.screenshots.group.instance": {
+    "message": "התקנה"
+  },
+  "app.screenshots.group.new": {
+    "message": "קבוצה חדשה"
+  },
+  "app.screenshots.group.none": {
+    "message": "ללא קיבוץ"
+  },
+  "app.screenshots.group.this-month": {
+    "message": "החודש"
+  },
+  "app.screenshots.group.this-week": {
+    "message": "השבוע"
+  },
+  "app.screenshots.group.today": {
+    "message": "היום"
+  },
+  "app.screenshots.group.ungrouped": {
+    "message": "לא מקובצים"
+  },
+  "app.screenshots.group.yesterday": {
+    "message": "אתמול"
+  },
+  "app.screenshots.heading": {
+    "message": "צילומי מסך"
+  },
+  "app.screenshots.more-actions": {
+    "message": "פעולות נוספות"
+  },
+  "app.screenshots.no-results-description": {
+    "message": "נסה חיפוש או מסנן אחר."
+  },
+  "app.screenshots.no-results-heading": {
+    "message": "אין צילומי מסך תואמים"
+  },
+  "app.screenshots.preview.instance-and-date": {
+    "message": "{instance} · {date}"
+  },
+  "app.screenshots.search": {
+    "message": "חיפוש"
+  },
+  "app.screenshots.select": {
+    "message": "בחר את {name}"
+  },
+  "app.screenshots.selection.aria-label": {
+    "message": "צילומי מסך נבחרים"
+  },
+  "app.screenshots.selection.delete-description": {
+    "message": "למחוק {count, plural, one {צילום מסך אחד} other {# צילומי מסך}}? לא ניתן לבטל פעולה זו."
+  },
+  "app.screenshots.selection.delete-success": {
+    "message": "{count, plural, one {צילום מסך אחד נמחק} other {# צילומי מסך נמחקו}}"
+  },
+  "app.screenshots.selection.delete-title": {
+    "message": "מחק צילומי מסך נבחרים"
+  },
+  "app.screenshots.selection.export-zip": {
+    "message": "ייצא ZIP"
+  },
+  "app.screenshots.selection.global-export-filename": {
+    "message": "{productName} screenshots.zip"
+  },
+  "app.screenshots.selection.instance-export-filename": {
+    "message": "{instance} screenshots.zip"
+  },
+  "app.screenshots.selection.remove-from-group": {
+    "message": "הסר מהקבוצה"
+  },
+  "app.screenshots.selection.selected-count": {
+    "message": "נבחרו {count}"
+  },
+  "app.screenshots.selection.zip-archive": {
+    "message": "ארכיון ZIP"
+  },
+  "app.screenshots.show-in-folder": {
+    "message": "הצג בתיקייה"
+  },
+  "app.screenshots.sort-by": {
+    "message": "מיין לפי"
+  },
+  "app.screenshots.sort.name": {
+    "message": "שם"
+  },
+  "app.screenshots.sort.newest": {
+    "message": "החדש ביותר"
+  },
+  "app.screenshots.sort.oldest": {
+    "message": "הישן ביותר"
+  },
+  "app.settings.app-version": {
+    "message": "{productName} {version}"
+  },
+  "app.settings.default-instance-options.environment-variables.description": {
+    "message": "משתני סביבה המוגדרים בעת הפעלת התקנה."
+  },
+  "app.settings.default-instance-options.environment-variables.placeholder": {
+    "message": "הזן משתני סביבה…"
+  },
+  "app.settings.default-instance-options.environment-variables.title": {
+    "message": "משתני סביבה"
+  },
+  "app.settings.default-instance-options.fullscreen.description": {
+    "message": "הפעל התקנות במסך מלא על ידי עדכון קובץ options.txt שלהן."
+  },
+  "app.settings.default-instance-options.fullscreen.title": {
+    "message": "מסך מלא"
+  },
+  "app.settings.default-instance-options.height.description": {
+    "message": "גובה חלון המשחק בעת ההפעלה."
+  },
   "app.settings.default-instance-options.height.placeholder": {
     "message": "הכנס גובה..."
   },
@@ -1301,14 +1985,1427 @@
   "app.settings.default-instance-options.pre-launch-hook.placeholder": {
     "message": "הכנס פקודת לפני-הפעלה..."
   },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "הוק לפני הפעלה"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "רוחב חלון המשחק בעת ההפעלה."
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "הזן רוחב…"
+  },
+  "app.settings.default-instance-options.width.title": {
+    "message": "רוחב"
+  },
+  "app.settings.default-instance-options.window.title": {
+    "message": "חלון"
+  },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "פקודה המשמשת לעטיפת תהליך הפעלת Minecraft."
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "הזן פקודת עטיפה…"
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "הוק עטיפה"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "החלף מצב מפתח"
+  },
   "app.settings.developer-mode-enabled": {
     "message": "מצב מפתח מופעל."
   },
   "app.settings.downloading": {
     "message": "מוריד גרסה {version}"
   },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "לא נמצאו דגלים התואמים ל־\"{query}\""
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "אפס לברירת מחדל"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "חפש דגלים…"
+  },
+  "app.settings.game-options.category.accessibility.description": {
+    "message": "העדפות נגישות"
+  },
+  "app.settings.game-options.category.accessibility.label": {
+    "message": "נגישות"
+  },
+  "app.settings.game-options.category.chat.description": {
+    "message": "נראות הצ'אט ומראהו"
+  },
+  "app.settings.game-options.category.chat.label": {
+    "message": "צ'אט"
+  },
+  "app.settings.game-options.category.controls.description": {
+    "message": "עכבר, תנועה וקיצורי מקשים"
+  },
+  "app.settings.game-options.category.controls.label": {
+    "message": "בקרים"
+  },
+  "app.settings.game-options.category.custom.description": {
+    "message": "הגדרות שנוספו על ידי מודים"
+  },
+  "app.settings.game-options.category.custom.label": {
+    "message": "הגדרות מותאמות אישית"
+  },
+  "app.settings.game-options.category.language.description": {
+    "message": "שפת המשחק"
+  },
+  "app.settings.game-options.category.language.label": {
+    "message": "שפה"
+  },
+  "app.settings.game-options.category.music-and-sound.description": {
+    "message": "עוצמת קול והעדפות שמע"
+  },
+  "app.settings.game-options.category.music-and-sound.label": {
+    "message": "מוזיקה וצלילים"
+  },
+  "app.settings.game-options.category.online.description": {
+    "message": "העדפות מקוון ו־Realms"
+  },
+  "app.settings.game-options.category.online.label": {
+    "message": "מקוון"
+  },
+  "app.settings.game-options.category.skin-customization.description": {
+    "message": "שכבות סקין ויד ראשית"
+  },
+  "app.settings.game-options.category.skin-customization.label": {
+    "message": "התאמת סקין"
+  },
+  "app.settings.game-options.category.video.description": {
+    "message": "הגדרות מצלמה ותצוגה"
+  },
+  "app.settings.game-options.category.video.label": {
+    "message": "וידאו"
+  },
+  "app.settings.game-options.choice.all": {
+    "message": "הכל"
+  },
+  "app.settings.game-options.choice.balanced": {
+    "message": "מאוזן"
+  },
+  "app.settings.game-options.choice.by-player": {
+    "message": "לפי שחקן"
+  },
+  "app.settings.game-options.choice.chat": {
+    "message": "צ'אט"
+  },
+  "app.settings.game-options.choice.commands-only": {
+    "message": "פקודות בלבד"
+  },
+  "app.settings.game-options.choice.constant": {
+    "message": "קבוע"
+  },
+  "app.settings.game-options.choice.crosshair": {
+    "message": "כוונת"
+  },
+  "app.settings.game-options.choice.custom": {
+    "message": "מותאם אישית"
+  },
+  "app.settings.game-options.choice.decreased": {
+    "message": "מופחת"
+  },
+  "app.settings.game-options.choice.default": {
+    "message": "ברירת מחדל"
+  },
+  "app.settings.game-options.choice.fabulous": {
+    "message": "מרהיב"
+  },
+  "app.settings.game-options.choice.fancy": {
+    "message": "מפואר"
+  },
+  "app.settings.game-options.choice.far": {
+    "message": "רחוק"
+  },
+  "app.settings.game-options.choice.fast": {
+    "message": "מהיר"
+  },
+  "app.settings.game-options.choice.frequent": {
+    "message": "תכוף"
+  },
+  "app.settings.game-options.choice.hidden": {
+    "message": "מוסתר"
+  },
+  "app.settings.game-options.choice.hotbar": {
+    "message": "סרגל מהיר"
+  },
+  "app.settings.game-options.choice.left": {
+    "message": "שמאל"
+  },
+  "app.settings.game-options.choice.limited": {
+    "message": "מוגבל"
+  },
+  "app.settings.game-options.choice.max-fps": {
+    "message": "FPS מרבי"
+  },
+  "app.settings.game-options.choice.maximum": {
+    "message": "מרבי"
+  },
+  "app.settings.game-options.choice.minimal": {
+    "message": "מינימלי"
+  },
+  "app.settings.game-options.choice.minimum": {
+    "message": "מינימום"
+  },
+  "app.settings.game-options.choice.nearby": {
+    "message": "בקרבת מקום"
+  },
+  "app.settings.game-options.choice.never": {
+    "message": "לעולם לא"
+  },
+  "app.settings.game-options.choice.none": {
+    "message": "ללא"
+  },
+  "app.settings.game-options.choice.normal": {
+    "message": "רגיל"
+  },
+  "app.settings.game-options.choice.off": {
+    "message": "כבוי"
+  },
+  "app.settings.game-options.choice.on": {
+    "message": "דלוק"
+  },
+  "app.settings.game-options.choice.opengl": {
+    "message": "OpenGL"
+  },
+  "app.settings.game-options.choice.pause": {
+    "message": "תפריט השהיה"
+  },
+  "app.settings.game-options.choice.pause-and-toast": {
+    "message": "תפריט השהיה והתראה"
+  },
+  "app.settings.game-options.choice.power-saver": {
+    "message": "חיסכון בחשמל"
+  },
+  "app.settings.game-options.choice.right": {
+    "message": "ימין"
+  },
+  "app.settings.game-options.choice.short": {
+    "message": "קצר"
+  },
+  "app.settings.game-options.choice.shown": {
+    "message": "מוצג"
+  },
+  "app.settings.game-options.choice.system": {
+    "message": "מערכת"
+  },
+  "app.settings.game-options.choice.tiny": {
+    "message": "זעיר"
+  },
+  "app.settings.game-options.choice.vulkan": {
+    "message": "Vulkan"
+  },
+  "app.settings.game-options.choice.when-minimized": {
+    "message": "כשממוזער"
+  },
+  "app.settings.game-options.choice.while-afk": {
+    "message": "כשלא פעיל"
+  },
+  "app.settings.game-options.compatibility.none": {
+    "message": "חלק מההתקנות שלך אינן יכולות להשתמש בהגדרה זו"
+  },
+  "app.settings.game-options.compatibility.reason.launcher-controlled": {
+    "message": "הגדרה זו מנוהלת על ידי הגדרות ההפעלה של {productName}."
+  },
+  "app.settings.game-options.custom-value.placeholder": {
+    "message": "הזן ערך"
+  },
+  "app.settings.game-options.keybind.assigned-status": {
+    "message": "{setting} מוקצה כעת ל־{binding}."
+  },
+  "app.settings.game-options.keybind.cancelled-status": {
+    "message": "שינוי הקצאת המקש בוטל."
+  },
+  "app.settings.game-options.keybind.change": {
+    "message": "{setting}: {binding}. הפעל כדי לשנות את ההקצאה."
+  },
+  "app.settings.game-options.keybind.choose": {
+    "message": "בחר מקש"
+  },
+  "app.settings.game-options.keybind.conflict-description": {
+    "message": "זה כבר בשימוש על ידי {settings}."
+  },
+  "app.settings.game-options.keybind.key.arrow-down": {
+    "message": "חץ למטה"
+  },
+  "app.settings.game-options.keybind.key.arrow-left": {
+    "message": "חץ שמאלה"
+  },
+  "app.settings.game-options.keybind.key.arrow-right": {
+    "message": "חץ ימינה"
+  },
+  "app.settings.game-options.keybind.key.arrow-up": {
+    "message": "חץ למעלה"
+  },
+  "app.settings.game-options.keybind.key.backspace": {
+    "message": "Backspace"
+  },
+  "app.settings.game-options.keybind.key.caps-lock": {
+    "message": "Caps Lock"
+  },
+  "app.settings.game-options.keybind.key.delete": {
+    "message": "Delete"
+  },
+  "app.settings.game-options.keybind.key.end": {
+    "message": "End"
+  },
+  "app.settings.game-options.keybind.key.enter": {
+    "message": "Enter"
+  },
+  "app.settings.game-options.keybind.key.escape": {
+    "message": "Escape"
+  },
+  "app.settings.game-options.keybind.key.home": {
+    "message": "Home"
+  },
+  "app.settings.game-options.keybind.key.insert": {
+    "message": "Insert"
+  },
+  "app.settings.game-options.keybind.key.keypad-key": {
+    "message": "לוח ספרות {key}"
+  },
+  "app.settings.game-options.keybind.key.left-alt": {
+    "message": "Alt שמאלי"
+  },
+  "app.settings.game-options.keybind.key.left-command": {
+    "message": "Command שמאלי"
+  },
+  "app.settings.game-options.keybind.key.left-control": {
+    "message": "Ctrl שמאלי"
+  },
+  "app.settings.game-options.keybind.key.left-shift": {
+    "message": "Shift שמאלי"
+  },
+  "app.settings.game-options.keybind.key.left-super": {
+    "message": "Super שמאלי"
+  },
+  "app.settings.game-options.keybind.key.menu": {
+    "message": "מקש תפריט"
+  },
+  "app.settings.game-options.keybind.key.num-lock": {
+    "message": "Num Lock"
+  },
+  "app.settings.game-options.keybind.key.page-down": {
+    "message": "Page Down"
+  },
+  "app.settings.game-options.keybind.key.page-up": {
+    "message": "Page Up"
+  },
+  "app.settings.game-options.keybind.key.pause": {
+    "message": "Pause"
+  },
+  "app.settings.game-options.keybind.key.print-screen": {
+    "message": "Print Screen"
+  },
+  "app.settings.game-options.keybind.key.right-alt": {
+    "message": "Alt ימני"
+  },
+  "app.settings.game-options.keybind.key.right-command": {
+    "message": "Command ימני"
+  },
+  "app.settings.game-options.keybind.key.right-control": {
+    "message": "Ctrl ימני"
+  },
+  "app.settings.game-options.keybind.key.right-shift": {
+    "message": "Shift ימני"
+  },
+  "app.settings.game-options.keybind.key.right-super": {
+    "message": "Super ימני"
+  },
+  "app.settings.game-options.keybind.key.scroll-lock": {
+    "message": "Scroll Lock"
+  },
+  "app.settings.game-options.keybind.key.space": {
+    "message": "רווח"
+  },
+  "app.settings.game-options.keybind.key.tab": {
+    "message": "Tab"
+  },
+  "app.settings.game-options.keybind.key.unbound": {
+    "message": "לא מוקצה"
+  },
+  "app.settings.game-options.keybind.key.unknown": {
+    "message": "מקש לא ידוע"
+  },
+  "app.settings.game-options.keybind.listen": {
+    "message": "לחץ על מקש…"
+  },
+  "app.settings.game-options.keybind.listening-status": {
+    "message": "מאזין למקש או ללחצן עכבר. לחץ על Escape כדי לנקות הקצאה זו."
+  },
+  "app.settings.game-options.keybind.mixed": {
+    "message": "שונה בין התקנות"
+  },
+  "app.settings.game-options.keybind.modifier.alt": {
+    "message": "Alt"
+  },
+  "app.settings.game-options.keybind.modifier.command": {
+    "message": "Command"
+  },
+  "app.settings.game-options.keybind.modifier.control": {
+    "message": "Ctrl"
+  },
+  "app.settings.game-options.keybind.modifier.shift": {
+    "message": "Shift"
+  },
+  "app.settings.game-options.keybind.modifier.super": {
+    "message": "Super"
+  },
+  "app.settings.game-options.keybind.mouse.button": {
+    "message": "לחצן עכבר {button}"
+  },
+  "app.settings.game-options.keybind.mouse.left": {
+    "message": "לחצן עכבר שמאלי"
+  },
+  "app.settings.game-options.keybind.mouse.middle": {
+    "message": "לחצן עכבר אמצעי"
+  },
+  "app.settings.game-options.keybind.mouse.right": {
+    "message": "לחצן עכבר ימני"
+  },
+  "app.settings.game-options.keybind.recording-label": {
+    "message": "{setting}: מאזין למקש או ללחצן עכבר. לחץ על Escape כדי לנקות הקצאה זו."
+  },
+  "app.settings.game-options.keybind.scancode": {
+    "message": "קוד סריקה {code}"
+  },
+  "app.settings.game-options.keybind.unsupported-status": {
+    "message": "קלט זה אינו יכול לשמש את Minecraft. לחץ על מקש אחר."
+  },
+  "app.settings.game-options.setting.advanced-opengl.label": {
+    "message": "OpenGL מתקדם"
+  },
+  "app.settings.game-options.setting.allow-cursor-changes.label": {
+    "message": "אפשר שינויי סמן"
+  },
+  "app.settings.game-options.setting.allow-server-listing.description": {
+    "message": "אפשר לשם השחקן להופיע ברשימות שרתים."
+  },
+  "app.settings.game-options.setting.allow-server-listing.label": {
+    "message": "רשימות שרתים"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "בלוקים חלופיים"
+  },
+  "app.settings.game-options.setting.ambient-occlusion.label": {
+    "message": "תאורה חלקה"
+  },
+  "app.settings.game-options.setting.ambient-volume.label": {
+    "message": "סביבה"
+  },
+  "app.settings.game-options.setting.anaglyph-3d.label": {
+    "message": "אנגליף תלת־ממדי"
+  },
+  "app.settings.game-options.setting.anisotropic-filtering.label": {
+    "message": "סינון אנאיזוטרופי"
+  },
+  "app.settings.game-options.setting.anisotropy.label": {
+    "message": "אנאיזוטרופיה"
+  },
+  "app.settings.game-options.setting.attack-indicator.label": {
+    "message": "מחוון התקפה"
+  },
+  "app.settings.game-options.setting.auto-jump.description": {
+    "message": "קפוץ אוטומטית מעל מכשולים בגובה בלוק אחד."
+  },
+  "app.settings.game-options.setting.auto-jump.label": {
+    "message": "קפיצה אוטומטית"
+  },
+  "app.settings.game-options.setting.auto-suggestions.label": {
+    "message": "הצעות פקודות"
+  },
+  "app.settings.game-options.setting.autosave-indicator.label": {
+    "message": "מחוון שמירה אוטומטית"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.description": {
+    "message": "המרחק שבו צבעי הביומות מתמזגים."
+  },
+  "app.settings.game-options.setting.biome-blend-radius.label": {
+    "message": "מיזוג ביומות"
+  },
+  "app.settings.game-options.setting.blocks-volume.label": {
+    "message": "בלוקים"
+  },
+  "app.settings.game-options.setting.brightness.label": {
+    "message": "בהירות"
+  },
+  "app.settings.game-options.setting.cape.description": {
+    "message": "הצג את גלימת השחקן, כולל מרקם האליטרה שלה."
+  },
+  "app.settings.game-options.setting.cape.label": {
+    "message": "גלימה"
+  },
+  "app.settings.game-options.setting.chat-background-only.label": {
+    "message": "רקע צ'אט בלבד"
+  },
+  "app.settings.game-options.setting.chat-colors.label": {
+    "message": "צבעי צ'אט"
+  },
+  "app.settings.game-options.setting.chat-delay.label": {
+    "message": "השהיית צ'אט"
+  },
+  "app.settings.game-options.setting.chat-line-spacing.label": {
+    "message": "מרווח שורות צ'אט"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.description": {
+    "message": "שאל לפני פתיחת קישורים מהצ'אט."
+  },
+  "app.settings.game-options.setting.chat-links-prompt.label": {
+    "message": "בקש אישור לקישורים"
+  },
+  "app.settings.game-options.setting.chat-links.description": {
+    "message": "אפשר פתיחת קישורי אינטרנט בצ'אט."
+  },
+  "app.settings.game-options.setting.chat-links.label": {
+    "message": "קישורי אינטרנט"
+  },
+  "app.settings.game-options.setting.chat-opacity.description": {
+    "message": "שקיפות טקסט הצ'אט."
+  },
+  "app.settings.game-options.setting.chat-opacity.label": {
+    "message": "שקיפות צ'אט"
+  },
+  "app.settings.game-options.setting.chat-preview.label": {
+    "message": "תצוגה מקדימה של צ'אט"
+  },
+  "app.settings.game-options.setting.chat-scale.label": {
+    "message": "קנה מידה של צ'אט"
+  },
+  "app.settings.game-options.setting.chat-visibility.label": {
+    "message": "נראות צ'אט"
+  },
+  "app.settings.game-options.setting.chat-width.label": {
+    "message": "רוחב צ'אט"
+  },
+  "app.settings.game-options.setting.chunk-fade-time.label": {
+    "message": "זמן דהיית צ'אנקים"
+  },
+  "app.settings.game-options.setting.cloud-range.label": {
+    "message": "מרחק עננים"
+  },
+  "app.settings.game-options.setting.clouds.label": {
+    "message": "עננים"
+  },
+  "app.settings.game-options.setting.ctrl-click-right-click.label": {
+    "message": "לחיצת Control כלחיצה ימנית"
+  },
+  "app.settings.game-options.setting.cutout-leaves.label": {
+    "message": "עלים גזורים"
+  },
+  "app.settings.game-options.setting.damage-tilt.label": {
+    "message": "הטיית נזק"
+  },
+  "app.settings.game-options.setting.dark-splash.description": {
+    "message": "שנה את מסך הטעינה של Mojang Studios מאדום לשחור."
+  },
+  "app.settings.game-options.setting.dark-splash.label": {
+    "message": "לוגו מונוכרומטי"
+  },
+  "app.settings.game-options.setting.darkness-pulsing.label": {
+    "message": "פעימת חשיכה"
+  },
+  "app.settings.game-options.setting.debug-gui-scale.label": {
+    "message": "קנה מידה של ממשק ניפוי"
+  },
+  "app.settings.game-options.setting.directional-audio.label": {
+    "message": "שמע כיווני"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.description": {
+    "message": "התייחס לכל קלט גלגלת עכבר כצעד גלילה יחיד."
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.label": {
+    "message": "גלילה בדידה"
+  },
+  "app.settings.game-options.setting.entity-distance.label": {
+    "message": "מרחק ישויות"
+  },
+  "app.settings.game-options.setting.entity-shadows.label": {
+    "message": "צללי ישויות"
+  },
+  "app.settings.game-options.setting.exclusive-fullscreen.label": {
+    "message": "מסך מלא בלעדי"
+  },
+  "app.settings.game-options.setting.extra-telemetry.label": {
+    "message": "טלמטריה אופציונלית"
+  },
+  "app.settings.game-options.setting.focused-chat-height.label": {
+    "message": "גובה צ'אט במיקוד"
+  },
+  "app.settings.game-options.setting.force-unicode-font.label": {
+    "message": "אכוף גופן Unicode"
+  },
+  "app.settings.game-options.setting.fov-effects.label": {
+    "message": "אפקטי שדה ראייה"
+  },
+  "app.settings.game-options.setting.fov.label": {
+    "message": "שדה ראייה"
+  },
+  "app.settings.game-options.setting.fullscreen.label": {
+    "message": "מסך מלא"
+  },
+  "app.settings.game-options.setting.glint-speed.label": {
+    "message": "מהירות ברק"
+  },
+  "app.settings.game-options.setting.glint-strength.label": {
+    "message": "עוצמת ברק"
+  },
+  "app.settings.game-options.setting.graphics-backend.label": {
+    "message": "מנוע גרפי"
+  },
+  "app.settings.game-options.setting.graphics.description": {
+    "message": "שולט באיכות החזותית ובביצועים."
+  },
+  "app.settings.game-options.setting.graphics.label": {
+    "message": "גרפיקה"
+  },
+  "app.settings.game-options.setting.gui-scale.description": {
+    "message": "גודל ממשק המשחק וה־HUD."
+  },
+  "app.settings.game-options.setting.gui-scale.label": {
+    "message": "קנה מידה של ממשק"
+  },
+  "app.settings.game-options.setting.hat.description": {
+    "message": "הצג את שכבת הכובע של הסקין."
+  },
+  "app.settings.game-options.setting.hat.label": {
+    "message": "כובע"
+  },
+  "app.settings.game-options.setting.held-item-tooltips.label": {
+    "message": "הסברים לפריט מוחזק"
+  },
+  "app.settings.game-options.setting.hide-lightning-flashes.label": {
+    "message": "הסתר הבזקי ברקים"
+  },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "הסתר שמות תואמים"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "הסתר כתובת שרת"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "הסתר טקסטים מתחלפים"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "מתאר בלוקים בניגודיות גבוהה"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "שפר את ניגודיות רכיבי הממשק."
+  },
+  "app.settings.game-options.setting.high-contrast.label": {
+    "message": "ניגודיות גבוהה"
+  },
+  "app.settings.game-options.setting.hostile-volume.label": {
+    "message": "יצורים עוינים"
+  },
+  "app.settings.game-options.setting.improved-transparency.label": {
+    "message": "שקיפות משופרת"
+  },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "התראות במשחק"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "קצב פריימים מופחת"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "הפוך עכבר אופקית"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "הפוך תנועת עכבר אנכית."
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "הפוך עכבר"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "הצג את שכבת הז'קט של הסקין."
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "ז'קט"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "וריאנטים יפניים של סימנים"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "התקדמויות"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "התקפה"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "תנועה אחורה"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "פתח צ'אט"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "פקודה"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "הצג הסברים מתקדמים"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "הצג גבולות צ'אנקים"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "נקה צ'אט"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "העתק מיקום"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "העתק פקודת שחזור"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "הפעל קריסת ניפוי"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "שפוך טקסטורות דינמיות"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "שפוך גרסה"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "השהה באובדן מיקוד"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "תרשימי FPS"
+  },
+  "app.settings.game-options.setting.key-debug-hitboxes.label": {
+    "message": "הצג תיבות פגיעה"
+  },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "תצוגת ניפוי שקיפות משופרת"
+  },
+  "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
+    "message": "טקסטורת מפת אור"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "משנה ניפוי"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "תרשימי רשת"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "אפשרויות ניפוי"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "שכבת ניפוי"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "תרשים פרופיילינג"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "התחל פרופיילינג"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "טען מחדש צ'אנקים"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "טען מחדש חבילות משאבים"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "צפה בישות"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "החלף מצב משחק"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "השלך פריט"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "תנועה קדימה"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "חברים"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "החלף מסך מלא"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "סרגל מהיר 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "סרגל מהיר 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "סרגל מהיר 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "סרגל מהיר 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "סרגל מהיר 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "סרגל מהיר 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "סרגל מהיר 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "סרגל מהיר 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "סרגל מהיר 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "מלאי"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "קפיצה"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "תנועה צידית שמאלה"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "טען סרגל כלים"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "שנה נקודת מבט"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "בחר בלוק"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "רשימת שחקנים"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "פעולות מהירות"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "תנועה צידית ימינה"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "שמור סרגל כלים"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "צילום מסך"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "החלף מצלמה קולנועית"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "התגנבות"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "אינטראקציות חברתיות"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "סרגל צופה"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "הדגש צופים"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "ספרינט"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "החלף יד משנית"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "החלף HUD"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "החלף שיידר צופה"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "השתמש בפריט"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "שפה"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "רגל מכנס שמאלית"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "שרוול שמאלי"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "הגבלת קצב פריימים"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "מרחק צפייה"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "הצג תפריט macOS במסך מלא"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "בחר אם היד הראשית היא שמאל או ימין."
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "יד ראשית"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "עוצמה ראשית"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "קצב פריימים מרבי"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "טשטוש רקע תפריט"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "החלקת טקסטורות ממרחק."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "רמות מיפמאפ"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "רגישות גלגלת עכבר"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "תדירות מוזיקה"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "בחר אם כותרות מוזיקה יופיעו בתפריט ההשהיה וכהתראות."
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "התראת מוזיקה"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "מוזיקה"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "מקש קיצור לקריין"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "בחר מה הקריין מקריא."
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "קריין"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "יצורים ידידותיים"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "משך הזמן שהתראות נשארות גלויות."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "זמן התראה"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "לשונית פריטי מפעיל"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "מהירות פנורמה"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "חלקיקים"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "שחקנים"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "תעדף עדכוני צ'אנקים"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "קיצורי יציאה"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "קלט עכבר גולמי"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "התראות Realms"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "תיבת נגינה/בלוקי תווים"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "מידע ניפוי מופחת"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "מרחק רינדור"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "רגל מכנס ימנית"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "שרוול ימני"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "הסתובב עם קרונית"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "שמור טיוטות צ'אט"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "אפקטי מסך"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "הצג רק צ'אט מאובטח"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "רגישות עכבר"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "טקסטורות שרת"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "שתף נוכחות"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "המרחק שבו ישויות מתעדכנות ובלוקים ונוזלים מתקתקים."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "מרחק סימולציה"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "סנופר"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "חלון ספרינט"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "הצג כתוביות לצלילים המושמעים במשחק."
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "כתוביות"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "שקיפות רקע טקסט"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "סינון טקסטורות"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "החלף התקפה"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "לחץ פעם אחת כדי להישאר כפוף."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "החלף כפיפה"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "לחץ פעם אחת כדי להמשיך לרוץ."
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "החלף ספרינט"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "החלף שימוש"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "מצב מסך מגע"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "ממשק"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "גובה צ'אט לא במיקוד"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "השתמש ב־VBO"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "הוסף תנועת נדנוד למצלמה בזמן הליכה."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "נדנוד תצוגה"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "וינייט"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "קול ודיבור"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "הגבל את קצב הפריימים לקצב רענון התצוגה כדי למנוע קריעת מסך."
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "רדיוס מזג אוויר"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "מזג אוויר"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "הגדרה זו השתנתה במקום אחר. בדוק אותה ונסה שוב."
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "בחר ערך תקין."
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "בחר ערך תחילה."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "חלק מההתקנות שלך אינן יכולות להשתמש בהגדרה זו"
+  },
+  "app.settings.java-installations.location.title": {
+    "message": "מיקום Java {version, number}"
+  },
+  "app.settings.operating-system.macos": {
+    "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "הצג את {productName} כפעילות הנוכחית שלך ב־Discord. זה אינו משפיע על Rich Presence שנוסף להתקנות על ידי מודים."
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord Rich Presence"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "הצג את פעולת העתקת הפרטים בזמן שהתקנה בתור או פועלת. היא תמיד זמינה להתקנות שנכשלו או נקטעו."
+  },
+  "app.settings.resource-management.always-show-copy-details.title": {
+    "message": "הצג תמיד העתקת פרטים"
+  },
+  "app.settings.resource-management.app-cache.confirm.description": {
+    "message": "האפליקציה עשויה להיטען לאט יותר עד שהמטמון ייבנה מחדש."
+  },
+  "app.settings.resource-management.app-cache.confirm.title": {
+    "message": "לנקות את מטמון האפליקציה?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "נקה נתונים שמורים והורד אותם שוב. האפליקציה עשויה להיטען לאט יותר עד שהמטמון ייבנה מחדש."
+  },
+  "app.settings.resource-management.app-cache.purge": {
+    "message": "נקה מטמון"
+  },
+  "app.settings.resource-management.app-cache.title": {
+    "message": "מטמון אפליקציה"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "גיבויים של נתוני אפליקציה חשובים נשמרים כאן למקרה שתצטרך לשחזר אותם מאוחר יותר."
+  },
+  "app.settings.resource-management.app-database-backups.open-folder": {
+    "message": "פתח תיקיית גיבויים"
+  },
+  "app.settings.resource-management.app-database-backups.title": {
+    "message": "גיבויי מסד הנתונים של האפליקציה"
+  },
+  "app.settings.resource-management.app-directory.browse": {
+    "message": "עיין לבחירת תיקיית אפליקציה"
+  },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "המקום שבו {productName} שומר התקנות וקבצים אחרים. שינויים נכנסים לתוקף לאחר הפעלת האפליקציה מחדש."
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "בחר תיקיית אפליקציה חדשה"
+  },
+  "app.settings.resource-management.app-directory.title": {
+    "message": "תיקיית אפליקציה"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "מספר הקבצים שהאפליקציה יכולה להוריד בבת אחת. הפחת זאת אם ההורדות אינן אמינות בחיבור שלך. דורש הפעלה מחדש של האפליקציה."
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "הורדות במקביל מרביות"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "מספר הקבצים שהאפליקציה יכולה לכתוב לדיסק בבת אחת. הפחת זאת אם אתה נתקל לעתים קרובות בשגיאות קלט/פלט. דורש הפעלה מחדש של האפליקציה."
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "כתיבות במקביל מרביות"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "חלק מהקבצים עדיין דורשים תשומת לב"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "שמור עד כמות זו של תוכן לא מנוצל להתקנות עתידיות. שמירת כמות גדולה יותר יכולה לחסוך זמן הורדה."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "שמור הורדות לא מנוצלות"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "מחשב"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "נקה לא מנוצל"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "מחק תוכן מורד לא מנוצל"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "פונו {size} משטח הדיסק."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "מנקה…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "חסוך מקום על ידי שימוש חוזר בהתקנות משחק, מודים וחבילות בין ההתקנות שלך."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "התקן מודים או חבילות כדי לראות כאן את השימוש באחסון שלך."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "הצג {count, plural, one {בעיה אחת} other {# בעיות}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "אין תוכן לא מנוצל לנקות."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "אמת ותקן"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "פעולה זו תסגור כל התקנה פועלת."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "בדוק קבצים חסרים או פגומים ותקן אותם."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "מאמת ומתקן…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "משותף"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "אחסון תוכן"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} מאוחסנים"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "ייחודי"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "יתום"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "נבדקו {checked, plural, one {קובץ אחד} other {# קבצים}} ובוצעו {repaired, plural, one {תיקון אחד} other {# תיקונים}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "האימות הושלם"
+  },
+  "app.settings.sidebar.label.instances": {
+    "message": "התקנות"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "בחר מאיזו התקנה להעתיק את היסטוריית הפקודות שלך. היסטוריה זו משמשת רק לסנכרון הראשוני, ותוכל לערוך אותה מכל התקנה לאחר מכן."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "בחר מקור היסטוריית פקודות"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "בחר מאיזו התקנה להעתיק את סרגלי היצירה השמורים שלך. סרגלים אלה משמשים רק לסנכרון הראשוני, ותוכל לערוך אותם מכל התקנה לאחר מכן."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "בחר מקור סרגלי יצירה"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "בחר מקור חבילות נתונים"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "בחר מאיזו התקנה להעתיק את הגדרות המשחק שלך. הגדרות אלה משמשות רק לסנכרון הראשוני, ותוכל לערוך אותן מכל התקנה לאחר מכן."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "בחר מקור הגדרות משחק"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "לא ניתן לבחור התקנה זו כמקור סנכרון"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "לא ניתן לטעון מקורות סנכרון. נסה שוב."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "בחר מאיזו התקנה להעתיק את שרתי המרובה־משתתפים שלך. שרתים אלה משמשים רק לסנכרון הראשוני, ותוכל לערוך אותם מכל התקנה לאחר מכן."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "בחר מקור שרתי מרובה־משתתפים"
+  },
+  "app.settings.synced-options.choose-sync-source.no-instances-found": {
+    "message": "לא נמצאו התקנות"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "בחר מקור חבילות משאבים"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "נסה שוב"
+  },
+  "app.settings.synced-options.choose-sync-source.search-placeholder": {
+    "message": "חפש התקנה"
+  },
+  "app.settings.synced-options.choose-sync-source.sync": {
+    "message": "סנכרן"
+  },
+  "app.settings.synced-options.command-history": {
+    "message": "סנכרן היסטוריית פקודות"
+  },
+  "app.settings.synced-options.command-history.description": {
+    "message": "השתמש באותה היסטוריית פקודות בכל ההתקנות שלך."
+  },
+  "app.settings.synced-options.command-history.editor-title": {
+    "message": "ערוך היסטוריית פקודות"
+  },
+  "app.settings.synced-options.creative-hotbars": {
+    "message": "סנכרן סרגלי יצירה שמורים"
+  },
+  "app.settings.synced-options.creative-hotbars.description": {
+    "message": "השתמש באותם סרגלי יצירה שמורים בכל ההתקנות שלך."
+  },
+  "app.settings.synced-options.data-packs": {
+    "message": "סנכרן חבילות נתונים"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "השתמש באותן חבילות נתונים בכל ההתקנות שלך"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "טרם סנכרנת חבילות נתונים"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "הוסף התקנה לפני עריכת נתונים מסונכרנים."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "בחר מקור סנכרון לפני עריכת הגדרה זו."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "סנכרן אפשרויות משחק"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "ערוך הגדרות משחק"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "טענו את ההגדרות העדכניות ביותר. בדוק את השינויים שלך ושמור שוב."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "הגדרות אלה השתנו במקום אחר"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "הגדרות שנוספו על ידי מודים יופיעו כאן לאחר ש־{productName} ימצא אותן באחת ההתקנות שלך."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "השתמש באותן אפשרויות משחק בכל ההתקנות שלך."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "בטל סנכרון הכל"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "הפעל סנכרון הגדרות משחק לפני בחירת הגדרות בודדות."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "אין הגדרות התואמות לחיפוש או למסנן שלך."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "סנכרן הכל"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "לא הצלחנו לטעון את הגדרות המשחק שלך."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "טוען הגדרות…"
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "אין לך עדיין אפשרויות לעריכה"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "לא מסונכרן"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "נסה שוב"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "שמור הגדרות"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "חפש הגדרות…"
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "אפשרויות מסונכרנות מוחלות על כל התקנה ודורסות את הערכים המצורפים לחבילת מודים."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "סנכרן את {setting} בין התקנות"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "סנכרן הגדרות משחק"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "מסונכרן בין התקנות"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "הגדרות משחק"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "יש לך שינויים שלא נשמרו."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "הפסק לסנכרן את {setting} בין התקנות"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "שונה בין התקנות"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "כבוי"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "דלוק"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "בחר ערך"
+  },
+  "app.settings.synced-options.multiplayer-servers": {
+    "message": "סנכרן שרתי מרובה־משתתפים"
+  },
+  "app.settings.synced-options.multiplayer-servers.address": {
+    "message": "כתובת שרת"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "העתק כתובת"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {שרת אחד} other {# שרתים}}"
+  },
+  "app.settings.synced-options.multiplayer-servers.description": {
+    "message": "השתמש באותם שרתי מרובה־משתתפים בכל ההתקנות שלך."
+  },
+  "app.settings.synced-options.multiplayer-servers.editor-title": {
+    "message": "ערוך שרתים מסונכרנים"
+  },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "כרגע אין שרתים שהוסיף המשתמש מסונכרנים."
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "לא מקוון"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "מקוון"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "אפשרויות שרת נוספות"
+  },
+  "app.settings.synced-options.multiplayer-servers.name": {
+    "message": "שם שרת"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "אין שרתים מסונכרנים התואמים לחיפוש או למסננים שלך."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "טרם סנכרנת שרתים"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} מקוונים"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "חפש {count, number} {count, plural, one {שרת מסונכרן} other {שרתים מסונכרנים}}…"
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "סטטוס"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "הפעל סנכרון לפני עריכת חבילות משותפות."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "סנכרן חבילות משאבים"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "השתמש באותן חבילות משאבים בכל ההתקנות שלך."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "טרם סנכרנת חבילות משאבים"
+  },
   "app.settings.tabs.appearance": {
     "message": "מראה"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "התנהגות"
+  },
+  "app.settings.tabs.features": {
+    "message": "תכונות"
   },
   "app.settings.tabs.java-installations": {
     "message": "התקנות ג'אווה"
@@ -1322,8 +3419,398 @@
   "app.settings.tabs.resource-management": {
     "message": "ניהול משאבים"
   },
+  "app.settings.tabs.synced-options": {
+    "message": "הגדרות מסונכרנות"
+  },
+  "app.sidebar.advertising.label": {
+    "message": "פרסומת"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "תצוגה מקדימה · מיקום {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "חבילת המודים הבאה"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "השהיית המעבר"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} מתוך {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "חבילת המודים הקודמת"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "המשך המעבר"
+  },
+  "app.sidebar.featured.title": {
+    "message": "חבילות מודים מומלצות"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "חבילות המודים המומלצות אינן זמינות כרגע."
+  },
+  "app.sidebar.featured.view": {
+    "message": "הצגת הפרויקט"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "אפשרויות אחסון"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "שרת Minecraft הבא שלך"
+  },
+  "app.skins.add-button": {
+    "message": "הוסף סקין"
+  },
+  "app.skins.add-button.drag-and-drop": {
+    "message": "גרור ושחרר"
+  },
+  "app.skins.apply-button": {
+    "message": "החל"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "כל המודלים"
+  },
+  "app.skins.catalog.classic": {
+    "message": "קלאסי"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "ברירת מחדל"
+  },
+  "app.skins.catalog.empty": {
+    "message": "לא נמצאו סקינים. נסה חיפוש אחר."
+  },
+  "app.skins.catalog.error": {
+    "message": "ספק הסקינים אינו זמין. אנא נסה שוב מאוחר יותר."
+  },
+  "app.skins.catalog.loading": {
+    "message": "טוען סקינים…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "חפש בכל הגלריה הציבורית של MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "מודל"
+  },
+  "app.skins.catalog.next": {
+    "message": "הדף הבא"
+  },
+  "app.skins.catalog.page": {
+    "message": "עמוד {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "פופולרי"
+  },
+  "app.skins.catalog.previous": {
+    "message": "הדף הקודם"
+  },
+  "app.skins.catalog.providers": {
+    "message": "ספקי סקינים"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "הספק הגיע למגבלת הבקשות. אנא המתן לפני שתנסה שוב."
+  },
+  "app.skins.catalog.recent": {
+    "message": "אחרונים"
+  },
+  "app.skins.catalog.retry": {
+    "message": "נסה שוב"
+  },
+  "app.skins.catalog.saved": {
+    "message": "סקין נשמר בברירת מחדל"
+  },
+  "app.skins.catalog.search": {
+    "message": "חפש סקינים…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "חפש"
+  },
+  "app.skins.catalog.slim": {
+    "message": "צר"
+  },
+  "app.skins.catalog.sort": {
+    "message": "סדר לפי"
+  },
+  "app.skins.catalog.tag": {
+    "message": "תגית (אופציונלית)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "טרנדי"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "ספק זה עוד לא מוגדר."
+  },
+  "app.skins.delete-button": {
+    "message": "מחק סקין"
+  },
+  "app.skins.delete-modal.description": {
+    "message": "פעולה זו תמחק לצמיתות את הסקין הנבחר. לא ניתן לבטל פעולה זו."
+  },
+  "app.skins.delete-modal.title": {
+    "message": "האם אתה בטוח שברצונך למחוק סקין זה?"
+  },
+  "app.skins.demo.apply-tooltip": {
+    "message": "התחבר כדי להחיל סקינים."
+  },
+  "app.skins.demo.description": {
+    "message": "התחבר לחשבון Minecraft שלך כדי לשמור ולהחיל סקינים!"
+  },
+  "app.skins.demo.title": {
+    "message": "עריכה עם חשבון דמו"
+  },
+  "app.skins.dropped-file-error.text": {
+    "message": "נכשל בקריאת הקובץ שנשמט."
+  },
+  "app.skins.dropped-file-error.title": {
+    "message": "שגיאה בעיבוד קובץ"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "סקין זה משתמש בתכונות של המוד {ears}"
+  },
+  "app.skins.edit-button": {
+    "message": "ערוך סקין"
+  },
+  "app.skins.modal.add-skin-button": {
+    "message": "הוסף סקין"
+  },
+  "app.skins.modal.add-title": {
+    "message": "הוספת סקין"
+  },
+  "app.skins.modal.arm-style-section": {
+    "message": "סגנון זרוע"
+  },
+  "app.skins.modal.arm-style-slim": {
+    "message": "צר"
+  },
+  "app.skins.modal.arm-style-wide": {
+    "message": "רחב"
+  },
+  "app.skins.modal.cape-fallback-name": {
+    "message": "גלימה"
+  },
+  "app.skins.modal.cape-section": {
+    "message": "גלימה"
+  },
+  "app.skins.modal.demo-save-tooltip": {
+    "message": "התחבר כדי לשמור סקינים."
+  },
+  "app.skins.modal.edit-title": {
+    "message": "עריכת סקין"
+  },
+  "app.skins.modal.make-edit-first-tooltip": {
+    "message": "בצע תחילה עריכה בסקין!"
+  },
+  "app.skins.modal.no-cape-tooltip": {
+    "message": "אין גלימה"
+  },
+  "app.skins.modal.none-cape-option": {
+    "message": "ללא"
+  },
+  "app.skins.modal.replace-texture-button": {
+    "message": "החלף טקסטורה"
+  },
   "app.skins.modal.save-skin-button": {
     "message": "שמור סקין"
+  },
+  "app.skins.modal.saving-tooltip": {
+    "message": "שומר…"
+  },
+  "app.skins.modal.texture-section": {
+    "message": "טקסטורה"
+  },
+  "app.skins.modal.upload-skin-first-tooltip": {
+    "message": "העלה תחילה סקין!"
+  },
+  "app.skins.preview.edit-button": {
+    "message": "ערוך סקין"
+  },
+  "app.skins.previewing-badge": {
+    "message": "מציג תצוגה מקדימה"
+  },
+  "app.skins.rate-limit.text": {
+    "message": "אתה מחליף סקין בתדירות גבוהה מדי. שרתי Mojang חסמו זמנית בקשות נוספות. המתן רגע לפני שתנסה שוב."
+  },
+  "app.skins.rate-limit.title": {
+    "message": "לאט לאט!"
+  },
+  "app.skins.reorder-error.text": {
+    "message": "לא ניתן לשמור את סדר הסקינים שלך."
+  },
+  "app.skins.reorder-error.title": {
+    "message": "נכשל בסידור מחדש של סקינים"
+  },
+  "app.skins.section.builders-and-biomes": {
+    "message": "בונים וביומות"
+  },
+  "app.skins.section.chaos-cubed": {
+    "message": "כאוס קובי"
+  },
+  "app.skins.section.chase-the-skies": {
+    "message": "מרדף אחר השמיים"
+  },
+  "app.skins.section.default-skins": {
+    "message": "סקינים ברירת מחדל"
+  },
+  "app.skins.section.minecon-earth-2017": {
+    "message": "MINECON Earth 2017"
+  },
+  "app.skins.section.mounts-of-mayhem": {
+    "message": "רכבי המהומה"
+  },
+  "app.skins.section.saved-skins": {
+    "message": "סקינים שמורים"
+  },
+  "app.skins.section.striding-hero": {
+    "message": "הגיבור הצועד"
+  },
+  "app.skins.section.the-copper-age": {
+    "message": "עידן הנחושת"
+  },
+  "app.skins.section.the-garden-awakens": {
+    "message": "הגן מתעורר"
+  },
+  "app.skins.section.tiny-takeover": {
+    "message": "השתלטות זעירה"
+  },
+  "app.skins.sign-in.button": {
+    "message": "התחבר ל־Microsoft"
+  },
+  "app.skins.title": {
+    "message": "בורר סקינים"
+  },
+  "app.skins.toggle-ears-features-off": {
+    "message": "כבה"
+  },
+  "app.skins.toggle-ears-features-on": {
+    "message": "הדלק"
+  },
+  "app.sync-instances-update.badge": {
+    "message": "חדש בעדכון זה"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "בחר מאיזו התקנה להעתיק הגדרות משחק, חבילות משאבים, היסטוריית פקודות, סרגלי יצירה ושרתי מרובה־משתתפים. הגדרות אלה משמשות רק לסנכרון הראשוני, ותוכל לערוך אותן מכל התקנה לאחר מכן."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "בחר מקור סנכרון"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "בחר מאיזו התקנה להעתיק את חבילות הנתונים שלך. חבילות אלה משמשות רק לסנכרון הראשוני, ותוכל לערוך אותן מכל התקנה לאחר מכן."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "בחר מאיזו התקנה להעתיק את חבילות המשאבים שלך. חבילות אלה משמשות רק לסנכרון הראשוני, ותוכל לערוך אותן מכל התקנה לאחר מכן."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "סנכרן סרגלי יצירה"
+  },
+  "app.sync-instances-update.description": {
+    "message": "כעת ניתן לסנכרן אפשרויות כמו הגדרות משחק, שרתים, חבילות משאבים ועוד בין ההתקנות שלך, כך שהכל נשאר זהה בכל פעם שאתה משחק!"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "לא ניתן לטעון את הגדרות הסנכרון שלך. נסה שוב."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "תוכל להפעיל סנכרון כעת ולנהל אותו מאוחר יותר בהגדרות האפליקציה."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "שמור הגדרות משחק, שרתים, חבילות משאבים ועוד מסונכרנים בין ההתקנות שלך."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "בטל"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "סנכרן את ההתקנות שלך"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "הצג עדכון"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "נסה שוב"
+  },
+  "app.sync-instances-update.skip": {
+    "message": "דלג"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "סנכרן הכל"
+  },
+  "app.sync-instances-update.title": {
+    "message": "סנכרן את ההתקנות שלך"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "השבת אותו בכל ההתקנות המסונכרנות, או רק בהתקנה זו. השבתה רק כאן תפעיל עקיפות עבור התקנה זו."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "השבת בכל מקום"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "השבת תוכן זה בכל ההתקנות המסונכרנות."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "השבת כאן"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "להשבית תוכן?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "הפעל אותו בכל ההתקנות המסונכרנות, או רק בהתקנה זו. הפעלה רק כאן תפעיל עקיפות עבור התקנה זו."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "הפעל בכל מקום"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "הפעל תוכן זה בכל ההתקנות המסונכרנות."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "הפעל כאן"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "להפעיל תוכן?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "מחק בכל מקום"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "מחק כאן"
+  },
+  "app.synced-content.delete.description": {
+    "message": "מחיקת תוכן זה תמחק אותו בכל ההתקנות שלך"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "תוכן נבחר שאינו מסונכרן יימחק רק מהתקנה זו."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "תוכל להסיר אותו רק מהתקנה זו או מכל ההתקנות המסונכרנות. הסרה רק מהתקנה זו תפעיל עקיפות, והתקנה זו לא תקבל עוד שינויים מסונכרנים עבור סוגי תוכן אלה."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "תוכל להסיר {count, plural, one {אותה} other {אותם}} רק מהתקנה זו או מכל ההתקנות המסונכרנות. הסרת {count, plural, one {אותה} other {אותם}} רק מהתקנה זו תפעיל עקיפות, והתקנה זו לא תקבל עוד שינויי חבילות משאבים מסונכרנים."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {חבילת משאבים זו מסונכרנת} other {חבילות משאבים אלה מסונכרנות}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "התקנה זו תשמור עותק משלה. האם ברצונך להשאיר תוכן זה מסונכרן בהתקנות אחרות, או להסיר אותו מהן?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "שמור"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "הסר"
+  },
+  "app.synced-content.desync.title": {
+    "message": "בטל סנכרון תוכן"
+  },
+  "app.synced-content.warning.title": {
+    "message": "תוכן זה מסונכרן"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "חבילות נתונים מסונכרנות"
+  },
+  "app.synced-packs.empty": {
+    "message": "הוסף חבילות מדף התוכן של התקנה כדי להתחיל לסנכרן."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "לא ניתן לטעון חבילות. נסה לרענן."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "חבילות משאבים מסונכרנות"
   },
   "app.update-popup.body.download-complete": {
     "message": "{productName} v{version} סיימה את תהליך ההורדה. יש לרענן כדי לעדכן עכשיו, או באופן אוטומטי בעת סגירת האפליקציה."
@@ -1343,6 +3830,9 @@
   "app.update-popup.download-complete": {
     "message": "הורדה הושלמה"
   },
+  "app.update-popup.reload": {
+    "message": "טען מחדש כדי לעדכן"
+  },
   "app.update-popup.title": {
     "message": "עדכון זמין"
   },
@@ -1351,6 +3841,90 @@
   },
   "app.update.complete-toast.title": {
     "message": "גרסה {version} הותקנה בהצלחה!"
+  },
+  "app.update.download-error.missing-version": {
+    "message": "נכשל בהורדת העדכון: אין גרסה זמינה"
+  },
+  "app.welcome-screen.create-instance": {
+    "message": "צור התקנה"
+  },
+  "app.welcome-screen.description": {
+    "message": "מוכן להתחיל לשחק?"
+  },
+  "app.welcome-screen.import-from-launcher": {
+    "message": "ייבא ממשגר"
+  },
+  "app.welcome-screen.import-prompt": {
+    "message": "בורח ממשגר אחר?"
+  },
+  "app.welcome-screen.quick-create-hint": {
+    "message": "לחץ על <shortcut>N</shortcut> ליצירת התקנה מהירה"
+  },
+  "app.welcome-screen.title": {
+    "message": "ברוך הבא ל־{productName}"
+  },
+  "app.window-controls.close": {
+    "message": "סגור חלון"
+  },
+  "app.window-controls.minimize": {
+    "message": "מזער חלון"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "החלף הגדלת חלון"
+  },
+  "app.world-install.backup": {
+    "message": "החלפה שומרת גיבוי של העולם הקיים. שמירת הקיים וביטול לא מתקינים דבר. התקנת עותק נוסף יוצרת עולם עם מספר בשם."
+  },
+  "app.world-install.backup-location": {
+    "message": "העולם הקודם נשמר ב־{path} בתוך המופע."
+  },
+  "app.world-install.conflict": {
+    "message": "כבר קיים עולם בשם הזה או מהפרויקט הזה."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "התקנה למרות הבדל הגרסאות"
+  },
+  "app.world-install.copy": {
+    "message": "התקנת עותק נוסף"
+  },
+  "app.world-install.description": {
+    "message": "התקנת עולם חדש במופע. העולמות הקיימים נשמרים אלא אם בחרת להחליף אחד מהם."
+  },
+  "app.world-install.incompatible": {
+    "message": "הקובץ הזה לא מציין תאימות ל־Minecraft {version}. יש לבדוק את דרישות הגרסה והמודים של היוצר לפני ההמשך."
+  },
+  "app.world-install.installed": {
+    "message": "העולם הותקן: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "מופע יעד"
+  },
+  "app.world-install.keep": {
+    "message": "שמירת הקיים"
+  },
+  "app.world-install.no-instances": {
+    "message": "יש ליצור תחילה מופע Minecraft, ואז לחזור לכאן כדי להתקין את העולם."
+  },
+  "app.world-install.open-worlds": {
+    "message": "הצגת עולמות"
+  },
+  "app.world-install.replace": {
+    "message": "החלפה"
+  },
+  "app.world-install.replace-target": {
+    "message": "העולם להחלפה"
+  },
+  "app.world-install.requirements": {
+    "message": "המודים או חבילות המודים הנדרשים חייבים להיות מותקנים כבר במופע היעד. יש לבדוק את תיאור הפרויקט."
+  },
+  "app.world-install.title": {
+    "message": "התקנת עולם"
+  },
+  "app.world-install.version": {
+    "message": "גרסת העולם"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
   },
   "app.world.server-modal.select-an-option": {
     "message": "בחר אופציה"
@@ -1363,6 +3937,45 @@
   },
   "app.world.world-item.offline": {
     "message": "לא מקוון"
+  },
+  "app.world.world-item.players-online": {
+    "message": "{count} מקוונים"
+  },
+  "curseforge.manual.description": {
+    "message": "יש להוריד את {file} מהעמוד הרשמי שלו ב-CurseForge, ואז לבחור את הקובץ שהורד כדי להמשיך. גודלו ו-SHA-1 ייבדקו."
+  },
+  "curseforge.manual.select": {
+    "message": "בחירת הקובץ שהורד"
+  },
+  "curseforge.manual.title": {
+    "message": "נדרשת הורדה ידנית"
+  },
+  "instance.action.create-shortcut": {
+    "message": "צור קיצור דרך"
+  },
+  "instance.action.export-modpack": {
+    "message": "ייצא חבילת מודים"
+  },
+  "instance.action.launch-instance": {
+    "message": "הפעל התקנה"
+  },
+  "instance.action.more-actions": {
+    "message": "פעולות נוספות"
+  },
+  "instance.action.open-folder": {
+    "message": "לפתוח תיקייה"
+  },
+  "instance.action.repair": {
+    "message": "תקן"
+  },
+  "instance.action.settings": {
+    "message": "הגדרות התקנה"
+  },
+  "instance.action.starting": {
+    "message": "מופעל…"
+  },
+  "instance.action.stopping": {
+    "message": "נעצר…"
   },
   "instance.add-server.add-and-play": {
     "message": "הוסף ושחק"
@@ -1402,6 +4015,9 @@
   },
   "instance.files.adding-files": {
     "message": "הוספת קבצים ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "נהל את התוכן המותקן שלך דרך לשונית התוכן"
   },
   "instance.files.save-as": {
     "message": "שמור כ..."
@@ -1472,6 +4088,9 @@
   "instance.icon-editor.symbol.backpack": {
     "message": "תיק גב"
   },
+  "instance.icon-editor.symbol.beacon": {
+    "message": "מגדלור"
+  },
   "instance.icon-editor.symbol.blue-shark": {
     "message": "כריש כחול"
   },
@@ -1490,6 +4109,9 @@
   "instance.icon-editor.symbol.chest": {
     "message": "תיבה"
   },
+  "instance.icon-editor.symbol.cogwheel": {
+    "message": "גלגל שיניים"
+  },
   "instance.icon-editor.symbol.command-block": {
     "message": "בלוק פקודה"
   },
@@ -1501,6 +4123,9 @@
   },
   "instance.icon-editor.symbol.crafting-table": {
     "message": "שולחן מלאכה"
+  },
+  "instance.icon-editor.symbol.create-wrench": {
+    "message": "מפתח ברגים"
   },
   "instance.icon-editor.symbol.creeper": {
     "message": "קריפר"
@@ -1514,6 +4139,135 @@
   "instance.icon-editor.symbol.ender-dragon": {
     "message": "דרקון אנדר"
   },
+  "instance.icon-editor.symbol.engine": {
+    "message": "מנוע"
+  },
+  "instance.icon-editor.symbol.fabric": {
+    "message": "Fabric"
+  },
+  "instance.icon-editor.symbol.forge": {
+    "message": "Forge"
+  },
+  "instance.icon-editor.symbol.furnace": {
+    "message": "תנור"
+  },
+  "instance.icon-editor.symbol.gizmo": {
+    "message": "גיזמו"
+  },
+  "instance.icon-editor.symbol.globe": {
+    "message": "גלובוס"
+  },
+  "instance.icon-editor.symbol.grass-block": {
+    "message": "בלוק דשא"
+  },
+  "instance.icon-editor.symbol.lantern": {
+    "message": "פנס"
+  },
+  "instance.icon-editor.symbol.moobloom": {
+    "message": "מובלום"
+  },
+  "instance.icon-editor.symbol.neoforge": {
+    "message": "NeoForge"
+  },
+  "instance.icon-editor.symbol.orb": {
+    "message": "כדור"
+  },
+  "instance.icon-editor.symbol.oxygen-distributor": {
+    "message": "מפיץ חמצן"
+  },
+  "instance.icon-editor.symbol.pancakes": {
+    "message": "פנקייקים"
+  },
+  "instance.icon-editor.symbol.pickaxe": {
+    "message": "מכוש"
+  },
+  "instance.icon-editor.symbol.poke-ball": {
+    "message": "פוקדור"
+  },
+  "instance.icon-editor.symbol.quilt": {
+    "message": "Quilt"
+  },
+  "instance.icon-editor.symbol.redstone-block": {
+    "message": "בלוק רדסטון"
+  },
+  "instance.icon-editor.symbol.sculk-sensor": {
+    "message": "חיישן סקאלק"
+  },
+  "instance.icon-editor.symbol.skeleton": {
+    "message": "שלד"
+  },
+  "instance.icon-editor.symbol.skillet": {
+    "message": "מחבת"
+  },
+  "instance.icon-editor.symbol.slime-block": {
+    "message": "בלוק סליים"
+  },
+  "instance.icon-editor.symbol.space-helmet": {
+    "message": "קסדת חלל"
+  },
+  "instance.icon-editor.symbol.sticky-piston": {
+    "message": "בוכנה דביקה"
+  },
+  "instance.icon-editor.symbol.sword": {
+    "message": "חרב"
+  },
+  "instance.icon-editor.symbol.terminal": {
+    "message": "טרמינל"
+  },
+  "instance.icon-editor.symbol.tiny-potato": {
+    "message": "תפוח אדמה זעיר"
+  },
+  "instance.icon-editor.symbol.tire": {
+    "message": "צמיג"
+  },
+  "instance.icon-editor.symbol.tnt": {
+    "message": "TNT"
+  },
+  "instance.icon-editor.symbol.zombie": {
+    "message": "זומבי"
+  },
+  "instance.icon-editor.title": {
+    "message": "עורך סמלים"
+  },
+  "instance.last-played": {
+    "message": "שוחק לאחרונה"
+  },
+  "instance.locked.badge": {
+    "message": "נעול"
+  },
+  "instance.locked.delete-button": {
+    "message": "מחק התקנה"
+  },
+  "instance.locked.info-label": {
+    "message": "מידע על התקנה נעולה"
+  },
+  "instance.locked.play-tooltip": {
+    "message": "התקנה זו ננעלה"
+  },
+  "instance.locked.text": {
+    "message": "התקנה זו נעולה ולא ניתן לשחק בה או לשנות אותה. ניתן למחוק אותה."
+  },
+  "instance.locked.title": {
+    "message": "ההתקנה נעולה"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "טוען מודים וגרסת Minecraft"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {שעה אחת} other {# שעות}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {דקה אחת} other {# דקות}}"
+  },
+  "instance.playtime.never-played": {
+    "message": "מעולם לא שוחק"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {שנייה אחת} other {# שניות}}"
+  },
+  "instance.playtime.total": {
+    "message": "סך זמן משחק"
+  },
   "instance.server-modal.address": {
     "message": "כתובת"
   },
@@ -1525,6 +4279,33 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "חבילת משאבים"
+  },
+  "instance.settings.synced-options.data-override": {
+    "message": "כבה עקיפה זו כדי לערוך נתונים מסונכרנים."
+  },
+  "instance.settings.synced-options.data-packs": {
+    "message": "בטל סנכרון חבילות נתונים"
+  },
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "שמור את חבילות הנתונים של התקנה זו בנפרד מחבילות מסונכרנות."
+  },
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "סנכרון חבילות נתונים כבוי בהגדרות האפליקציה."
+  },
+  "instance.settings.synced-options.edit-packs": {
+    "message": "ערוך חבילות מסונכרנות"
+  },
+  "instance.settings.synced-options.packs-override": {
+    "message": "כבה עקיפה זו כדי לערוך חבילות מסונכרנות. ניתן לנהל חבילות עצמאיות בלשונית התוכן."
+  },
+  "instance.settings.synced-options.resource-packs": {
+    "message": "בטל סנכרון חבילות משאבים"
+  },
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "שמור את חבילות המשאבים של התקנה זו בנפרד מחבילות מסונכרנות."
+  },
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "סנכרון חבילות משאבים כבוי בהגדרות האפליקציה."
   },
   "instance.settings.tabs.general": {
     "message": "כללי"
@@ -1556,6 +4337,12 @@
   "instance.settings.tabs.general.edit-icon": {
     "message": "עריכת סמל"
   },
+  "instance.settings.tabs.general.edit-icon.create": {
+    "message": "צור סמל"
+  },
+  "instance.settings.tabs.general.edit-icon.edit-created": {
+    "message": "ערוך סמל"
+  },
   "instance.settings.tabs.general.edit-icon.remove": {
     "message": "הסרת סמל"
   },
@@ -1565,8 +4352,38 @@
   "instance.settings.tabs.general.edit-icon.select": {
     "message": "בחירת סמל"
   },
+  "instance.settings.tabs.general.icon": {
+    "message": "סמל"
+  },
   "instance.settings.tabs.general.name": {
     "message": "שם"
+  },
+  "instance.settings.tabs.general.update-channel": {
+    "message": "ערוץ עדכונים"
+  },
+  "instance.settings.tabs.general.update-channel.alpha": {
+    "message": "אלפא"
+  },
+  "instance.settings.tabs.general.update-channel.alpha.description": {
+    "message": "גרסאות שחרור, בטא ואלפא יוצגו כעדכונים זמינים."
+  },
+  "instance.settings.tabs.general.update-channel.beta": {
+    "message": "בטא"
+  },
+  "instance.settings.tabs.general.update-channel.beta.description": {
+    "message": "גרסאות שחרור ובטא יוצגו כעדכונים זמינים."
+  },
+  "instance.settings.tabs.general.update-channel.release": {
+    "message": "שחרור"
+  },
+  "instance.settings.tabs.general.update-channel.release.description": {
+    "message": "רק גרסאות שחרור יוצגו כעדכונים זמינים."
+  },
+  "instance.settings.tabs.general.update-channel.select": {
+    "message": "בחר ערוץ עדכונים"
+  },
+  "instance.settings.tabs.hooks.description": {
+    "message": "הרץ פקודות מערכת ספציפיות להתקנה לפני ואחרי הפעלת המשחק."
   },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "לאחר יציאה"
@@ -1586,6 +4403,30 @@
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "הכנס פקודה לפני ההפעלה..."
   },
+  "instance.settings.tabs.hooks.title": {
+    "message": "הוקים מותאמים להפעלת המשחק"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "הוקים פועלים בתיקיית העבודה של ההתקנה, עם המשתנים הבאים:"
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR: הנתיב המוחלט לתיקיית ההתקנה"
+  },
+  "instance.settings.tabs.hooks.variables.inst-id.description": {
+    "message": "$INST_ID: שם תיקיית ההתקנה"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS: ארגומנטי ה־JVM המסופקים למשחק"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA: הנתיב המוחלט לקובץ ההרצה של java"
+  },
+  "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
+    "message": "$INST_MC_DIR: כינוי ל־$INST_DIR"
+  },
+  "instance.settings.tabs.hooks.variables.inst-name.description": {
+    "message": "$INST_NAME: שם ההתקנה"
+  },
   "instance.settings.tabs.hooks.wrapper": {
     "message": "מעטפת"
   },
@@ -1601,8 +4442,110 @@
   "instance.settings.tabs.installation.loader-version": {
     "message": "{loader} גרסה"
   },
+  "instance.settings.tabs.installation.locked": {
+    "message": "הגדרות התקנה אינן זמינות בזמן שהתקנה זו נעולה."
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "הגדר משתני סביבה בנפרד עבור התקנה זו."
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "הגדר ארגומנטי Java בנפרד עבור התקנה זו."
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "בחר התקנת Java אחרת עבור התקנה זו."
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "הגדר הקצאת זיכרון בנפרד עבור התקנה זו."
+  },
+  "instance.settings.tabs.java.enter-environment-variables": {
+    "message": "הזן משתני סביבה…"
+  },
+  "instance.settings.tabs.java.enter-java-arguments": {
+    "message": "הזן ארגומנטי Java…"
+  },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "משתני סביבה מותאמים"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "התחברויות"
+  },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "ארגומנטי Java מותאמים"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "התקנת Java מותאמת"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "הקצאת זיכרון מותאמת"
+  },
+  "instance.settings.tabs.java.java-path-placeholder": {
+    "message": "/path/to/java"
+  },
+  "instance.settings.tabs.settings-overrides": {
+    "message": "עקיפות סנכרון"
+  },
+  "instance.settings.tabs.synced-options.command-history": {
+    "message": "בטל סנכרון היסטוריית פקודות"
+  },
+  "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
+    "message": "סנכרון היסטוריית פקודות כבוי בהגדרות האפליקציה."
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "שמור את היסטוריית הפקודות של התקנה זו בנפרד מהיסטוריה מסונכרנת."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "בטל סנכרון סרגלי יצירה שמורים"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "סנכרון סרגלי יצירה שמורים כבוי בהגדרות האפליקציה."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "שמור את סרגלי היצירה השמורים של התקנה זו בנפרד מסרגלים מסונכרנים."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "בטל סנכרון הגדרות משחק"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "שמור את options.txt של התקנה זו בנפרד מהעותק המסונכרן."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "סנכרון הגדרות משחק כבוי בהגדרות האפליקציה."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "הגרסה המוחלפת תגובה לפני כל שינוי."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "ל־{instance} ולגרסה המסונכרנת שלך יש סרגלי יצירה שונים. בחר באיזה מהם להשתמש בין ההתקנות שלך."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "בחר סרגלי יצירה"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "דרוס אחרים"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "השתמש במסונכרן"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "בטל סנכרון שרתי מרובה־משתתפים"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "סנכרון שרתי מרובה־משתתפים כבוי בהגדרות האפליקציה."
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "שמור את שרתי המרובה־משתתפים של התקנה זו בנפרד משרתים מסונכרנים."
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "נהל הגדרות מסונכרנות"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "הפעל עקיפה כדי לשמור הגדרה מסונכרנת בנפרד עבור התקנה זו."
+  },
+  "instance.settings.tabs.window": {
+    "message": "הגדרות חלון מותאמות"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "הגדר מסך מלא ורזולוציית הפעלה בנפרד עבור התקנה זו."
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "מסך מלא"
@@ -1631,11 +4574,32 @@
   "instance.worlds.a_minecraft_server": {
     "message": "שרת מיינקראפט"
   },
+  "instance.worlds.actions.label": {
+    "message": "פעולות עולם"
+  },
   "instance.worlds.cant_connect": {
     "message": "לא יכול להתחבר אל השרת"
   },
   "instance.worlds.copy_address": {
     "message": "העתק כתובת"
+  },
+  "instance.worlds.create_shortcut": {
+    "message": "צור קיצור דרך"
+  },
+  "instance.worlds.desync-server.description": {
+    "message": "האם ברצונך לשמור שרת זה בהתקנות מסונכרנות אחרות, או להסיר אותו מהן?"
+  },
+  "instance.worlds.desync-server.keep": {
+    "message": "שמור"
+  },
+  "instance.worlds.desync-server.remove": {
+    "message": "הסר"
+  },
+  "instance.worlds.desync-server.title": {
+    "message": "בטל סנכרון שרת"
+  },
+  "instance.worlds.desync_server": {
+    "message": "בטל סנכרון"
   },
   "instance.worlds.dont_show_on_home": {
     "message": "אל תציג בדף הבית"
@@ -1649,8 +4613,14 @@
   "instance.worlds.incompatible_server": {
     "message": "שרת לא מתאים"
   },
+  "instance.worlds.instance-locked": {
+    "message": "התקנה זו ננעלה"
+  },
   "instance.worlds.linked_server": {
     "message": "מנוהל על ידי פרויקט שרת"
+  },
+  "instance.worlds.more-options": {
+    "message": "אפשרויות נוספות"
   },
   "instance.worlds.no_contact": {
     "message": "לא ניתן ליצור קשר עם השרת"
@@ -1664,11 +4634,110 @@
   "instance.worlds.play_instance": {
     "message": "שחק בהתקנה"
   },
+  "instance.worlds.play_world": {
+    "message": "שחק עולם"
+  },
+  "instance.worlds.shortcut-created": {
+    "message": "קיצור הדרך נוצר"
+  },
+  "instance.worlds.shortcut-creation-failed": {
+    "message": "נכשל ביצירת קיצור דרך"
+  },
+  "instance.worlds.synced_server": {
+    "message": "מסונכרן בין התקנות"
+  },
   "instance.worlds.view_instance": {
     "message": "הצג התקנה"
   },
   "instance.worlds.world_in_use": {
     "message": "עולם בשימוש"
+  },
+  "minecraft-account.accounts": {
+    "message": "חשבונות Minecraft"
+  },
+  "minecraft-account.add-account": {
+    "message": "הוסף חשבון"
+  },
+  "minecraft-account.getting-started": {
+    "message": "תחילת העבודה"
+  },
+  "minecraft-account.not-signed-in": {
+    "message": "לא מחובר"
+  },
+  "minecraft-account.remove-account": {
+    "message": "הסר חשבון"
+  },
+  "minecraft-account.sign-in": {
+    "message": "התחבר ל־Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "התחבר"
+  },
+  "minecraft-required.description": {
+    "message": "נדרש חשבון Microsoft שמחזיק ב־Minecraft לפני שתוכל להפעיל ולשחק."
+  },
+  "minecraft-required.description-header": {
+    "message": "התחבר לחשבון Microsoft"
+  },
+  "minecraft-required.dont-have-account": {
+    "message": "אין לך חשבון?"
+  },
+  "minecraft-required.get-minecraft": {
+    "message": "קבל את Minecraft"
+  },
+  "minecraft-required.get-support": {
+    "message": "קבל תמיכה"
+  },
+  "minecraft-required.header": {
+    "message": "נדרש Minecraft"
+  },
+  "minecraft-required.sign-in": {
+    "message": "התחבר ל־Microsoft"
+  },
+  "onboarding-checklist.create-instance": {
+    "message": "צור התקנה ראשונה"
+  },
+  "onboarding-checklist.login-minecraft": {
+    "message": "התחבר ל־Minecraft"
+  },
+  "onboarding-checklist.title": {
+    "message": "תחילת העבודה"
+  },
+  "optifine.add-component": {
+    "message": "התקן OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "בחר JAR והמשך"
+  },
+  "optifine.download-official": {
+    "message": "הורדה רשמית"
+  },
+  "optifine.export-notice": {
+    "message": "קבצי ההרצה של OptiFine אינם נכללים. Orbpack שומר את הגרסה הנדרשת; חבילות Modrinth ו־CurseForge דורשות התקנת OptiFine בנפרד."
+  },
+  "optifine.import-canceled": {
+    "message": "בחירת OptiFine בוטלה. החבילה לא הותקנה."
+  },
+  "optifine.import-description": {
+    "message": "חבילה זו דורשת OptiFine {version} עבור Minecraft {gameVersion}. הורד את ה־JAR הרשמי ובחר אותו כדי להמשיך. OptiFine אינו מצורף לחבילה."
+  },
+  "optifine.import-title": {
+    "message": "חבילה זו דורשת OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "בחר את מתקין OptiFine הרשמי עבור Minecraft {gameVersion}. עבור חבילה מיובאת, הגרסה וגיבוב הקובץ חייבים גם הם להתאים."
+  },
+  "optifine.remove-component": {
+    "message": "הסר OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "בחר JAR רשמי של OptiFine"
+  },
+  "project-type.world.category": {
+    "message": "עולמות"
   },
   "search.filter.locked.instance": {
     "message": "מסופק על ידי ההתקנה"
@@ -1682,7 +4751,10 @@
   "search.filter.locked.instance.sync": {
     "message": "סנכרן עם התקנה"
   },
-  "search.filter.locked.server-environment.title": {
-    "message": "ניתן להוסיף רק מודים בצד הלקוח לשרת"
+  "settings.sidebar.label.account": {
+    "message": "חשבון"
+  },
+  "settings.sidebar.label.display": {
+    "message": "תצוגה"
   }
 }

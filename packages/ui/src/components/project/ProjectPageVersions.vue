@@ -15,7 +15,7 @@
 				:color="createVersionButtonSecondary ? undefined : 'green'"
 				@click="openModal"
 			>
-				<PlusIcon /> Create version
+				<PlusIcon /> {{ formatMessage(messages.createVersion) }}
 			</Button>
 
 			<Pagination
@@ -168,7 +168,7 @@
 			<div class="flex min-w-0 w-full max-w-[12rem] flex-wrap gap-1">
 				<template v-if="version.noModLoader">
 					<TagItem class="w-fit max-w-full truncate border !border-solid border-surface-5">
-						<span class="min-w-0 truncate">No mod loader</span>
+						<span class="min-w-0 truncate">{{ formatMessage(messages.noModLoader) }}</span>
 					</TagItem>
 				</template>
 				<template v-else>
@@ -244,7 +244,7 @@
 
 		<template #cell-downloads="{ row: version }">
 			<div
-				v-tooltip="`${version.downloads} downloads`"
+				v-tooltip="formatMessage(messages.downloadsTooltip, { count: version.downloads })"
 				class="flex items-center gap-1 font-medium w-max text-nowrap cursor-default"
 				data-no-row-click
 			>
@@ -365,7 +365,9 @@
 								</template>
 							</FloatingMenu>
 							<template v-if="version.noModLoader">
-								<TagItem class="border !border-solid border-surface-5"> No mod loader </TagItem>
+								<TagItem class="border !border-solid border-surface-5">
+									{{ formatMessage(messages.noModLoader) }}
+								</TagItem>
 							</template>
 							<template v-else>
 								<TagItem
@@ -775,6 +777,18 @@ function updateQuery(newQueries: Record<string, string | string[] | undefined | 
 }
 
 const messages = defineMessages({
+	createVersion: {
+		id: 'project.versions.create-version',
+		defaultMessage: 'Create version',
+	},
+	noModLoader: {
+		id: 'project.versions.no-mod-loader',
+		defaultMessage: 'No mod loader',
+	},
+	downloadsTooltip: {
+		id: 'project.versions.downloads-tooltip',
+		defaultMessage: '{count, plural, one {# download} other {# downloads}}',
+	},
 	withheld: {
 		id: 'project.versions.version.withheld',
 		defaultMessage: 'Withheld',

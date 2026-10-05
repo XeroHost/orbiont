@@ -50,6 +50,17 @@ export default defineConfig({
 	},
 	plugins: [
 		vue(),
+		{
+			name: 'watch-interface-svg-sources',
+			enforce: 'pre',
+			load(id) {
+				// svg-loader reads files itself; register their sources for workspace HMR.
+				if (/\.svg(?:\?(?:component|raw|skipsvgo))?$/.test(id)) {
+					this.addWatchFile(id.split('?')[0])
+				}
+				return null
+			},
+		},
 		svgLoader({
 			svgoConfig: {
 				plugins: [
@@ -58,6 +69,8 @@ export default defineConfig({
 						params: {
 							overrides: {
 								removeViewBox: false,
+								// Keep Hugeicons paths separate for their individual hover gestures.
+								mergePaths: false,
 								cleanupIds: {
 									minify: false,
 								},

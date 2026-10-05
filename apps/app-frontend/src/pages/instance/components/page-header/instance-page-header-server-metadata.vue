@@ -16,7 +16,7 @@
 		<PageHeaderMetadataItem
 			v-if="showInstancePlayTime && playtimeLabel"
 			:icon="TimerIcon"
-			tooltip="Total playtime"
+			:tooltip="formatMessage(messages.totalPlaytime)"
 		>
 			{{ playtimeLabel }}
 		</PageHeaderMetadataItem>
@@ -27,12 +27,23 @@
 import type { Labrinth } from '@orbiont/api-client'
 import { TimerIcon } from '@orbiont/assets'
 import {
+	defineMessages,
 	PageHeaderMetadata,
 	PageHeaderMetadataItem,
 	ServerOnlinePlayers,
 	ServerPing,
 	ServerRegion,
+	useVIntl,
 } from '@orbiont/ui'
+
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	totalPlaytime: {
+		id: 'instance.playtime.total',
+		defaultMessage: 'Total playtime',
+	},
+})
 
 defineProps<{
 	loadingServerPing?: boolean

@@ -2,22 +2,9 @@
 	<div v-if="data">
 		<Teleport to="#sidebar-teleport-target">
 			<ProjectSidebarCompatibility
-				v-if="!isServerProject"
 				:project="data"
 				:tags="{ loaders: allLoaders, gameVersions: allGameVersions }"
 				:project-v3="projectV3"
-				class="project-sidebar-section"
-			/>
-			<ProjectSidebarServerInfo
-				v-if="isServerProject"
-				:project-v3="projectV3"
-				:tags="{ loaders: allLoaders, gameVersions: allGameVersions }"
-				:required-content="serverRequiredContent"
-				:recommended-version="serverRecommendedVersion"
-				:supported-versions="serverSupportedVersions"
-				:loaders="serverModpackLoaders"
-				:ping="serverPing"
-				:status-online="serverStatusOnline"
 				class="project-sidebar-section"
 			/>
 			<ProjectSidebarLinks
@@ -36,8 +23,8 @@
 				:project="data"
 				:has-versions="versions.length > 0"
 				:link-target="`_blank`"
-				:hide-license="isServerProject"
-				:show-followers="isServerProject"
+				:hide-license="false"
+				:show-followers="false"
 				class="project-sidebar-section"
 			/>
 		</Teleport>
@@ -62,105 +49,57 @@
 					:project-v3="projectV3"
 					:show-status-badge="data.status !== 'approved'"
 					@contextmenu.prevent.stop="handleRightClick"
-					@category="(category) => router.push(`${projectSearchUrl}?f=categories:${category}`)"
+					@category="browseCategory"
 				>
 					<template #actions>
-						<template v-if="isServerProject">
-							<Button
-								v-if="serverPlaying"
-								type="colored"
-								color="red"
-								size="xl"
-								native-type="button"
-								@click="handleStopServer"
-							>
-								<StopCircleIcon />
-								{{ formatMessage(commonMessages.stopButton) }}
-							</Button>
-							<Button
-								v-else
-								type="colored"
-								color="brand"
-								size="xl"
-								native-type="button"
-								:disabled="serverInstallLoading"
-								@click="handleClickPlay"
-							>
-								<PlayIcon />
-								{{
-									serverInstallLoading
+						<Button
+							v-if="showSwitchVersion && onVersionsPage"
+							v-tooltip="formatMessage(messages.alreadyInstalled)"
+							size="xl"
+							native-type="button"
+							disabled
+						>
+							<CheckIcon />
+							{{ formatMessage(commonMessages.installedLabel) }}
+						</Button>
+						<Button
+							v-else-if="showSwitchVersion"
+							size="xl"
+							native-type="button"
+							@click="goToVersions"
+						>
+							<SwapIcon />
+							{{ formatMessage(messages.switchVersion) }}
+						</Button>
+						<Button
+							v-else
+							v-tooltip="
+								installButtonInstalled ? formatMessage(messages.alreadyInstalled) : undefined
+							"
+							type="colored"
+							color="brand"
+							size="xl"
+							native-type="button"
+							:disabled="installButtonDisabled"
+							@click="install(null)"
+						>
+							<component :is="installButtonIcon" :class="installButtonIconClass" />
+							{{
+								installButtonInstalled
+									? formatMessage(commonMessages.installedLabel)
+									: installButtonLoading
 										? formatMessage(commonMessages.installingLabel)
-										: formatMessage(commonMessages.playButton)
-								}}
-							</Button>
-							<IconButton
-								v-tooltip="formatMessage(commonMessages.addServerToInstanceButton)"
-								size="xl"
-								:label="formatMessage(commonMessages.addServerToInstanceButton)"
-								native-type="button"
-								@click="handleAddServerToInstance"
-							>
-								<PlusIcon />
-							</IconButton>
-							<TeleportOverflowMenu
-								type="quiet"
-								size="xl"
-								:label="formatMessage(messages.moreOptions)"
-								:options="serverProjectHeaderMoreActions"
-							>
-								<MoreVerticalIcon />
-							</TeleportOverflowMenu>
-						</template>
-						<template v-else>
-							<Button
-								v-if="showSwitchVersion && onVersionsPage"
-								v-tooltip="formatMessage(messages.alreadyInstalled)"
-								size="xl"
-								native-type="button"
-								disabled
-							>
-								<CheckIcon />
-								{{ formatMessage(commonMessages.installedLabel) }}
-							</Button>
-							<Button
-								v-else-if="showSwitchVersion"
-								size="xl"
-								native-type="button"
-								@click="goToVersions"
-							>
-								<SwapIcon />
-								{{ formatMessage(messages.switchVersion) }}
-							</Button>
-							<Button
-								v-else
-								v-tooltip="
-									installButtonInstalled ? formatMessage(messages.alreadyInstalled) : undefined
-								"
-								type="colored"
-								color="brand"
-								size="xl"
-								native-type="button"
-								:disabled="installButtonDisabled"
-								@click="install(null)"
-							>
-								<component :is="installButtonIcon" :class="installButtonIconClass" />
-								{{
-									installButtonInstalled
-										? formatMessage(commonMessages.installedLabel)
-										: installButtonLoading
-											? formatMessage(commonMessages.installingLabel)
-											: formatMessage(commonMessages.installButton)
-								}}
-							</Button>
-							<TeleportOverflowMenu
-								type="quiet"
-								size="xl"
-								:label="formatMessage(messages.moreOptions)"
-								:options="projectHeaderMoreActions"
-							>
-								<MoreVerticalIcon />
-							</TeleportOverflowMenu>
-						</template>
+										: formatMessage(commonMessages.installButton)
+							}}
+						</Button>
+						<TeleportOverflowMenu
+							type="quiet"
+							size="xl"
+							:label="formatMessage(messages.moreOptions)"
+							:options="projectHeaderMoreActions"
+						>
+							<MoreVerticalIcon />
+						</TeleportOverflowMenu>
 					</template>
 				</ProjectPageHeader>
 				<NavTabs
@@ -173,12 +112,11 @@
 							label: formatMessage(messages.versionsTab),
 							href: versionsHref,
 							subpages: ['version'],
-							shown: projectV3?.minecraft_server == null,
 						},
 						{
 							label: formatMessage(messages.galleryTab),
 							href: projectGalleryHref,
-							shown: data.gallery.length > 0,
+							shown: getProjectGalleryMedia(data).length > 0,
 						},
 					]"
 				/>
@@ -218,11 +156,8 @@ import {
 	GlobeIcon,
 	HeartIcon,
 	MoreVerticalIcon,
-	PlayIcon,
-	PlusIcon,
 	ReportIcon,
 	SpinnerIcon,
-	StopCircleIcon,
 } from '@orbiont/assets'
 import {
 	BrowseInstallHeader,
@@ -230,7 +165,6 @@ import {
 	commonMessages,
 	ContextMenu,
 	defineMessages,
-	IconButton,
 	injectNotificationManager,
 	NavTabs,
 	ProjectBackgroundGradient,
@@ -239,7 +173,6 @@ import {
 	ProjectSidebarCreators,
 	ProjectSidebarDetails,
 	ProjectSidebarLinks,
-	ProjectSidebarServerInfo,
 	ProjectSidebarTags,
 	SelectedProjectsFloatingBar,
 	TeleportOverflowMenu,
@@ -254,41 +187,37 @@ import { useRoute, useRouter } from 'vue-router'
 
 import { SwapIcon } from '@/assets/icons/index.js'
 import InstanceIndicator from '@/components/ui/InstanceIndicator.vue'
-import {
-	fetchCachedServerStatus,
-	getFreshCachedServerStatus,
-} from '@/composables/instances/use-server-status-query'
-import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { config } from '@/config'
 import {
 	get_organization,
 	get_project,
 	get_project_v3,
+	get_project_versions,
 	get_team,
-	get_version,
 	get_version_many,
 } from '@/helpers/cache.js'
-import { isCurseforgeId } from '@/helpers/curseforge'
+import {
+	getBedrockGameVersions,
+	getCurseforgeCategoryTags,
+	isCurseforgeId,
+} from '@/helpers/curseforge'
 import {
 	get as getInstance,
 	get_projects as getInstanceProjects,
 	getInstanceIconUrl,
-	kill,
-	list as listInstances,
 } from '@/helpers/instance'
-import { get_by_instance_id } from '@/helpers/process'
+import { getProjectGalleryMedia } from '@/helpers/project-gallery'
 import { get_categories, get_game_versions, get_loaders } from '@/helpers/tags'
-import { getServerAddress } from '@/helpers/worlds'
 import { provideBreadcrumbParent, useBreadcrumb } from '@/providers/breadcrumbs'
 import { injectContentInstall } from '@/providers/content-install'
-import { injectServerInstall } from '@/providers/server-install'
 
 dayjs.extend(relativeTime)
 
 const { handleError } = injectNotificationManager()
 const { install: installVersion } = injectContentInstall()
 const route = useRoute()
+const bedrockProject = route.query.edition === 'bedrock'
 const router = useRouter()
 const displayedProjectRoute = shallowRef(router.currentRoute.value)
 watch(
@@ -349,8 +278,6 @@ const messages = defineMessages({
 	},
 })
 
-const { installingServerProjects, playServerProject, showAddServerToInstanceModal } =
-	injectServerInstall()
 const installing = ref(false)
 const data = shallowRef(null)
 
@@ -396,16 +323,7 @@ const instanceProjects = ref(null)
 
 const installed = ref(false)
 const installedVersion = ref(null)
-const isServerProject = ref(false)
 const projectV3 = shallowRef(null)
-const serverRequiredContent = shallowRef(null)
-const serverRecommendedVersion = shallowRef(null)
-const serverSupportedVersions = shallowRef([])
-const serverModpackLoaders = shallowRef([])
-const serverPing = ref(undefined)
-const serverStatusOnline = ref(false)
-const serverInstancePath = ref(null)
-const serverPlaying = ref(false)
 
 const instanceFilters = computed(() => {
 	if (!instance.value) {
@@ -495,9 +413,6 @@ const installButtonInstalled = computed(() => installed.value)
 const installButtonDisabled = computed(
 	() => installButtonInstalled.value || installButtonLoading.value,
 )
-const serverInstallLoading = computed(
-	() => !!data.value && installingServerProjects.value.includes(data.value.id),
-)
 const installButtonIcon = computed(() => {
 	if (installButtonLoading.value && !installButtonInstalled.value) return SpinnerIcon
 	if (!installButtonInstalled.value) return DownloadIcon
@@ -514,24 +429,6 @@ const openInProviderLabel = computed(() =>
 		isCurseforgeProject.value ? messages.openInCurseforge : commonMessages.openInModrinthButton,
 	),
 )
-const serverProjectHeaderMoreActions = computed(() => [
-	{
-		id: 'open-in-browser',
-		label: openInProviderLabel.value,
-		icon: ExternalIcon,
-		action: openProjectInBrowser,
-	},
-	{
-		type: 'divider',
-	},
-	{
-		id: 'report',
-		label: formatMessage(commonMessages.reportButton),
-		icon: ReportIcon,
-		tone: 'red',
-		action: reportProject,
-	},
-])
 const projectHeaderMoreActions = computed(() => [
 	{
 		id: 'follow',
@@ -572,9 +469,16 @@ const projectHeaderMoreActions = computed(() => [
 				},
 			]),
 ])
-const projectSearchUrl = computed(
-	() => `/browse/${isServerProject.value ? 'server' : data.value?.project_type}`,
-)
+const projectSearchUrl = computed(() => `/browse/${data.value?.project_type}`)
+function browseCategory(category) {
+	void router.push({
+		path: projectSearchUrl.value,
+		query: {
+			...(bedrockProject ? { edition: 'bedrock', src: 'curseforge' } : {}),
+			f: `categories:${category}`,
+		},
+	})
+}
 
 const showSwitchVersion = computed(() => !!instance.value && installed.value)
 const onVersionsPage = computed(() => route.name === 'Versions')
@@ -584,41 +488,9 @@ function goToVersions() {
 }
 
 const [allLoaders, allGameVersions] = await Promise.all([
-	get_loaders().catch(handleError).then(ref),
-	get_game_versions().catch(handleError).then(ref),
+	(bedrockProject ? Promise.resolve([]) : get_loaders()).catch(handleError).then(ref),
+	(bedrockProject ? getBedrockGameVersions() : get_game_versions()).catch(handleError).then(ref),
 ])
-
-async function handleClickPlay() {
-	if (!isServerProject.value) return
-	await playServerProject(data.value.id).catch(handleError)
-	await updateServerPlayState()
-}
-
-async function updateServerPlayState() {
-	if (!isServerProject.value || !data.value) return
-	const packs = await listInstances()
-	const inst = packs.find((p) => p.link?.project_id === data.value.id)
-	if (inst) {
-		serverInstancePath.value = inst.id
-		const processes = await get_by_instance_id(inst.id).catch(() => [])
-		serverPlaying.value = Array.isArray(processes) && processes.length > 0
-	} else {
-		serverInstancePath.value = null
-		serverPlaying.value = false
-	}
-}
-
-async function handleStopServer() {
-	if (!serverInstancePath.value) return
-	await kill(serverInstancePath.value).catch(() => {})
-	serverPlaying.value = false
-}
-
-function handleAddServerToInstance() {
-	const address = getServerAddress(projectV3.value?.minecraft_java_server)
-	if (!address || !data.value) return
-	showAddServerToInstanceModal(data.value.title, address)
-}
 
 function openProjectInBrowser() {
 	if (!data.value) return
@@ -648,29 +520,40 @@ async function fetchProjectData() {
 		return
 	}
 
+	// El catálogo de servidores está retirado: un ID de servidor no muestra
+	// ni ejecuta flujos del catálogo, se redirige a contenido permitido.
+	if (projectV3Result?.minecraft_server != null) {
+		await router.replace('/browse/modpack')
+		return
+	}
+
 	data.value = project
 	projectBreadcrumbLabel.value = project.title
 	;[versions.value, members.value, categories.value, instance.value, instanceProjects.value] =
 		await Promise.all([
-			get_version_many(project.versions, 'must_revalidate').catch(handleError),
+			(onVersionsPage.value
+				? get_project_versions(project.id, 'must_revalidate')
+				: get_version_many(project.versions, 'must_revalidate')
+			).catch(handleError),
 			get_team(project.team).catch(handleError),
-			get_categories().catch(handleError),
-			route.query.i ? getInstance(route.query.i).catch(handleError) : Promise.resolve(),
-			route.query.i ? getInstanceProjects(route.query.i).catch(handleError) : Promise.resolve(),
+			(bedrockProject
+				? getCurseforgeCategoryTags(project.project_type, 'bedrock')
+				: get_categories()
+			).catch(handleError),
+			!bedrockProject && route.query.i
+				? getInstance(route.query.i).catch(handleError)
+				: Promise.resolve(),
+			!bedrockProject && route.query.i
+				? getInstanceProjects(route.query.i).catch(handleError)
+				: Promise.resolve(),
 		])
 	if (String(route.params.id ?? '') !== requestedId) {
 		return
 	}
 
-	for (const member of members.value ?? []) {
-		for (const identifier of [member.user.id, member.user.username]) {
-			if (identifier) {
-				queryClient.setQueryData(['users', 'summary', identifier], member.user)
-			}
-		}
-	}
-
-	versions.value = versions.value.sort((a, b) => dayjs(b.date_published) - dayjs(a.date_published))
+	versions.value = (versions.value ?? []).sort(
+		(a, b) => dayjs(b.date_published) - dayjs(a.date_published),
+	)
 
 	const installedFile = instanceProjects.value
 		? Object.values(instanceProjects.value).find(
@@ -688,90 +571,9 @@ async function fetchProjectData() {
 	if (String(route.params.id ?? '') !== requestedId) {
 		return
 	}
-
-	isServerProject.value = projectV3.value?.minecraft_server != null
-	serverStatusOnline.value = !!projectV3.value?.minecraft_java_server?.ping?.data
-
-	fetchDeferredServerData(project)
-}
-
-function fetchDeferredServerData(project) {
-	const serverAddress = projectV3.value?.minecraft_java_server?.address
-	if (serverAddress) {
-		const cachedStatus = getFreshCachedServerStatus(queryClient, serverAddress)
-		if (cachedStatus) {
-			serverPing.value = cachedStatus.ping
-			serverStatusOnline.value = true
-		} else {
-			serverPing.value = undefined
-		}
-
-		fetchCachedServerStatus(queryClient, serverAddress)
-			.then((status) => {
-				if (projectV3.value?.minecraft_java_server?.address !== serverAddress) return
-				serverPing.value = status.ping
-				serverStatusOnline.value = true
-			})
-			.catch((error) => {
-				console.error(`Failed to ping server ${serverAddress}:`, error)
-			})
-	}
-
-	const content = projectV3.value?.minecraft_java_server?.content
-	if (content?.kind === 'modpack' && content.version_id) {
-		get_version(content.version_id, 'bypass')
-			.catch(handleError)
-			.then(async (modpackVersion) => {
-				if (!modpackVersion) return
-				serverRecommendedVersion.value = modpackVersion.game_versions?.[0] ?? null
-				serverModpackLoaders.value = modpackVersion.mrpack_loaders ?? []
-				if (modpackVersion.project_id) {
-					const modpackProject = await get_project_v3(
-						modpackVersion.project_id,
-						'must_revalidate',
-					).catch(handleError)
-					if (modpackProject) {
-						const primaryFile =
-							modpackVersion.files?.find((f) => f.primary) ?? modpackVersion.files?.[0]
-
-						serverRequiredContent.value = {
-							name: modpackProject.name,
-							versionNumber: modpackVersion.version_number ?? '',
-							icon: modpackProject.icon_url,
-							onclickName:
-								modpackProject.id !== project.id
-									? () => router.push(`/project/${modpackProject.id}`)
-									: undefined,
-							onclickVersion:
-								modpackProject.id !== project.id
-									? () => router.push(`/project/${modpackProject.id}/version/${modpackVersion.id}`)
-									: undefined,
-							onclickDownload: primaryFile?.url ? () => openUrl(primaryFile.url) : undefined,
-							showCustomModpackTooltip: modpackProject.id === project.id,
-						}
-					}
-				}
-			})
-	} else if (content?.kind === 'vanilla') {
-		serverRecommendedVersion.value = content.recommended_game_version ?? null
-		const supported = content.supported_game_versions ?? []
-		serverSupportedVersions.value = supported.filter((v) => !!v)
-	}
-
-	updateServerPlayState()
 }
 
 await fetchProjectData()
-
-useAppEvent('process', (e) => {
-	if (
-		e.event === 'finished' &&
-		serverInstancePath.value &&
-		e.instance_id === serverInstancePath.value
-	) {
-		serverPlaying.value = false
-	}
-})
 
 watch(
 	() => route.params.id,
@@ -781,6 +583,13 @@ watch(
 		}
 	},
 )
+
+watch(onVersionsPage, async (active) => {
+	if (!active || !data.value) return
+	const id = data.value.id
+	const history = await get_project_versions(id, 'must_revalidate').catch(handleError)
+	if (data.value?.id === id && onVersionsPage.value && history) versions.value = history
+})
 
 async function install(version) {
 	installing.value = true
@@ -832,7 +641,7 @@ const handleRightClick = (event) => {
 const getProjectLink = (project) =>
 	isCurseforgeId(project.id)
 		? project.page_url
-		: `${config.siteUrl}/${isServerProject.value ? 'project' : project.project_type}/${project.slug}`
+		: `${config.siteUrl}/${project.project_type}/${project.slug}`
 const openProjectLink = (project) => openUrl(getProjectLink(project))
 const copyProjectLink = (project) => navigator.clipboard.writeText(getProjectLink(project))
 </script>

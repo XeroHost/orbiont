@@ -15,6 +15,7 @@ import {
 	Button,
 	ButtonLink,
 	Collapsible,
+	commonMessages,
 	defineMessages,
 	IconButton,
 	injectNotificationManager,
@@ -38,6 +39,183 @@ const messages = defineMessages({
 		id: 'app.error.state-init.open-backups-folder',
 		defaultMessage: 'Open backups folder',
 	},
+	genericTitle: {
+		id: 'app.error.title.generic',
+		defaultMessage: 'An error occurred',
+	},
+	signInFailedTitle: {
+		id: 'app.error.title.sign-in-failed',
+		defaultMessage: 'Unable to sign in to Minecraft',
+	},
+	changeDirFailedTitle: {
+		id: 'app.error.title.change-dir-failed',
+		defaultMessage: 'Could not change app directory',
+	},
+	noLoaderSelectedTitle: {
+		id: 'app.error.title.no-loader-selected',
+		defaultMessage: 'No loader selected',
+	},
+	stateInitTitle: {
+		id: 'app.error.title.state-init',
+		defaultMessage: 'Error initializing {product}',
+	},
+	noErrorMessage: {
+		id: 'app.error.no-error-message',
+		defaultMessage: 'No error message.',
+	},
+	networkHeading: {
+		id: 'app.error.network.heading',
+		defaultMessage: 'Network issues',
+	},
+	networkBodyStart: {
+		id: 'app.error.network.body-start',
+		defaultMessage: 'It looks like there were issues with',
+	},
+	networkBodyEnd: {
+		id: 'app.error.network.body-end',
+		defaultMessage:
+			"connecting to Microsoft's servers. This is often the result of a poor connection, so we recommend trying again to see if it works. If issues continue to persist, follow the steps in",
+	},
+	supportArticleLink: {
+		id: 'app.error.support-article-link',
+		defaultMessage: 'our support article',
+	},
+	troubleshootEnd: {
+		id: 'app.error.network.troubleshoot-end',
+		defaultMessage: 'to troubleshoot.',
+	},
+	hostsBodyEnd: {
+		id: 'app.error.hosts.body-end',
+		defaultMessage:
+			'tried to connect to Microsoft / Xbox / Minecraft services, but the remote server rejected the connection. This may indicate that these services are blocked by the hosts file. Please visit',
+	},
+	hostsFixEnd: {
+		id: 'app.error.hosts.fix-end',
+		defaultMessage: 'for steps on how to fix the issue.',
+	},
+	tryAnotherAccountHeading: {
+		id: 'app.error.try-another-account.heading',
+		defaultMessage: 'Try another Microsoft account',
+	},
+	tryAnotherAccountBody: {
+		id: 'app.error.try-another-account.body',
+		defaultMessage:
+			"Double check you've signed in with the right account. You may own Minecraft on a different Microsoft account.",
+	},
+	tryAnotherAccountButton: {
+		id: 'app.error.try-another-account.button',
+		defaultMessage: 'Try another account',
+	},
+	gamePassHeading: {
+		id: 'app.error.game-pass.heading',
+		defaultMessage: 'Using PC Game Pass, coming from Bedrock, or just bought the game?',
+	},
+	gamePassBodyStart: {
+		id: 'app.error.game-pass.body-start',
+		defaultMessage: 'Try signing in with the',
+	},
+	gamePassLauncherLink: {
+		id: 'app.error.game-pass.launcher-link',
+		defaultMessage: 'official Minecraft Launcher',
+	},
+	gamePassBodyEnd: {
+		id: 'app.error.game-pass.body-end',
+		defaultMessage: "first. Once you're done, come back here and sign in!",
+	},
+	tryAgainButton: {
+		id: 'app.error.try-again.button',
+		defaultMessage: 'Try signing in again',
+	},
+	readOnlyHeading: {
+		id: 'app.error.read-only.heading',
+		defaultMessage: 'Change directory permissions',
+	},
+	readOnlyBodyStart: {
+		id: 'app.error.read-only.body-start',
+		defaultMessage: 'It looks like',
+	},
+	readOnlyBodyEnd: {
+		id: 'app.error.read-only.body-end',
+		defaultMessage:
+			'is unable to write to the directory you selected. Please adjust the permissions of the directory and try again or cancel the directory change.',
+	},
+	notEnoughSpaceHeading: {
+		id: 'app.error.not-enough-space.heading',
+		defaultMessage: 'Not enough space',
+	},
+	notEnoughSpaceBody: {
+		id: 'app.error.not-enough-space.body',
+		defaultMessage:
+			'It looks like there is not enough space on the disk containing the directory you selected. Please free up some space and try again or cancel the directory change.',
+	},
+	migrateBodyEnd: {
+		id: 'app.error.migrate.body-end',
+		defaultMessage:
+			'is unable to migrate to the new directory you selected. Please contact support for help or cancel the directory change.',
+	},
+	retryDirButton: {
+		id: 'app.error.retry-dir.button',
+		defaultMessage: 'Retry directory change',
+	},
+	cancelDirButton: {
+		id: 'app.error.cancel-dir.button',
+		defaultMessage: 'Cancel directory change',
+	},
+	stateInitBodyEnd: {
+		id: 'app.error.state-init.body-end',
+		defaultMessage:
+			'failed to load correctly. This may be because of a corrupted file, or because the app is missing crucial files.',
+	},
+	stateInitFixIntro: {
+		id: 'app.error.state-init.fix-intro',
+		defaultMessage: 'You may be able to fix it through one of the following ways:',
+	},
+	stateInitFixOnline: {
+		id: 'app.error.state-init.fix-online',
+		defaultMessage: 'Ensuring you are connected to the internet, then try restarting the app.',
+	},
+	stateInitFixRedownload: {
+		id: 'app.error.state-init.fix-redownload',
+		defaultMessage: 'Redownloading the app.',
+	},
+	noLoaderBodyEnd: {
+		id: 'app.error.no-loader.body-end',
+		defaultMessage: 'failed to find the loader version for this instance.',
+	},
+	noLoaderFix: {
+		id: 'app.error.no-loader.fix',
+		defaultMessage:
+			'To resolve this, you need to repair the instance. Click the button below to do so.',
+	},
+	repairInstanceButton: {
+		id: 'app.error.repair-instance.button',
+		defaultMessage: 'Repair instance',
+	},
+	helpStart: {
+		id: 'app.error.help.start',
+		defaultMessage: 'If nothing is working and you need help, visit',
+	},
+	helpSupportLink: {
+		id: 'app.error.help.support-link',
+		defaultMessage: 'our support page',
+	},
+	helpEnd: {
+		id: 'app.error.help.end',
+		defaultMessage:
+			'and we will be more than happy to assist! Make sure to include the following debug information:',
+	},
+	getSupportButton: {
+		id: 'app.error.get-support.button',
+		defaultMessage: 'Get support',
+	},
+	debugInfoHeading: {
+		id: 'app.error.debug-info.heading',
+		defaultMessage: 'Debug information',
+	},
+	copyDebugInfo: {
+		id: 'app.error.copy-debug-info',
+		defaultMessage: 'Copy debug info',
+	},
 })
 
 const errorModal = ref()
@@ -45,7 +223,7 @@ const error = ref()
 const closable = ref(true)
 const errorCollapsed = ref(false)
 
-const title = ref('An error occurred')
+const title = ref(formatMessage(messages.genericTitle))
 const errorType = ref('unknown')
 const supportLink = ref(supportUrl)
 const metadata = ref({})
@@ -56,7 +234,7 @@ defineExpose({
 		closable.value = canClose
 
 		if (errorVal.message && errorVal.message.includes('Minecraft authentication error:')) {
-			title.value = 'Unable to sign in to Minecraft'
+			title.value = formatMessage(messages.signInFailedTitle)
 			errorType.value = 'minecraft_auth'
 			supportLink.value = supportUrl
 
@@ -70,7 +248,7 @@ defineExpose({
 				metadata.value.hostsFile = true
 			}
 		} else if (errorVal.message && errorVal.message.includes('Move directory error:')) {
-			title.value = 'Could not change app directory'
+			title.value = formatMessage(messages.changeDirFailedTitle)
 			errorType.value = 'directory_move'
 			supportLink.value = supportUrl
 
@@ -82,16 +260,16 @@ defineExpose({
 				metadata.value.notEnoughSpace = true
 			}
 		} else if (errorVal.message && errorVal.message.includes('No loader version selected for')) {
-			title.value = 'No loader selected'
+			title.value = formatMessage(messages.noLoaderSelectedTitle)
 			errorType.value = 'no_loader_version'
 			supportLink.value = supportUrl
 			metadata.value.instanceId = context.instanceId
 		} else if (source === 'state_init') {
-			title.value = `Error initializing ${productName}`
+			title.value = formatMessage(messages.stateInitTitle, { product: productName })
 			errorType.value = 'state_init'
 			supportLink.value = supportUrl
 		} else {
-			title.value = 'An error occurred'
+			title.value = formatMessage(messages.genericTitle)
 			errorType.value = 'unknown'
 			supportLink.value = supportUrl
 			metadata.value = {}
@@ -157,7 +335,9 @@ const hasDebugInfo = computed(
 		errorType.value === 'no_loader_version',
 )
 
-const debugInfo = computed(() => error.value.message ?? error.value ?? 'No error message.')
+const debugInfo = computed(
+	() => error.value.message ?? error.value ?? formatMessage(messages.noErrorMessage),
+)
 
 const copied = ref(false)
 
@@ -176,98 +356,95 @@ async function copyToClipboard(text) {
 			<div class="markdown-body">
 				<template v-if="errorType === 'minecraft_auth'">
 					<template v-if="metadata.network">
-						<h3>Network issues</h3>
+						<h3>{{ formatMessage(messages.networkHeading) }}</h3>
 						<p>
-							It looks like there were issues with {{ productName }} connecting to Microsoft's
-							servers. This is often the result of a poor connection, so we recommend trying again
-							to see if it works. If issues continue to persist, follow the steps in
-							<a :href="supportUrl"> our support article </a>
-							to troubleshoot.
+							{{ formatMessage(messages.networkBodyStart) }} {{ productName }}
+							{{ formatMessage(messages.networkBodyEnd) }}
+							<a :href="supportUrl"> {{ formatMessage(messages.supportArticleLink) }} </a>
+							{{ formatMessage(messages.troubleshootEnd) }}
 						</p>
 					</template>
 					<template v-else-if="metadata.hostsFile">
-						<h3>Network issues</h3>
+						<h3>{{ formatMessage(messages.networkHeading) }}</h3>
 						<p>
-							{{ productName }} tried to connect to Microsoft / Xbox / Minecraft services, but the
-							remote server rejected the connection. This may indicate that these services are
-							blocked by the hosts file. Please visit
-							<a :href="supportUrl"> our support article </a>
-							for steps on how to fix the issue.
+							{{ productName }}
+							{{ formatMessage(messages.hostsBodyEnd) }}
+							<a :href="supportUrl"> {{ formatMessage(messages.supportArticleLink) }} </a>
+							{{ formatMessage(messages.hostsFixEnd) }}
 						</p>
 					</template>
 					<template v-else>
-						<h3>Try another Microsoft account</h3>
+						<h3>{{ formatMessage(messages.tryAnotherAccountHeading) }}</h3>
 						<p>
-							Double check you've signed in with the right account. You may own Minecraft on a
-							different Microsoft account.
+							{{ formatMessage(messages.tryAnotherAccountBody) }}
 						</p>
 						<div class="cta-button">
 							<button class="btn btn-primary" :disabled="loadingMinecraft" @click="loginMinecraft">
-								<LogInIcon /> Try another account
+								<LogInIcon /> {{ formatMessage(messages.tryAnotherAccountButton) }}
 							</button>
 						</div>
-						<h3>Using PC Game Pass, coming from Bedrock, or just bought the game?</h3>
+						<h3>{{ formatMessage(messages.gamePassHeading) }}</h3>
 						<p>
-							Try signing in with the
-							<a href="https://www.minecraft.net/en-us/download">official Minecraft Launcher</a>
-							first. Once you're done, come back here and sign in!
+							{{ formatMessage(messages.gamePassBodyStart) }}
+							<a href="https://www.minecraft.net/en-us/download">{{
+								formatMessage(messages.gamePassLauncherLink)
+							}}</a>
+							{{ formatMessage(messages.gamePassBodyEnd) }}
 						</p>
 					</template>
 					<div class="cta-button">
 						<button class="btn btn-primary" :disabled="loadingMinecraft" @click="loginMinecraft">
-							<LogInIcon /> Try signing in again
+							<LogInIcon /> {{ formatMessage(messages.tryAgainButton) }}
 						</button>
 					</div>
 				</template>
 				<template v-if="errorType === 'directory_move'">
 					<template v-if="metadata.readOnly">
-						<h3>Change directory permissions</h3>
+						<h3>{{ formatMessage(messages.readOnlyHeading) }}</h3>
 						<p>
-							It looks like {{ productName }} is unable to write to the directory you selected.
-							Please adjust the permissions of the directory and try again or cancel the directory
-							change.
+							{{ formatMessage(messages.readOnlyBodyStart) }} {{ productName }}
+							{{ formatMessage(messages.readOnlyBodyEnd) }}
 						</p>
 					</template>
 					<template v-else-if="metadata.notEnoughSpace">
-						<h3>Not enough space</h3>
+						<h3>{{ formatMessage(messages.notEnoughSpaceHeading) }}</h3>
 						<p>
-							It looks like there is not enough space on the disk containing the directory you
-							selected. Please free up some space and try again or cancel the directory change.
+							{{ formatMessage(messages.notEnoughSpaceBody) }}
 						</p>
 					</template>
 					<template v-else>
 						<p>
-							{{ productName }} is unable to migrate to the new directory you selected. Please
-							contact support for help or cancel the directory change.
+							{{ productName }}
+							{{ formatMessage(messages.migrateBodyEnd) }}
 						</p>
 					</template>
 
 					<div class="cta-button">
 						<button class="btn" @click="retryDirectoryChange">
-							<UpdatedIcon /> Retry directory change
+							<UpdatedIcon /> {{ formatMessage(messages.retryDirButton) }}
 						</button>
 						<button class="btn btn-danger" @click="cancelDirectoryChange">
-							<XIcon /> Cancel directory change
+							<XIcon /> {{ formatMessage(messages.cancelDirButton) }}
 						</button>
 					</div>
 				</template>
 				<template v-else-if="errorType === 'state_init'">
 					<p>
-						{{ productName }} failed to load correctly. This may be because of a corrupted file, or
-						because the app is missing crucial files.
+						{{ productName }}
+						{{ formatMessage(messages.stateInitBodyEnd) }}
 					</p>
-					<p>You may be able to fix it through one of the following ways:</p>
+					<p>{{ formatMessage(messages.stateInitFixIntro) }}</p>
 					<ul>
-						<li>Ensuring you are connected to the internet, then try restarting the app.</li>
-						<li>Redownloading the app.</li>
+						<li>{{ formatMessage(messages.stateInitFixOnline) }}</li>
+						<li>{{ formatMessage(messages.stateInitFixRedownload) }}</li>
 					</ul>
 				</template>
 				<template v-else-if="errorType === 'no_loader_version'">
-					<p>{{ productName }} failed to find the loader version for this instance.</p>
-					<p>To resolve this, you need to repair the instance. Click the button below to do so.</p>
+					<p>{{ productName }} {{ formatMessage(messages.noLoaderBodyEnd) }}</p>
+					<p>{{ formatMessage(messages.noLoaderFix) }}</p>
 					<div class="cta-button">
 						<button class="btn btn-primary" :disabled="loadingRepair" @click="repairInstance">
-							<HammerIcon /> Repair instance
+							<HammerIcon /> {{ formatMessage(messages.repairInstanceButton) }}
 						</button>
 					</div>
 				</template>
@@ -277,18 +454,19 @@ async function copyToClipboard(text) {
 				<template v-if="hasDebugInfo">
 					<div class="w-full h-[1px] bg-surface-5 mb-3"></div>
 					<p>
-						If nothing is working and you need help, visit
-						<a :href="supportLink">our support page</a>
-						and we will be more than happy to assist! Make sure to include the following debug
-						information:
+						{{ formatMessage(messages.helpStart) }}
+						<a :href="supportLink">{{ formatMessage(messages.helpSupportLink) }}</a>
+						{{ formatMessage(messages.helpEnd) }}
 					</p>
 				</template>
 			</div>
 			<div class="flex items-center gap-2">
 				<ButtonLink :href="supportLink" @click="errorModal.hide()"
-					><ChatIcon /> Get support</ButtonLink
+					><ChatIcon /> {{ formatMessage(messages.getSupportButton) }}</ButtonLink
 				>
-				<Button v-if="closable" @click="errorModal.hide()"><XIcon /> Close</Button>
+				<Button v-if="closable" @click="errorModal.hide()"
+					><XIcon /> {{ formatMessage(commonMessages.closeButton) }}</Button
+				>
 			</div>
 			<template v-if="hasDebugInfo">
 				<div class="flex flex-col gap-2">
@@ -301,7 +479,7 @@ async function copyToClipboard(text) {
 						>
 							<span class="flex items-center gap-2 text-contrast font-extrabold m-0">
 								<WrenchIcon class="h-4 w-4" />
-								Debug information
+								{{ formatMessage(messages.debugInfoHeading) }}
 							</span>
 							<DropdownIcon
 								class="h-5 w-5 text-secondary transition-transform"
@@ -322,8 +500,8 @@ async function copyToClipboard(text) {
 									</button>
 								</div>
 								<IconButton
-									v-tooltip="'Copy debug info'"
-									:label="'Copy debug info'"
+									v-tooltip="formatMessage(messages.copyDebugInfo)"
+									:label="formatMessage(messages.copyDebugInfo)"
 									:disabled="copied"
 									@click="copyToClipboard(debugInfo)"
 								>

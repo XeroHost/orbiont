@@ -75,7 +75,12 @@ pub async fn create_instance(
     icon_path: Option<String>,
     icon_config: Option<InstanceIconConfig>,
     link: InstanceLink,
+    optifine: Option<crate::optifine::OptifineReference>,
 ) -> crate::Result<InstallJobSnapshot> {
+    if let Some(reference) = &optifine {
+        reference.check_compatibility(&game_version, loader)?;
+        crate::optifine::require_cached(reference).await?;
+    }
     start(InstallRequest::CreateInstance {
         name,
         game_version,
@@ -84,6 +89,7 @@ pub async fn create_instance(
         icon_path,
         icon_config,
         link,
+        optifine,
     })
     .await
 }
@@ -122,7 +128,33 @@ pub async fn install_existing_instance(
     instance_id: String,
     force: bool,
 ) -> crate::Result<InstallJobSnapshot> {
-    start(InstallRequest::InstallExistingInstance { instance_id, force }).await
+    start(InstallRequest::InstallExistingInstance {
+        instance_id,
+        force,
+        optifine: None,
+    })
+    .await
+}
+
+pub async fn change_optifine(
+    instance_id: String,
+    reference: Option<crate::optifine::OptifineReference>,
+) -> crate::Result<InstallJobSnapshot> {
+    let state = State::get().await?;
+    if crate::state::instance_has_running_process(&instance_id, &state).await? {
+        return Err(crate::state::content_store::input(
+            "Stop this instance before changing OptiFine",
+        ));
+    }
+    if let Some(reference) = &reference {
+        crate::optifine::require_cached(reference).await?;
+    }
+    start(InstallRequest::InstallExistingInstance {
+        instance_id,
+        force: false,
+        optifine: Some(reference),
+    })
+    .await
 }
 
 pub async fn install_pack_to_existing_instance(
@@ -467,6 +499,7 @@ async fn prepare_initial_instance(
             icon_path,
             icon_config,
             link,
+            optifine: _,
         } => {
             let metadata = Box::pin(crate::api::instance::create(
                 name,
@@ -856,6 +889,7 @@ async fn run_request(
             icon_path: _,
             icon_config: _,
             link: _,
+            optifine,
         } => {
             let Some(instance_id) = current_instance_id(job_state) else {
                 return Err(crate::ErrorKind::InputError(
@@ -891,6 +925,8 @@ async fn run_request(
                 .ok_or_else(|| {
                     crate::ErrorKind::InputError("Unknown instance".to_string())
                 })?;
+            let path = crate::instance::get_full_path(&instance_id).await?;
+            crate::optifine::write_reference(&path, optifine.as_ref()).await?;
             crate::launcher::install_minecraft_with_reporter(
                 &context,
                 false,
@@ -1005,7 +1041,11 @@ async fn run_request(
             emit_instance(&instance_id, InstancePayloadType::Edited).await?;
             Ok(Some(instance_id))
         }
-        InstallRequest::InstallExistingInstance { instance_id, force } => {
+        InstallRequest::InstallExistingInstance {
+            instance_id,
+            force,
+            optifine,
+        } => {
             prepare_existing_rollback(job_state, state, &instance_id).await?;
             lock_instance(&instance_id, state).await?;
             update_progress(
@@ -1025,6 +1065,19 @@ async fn run_request(
                 .ok_or_else(|| {
                     crate::ErrorKind::InputError("Unknown instance".to_string())
                 })?;
+            if let Some(reference) = optifine {
+                if let Some(reference) = &reference {
+                    reference.check_compatibility(
+                        &context.applied_content_set.game_version,
+                        context.applied_content_set.loader,
+                    )?;
+                }
+                crate::optifine::write_reference(
+                    &crate::instance::get_full_path(&instance_id).await?,
+                    reference.as_ref(),
+                )
+                .await?;
+            }
             crate::launcher::install_minecraft_with_reporter(
                 &context,
                 force,
@@ -1335,9 +1388,17 @@ async fn prepare_existing_rollback(
         instance.instance.name.clone(),
         instance.instance.icon_path.clone(),
     );
+    let optifine = crate::optifine::read_reference(
+        &state
+            .directories
+            .instances_dir()
+            .join(&instance.instance.path),
+    )
+    .await?;
     job_state.rollback = Some(InstallRollbackState {
         instance,
         install_stage,
+        optifine: Some(optifine),
     });
     job_state.cleanup = InstallCleanup::RestoreExistingInstance {
         instance_id: instance_id.to_string(),

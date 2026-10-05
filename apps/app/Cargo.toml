@@ -14,8 +14,6 @@ daedalus = { workspace = true }
 dashmap = { workspace = true }
 either = { workspace = true }
 enumset = { workspace = true, features = ["serde"] }
-hyper = { workspace = true, features = ["server"] }
-hyper-util = { workspace = true }
 image = { workspace = true, features = ["gif", "jpeg", "png", "webp"] }
 native-dialog = { workspace = true }
 paste = { workspace = true }
@@ -50,15 +48,6 @@ tauri-build = { workspace = true, features = ["codegen"] }
 
 [target.'cfg(target_os = "linux")'.dependencies]
 tauri-plugin-updater = { workspace = true, optional = true }
-
-[target.'cfg(target_os = "macos")'.dependencies]
-core-foundation.workspace = true
-core-graphics.workspace = true
-objc2-app-kit = { workspace = true, features = ["NSWindow"] }
-
-[target."cfg(windows)".dependencies]
-webview2-com.workspace = true
-windows-core.workspace = true
 
 [target."cfg(windows)".dependencies.windows]
 workspace = true

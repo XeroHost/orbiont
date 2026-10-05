@@ -2,6 +2,12 @@
   "action.no-permission": {
     "defaultMessage": "ليس لديك صلاحية."
   },
+  "app.appearance-settings.native-decorations.description": {
+    "defaultMessage": "استخدام شريط العنوان وعناصر التحكم في النافذة الخاصة بنظام التشغيل. يتطلب إعادة تشغيل التطبيق."
+  },
+  "app.appearance-settings.native-decorations.title": {
+    "defaultMessage": "إطار نافذة النظام"
+  },
   "badge.alpha": {
     "defaultMessage": "نسخه أوليه"
   },
@@ -26,14 +32,17 @@
   "browse.advanced-filters.persistence-note": {
     "defaultMessage": "يتم حفظ الاستثناءات المتقدمة بين الجلسات. وسيؤدي فتح رابط مشترك يحتوي على عوامل تصفية إلى تجاوزها."
   },
+  "browse.display-mode.change": {
+    "defaultMessage": "تغيير وضع العرض"
+  },
   "browse.filter-results": {
     "defaultMessage": "تصفية النتائج..."
   },
   "browse.no-results": {
     "defaultMessage": "لم يتم العثور على نتائج لبحثك!"
   },
-  "browse.offline": {
-    "defaultMessage": "أنت غير متصل حاليًا. اتصل بالإنترنت لتصفح Modrinth!"
+  "browse.offline-content": {
+    "defaultMessage": "أنت غير متصل حاليًا. اتصل بالإنترنت لتصفح المحتوى."
   },
   "browse.search.placeholder": {
     "defaultMessage": "البحث {projectType}..."
@@ -121,6 +130,9 @@
   },
   "button.download": {
     "defaultMessage": "تنزيل"
+  },
+  "button.download-files": {
+    "defaultMessage": "تحميل الملفات"
   },
   "button.downloading": {
     "defaultMessage": "جاري التنزيل"
@@ -251,8 +263,53 @@
   "button.upload-image": {
     "defaultMessage": "رفع صورة"
   },
+  "card.toggle-details": {
+    "defaultMessage": "تبديل التفاصيل"
+  },
   "collections.label.private": {
     "defaultMessage": "خاص"
+  },
+  "console.actions.collapse": {
+    "defaultMessage": "انهيار"
+  },
+  "console.actions.expand": {
+    "defaultMessage": "توسيع"
+  },
+  "console.actions.share": {
+    "defaultMessage": "مشاركة"
+  },
+  "console.command-input-disabled": {
+    "defaultMessage": "إدخال الأوامر معطّل"
+  },
+  "console.crash.problems-detected": {
+    "defaultMessage": "{count, plural, one {تم رصد مشكلة واحدة} other {تم رصد # مشكلات}}"
+  },
+  "console.delete-log-confirm-body": {
+    "defaultMessage": "لا يمكن التراجع عن حذف ملف السجل هذا. هل أنت متأكد من المتابعة؟"
+  },
+  "console.delete-log-failed-title": {
+    "defaultMessage": "تعذّر حذف ملف السجل"
+  },
+  "console.delete-log-file-header": {
+    "defaultMessage": "حذف ملف السجل"
+  },
+  "console.delete-log-irreversible-header": {
+    "defaultMessage": "هذا لا رجعة فيه"
+  },
+  "console.search-logs-placeholder": {
+    "defaultMessage": "ابحث في السجلات"
+  },
+  "console.server-not-running": {
+    "defaultMessage": "الخادم لا يعمل"
+  },
+  "console.share-logs-failed-title": {
+    "defaultMessage": "تعذّرت مشاركة السجلات"
+  },
+  "console.share-logs-header": {
+    "defaultMessage": "مشاركة السجلات"
+  },
+  "console.unknown-error": {
+    "defaultMessage": "خطأ غير معروف."
   },
   "content-type.content.lowercase": {
     "defaultMessage": "المحتوى"
@@ -265,6 +322,12 @@
   },
   "content.card.select-project": {
     "defaultMessage": "تحديد {project}"
+  },
+  "content.card.sync-update-pending": {
+    "defaultMessage": "بعض النسخ المتزامنة تنتظر تغييرات. قد تكون هناك نسخة قيد التشغيل، أو ذات إصدار مجمّد أو غير متوافق، أو تحتوي على نسختها الخاصة."
+  },
+  "content.card.synced": {
+    "defaultMessage": "متزامن بين النسخ"
   },
   "content.card.uploaded": {
     "defaultMessage": "تم الرفع"
@@ -413,14 +476,35 @@
   "content.diff-modal.modpack-unlinked": {
     "defaultMessage": "إلغاء ربط المودباك"
   },
+  "content.diff-modal.modpack-updated": {
+    "defaultMessage": "مودباك محدّث"
+  },
+  "content.diff-modal.no-content-changes": {
+    "defaultMessage": "لا توجد تغييرات في المحتوى"
+  },
   "content.diff-modal.removed-count": {
     "defaultMessage": "{count} تم إزالته"
   },
   "content.diff-modal.removed-disabled-count": {
     "defaultMessage": "تم إزالة {count} (معطل)"
   },
+  "content.diff-modal.reviewed-files": {
+    "defaultMessage": "الملفات غير المنشورة على Modrinth غير مراجعة."
+  },
+  "content.diff-modal.unknown-content-body": {
+    "defaultMessage": "تعذّر تحليل بعض المحتوى على خادمك وقد يتأثر بهذا التغيير."
+  },
+  "content.diff-modal.unknown-files-description": {
+    "defaultMessage": "يحتوي هذا التحديث على ملفات غير منشورة على Modrinth. نوصي بشدة بتثبيت الملفات من مصادر تثق بها فقط."
+  },
+  "content.diff-modal.unknown-files-warning": {
+    "defaultMessage": "تحذير ملفات غير معروفة"
+  },
   "content.diff-modal.unknown-project": {
     "defaultMessage": "غير معروف"
+  },
+  "content.diff-modal.updated-count": {
+    "defaultMessage": "{count} محدّثة"
   },
   "content.filter.disabled": {
     "defaultMessage": "معطّل"
@@ -434,8 +518,32 @@
   "content.filter.warnings": {
     "defaultMessage": "تحذيرات"
   },
-  "content.inline-backup.world-label": {
-    "defaultMessage": "عالم"
+  "content.inline-backup.backing-up": {
+    "defaultMessage": "جارٍ إنشاء نسخة احتياطية..."
+  },
+  "content.inline-backup.backup-complete": {
+    "defaultMessage": "تم إنشاء النسخة الاحتياطية بنجاح"
+  },
+  "content.inline-backup.backup-failed": {
+    "defaultMessage": "تعذّر إنشاء النسخة الاحتياطية. لا يزال بإمكانك المتابعة."
+  },
+  "content.inline-backup.create-backup": {
+    "defaultMessage": "إنشاء نسخة احتياطية"
+  },
+  "content.inline-backup.instance-label": {
+    "defaultMessage": "نسخة"
+  },
+  "content.inline-backup.shift-click-hint": {
+    "defaultMessage": "اضغط Shift أثناء النقر لتخطي التأكيد."
+  },
+  "content.inline-backup.warning-body": {
+    "defaultMessage": "نوصي بإنشاء نسخة احتياطية قبل المتابعة لتتمكن من استعادة {type} إذا حدث خطأ."
+  },
+  "content.managed-card.modpack-content": {
+    "defaultMessage": "محتوى المودباك"
+  },
+  "content.managed-card.provided-by": {
+    "defaultMessage": "مقدّم من"
   },
   "content.managed-card.server-suffix": {
     "defaultMessage": "خادم"
@@ -451,6 +559,9 @@
   },
   "content.managed-card.summary.loading": {
     "defaultMessage": "جارٍ تحميل ملخص المحتوى المُدار"
+  },
+  "content.managed-card.summary.no-provided-content": {
+    "defaultMessage": "لا يوجد محتوى مقدّم"
   },
   "content.managed-card.switch-version": {
     "defaultMessage": "تغيير الإصدار"
@@ -578,29 +689,77 @@
   "content.page-layout.sort.date-added-oldest": {
     "defaultMessage": "الأقدم أولا"
   },
+  "content.page-layout.sort.label": {
+    "defaultMessage": "ترتيب حسب {mode}"
+  },
   "content.page-layout.update-all": {
     "defaultMessage": "حدّث الكلّ"
   },
   "content.page-layout.upload-files": {
     "defaultMessage": "تحميل الملفّات"
   },
-  "creation-flow.button.create-world": {
-    "defaultMessage": "إنشاء عالم"
+  "content.selection-bar.all-already-disabled": {
+    "defaultMessage": "كل المحتوى المحدد معطّل بالفعل"
   },
-  "creation-flow.button.finish": {
-    "defaultMessage": "إنهاء"
+  "content.selection-bar.all-already-enabled": {
+    "defaultMessage": "كل المحتوى المحدد مفعّل بالفعل"
+  },
+  "content.selection-bar.bulk.deleting": {
+    "defaultMessage": "جارٍ حذف {progress} من {total} {contentType}..."
+  },
+  "content.selection-bar.bulk.deleting-count": {
+    "defaultMessage": "جارٍ حذف {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.deleting-waiting": {
+    "defaultMessage": "جارٍ حذف {contentType}..."
+  },
+  "content.selection-bar.bulk.disabling": {
+    "defaultMessage": "جارٍ تعطيل {progress} من {total} {contentType}..."
+  },
+  "content.selection-bar.bulk.disabling-count": {
+    "defaultMessage": "جارٍ تعطيل {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.disabling-waiting": {
+    "defaultMessage": "جارٍ تعطيل {contentType}..."
+  },
+  "content.selection-bar.bulk.enabling": {
+    "defaultMessage": "جارٍ تفعيل {progress} من {total} {contentType}..."
+  },
+  "content.selection-bar.bulk.enabling-count": {
+    "defaultMessage": "جارٍ تفعيل {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.enabling-waiting": {
+    "defaultMessage": "جارٍ تفعيل {contentType}..."
+  },
+  "content.selection-bar.bulk.updating": {
+    "defaultMessage": "جارٍ تحديث {progress} من {total} {contentType}..."
+  },
+  "content.selection-bar.bulk.updating-count": {
+    "defaultMessage": "جارٍ تحديث {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.updating-waiting": {
+    "defaultMessage": "جارٍ تحديث {contentType}..."
+  },
+  "content.selection-bar.selected-count": {
+    "defaultMessage": "{count, number} {contentType} محددة"
+  },
+  "content.selection-bar.selected-count-simple": {
+    "defaultMessage": "{count, number} محددة"
+  },
+  "creation-flow.button.create-instance": {
+    "defaultMessage": "إنشاء نسخة"
   },
   "creation-flow.button.import": {
     "defaultMessage": "استيراد"
   },
-  "creation-flow.button.setup-server": {
-    "defaultMessage": "إعداد السيرفر"
-  },
-  "creation-flow.modal.custom-setup.build-number.label": {
-    "defaultMessage": "رقم الإصدار"
+  "creation-flow.button.import-instances": {
+    "defaultMessage": "استيراد {count, plural, one {نسخة واحدة} other {# نسخ}}"
   },
   "creation-flow.modal.custom-setup.game-version.placeholder": {
     "defaultMessage": "حدد نسخة اللعبة"
+  },
+  "creation-flow.modal.custom-setup.game-version.search-placeholder": {
+    "defaultMessage": "ابحث عن إصدار اللعبة..."
   },
   "creation-flow.modal.custom-setup.icon.customize": {
     "defaultMessage": "تخصيص"
@@ -635,98 +794,11 @@
   "creation-flow.modal.custom-setup.name.label": {
     "defaultMessage": "الإسم"
   },
-  "creation-flow.modal.final-config.difficulty.easy": {
-    "defaultMessage": "سهل"
+  "creation-flow.modal.custom-setup.name.placeholder": {
+    "defaultMessage": "أدخل اسم النسخة"
   },
-  "creation-flow.modal.final-config.difficulty.hard": {
-    "defaultMessage": "صعب"
-  },
-  "creation-flow.modal.final-config.difficulty.label": {
-    "defaultMessage": "الصعوبة"
-  },
-  "creation-flow.modal.final-config.difficulty.normal": {
-    "defaultMessage": "عادي"
-  },
-  "creation-flow.modal.final-config.difficulty.peaceful": {
-    "defaultMessage": "مسالم"
-  },
-  "creation-flow.modal.final-config.game-version.placeholder": {
-    "defaultMessage": "اختر إصدار اللعبة"
-  },
-  "creation-flow.modal.final-config.gamemode.creative": {
-    "defaultMessage": "إبداع"
-  },
-  "creation-flow.modal.final-config.gamemode.hardcore": {
-    "defaultMessage": "صعوبة شديدة"
-  },
-  "creation-flow.modal.final-config.gamemode.label": {
-    "defaultMessage": "وضع اللعب"
-  },
-  "creation-flow.modal.final-config.gamemode.survival": {
-    "defaultMessage": "البقاء"
-  },
-  "creation-flow.modal.final-config.generate-structures.description": {
-    "defaultMessage": "يتحكم في توليد القرى والحصون وغيرها من الهياكل في القطع الجديدة."
-  },
-  "creation-flow.modal.final-config.generate-structures.label": {
-    "defaultMessage": "إنشاء الهياكل"
-  },
-  "creation-flow.modal.final-config.generator-settings-json.placeholder": {
-    "defaultMessage": "أدخل إعدادات المولّد بتنسيق JSON"
-  },
-  "creation-flow.modal.final-config.generator-settings.custom": {
-    "defaultMessage": "مخصص"
-  },
-  "creation-flow.modal.final-config.generator-settings.default": {
-    "defaultMessage": "افتراضي"
-  },
-  "creation-flow.modal.final-config.generator-settings.description": {
-    "defaultMessage": "يُستخدم لتخصيص العالم بشكل متقدم، مثل تخصيص طبقات العالم المسطح."
-  },
-  "creation-flow.modal.final-config.generator-settings.flat": {
-    "defaultMessage": "مسطح"
-  },
-  "creation-flow.modal.final-config.generator-settings.label": {
-    "defaultMessage": "إعدادات المولد"
-  },
-  "creation-flow.modal.final-config.generator-settings.placeholder": {
-    "defaultMessage": "اختيار نمط العالم"
-  },
-  "creation-flow.modal.final-config.world-name.label": {
-    "defaultMessage": "اسم العالم"
-  },
-  "creation-flow.modal.final-config.world-name.placeholder": {
-    "defaultMessage": "ادخل اسم العالم"
-  },
-  "creation-flow.modal.final-config.world-seed.description": {
-    "defaultMessage": "اتركها فارغة لبذرة عشوائية."
-  },
-  "creation-flow.modal.final-config.world-seed.label-with-optional": {
-    "defaultMessage": "بذرة مولد العالم <optional>(اختياري)</optional>"
-  },
-  "creation-flow.modal.final-config.world-seed.placeholder": {
-    "defaultMessage": "أدخل بذرة العالم"
-  },
-  "creation-flow.modal.final-config.world-type.amplified": {
-    "defaultMessage": "مضخّمة"
-  },
-  "creation-flow.modal.final-config.world-type.default": {
-    "defaultMessage": "الافتراضي"
-  },
-  "creation-flow.modal.final-config.world-type.label": {
-    "defaultMessage": "نمط العالم"
-  },
-  "creation-flow.modal.final-config.world-type.large-biomes": {
-    "defaultMessage": "مناطق أحيائية كبيرة"
-  },
-  "creation-flow.modal.final-config.world-type.placeholder": {
-    "defaultMessage": "اختر نمط العالم"
-  },
-  "creation-flow.modal.final-config.world-type.single-biome": {
-    "defaultMessage": "منطقة أحيائية منفردة"
-  },
-  "creation-flow.modal.final-config.world-type.superflat": {
-    "defaultMessage": "مسطح تمامًا"
+  "creation-flow.modal.custom-setup.options.no-versions-available": {
+    "defaultMessage": "لا توجد إصدارات متاحة"
   },
   "creation-flow.modal.import-instance.action.add": {
     "defaultMessage": "إضافة"
@@ -742,6 +814,9 @@
   },
   "creation-flow.modal.import-instance.launcher-path.add": {
     "defaultMessage": "إضافة مسار المشغّل"
+  },
+  "creation-flow.modal.import-instance.launcher-path.browse": {
+    "defaultMessage": "تصفح مسار المشغّل"
   },
   "creation-flow.modal.import-instance.launcher-path.placeholder": {
     "defaultMessage": "مسار المشغّل..."
@@ -761,8 +836,17 @@
   "creation-flow.modal.project.known-project.prompt": {
     "defaultMessage": "هل تعرف بالفعل ما تريد أن تلعب؟"
   },
+  "creation-flow.modal.project.search.create-instance": {
+    "defaultMessage": "إنشاء نسخة"
+  },
+  "creation-flow.modal.project.search.install-modpack": {
+    "defaultMessage": "تثبيت مودباك"
+  },
   "creation-flow.modal.project.search.no-results": {
     "defaultMessage": "لم يتم العثور على نتائج"
+  },
+  "creation-flow.modal.project.search.placeholder": {
+    "defaultMessage": "ابحث عن المودات والمودباكات والمزيد..."
   },
   "creation-flow.modal.setup-type.option.custom-setup.description": {
     "defaultMessage": "ابدأ من الصفر باختيار محمّل وإصدار اللعبة."
@@ -776,23 +860,140 @@
   "creation-flow.modal.setup-type.option.import-instance.title": {
     "defaultMessage": "استيراد نسخة"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
-    "defaultMessage": "ماينكرافت الكلاسيكية بدون تعديلات أو إضافات."
+  "creation-flow.modal.setup-type.option.modpack-base.description": {
+    "defaultMessage": "اختر مشروعًا وسنستخدم أحدث إصدار منه."
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "ماينكرافت الاصلي"
+  "creation-flow.modal.setup-type.option.modpack-base.title": {
+    "defaultMessage": "البدء من مود أو مودباك"
   },
-  "creation-flow.modal.setup-type.title.installation": {
-    "defaultMessage": "اختر نوع التثبيت"
+  "creation-flow.modal.setup-type.option.upload-modpack.supported-formats-description": {
+    "defaultMessage": "استورد ملف .orbpack أو .mrpack من Modrinth أو .zip من CurseForge من جهازك."
   },
-  "creation-flow.modal.setup-type.title.world": {
-    "defaultMessage": "اختر نمط العالم"
+  "creation-flow.modal.setup-type.option.upload-modpack.title": {
+    "defaultMessage": "رفع مودباك"
   },
-  "creation-flow.title.set-up-server": {
-    "defaultMessage": "إعداد السيرفر"
+  "creation-flow.modal.setup-type.title.instance": {
+    "defaultMessage": "اختر نوع النسخة"
+  },
+  "creation-flow.optifine.description": {
+    "defaultMessage": "اختياري. اختر المثبّت الرسمي وسيضبطه المشغّل في هذه النسخة."
+  },
+  "creation-flow.optifine.download": {
+    "defaultMessage": "التنزيل الرسمي"
+  },
+  "creation-flow.optifine.name": {
+    "defaultMessage": "OptiFine"
+  },
+  "creation-flow.optifine.none": {
+    "defaultMessage": "لا شيء"
+  },
+  "creation-flow.optifine.optimization": {
+    "defaultMessage": "تحسين"
+  },
+  "creation-flow.optifine.required": {
+    "defaultMessage": "اختر ملف JAR الرسمي لـ OptiFine الخاص بـ Minecraft {gameVersion} للمتابعة."
+  },
+  "creation-flow.optifine.select": {
+    "defaultMessage": "اختر JAR"
+  },
+  "creation-flow.optifine.selected": {
+    "defaultMessage": "OptiFine {version} · Minecraft {gameVersion}"
+  },
+  "creation-flow.optifine.validating": {
+    "defaultMessage": "جارٍ فحص المثبّت…"
+  },
+  "creation-flow.optifine.vanilla-only": {
+    "defaultMessage": "تثبيت OptiFine متاح حاليًا لنسخ Vanilla."
+  },
+  "creation-flow.title.create-instance": {
+    "defaultMessage": "إنشاء نسخة"
+  },
+  "creation-flow.title.import-instance": {
+    "defaultMessage": "استيراد نسخة"
   },
   "empty-state.upload-versions.description": {
     "defaultMessage": "عد مرة أخرى بمجرد تحميل الإصدارات الخاصة بك."
+  },
+  "external-project-license-status.no": {
+    "defaultMessage": "لا"
+  },
+  "external-project-license-status.permanent-no": {
+    "defaultMessage": "رفض دائم"
+  },
+  "external-project-license-status.unidentified": {
+    "defaultMessage": "غير محدد"
+  },
+  "external-project-license-status.with-attribution": {
+    "defaultMessage": "مع نسب العمل"
+  },
+  "external-project-license-status.with-attribution-and-source": {
+    "defaultMessage": "مع نسب العمل والمصدر"
+  },
+  "external-project-license-status.yes": {
+    "defaultMessage": "نعم"
+  },
+  "file-button.file-too-large.description": {
+    "defaultMessage": "الملف {filename} كبير جدًا. الحد الأقصى لحجم الملف هو {maxSize}."
+  },
+  "file-button.file-too-large.title": {
+    "defaultMessage": "الملف كبير جدًا"
+  },
+  "files.conflict-modal.header": {
+    "defaultMessage": "ملخص الاستخراج"
+  },
+  "files.conflict-modal.overwrite-button": {
+    "defaultMessage": "كتابة فوق"
+  },
+  "files.conflict-modal.overwrite-file-label": {
+    "defaultMessage": "سيتم الكتابة فوق <file-path>{path}</file-path>"
+  },
+  "files.conflict-modal.overwrite-many-warning": {
+    "defaultMessage": "سيتم الكتابة فوق أكثر من 100 ملف إذا تابعت الاستخراج؛ إليك بعضًا منها."
+  },
+  "files.conflict-modal.overwrite-warning": {
+    "defaultMessage": "الملفات الـ{count} التالية موجودة بالفعل على خادمك، وسيتم الكتابة فوقها إذا تابعت الاستخراج."
+  },
+  "files.conflict-modal.overwritten-count": {
+    "defaultMessage": "{count} تمت الكتابة فوقها"
+  },
+  "files.conflict-modal.warning-header": {
+    "defaultMessage": "سيتم الكتابة فوق الملفات"
+  },
+  "files.create-modal.create-button": {
+    "defaultMessage": "إنشاء {type}"
+  },
+  "files.create-modal.header": {
+    "defaultMessage": "إنشاء {type}"
+  },
+  "files.create-modal.placeholder-directory": {
+    "defaultMessage": "مثال: my-folder"
+  },
+  "files.create-modal.placeholder-file": {
+    "defaultMessage": "مثال: config.yml"
+  },
+  "files.create-zip-modal.already-exists": {
+    "defaultMessage": "يوجد ملف بهذا الاسم بالفعل."
+  },
+  "files.create-zip-modal.check-failed": {
+    "defaultMessage": "تعذّر التحقق مما إذا كان هذا الملف موجودًا بالفعل."
+  },
+  "files.create-zip-modal.create-button": {
+    "defaultMessage": "إنشاء ZIP"
+  },
+  "files.create-zip-modal.header": {
+    "defaultMessage": "إنشاء ZIP"
+  },
+  "files.create-zip-modal.invalid": {
+    "defaultMessage": "يجب أن يكون اسم الأرشيف اسم ملف واحدًا."
+  },
+  "files.create-zip-modal.name-label": {
+    "defaultMessage": "اسم الأرشيف"
+  },
+  "files.create-zip-modal.name-placeholder": {
+    "defaultMessage": "أرشيف.zip"
+  },
+  "files.create-zip-modal.required": {
+    "defaultMessage": "أدخل اسم الأرشيف."
   },
   "files.delete-modal.deleting-name": {
     "defaultMessage": "حذف {name}\""
@@ -800,14 +1001,53 @@
   "files.delete-modal.header": {
     "defaultMessage": "حذف الملف"
   },
+  "files.delete-modal.warning.file": {
+    "defaultMessage": "سيتم حذف هذا الملف نهائيًا. لا يمكن التراجع عن هذا الإجراء."
+  },
+  "files.delete-modal.warning.folder": {
+    "defaultMessage": "سيتم حذف هذا المجلد وكل محتوياته نهائيًا. لا يمكن التراجع عن هذا الإجراء."
+  },
+  "files.editor.failed-to-open-text": {
+    "defaultMessage": "تعذّر تحميل محتويات الملف."
+  },
+  "files.editor.failed-to-open-title": {
+    "defaultMessage": "تعذّر فتح الملف"
+  },
+  "files.editor.failed-to-share-text": {
+    "defaultMessage": "تعذّر الرفع إلى mclo.gs."
+  },
   "files.editor.failed-to-share-title": {
     "defaultMessage": "فشل في مشاركة الملف"
+  },
+  "files.editor.file-saved-text": {
+    "defaultMessage": "تم حفظ ملفك."
   },
   "files.editor.file-saved-title": {
     "defaultMessage": "تم حفظ الملف"
   },
   "files.editor.find-in-file": {
     "defaultMessage": "بحث"
+  },
+  "files.editor.find-match-count": {
+    "defaultMessage": "{current} من {total}"
+  },
+  "files.editor.find-next-match": {
+    "defaultMessage": "التطابق التالي"
+  },
+  "files.editor.find-no-results": {
+    "defaultMessage": "لا توجد نتائج"
+  },
+  "files.editor.find-previous-match": {
+    "defaultMessage": "التطابق السابق"
+  },
+  "files.editor.find-toggle-replace": {
+    "defaultMessage": "تبديل الاستبدال"
+  },
+  "files.editor.log-url-copied-text": {
+    "defaultMessage": "تم نسخ رابط ملف السجل إلى حافظتك."
+  },
+  "files.editor.log-url-copied-title": {
+    "defaultMessage": "تم نسخ رابط السجل"
   },
   "files.editor.replace": {
     "defaultMessage": "استبدال"
@@ -818,8 +1058,41 @@
   "files.editor.replace-in-file": {
     "defaultMessage": "استبدال"
   },
+  "files.editor.save-failed-text": {
+    "defaultMessage": "تعذّر حفظ الملف."
+  },
   "files.editor.save-failed-title": {
     "defaultMessage": "فشل الحفظ"
+  },
+  "files.error.go-to-home": {
+    "defaultMessage": "الانتقال إلى المجلد الرئيسي"
+  },
+  "files.error.try-again": {
+    "defaultMessage": "حاول مرة أخرى"
+  },
+  "files.image_viewer.image_too_large": {
+    "defaultMessage": "الصورة كبيرة جدًا للعرض (بحد أقصى {maxDimension}x{maxDimension} بكسل)"
+  },
+  "files.image_viewer.invalid_image": {
+    "defaultMessage": "ملف صورة غير صالح أو فارغ."
+  },
+  "files.image_viewer.load_failed": {
+    "defaultMessage": "تعذّر تحميل الصورة"
+  },
+  "files.image_viewer.reset_zoom": {
+    "defaultMessage": "إعادة تعيين التكبير"
+  },
+  "files.image_viewer.viewed_image_alt": {
+    "defaultMessage": "الصورة المعروضة"
+  },
+  "files.image_viewer.zoom_in": {
+    "defaultMessage": "تكبير"
+  },
+  "files.image_viewer.zoom_out": {
+    "defaultMessage": "تصغير"
+  },
+  "files.item-type.file": {
+    "defaultMessage": "ملف"
   },
   "files.item-type.files": {
     "defaultMessage": "الملفات"
@@ -829,6 +1102,9 @@
   },
   "files.item-type.folders": {
     "defaultMessage": "المجلدات"
+  },
+  "files.layout.create-zip": {
+    "defaultMessage": "إنشاء ZIP"
   },
   "files.layout.dry-run-failed-text": {
     "defaultMessage": "حدث خطأ أثناء إجراء المحاكاة"
@@ -887,9 +1163,6 @@
   "files.navbar.home": {
     "defaultMessage": "الصفحة الرئيسية"
   },
-  "files.navbar.install-curseforge-pack": {
-    "defaultMessage": "تثبيت مودباك CurseForge"
-  },
   "files.navbar.new-file": {
     "defaultMessage": "ملف جديد"
   },
@@ -908,14 +1181,14 @@
   "files.navbar.upload-from-zip": {
     "defaultMessage": "رفع من ملف ‎.zip‎"
   },
-  "files.navbar.upload-from-zip-url": {
-    "defaultMessage": "فع من رابط ملف ‎.zip‎"
-  },
   "files.rename-modal.header": {
     "defaultMessage": "إعادة تسمية {name}"
   },
   "files.rename-modal.new-name-label": {
     "defaultMessage": "الاسم الجديد"
+  },
+  "files.row.create-zip": {
+    "defaultMessage": "إنشاء ZIP"
   },
   "files.row.item-count": {
     "defaultMessage": "{count, plural, one {عنصر واحد} two {عنصران} few {# عناصر} many {# عنصرًا} other {# عنصر}}"
@@ -944,8 +1217,44 @@
   "files.unsaved-changes-modal.header": {
     "defaultMessage": "تغييرات غير محفوظة"
   },
+  "files.upload.drag-and-drop.drop-to-upload": {
+    "defaultMessage": "أفلت {type} هنا للرفع"
+  },
+  "files.validation.name-invalid-directory": {
+    "defaultMessage": "يجب أن يحتوي الاسم على أحرف أبجدية رقمية أو شرطات أو شرطات سفلية أو مسافات فقط."
+  },
+  "files.validation.name-invalid-file": {
+    "defaultMessage": "يجب أن يحتوي الاسم على أحرف أبجدية رقمية أو شرطات أو شرطات سفلية أو نقاط أو مسافات فقط."
+  },
   "files.validation.name-label": {
     "defaultMessage": "إسم"
+  },
+  "files.validation.name-required": {
+    "defaultMessage": "الاسم مطلوب."
+  },
+  "filter-bar.add": {
+    "defaultMessage": "إضافة"
+  },
+  "filter-bar.clear": {
+    "defaultMessage": "مسح"
+  },
+  "filter-bar.clear-named-filter": {
+    "defaultMessage": "مسح مرشح {name}"
+  },
+  "filter-bar.filtered-by": {
+    "defaultMessage": "مُرشّح حسب"
+  },
+  "filter-bar.no-options": {
+    "defaultMessage": "لا توجد خيارات متاحة."
+  },
+  "filter-bar.no-search-results": {
+    "defaultMessage": "لم يتم العثور على خيارات."
+  },
+  "filter-bar.search-placeholder": {
+    "defaultMessage": "ابحث..."
+  },
+  "filter-bar.select-all": {
+    "defaultMessage": "تحديد الكل"
   },
   "form.label.address-line": {
     "defaultMessage": "خط عنوان"
@@ -1025,17 +1334,155 @@
   "form.placeholder.state": {
     "defaultMessage": "ضع المقاطعة او ولاية "
   },
+  "format.bytes.0": {
+    "defaultMessage": "{count, plural, one {بايت واحد} other {# بايت}}"
+  },
+  "format.bytes.1": {
+    "defaultMessage": "{count, number} KiB"
+  },
+  "format.bytes.2": {
+    "defaultMessage": "{count, number} MiB"
+  },
+  "format.bytes.3": {
+    "defaultMessage": "{count, number} GiB"
+  },
+  "format.bytes.4": {
+    "defaultMessage": "{count, number} TiB"
+  },
   "header.category.category": {
     "defaultMessage": "محتوى"
   },
   "header.category.feature": {
     "defaultMessage": "مستقبل"
   },
+  "header.category.minecraft-server-community": {
+    "defaultMessage": "المجتمع"
+  },
+  "header.category.minecraft-server-features": {
+    "defaultMessage": "الميزات"
+  },
+  "header.category.minecraft-server-gameplay": {
+    "defaultMessage": "أسلوب اللعب"
+  },
+  "header.category.minecraft-server-meta": {
+    "defaultMessage": "وصفية"
+  },
   "header.category.performance-impact": {
     "defaultMessage": "زيادة FPS"
   },
+  "header.category.resolutions": {
+    "defaultMessage": "الدقة"
+  },
+  "image-viewer.close": {
+    "defaultMessage": "إغلاق"
+  },
+  "image-viewer.edit": {
+    "defaultMessage": "تعديل"
+  },
+  "image-viewer.editor.colour": {
+    "defaultMessage": "اللون"
+  },
+  "image-viewer.editor.crop.dimensions": {
+    "defaultMessage": "{width} × {height} بكسل"
+  },
+  "image-viewer.editor.crop.reset": {
+    "defaultMessage": "إعادة تعيين القص"
+  },
+  "image-viewer.editor.delete-selection": {
+    "defaultMessage": "حذف التعليق المحدد"
+  },
+  "image-viewer.editor.eraser.area": {
+    "defaultMessage": "المنطقة"
+  },
+  "image-viewer.editor.eraser.element": {
+    "defaultMessage": "العنصر"
+  },
+  "image-viewer.editor.eraser.mode": {
+    "defaultMessage": "وضع الممحاة"
+  },
+  "image-viewer.editor.image-editing-tools": {
+    "defaultMessage": "أدوات تعديل الصور"
+  },
+  "image-viewer.editor.more-save-options": {
+    "defaultMessage": "المزيد من خيارات الحفظ"
+  },
+  "image-viewer.editor.overwrite": {
+    "defaultMessage": "الكتابة فوق"
+  },
+  "image-viewer.editor.redo": {
+    "defaultMessage": "إعادة"
+  },
+  "image-viewer.editor.save-as-new": {
+    "defaultMessage": "حفظ نسخة"
+  },
+  "image-viewer.editor.save-image": {
+    "defaultMessage": "حفظ الصورة"
+  },
+  "image-viewer.editor.size": {
+    "defaultMessage": "الحجم"
+  },
+  "image-viewer.editor.tool.arrow": {
+    "defaultMessage": "سهم"
+  },
+  "image-viewer.editor.tool.censor": {
+    "defaultMessage": "تعتيم"
+  },
+  "image-viewer.editor.tool.crop": {
+    "defaultMessage": "قص"
+  },
+  "image-viewer.editor.tool.ellipse": {
+    "defaultMessage": "قطع ناقص"
+  },
+  "image-viewer.editor.tool.eraser": {
+    "defaultMessage": "ممحاة"
+  },
+  "image-viewer.editor.tool.highlight": {
+    "defaultMessage": "تمييز"
+  },
+  "image-viewer.editor.tool.pen": {
+    "defaultMessage": "قلم"
+  },
+  "image-viewer.editor.tool.rectangle": {
+    "defaultMessage": "مستطيل"
+  },
+  "image-viewer.editor.tool.select": {
+    "defaultMessage": "تحديد"
+  },
+  "image-viewer.editor.tool.text": {
+    "defaultMessage": "نص"
+  },
+  "image-viewer.editor.undo": {
+    "defaultMessage": "تراجع"
+  },
+  "image-viewer.editor.width": {
+    "defaultMessage": "العرض"
+  },
+  "image-viewer.editor.zoom-fit": {
+    "defaultMessage": "ملاءمة"
+  },
+  "image-viewer.editor.zoom-fit-workspace": {
+    "defaultMessage": "ملاءمة لمساحة العمل"
+  },
+  "image-viewer.editor.zoom-in": {
+    "defaultMessage": "تكبير"
+  },
+  "image-viewer.editor.zoom-out": {
+    "defaultMessage": "تصغير"
+  },
+  "image-viewer.next": {
+    "defaultMessage": "الصورة التالية"
+  },
+  "image-viewer.previous": {
+    "defaultMessage": "الصورة السابقة"
+  },
+  "input.search-version.placeholder": {
+    "defaultMessage": "ابحث عن إصدار..."
+  },
   "input.search.placeholder": {
     "defaultMessage": "بحث..."
+  },
+  "input.select-version.placeholder": {
+    "defaultMessage": "اختر الإصدار"
   },
   "input.view.gallery": {
     "defaultMessage": "عرض المعرض"
@@ -1045,6 +1492,135 @@
   },
   "input.view.list": {
     "defaultMessage": "عرض الصفوف"
+  },
+  "installation-settings.aria.select-game-version": {
+    "defaultMessage": "اختر إصدار اللعبة"
+  },
+  "installation-settings.aria.select-loader-version": {
+    "defaultMessage": "اختر إصدار {loader}"
+  },
+  "installation-settings.aria.select-platform": {
+    "defaultMessage": "اختر المنصة"
+  },
+  "installation-settings.confirm-version-change": {
+    "defaultMessage": "تأكيد"
+  },
+  "installation-settings.confirm-version-change-description": {
+    "defaultMessage": "سيؤدي التغيير إلى {gameVersion} إلى تعديل المحتوى التالي على خادمك."
+  },
+  "installation-settings.confirm-version-change-header": {
+    "defaultMessage": "مراجعة تغييرات المحتوى"
+  },
+  "installation-settings.edit-installation.title": {
+    "defaultMessage": "تعديل التثبيت"
+  },
+  "installation-settings.edit.warning-instance": {
+    "defaultMessage": "لا نوصي بتعديل إعدادات التثبيت بعد تثبيت المحتوى. إذا أردت تعديلها، فكن حذرًا فقد يتسبب ذلك في مشكلات."
+  },
+  "installation-settings.incompatible-content.auto-fix-button": {
+    "defaultMessage": "إصلاح تلقائي"
+  },
+  "installation-settings.incompatible-content.change-loader-button": {
+    "defaultMessage": "تغيير اللودر"
+  },
+  "installation-settings.incompatible-content.disable-conflicts-button": {
+    "defaultMessage": "تعطيل المتعارضات"
+  },
+  "installation-settings.incompatible-content.game-version-warning-body": {
+    "defaultMessage": "عند تغيير إصدار اللعبة، يمكننا إما تعطيل المحتوى المثبت غير المتوافق أو محاولة حل التعارضات."
+  },
+  "installation-settings.incompatible-content.game-version-warning-title": {
+    "defaultMessage": "تحذير عدم التوافق"
+  },
+  "installation-settings.incompatible-content.header": {
+    "defaultMessage": "محتوى غير متوافق مثبت"
+  },
+  "installation-settings.incompatible-content.loader-change-body": {
+    "defaultMessage": "عند تغيير اللودر، سيتم تعطيل كل المحتوى المثبت. نوصي بإعادة تعيين خادمك بدلًا من ذلك."
+  },
+  "installation-settings.incompatible-content.loader-change-title": {
+    "defaultMessage": "تغيير اللودر إجراء مدمّر"
+  },
+  "installation-settings.linked-instance.title": {
+    "defaultMessage": "{projectType} مرتبط"
+  },
+  "installation-settings.linked.modpack": {
+    "defaultMessage": "مودباك"
+  },
+  "installation-settings.linked.server-project": {
+    "defaultMessage": "مشروع خادم"
+  },
+  "installation-settings.loader-version": {
+    "defaultMessage": "إصدار {loader}"
+  },
+  "installation-settings.platform-lock-tooltip": {
+    "defaultMessage": "ستحتاج إلى إعادة تعيين خادمك لتبديل اللودر."
+  },
+  "installation-settings.reinstall-modpack.description": {
+    "defaultMessage": "إعادة تثبيت المودباك تعيد محتوى {type} إلى حالته الأصلية، مع إزالة أي مودات أو محتوى أضفته."
+  },
+  "installation-settings.reinstall-modpack.title": {
+    "defaultMessage": "إعادة تثبيت المودباك"
+  },
+  "installation-settings.reinstalling-modpack": {
+    "defaultMessage": "جارٍ إعادة تثبيت المودباك"
+  },
+  "installation-settings.removed-incompatible": {
+    "defaultMessage": "تمت الإزالة (غير متوافق)"
+  },
+  "installation-settings.repair.instance-description": {
+    "defaultMessage": "يعيد تثبيت تبعيات Minecraft ويفحص التلف. قد يحل ذلك المشكلات إذا كانت لعبتك لا تعمل بسبب أخطاء متعلقة بالمشغّل."
+  },
+  "installation-settings.repair.instance-title": {
+    "defaultMessage": "إصلاح النسخة"
+  },
+  "installation-settings.saving": {
+    "defaultMessage": "جارٍ الحفظ..."
+  },
+  "installation-settings.search-game-version": {
+    "defaultMessage": "ابحث عن إصدار اللعبة..."
+  },
+  "installation-settings.type.instance": {
+    "defaultMessage": "نسخة"
+  },
+  "installation-settings.type.instance-possessive": {
+    "defaultMessage": "خاصة النسخة"
+  },
+  "installation-settings.type.server": {
+    "defaultMessage": "خادم"
+  },
+  "installation-settings.unlink": {
+    "defaultMessage": "فك الارتباط"
+  },
+  "installation-settings.unlink.description": {
+    "defaultMessage": "يؤدي فك الارتباط إلى فصل {type} نهائيًا عن مشروع {projectType}، مما يتيح لك تغيير اللودر وإصدار Minecraft، لكنك لن تتلقى التحديثات المستقبلية."
+  },
+  "installation-settings.verifying": {
+    "defaultMessage": "جارٍ التحقق..."
+  },
+  "instance.confirm-reinstall.admonition-body": {
+    "defaultMessage": "ستؤدي إعادة التثبيت إلى إعادة تعيين كل المحتوى المثبت أو المعدّل إلى ما يوفره المودباك، مع إزالة أي مودات أو محتوى أضفته فوق التثبيت الأصلي."
+  },
+  "instance.confirm-reinstall.admonition-header": {
+    "defaultMessage": "تحذير إعادة التثبيت"
+  },
+  "instance.confirm-reinstall.header": {
+    "defaultMessage": "إعادة تثبيت المودباك"
+  },
+  "instance.confirm-reinstall.reinstall-button": {
+    "defaultMessage": "إعادة تثبيت المودباك"
+  },
+  "instance.confirm-repair.body.instance": {
+    "defaultMessage": "يعيد الإصلاح تثبيت اللودر وتبعيات Minecraft دون حذف المحتوى. قد يحل ذلك المشكلات إذا كانت لعبتك لا تعمل بسبب أخطاء متعلقة بالمشغّل."
+  },
+  "instance.confirm-repair.header": {
+    "defaultMessage": "إصلاح {type}"
+  },
+  "instance.confirm-repair.instance-label": {
+    "defaultMessage": "نسخة"
+  },
+  "instance.confirm-repair.repair-button": {
+    "defaultMessage": "إصلاح"
   },
   "instance.worlds.game_mode.adventure": {
     "defaultMessage": "وضع المغامرة"
@@ -1061,17 +1637,137 @@
   "instance.worlds.game_mode.unknown": {
     "defaultMessage": "وضع لعبة غير معروف"
   },
+  "instances.content-install.compatible-count": {
+    "defaultMessage": "{count, plural, one {نسخة واحدة متوافقة} other {# نسخ متوافقة}}"
+  },
+  "instances.content-install.existing-tab": {
+    "defaultMessage": "نسخة موجودة"
+  },
+  "instances.content-install.game-version-placeholder": {
+    "defaultMessage": "اختر إصدار اللعبة"
+  },
+  "instances.content-install.header": {
+    "defaultMessage": "تثبيت مشروع"
+  },
+  "instances.content-install.hide-unavailable": {
+    "defaultMessage": "إخفاء غير المتاح"
+  },
+  "instances.content-install.incompatible-tooltip": {
+    "defaultMessage": "تستخدم هذه النسخة لودر أو إصدار لعبة مختلفًا عما يدعمه هذا المشروع."
+  },
+  "instances.content-install.install-button": {
+    "defaultMessage": "تثبيت"
+  },
+  "instances.content-install.installed-badge": {
+    "defaultMessage": "مثبت"
+  },
+  "instances.content-install.instance-type": {
+    "defaultMessage": "نوع النسخة"
+  },
+  "instances.content-install.loader-label": {
+    "defaultMessage": "اللودر"
+  },
+  "instances.content-install.name-label": {
+    "defaultMessage": "الاسم"
+  },
+  "instances.content-install.name-placeholder": {
+    "defaultMessage": "أدخل اسم النسخة"
+  },
+  "instances.content-install.new-tab": {
+    "defaultMessage": "نسخة جديدة"
+  },
+  "instances.content-install.no-instances": {
+    "defaultMessage": "لم يتم العثور على نسخ متوافقة"
+  },
+  "instances.content-install.search-placeholder": {
+    "defaultMessage": "ابحث عن نسخة"
+  },
+  "instances.content-install.show-unavailable": {
+    "defaultMessage": "عرض غير المتاح"
+  },
+  "instances.managed-content-modal.disabled": {
+    "defaultMessage": "معطّل"
+  },
+  "instances.managed-content-modal.download-file": {
+    "defaultMessage": "تنزيل الملف"
+  },
+  "instances.managed-content-modal.empty-description": {
+    "defaultMessage": "لا يتضمن هذا المصدر أي محتوى مُدار."
+  },
+  "instances.managed-content-modal.empty-title": {
+    "defaultMessage": "لم يتم العثور على محتوى"
+  },
+  "instances.managed-content-modal.enabled": {
+    "defaultMessage": "مفعّل"
+  },
+  "instances.managed-content-modal.external-content": {
+    "defaultMessage": "خارجي"
+  },
+  "instances.managed-content-modal.external-content-description": {
+    "defaultMessage": "هذا الملف غير منشور على Modrinth."
+  },
+  "instances.managed-content-modal.header": {
+    "defaultMessage": "محتوى مُدار"
+  },
+  "instances.managed-content-modal.loading": {
+    "defaultMessage": "جارٍ تحميل المحتوى..."
+  },
+  "instances.managed-content-modal.no-results": {
+    "defaultMessage": "لا توجد مشاريع مطابقة لبحثك."
+  },
+  "instances.managed-content-modal.open-in-slicer": {
+    "defaultMessage": "فتح في Slicer"
+  },
+  "instances.managed-content-modal.search-placeholder": {
+    "defaultMessage": "ابحث في {count, number} {count, plural, one {مشروع} other {مشاريع}}"
+  },
+  "instances.managed-content-modal.warnings": {
+    "defaultMessage": "تحذيرات"
+  },
   "instances.updater-modal.badge.current": {
     "defaultMessage": "حاضِر"
   },
   "instances.updater-modal.badge.incompatible": {
     "defaultMessage": "غير متوافق"
   },
+  "instances.updater-modal.downgrade-to": {
+    "defaultMessage": "الرجوع إلى {version}"
+  },
   "instances.updater-modal.header": {
     "defaultMessage": "تحديث الإصدار"
   },
+  "instances.updater-modal.header-modpack": {
+    "defaultMessage": "تبديل إصدار المودباك"
+  },
+  "instances.updater-modal.header-switch": {
+    "defaultMessage": "تبديل الإصدار"
+  },
   "instances.updater-modal.hide-incompatible": {
     "defaultMessage": "إخفاء غير المتوافق"
+  },
+  "instances.updater-modal.incompatibility-warning": {
+    "defaultMessage": "هذا الإصدار غير موسوم كمتوافق مع هذه النسخة. لن تُثبّت التبعيات تلقائيًا."
+  },
+  "instances.updater-modal.incompatibility-warning-header": {
+    "defaultMessage": "اختر الإصدار"
+  },
+  "instances.updater-modal.incompatible-update.description": {
+    "defaultMessage": "الإصدار {version} غير موسوم كمتوافق مع هذا التثبيت. قد يفشل التشغيل أو يتصرف بشكل غير متوقع."
+  },
+  "instances.updater-modal.incompatible-update.header": {
+    "defaultMessage": "التحديث إلى إصدار غير متوافق؟"
+  },
+  "instances.updater-modal.incompatible-update.proceed": {
+    "defaultMessage": "حدّث على أي حال"
+  },
+  "instances.updater-modal.install-anyway": {
+    "defaultMessage": "ثبّت على أي حال"
+  },
+  "instances.updater-modal.loading-changelog": {
+    "defaultMessage": "جارٍ تحميل سجل التغييرات..."
+  },
+  "instances.updater-modal.loading-versions": {
+    "defaultMessage": "جارٍ تحميل الإصدارات..."
   },
   "instances.updater-modal.no-changelog": {
     "defaultMessage": "لم يتم توفير سجل التغييرات لهذا الإصدار."
@@ -1088,6 +1784,18 @@
   "instances.updater-modal.show-incompatible": {
     "defaultMessage": "عرض غير المتوافق"
   },
+  "instances.updater-modal.switch-to": {
+    "defaultMessage": "التبديل إلى {version}"
+  },
+  "instances.updater-modal.update-to": {
+    "defaultMessage": "التحديث إلى {version}"
+  },
+  "instances.updater-modal.warning-app": {
+    "defaultMessage": "قد يؤدي التحديث إلى تعطّل نسختك. راجع سجلات تغييرات الإصدارات واحتفظ بنسخة احتياطية أولًا."
+  },
+  "instances.updater-modal.warning-web": {
+    "defaultMessage": "قد يؤدي التحديث إلى تعطّل عالمك. راجع سجلات تغييرات الإصدارات واحتفظ بنسخة احتياطية أولًا."
+  },
   "label.actions": {
     "defaultMessage": "الأفعال"
   },
@@ -1100,6 +1808,15 @@
   "label.changes-saved": {
     "defaultMessage": "تم حفظ التغييرات"
   },
+  "label.client-depends-warning": {
+    "defaultMessage": "يعتمد هذا المود على مود خاص بالعميل وقد يتسبب في مشكلات عند تشغيل خادمك"
+  },
+  "label.client-only-warning": {
+    "defaultMessage": "هذا مود خاص بالعميل وقد يتسبب في مشكلات عند تشغيل خادمك"
+  },
+  "label.client-retained-warning": {
+    "defaultMessage": "هذا مود خاص بالعميل تم تثبيته كتبعية وقد يتسبب في مشكلات عند تشغيل خادمك"
+  },
   "label.collections": {
     "defaultMessage": "مجموعات"
   },
@@ -1108,6 +1825,15 @@
   },
   "label.content": {
     "defaultMessage": "محتوى"
+  },
+  "label.copied-filename": {
+    "defaultMessage": "تم نسخ اسم الملف"
+  },
+  "label.copied-path": {
+    "defaultMessage": "تم نسخ المسار"
+  },
+  "label.create-failed": {
+    "defaultMessage": "تعذّر الإنشاء"
   },
   "label.created-ago": {
     "defaultMessage": "تم الإنشاء منذ {ago}"
@@ -1118,11 +1844,26 @@
   "label.delete": {
     "defaultMessage": "حذف"
   },
+  "label.delete-failed": {
+    "defaultMessage": "تعذّر الحذف"
+  },
+  "label.delete-immediately": {
+    "defaultMessage": "حذف فورًا"
+  },
   "label.description": {
     "defaultMessage": "الوصف"
   },
   "label.details": {
     "defaultMessage": "تفاصيل"
+  },
+  "label.discover-content": {
+    "defaultMessage": "اكتشاف المحتوى"
+  },
+  "label.done": {
+    "defaultMessage": "تم"
+  },
+  "label.download-failed": {
+    "defaultMessage": "تعذّر التنزيل"
   },
   "label.email": {
     "defaultMessage": "عنوان"
@@ -1133,17 +1874,56 @@
   "label.error": {
     "defaultMessage": "خطأ"
   },
+  "label.explanation": {
+    "defaultMessage": "الشرح"
+  },
+  "label.extract-failed": {
+    "defaultMessage": "تعذّر الاستخراج"
+  },
   "label.filter-by": {
     "defaultMessage": "فرز بـ"
   },
+  "label.filters": {
+    "defaultMessage": "المرشحات"
+  },
   "label.followed-projects": {
     "defaultMessage": "المشاريع التي تتابعها"
+  },
+  "label.game-version": {
+    "defaultMessage": "إصدار اللعبة"
+  },
+  "label.hide-installed-content": {
+    "defaultMessage": "إخفاء المحتوى المثبت بالفعل"
+  },
+  "label.hide-selected-content": {
+    "defaultMessage": "إخفاء المحتوى المحدد"
+  },
+  "label.installation-info": {
+    "defaultMessage": "معلومات التثبيت"
+  },
+  "label.installed": {
+    "defaultMessage": "مثبت"
+  },
+  "label.installed-modpack": {
+    "defaultMessage": "مودباك مثبت"
+  },
+  "label.installing": {
+    "defaultMessage": "جارٍ التثبيت..."
+  },
+  "label.installing-content": {
+    "defaultMessage": "جارٍ تثبيت المحتوى"
   },
   "label.loading": {
     "defaultMessage": "جارٍ التحميل..."
   },
   "label.moderation": {
     "defaultMessage": "الإشراف"
+  },
+  "label.modpack": {
+    "defaultMessage": "مودباك"
+  },
+  "label.move-failed": {
+    "defaultMessage": "تعذّر النقل"
   },
   "label.no": {
     "defaultMessage": "لا"
@@ -1160,6 +1940,30 @@
   "label.password": {
     "defaultMessage": "كلمة المرور"
   },
+  "label.permissions": {
+    "defaultMessage": "الأذونات"
+  },
+  "label.plan-custom": {
+    "defaultMessage": "مخصص"
+  },
+  "label.plan-large": {
+    "defaultMessage": "كبير"
+  },
+  "label.plan-medium": {
+    "defaultMessage": "متوسط"
+  },
+  "label.plan-small": {
+    "defaultMessage": "صغير"
+  },
+  "label.plan-unknown": {
+    "defaultMessage": "غير معروف"
+  },
+  "label.platform": {
+    "defaultMessage": "المنصة"
+  },
+  "label.played": {
+    "defaultMessage": "لُعب {ago}"
+  },
   "label.project": {
     "defaultMessage": "مشروع"
   },
@@ -1168,6 +1972,9 @@
   },
   "label.rejected": {
     "defaultMessage": "مرفوض"
+  },
+  "label.rename-failed": {
+    "defaultMessage": "تعذّرت إعادة التسمية"
   },
   "label.rewards-program-terms-agreement": {
     "defaultMessage": "أوافق على <terms-link> شروط برنامج المكافآت</terms-link>"
@@ -1181,6 +1988,15 @@
   "label.search": {
     "defaultMessage": "ابحث"
   },
+  "label.select-all": {
+    "defaultMessage": "تحديد الكل"
+  },
+  "label.selected": {
+    "defaultMessage": "محدد"
+  },
+  "label.selection-actions": {
+    "defaultMessage": "إجراءات التحديد"
+  },
   "label.server": {
     "defaultMessage": "خادم"
   },
@@ -1193,11 +2009,17 @@
   "label.singleplayer": {
     "defaultMessage": "اللعب الفردي"
   },
+  "label.sort-by": {
+    "defaultMessage": "ترتيب حسب:"
+  },
   "label.success": {
     "defaultMessage": "نجاح"
   },
   "label.title": {
     "defaultMessage": "العنوان"
+  },
+  "label.unknown": {
+    "defaultMessage": "غير معروف"
   },
   "label.unlisted": {
     "defaultMessage": "غير مدرج"
@@ -1205,11 +2027,23 @@
   "label.update-available": {
     "defaultMessage": "تحديث متوفر"
   },
+  "label.updating": {
+    "defaultMessage": "جارٍ التحديث..."
+  },
+  "label.upload-failed": {
+    "defaultMessage": "تعذّر الرفع"
+  },
   "label.username": {
     "defaultMessage": "اسم مستخدم"
   },
+  "label.validating": {
+    "defaultMessage": "جارٍ التحقق"
+  },
   "label.version": {
     "defaultMessage": "الإصدار"
+  },
+  "label.view": {
+    "defaultMessage": "عرض"
   },
   "label.visibility": {
     "defaultMessage": "الرؤية"
@@ -1220,11 +2054,188 @@
   "label.yes": {
     "defaultMessage": "نعم"
   },
+  "locale.cs-CZ": {
+    "defaultMessage": "التشيكية"
+  },
+  "locale.da-DK": {
+    "defaultMessage": "الدانماركية"
+  },
+  "locale.de-CH": {
+    "defaultMessage": "الألمانية (سويسرا)"
+  },
+  "locale.de-DE": {
+    "defaultMessage": "الألمانية (ألمانيا)"
+  },
+  "locale.en-US": {
+    "defaultMessage": "الإنجليزية (الولايات المتحدة)"
+  },
+  "locale.es-419": {
+    "defaultMessage": "الإسبانية (أمريكا اللاتينية)"
+  },
+  "locale.es-ES": {
+    "defaultMessage": "الإسبانية (إسبانيا)"
+  },
+  "locale.fi-FI": {
+    "defaultMessage": "الفنلندية"
+  },
+  "locale.fil-PH": {
+    "defaultMessage": "الفلبينية"
+  },
+  "locale.fr-FR": {
+    "defaultMessage": "الفرنسية"
+  },
+  "locale.he-IL": {
+    "defaultMessage": "العبرية"
+  },
+  "locale.hu-HU": {
+    "defaultMessage": "الهنغارية"
+  },
+  "locale.id-ID": {
+    "defaultMessage": "الإندونيسية"
+  },
+  "locale.it-IT": {
+    "defaultMessage": "الإيطالية (إيطاليا)"
+  },
+  "locale.ja-JP": {
+    "defaultMessage": "اليابانية"
+  },
+  "locale.ko-KR": {
+    "defaultMessage": "الكورية"
+  },
+  "locale.ms-MY": {
+    "defaultMessage": "الملايو"
+  },
+  "locale.nl-NL": {
+    "defaultMessage": "الهولندية"
+  },
+  "locale.no-NO": {
+    "defaultMessage": "النرويجية (بوكمول)"
+  },
+  "locale.pl-PL": {
+    "defaultMessage": "البولندية"
+  },
+  "locale.pt-BR": {
+    "defaultMessage": "البرتغالية (البرازيل)"
+  },
+  "locale.pt-PT": {
+    "defaultMessage": "البرتغالية (البرتغال)"
+  },
+  "locale.ro-RO": {
+    "defaultMessage": "الرومانية"
+  },
+  "locale.ru-RU": {
+    "defaultMessage": "الروسية"
+  },
+  "locale.sr-CS": {
+    "defaultMessage": "الصربية (باللاتينية)"
+  },
+  "locale.sv-SE": {
+    "defaultMessage": "السويدية"
+  },
+  "locale.th-TH": {
+    "defaultMessage": "التايلندية"
+  },
+  "locale.tr-TR": {
+    "defaultMessage": "التركية"
+  },
+  "locale.uk-UA": {
+    "defaultMessage": "الأوكرانية"
+  },
+  "locale.vi-VN": {
+    "defaultMessage": "الفيتنامية"
+  },
+  "locale.zh-CN": {
+    "defaultMessage": "الصينية (المبسطة)"
+  },
+  "locale.zh-TW": {
+    "defaultMessage": "الصينية (التقليدية)"
+  },
+  "modal.confirm.type-here-placeholder": {
+    "defaultMessage": "اكتب هنا..."
+  },
+  "modal.confirm.type-to-confirm": {
+    "defaultMessage": "للتأكيد على رغبتك في المتابعة، اكتب <confirmation-text></confirmation-text> أدناه:"
+  },
+  "modal.share.copy-failed-title": {
+    "defaultMessage": "تعذّر نسخ النص"
+  },
+  "modal.share.copy-link": {
+    "defaultMessage": "نسخ الرابط"
+  },
+  "modal.share.copy-qr-code": {
+    "defaultMessage": "نسخ رمز QR"
+  },
+  "modal.share.copy-text": {
+    "defaultMessage": "نسخ النص"
+  },
+  "modal.share.link-copied-text": {
+    "defaultMessage": "تم نسخ الرابط إلى حافظتك."
+  },
+  "modal.share.link-copied-title": {
+    "defaultMessage": "تم نسخ الرابط"
+  },
+  "modal.share.open-in-new-tab": {
+    "defaultMessage": "فتح في تبويب جديد"
+  },
+  "modal.share.open-link-in-browser": {
+    "defaultMessage": "فتح الرابط في المتصفح"
+  },
+  "modal.share.send-email": {
+    "defaultMessage": "إرسال كبريد إلكتروني"
+  },
+  "modal.share.share": {
+    "defaultMessage": "مشاركة"
+  },
+  "modal.share.share-on-reddit": {
+    "defaultMessage": "المشاركة على Reddit"
+  },
+  "modal.share.toot-about-it": {
+    "defaultMessage": "توت عنه"
+  },
+  "modal.share.tweet-about-it": {
+    "defaultMessage": "غرّد عنه"
+  },
+  "multi-select.clear-all": {
+    "defaultMessage": "مسح الكل"
+  },
+  "multi-select.selection-count": {
+    "defaultMessage": "{count, plural, one {# محددة} other {# محددة}}"
+  },
   "notification.error.title": {
     "defaultMessage": "حدث خطأ"
   },
-  "omorphia.component.copy.action.copy": {
-    "defaultMessage": "نسخ الكود للحافظة"
+  "notifications.actor.unknown": {
+    "defaultMessage": "شخص ما"
+  },
+  "notifications.close": {
+    "defaultMessage": "إغلاق"
+  },
+  "notifications.dismiss": {
+    "defaultMessage": "تجاهل التنبيه"
+  },
+  "notifications.friend-request.body": {
+    "defaultMessage": "أرسل لك <actor>{actor}</actor> طلب صداقة."
+  },
+  "notifications.instance-invite.body": {
+    "defaultMessage": "دعاك <actor>{actor}</actor> إلى نسخة <entity>{entity}</entity>."
+  },
+  "notifications.instance-ready.launch-game": {
+    "defaultMessage": "تشغيل اللعبة"
+  },
+  "notifications.instance-ready.open-instance": {
+    "defaultMessage": "النسخة"
+  },
+  "notifications.instance-ready.status": {
+    "defaultMessage": "مثبتة وجاهزة للعب."
+  },
+  "notifications.invite.accept": {
+    "defaultMessage": "قبول"
+  },
+  "notifications.invite.decline": {
+    "defaultMessage": "رفض"
+  },
+  "notifications.server-invite.body": {
+    "defaultMessage": "دعاك <actor>{actor}</actor> لإدارة الخادم <entity>{entity}</entity>."
   },
   "payment-method.amazon_pay": {
     "defaultMessage": " Amazon Pay"
@@ -1262,6 +2273,9 @@
   "payment-method.jcb": {
     "defaultMessage": "JCB"
   },
+  "payment-method.mastercard": {
+    "defaultMessage": "Mastercard"
+  },
   "payment-method.paypal": {
     "defaultMessage": "PayPal"
   },
@@ -1286,6 +2300,30 @@
   "payment-method.visa": {
     "defaultMessage": "Visa"
   },
+  "project-card.date.published.tooltip": {
+    "defaultMessage": "نُشر في {date}"
+  },
+  "project-card.date.updated.tooltip": {
+    "defaultMessage": "حُدّث في {date}"
+  },
+  "project-card.environment.client": {
+    "defaultMessage": "العميل"
+  },
+  "project-card.environment.client-and-server": {
+    "defaultMessage": "العميل والخادم"
+  },
+  "project-card.environment.client-or-server": {
+    "defaultMessage": "العميل أو الخادم"
+  },
+  "project-card.environment.dedicated-server": {
+    "defaultMessage": "خادم مخصص"
+  },
+  "project-card.environment.server": {
+    "defaultMessage": "الخادم"
+  },
+  "project-card.environment.singleplayer": {
+    "defaultMessage": "لعب فردي"
+  },
   "project-type.all": {
     "defaultMessage": "الكل"
   },
@@ -1295,13 +2333,1606 @@
   "project-type.datapack.category": {
     "defaultMessage": "داتاباك"
   },
+  "project-type.datapack.lowercase": {
+    "defaultMessage": "{count, plural, one {حزمة بيانات} other {حزم بيانات}}"
+  },
+  "project-type.mod.capital": {
+    "defaultMessage": "{count, plural, one {مود} other {مودات}}"
+  },
   "project-type.mod.category": {
     "defaultMessage": "مودات"
+  },
+  "project-type.mod.lowercase": {
+    "defaultMessage": "{count, plural, one {مود} other {مودات}}"
+  },
+  "project-type.modpack.capital": {
+    "defaultMessage": "{count, plural, one {مودباك} other {مودباكات}}"
   },
   "project-type.modpack.category": {
     "defaultMessage": "مودباكاتات"
   },
+  "project-type.modpack.lowercase": {
+    "defaultMessage": "{count, plural, one {مودباك} other {مودباكات}}"
+  },
+  "project-type.plugin.capital": {
+    "defaultMessage": "{count, plural, one {إضافة} other {إضافات}}"
+  },
+  "project-type.plugin.category": {
+    "defaultMessage": "إضافات"
+  },
+  "project-type.plugin.lowercase": {
+    "defaultMessage": "{count, plural, one {إضافة} other {إضافات}}"
+  },
+  "project-type.project.capital": {
+    "defaultMessage": "{count, plural, one {مشروع} other {مشاريع}}"
+  },
+  "project-type.project.category": {
+    "defaultMessage": "مشاريع"
+  },
+  "project-type.project.lowercase": {
+    "defaultMessage": "{count, plural, one {مشروع} other {مشاريع}}"
+  },
+  "project-type.resourcepack.capital": {
+    "defaultMessage": "{count, plural, one {حزمة موارد} other {حزم موارد}}"
+  },
+  "project-type.resourcepack.category": {
+    "defaultMessage": "حزم الموارد"
+  },
+  "project-type.resourcepack.lowercase": {
+    "defaultMessage": "{count, plural, one {حزمة موارد} other {حزم موارد}}"
+  },
+  "project-type.server.capital": {
+    "defaultMessage": "{count, plural, one {خادم} other {خوادم}}"
+  },
+  "project-type.server.category": {
+    "defaultMessage": "خوادم"
+  },
+  "project-type.server.lowercase": {
+    "defaultMessage": "{count, plural, one {خادم} other {خوادم}}"
+  },
+  "project-type.shader.capital": {
+    "defaultMessage": "{count, plural, one {تظليل} other {تظليلات}}"
+  },
+  "project-type.shader.category": {
+    "defaultMessage": "تظليلات"
+  },
+  "project-type.shader.lowercase": {
+    "defaultMessage": "{count, plural, one {تظليل} other {تظليلات}}"
+  },
+  "project-type.world.capital": {
+    "defaultMessage": "{count, plural, zero {عوالم} one {عالم} two {عالمان} few {عوالم} many {عالمًا} other {عالم}}"
+  },
+  "project-type.world.category": {
+    "defaultMessage": "العوالم"
+  },
+  "project-type.world.lowercase": {
+    "defaultMessage": "{count, plural, zero {عوالم} one {عالم} two {عالمين} few {عوالم} many {عالمًا} other {عالم}}"
+  },
+  "project.about.compatibility.environments": {
+    "defaultMessage": "البيئات المدعومة"
+  },
+  "project.about.compatibility.environments.client-and-server": {
+    "defaultMessage": "العميل والخادم"
+  },
+  "project.about.compatibility.environments.client-side": {
+    "defaultMessage": "خاص بالعميل"
+  },
+  "project.about.compatibility.environments.dedicated-servers-only": {
+    "defaultMessage": "الخوادم المخصصة فقط"
+  },
+  "project.about.compatibility.environments.server-side": {
+    "defaultMessage": "خاص بالخادم"
+  },
+  "project.about.compatibility.environments.singleplayer": {
+    "defaultMessage": "لعب فردي"
+  },
+  "project.about.compatibility.environments.singleplayer-only": {
+    "defaultMessage": "لعب فردي فقط"
+  },
   "project.about.compatibility.game.minecraftJava": {
     "defaultMessage": "ماينكرافت: إصدار جافا"
+  },
+  "project.about.compatibility.platforms": {
+    "defaultMessage": "المنصات"
+  },
+  "project.about.compatibility.platforms-plural": {
+    "defaultMessage": "{count, plural, one {منصة} other {منصات}}"
+  },
+  "project.about.compatibility.title": {
+    "defaultMessage": "التوافق"
+  },
+  "project.about.creators.no-members-error": {
+    "defaultMessage": "خطأ: لا يحتوي المشروع على أعضاء. لا ينبغي أن يحدث هذا."
+  },
+  "project.about.creators.organization": {
+    "defaultMessage": "منظمة"
+  },
+  "project.about.creators.owner": {
+    "defaultMessage": "مالك المشروع"
+  },
+  "project.about.creators.title": {
+    "defaultMessage": "الصانعون"
+  },
+  "project.about.details.created": {
+    "defaultMessage": "أُنشئ في {date}"
+  },
+  "project.about.details.licensed": {
+    "defaultMessage": "مرخّص بـ {license}"
+  },
+  "project.about.details.published": {
+    "defaultMessage": "نُشر في {date}"
+  },
+  "project.about.details.submitted": {
+    "defaultMessage": "قُدّم في {date}"
+  },
+  "project.about.details.updated": {
+    "defaultMessage": "حُدّث في {date}"
+  },
+  "project.about.links.discord": {
+    "defaultMessage": "الانضمام إلى خادم Discord"
+  },
+  "project.about.links.donate.bmac": {
+    "defaultMessage": "Buy Me a Coffee"
+  },
+  "project.about.links.donate.generic": {
+    "defaultMessage": "تبرع"
+  },
+  "project.about.links.donate.github": {
+    "defaultMessage": "ادعم على GitHub"
+  },
+  "project.about.links.donate.kofi": {
+    "defaultMessage": "تبرع على Ko-fi"
+  },
+  "project.about.links.donate.patreon": {
+    "defaultMessage": "تبرع على Patreon"
+  },
+  "project.about.links.donate.paypal": {
+    "defaultMessage": "تبرع على PayPal"
+  },
+  "project.about.links.issues": {
+    "defaultMessage": "الإبلاغ عن مشكلات"
+  },
+  "project.about.links.site": {
+    "defaultMessage": "زيارة الموقع"
+  },
+  "project.about.links.source": {
+    "defaultMessage": "عرض المصدر"
+  },
+  "project.about.links.store": {
+    "defaultMessage": "زيارة صفحة المتجر"
+  },
+  "project.about.links.title": {
+    "defaultMessage": "الروابط"
+  },
+  "project.about.links.wiki": {
+    "defaultMessage": "زيارة الويكي"
+  },
+  "project.about.tags.title": {
+    "defaultMessage": "الوسوم"
+  },
+  "project.compatibility.client-and-server": {
+    "defaultMessage": "العميل والخادم"
+  },
+  "project.compatibility.client-side": {
+    "defaultMessage": "خاص بالعميل"
+  },
+  "project.compatibility.no-mod-loader": {
+    "defaultMessage": "بدون لودر"
+  },
+  "project.compatibility.server-side": {
+    "defaultMessage": "خاص بالخادم"
+  },
+  "project.disclosure.advertising.title": {
+    "defaultMessage": "يحتوي على إعلانات"
+  },
+  "project.disclosure.ai-functionality.title": {
+    "defaultMessage": "وظائف ذكاء اصطناعي توليدي"
+  },
+  "project.disclosure.ai-generated-content.title": {
+    "defaultMessage": "يحتوي على {types} مولّدة بالذكاء الاصطناعي"
+  },
+  "project.disclosure.ai-generated-content.use.assets": {
+    "defaultMessage": "أصول"
+  },
+  "project.disclosure.ai-generated-content.use.code": {
+    "defaultMessage": "شيفرة"
+  },
+  "project.disclosure.ai-generated-content.use.content": {
+    "defaultMessage": "محتوى"
+  },
+  "project.disclosure.ai-generated-content.use.text": {
+    "defaultMessage": "نص"
+  },
+  "project.disclosure.derivative-work.show-fewer": {
+    "defaultMessage": "عرض أقل"
+  },
+  "project.disclosure.derivative-work.show-more": {
+    "defaultMessage": "عرض {count} المزيد"
+  },
+  "project.disclosure.derivative-work.title": {
+    "defaultMessage": "هذا عمل مشتق من:"
+  },
+  "project.disclosure.paid-features.title": {
+    "defaultMessage": "يحتوي على ميزات مدفوعة"
+  },
+  "project.disclosure.photosensitivity.title": {
+    "defaultMessage": "تحذير الحساسية للضوء"
+  },
+  "project.disclosure.system-interactions.title": {
+    "defaultMessage": "يحتوي على تفاعلات مع أنظمة خارجية"
+  },
+  "project.disclosure.telemetry.title": {
+    "defaultMessage": "يحتوي على {consent, select, opt_in {قياس اختياري} opt_out {قياس مع إمكانية الانسحاب} always_active {قياس نشط دائمًا} other {قياس}}"
+  },
+  "project.download-count-tooltip": {
+    "defaultMessage": "{count, number} {count, plural, one {تنزيل} other {تنزيلات}}"
+  },
+  "project.environment.client-and-server.description": {
+    "defaultMessage": "مطلوب على العميل والخادم معًا."
+  },
+  "project.environment.client-and-server.title": {
+    "defaultMessage": "العميل والخادم، مطلوب على كليهما"
+  },
+  "project.environment.client-only-server-optional.description": {
+    "defaultMessage": "معظم الوظائف خاصة بالعميل، لكن تثبيته على الخادم يفعّل وظائف محسّنة."
+  },
+  "project.environment.client-only-server-optional.title": {
+    "defaultMessage": "العميل والخادم، اختياري على الخادم"
+  },
+  "project.environment.client-only.description": {
+    "defaultMessage": "جميع الوظائف تتم على العميل ومتوافقة مع خوادم Vanilla."
+  },
+  "project.environment.client-only.title": {
+    "defaultMessage": "خاص بالعميل فقط"
+  },
+  "project.environment.client-or-server-prefers-both.description": {
+    "defaultMessage": "له بعض الوظائف على العميل والخادم معًا، ولو جزئيًا. تثبيته على كليهما يمنح أفضل تجربة."
+  },
+  "project.environment.client-or-server-prefers-both.title": {
+    "defaultMessage": "العميل والخادم، الأفضل عند تثبيته على كليهما"
+  },
+  "project.environment.client-or-server.description": {
+    "defaultMessage": "له بعض الوظائف على العميل والخادم معًا، ولو جزئيًا."
+  },
+  "project.environment.client-or-server.title": {
+    "defaultMessage": "العميل والخادم، اختياري على كليهما"
+  },
+  "project.environment.dedicated-server-only.description": {
+    "defaultMessage": "جميع الوظائف تتم على الخادم ومتوافقة مع عملاء Vanilla. يعمل فقط على الخوادم المخصصة."
+  },
+  "project.environment.dedicated-server-only.title": {
+    "defaultMessage": "خاص بالخادم فقط"
+  },
+  "project.environment.server-only-client-optional.description": {
+    "defaultMessage": "معظم الوظائف خاصة بالخادم، لكن تثبيته على العميل يفعّل وظائف محسّنة."
+  },
+  "project.environment.server-only-client-optional.title": {
+    "defaultMessage": "العميل والخادم، اختياري على العميل"
+  },
+  "project.environment.server-only.description": {
+    "defaultMessage": "جميع الوظائف تتم على الخادم ومتوافقة مع عملاء Vanilla. يعمل أيضًا على الخادم الداخلي في اللعب الفردي."
+  },
+  "project.environment.server-only.title": {
+    "defaultMessage": "خاص بالخادم فقط، ويعمل في اللعب الفردي أيضًا"
+  },
+  "project.environment.singleplayer-only.description": {
+    "defaultMessage": "يعمل فقط في اللعب الفردي أو عند عدم الاتصال بخادم جماعي."
+  },
+  "project.environment.singleplayer-only.title": {
+    "defaultMessage": "لعب فردي فقط"
+  },
+  "project.environment.tag.not-applicable": {
+    "defaultMessage": "لا ينطبق"
+  },
+  "project.environment.tag.unknown": {
+    "defaultMessage": "غير معروف"
+  },
+  "project.environment.unknown.description": {
+    "defaultMessage": "تعذّر تحديد بيئة هذا الإصدار."
+  },
+  "project.environment.unknown.title": {
+    "defaultMessage": "بيئة غير معروفة"
+  },
+  "project.follower-count-tooltip": {
+    "defaultMessage": "{count, number} {count, plural, one {متابِع} other {متابِعين}}"
+  },
+  "project.license.error": {
+    "defaultMessage": "تعذّر استرداد نص الرخصة."
+  },
+  "project.license.loading": {
+    "defaultMessage": "جارٍ تحميل نص الرخصة..."
+  },
+  "project.license.title": {
+    "defaultMessage": "الرخصة"
+  },
+  "project.online-player-count": {
+    "defaultMessage": "{count, number} متصل"
+  },
+  "project.online-player-count.tooltip": {
+    "defaultMessage": "{count} {countPlural, plural, one {لاعب} other {لاعبون}} متصل"
+  },
+  "project.recent-plays": {
+    "defaultMessage": "{count} {countPlural, plural, one {لعبة حديثة} other {ألعاب حديثة}}"
+  },
+  "project.recent-plays.tooltip": {
+    "defaultMessage": "{count} {countPlural, plural, one {لعبة حديثة} other {ألعاب حديثة}} من Modrinth في الأسبوعين الماضيين"
+  },
+  "project.server.customModpackTooltip": {
+    "defaultMessage": "يستخدم هذا المشروع مودباك مخصصًا"
+  },
+  "project.server.ping.ms": {
+    "defaultMessage": "{ping, number} مللي ثانية"
+  },
+  "project.server.region.asia": {
+    "defaultMessage": "آسيا"
+  },
+  "project.server.region.australia": {
+    "defaultMessage": "أستراليا"
+  },
+  "project.server.region.europe": {
+    "defaultMessage": "أوروبا"
+  },
+  "project.server.region.middle_east": {
+    "defaultMessage": "الشرق الأوسط"
+  },
+  "project.server.region.russia": {
+    "defaultMessage": "روسيا"
+  },
+  "project.server.region.south_america": {
+    "defaultMessage": "أمريكا الجنوبية"
+  },
+  "project.server.region.tooltip": {
+    "defaultMessage": "خادم مستضاف في {regionName}"
+  },
+  "project.server.region.us_east": {
+    "defaultMessage": "شرق الولايات المتحدة"
+  },
+  "project.server.region.us_west": {
+    "defaultMessage": "غرب الولايات المتحدة"
+  },
+  "project.server.status.offline": {
+    "defaultMessage": "غير متصل"
+  },
+  "project.server.status.offline.tooltip": {
+    "defaultMessage": "الخادم غير متصل"
+  },
+  "project.server.status.online": {
+    "defaultMessage": "متصل"
+  },
+  "project.settings.analytics.title": {
+    "defaultMessage": "التحليلات"
+  },
+  "project.settings.content.title": {
+    "defaultMessage": "المحتوى"
+  },
+  "project.settings.description.title": {
+    "defaultMessage": "الوصف"
+  },
+  "project.settings.disclosures.ai.types-assets": {
+    "defaultMessage": "الأصول"
+  },
+  "project.settings.disclosures.ai.types-code": {
+    "defaultMessage": "الشيفرة"
+  },
+  "project.settings.disclosures.ai.types-text": {
+    "defaultMessage": "النص"
+  },
+  "project.settings.disclosures.telemetry.consent-always-active": {
+    "defaultMessage": "نشط دائمًا"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-in": {
+    "defaultMessage": "اختياري"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-out": {
+    "defaultMessage": "مع إمكانية الانسحاب"
+  },
+  "project.settings.disclosures.title": {
+    "defaultMessage": "الإفصاحات"
+  },
+  "project.settings.environment.client_and_server.title": {
+    "defaultMessage": "العميل والخادم"
+  },
+  "project.settings.environment.client_only.title": {
+    "defaultMessage": "خاص بالعميل فقط"
+  },
+  "project.settings.environment.server_only.title": {
+    "defaultMessage": "خاص بالخادم فقط"
+  },
+  "project.settings.environment.singleplayer.title": {
+    "defaultMessage": "لعب فردي فقط"
+  },
+  "project.settings.environment.title": {
+    "defaultMessage": "البيئة"
+  },
+  "project.settings.gallery.title": {
+    "defaultMessage": "المعرض"
+  },
+  "project.settings.general.title": {
+    "defaultMessage": "عام"
+  },
+  "project.settings.license.title": {
+    "defaultMessage": "الرخصة"
+  },
+  "project.settings.links.title": {
+    "defaultMessage": "الروابط"
+  },
+  "project.settings.members.title": {
+    "defaultMessage": "الأعضاء"
+  },
+  "project.settings.notice.no-permission.description": {
+    "defaultMessage": "لا تملك إذن تعديل هذا."
+  },
+  "project.settings.notice.no-permission.title": {
+    "defaultMessage": "لا يوجد إذن"
+  },
+  "project.settings.server.title": {
+    "defaultMessage": "الخادم"
+  },
+  "project.settings.tags.title": {
+    "defaultMessage": "الوسوم"
+  },
+  "project.settings.upload.title": {
+    "defaultMessage": "الرفع"
+  },
+  "project.settings.versions.permissions": {
+    "defaultMessage": "الأذونات"
+  },
+  "project.settings.versions.title": {
+    "defaultMessage": "الإصدارات"
+  },
+  "project.settings.view.title": {
+    "defaultMessage": "عرض"
+  },
+  "project.stats.downloads-label": {
+    "defaultMessage": "{count, plural, one {تنزيل} other {تنزيلات}}"
+  },
+  "project.stats.followers-label": {
+    "defaultMessage": "{count, plural, one {متابِع} other {متابِعون}}"
+  },
+  "project.versions.channel.alpha.symbol": {
+    "defaultMessage": "A"
+  },
+  "project.versions.channel.beta.symbol": {
+    "defaultMessage": "B"
+  },
+  "project.versions.channel.release.symbol": {
+    "defaultMessage": "R"
+  },
+  "project.versions.create-version": {
+    "defaultMessage": "إنشاء إصدار"
+  },
+  "project.versions.downloads-tooltip": {
+    "defaultMessage": "{count, plural, one {# تنزيل} other {# تنزيلات}}"
+  },
+  "project.versions.filter.channel": {
+    "defaultMessage": "القناة"
+  },
+  "project.versions.filter.selected-count": {
+    "defaultMessage": "{count, number} محددة"
+  },
+  "project.versions.filter.toggle-tooltip": {
+    "defaultMessage": "تبديل المرشح لـ {filter}"
+  },
+  "project.versions.no-mod-loader": {
+    "defaultMessage": "بدون لودر"
+  },
+  "project.versions.platform.modloader.short": {
+    "defaultMessage": "ModLoader"
+  },
+  "project.versions.version.withheld": {
+    "defaultMessage": "محجوب"
+  },
+  "project.versions.version.withheld.tooltip": {
+    "defaultMessage": "تم حجب الإصدار بسبب نقص الأذونات"
+  },
+  "project.versions.withheld-versions-warning.resolve-button": {
+    "defaultMessage": "حل"
+  },
+  "project.visibility.archived": {
+    "defaultMessage": "مؤرشف"
+  },
+  "project.visibility.draft": {
+    "defaultMessage": "مسودة"
+  },
+  "project.visibility.private": {
+    "defaultMessage": "خاص"
+  },
+  "project.visibility.public": {
+    "defaultMessage": "عام"
+  },
+  "project.visibility.rejected": {
+    "defaultMessage": "مرفوض"
+  },
+  "project.visibility.scheduled": {
+    "defaultMessage": "مجدول"
+  },
+  "project.visibility.under-review": {
+    "defaultMessage": "قيد المراجعة"
+  },
+  "project.visibility.unknown": {
+    "defaultMessage": "غير معروف"
+  },
+  "project.visibility.unlisted": {
+    "defaultMessage": "غير مدرج"
+  },
+  "project.visibility.unlisted-by-staff": {
+    "defaultMessage": "أزاله الطاقم من القوائم"
+  },
+  "report.item-type.content": {
+    "defaultMessage": "محتوى"
+  },
+  "report.item-type.project": {
+    "defaultMessage": "مشروع"
+  },
+  "report.item-type.user": {
+    "defaultMessage": "مستخدم"
+  },
+  "report.item-type.version": {
+    "defaultMessage": "إصدار"
+  },
+  "report.type.ai-images": {
+    "defaultMessage": "صور مولّدة بالذكاء الاصطناعي في الأيقونة أو المعرض أو الوصف"
+  },
+  "report.type.copyright": {
+    "defaultMessage": "عمل مُعاد رفعه"
+  },
+  "report.type.fully-ai-generated": {
+    "defaultMessage": "مشروع مولّد بالذكاء الاصطناعي بالكامل"
+  },
+  "report.type.inappropriate": {
+    "defaultMessage": "غير لائق"
+  },
+  "report.type.malicious": {
+    "defaultMessage": "خبيث"
+  },
+  "report.type.missing-disclosure": {
+    "defaultMessage": "إفصاح مفقود أو غير صحيح"
+  },
+  "report.type.name-squatting": {
+    "defaultMessage": "احتلال الأسماء"
+  },
+  "report.type.spam": {
+    "defaultMessage": "رسائل مزعجة"
+  },
+  "search.filter.clear-all-filters": {
+    "defaultMessage": "مسح كل المرشحات"
+  },
+  "search.filter.dependency_type.any": {
+    "defaultMessage": "أي نوع تبعية"
+  },
+  "search.filter.dependency_type.embedded": {
+    "defaultMessage": "مضمّن"
+  },
+  "search.filter.dependency_type.optional": {
+    "defaultMessage": "اختياري"
+  },
+  "search.filter.dependency_type.optional_or_embedded": {
+    "defaultMessage": "اختياري أو مضمّن"
+  },
+  "search.filter.dependency_type.required": {
+    "defaultMessage": "مطلوب"
+  },
+  "search.filter.dependency_type.required_or_embedded": {
+    "defaultMessage": "مطلوب أو مضمّن"
+  },
+  "search.filter.dependency_type.required_or_optional": {
+    "defaultMessage": "مطلوب أو اختياري"
+  },
+  "search.filter.dependent_project": {
+    "defaultMessage": "يعتمد على: {project}"
+  },
+  "search.filter.dependent_project.clear": {
+    "defaultMessage": "مسح مرشح التبعية"
+  },
+  "search.filter.dependent_project.search_placeholder": {
+    "defaultMessage": "ابحث عن مشروع..."
+  },
+  "search.filter.excluded_projects": {
+    "defaultMessage": "يستبعد: {projects}"
+  },
+  "search.filter.included_content.exclude": {
+    "defaultMessage": "استبعاد"
+  },
+  "search.filter.included_content.excluded": {
+    "defaultMessage": "مستبعد"
+  },
+  "search.filter.included_content.remove_project": {
+    "defaultMessage": "إزالة {project}"
+  },
+  "search.filter.included_content.remove_project.tooltip": {
+    "defaultMessage": "إزالة المشروع"
+  },
+  "search.filter.included_content.search_placeholder": {
+    "defaultMessage": "ابحث في المحتوى..."
+  },
+  "search.filter.included_projects": {
+    "defaultMessage": "يتضمن: {projects}"
+  },
+  "search.filter.locked.default": {
+    "defaultMessage": "المرشح مقفل"
+  },
+  "search.filter.locked.default.description": {
+    "defaultMessage": "قد يتيح لك فتح هذا المرشح تثبيت محتوى غير متوافق."
+  },
+  "search.filter.locked.default.sync": {
+    "defaultMessage": "مرشح المزامنة"
+  },
+  "search.filter.locked.default.title": {
+    "defaultMessage": "{type} مقفل"
+  },
+  "search.filter.locked.default.unlock": {
+    "defaultMessage": "فتح المرشح"
+  },
+  "search.filter.option.exclusion.add.tooltip": {
+    "defaultMessage": "استبعاد"
+  },
+  "search.filter.option.search.clear.aria_label": {
+    "defaultMessage": "مسح البحث"
+  },
+  "search.filter.option.search.placeholder": {
+    "defaultMessage": "ابحث..."
+  },
+  "search.filter.option.show_fewer": {
+    "defaultMessage": "عرض أقل"
+  },
+  "search.filter.option.show_more": {
+    "defaultMessage": "عرض المزيد"
+  },
+  "search.filter.option.sub_options.collapse.tooltip": {
+    "defaultMessage": "إخفاء المزيد من الخيارات"
+  },
+  "search.filter.option.sub_options.expand.tooltip": {
+    "defaultMessage": "عرض المزيد من الخيارات"
+  },
+  "search.filter_type.advanced": {
+    "defaultMessage": "استثناءات متقدمة"
+  },
+  "search.filter_type.advanced.disclosure.advertisements": {
+    "defaultMessage": "إعلانات"
+  },
+  "search.filter_type.advanced.disclosure.ai_content": {
+    "defaultMessage": "محتوى مولّد بالذكاء الاصطناعي"
+  },
+  "search.filter_type.advanced.disclosure.ai_content.usage": {
+    "defaultMessage": "ذكاء اصطناعي {usage}"
+  },
+  "search.filter_type.advanced.disclosure.ai_functionality": {
+    "defaultMessage": "وظائف ذكاء اصطناعي توليدي"
+  },
+  "search.filter_type.advanced.disclosure.archived": {
+    "defaultMessage": "مؤرشف"
+  },
+  "search.filter_type.advanced.disclosure.derivative_work": {
+    "defaultMessage": "محتوى مشتق"
+  },
+  "search.filter_type.advanced.disclosure.epilepsy_triggers": {
+    "defaultMessage": "محفزات الحساسية للضوء"
+  },
+  "search.filter_type.advanced.disclosure.paid_features": {
+    "defaultMessage": "ميزات مدفوعة"
+  },
+  "search.filter_type.advanced.disclosure.system_interactions": {
+    "defaultMessage": "تفاعلات مع أنظمة خارجية"
+  },
+  "search.filter_type.advanced.disclosure.telemetry": {
+    "defaultMessage": "القياس"
+  },
+  "search.filter_type.compatible_dependency_project_ids": {
+    "defaultMessage": "يعتمد على"
+  },
+  "search.filter_type.environment": {
+    "defaultMessage": "البيئة"
+  },
+  "search.filter_type.environment.client": {
+    "defaultMessage": "العميل"
+  },
+  "search.filter_type.environment.server": {
+    "defaultMessage": "الخادم"
+  },
+  "search.filter_type.game_version": {
+    "defaultMessage": "إصدار اللعبة"
+  },
+  "search.filter_type.game_version.all_versions": {
+    "defaultMessage": "عرض كل الإصدارات"
+  },
+  "search.filter_type.included_content": {
+    "defaultMessage": "المحتوى المشمول"
+  },
+  "search.filter_type.license": {
+    "defaultMessage": "الرخصة"
+  },
+  "search.filter_type.license.open_source": {
+    "defaultMessage": "مفتوح المصدر"
+  },
+  "search.filter_type.mod_loader": {
+    "defaultMessage": "اللودر"
+  },
+  "search.filter_type.modpack_loader": {
+    "defaultMessage": "اللودر"
+  },
+  "search.filter_type.plugin_loader": {
+    "defaultMessage": "اللودر"
+  },
+  "search.filter_type.plugin_platform": {
+    "defaultMessage": "المنصة"
+  },
+  "search.filter_type.project_id": {
+    "defaultMessage": "معرّف المشروع"
+  },
+  "search.filter_type.shader_loader": {
+    "defaultMessage": "اللودر"
+  },
+  "search.photosensitivity-warning-modal.body.1": {
+    "defaultMessage": "لا يمكننا ضمان تصنيف كل المحتوى على Modrinth بشكل مناسب."
+  },
+  "search.photosensitivity-warning-modal.body.2": {
+    "defaultMessage": "تصنيفات المحتوى المتعلقة بمحفزات الحساسية للضوء يضعها الصانعون الذين يرفعون المحتوى إلى Modrinth بأنفسهم. لم تخضع هذه المشاريع لأي اختبار سلامة."
+  },
+  "search.photosensitivity-warning-modal.body.3": {
+    "defaultMessage": "استخدام أي محتوى على Modrinth على مسؤوليتك الخاصة. حافظ على سلامتك! 💚"
+  },
+  "search.photosensitivity-warning-modal.dont-show-again": {
+    "defaultMessage": "عدم عرض هذا مجددًا"
+  },
+  "search.photosensitivity-warning-modal.title": {
+    "defaultMessage": "النتائج غير مضمونة السلامة"
+  },
+  "settings.account.title": {
+    "defaultMessage": "الحساب والأمان"
+  },
+  "settings.appearance.title": {
+    "defaultMessage": "المظهر"
+  },
+  "settings.applications.title": {
+    "defaultMessage": "تطبيقاتك"
+  },
+  "settings.authorized-apps.title": {
+    "defaultMessage": "التطبيقات المصرّح بها"
+  },
+  "settings.billing.title": {
+    "defaultMessage": "الفوترة والاشتراكات"
+  },
+  "settings.display.project-list-layouts.datapack": {
+    "defaultMessage": "صفحة حزم البيانات"
+  },
+  "settings.display.project-list-layouts.description": {
+    "defaultMessage": "اختر التخطيط المفضل لكل صفحة تعرض قوائم المشاريع."
+  },
+  "settings.display.project-list-layouts.mod": {
+    "defaultMessage": "صفحة المودات"
+  },
+  "settings.display.project-list-layouts.mode.grid": {
+    "defaultMessage": "شبكة"
+  },
+  "settings.display.project-list-layouts.mode.rows": {
+    "defaultMessage": "صفوف"
+  },
+  "settings.display.project-list-layouts.modpack": {
+    "defaultMessage": "صفحة المودباكات"
+  },
+  "settings.display.project-list-layouts.plugin": {
+    "defaultMessage": "صفحة الإضافات"
+  },
+  "settings.display.project-list-layouts.resourcepack": {
+    "defaultMessage": "صفحة حزم الموارد"
+  },
+  "settings.display.project-list-layouts.server": {
+    "defaultMessage": "صفحة الخوادم"
+  },
+  "settings.display.project-list-layouts.shader": {
+    "defaultMessage": "صفحة التظليلات"
+  },
+  "settings.display.project-list-layouts.title": {
+    "defaultMessage": "تخطيطات قوائم المشاريع"
+  },
+  "settings.display.project-list-layouts.user": {
+    "defaultMessage": "صفحات الملفات الشخصية"
+  },
+  "settings.display.sidebar.advanced-rendering.description": {
+    "defaultMessage": "يتيح العرض المتقدم مثل تأثيرات التغبيش التي قد تسبب مشكلات في الأداء دون عرض مُسرّع بالأجهزة."
+  },
+  "settings.display.sidebar.advanced-rendering.title": {
+    "defaultMessage": "عرض متقدم"
+  },
+  "settings.display.sidebar.external-links-new-tab.description": {
+    "defaultMessage": "جعل الروابط التي تؤدي خارج Modrinth تُفتح في تبويب جديد. وبغض النظر عن هذا الإعداد، تُفتح الروابط على النطاق نفسه وفي أوصاف Markdown في التبويب نفسه، وتُفتح الروابط في الإعلانات وصفحات التعديل في تبويب جديد."
+  },
+  "settings.display.sidebar.external-links-new-tab.title": {
+    "defaultMessage": "فتح الروابط الخارجية في تبويب جديد"
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.description": {
+    "defaultMessage": "محاذاة الشريط الجانبي إلى يسار محتوى الصفحة."
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.title": {
+    "defaultMessage": "شريط جانبي بمحاذاة اليسار في صفحات المحتوى"
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.description": {
+    "defaultMessage": "محاذاة الشريط الجانبي للمرشحات إلى يمين نتائج البحث."
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.title": {
+    "defaultMessage": "شريط مرشحات بمحاذاة اليمين في صفحات البحث"
+  },
+  "settings.display.theme.dark": {
+    "defaultMessage": "داكن"
+  },
+  "settings.display.theme.light": {
+    "defaultMessage": "فاتح"
+  },
+  "settings.display.theme.oled": {
+    "defaultMessage": "OLED"
+  },
+  "settings.display.theme.orbiont-description": {
+    "defaultMessage": "اختر سمة الألوان المفضلة لـ {productName}."
+  },
+  "settings.display.theme.preferred-dark-theme": {
+    "defaultMessage": "السمة الداكنة المفضلة"
+  },
+  "settings.display.theme.preferred-light-theme": {
+    "defaultMessage": "السمة الفاتحة المفضلة"
+  },
+  "settings.display.theme.retro": {
+    "defaultMessage": "رجعي"
+  },
+  "settings.display.theme.system": {
+    "defaultMessage": "المزامنة مع النظام"
+  },
+  "settings.display.theme.title": {
+    "defaultMessage": "سمة الألوان"
+  },
+  "settings.feature-flags.title": {
+    "defaultMessage": "أعلام الميزات"
+  },
+  "settings.language.categories.default": {
+    "defaultMessage": "لغات قياسية"
+  },
+  "settings.language.categories.search-result": {
+    "defaultMessage": "نتائج البحث"
+  },
+  "settings.language.coverage.app-tooltip": {
+    "defaultMessage": "حوالي {percentage}% من {productName} متوفر بهذه اللغة."
+  },
+  "settings.language.coverage.label": {
+    "defaultMessage": "مدعومة بنسبة {percentage}%"
+  },
+  "settings.language.description.orbiont": {
+    "defaultMessage": "اختر لغتك المفضلة لـ {platform}. يشحن Orbiont ترجمات المجتمع كما هي؛ وتختلف التغطية حسب اللغة والنصوص غير المترجمة تعود إلى الإنجليزية."
+  },
+  "settings.language.languages.search-field.placeholder": {
+    "defaultMessage": "ابحث عن لغة..."
+  },
+  "settings.language.languages.search-results-announcement": {
+    "defaultMessage": "{matches, plural, =0 {لا توجد لغات مطابقة} one {لغة واحدة مطابقة} other {# لغات مطابقة}} لبحثك."
+  },
+  "settings.language.languages.search.no-results": {
+    "defaultMessage": "لا توجد لغات مطابقة لبحثك."
+  },
+  "settings.language.platform.app": {
+    "defaultMessage": "app"
+  },
+  "settings.language.title": {
+    "defaultMessage": "اللغة"
+  },
+  "settings.language.warning": {
+    "defaultMessage": "قد يؤدي تغيير لغة {platform} إلى ظهور بعض المحتوى بالإنجليزية إذا لم تتوفر ترجمة. {platform} غير مترجمة بالكامل بعد، لذا قد يبقى بعض المحتوى بالإنجليزية في لغات معينة."
+  },
+  "settings.pats.title": {
+    "defaultMessage": "رموز الوصول الشخصية"
+  },
+  "settings.profile.navigation-title": {
+    "defaultMessage": "الملف الشخصي"
+  },
+  "settings.sessions.title": {
+    "defaultMessage": "الجلسات"
+  },
+  "settings.social.title": {
+    "defaultMessage": "اجتماعي"
+  },
+  "skin.preview.drag-to-rotate": {
+    "defaultMessage": "اسحب للتدوير"
+  },
+  "skins.select": {
+    "defaultMessage": "اختر المظهر"
+  },
+  "skins.select-named": {
+    "defaultMessage": "اختر {name}"
+  },
+  "table.empty-state.no-data": {
+    "defaultMessage": "لا توجد بيانات متاحة."
+  },
+  "tag.category.128x": {
+    "defaultMessage": "128x"
+  },
+  "tag.category.16x": {
+    "defaultMessage": "16x"
+  },
+  "tag.category.256x": {
+    "defaultMessage": "256x"
+  },
+  "tag.category.32x": {
+    "defaultMessage": "32x"
+  },
+  "tag.category.3d-packs": {
+    "message": "حزم ثلاثية الأبعاد"
+  },
+  "tag.category.48x": {
+    "defaultMessage": "48x"
+  },
+  "tag.category.512x+": {
+    "defaultMessage": "512x أو أعلى"
+  },
+  "tag.category.64x": {
+    "defaultMessage": "64x"
+  },
+  "tag.category.8x-": {
+    "defaultMessage": "8x أو أدنى"
+  },
+  "tag.category.adventure": {
+    "defaultMessage": "مغامرة"
+  },
+  "tag.category.adventure-mode": {
+    "defaultMessage": "وضع المغامرة"
+  },
+  "tag.category.anarchy": {
+    "defaultMessage": "فوضى"
+  },
+  "tag.category.armor-tools-weapons": {
+    "message": "الدروع والأدوات والأسلحة"
+  },
+  "tag.category.atmosphere": {
+    "defaultMessage": "الأجواء"
+  },
+  "tag.category.audio": {
+    "defaultMessage": "الصوت"
+  },
+  "tag.category.battle-royale": {
+    "defaultMessage": "باتل رويال"
+  },
+  "tag.category.bedwars": {
+    "defaultMessage": "حروب السرير"
+  },
+  "tag.category.blocks": {
+    "defaultMessage": "كتل"
+  },
+  "tag.category.bloom": {
+    "defaultMessage": "توهج"
+  },
+  "tag.category.bosses": {
+    "defaultMessage": "زعماء"
+  },
+  "tag.category.cartoon": {
+    "defaultMessage": "كرتوني"
+  },
+  "tag.category.challenging": {
+    "defaultMessage": "صعب"
+  },
+  "tag.category.classes": {
+    "defaultMessage": "فئات"
+  },
+  "tag.category.colored-lighting": {
+    "defaultMessage": "إضاءة ملونة"
+  },
+  "tag.category.combat": {
+    "defaultMessage": "قتال"
+  },
+  "tag.category.competitive": {
+    "defaultMessage": "تنافسي"
+  },
+  "tag.category.core-shaders": {
+    "defaultMessage": "تظليلات أساسية"
+  },
+  "tag.category.cosmetics": {
+    "message": "المظاهر"
+  },
+  "tag.category.creation": {
+    "defaultMessage": "إنشاء"
+  },
+  "tag.category.creative-mode": {
+    "defaultMessage": "وضع الإبداع"
+  },
+  "tag.category.creator-community": {
+    "defaultMessage": "مجتمع الصانعين"
+  },
+  "tag.category.crossplay": {
+    "defaultMessage": "لعب مشترك"
+  },
+  "tag.category.ctm": {
+    "message": "أكمل النصب التذكاري"
+  },
+  "tag.category.cursed": {
+    "defaultMessage": "ملعون"
+  },
+  "tag.category.custom-content": {
+    "defaultMessage": "محتوى مخصص"
+  },
+  "tag.category.custom-terrain": {
+    "message": "التضاريس المخصصة"
+  },
+  "tag.category.decoration": {
+    "defaultMessage": "زخرفة"
+  },
+  "tag.category.dungeons": {
+    "defaultMessage": "زنزانات"
+  },
+  "tag.category.economy": {
+    "defaultMessage": "اقتصاد"
+  },
+  "tag.category.enhanced-visuals": {
+    "message": "صور محسنة"
+  },
+  "tag.category.entities": {
+    "defaultMessage": "كيانات"
+  },
+  "tag.category.environment": {
+    "defaultMessage": "البيئة"
+  },
+  "tag.category.equipment": {
+    "defaultMessage": "معدات"
+  },
+  "tag.category.factions": {
+    "defaultMessage": "فصائل"
+  },
+  "tag.category.fantasy": {
+    "defaultMessage": "فانتازيا"
+  },
+  "tag.category.foliage": {
+    "defaultMessage": "أوراق الشجر"
+  },
+  "tag.category.fonts": {
+    "defaultMessage": "خطوط"
+  },
+  "tag.category.food": {
+    "defaultMessage": "طعام"
+  },
+  "tag.category.game-map": {
+    "defaultMessage": "خريطة لعب"
+  },
+  "tag.category.game-mechanics": {
+    "defaultMessage": "ميكانيكيات اللعب"
+  },
+  "tag.category.gens": {
+    "defaultMessage": "Gens"
+  },
+  "tag.category.gui": {
+    "defaultMessage": "GUI"
+  },
+  "tag.category.hardcore-mode": {
+    "defaultMessage": "الوضع الصعب"
+  },
+  "tag.category.high": {
+    "defaultMessage": "مرتفع"
+  },
+  "tag.category.items": {
+    "defaultMessage": "عناصر"
+  },
+  "tag.category.keep-inventory": {
+    "defaultMessage": "الاحتفاظ بالمخزون"
+  },
+  "tag.category.kitchen-sink": {
+    "defaultMessage": "تشكيلة متنوعة"
+  },
+  "tag.category.kitpvp": {
+    "defaultMessage": "Kit PvP"
+  },
+  "tag.category.library": {
+    "defaultMessage": "مكتبة"
+  },
+  "tag.category.lifesteal": {
+    "defaultMessage": "سرقة الحياة"
+  },
+  "tag.category.lightweight": {
+    "defaultMessage": "خفيف"
+  },
+  "tag.category.locale": {
+    "defaultMessage": "اللغة"
+  },
+  "tag.category.low": {
+    "defaultMessage": "منخفض"
+  },
+  "tag.category.magic": {
+    "defaultMessage": "سحر"
+  },
+  "tag.category.management": {
+    "defaultMessage": "إدارة"
+  },
+  "tag.category.maps": {
+    "message": "خرائط"
+  },
+  "tag.category.media": {
+    "defaultMessage": "وسائط"
+  },
+  "tag.category.medium": {
+    "defaultMessage": "متوسط"
+  },
+  "tag.category.microgames": {
+    "defaultMessage": "ألعاب مصغرة"
+  },
+  "tag.category.minecraft-addon-maker": {
+    "message": "Minecraft Addon Maker"
+  },
+  "tag.category.minigame": {
+    "defaultMessage": "لعبة مصغرة"
+  },
+  "tag.category.minigames": {
+    "defaultMessage": "ألعاب مصغرة"
+  },
+  "tag.category.mmo": {
+    "defaultMessage": "MMO"
+  },
+  "tag.category.mobs": {
+    "defaultMessage": "وحوش"
+  },
+  "tag.category.modded": {
+    "defaultMessage": "معدّل"
+  },
+  "tag.category.modded-world": {
+    "defaultMessage": "عالم معدل"
+  },
+  "tag.category.models": {
+    "defaultMessage": "نماذج"
+  },
+  "tag.category.multiplayer": {
+    "defaultMessage": "لعب جماعي"
+  },
+  "tag.category.network": {
+    "defaultMessage": "شبكة"
+  },
+  "tag.category.offline-mode": {
+    "defaultMessage": "وضع عدم الاتصال"
+  },
+  "tag.category.oneblock": {
+    "defaultMessage": "كتلة واحدة"
+  },
+  "tag.category.op": {
+    "defaultMessage": "OP"
+  },
+  "tag.category.optimization": {
+    "defaultMessage": "تحسين"
+  },
+  "tag.category.parkour": {
+    "defaultMessage": "باركور"
+  },
+  "tag.category.path-tracing": {
+    "defaultMessage": "تتبع المسار"
+  },
+  "tag.category.pbr": {
+    "defaultMessage": "PBR"
+  },
+  "tag.category.personal-worlds": {
+    "defaultMessage": "عوالم شخصية"
+  },
+  "tag.category.players": {
+    "message": "اللاعبون"
+  },
+  "tag.category.plots": {
+    "defaultMessage": "قطع أراضٍ"
+  },
+  "tag.category.pokemon": {
+    "defaultMessage": "Pokémon"
+  },
+  "tag.category.potato": {
+    "defaultMessage": "بطاطس"
+  },
+  "tag.category.prison": {
+    "defaultMessage": "سجن"
+  },
+  "tag.category.puzzle": {
+    "defaultMessage": "ألغاز"
+  },
+  "tag.category.pve": {
+    "defaultMessage": "PvE"
+  },
+  "tag.category.pvp": {
+    "defaultMessage": "PvP"
+  },
+  "tag.category.questing": {
+    "defaultMessage": "المهام"
+  },
+  "tag.category.quests": {
+    "defaultMessage": "مهام"
+  },
+  "tag.category.racing": {
+    "defaultMessage": "سباقات"
+  },
+  "tag.category.realistic": {
+    "defaultMessage": "واقعي"
+  },
+  "tag.category.recording-smp": {
+    "defaultMessage": "تسجيل SMP"
+  },
+  "tag.category.reflections": {
+    "defaultMessage": "انعكاسات"
+  },
+  "tag.category.roleplay": {
+    "defaultMessage": "لعب الأدوار"
+  },
+  "tag.category.rollercoaster": {
+    "message": "أفعوانية"
+  },
+  "tag.category.rpg": {
+    "defaultMessage": "RPG"
+  },
+  "tag.category.screenshot": {
+    "defaultMessage": "لقطة شاشة"
+  },
+  "tag.category.scripts": {
+    "message": "البرامج النصية"
+  },
+  "tag.category.semi-realistic": {
+    "defaultMessage": "شبه واقعي"
+  },
+  "tag.category.shaders": {
+    "message": "تظليلات"
+  },
+  "tag.category.shadows": {
+    "defaultMessage": "ظلال"
+  },
+  "tag.category.simplistic": {
+    "defaultMessage": "مبسّط"
+  },
+  "tag.category.skins": {
+    "message": "مظاهر"
+  },
+  "tag.category.skyblock": {
+    "defaultMessage": "Skyblock"
+  },
+  "tag.category.smp": {
+    "defaultMessage": "SMP"
+  },
+  "tag.category.social": {
+    "defaultMessage": "اجتماعي"
+  },
+  "tag.category.storage": {
+    "defaultMessage": "تخزين"
+  },
+  "tag.category.survival": {
+    "defaultMessage": "بقاء"
+  },
+  "tag.category.survival-mode": {
+    "defaultMessage": "وضع البقاء"
+  },
+  "tag.category.teams": {
+    "defaultMessage": "فرق"
+  },
+  "tag.category.technical": {
+    "defaultMessage": "تقني"
+  },
+  "tag.category.technology": {
+    "defaultMessage": "تقنية"
+  },
+  "tag.category.texture-packs": {
+    "message": "حزم الملمس"
+  },
+  "tag.category.themed": {
+    "defaultMessage": "ذو طابع"
+  },
+  "tag.category.towns": {
+    "defaultMessage": "بلدات"
+  },
+  "tag.category.transportation": {
+    "defaultMessage": "نقل"
+  },
+  "tag.category.tweaks": {
+    "defaultMessage": "تعديلات"
+  },
+  "tag.category.utility": {
+    "defaultMessage": "أدوات"
+  },
+  "tag.category.vanilla-like": {
+    "defaultMessage": "مشابه لـ Vanilla"
+  },
+  "tag.category.whitelisted": {
+    "defaultMessage": "بقائمة بيضاء"
+  },
+  "tag.category.world-resets": {
+    "defaultMessage": "إعادة تعيين العوالم"
+  },
+  "tag.category.worldgen": {
+    "defaultMessage": "توليد العوالم"
+  },
+  "tag.loader.babric": {
+    "defaultMessage": "Babric"
+  },
+  "tag.loader.bta-babric": {
+    "defaultMessage": "BTA (Babric)"
+  },
+  "tag.loader.bukkit": {
+    "defaultMessage": "Bukkit"
+  },
+  "tag.loader.bungeecord": {
+    "defaultMessage": "BungeeCord"
+  },
+  "tag.loader.canvas": {
+    "defaultMessage": "Canvas"
+  },
+  "tag.loader.datapack": {
+    "defaultMessage": "Data Pack"
+  },
+  "tag.loader.fabric": {
+    "defaultMessage": "Fabric"
+  },
+  "tag.loader.folia": {
+    "defaultMessage": "Folia"
+  },
+  "tag.loader.forge": {
+    "defaultMessage": "Forge"
+  },
+  "tag.loader.geyser": {
+    "defaultMessage": "إضافة Geyser"
+  },
+  "tag.loader.iris": {
+    "defaultMessage": "Iris"
+  },
+  "tag.loader.java-agent": {
+    "defaultMessage": "Java Agent"
+  },
+  "tag.loader.legacy-fabric": {
+    "defaultMessage": "Legacy Fabric"
+  },
+  "tag.loader.liteloader": {
+    "defaultMessage": "LiteLoader"
+  },
+  "tag.loader.minecraft": {
+    "defaultMessage": "Resource Pack"
+  },
+  "tag.loader.modloader": {
+    "defaultMessage": "Risugami's ModLoader"
+  },
+  "tag.loader.mrpack": {
+    "defaultMessage": "Modpack"
+  },
+  "tag.loader.neoforge": {
+    "defaultMessage": "NeoForge"
+  },
+  "tag.loader.nilloader": {
+    "defaultMessage": "NilLoader"
+  },
+  "tag.loader.optifine": {
+    "defaultMessage": "OptiFine"
+  },
+  "tag.loader.ornithe": {
+    "defaultMessage": "Ornithe"
+  },
+  "tag.loader.paper": {
+    "defaultMessage": "Paper"
+  },
+  "tag.loader.purpur": {
+    "defaultMessage": "Purpur"
+  },
+  "tag.loader.quilt": {
+    "defaultMessage": "Quilt"
+  },
+  "tag.loader.rift": {
+    "defaultMessage": "Rift"
+  },
+  "tag.loader.spigot": {
+    "defaultMessage": "Spigot"
+  },
+  "tag.loader.sponge": {
+    "defaultMessage": "Sponge"
+  },
+  "tag.loader.vanilla": {
+    "defaultMessage": "Vanilla Shader"
+  },
+  "tag.loader.velocity": {
+    "defaultMessage": "Velocity"
+  },
+  "tag.loader.waterfall": {
+    "defaultMessage": "Waterfall"
+  },
+  "terminal.scroll-to-bottom": {
+    "defaultMessage": "التمرير إلى الأسفل"
+  },
+  "ui.component.unsaved-changes-popup.body": {
+    "defaultMessage": "لديك تغييرات غير محفوظة."
+  },
+  "ui.confirm-leave-modal.body": {
+    "defaultMessage": "لديك تغييرات غير محفوظة ستفقدها إذا غادرت هذه الصفحة."
+  },
+  "ui.confirm-leave-modal.header": {
+    "defaultMessage": "لديك تغييرات غير محفوظة"
+  },
+  "ui.confirm-leave-modal.leave": {
+    "defaultMessage": "مغادرة الصفحة"
+  },
+  "ui.confirm-leave-modal.stay": {
+    "defaultMessage": "البقاء في الصفحة"
+  },
+  "ui.confirm-leave-modal.title": {
+    "defaultMessage": "مغادرة الصفحة؟"
+  },
+  "ui.i18n-debug.close": {
+    "defaultMessage": "إغلاق الفاحص"
+  },
+  "ui.i18n-debug.copied": {
+    "defaultMessage": "تم النسخ"
+  },
+  "ui.i18n-debug.copy": {
+    "defaultMessage": "نسخ"
+  },
+  "ui.i18n-debug.copy-hint": {
+    "defaultMessage": "انقر للنسخ"
+  },
+  "ui.i18n-debug.discover-hint": {
+    "defaultMessage": "تنقل في التطبيق لاكتشاف مفاتيح i18n"
+  },
+  "ui.i18n-debug.expand": {
+    "defaultMessage": "توسيع اللوحة"
+  },
+  "ui.i18n-debug.hide-keys": {
+    "defaultMessage": "إخفاء المفاتيح ضمن النص"
+  },
+  "ui.i18n-debug.key-count": {
+    "defaultMessage": "{count, plural, one {# مفتاح} other {# مفاتيح}}"
+  },
+  "ui.i18n-debug.minimize": {
+    "defaultMessage": "تصغير اللوحة"
+  },
+  "ui.i18n-debug.navigate": {
+    "defaultMessage": "تنقل"
+  },
+  "ui.i18n-debug.no-keys": {
+    "defaultMessage": "لا توجد مفاتيح مسجلة"
+  },
+  "ui.i18n-debug.no-matches": {
+    "defaultMessage": "لم يتم العثور على تطابقات"
+  },
+  "ui.i18n-debug.reveal-keys": {
+    "defaultMessage": "إظهار المفاتيح ضمن النص"
+  },
+  "ui.i18n-debug.search": {
+    "defaultMessage": "ابحث في المفاتيح أو القيم..."
+  },
+  "ui.i18n-debug.search-hint": {
+    "defaultMessage": "جرّب مصطلح بحث مختلفًا"
+  },
+  "ui.i18n-debug.title": {
+    "defaultMessage": "فاحص i18n"
+  },
+  "ui.i18n-debug.toggle-overlay": {
+    "defaultMessage": "تبديل تراكب تصحيح CSS"
+  },
+  "ui.i18n-debug.watching": {
+    "defaultMessage": "مراقبة"
+  },
+  "ui.pagination.go-to-page": {
+    "defaultMessage": "الانتقال إلى صفحة"
+  },
+  "ui.pagination.next-page": {
+    "defaultMessage": "الصفحة التالية"
+  },
+  "ui.pagination.previous-page": {
+    "defaultMessage": "الصفحة السابقة"
+  },
+  "ui.stacked-admonitions.alert-count": {
+    "defaultMessage": "{count, plural, one {# تنبيه} other {# تنبيهات}}"
+  },
+  "ui.stacked-admonitions.dismiss-all": {
+    "defaultMessage": "تجاهل الكل"
+  },
+  "unknown-file-warning-modal.dont-install": {
+    "defaultMessage": "عدم التثبيت"
+  },
+  "unknown-file-warning-modal.dont-show-again": {
+    "defaultMessage": "عدم عرض هذا التحذير مجددًا"
+  },
+  "unknown-file-warning-modal.file-unverified-body": {
+    "defaultMessage": " مصدره تعذّر التحقق منه. ثبّت الملفات من مصادر تثق بها فقط."
+  },
+  "unknown-file-warning-modal.header": {
+    "defaultMessage": "تأكيد التثبيت"
+  },
+  "unknown-file-warning-modal.install-anyway": {
+    "defaultMessage": "ثبّت على أي حال"
+  },
+  "unknown-file-warning-modal.malware-warning": {
+    "defaultMessage": "غالبًا ما تُوزّع البرمجيات الخبيثة عبر ملفات المودات بمشاركتها على منصات مثل Discord."
+  },
+  "unknown-file-warning-modal.mod-warning-title": {
+    "defaultMessage": "تحذير ملف غير معروف"
+  },
+  "unknown-file-warning-modal.modpack-unverified-body": {
+    "defaultMessage": " يحتوي على ملفات تعذّر التحقق من مصدرها. ثبّت الملفات من مصادر تثق بها فقط."
+  },
+  "unknown-file-warning-modal.modpack-warning-title": {
+    "defaultMessage": "تحذير ملفات غير معروفة"
+  },
+  "unknown-file-warning-modal.unrecognized-files": {
+    "defaultMessage": "ملفات غير معروفة"
+  },
+  "unknown-file-warning-modal.unverified-files": {
+    "defaultMessage": "قد يكون الملف غير المعروف غير آمن. تحقق من مصدره قبل تثبيته."
+  },
+  "version.content.name": {
+    "defaultMessage": "الاسم"
+  },
+  "version.content.version": {
+    "defaultMessage": "الإصدار"
+  },
+  "version.file-type.dev-jar": {
+    "defaultMessage": "jar التطوير"
+  },
+  "version.file-type.javadoc-jar": {
+    "defaultMessage": "jar التوثيق"
+  },
+  "version.file-type.optional-resource-pack": {
+    "defaultMessage": "حزمة موارد اختيارية"
+  },
+  "version.file-type.primary": {
+    "defaultMessage": "أساسي"
+  },
+  "version.file-type.required-resource-pack": {
+    "defaultMessage": "حزمة موارد مطلوبة"
+  },
+  "version.file-type.signature": {
+    "defaultMessage": "ملف التوقيع"
+  },
+  "version.file-type.sources-jar": {
+    "defaultMessage": "jar المصادر"
+  },
+  "version.file-type.unknown": {
+    "defaultMessage": "أخرى"
+  },
+  "version.section.changes": {
+    "defaultMessage": "التغييرات"
+  },
+  "version.section.compatibility": {
+    "defaultMessage": "التوافق"
+  },
+  "version.section.content": {
+    "defaultMessage": "المحتوى"
+  },
+  "version.section.content.search-placeholder": {
+    "defaultMessage": "ابحث في المحتوى..."
+  },
+  "version.section.dependencies.any-compatible-version": {
+    "defaultMessage": "أي إصدار متوافق"
+  },
+  "version.section.dependencies.any-version": {
+    "defaultMessage": "أي إصدار"
+  },
+  "version.section.dependencies.unavailable-version": {
+    "defaultMessage": "إصدار غير متوفر"
+  },
+  "version.section.dependencies.unavailable-version.description": {
+    "defaultMessage": "ربما تم حذف هذا الإصدار أو يراجعه المشرفون."
+  },
+  "version.section.dependencies.unavailable-version.description.required": {
+    "defaultMessage": "ربما تم حذف الإصدار المطلوب أو يراجعه المشرفون."
+  },
+  "version.section.files": {
+    "defaultMessage": "الملفات"
+  },
+  "version.section.included-content": {
+    "defaultMessage": "المحتوى المشمول"
+  },
+  "version.section.known-incompatibilities": {
+    "defaultMessage": "تعارضات معروفة"
+  },
+  "version.section.no-changes": {
+    "defaultMessage": "لم يتم تقديم سجل تغييرات."
+  },
+  "version.section.no-modpack-mod-loader": {
+    "defaultMessage": "بدون لودر"
+  },
+  "version.section.optional-dependencies": {
+    "defaultMessage": "تبعيات اختيارية"
+  },
+  "version.section.required-content": {
+    "defaultMessage": "محتوى مطلوب"
+  },
+  "version.section.supplementary-resources": {
+    "defaultMessage": "موارد تكميلية"
+  },
+  "version.supplementary-resources.file": {
+    "defaultMessage": "الملف"
+  },
+  "version.supplementary-resources.size": {
+    "defaultMessage": "الحجم"
+  },
+  "version.supplementary-resources.type": {
+    "defaultMessage": "النوع"
+  },
+  "version.uploaded-by": {
+    "defaultMessage": "رُفع بواسطة"
   }
 }

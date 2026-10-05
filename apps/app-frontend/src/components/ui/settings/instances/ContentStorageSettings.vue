@@ -8,11 +8,12 @@ import {
 	Input,
 	ProgressBar,
 	useFormatBytes,
+	useSavable,
 	useVIntl,
 } from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { invoke } from '@tauri-apps/api/core'
-import { computed, inject, ref, watch } from 'vue'
+import { computed, inject, watch } from 'vue'
 
 import {
 	storeVerificationReport as report,
@@ -20,6 +21,7 @@ import {
 	verifyStore,
 } from '@/components/ui/download-manager/store-verification'
 import { useAppEvent } from '@/composables/use-app-event'
+import { useSettingsChanges } from '@/composables/use-settings-changes'
 import { get_all as getRunningProcesses } from '@/helpers/process'
 import { appSettingsModalContextKey } from '@/providers/app-settings-modal'
 
@@ -53,14 +55,6 @@ const {
 		return usage
 	},
 })
-const cacheLimitGiB = ref<number | undefined>()
-watch(
-	() => storeUsage.value?.cache_limit_bytes,
-	(bytes) => {
-		cacheLimitGiB.value = (bytes ?? 5 * gibibyte) / gibibyte
-	},
-	{ immediate: true },
-)
 watch(storeUsageError, (error) => {
 	if (error) handleError(error)
 })
@@ -218,8 +212,8 @@ const categories = computed(() => {
 const actionMutation = useMutation({
 	mutationFn: async (action: 'clear' | 'repair') => {
 		if (action === 'repair') {
+			if (settingsModal && !settingsModal.close()) return null
 			const verification = verifyStore()
-			settingsModal?.close()
 			await verification
 			return null
 		}
@@ -245,21 +239,40 @@ const cacheLimitMutation = useMutation({
 			usage ? { ...usage, cache_limit_bytes: bytes } : usage,
 		)
 	},
-	onError: (error) => {
-		cacheLimitGiB.value = (storeUsage.value?.cache_limit_bytes ?? 5 * gibibyte) / gibibyte
-		handleError(error)
-	},
 })
 
-function saveCacheLimit() {
-	if (busy.value) return
+const cacheLimitDraft = useSavable(
+	(): { cacheLimitGiB: number | string } => ({
+		cacheLimitGiB: (storeUsage.value?.cache_limit_bytes ?? 5 * gibibyte) / gibibyte,
+	}),
+	async () => {
+		if (!validCacheLimit.value || busy.value) throw new Error(formatMessage(invalidValueMessage))
+		await cacheLimitMutation.mutateAsync(Math.round(Number(cacheLimitGiB.value) * gibibyte))
+	},
+)
+const cacheLimitGiB = computed({
+	get: () => cacheLimitDraft.current.value.cacheLimitGiB,
+	set: (value) => {
+		cacheLimitDraft.current.value.cacheLimitGiB = value
+	},
+})
+const validCacheLimit = computed(() => {
 	const bytes = Math.round(Number(cacheLimitGiB.value) * gibibyte)
-	if (!Number.isSafeInteger(bytes) || bytes < 0) {
-		cacheLimitGiB.value = (storeUsage.value?.cache_limit_bytes ?? 5 * gibibyte) / gibibyte
-		return
-	}
-	cacheLimitMutation.mutate(bytes)
+	return String(cacheLimitGiB.value).trim() !== '' && Number.isSafeInteger(bytes) && bytes >= 0
+})
+const invalidValueMessage = {
+	id: 'app.settings.game-options.validation.invalid-value',
+	defaultMessage: 'Choose a valid value.',
 }
+useSettingsChanges('content-cache-limit', {
+	hasChanges: () => cacheLimitDraft.hasChanges.value,
+	getOriginal: () => cacheLimitDraft.saved.value,
+	getModified: () => cacheLimitDraft.changes.value,
+	isSaving: () => cacheLimitDraft.saving.value,
+	canSave: () => !cacheLimitDraft.hasChanges.value || (!busy.value && validCacheLimit.value),
+	reset: cacheLimitDraft.reset,
+	save: cacheLimitDraft.save,
+})
 </script>
 
 <template>
@@ -415,7 +428,6 @@ function saveCacheLimit() {
 				aria-describedby="store-cache-limit-description"
 				:disabled="busy"
 				wrapper-class="w-full shrink-0 @lg:w-[42%]"
-				@change="saveCacheLimit"
 			>
 				<template #trailing>
 					<span class="text-sm text-secondary">{{ formatMessage(messages.limitUnit) }}</span>

@@ -32,6 +32,9 @@
   "app.action-bar.install.summary.app-closing": {
     "message": "ถูกยกเลิกจากการปิดแอป"
   },
+  "app.action-bar.install.summary.bad-modpack-file": {
+    "message": "ไม่สามารถอ่านม็อดแพ็กได้"
+  },
   "app.action-bar.install.summary.canceled": {
     "message": "ยกเลิกสำเร็จ"
   },
@@ -43,6 +46,51 @@
   },
   "app.action-bar.install.summary.corrupt-download": {
     "message": "ไฟล์ที่ดาวน์โหลดเสียหาย"
+  },
+  "app.action-bar.install.summary.could-not-save-files": {
+    "message": "ไม่สามารถบันทึกไฟล์ได้"
+  },
+  "app.action-bar.install.summary.download-failed": {
+    "message": "ดาวน์โหลดไม่สำเร็จ"
+  },
+  "app.action-bar.install.summary.instance-not-found": {
+    "message": "ไม่พบอินสแตนซ์"
+  },
+  "app.action-bar.install.summary.invalid-file-path": {
+    "message": "เส้นทางไฟล์ไม่ถูกต้อง"
+  },
+  "app.action-bar.install.summary.invalid-modpack": {
+    "message": "ข้อมูลม็อดแพ็กไม่ถูกต้อง"
+  },
+  "app.action-bar.install.summary.invalid-modpack-files": {
+    "message": "ไฟล์ม็อดแพ็กมีข้อมูลเมตาไม่ถูกต้อง"
+  },
+  "app.action-bar.install.summary.java-setup-failed": {
+    "message": "ตั้งค่า Java ไม่สำเร็จ"
+  },
+  "app.action-bar.install.summary.loader-setup-failed": {
+    "message": "ตั้งค่า Loader ไม่สำเร็จ"
+  },
+  "app.action-bar.install.summary.local-data-error": {
+    "message": "ไม่สามารถอัปเดตข้อมูลภายในได้"
+  },
+  "app.action-bar.install.summary.minecraft-setup-failed": {
+    "message": "ตั้งค่า Minecraft ไม่สำเร็จ"
+  },
+  "app.action-bar.install.summary.modrinth-unreachable": {
+    "message": "ไม่สามารถเชื่อมต่อ Modrinth ได้"
+  },
+  "app.action-bar.install.summary.no-write-permission": {
+    "message": "ไม่มีสิทธิ์เขียนไฟล์"
+  },
+  "app.action-bar.install.summary.pack-download-failed": {
+    "message": "ไม่สามารถดาวน์โหลดแพ็กได้"
+  },
+  "app.action-bar.install.summary.unexpected-error": {
+    "message": "เกิดข้อผิดพลาดบางอย่าง"
+  },
+  "app.action-bar.install.unknown-instance": {
+    "message": "อินสแตนซ์ที่ไม่รู้จัก"
   },
   "app.action-bar.make-primary-instance": {
     "message": "กำหนดอินสแตนซ์หลัก"
@@ -58,6 +106,9 @@
   },
   "app.action-bar.reload-to-update": {
     "message": "รีโหลดเพื่ออัปเดต"
+  },
+  "app.action-bar.show-downloads": {
+    "message": "แสดงการดาวน์โหลดที่กำลังดำเนินการ"
   },
   "app.action-bar.show-more-running-instances": {
     "message": "แสดงอินสแตนซ์ที่ทำงานอยู่เพิ่มเติม"
@@ -77,20 +128,296 @@
   "app.action-bar.view-logs": {
     "message": "ดู Log"
   },
+  "app.appearance-settings.compact-mode.description": {
+    "message": "แสดงอินสแตนซ์ในคลังในรูปแบบแถวกะทัดรัด"
+  },
+  "app.appearance-settings.compact-mode.title": {
+    "message": "โหมดกะทัดรัด"
+  },
   "app.appearance-settings.default-landing-page.home": {
     "message": "หน้าหลัก"
   },
   "app.appearance-settings.default-landing-page.library": {
     "message": "ไลบรารี"
   },
+  "app.appearance-settings.hide-nametag.description": {
+    "message": "ซ่อนชื่อผู้ใช้เหนือตัวอย่างผู้เล่นในหน้าตัวเลือกสกิน"
+  },
   "app.appearance-settings.hide-nametag.title": {
     "message": "ซ่อนป้ายชื่อ"
+  },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "ทำให้ไอคอนเคลื่อนไหวเมื่อวางตัวชี้หรือโฟกัสด้วยแป้นพิมพ์"
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "ปิดภาพเคลื่อนไหว"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "เคลื่อนไหวเสมอ"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "ตามการตั้งค่าระบบ"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "ภาพเคลื่อนไหวของไอคอน"
+  },
+  "app.appearance-settings.minimize-launcher.description": {
+    "message": "ย่อ {productName} เมื่อ Minecraft เริ่มทำงาน"
+  },
+  "app.appearance-settings.minimize-launcher.title": {
+    "message": "ย่อแอป"
+  },
+  "app.appearance-settings.show-play-time.description": {
+    "message": "แสดงระยะเวลาที่เล่นของแต่ละอินสแตนซ์"
   },
   "app.appearance-settings.show-play-time.title": {
     "message": "แสดงระยะเวลาที่เล่น"
   },
+  "app.appearance-settings.skip-non-essential-warnings.description": {
+    "message": "ข้ามการยืนยันสำหรับการดำเนินการความเสี่ยงต่ำ เช่น การติดตั้งซ้ำ การลบเนื้อหาปกติ การอัปเดตจำนวนมาก การยกเลิกการเชื่อมโยง และการซ่อมแซม คำเตือนสำหรับการดำเนินการที่อันตรายจะยังคงแสดงเสมอ"
+  },
+  "app.appearance-settings.skip-non-essential-warnings.title": {
+    "message": "ข้ามคำเตือนที่ไม่จำเป็น"
+  },
+  "app.appearance-settings.toggle-sidebar.description": {
+    "message": "ซ่อนแถบด้านข้างขวาเป็นค่าเริ่มต้น และเพิ่มปุ่มสำหรับแสดงหรือซ่อน"
+  },
+  "app.appearance-settings.toggle-sidebar.title": {
+    "message": "ซ่อนแถบด้านข้างขวา"
+  },
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "แสดงคำเตือนความปลอดภัยก่อนติดตั้งม็อดแพ็กที่นำเข้า (.mrpack หรือ .zip ของ CurseForge) ที่ไม่สามารถยืนยันแหล่งที่มาได้"
+  },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "เตือนฉันก่อนติดตั้งแพ็กม็อดที่ไม่รู้จัก"
+  },
+  "app.auth-error.contact-support": {
+    "message": "ติดต่อฝ่ายสนับสนุน"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "คัดลอกข้อมูลดีบัก"
+  },
+  "app.auth-error.debug-info": {
+    "message": "ข้อมูลดีบัก"
+  },
+  "app.auth-error.header": {
+    "message": "ลงชื่อเข้าใช้ไม่สำเร็จ"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "วิธีแก้ไข"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "ดำเนินการยืนยันตัวตนให้เสร็จ"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "บัญชีนี้ต้องยืนยันว่าเป็นผู้ใหญ่ตามข้อบังคับของเกาหลีใต้"
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Minecraft Login"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "ตรวจสอบว่าการเชื่อมต่ออินเทอร์เน็ตใช้งานได้"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "อนุญาต {product} ผ่านไฟร์วอลล์ โปรแกรมป้องกันไวรัส พร็อกซี VPN และกฎของไฟล์ hosts"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "ลองใช้เครือข่ายอื่น หรือปิดซอฟต์แวร์ VPN/พร็อกซีชั่วคราวหากใช้งานอยู่"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "รีสตาร์ท {product} แล้วลองลงชื่อเข้าใช้อีกครั้ง"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "หากปัญหาเกิดจากการกำหนดเส้นทางหรือ DNS บริการอย่าง Cloudflare WARP อาจช่วยได้"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} ไม่สามารถเชื่อมต่อกับบริการของ Microsoft, Xbox หรือ Minecraft ที่จำเป็นสำหรับการลงชื่อเข้าใช้ ซึ่งมักเกิดจากเครือข่ายภายใน DNS พร็อกซี ไฟร์วอลล์ ไฟล์ hosts VPN หรือโปรแกรมป้องกันไวรัส"
+  },
+  "app.auth-error.no-error-message": {
+    "message": "ไม่มีข้อความแสดงข้อผิดพลาด"
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "สามารถตรวจสอบว่าบัญชีใดเป็นเจ้าของได้ที่ <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "ตรวจสอบว่ากำลังลงชื่อเข้าใช้ด้วยบัญชี Microsoft ที่ซื้อ Minecraft (หรือมี Game Pass ที่ใช้งานได้พร้อมสิทธิ์ PC)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "บัญชี Microsoft นี้ไม่ได้เป็นเจ้าของ Minecraft: Java Edition และ {product} รองรับเฉพาะบัญชีพรีเมียมเท่านั้น"
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "เปิด Minecraft: Java Edition หนึ่งครั้งจากลอนเชอร์ทางการ"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "ตรวจสอบว่าใช้บัญชี Microsoft ที่เป็นเจ้าของ Minecraft สามารถตรวจสอบว่าบัญชีใดเป็นเจ้าของได้ที่ <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "รอสักครู่สูงสุดหนึ่งชั่วโมงหากเพิ่งซื้อหรือเพิ่งตั้งค่าโปรไฟล์"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "บริการของ Minecraft ไม่สามารถส่งคืนโปรไฟล์ Java Edition ของบัญชีนี้ได้ ซึ่งมักเกิดขึ้นเมื่อเพิ่งซื้อเกม โปรไฟล์ Java ยังสร้างไม่เสร็จ หรือใช้บัญชี Microsoft ผิด"
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "ตรวจสอบว่าได้ซื้อ Minecraft ในบัญชีนี้แล้ว"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "ตั้งค่าโปรไฟล์ Xbox ให้เสร็จหากมีข้อความแจ้ง"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "บัญชีนี้ยังไม่ได้ตั้งค่าโปรไฟล์ Xbox หรือไม่ได้เป็นเจ้าของ Minecraft"
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "รอสักครู่แล้วรีสตาร์ท {product}"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "ลองลงชื่อเข้าใช้อีกครั้ง"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "รอประมาณหนึ่งชั่วโมงก่อนลองอีกครั้ง"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "หากข้อความเดิมปรากฏขึ้น ให้รอนานขึ้นก่อนลองใหม่เพื่อให้ข้อจำกัดชั่วคราวหมดไป"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft หรือ Minecraft บล็อกคำขอลงชื่อเข้าใช้ชั่วคราวเนื่องจากมีความพยายามมากเกินไปในช่วงที่ผ่านมา"
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "ตรวจสอบ <a href=\"https://www.xbox.com/en-US/regions\">พื้นที่ที่ Xbox รองรับ</a> สำหรับภูมิภาคที่รองรับ"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "บริการ Xbox ต้องรองรับในประเทศก่อนจึงจะลงชื่อเข้าใช้ได้"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live ไม่พร้อมใช้งานในภูมิภาค การลงชื่อเข้าใช้จึงถูกบล็อก"
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "ให้ผู้ปกครองลงชื่อเข้าใช้ที่ <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "อัปเดตสิทธิ์การเล่นออนไลน์"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "บัญชีนี้ถูกจำกัดและไม่มีสิทธิ์เล่นออนไลน์"
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "หากบริการปกติดีแต่ยังเกิดปัญหานี้อยู่ โปรดติดต่อฝ่ายสนับสนุนพร้อมข้อมูลดีบักด้านล่าง"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "ลองลงชื่อเข้าใช้ด้วย <a href=\"https://www.minecraft.net/en-us/download\">Minecraft Launcher ทางการ</a> เพื่อยืนยันว่าการลงชื่อเข้าใช้ Minecraft ได้รับผลกระทบที่นั่นด้วยหรือไม่"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "ตรวจสอบ <a href=\"https://support.xbox.com/xbox-live-status\">สถานะ Xbox</a> สำหรับปัญหาบริการในขณะนี้"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "รอสักครู่แล้วลองลงชื่อเข้าใช้อีกครั้ง"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "บริการยืนยันตัวตนของ Minecraft กำลังส่งข้อผิดพลาดของเซิร์ฟเวอร์กลับมา {product} จึงไม่สามารถลงชื่อเข้าใช้ให้เสร็จได้ในขณะนี้"
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "ลงชื่อเข้าใช้อีกครั้ง"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "เมื่อเสร็จแล้ว ลองลงชื่อเข้าใช้อีกครั้ง"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "ลงชื่อเข้าใช้ด้วย <a href=\"https://www.minecraft.net/en-us/download\">Minecraft Launcher ทางการ</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "ลองลงชื่อเข้าใช้ {product} อีกครั้ง"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "ไปที่ <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> แล้วลงชื่อเข้าใช้"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "ไปที่ <a href=\"https://www.xbox.com\">Xbox</a> แล้วลงชื่อเข้าใช้"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "ส่งคำอุทธรณ์หากมีให้ดำเนินการ"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "ไปที่ <a href=\"https://support.xbox.com\">ฝ่ายสนับสนุน Xbox</a> แล้วตรวจสอบรายละเอียดการบังคับใช้"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "บัญชีนี้ถูกระงับเนื่องจากละเมิดมาตรฐานชุมชน Xbox"
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "เมื่อลงชื่อเข้าใช้ใหม่เสร็จแล้ว ลองเปิด Minecraft อีกครั้ง"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "ลงชื่อเข้าใช้บัญชีอีกครั้ง"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "ลงชื่อออกจากบัญชี Minecraft ที่มีปัญหาใน {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "โทเค็นการลงชื่อเข้าใช้ Microsoft ที่บันทึกไว้หมดอายุหรือถูกเพิกถอน {product} จึงไม่สามารถรีเฟรชเซสชัน Minecraft ได้"
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "ยอมรับข้อกำหนดหากมีข้อความแจ้ง"
+  },
+  "app.auth-error.tos.what": {
+    "message": "บัญชีนี้ยังไม่ได้ยอมรับข้อกำหนดการให้บริการของ Xbox"
+  },
+  "app.auth-error.try-visiting": {
+    "message": "ลองไปที่"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "สำหรับความช่วยเหลือเพิ่มเติม ไปที่ <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">การยืนยันอายุในสหราชอาณาจักรบน Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "ไปที่หน้า <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> แล้วลงชื่อเข้าใช้"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "เมื่อยืนยันแล้ว ลองลงชื่อเข้าใช้อีกครั้ง"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "ทำตามคำแนะนำเพื่อยืนยันอายุ"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "บัญชี Minecraft/Xbox Live ต้องยืนยันอายุเพื่อให้เป็นไปตามข้อบังคับของสหราชอาณาจักร ต้องดำเนินการให้เสร็จก่อนลงชื่อเข้าใช้"
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "ดู <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">คู่มือการตั้งค่าครอบครัว</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "เข้าร่วมหรือสร้างกลุ่มครอบครัวตามคำแนะนำ"
+  },
+  "app.auth-error.underage.what": {
+    "message": "บัญชีนี้ยังไม่บรรลุนิติภาวะและไม่ได้เชื่อมโยงกับกลุ่มครอบครัว Microsoft"
+  },
+  "app.auth-error.unknown-error": {
+    "message": "ข้อผิดพลาดที่ไม่รู้จัก"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "ไม่รู้จักข้อผิดพลาดนี้ จึงไม่สามารถแนะนำขั้นตอนแก้ไขเฉพาะได้"
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "และลงชื่อเข้าใช้ เนื่องจากอาจแสดงขั้นตอนที่จำเป็น นอกจากนี้สามารถติดต่อฝ่ายสนับสนุนเพื่อตรวจสอบเพิ่มเติมได้"
+  },
+  "app.auth-error.warning-body": {
+    "message": "ไม่สามารถลงชื่อเข้าใช้บัญชี Microsoft ได้ อาจเกิดจากข้อจำกัดของบัญชีหรือข้อจำกัดด้านภูมิภาค"
+  },
+  "app.auth-error.what-happened": {
+    "message": "สิ่งที่คาดว่าเกิดขึ้น"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "ยอมรับข้อกำหนดหรือตั้งค่าโปรไฟล์ที่ปรากฏให้เสร็จ"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "ลงชื่อเข้าใช้หนึ่งครั้งที่ <a href=\"https://www.xbox.com\">Xbox.com</a> ด้วยบัญชี Microsoft เดียวกัน"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live ไม่ยอมรับการลงชื่อเข้าใช้ของ Microsoft ซึ่งมักหมายความว่าบัญชี Microsoft นี้ไม่เคยลงชื่อเข้าใช้ Xbox หรือต้องยอมรับข้อกำหนดที่อัปเดต"
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "หากลอนเชอร์ทางการก็ไม่สำเร็จ ให้ทำตามข้อผิดพลาดที่แสดงที่นั่นหรือติดต่อฝ่ายสนับสนุน Xbox"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "ดำเนินการตามข้อความแจ้งที่แสดงโดย Microsoft, Xbox หรือ Minecraft ให้เสร็จ"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "บริการ Xbox ปฏิเสธคำขออนุญาตบัญชีนี้สำหรับบริการ Minecraft แต่ไม่ได้ส่งคืนข้อจำกัดบัญชีเฉพาะที่ {product} รู้จัก"
   },
   "app.auth-servers.unreachable.body": {
     "message": "เซิร์ฟเวอร์ตรวจสอบสิทธิ์ของ Minecraft อาจใช้งานไม่ได้ในขณะนี้ โปรดตรวจสอบการเชื่อมต่ออินเทอร์เน็ตของคุณและลองใหม่อีกครั้งในภายหลัง"
@@ -98,38 +425,563 @@
   "app.auth-servers.unreachable.header": {
     "message": "ไม่สามารถเชื่อมต่อถึงเซิร์ฟเวอร์ได้"
   },
-  "app.browse.add-servers-to-instance": {
-    "message": "เพิ่มเซิร์ฟเวอร์ลงในอินสแตนซ์"
+  "app.bedrock.account": {
+    "message": "Minecraft และ Microsoft Store ตรวจสอบใบอนุญาต Bedrock ของคุณ ลงชื่อเข้าใช้ด้วยบัญชีที่เป็นเจ้าของ Minecraft บัญชี Java ของคุณใน Launcher นี้อาจแตกต่างออกไป"
+  },
+  "app.bedrock.addon-help": {
+    "message": "ชุดพฤติกรรมและสคริปต์เฉพาะที่ กำหนดค่าในการตั้งค่าโลกภายใน Minecraft"
+  },
+  "app.bedrock.addons": {
+    "message": "ส่วนเสริม"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "ชุดพฤติกรรม"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "ส่วนเสริม"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "เรียกดูส่วนเสริม ชุดทรัพยากร โลก และสคริปต์จาก CurseForge"
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "ค้นพบเนื้อหา Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "ค้นพบส่วนเสริม"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "ค้นพบสคริปต์"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "ปิด Minecraft ก่อนเพิ่มแพ็กลงในโลก จากนั้นลองอีกครั้ง"
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "ติดตั้งใน Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft จะเปิดขึ้นเพื่อนำเข้าเนื้อหานี้ ตรวจสอบผลลัพธ์ในเกม จากนั้นเปิดใช้งานแพ็คในการตั้งค่าโลกของคุณ แพ็กที่จำเป็นและการตั้งค่าการทดลองแสดงอยู่ในคำอธิบายโปรเจ็กต์"
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "ไฟล์เก็บถาวรนี้ไม่มีเนื้อหา Bedrock ที่สนับสนุน"
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "ไม่สามารถโหลดเวอร์ชันของโครงการหรือโลกได้ ลองอีกครั้ง"
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "แพ็กนี้ต้องการแพ็กอื่นที่ไม่มีการใช้งานในโลกนี้ ติดตั้งการอ้างอิงที่แสดงโดยผู้เขียนก่อน"
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "ไม่มีไฟล์ .mcaddon, .mcpack, .mcworld หรือ ZIP ที่สนับสนุนสำหรับโปรเจ็กต์นี้"
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "สร้างโลกใน Minecraft ก่อน จากนั้นรีเฟรชรายการนี้"
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "สคริปต์"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "เวอร์ชันเนื้อหา"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "โลกปลายทาง"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "ปิด Minecraft ก่อนทำการติดตั้ง แพ็กเหล่านี้จะถูกเพิ่มและเปิดใช้งานเฉพาะในโลกที่เลือกเท่านั้น ตรวจสอบการขึ้นต่อกันที่จำเป็นและการตั้งค่าการทดลองในคำอธิบายโปรเจ็กต์"
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "เพิ่มแพ็คใน {world} เปิด Minecraft เพื่อเล่นโลกนี้"
+  },
+  "app.bedrock.checking": {
+    "message": "กำลังมองหา Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "ปิด Minecraft เพื่อแก้ไขไฟล์ ลบเนื้อหา หรือกู้คืนสำเนา"
+  },
+  "app.bedrock.conflict-error": {
+    "message": "เนื้อหานี้มีการเปลี่ยนแปลงหรือตำแหน่งเดิมถูกครอบครอง สำเนาการกู้คืนถูกเก็บไว้เพื่อหลีกเลี่ยงการเขียนทับการเปลี่ยนแปลงของคุณ"
+  },
+  "app.bedrock.content": {
+    "message": "เนื้อหา"
+  },
+  "app.bedrock.content-help": {
+    "message": "ทรัพยากรท้องถิ่นและชุดสกิน เปิดใช้งานใน Minecraft; เนื้อหาบางส่วนเป็นของโลกแต่ละโลก"
+  },
+  "app.bedrock.data-error": {
+    "message": "ไม่สามารถอ่านข้อมูล Minecraft โปรดรีเฟรชเพื่อลองอีกครั้ง"
+  },
+  "app.bedrock.data-location": {
+    "message": "ตำแหน่งข้อมูล Minecraft"
+  },
+  "app.bedrock.delete-help": {
+    "message": "รายการเหล่านี้จะถูกลบออกจาก Minecraft สำเนาการกู้คืนจะถูกเก็บไว้ รวมถึงการตั้งค่าเวิลด์แพ็คที่ได้รับผลกระทบ โลกที่ขึ้นอยู่กับแพ็กที่ถูกลบอาจสูญเสียการบล็อกหรือพฤติกรรมของมัน คืนค่าก่อนที่จะเปิดโลกเหล่านั้น"
+  },
+  "app.bedrock.delete-title": {
+    "message": "ลบเนื้อหาในเครื่อง"
+  },
+  "app.bedrock.description": {
+    "message": "เล่น Minecraft for Windows และนำเข้าโลกและส่วนเสริมของคุณ"
+  },
+  "app.bedrock.detection-error": {
+    "message": "ไม่สามารถตรวจสอบการติดตั้ง Minecraft ได้ ลองอีกครั้ง"
+  },
+  "app.bedrock.development": {
+    "message": "การพัฒนา"
+  },
+  "app.bedrock.edition": {
+    "message": "รุ่น Minecraft"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "โฟลเดอร์นี้ว่างเปล่า"
+  },
+  "app.bedrock.file-filter": {
+    "message": "โลกของ Bedrock และส่วนเสริม"
+  },
+  "app.bedrock.file-size": {
+    "message": "ขนาด"
+  },
+  "app.bedrock.files": {
+    "message": "ไฟล์"
+  },
+  "app.bedrock.folder": {
+    "message": "โฟลเดอร์"
+  },
+  "app.bedrock.folder-error": {
+    "message": "ไม่สามารถเปิดโฟลเดอร์ Minecraft นี้ รีเฟรชข้อมูลของคุณแล้วลองอีกครั้ง"
+  },
+  "app.bedrock.import-button": {
+    "message": "นำเข้าไฟล์"
+  },
+  "app.bedrock.import-description": {
+    "message": "เลือกไฟล์ .mcworld, .mcpack หรือ .mcaddon Minecraft จะเปิดและจัดการการนำเข้า"
+  },
+  "app.bedrock.import-error": {
+    "message": "ไม่สามารถส่งไฟล์ไปที่ Minecraft ตรวจสอบว่าได้ติดตั้ง Minecraft for Windows แล้วลองอีกครั้ง"
+  },
+  "app.bedrock.import-title": {
+    "message": "โลกและส่วนเสริม"
+  },
+  "app.bedrock.installation": {
+    "message": "การติดตั้งอย่างเป็นทางการ"
+  },
+  "app.bedrock.installed": {
+    "message": "ติดตั้ง Minecraft for Windows แล้ว"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "เลือกไฟล์เก็บถาวร .mcworld, .mcpack หรือ .mcaddon ภายในเครื่องที่ถูกต้อง"
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "ไฟล์นี้เกินขีดจำกัดการนำเข้า 8 GiB"
+  },
+  "app.bedrock.launch-error": {
+    "message": "ไม่สามารถเปิด Minecraft ได้ เปิด Launcher อย่างเป็นทางการหรือ Microsoft Store เพื่อตรวจสอบการติดตั้ง"
+  },
+  "app.bedrock.launcher": {
+    "message": "เปิดตัวเรียกใช้งานอย่างเป็นทางการ"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "ตรวจพบตัวเรียกใช้งานอย่างเป็นทางการ ติดตั้ง Minecraft for Windows ที่นั่นเพื่อดำเนินการต่อ"
+  },
+  "app.bedrock.loading-data": {
+    "message": "กำลังอ่านข้อมูล Minecraft..."
+  },
+  "app.bedrock.location": {
+    "message": "ที่ตั้ง"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "กำลังแสดง 1 MiB สุดท้ายของบันทึกนี้"
+  },
+  "app.bedrock.logs": {
+    "message": "บันทึก"
+  },
+  "app.bedrock.missing": {
+    "message": "ติดตั้ง Minecraft for Windows เพื่อเริ่มต้น"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "ไม่สามารถเปลี่ยนแปลงเนื้อหานี้ได้ ปิด Minecraft และรีเฟรช สำเนาการกู้คืนของคุณถูกเก็บไว้"
+  },
+  "app.bedrock.name": {
+    "message": "ชื่อ"
+  },
+  "app.bedrock.no-addons": {
+    "message": "ไม่พบส่วนเสริมในเครื่อง นำเข้าไฟล์ .mcpack หรือ .mcaddon เพื่อเริ่มต้น"
+  },
+  "app.bedrock.no-content": {
+    "message": "ไม่พบเนื้อหาในท้องถิ่น"
+  },
+  "app.bedrock.no-data": {
+    "message": "เปิด Minecraft หนึ่งครั้งเพื่อสร้างโฟลเดอร์ข้อมูล จากนั้นรีเฟรชที่นี่"
+  },
+  "app.bedrock.no-logs": {
+    "message": "ไม่พบบันทึกเนื้อหา เปิดใช้งานการบันทึกเนื้อหาในการตั้งค่า Minecraft > Creator จากนั้นเปิดโลกของคุณ"
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "ยังไม่มีสำเนาการกู้คืน"
+  },
+  "app.bedrock.no-results": {
+    "message": "ไม่มีรายการที่ตรงกัน"
+  },
+  "app.bedrock.no-worlds": {
+    "message": "ไม่พบโลกในท้องถิ่น สร้างไฟล์ใน Minecraft หรือนำเข้าไฟล์ .mcworld"
+  },
+  "app.bedrock.open-folder": {
+    "message": "เปิดโฟลเดอร์"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "โฟลเดอร์แม่"
+  },
+  "app.bedrock.partial-data": {
+    "message": "บางโฟลเดอร์ไม่สามารถอ่านหรือแสดงผลเกินขีดจำกัด คุณสามารถตรวจสอบได้ใน File Explorer"
+  },
+  "app.bedrock.play": {
+    "message": "เล่น"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "ไฟล์ต้นฉบับและเนื้อหาที่ถูกลบจะถูกเก็บไว้ที่นี่ กู้คืนสำเนาในขณะที่ปิด Minecraft เนื้อหาที่มีอยู่และการแก้ไขในภายหลังจะไม่ถูกเขียนทับ"
+  },
+  "app.bedrock.recovery-title": {
+    "message": "สำเนาการกู้คืน"
+  },
+  "app.bedrock.refresh": {
+    "message": "ตรวจสอบอีกครั้ง"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "รีเฟรช"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "โหลดไฟล์นี้ซ้ำก่อนบันทึก"
+  },
+  "app.bedrock.repair": {
+    "message": "ซ่อมแซมหรืออัปเดตการติดตั้งของคุณโดยใช้ Microsoft Store หรือตัวเรียกใช้งานอย่างเป็นทางการ"
+  },
+  "app.bedrock.resource-pack": {
+    "message": "รีซอร์ซแพ็ก"
+  },
+  "app.bedrock.restore": {
+    "message": "คืนค่า"
+  },
+  "app.bedrock.running": {
+    "message": "กำลังทำงาน"
+  },
+  "app.bedrock.save-error": {
+    "message": "ไม่สามารถบันทึกได้ ไฟล์อาจมีการเปลี่ยนแปลง มี JSON ที่ไม่ถูกต้องหรือใช้งานอยู่ โหลดซ้ำแล้วลองอีกครั้ง"
+  },
+  "app.bedrock.search": {
+    "message": "ค้นหาเนื้อหาท้องถิ่น..."
+  },
+  "app.bedrock.select-log": {
+    "message": "เลือกบันทึกเพื่ออ่าน"
+  },
+  "app.bedrock.skin-pack": {
+    "message": "แพ็กสกิน"
+  },
+  "app.bedrock.store": {
+    "message": "ติดตั้งหรืออัพเดต"
+  },
+  "app.bedrock.store-error": {
+    "message": "ไม่สามารถเปิด Microsoft Store ได้ เปิดจากเมนูเริ่มของ Windows"
+  },
+  "app.bedrock.submitted": {
+    "message": "ไฟล์ถูกส่งไปที่ Minecraft ตรวจสอบผลการนำเข้าในเกม"
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "การรวม Bedrock ต้องใช้ Windows คุณสามารถเล่น Java Edition บนอุปกรณ์นี้ต่อไปได้"
+  },
+  "app.bedrock.update": {
+    "message": "อัพเดต Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "ใน Microsoft Store ให้ตรวจสอบการอัปเดตและเลือก Minecraft for Windows เวอร์ชันที่คุณติดตั้งจะรีเฟรชเมื่อคุณกลับมา"
+  },
+  "app.bedrock.version": {
+    "message": "การติดตั้ง Windows {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "เวอร์ชัน"
+  },
+  "app.bedrock.world-scope": {
+    "message": "โลก: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "โลก"
+  },
+  "app.behavior-settings.confirmations.title": {
+    "message": "การยืนยัน"
+  },
+  "app.behavior-settings.content.title": {
+    "message": "หน้าแรกและเนื้อหา"
+  },
+  "app.behavior-settings.startup-and-navigation.title": {
+    "message": "การเริ่มต้นและการนำทาง"
   },
   "app.browse.add-to-an-instance": {
     "message": "เพิ่มลงในอินสแตนซ์"
   },
-  "app.browse.add-to-instance": {
-    "message": "เพิ่มลงในโปรแกรม"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "เพิ่มลงใน {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "เพิ่ม"
-  },
-  "app.browse.already-added": {
-    "message": "เพิ่มแล้ว"
-  },
   "app.browse.back-to-instance": {
     "message": "กลับสู่อินสแตนซ์"
   },
-  "app.browse.discover-servers": {
-    "message": "สำรวจเซิร์ฟเวอร์"
+  "app.browse.discover-project-type": {
+    "message": "ค้นพบ {projectType}"
+  },
+  "app.browse.hide-installed-modpacks": {
+    "message": "ซ่อนที่ติดตั้งแล้ว"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "เปิดใน CurseForge"
+  },
+  "app.browse.project-actions.label": {
+    "message": "การดำเนินการของโปรเจกต์"
+  },
+  "app.browse.project-type.data-packs": {
+    "message": "ดาต้าแพ็ก"
   },
   "app.browse.project-type.modpacks": {
     "message": "แพ็กม็อด"
   },
-  "app.browse.server.installing": {
-    "message": "กำลังติดตั้ง"
+  "app.browse.project-type.mods": {
+    "message": "ม็อด"
+  },
+  "app.browse.project-type.resource-packs": {
+    "message": "รีซอร์ซแพ็ก"
+  },
+  "app.browse.project-type.shaders": {
+    "message": "เชเดอร์"
   },
   "app.content-install.no-compatible-versions": {
     "message": "ไม่มีเวอร์ชันที่เข้ากันได้ {compatibilityLabel} โปรดเลือกเวอร์ชันที่จะติดตั้ง ไฟล์ที่จำเป็นจะไม่ถูกติดตั้งโดยอัตโนมัติ"
+  },
+  "app.content.desync-pack": {
+    "message": "ยกเลิกการซิงก์"
+  },
+  "app.content.sync-data-packs-disabled": {
+    "message": "เปิดการซิงก์ดาต้าแพ็กในการตั้งค่าแอปก่อน"
+  },
+  "app.content.sync-pack": {
+    "message": "ซิงก์"
+  },
+  "app.content.sync-packs-override": {
+    "message": "ปิดการแทนที่การซิงก์แพ็กในการตั้งค่าของอินสแตนซ์นี้ก่อน"
+  },
+  "app.content.sync-resource-packs-disabled": {
+    "message": "เปิดการซิงก์รีซอร์ซแพ็กในการตั้งค่าแอปก่อน"
+  },
+  "app.curseforge.rate-limit.text": {
+    "message": "ถึงขีดจำกัดคำขอที่ใช้ร่วมกันแล้ว รอสักครู่แล้วลองอีกครั้ง"
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge ไม่ว่างชั่วคราว"
+  },
+  "app.download-manager.active": {
+    "message": "ใช้งานอยู่"
+  },
+  "app.download-manager.attention": {
+    "message": "ต้องการความสนใจ"
+  },
+  "app.download-manager.cancel": {
+    "message": "ยกเลิกการติดตั้ง"
+  },
+  "app.download-manager.canceling": {
+    "message": "กำลังยกเลิกการติดตั้ง…"
+  },
+  "app.download-manager.clear-all": {
+    "message": "ล้างทั้งหมด"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "ล้างงานที่เสร็จแล้วทั้งหมด"
+  },
+  "app.download-manager.complete": {
+    "message": "เสร็จสมบูรณ์"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "อินสแตนซ์ที่ทำสำเนา"
+  },
+  "app.download-manager.empty": {
+    "message": "ไม่มีงานติดตั้ง"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "ความเร็วการดาวน์โหลดโดยประมาณ"
+  },
+  "app.download-manager.eta": {
+    "message": "เวลาที่เหลือโดยประมาณสำหรับการดาวน์โหลดนี้"
+  },
+  "app.download-manager.hide": {
+    "message": "ซ่อนงานติดตั้ง"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "อินสแตนซ์ที่นำเข้า"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "การติดตั้งอินสแตนซ์"
+  },
+  "app.download-manager.modpack": {
+    "message": "ม็อดแพ็ก"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "การติดตั้งม็อดแพ็ก"
+  },
+  "app.download-manager.new-instance": {
+    "message": "อินสแตนซ์ใหม่"
+  },
+  "app.download-manager.pause": {
+    "message": "หยุดการติดตั้งชั่วคราว"
+  },
+  "app.download-manager.paused": {
+    "message": "หยุดชั่วคราว"
+  },
+  "app.download-manager.remove": {
+    "message": "ลบออกจากประวัติ"
+  },
+  "app.download-manager.resume": {
+    "message": "ดำเนินการติดตั้งต่อ"
+  },
+  "app.download-manager.show": {
+    "message": "แสดงงานติดตั้ง"
+  },
+  "app.download-manager.tasks": {
+    "message": "งาน"
+  },
+  "app.download-manager.title": {
+    "message": "ตัวจัดการดาวน์โหลด"
+  },
+  "app.download-manager.verifying": {
+    "message": "กำลังตรวจสอบ"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "ยกเลิกการเปลี่ยนไดเรกทอรี"
+  },
+  "app.error.copy-debug-info": {
+    "message": "คัดลอกข้อมูลดีบัก"
+  },
+  "app.error.debug-info.heading": {
+    "message": "ข้อมูลดีบัก"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "ก่อน เมื่อเสร็จแล้ว กลับมาที่นี่แล้วลงชื่อเข้าใช้!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "ลองลงชื่อเข้าใช้ด้วย"
+  },
+  "app.error.game-pass.heading": {
+    "message": "ใช้ PC Game Pass ย้ายมาจาก Bedrock หรือเพิ่งซื้อเกมใช่หรือไม่?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "Minecraft Launcher ทางการ"
+  },
+  "app.error.get-support.button": {
+    "message": "ขอรับการสนับสนุน"
+  },
+  "app.error.help.end": {
+    "message": "และยินดีให้ความช่วยเหลือเป็นอย่างยิ่ง! โปรดแนบข้อมูลดีบักต่อไปนี้:"
+  },
+  "app.error.help.start": {
+    "message": "หากไม่มีอะไรใช้งานได้และต้องการความช่วยเหลือ โปรดไปที่"
+  },
+  "app.error.help.support-link": {
+    "message": "หน้าสนับสนุนของเรา"
+  },
+  "app.error.hosts.body-end": {
+    "message": "พยายามเชื่อมต่อกับบริการ Microsoft / Xbox / Minecraft แต่เซิร์ฟเวอร์ระยะไกลปฏิเสธการเชื่อมต่อ ซึ่งอาจหมายความว่าบริการเหล่านี้ถูกบล็อกโดยไฟล์ hosts โปรดไปที่"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "สำหรับขั้นตอนวิธีแก้ไขปัญหา"
+  },
+  "app.error.migrate.body-end": {
+    "message": "ไม่สามารถย้ายไปยังไดเรกทอรีใหม่ที่เลือกได้ โปรดติดต่อฝ่ายสนับสนุนเพื่อขอความช่วยเหลือหรือยกเลิกการเปลี่ยนไดเรกทอรี"
+  },
+  "app.error.network.body-end": {
+    "message": "การเชื่อมต่อกับเซิร์ฟเวอร์ของ Microsoft ซึ่งมักเกิดจากการเชื่อมต่อที่ไม่ดี แนะนำให้ลองอีกครั้งว่าสำเร็จหรือไม่ หากปัญหายังคงอยู่ ให้ทำตามขั้นตอนใน"
+  },
+  "app.error.network.body-start": {
+    "message": "ดูเหมือนมีปัญหากับ"
+  },
+  "app.error.network.heading": {
+    "message": "ปัญหาเครือข่าย"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "เพื่อแก้ไขปัญหา"
+  },
+  "app.error.no-error-message": {
+    "message": "ไม่มีข้อความแสดงข้อผิดพลาด"
+  },
+  "app.error.no-loader.body-end": {
+    "message": "ไม่พบเวอร์ชัน loader สำหรับอินสแตนซ์นี้"
+  },
+  "app.error.no-loader.fix": {
+    "message": "วิธีแก้ไขคือต้องซ่อมแซมอินสแตนซ์ คลิกปุ่มด้านล่างเพื่อดำเนินการ"
+  },
+  "app.error.not-enough-space.body": {
+    "message": "ดูเหมือนมีพื้นที่ไม่พอบนดิสก์ที่มีไดเรกทอรีที่เลือก โปรดเพิ่มพื้นที่ว่างแล้วลองอีกครั้ง หรือยกเลิกการเปลี่ยนไดเรกทอรี"
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "พื้นที่ไม่เพียงพอ"
+  },
+  "app.error.read-only.body-end": {
+    "message": "ไม่สามารถเขียนลงในไดเรกทอรีที่เลือกได้ โปรดปรับสิทธิ์ของไดเรกทอรีแล้วลองอีกครั้ง หรือยกเลิกการเปลี่ยนไดเรกทอรี"
+  },
+  "app.error.read-only.body-start": {
+    "message": "ดูเหมือนว่า"
+  },
+  "app.error.read-only.heading": {
+    "message": "เปลี่ยนสิทธิ์ไดเรกทอรี"
+  },
+  "app.error.repair-instance.button": {
+    "message": "ซ่อมแซมอินสแตนซ์"
+  },
+  "app.error.retry-dir.button": {
+    "message": "ลองเปลี่ยนไดเรกทอรีอีกครั้ง"
+  },
+  "app.error.state-init.body-end": {
+    "message": "โหลดไม่ถูกต้อง อาจเกิดจากไฟล์เสียหาย หรือแอปขาดไฟล์สำคัญ"
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "อาจแก้ไขได้ด้วยวิธีใดวิธีหนึ่งต่อไปนี้:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "ตรวจสอบว่าเชื่อมต่ออินเทอร์เน็ตแล้ว จากนั้นลองรีสตาร์ทแอป"
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "ดาวน์โหลดแอปใหม่"
+  },
+  "app.error.state-init.open-backups-folder": {
+    "message": "เปิดโฟลเดอร์สำรองข้อมูล"
+  },
+  "app.error.support-article-link": {
+    "message": "บทความสนับสนุนของเรา"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "ไม่สามารถเปลี่ยนไดเรกทอรีแอปได้"
+  },
+  "app.error.title.generic": {
+    "message": "เกิดข้อผิดพลาด"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "ไม่ได้เลือก loader"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "ไม่สามารถลงชื่อเข้าใช้ Minecraft ได้"
+  },
+  "app.error.title.state-init": {
+    "message": "เกิดข้อผิดพลาดขณะเริ่มต้น {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "ลองลงชื่อเข้าใช้อีกครั้ง"
+  },
+  "app.error.try-another-account.body": {
+    "message": "ตรวจสอบอีกครั้งว่าลงชื่อเข้าใช้ด้วยบัญชีที่ถูกต้อง อาจเป็นเจ้าของ Minecraft ในบัญชี Microsoft อื่น"
+  },
+  "app.error.try-another-account.button": {
+    "message": "ลองบัญชีอื่น"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "ลองบัญชี Microsoft อื่น"
   },
   "app.export-modal.description-placeholder": {
     "message": "กรอกคำอธิบายมอดแพ็ก.."
@@ -137,8 +989,38 @@
   "app.export-modal.export-button": {
     "message": "ส่งออก"
   },
+  "app.export-modal.export-complete": {
+    "message": "ส่งออกเสร็จสมบูรณ์"
+  },
+  "app.export-modal.export-complete-description": {
+    "message": "ส่งออก {name} สำเร็จแล้ว"
+  },
+  "app.export-modal.format-label": {
+    "message": "รูปแบบการส่งออก"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "ZIP ของ CurseForge ที่มี manifest.json และไฟล์ที่เลือกอยู่ภายใน overrides"
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "สำหรับลอนเชอร์ที่รองรับแพ็ก Modrinth มีข้อมูลอ้างอิงการดาวน์โหลดและไฟล์เพิ่มเติมที่เลือก"
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "แพ็ก {productName} แบบพกพาที่มีไฟล์ที่เลือก เปิดได้โดยตรงในลอนเชอร์"
+  },
   "app.export-modal.header": {
     "message": "ส่งออกแพ็กม็อด"
+  },
+  "app.export-modal.modpack-name-label": {
+    "message": "ชื่อม็อดแพ็ก"
   },
   "app.export-modal.modpack-name-placeholder": {
     "message": "ชื่อแพ็กม็อด"
@@ -149,17 +1031,179 @@
   "app.export-modal.version-number-placeholder": {
     "message": "1.0.0"
   },
+  "app.features-settings.instance-pages.title": {
+    "message": "อินสแตนซ์"
+  },
+  "app.features-settings.play-page.title": {
+    "message": "หน้าการเล่น"
+  },
+  "app.features-settings.quick-instances.description": {
+    "message": "เลือกจำนวนสูงสุดของอินสแตนซ์ล่าสุดที่แสดงในแถบด้านข้างซ้าย สามารถปรับได้โดยลากเส้นแบ่ง"
+  },
+  "app.features-settings.quick-instances.title": {
+    "message": "อินสแตนซ์ด่วนในแถบด้านข้าง"
+  },
+  "app.features-settings.show-all-screenshots.description": {
+    "message": "แสดงปุ่มในแถบด้านข้างซ้ายเพื่อดูภาพหน้าจอจากอินสแตนซ์ทั้งหมด"
+  },
+  "app.features-settings.show-all-screenshots.title": {
+    "message": "แสดงภาพหน้าจอทั้งหมดในแถบด้านข้าง"
+  },
+  "app.features-settings.show-files-tab.title": {
+    "message": "แสดงแท็บไฟล์ในอินสแตนซ์"
+  },
+  "app.features-settings.show-jump-in.description": {
+    "message": "แสดงโลกและอินสแตนซ์ที่เล่นล่าสุดที่ด้านบนของหน้าการเล่น"
+  },
+  "app.features-settings.show-jump-in.title": {
+    "message": "แสดงส่วนเข้าเล่นด่วน"
+  },
+  "app.features-settings.show-screenshots-tab.title": {
+    "message": "แสดงแท็บภาพหน้าจอในอินสแตนซ์"
+  },
+  "app.features-settings.show-skin-selector.description": {
+    "message": "แสดงปุ่มในแถบด้านข้างซ้ายเพื่อเปิดตัวเลือกสกิน"
+  },
+  "app.features-settings.show-skin-selector.title": {
+    "message": "แสดงตัวเลือกสกินในแถบด้านข้าง"
+  },
+  "app.features-settings.show-worlds-tab.title": {
+    "message": "แสดงแท็บโลกในอินสแตนซ์"
+  },
+  "app.features-settings.sidebar.title": {
+    "message": "แถบด้านข้าง"
+  },
+  "app.home.jump-back-in.actions.label": {
+    "message": "การดำเนินการของอินสแตนซ์"
+  },
+  "app.home.jump-back-in.instance-locked": {
+    "message": "อินสแตนซ์นี้ถูกล็อกแล้ว"
+  },
+  "app.home.jump-back-in.instance-open": {
+    "message": "อินสแตนซ์เปิดอยู่แล้ว"
+  },
+  "app.home.jump-back-in.more-options": {
+    "message": "ตัวเลือกเพิ่มเติม"
+  },
+  "app.home.jump-back-in.never-played": {
+    "message": "ไม่เคยเล่น"
+  },
+  "app.home.jump-back-in.new-instance": {
+    "message": "อินสแตนซ์ใหม่"
+  },
+  "app.home.jump-back-in.resize": {
+    "message": "ลากเพื่อปรับขนาด"
+  },
+  "app.home.jump-back-in.title": {
+    "message": "เข้าเล่นด่วน"
+  },
+  "app.home.jump-back-in.view-instance": {
+    "message": "ดูอินสแตนซ์"
+  },
+  "app.install.phase.downloading_content": {
+    "message": "กำลังดาวน์โหลดเนื้อหา"
+  },
+  "app.install.phase.downloading_minecraft": {
+    "message": "กำลังดาวน์โหลด Minecraft"
+  },
+  "app.install.phase.downloading_pack_file": {
+    "message": "กำลังดาวน์โหลดไฟล์แพ็ก"
+  },
+  "app.install.phase.extracting_overrides": {
+    "message": "กำลังแยก overrides"
+  },
+  "app.install.phase.finalizing": {
+    "message": "กำลังสรุปผล"
+  },
+  "app.install.phase.preparing_instance": {
+    "message": "เข้าคิวรอติดตั้ง"
+  },
+  "app.install.phase.preparing_java": {
+    "message": "กำลังเตรียม Java"
+  },
+  "app.install.phase.preparing_java.downloading": {
+    "message": "กำลังดาวน์โหลด Java {version}"
+  },
+  "app.install.phase.preparing_java.extracting": {
+    "message": "กำลังแยก Java {version}"
+  },
+  "app.install.phase.preparing_java.fetching-metadata": {
+    "message": "กำลังดึงข้อมูล Java {version}"
+  },
+  "app.install.phase.preparing_java.resolving": {
+    "message": "กำลังเตรียม Java {version}"
+  },
+  "app.install.phase.preparing_java.validating": {
+    "message": "กำลังตรวจสอบ Java {version}"
+  },
+  "app.install.phase.reading_pack_manifest": {
+    "message": "กำลังอ่าน pack manifest"
+  },
+  "app.install.phase.resolving_loader": {
+    "message": "กำลังค้นหา loader"
+  },
+  "app.install.phase.resolving_minecraft": {
+    "message": "กำลังค้นหา Minecraft"
+  },
+  "app.install.phase.resolving_pack": {
+    "message": "กำลังค้นหาเนื้อหา"
+  },
+  "app.install.phase.rolling_back": {
+    "message": "กำลังย้อนกลับ"
+  },
+  "app.install.phase.running_loader_processors": {
+    "message": "กำลังรัน loader processors"
+  },
+  "app.instance.action.add-content": {
+    "message": "เพิ่มเนื้อหา"
+  },
+  "app.instance.action.copy-path": {
+    "message": "คัดลอกเส้นทาง"
+  },
+  "app.instance.action.edit": {
+    "message": "แก้ไข"
+  },
+  "app.instance.action.open-folder": {
+    "message": "เปิดโฟลเดอร์"
+  },
+  "app.instance.action.play": {
+    "message": "เล่น"
+  },
+  "app.instance.action.stop": {
+    "message": "หยุด"
+  },
+  "app.instance.actions.label": {
+    "message": "การดำเนินการของอินสแตนซ์"
+  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "ข้อมูลทั้งหมดที่ถูกเก็บไว้ในโปรแกรมจะถูกลบออกอย่างถาวร รวมถึงโลก การตั้งค่า และเนื้อหาอื่นที่ติดตั้งไว้ทั้งหมด"
   },
   "app.instance.confirm-delete.admonition-header": {
     "message": "การดำเนินการนี้ไม่สามารถย้อนคืนได้"
   },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "ข้อมูลทั้งหมดของอินสแตนซ์ {count} รายการนี้จะถูกลบถาวร รวมถึงโลก การตั้งค่า และเนื้อหาที่ติดตั้งทั้งหมด"
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "ลบ {count} อินสแตนซ์"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "ลบ {count} อินสแตนซ์"
+  },
   "app.instance.confirm-delete.delete-button": {
     "message": "ลบโปรแกรม"
   },
   "app.instance.confirm-delete.header": {
     "message": "ลบโปรแกรม"
+  },
+  "app.instance.confirm-delete.instances-label": {
+    "message": "{count, plural, one {อินสแตนซ์} other {อินสแตนซ์ ({count})}}"
+  },
+  "app.instance.content.managed-content.modpack-header": {
+    "message": "เนื้อหาม็อดแพ็ก"
+  },
+  "app.instance.content.managed-content.server-header": {
+    "message": "เนื้อหาเซิร์ฟเวอร์"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "แพ็กม็อดดังกล่าวติดตั้งไว้ใน <bold>{instanceName}</bold> อยู่แล้ว คุณแน่ใจหรือไม่ว่าต้องการจะทำซ้ำ?"
@@ -173,8 +1217,23 @@
   "app.instance.modpack-already-installed.instance": {
     "message": "โปรแกรม"
   },
+  "app.instance.mods.bulk-update.downloading-projects": {
+    "message": "กำลังดาวน์โหลดโปรเจกต์ {current, number}/{total, number}..."
+  },
+  "app.instance.mods.bulk-update.finishing": {
+    "message": "กำลังสรุปการอัปเดต..."
+  },
+  "app.instance.mods.bulk-update.resolving-versions": {
+    "message": "กำลังค้นหาเวอร์ชัน..."
+  },
   "app.instance.mods.content-type-project": {
     "message": "โปรเจกต์"
+  },
+  "app.instance.mods.freeze-content": {
+    "message": "ตรึงเวอร์ชัน"
+  },
+  "app.instance.mods.locked-content": {
+    "message": "ไม่สามารถเปลี่ยนเนื้อหาในอินสแตนซ์ที่ล็อกได้"
   },
   "app.instance.mods.project-was-added": {
     "message": "เพิ่ม \"{name}\" เรียบร้อยแล้ว"
@@ -191,11 +1250,50 @@
   "app.instance.mods.successfully-uploaded": {
     "message": "อัปโหลดสำเร็จ"
   },
+  "app.instance.mods.unfreeze-content": {
+    "message": "เลิกตรึงเวอร์ชัน"
+  },
+  "app.instance.navigation.back-to-instance": {
+    "message": "กลับสู่อินสแตนซ์"
+  },
+  "app.instance.shortcut.created": {
+    "message": "สร้างทางลัดแล้ว"
+  },
+  "app.instance.shortcut.creation-error": {
+    "message": "เกิดข้อผิดพลาดขณะสร้างทางลัด"
+  },
+  "app.instance.tab.content": {
+    "message": "เนื้อหา"
+  },
+  "app.instance.tab.files": {
+    "message": "ไฟล์"
+  },
+  "app.instance.tab.logs": {
+    "message": "บันทึก"
+  },
+  "app.instance.tab.screenshots": {
+    "message": "ภาพหน้าจอ"
+  },
+  "app.instance.tab.worlds": {
+    "message": "โลก"
+  },
   "app.instance.worlds.add-server": {
     "message": "เพิ่มเซิร์ฟเวอร์"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "ค้นหาเซิร์ฟเวอร์"
+  "app.instance.worlds.browse": {
+    "message": "สำรวจโลก"
+  },
+  "app.instance.worlds.delete-world-modal.delete-button": {
+    "message": "ลบโลก"
+  },
+  "app.instance.worlds.delete-world-modal.title": {
+    "message": "ลบโลก"
+  },
+  "app.instance.worlds.delete-world-modal.warning-body": {
+    "message": "โลกนี้จะถูกลบออกจากอินสแตนซ์นี้ถาวร การดำเนินการนี้ไม่สามารถย้อนกลับได้"
+  },
+  "app.instance.worlds.delete-world-modal.warning-header": {
+    "message": "กำลังลบ {name}"
   },
   "app.instance.worlds.filter-modded": {
     "message": "ม็อด"
@@ -215,32 +1313,704 @@
   "app.instance.worlds.no-worlds-heading": {
     "message": "ไม่มีเซิร์ฟเวอร์หรือโลกที่เพิ่มไว้"
   },
+  "app.instance.worlds.refreshing": {
+    "message": "กำลังรีเฟรช..."
+  },
+  "app.instance.worlds.remove-server-modal.remove-button": {
+    "message": "ลบเซิร์ฟเวอร์"
+  },
+  "app.instance.worlds.remove-server-modal.remove-everywhere": {
+    "message": "ลบทุกที่"
+  },
+  "app.instance.worlds.remove-server-modal.remove-here": {
+    "message": "ลบที่นี่"
+  },
+  "app.instance.worlds.remove-server-modal.synced-description": {
+    "message": "สามารถลบออกจากอินสแตนซ์นี้เท่านั้น หรือออกจากอินสแตนซ์ที่ซิงก์ทั้งหมด การลบออกจากอินสแตนซ์นี้เท่านั้นจะเปิดการแทนที่ และอินสแตนซ์นี้จะไม่ได้รับการเปลี่ยนแปลงเซิร์ฟเวอร์ที่ซิงก์อีก"
+  },
+  "app.instance.worlds.remove-server-modal.synced-header": {
+    "message": "เซิร์ฟเวอร์นี้ถูกซิงก์"
+  },
+  "app.instance.worlds.remove-server-modal.title": {
+    "message": "ลบเซิร์ฟเวอร์"
+  },
+  "app.instance.worlds.remove-server-modal.warning-body": {
+    "message": "เซิร์ฟเวอร์นี้จะถูกลบออกจากรายการเซิร์ฟเวอร์และรายการเซิร์ฟเวอร์ในเกม สามารถเพิ่มอีกครั้งได้ในภายหลังหากทราบที่อยู่"
+  },
+  "app.instance.worlds.remove-server-modal.warning-header": {
+    "message": "กำลังลบ {name}"
+  },
   "app.instance.worlds.search-worlds-placeholder": {
     "message": "ค้าหาโลกทั้งหมด {count} โลก"
   },
-  "app.modal.install-to-play.header": {
-    "message": "ติดตั้งเพื่อเล่น"
+  "app.java-detection.cancel": {
+    "message": "ยกเลิก"
   },
-  "app.modal.install-to-play.install-button": {
-    "message": "ติดตั้ง"
+  "app.java-detection.columns.actions": {
+    "message": "การดำเนินการ"
   },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, other {# ม็อด}}"
+  "app.java-detection.columns.path": {
+    "message": "เส้นทาง"
   },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "โปรแกรมที่มีร่วมกัน"
+  "app.java-detection.columns.version": {
+    "message": "เวอร์ชัน"
   },
-  "app.modal.install-to-play.view-contents": {
-    "message": "ดูเนื้อหา"
+  "app.java-detection.no-installations-found": {
+    "message": "ไม่พบการติดตั้ง Java"
   },
-  "app.modal.update-to-play.header": {
-    "message": "อัปเดตเพื่อเล่น"
+  "app.java-detection.select": {
+    "message": "เลือก"
+  },
+  "app.java-detection.selected": {
+    "message": "เลือกแล้ว"
+  },
+  "app.java-detection.title": {
+    "message": "เลือกการติดตั้ง Java"
+  },
+  "app.java-selector.already-installed": {
+    "message": "ติดตั้งแล้ว"
+  },
+  "app.java-selector.browse": {
+    "message": "เรียกดู"
+  },
+  "app.java-selector.detect": {
+    "message": "ตรวจหา"
+  },
+  "app.java-selector.install-recommended": {
+    "message": "ติดตั้งที่แนะนำ"
+  },
+  "app.java-selector.installing": {
+    "message": "กำลังติดตั้ง..."
+  },
+  "app.java-selector.path.placeholder": {
+    "message": "/path/to/java"
+  },
+  "app.java-selector.test-installation": {
+    "message": "ทดสอบการติดตั้ง Java"
+  },
+  "app.launch-link.instance": {
+    "message": "ลิงก์ต้องการเริ่ม {instance}"
+  },
+  "app.launch-link.proceed": {
+    "message": "เริ่ม"
+  },
+  "app.launch-link.server": {
+    "message": "ลิงก์ต้องการเริ่ม {instance} และเข้าร่วมเซิร์ฟเวอร์ {target} ดำเนินการต่อเฉพาะเมื่อไว้ใจที่มาของลิงก์นี้"
+  },
+  "app.launch-link.title": {
+    "message": "เปิด Minecraft จากลิงก์ใช่หรือไม่?"
+  },
+  "app.launch-link.world": {
+    "message": "ลิงก์ต้องการเริ่ม {instance} และเปิดโลก {target}"
+  },
+  "app.library.actions.label": {
+    "message": "การดำเนินการของคลัง"
+  },
+  "app.library.context-menu.create-instance": {
+    "message": "อินสแตนซ์ใหม่"
+  },
+  "app.library.filter.add": {
+    "message": "เพิ่มตัวกรอง"
+  },
+  "app.library.filter.clear": {
+    "message": "ล้างตัวกรอง"
+  },
+  "app.library.filter.game-version": {
+    "message": "เวอร์ชันเกม"
+  },
+  "app.library.filter.instance-type": {
+    "message": "ประเภทอินสแตนซ์"
+  },
+  "app.library.filter.instance-type.custom": {
+    "message": "กำหนดเอง"
+  },
+  "app.library.filter.instance-type.modpack": {
+    "message": "ม็อดแพ็ก"
+  },
+  "app.library.filter.instance-type.server": {
+    "message": "เซิร์ฟเวอร์"
+  },
+  "app.library.filter.label": {
+    "message": "กรองตาม"
+  },
+  "app.library.filter.loader": {
+    "message": "Loader"
+  },
+  "app.library.group-by.custom-group": {
+    "message": "กลุ่มกำหนดเอง"
+  },
+  "app.library.group-by.game-version": {
+    "message": "เวอร์ชันเกม"
+  },
+  "app.library.group-by.instance-type": {
+    "message": "ประเภทอินสแตนซ์"
+  },
+  "app.library.group-by.label": {
+    "message": "จัดกลุ่มตาม"
+  },
+  "app.library.group-by.loader": {
+    "message": "Loader"
+  },
+  "app.library.group-by.none": {
+    "message": "ไม่จัดกลุ่ม"
+  },
+  "app.library.group.actions.label": {
+    "message": "การดำเนินการของกลุ่ม"
+  },
+  "app.library.group.collapse": {
+    "message": "ยุบกลุ่ม"
+  },
+  "app.library.group.context-menu.add-to-group": {
+    "message": "เพิ่มลงในกลุ่ม"
+  },
+  "app.library.group.create": {
+    "message": "สร้างกลุ่ม"
+  },
+  "app.library.group.create.cancel": {
+    "message": "ยกเลิก"
+  },
+  "app.library.group.delete": {
+    "message": "ลบกลุ่ม"
+  },
+  "app.library.group.delete-description": {
+    "message": "อินสแตนซ์ในกลุ่มนี้จะถูกยกเลิกการจัดกลุ่ม"
+  },
+  "app.library.group.edit-name": {
+    "message": "แก้ไขชื่อกลุ่ม"
+  },
+  "app.library.group.empty": {
+    "message": "ลากและวางเพื่อเพิ่มอินสแตนซ์"
+  },
+  "app.library.group.expand": {
+    "message": "ขยายกลุ่ม"
+  },
+  "app.library.group.favorites": {
+    "message": "รายการโปรด"
+  },
+  "app.library.group.instance.add": {
+    "message": "เพิ่ม"
+  },
+  "app.library.group.instance.added": {
+    "message": "เพิ่มแล้ว"
+  },
+  "app.library.group.instances-modal.add": {
+    "message": "เพิ่ม"
+  },
+  "app.library.group.instances-modal.added": {
+    "message": "เพิ่มแล้ว"
+  },
+  "app.library.group.instances-modal.no-instances-found": {
+    "message": "ไม่พบอินสแตนซ์"
+  },
+  "app.library.group.instances-modal.search-placeholder": {
+    "message": "ค้นหาอินสแตนซ์"
+  },
+  "app.library.group.instances-modal.title": {
+    "message": "เพิ่มอินสแตนซ์ลงใน \"{groupName}\""
+  },
+  "app.library.group.move-down": {
+    "message": "ย้ายกลุ่มลง"
+  },
+  "app.library.group.move-up": {
+    "message": "ย้ายกลุ่มขึ้น"
+  },
+  "app.library.group.name": {
+    "message": "ชื่อกลุ่ม"
+  },
+  "app.library.group.name-empty": {
+    "message": "ชื่อกลุ่มต้องไม่ว่างเปล่า"
+  },
+  "app.library.group.name-placeholder": {
+    "message": "ป้อนชื่อกลุ่ม"
+  },
+  "app.library.group.name-reserved": {
+    "message": "\"None\" เป็นชื่อสงวนและไม่สามารถใช้เป็นชื่อกลุ่มได้"
+  },
+  "app.library.group.name-too-long": {
+    "message": "ชื่อกลุ่มต้องไม่ยาวเกิน {maxLength} อักขระ"
+  },
+  "app.library.group.new": {
+    "message": "กลุ่มใหม่"
+  },
+  "app.library.group.no-instances-found": {
+    "message": "ไม่พบอินสแตนซ์"
+  },
+  "app.library.group.rename-failed": {
+    "message": "ไม่สามารถเปลี่ยนชื่อกลุ่มได้"
+  },
+  "app.library.group.search-instance": {
+    "message": "ค้นหาอินสแตนซ์"
+  },
+  "app.library.group.ungrouped": {
+    "message": "ไม่ได้จัดกลุ่ม"
+  },
+  "app.library.group.unknown": {
+    "message": "กลุ่มที่ไม่รู้จัก"
+  },
+  "app.library.instance.action.add-content": {
+    "message": "เพิ่มเนื้อหา"
+  },
+  "app.library.instance.action.add-to-favorites": {
+    "message": "เพิ่มลงในรายการโปรด"
+  },
+  "app.library.instance.action.copy-path": {
+    "message": "คัดลอกเส้นทาง"
+  },
+  "app.library.instance.action.delete": {
+    "message": "ลบ"
+  },
+  "app.library.instance.action.duplicate": {
+    "message": "ทำสำเนาอินสแตนซ์"
+  },
+  "app.library.instance.action.open-folder": {
+    "message": "เปิดโฟลเดอร์"
+  },
+  "app.library.instance.action.play": {
+    "message": "เล่น"
+  },
+  "app.library.instance.action.remove-from-favorites": {
+    "message": "ลบออกจากรายการโปรด"
+  },
+  "app.library.instance.action.remove-from-group": {
+    "message": "ลบออกจากกลุ่ม"
+  },
+  "app.library.instance.action.stop": {
+    "message": "หยุด"
+  },
+  "app.library.instance.action.view-instance": {
+    "message": "ดูอินสแตนซ์"
+  },
+  "app.library.instance.actions.label": {
+    "message": "การดำเนินการของอินสแตนซ์"
+  },
+  "app.library.instance.deselect": {
+    "message": "ยกเลิกการเลือกอินสแตนซ์"
+  },
+  "app.library.instance.deselect-with-name": {
+    "message": "ยกเลิกการเลือก {name}"
+  },
+  "app.library.instance.installing": {
+    "message": "กำลังติดตั้ง..."
+  },
+  "app.library.instance.loading": {
+    "message": "อินสแตนซ์กำลังโหลด..."
+  },
+  "app.library.instance.new": {
+    "message": "อินสแตนซ์ใหม่"
+  },
+  "app.library.instance.open-with-name": {
+    "message": "เปิด {name}"
+  },
+  "app.library.instance.play": {
+    "message": "เล่น"
+  },
+  "app.library.instance.repair": {
+    "message": "ซ่อมแซม"
+  },
+  "app.library.instance.select": {
+    "message": "เลือกอินสแตนซ์"
+  },
+  "app.library.instance.select-with-name": {
+    "message": "เลือก {name}"
+  },
+  "app.library.instance.stop": {
+    "message": "หยุด"
+  },
+  "app.library.search.no-results.title": {
+    "message": "ไม่มีอินสแตนซ์ที่ตรงกับการค้นหา"
+  },
+  "app.library.search.placeholder": {
+    "message": "ค้นหา"
+  },
+  "app.library.selection.aria-label": {
+    "message": "อินสแตนซ์ที่เลือก"
+  },
+  "app.library.selection.deleting": {
+    "message": "กำลังลบอินสแตนซ์ที่เลือก"
+  },
+  "app.library.selection.new-group": {
+    "message": "กลุ่มใหม่"
+  },
+  "app.library.selection.remove-from-group": {
+    "message": "ลบออกจากกลุ่ม"
+  },
+  "app.library.selection.selected-count": {
+    "message": "เลือกแล้ว {count} รายการ"
+  },
+  "app.library.sort.date-created": {
+    "message": "วันที่สร้าง"
+  },
+  "app.library.sort.date-modified": {
+    "message": "วันที่แก้ไข"
+  },
+  "app.library.sort.game-version": {
+    "message": "เวอร์ชันเกม"
+  },
+  "app.library.sort.hours-played": {
+    "message": "ชั่วโมงการเล่น"
+  },
+  "app.library.sort.label": {
+    "message": "เรียงตาม"
+  },
+  "app.library.sort.last-played": {
+    "message": "เล่นล่าสุด"
+  },
+  "app.library.sort.loader": {
+    "message": "Loader"
+  },
+  "app.library.sort.name": {
+    "message": "ชื่อ"
+  },
+  "app.library.title": {
+    "message": "คลัง"
+  },
+  "app.nav.collapse-sidebar": {
+    "message": "ยุบแถบด้านข้าง"
+  },
+  "app.nav.create-new-instance": {
+    "message": "สร้างอินสแตนซ์ใหม่"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "ขยายแถบด้านข้าง"
+  },
+  "app.nav.home": {
+    "message": "หน้าแรก"
+  },
+  "app.nav.screenshots": {
+    "message": "ภาพหน้าจอ"
+  },
+  "app.navigation.go-back": {
+    "message": "ย้อนกลับ"
+  },
+  "app.navigation.go-forward": {
+    "message": "ไปข้างหน้า"
+  },
+  "app.navigation.home": {
+    "message": "หน้าแรก"
+  },
+  "app.navigation.next-image": {
+    "message": "รูปถัดไป"
+  },
+  "app.notification.warning": {
+    "message": "คำเตือน"
+  },
+  "app.project.actions.label": {
+    "message": "การดำเนินการของโปรเจกต์"
+  },
+  "app.project.coming-soon": {
+    "message": "เร็ว ๆ นี้"
+  },
+  "app.project.gallery.image-fallback": {
+    "message": "รูปแกลเลอรี"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "เปิดรูปในแท็บใหม่"
   },
   "app.project.install-button.already-installed": {
     "message": "โปรเจคนี้ถูกติดตั้งแล้ว"
   },
+  "app.project.install-button.switch-version": {
+    "message": "เปลี่ยนเวอร์ชัน"
+  },
   "app.project.install-context.back-to-browse": {
     "message": "กลับไปที่หน้าค้นหา"
+  },
+  "app.project.install-context.back-to-instance": {
+    "message": "กลับสู่อินสแตนซ์"
+  },
+  "app.project.load-error": {
+    "message": "ไม่สามารถโหลดข้อมูลโปรเจกต์ได้"
+  },
+  "app.project.more-options": {
+    "message": "ตัวเลือกเพิ่มเติม"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "เปิดใน CurseForge"
+  },
+  "app.project.tab.description": {
+    "message": "คำอธิบาย"
+  },
+  "app.project.tab.gallery": {
+    "message": "แกลเลอรี"
+  },
+  "app.project.tab.versions": {
+    "message": "เวอร์ชัน"
+  },
+  "app.project.version.all-versions": {
+    "message": "เวอร์ชันทั้งหมด"
+  },
+  "app.project.version.download-in-browser": {
+    "message": "ดาวน์โหลดในเบราว์เซอร์"
+  },
+  "app.project.version.installing": {
+    "message": "กำลังติดตั้ง"
+  },
+  "app.project.versions.already-installed": {
+    "message": "ติดตั้งแล้ว"
+  },
+  "app.quick-instance-switcher.actions.label": {
+    "message": "การดำเนินการของอินสแตนซ์"
+  },
+  "app.quick-instance-switcher.drag-show-tooltip": {
+    "message": "ลากเพื่อแสดงอินสแตนซ์ล่าสุด"
+  },
+  "app.quick-instance-switcher.drag-tooltip": {
+    "message": "ลากเพื่อปรับขนาด"
+  },
+  "app.quick-instance-switcher.instance-locked": {
+    "message": "อินสแตนซ์นี้ถูกล็อกแล้ว"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "อินสแตนซ์ล่าสุด"
+  },
+  "app.quick-instance-switcher.view-instance": {
+    "message": "ดูอินสแตนซ์"
+  },
+  "app.restarting": {
+    "message": "กำลังรีสตาร์ท..."
+  },
+  "app.screenshots.copied": {
+    "message": "คัดลอกแล้ว"
+  },
+  "app.screenshots.copy": {
+    "message": "คัดลอกรูป"
+  },
+  "app.screenshots.delete-description": {
+    "message": "ลบ {name} ถาวรใช่หรือไม่? การดำเนินการนี้ไม่สามารถย้อนกลับได้"
+  },
+  "app.screenshots.delete-success": {
+    "message": "ลบภาพหน้าจอแล้ว"
+  },
+  "app.screenshots.delete-title": {
+    "message": "ลบภาพหน้าจอ"
+  },
+  "app.screenshots.deselect": {
+    "message": "ยกเลิกการเลือก {name}"
+  },
+  "app.screenshots.edit": {
+    "message": "แก้ไขภาพหน้าจอ"
+  },
+  "app.screenshots.empty-description": {
+    "message": "ภาพหน้าจอที่ถ่ายในเกมจะปรากฏที่นี่"
+  },
+  "app.screenshots.empty-heading": {
+    "message": "ยังไม่มีภาพหน้าจอ"
+  },
+  "app.screenshots.error-heading": {
+    "message": "โหลดภาพหน้าจอไม่สำเร็จ"
+  },
+  "app.screenshots.go-to-instance": {
+    "message": "ไปที่อินสแตนซ์"
+  },
+  "app.screenshots.group-by": {
+    "message": "จัดกลุ่มตาม"
+  },
+  "app.screenshots.group.all-screenshots": {
+    "message": "ภาพหน้าจอทั้งหมด"
+  },
+  "app.screenshots.group.collapse": {
+    "message": "ยุบกลุ่ม"
+  },
+  "app.screenshots.group.custom": {
+    "message": "กลุ่มกำหนดเอง"
+  },
+  "app.screenshots.group.date": {
+    "message": "วันที่"
+  },
+  "app.screenshots.group.delete": {
+    "message": "ลบกลุ่ม"
+  },
+  "app.screenshots.group.delete-description": {
+    "message": "ภาพหน้าจอในกลุ่มนี้จะถูกยกเลิกการจัดกลุ่ม"
+  },
+  "app.screenshots.group.edit": {
+    "message": "แก้ไขชื่อกลุ่ม"
+  },
+  "app.screenshots.group.empty": {
+    "message": "ลากและวางเพื่อเพิ่มภาพหน้าจอ"
+  },
+  "app.screenshots.group.expand": {
+    "message": "ขยายกลุ่ม"
+  },
+  "app.screenshots.group.instance": {
+    "message": "อินสแตนซ์"
+  },
+  "app.screenshots.group.new": {
+    "message": "กลุ่มใหม่"
+  },
+  "app.screenshots.group.none": {
+    "message": "ไม่จัดกลุ่ม"
+  },
+  "app.screenshots.group.this-month": {
+    "message": "เดือนนี้"
+  },
+  "app.screenshots.group.this-week": {
+    "message": "สัปดาห์นี้"
+  },
+  "app.screenshots.group.today": {
+    "message": "วันนี้"
+  },
+  "app.screenshots.group.ungrouped": {
+    "message": "ไม่ได้จัดกลุ่ม"
+  },
+  "app.screenshots.group.yesterday": {
+    "message": "เมื่อวาน"
+  },
+  "app.screenshots.heading": {
+    "message": "ภาพหน้าจอ"
+  },
+  "app.screenshots.more-actions": {
+    "message": "การดำเนินการเพิ่มเติม"
+  },
+  "app.screenshots.no-results-description": {
+    "message": "ลองค้นหาหรือตัวกรองอื่น"
+  },
+  "app.screenshots.no-results-heading": {
+    "message": "ไม่มีภาพหน้าจอที่ตรงกัน"
+  },
+  "app.screenshots.preview.instance-and-date": {
+    "message": "{instance} • {date}"
+  },
+  "app.screenshots.search": {
+    "message": "ค้นหา"
+  },
+  "app.screenshots.select": {
+    "message": "เลือก {name}"
+  },
+  "app.screenshots.selection.aria-label": {
+    "message": "ภาพหน้าจอที่เลือก"
+  },
+  "app.screenshots.selection.delete-description": {
+    "message": "ลบ {count, plural, one {# ภาพหน้าจอ} other {# ภาพหน้าจอ}} ใช่หรือไม่? การดำเนินการนี้ไม่สามารถย้อนกลับได้"
+  },
+  "app.screenshots.selection.delete-success": {
+    "message": "{count, plural, one {ลบภาพหน้าจอแล้ว # ภาพ} other {ลบภาพหน้าจอแล้ว # ภาพ}}"
+  },
+  "app.screenshots.selection.delete-title": {
+    "message": "ลบภาพหน้าจอที่เลือก"
+  },
+  "app.screenshots.selection.export-zip": {
+    "message": "ส่งออก ZIP"
+  },
+  "app.screenshots.selection.global-export-filename": {
+    "message": "ภาพหน้าจอ {productName}.zip"
+  },
+  "app.screenshots.selection.instance-export-filename": {
+    "message": "ภาพหน้าจอ {instance}.zip"
+  },
+  "app.screenshots.selection.remove-from-group": {
+    "message": "ลบออกจากกลุ่ม"
+  },
+  "app.screenshots.selection.selected-count": {
+    "message": "เลือกแล้ว {count} รายการ"
+  },
+  "app.screenshots.selection.zip-archive": {
+    "message": "ไฟล์ ZIP"
+  },
+  "app.screenshots.show-in-folder": {
+    "message": "แสดงในโฟลเดอร์"
+  },
+  "app.screenshots.sort-by": {
+    "message": "เรียงตาม"
+  },
+  "app.screenshots.sort.name": {
+    "message": "ชื่อ"
+  },
+  "app.screenshots.sort.newest": {
+    "message": "ใหม่สุด"
+  },
+  "app.screenshots.sort.oldest": {
+    "message": "เก่าสุด"
+  },
+  "app.settings.app-version": {
+    "message": "{productName} {version}"
+  },
+  "app.settings.default-instance-options.environment-variables.description": {
+    "message": "ตัวแปรสภาพแวดล้อมที่ตั้งค่าเมื่อเปิดอินสแตนซ์"
+  },
+  "app.settings.default-instance-options.environment-variables.placeholder": {
+    "message": "ป้อนตัวแปรสภาพแวดล้อม..."
+  },
+  "app.settings.default-instance-options.environment-variables.title": {
+    "message": "ตัวแปรสภาพแวดล้อม"
+  },
+  "app.settings.default-instance-options.fullscreen.description": {
+    "message": "เริ่มอินสแตนซ์แบบเต็มหน้าจอโดยอัปเดตไฟล์ options.txt"
+  },
+  "app.settings.default-instance-options.fullscreen.title": {
+    "message": "เต็มหน้าจอ"
+  },
+  "app.settings.default-instance-options.height.description": {
+    "message": "ความสูงของหน้าต่างเกมเมื่อเปิด"
+  },
+  "app.settings.default-instance-options.height.placeholder": {
+    "message": "ป้อนความสูง..."
+  },
+  "app.settings.default-instance-options.height.title": {
+    "message": "ความสูง"
+  },
+  "app.settings.default-instance-options.java-and-memory.title": {
+    "message": "Java และหน่วยความจำ"
+  },
+  "app.settings.default-instance-options.java-arguments.description": {
+    "message": "อาร์กิวเมนต์ที่ส่งให้ Java เมื่อเปิดอินสแตนซ์"
+  },
+  "app.settings.default-instance-options.java-arguments.placeholder": {
+    "message": "ป้อนอาร์กิวเมนต์ Java..."
+  },
+  "app.settings.default-instance-options.java-arguments.title": {
+    "message": "อาร์กิวเมนต์ Java"
+  },
+  "app.settings.default-instance-options.launch-hooks.title": {
+    "message": "Launch hooks"
+  },
+  "app.settings.default-instance-options.memory-allocation.description": {
+    "message": "หน่วยความจำสูงสุดสำหรับแต่ละอินสแตนซ์"
+  },
+  "app.settings.default-instance-options.memory-allocation.title": {
+    "message": "การจัดสรรหน่วยความจำ"
+  },
+  "app.settings.default-instance-options.post-exit-hook.description": {
+    "message": "รันหลังจากเกมปิด"
+  },
+  "app.settings.default-instance-options.post-exit-hook.placeholder": {
+    "message": "ป้อนคำสั่ง post-exit..."
+  },
+  "app.settings.default-instance-options.post-exit-hook.title": {
+    "message": "Post-exit hook"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.description": {
+    "message": "รันก่อนอินสแตนซ์เริ่มทำงาน"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.placeholder": {
+    "message": "ป้อนคำสั่ง pre-launch..."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "Pre-launch hook"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "ความกว้างของหน้าต่างเกมเมื่อเปิด"
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "ป้อนความกว้าง..."
+  },
+  "app.settings.default-instance-options.width.title": {
+    "message": "ความกว้าง"
+  },
+  "app.settings.default-instance-options.window.title": {
+    "message": "หน้าต่าง"
+  },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "คำสั่งที่ใช้ครอบกระบวนการเปิด Minecraft"
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "ป้อนคำสั่ง wrapper..."
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "Wrapper hook"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "สลับโหมดนักพัฒนา"
   },
   "app.settings.developer-mode-enabled": {
     "message": "โหมดนักพัฒนาเปิดอยู่"
@@ -248,8 +2018,1394 @@
   "app.settings.downloading": {
     "message": "ดาวน์โหลดเวอร์ชัน {version}"
   },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "ไม่พบแฟล็กที่ตรงกับ \"{query}\""
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "รีเซ็ตเป็นค่าเริ่มต้น"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "ค้นหาแฟล็ก..."
+  },
+  "app.settings.game-options.category.accessibility.description": {
+    "message": "การตั้งค่าการเข้าถึง"
+  },
+  "app.settings.game-options.category.accessibility.label": {
+    "message": "การเข้าถึง"
+  },
+  "app.settings.game-options.category.chat.description": {
+    "message": "การแสดงผลและลักษณะของแชต"
+  },
+  "app.settings.game-options.category.chat.label": {
+    "message": "แชต"
+  },
+  "app.settings.game-options.category.controls.description": {
+    "message": "เมาส์ การเคลื่อนไหว และการตั้งค่าปุ่ม"
+  },
+  "app.settings.game-options.category.controls.label": {
+    "message": "การควบคุม"
+  },
+  "app.settings.game-options.category.custom.description": {
+    "message": "การตั้งค่าที่เพิ่มโดยม็อด"
+  },
+  "app.settings.game-options.category.custom.label": {
+    "message": "การตั้งค่ากำหนดเอง"
+  },
+  "app.settings.game-options.category.language.description": {
+    "message": "ภาษาของเกม"
+  },
+  "app.settings.game-options.category.language.label": {
+    "message": "ภาษา"
+  },
+  "app.settings.game-options.category.music-and-sound.description": {
+    "message": "ระดับเสียงและการตั้งค่าเสียง"
+  },
+  "app.settings.game-options.category.music-and-sound.label": {
+    "message": "เพลงและเสียง"
+  },
+  "app.settings.game-options.category.online.description": {
+    "message": "การตั้งค่าออนไลน์และ Realms"
+  },
+  "app.settings.game-options.category.online.label": {
+    "message": "ออนไลน์"
+  },
+  "app.settings.game-options.category.skin-customization.description": {
+    "message": "เลเยอร์สกินและมือหลัก"
+  },
+  "app.settings.game-options.category.skin-customization.label": {
+    "message": "ปรับแต่งสกิน"
+  },
+  "app.settings.game-options.category.video.description": {
+    "message": "การตั้งค่ากล้องและการแสดงผล"
+  },
+  "app.settings.game-options.category.video.label": {
+    "message": "วิดีโอ"
+  },
+  "app.settings.game-options.choice.all": {
+    "message": "ทั้งหมด"
+  },
+  "app.settings.game-options.choice.balanced": {
+    "message": "สมดุล"
+  },
+  "app.settings.game-options.choice.by-player": {
+    "message": "ตามผู้เล่น"
+  },
+  "app.settings.game-options.choice.chat": {
+    "message": "แชต"
+  },
+  "app.settings.game-options.choice.commands-only": {
+    "message": "เฉพาะคำสั่ง"
+  },
+  "app.settings.game-options.choice.constant": {
+    "message": "คงที่"
+  },
+  "app.settings.game-options.choice.crosshair": {
+    "message": "เป้าเล็ง"
+  },
+  "app.settings.game-options.choice.custom": {
+    "message": "กำหนดเอง"
+  },
+  "app.settings.game-options.choice.decreased": {
+    "message": "ลดลง"
+  },
+  "app.settings.game-options.choice.default": {
+    "message": "ค่าเริ่มต้น"
+  },
+  "app.settings.game-options.choice.fabulous": {
+    "message": "ยอดเยี่ยม"
+  },
+  "app.settings.game-options.choice.fancy": {
+    "message": "สวยงาม"
+  },
+  "app.settings.game-options.choice.far": {
+    "message": "ไกล"
+  },
+  "app.settings.game-options.choice.fast": {
+    "message": "เร็ว"
+  },
+  "app.settings.game-options.choice.frequent": {
+    "message": "บ่อย"
+  },
+  "app.settings.game-options.choice.hidden": {
+    "message": "ซ่อน"
+  },
+  "app.settings.game-options.choice.hotbar": {
+    "message": "แถบไอเท็ม"
+  },
+  "app.settings.game-options.choice.left": {
+    "message": "ซ้าย"
+  },
+  "app.settings.game-options.choice.limited": {
+    "message": "จำกัด"
+  },
+  "app.settings.game-options.choice.max-fps": {
+    "message": "FPS สูงสุด"
+  },
+  "app.settings.game-options.choice.maximum": {
+    "message": "สูงสุด"
+  },
+  "app.settings.game-options.choice.minimal": {
+    "message": "น้อยที่สุด"
+  },
+  "app.settings.game-options.choice.minimum": {
+    "message": "ต่ำสุด"
+  },
+  "app.settings.game-options.choice.nearby": {
+    "message": "ใกล้เคียง"
+  },
+  "app.settings.game-options.choice.never": {
+    "message": "ไม่เลย"
+  },
+  "app.settings.game-options.choice.none": {
+    "message": "ไม่มี"
+  },
+  "app.settings.game-options.choice.normal": {
+    "message": "ปกติ"
+  },
+  "app.settings.game-options.choice.off": {
+    "message": "ปิด"
+  },
+  "app.settings.game-options.choice.on": {
+    "message": "เปิด"
+  },
+  "app.settings.game-options.choice.opengl": {
+    "message": "OpenGL"
+  },
+  "app.settings.game-options.choice.pause": {
+    "message": "เมนูหยุดชั่วคราว"
+  },
+  "app.settings.game-options.choice.pause-and-toast": {
+    "message": "เมนูหยุดชั่วคราวและการแจ้งเตือน"
+  },
+  "app.settings.game-options.choice.power-saver": {
+    "message": "ประหยัดพลังงาน"
+  },
+  "app.settings.game-options.choice.right": {
+    "message": "ขวา"
+  },
+  "app.settings.game-options.choice.short": {
+    "message": "สั้น"
+  },
+  "app.settings.game-options.choice.shown": {
+    "message": "แสดง"
+  },
+  "app.settings.game-options.choice.system": {
+    "message": "ระบบ"
+  },
+  "app.settings.game-options.choice.tiny": {
+    "message": "เล็กมาก"
+  },
+  "app.settings.game-options.choice.vulkan": {
+    "message": "Vulkan"
+  },
+  "app.settings.game-options.choice.when-minimized": {
+    "message": "เมื่อย่อหน้าต่าง"
+  },
+  "app.settings.game-options.choice.while-afk": {
+    "message": "ขณะไม่อยู่หน้าจอ"
+  },
+  "app.settings.game-options.compatibility.none": {
+    "message": "อินสแตนซ์บางรายการไม่สามารถใช้การตั้งค่านี้ได้"
+  },
+  "app.settings.game-options.compatibility.reason.launcher-controlled": {
+    "message": "การตั้งค่านี้จัดการโดยการตั้งค่าเปิดเกมของ {productName}"
+  },
+  "app.settings.game-options.custom-value.placeholder": {
+    "message": "ป้อนค่า"
+  },
+  "app.settings.game-options.keybind.assigned-status": {
+    "message": "{setting} ผูกกับ {binding} แล้ว"
+  },
+  "app.settings.game-options.keybind.cancelled-status": {
+    "message": "ยกเลิกการเปลี่ยนปุ่มแล้ว"
+  },
+  "app.settings.game-options.keybind.change": {
+    "message": "{setting}: {binding} เปิดเพื่อเปลี่ยนการผูกปุ่ม"
+  },
+  "app.settings.game-options.keybind.choose": {
+    "message": "เลือกปุ่ม"
+  },
+  "app.settings.game-options.keybind.conflict-description": {
+    "message": "มีการใช้โดย {settings} แล้ว"
+  },
+  "app.settings.game-options.keybind.key.arrow-down": {
+    "message": "ลูกศรลง"
+  },
+  "app.settings.game-options.keybind.key.arrow-left": {
+    "message": "ลูกศรซ้าย"
+  },
+  "app.settings.game-options.keybind.key.arrow-right": {
+    "message": "ลูกศรขวา"
+  },
+  "app.settings.game-options.keybind.key.arrow-up": {
+    "message": "ลูกศรขึ้น"
+  },
+  "app.settings.game-options.keybind.key.backspace": {
+    "message": "Backspace"
+  },
+  "app.settings.game-options.keybind.key.caps-lock": {
+    "message": "Caps Lock"
+  },
+  "app.settings.game-options.keybind.key.delete": {
+    "message": "Delete"
+  },
+  "app.settings.game-options.keybind.key.end": {
+    "message": "End"
+  },
+  "app.settings.game-options.keybind.key.enter": {
+    "message": "Enter"
+  },
+  "app.settings.game-options.keybind.key.escape": {
+    "message": "Escape"
+  },
+  "app.settings.game-options.keybind.key.home": {
+    "message": "Home"
+  },
+  "app.settings.game-options.keybind.key.insert": {
+    "message": "Insert"
+  },
+  "app.settings.game-options.keybind.key.keypad-key": {
+    "message": "แป้นตัวเลข {key}"
+  },
+  "app.settings.game-options.keybind.key.left-alt": {
+    "message": "Alt ซ้าย"
+  },
+  "app.settings.game-options.keybind.key.left-command": {
+    "message": "Command ซ้าย"
+  },
+  "app.settings.game-options.keybind.key.left-control": {
+    "message": "Ctrl ซ้าย"
+  },
+  "app.settings.game-options.keybind.key.left-shift": {
+    "message": "Shift ซ้าย"
+  },
+  "app.settings.game-options.keybind.key.left-super": {
+    "message": "Super ซ้าย"
+  },
+  "app.settings.game-options.keybind.key.menu": {
+    "message": "Menu"
+  },
+  "app.settings.game-options.keybind.key.num-lock": {
+    "message": "Num Lock"
+  },
+  "app.settings.game-options.keybind.key.page-down": {
+    "message": "Page Down"
+  },
+  "app.settings.game-options.keybind.key.page-up": {
+    "message": "Page Up"
+  },
+  "app.settings.game-options.keybind.key.pause": {
+    "message": "Pause"
+  },
+  "app.settings.game-options.keybind.key.print-screen": {
+    "message": "Print Screen"
+  },
+  "app.settings.game-options.keybind.key.right-alt": {
+    "message": "Alt ขวา"
+  },
+  "app.settings.game-options.keybind.key.right-command": {
+    "message": "Command ขวา"
+  },
+  "app.settings.game-options.keybind.key.right-control": {
+    "message": "Ctrl ขวา"
+  },
+  "app.settings.game-options.keybind.key.right-shift": {
+    "message": "Shift ขวา"
+  },
+  "app.settings.game-options.keybind.key.right-super": {
+    "message": "Super ขวา"
+  },
+  "app.settings.game-options.keybind.key.scroll-lock": {
+    "message": "Scroll Lock"
+  },
+  "app.settings.game-options.keybind.key.space": {
+    "message": "Space"
+  },
+  "app.settings.game-options.keybind.key.tab": {
+    "message": "Tab"
+  },
+  "app.settings.game-options.keybind.key.unbound": {
+    "message": "ไม่ได้ผูกปุ่ม"
+  },
+  "app.settings.game-options.keybind.key.unknown": {
+    "message": "ปุ่มที่ไม่รู้จัก"
+  },
+  "app.settings.game-options.keybind.listen": {
+    "message": "กดปุ่ม…"
+  },
+  "app.settings.game-options.keybind.listening-status": {
+    "message": "กำลังรอปุ่มหรือปุ่มเมาส์ กด Escape เพื่อล้างการผูกปุ่มนี้"
+  },
+  "app.settings.game-options.keybind.mixed": {
+    "message": "แตกต่างกันในแต่ละอินสแตนซ์"
+  },
+  "app.settings.game-options.keybind.modifier.alt": {
+    "message": "Alt"
+  },
+  "app.settings.game-options.keybind.modifier.command": {
+    "message": "Command"
+  },
+  "app.settings.game-options.keybind.modifier.control": {
+    "message": "Ctrl"
+  },
+  "app.settings.game-options.keybind.modifier.shift": {
+    "message": "Shift"
+  },
+  "app.settings.game-options.keybind.modifier.super": {
+    "message": "Super"
+  },
+  "app.settings.game-options.keybind.mouse.button": {
+    "message": "เมาส์ {button}"
+  },
+  "app.settings.game-options.keybind.mouse.left": {
+    "message": "คลิกซ้าย"
+  },
+  "app.settings.game-options.keybind.mouse.middle": {
+    "message": "คลิกกลาง"
+  },
+  "app.settings.game-options.keybind.mouse.right": {
+    "message": "คลิกขวา"
+  },
+  "app.settings.game-options.keybind.recording-label": {
+    "message": "{setting}: กำลังรอปุ่มหรือปุ่มเมาส์ กด Escape เพื่อล้างการผูกปุ่มนี้"
+  },
+  "app.settings.game-options.keybind.scancode": {
+    "message": "Scancode {code}"
+  },
+  "app.settings.game-options.keybind.unsupported-status": {
+    "message": "อินพุตนี้ Minecraft ใช้ไม่ได้ กดปุ่มอื่น"
+  },
+  "app.settings.game-options.setting.advanced-opengl.label": {
+    "message": "OpenGL ขั้นสูง"
+  },
+  "app.settings.game-options.setting.allow-cursor-changes.label": {
+    "message": "อนุญาตให้เปลี่ยนเคอร์เซอร์"
+  },
+  "app.settings.game-options.setting.allow-server-listing.description": {
+    "message": "อนุญาตให้ชื่อผู้เล่นปรากฏในรายการเซิร์ฟเวอร์"
+  },
+  "app.settings.game-options.setting.allow-server-listing.label": {
+    "message": "รายการเซิร์ฟเวอร์"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "บล็อกทางเลือก"
+  },
+  "app.settings.game-options.setting.ambient-occlusion.label": {
+    "message": "แสงเงาเนียน"
+  },
+  "app.settings.game-options.setting.ambient-volume.label": {
+    "message": "เสียงบรรยากาศ/สภาพแวดล้อม"
+  },
+  "app.settings.game-options.setting.anaglyph-3d.label": {
+    "message": "3D แอนากลิฟ"
+  },
+  "app.settings.game-options.setting.anisotropic-filtering.label": {
+    "message": "การกรอง Anisotropic"
+  },
+  "app.settings.game-options.setting.anisotropy.label": {
+    "message": "Anisotropy"
+  },
+  "app.settings.game-options.setting.attack-indicator.label": {
+    "message": "ตัวบ่งชี้การโจมตี"
+  },
+  "app.settings.game-options.setting.auto-jump.description": {
+    "message": "กระโดดข้ามสิ่งกีดขวางสูงหนึ่งบล็อกอัตโนมัติ"
+  },
+  "app.settings.game-options.setting.auto-jump.label": {
+    "message": "กระโดดอัตโนมัติ"
+  },
+  "app.settings.game-options.setting.auto-suggestions.label": {
+    "message": "คำแนะนำคำสั่ง"
+  },
+  "app.settings.game-options.setting.autosave-indicator.label": {
+    "message": "ตัวบ่งชี้บันทึกอัตโนมัติ"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.description": {
+    "message": "ระยะที่สีของไบโอมเปลี่ยนผ่าน"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.label": {
+    "message": "การผสมไบโอม"
+  },
+  "app.settings.game-options.setting.blocks-volume.label": {
+    "message": "บล็อก"
+  },
+  "app.settings.game-options.setting.brightness.label": {
+    "message": "ความสว่าง"
+  },
+  "app.settings.game-options.setting.cape.description": {
+    "message": "แสดงผ้าคลุมของผู้เล่น รวมถึงเท็กซ์เจอร์ elytra"
+  },
+  "app.settings.game-options.setting.cape.label": {
+    "message": "ผ้าคลุม"
+  },
+  "app.settings.game-options.setting.chat-background-only.label": {
+    "message": "เฉพาะพื้นหลังแชต"
+  },
+  "app.settings.game-options.setting.chat-colors.label": {
+    "message": "สีแชต"
+  },
+  "app.settings.game-options.setting.chat-delay.label": {
+    "message": "ความหน่วงแชต"
+  },
+  "app.settings.game-options.setting.chat-line-spacing.label": {
+    "message": "ระยะห่างบรรทัดแชต"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.description": {
+    "message": "ถามก่อนเปิดลิงก์จากแชต"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.label": {
+    "message": "ถามก่อนเปิดลิงก์"
+  },
+  "app.settings.game-options.setting.chat-links.description": {
+    "message": "อนุญาตให้เปิดลิงก์เว็บในแชต"
+  },
+  "app.settings.game-options.setting.chat-links.label": {
+    "message": "ลิงก์เว็บ"
+  },
+  "app.settings.game-options.setting.chat-opacity.description": {
+    "message": "ความทึบของข้อความแชต"
+  },
+  "app.settings.game-options.setting.chat-opacity.label": {
+    "message": "ความทึบแชต"
+  },
+  "app.settings.game-options.setting.chat-preview.label": {
+    "message": "ตัวอย่างแชต"
+  },
+  "app.settings.game-options.setting.chat-scale.label": {
+    "message": "ขนาดแชต"
+  },
+  "app.settings.game-options.setting.chat-visibility.label": {
+    "message": "การแสดงแชต"
+  },
+  "app.settings.game-options.setting.chat-width.label": {
+    "message": "ความกว้างแชต"
+  },
+  "app.settings.game-options.setting.chunk-fade-time.label": {
+    "message": "เวลาจางของชังก์"
+  },
+  "app.settings.game-options.setting.cloud-range.label": {
+    "message": "ระยะเมฆ"
+  },
+  "app.settings.game-options.setting.clouds.label": {
+    "message": "เมฆ"
+  },
+  "app.settings.game-options.setting.ctrl-click-right-click.label": {
+    "message": "ใช้ Control-click เป็นคลิกขวา"
+  },
+  "app.settings.game-options.setting.cutout-leaves.label": {
+    "message": "ใบไม้แบบตัดขอบ"
+  },
+  "app.settings.game-options.setting.damage-tilt.label": {
+    "message": "การเอียงเมื่อได้รับความเสียหาย"
+  },
+  "app.settings.game-options.setting.dark-splash.description": {
+    "message": "เปลี่ยนหน้าจอโหลดของ Mojang Studios จากสีแดงเป็นสีดำ"
+  },
+  "app.settings.game-options.setting.dark-splash.label": {
+    "message": "โลโก้ขาวดำ"
+  },
+  "app.settings.game-options.setting.darkness-pulsing.label": {
+    "message": "ความมืดกระพริบ"
+  },
+  "app.settings.game-options.setting.debug-gui-scale.label": {
+    "message": "ขนาด GUI ดีบัก"
+  },
+  "app.settings.game-options.setting.directional-audio.label": {
+    "message": "เสียงตามทิศทาง"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.description": {
+    "message": "ถือว่าอินพุตล้อเมาส์แต่ละครั้งเป็นหนึ่งขั้นการเลื่อน"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.label": {
+    "message": "การเลื่อนแบบขั้น"
+  },
+  "app.settings.game-options.setting.entity-distance.label": {
+    "message": "ระยะเอนทิตี"
+  },
+  "app.settings.game-options.setting.entity-shadows.label": {
+    "message": "เงาเอนทิตี"
+  },
+  "app.settings.game-options.setting.exclusive-fullscreen.label": {
+    "message": "เต็มหน้าจอแบบพิเศษ"
+  },
+  "app.settings.game-options.setting.extra-telemetry.label": {
+    "message": "ข้อมูล telemetry เพิ่มเติม"
+  },
+  "app.settings.game-options.setting.focused-chat-height.label": {
+    "message": "ความสูงแชตเมื่อโฟกัส"
+  },
+  "app.settings.game-options.setting.force-unicode-font.label": {
+    "message": "บังคับใช้ฟอนต์ Unicode"
+  },
+  "app.settings.game-options.setting.fov-effects.label": {
+    "message": "เอฟเฟกต์ FOV"
+  },
+  "app.settings.game-options.setting.fov.label": {
+    "message": "มุมมอง"
+  },
+  "app.settings.game-options.setting.fullscreen.label": {
+    "message": "เต็มหน้าจอ"
+  },
+  "app.settings.game-options.setting.glint-speed.label": {
+    "message": "ความเร็วแสงวิบวับ"
+  },
+  "app.settings.game-options.setting.glint-strength.label": {
+    "message": "ความแรงแสงวิบวับ"
+  },
+  "app.settings.game-options.setting.graphics-backend.label": {
+    "message": "แบ็กเอนด์กราฟิก"
+  },
+  "app.settings.game-options.setting.graphics.description": {
+    "message": "ควบคุมคุณภาพภาพและประสิทธิภาพ"
+  },
+  "app.settings.game-options.setting.graphics.label": {
+    "message": "กราฟิก"
+  },
+  "app.settings.game-options.setting.gui-scale.description": {
+    "message": "ขนาดของอินเทอร์เฟซเกมและ HUD"
+  },
+  "app.settings.game-options.setting.gui-scale.label": {
+    "message": "ขนาด GUI"
+  },
+  "app.settings.game-options.setting.hat.description": {
+    "message": "แสดงเลเยอร์หมวกของสกิน"
+  },
+  "app.settings.game-options.setting.hat.label": {
+    "message": "หมวก"
+  },
+  "app.settings.game-options.setting.held-item-tooltips.label": {
+    "message": "คำแนะนำไอเท็มที่ถือ"
+  },
+  "app.settings.game-options.setting.hide-lightning-flashes.label": {
+    "message": "ซ่อนแสงฟ้าผ่า"
+  },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "ซ่อนชื่อที่ตรงกัน"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "ซ่อนที่อยู่เซิร์ฟเวอร์"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "ซ่อนข้อความ splash"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "ขอบบล็อกคอนทราสต์สูง"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "เพิ่มคอนทราสต์ขององค์ประกอบอินเทอร์เฟซ"
+  },
+  "app.settings.game-options.setting.high-contrast.label": {
+    "message": "คอนทราสต์สูง"
+  },
+  "app.settings.game-options.setting.hostile-volume.label": {
+    "message": "สิ่งมีชีวิตที่ไม่เป็นมิตร"
+  },
+  "app.settings.game-options.setting.improved-transparency.label": {
+    "message": "ความโปร่งใสที่ดีขึ้น"
+  },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "การแจ้งเตือนในเกม"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "ลดอัตราเฟรม"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "กลับทิศเมาส์แนวนอน"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "กลับทิศการเคลื่อนเมาส์แนวตั้ง"
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "กลับทิศเมาส์"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "แสดงเลเยอร์แจ็กเก็ตของสกิน"
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "แจ็กเก็ต"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "รูปแบบอักษรญี่ปุ่น"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "ความก้าวหน้า"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "โจมตี"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "ถอยหลัง"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "เปิดแชต"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "คำสั่ง"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "แสดงคำแนะนำขั้นสูง"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "แสดงขอบชังก์"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "ล้างแชต"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "คัดลอกตำแหน่ง"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "คัดลอกคำสั่งสร้างใหม่"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "ทำให้เกิดดีบักแครช"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "ดัมป์เท็กซ์เจอร์ไดนามิก"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "ดัมป์เวอร์ชัน"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "หยุดเมื่อเสียโฟกัส"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "กราฟ FPS"
+  },
+  "app.settings.game-options.setting.key-debug-hitboxes.label": {
+    "message": "แสดง hitbox"
+  },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "มุมมองดีบักความโปร่งใสที่ดีขึ้น"
+  },
+  "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
+    "message": "เท็กซ์เจอร์ lightmap"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "ตัวปรับดีบัก"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "กราฟเครือข่าย"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "ตัวเลือกดีบัก"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "โอเวอร์เลย์ดีบัก"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "กราฟ profiling"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "เริ่ม profiling"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "โหลดชังก์ใหม่"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "โหลดรีซอร์ซแพ็กใหม่"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "ชมเอนทิตี"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "เปลี่ยนโหมดเกม"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "ทิ้งไอเท็ม"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "เดินหน้า"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "เพื่อน"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "สลับเต็มหน้าจอ"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "แถบไอเท็ม 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "แถบไอเท็ม 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "แถบไอเท็ม 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "แถบไอเท็ม 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "แถบไอเท็ม 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "แถบไอเท็ม 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "แถบไอเท็ม 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "แถบไอเท็ม 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "แถบไอเท็ม 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "ช่องเก็บของ"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "กระโดด"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "เลี้ยวซ้าย"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "โหลดแถบเครื่องมือ"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "เปลี่ยนมุมมอง"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "หยิบบล็อก"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "รายชื่อผู้เล่น"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "การดำเนินการด่วน"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "เลี้ยวขวา"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "บันทึกแถบเครื่องมือ"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "ภาพหน้าจอ"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "สลับกล้องภาพยนตร์"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "ย่อง"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "การโต้ตอบทางสังคม"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "แถบไอเท็มผู้ชม"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "เน้นผู้ชม"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "วิ่ง"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "สลับมือรอง"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "สลับ HUD"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "สลับเชเดอร์ผู้ชม"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "ใช้ไอเท็ม"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "ภาษา"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "ขากางเกงซ้าย"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "แขนเสื้อซ้าย"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "ขีดจำกัดอัตราเฟรม"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "ระยะการมองเห็น"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "แสดงเมนู macOS ในเต็มหน้าจอ"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "เลือกว่ามือหลักเป็นซ้ายหรือขวา"
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "มือหลัก"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "ระดับเสียงหลัก"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "อัตราเฟรมสูงสุด"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "เบลอพื้นหลังเมนู"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "การปรับเท็กซ์เจอร์ให้นุ่มนวลในระยะไกล"
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "ระดับ Mipmap"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "ความไวล้อเมาส์"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "ความถี่เพลง"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "เลือกว่าจะแสดงชื่อเพลงในเมนูหยุดชั่วคราวและเป็นการแจ้งเตือนหรือไม่"
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "การแจ้งเตือนเพลง"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "เพลง"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "ปุ่มลัดผู้บรรยาย"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "เลือกว่าผู้บรรยายจะอ่านอะไร"
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "ผู้บรรยาย"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "สิ่งมีชีวิตที่เป็นมิตร"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "ระยะเวลาที่การแจ้งเตือนแบบ toast แสดงอยู่"
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "เวลาแจ้งเตือน"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "แท็บไอเท็มผู้ดูแล"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "ความเร็วพาโนรามา"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "อนุภาค"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "ผู้เล่น"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "ให้ความสำคัญกับการอัปเดตชังก์"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "ทางลัดออก"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "อินพุตเมาส์ดิบ"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "การแจ้งเตือน Realms"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "กล่องเพลง/โน้ตบล็อก"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "ข้อมูลดีบักแบบย่อ"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "ระยะเรนเดอร์"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "ขากางเกงขวา"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "แขนเสื้อขวา"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "หมุนตามรถราง"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "บันทึกร่างแชต"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "เอฟเฟกต์หน้าจอ"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "แสดงเฉพาะแชตปลอดภัย"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "ความไวเมาส์"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "เท็กซ์เจอร์เซิร์ฟเวอร์"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "แชร์สถานะ"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "ระยะที่เอนทิตีอัปเดตและบล็อกกับของเหลวทำงาน"
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "ระยะจำลอง"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Snooper"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "หน้าต่างวิ่ง"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "แสดงคำบรรยายสำหรับเสียงในเกม"
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "คำบรรยาย"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "ความทึบพื้นหลังข้อความ"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "การกรองเท็กซ์เจอร์"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "สลับโจมตี"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "กดหนึ่งครั้งเพื่อย่อตัวค้างไว้"
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "สลับย่อตัว"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "กดหนึ่งครั้งเพื่อวิ่งค้างไว้"
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "สลับวิ่ง"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "สลับใช้"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "โหมดหน้าจอสัมผัส"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "UI"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "ความสูงแชตเมื่อไม่โฟกัส"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "ใช้ VBO"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "เพิ่มการโคลงของกล้องขณะเดิน"
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "กล้องโคลง"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "ขอบมืด"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "เสียงพูด"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "จำกัดอัตราเฟรมตามอัตรารีเฟรชของจอเพื่อป้องกันภาพฉีก"
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "รัศมีสภาพอากาศ"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "สภาพอากาศ"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "การตั้งค่านี้เปลี่ยนไปที่อื่น ตรวจสอบแล้วลองอีกครั้ง"
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "เลือกค่าที่ถูกต้อง"
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "เลือกค่าก่อน"
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "อินสแตนซ์บางรายการไม่สามารถใช้การตั้งค่านี้ได้"
+  },
+  "app.settings.java-installations.location.title": {
+    "message": "ตำแหน่ง Java {version, number}"
+  },
+  "app.settings.operating-system.macos": {
+    "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "แสดง {productName} เป็นกิจกรรมปัจจุบันบน Discord ซึ่งไม่มีผลต่อ Rich Presence ที่ม็อดเพิ่มในอินสแตนซ์"
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord Rich Presence"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "แสดงการดำเนินการคัดลอกรายละเอียดขณะติดตั้งอยู่ในคิวหรือกำลังทำงาน พร้อมใช้งานเสมอสำหรับงานที่ล้มเหลวหรือหยุดชะงัก"
+  },
+  "app.settings.resource-management.always-show-copy-details.title": {
+    "message": "แสดงคัดลอกรายละเอียดเสมอ"
+  },
+  "app.settings.resource-management.app-cache.confirm.description": {
+    "message": "แอปอาจโหลดช้าลงจนกว่าแคชจะถูกสร้างใหม่"
+  },
+  "app.settings.resource-management.app-cache.confirm.title": {
+    "message": "ล้างแคชแอปใช่หรือไม่?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "ล้างข้อมูลแคชแล้วดาวน์โหลดใหม่ แอปอาจโหลดช้าลงจนกว่าแคชจะถูกสร้างใหม่"
+  },
+  "app.settings.resource-management.app-cache.purge": {
+    "message": "ล้างแคช"
+  },
+  "app.settings.resource-management.app-cache.title": {
+    "message": "แคชแอป"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "ข้อมูลสำรองของข้อมูลสำคัญของแอปเก็บไว้ที่นี่ เผื่อต้องกู้คืนในภายหลัง"
+  },
+  "app.settings.resource-management.app-database-backups.open-folder": {
+    "message": "เปิดโฟลเดอร์สำรองข้อมูล"
+  },
+  "app.settings.resource-management.app-database-backups.title": {
+    "message": "ข้อมูลสำรองฐานข้อมูลแอป"
+  },
+  "app.settings.resource-management.app-directory.browse": {
+    "message": "เรียกดูไดเรกทอรีแอป"
+  },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "ที่ที่ {productName} เก็บอินสแตนซ์และไฟล์อื่น การเปลี่ยนแปลงมีผลหลังรีสตาร์ทแอป"
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "เลือกไดเรกทอรีแอปใหม่"
+  },
+  "app.settings.resource-management.app-directory.title": {
+    "message": "ไดเรกทอรีแอป"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "จำนวนไฟล์ที่แอปดาวน์โหลดพร้อมกัน ลดค่านี้หากดาวน์โหลดไม่เสถียร ต้องรีสตาร์ทแอป"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "จำนวนดาวน์โหลดพร้อมกันสูงสุด"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "จำนวนไฟล์ที่แอปเขียนลงดิสก์พร้อมกัน ลดค่านี้หากพบข้อผิดพลาด I/O บ่อย ต้องรีสตาร์ทแอป"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "จำนวนเขียนพร้อมกันสูงสุด"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "บางไฟล์ยังต้องการความสนใจ"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "เก็บเนื้อหาที่ไม่ได้ใช้ไว้ไม่เกินเท่านี้สำหรับการติดตั้งครั้งต่อไป การเก็บไว้มากอาจประหยัดเวลาดาวน์โหลด"
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "เก็บไฟล์ดาวน์โหลดที่ไม่ได้ใช้"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "กำลังคำนวณ"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "ล้างส่วนที่ไม่ได้ใช้"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "ลบเนื้อหาที่ดาวน์โหลดแล้วแต่ไม่ได้ใช้"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "เพิ่มพื้นที่ดิสก์ {size} แล้ว"
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "กำลังล้าง…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "ประหยัดพื้นที่ด้วยการใช้การติดตั้งเกม ม็อด และแพ็กร่วมกันระหว่างอินสแตนซ์"
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "ติดตั้งม็อดหรือแพ็กเพื่อดูการใช้งานพื้นที่เก็บข้อมูลที่นี่"
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "ดู {count, plural, one {# ปัญหา} other {# ปัญหา}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "ไม่มีเนื้อหาที่ไม่ได้ใช้ให้ล้าง"
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "ตรวจสอบและซ่อมแซม"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "การดำเนินการนี้จะปิดอินสแตนซ์ที่กำลังทำงานทั้งหมด"
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "ตรวจสอบไฟล์ที่หายหรือเสียหายแล้วซ่อมแซม"
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "กำลังตรวจสอบและซ่อมแซม…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "ใช้ร่วมกัน"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "ที่เก็บเนื้อหา"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "เก็บไว้ {size}"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "เฉพาะ"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "ไม่ได้ใช้"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "ตรวจสอบ {checked, plural, one {# ไฟล์} other {# ไฟล์}} และซ่อมแซม {repaired, plural, one {# รายการ} other {# รายการ}} แล้ว"
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "ตรวจสอบเสร็จสมบูรณ์"
+  },
+  "app.settings.sidebar.label.instances": {
+    "message": "อินสแตนซ์"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "เลือกว่าจะคัดลอกประวัติคำสั่งจากอินสแตนซ์ใด ประวัตินี้ใช้เฉพาะการซิงก์ครั้งแรก และสามารถแก้ไขจากอินสแตนซ์ใดก็ได้ในภายหลัง"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "เลือกแหล่งประวัติคำสั่ง"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "เลือกว่าจะคัดลอกแถบไอเท็มครีเอทีฟที่บันทึกไว้จากอินสแตนซ์ใด แถบเหล่านี้ใช้เฉพาะการซิงก์ครั้งแรก และสามารถแก้ไขจากอินสแตนซ์ใดก็ได้ในภายหลัง"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "เลือกแหล่งแถบครีเอทีฟ"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "เลือกแหล่งดาต้าแพ็ก"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "เลือกว่าจะคัดลอกการตั้งค่าเกมจากอินสแตนซ์ใด การตั้งค่าเหล่านี้ใช้เฉพาะการซิงก์ครั้งแรก และสามารถแก้ไขจากอินสแตนซ์ใดก็ได้ในภายหลัง"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "เลือกแหล่งการตั้งค่าเกม"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "ไม่สามารถเลือกอินสแตนซ์นี้เป็นแหล่งซิงก์ได้"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "ไม่สามารถโหลดแหล่งซิงก์ได้ โปรดลองอีกครั้ง"
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "เลือกว่าจะคัดลอกเซิร์ฟเวอร์มัลติเพลเยอร์จากอินสแตนซ์ใด เซิร์ฟเวอร์เหล่านี้ใช้เฉพาะการซิงก์ครั้งแรก และสามารถแก้ไขจากอินสแตนซ์ใดก็ได้ในภายหลัง"
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "เลือกแหล่งเซิร์ฟเวอร์มัลติเพลเยอร์"
+  },
+  "app.settings.synced-options.choose-sync-source.no-instances-found": {
+    "message": "ไม่พบอินสแตนซ์"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "เลือกแหล่งรีซอร์ซแพ็ก"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "ลองอีกครั้ง"
+  },
+  "app.settings.synced-options.choose-sync-source.search-placeholder": {
+    "message": "ค้นหาอินสแตนซ์"
+  },
+  "app.settings.synced-options.choose-sync-source.sync": {
+    "message": "ซิงก์"
+  },
+  "app.settings.synced-options.command-history": {
+    "message": "ซิงก์ประวัติคำสั่ง"
+  },
+  "app.settings.synced-options.command-history.description": {
+    "message": "ใช้ประวัติคำสั่งเดียวกันในทุกอินสแตนซ์"
+  },
+  "app.settings.synced-options.command-history.editor-title": {
+    "message": "แก้ไขประวัติคำสั่ง"
+  },
+  "app.settings.synced-options.creative-hotbars": {
+    "message": "ซิงก์แถบครีเอทีฟที่บันทึกไว้"
+  },
+  "app.settings.synced-options.creative-hotbars.description": {
+    "message": "ใช้แถบครีเอทีฟที่บันทึกไว้ชุดเดียวกันในทุกอินสแตนซ์"
+  },
+  "app.settings.synced-options.data-packs": {
+    "message": "ซิงก์ดาต้าแพ็ก"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "ใช้ดาต้าแพ็กชุดเดียวกันในทุกอินสแตนซ์"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "ยังไม่ได้ซิงก์ดาต้าแพ็กใด"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "เพิ่มอินสแตนซ์ก่อนแก้ไขข้อมูลที่ซิงก์"
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "เลือกแหล่งซิงก์ก่อนแก้ไขการตั้งค่านี้"
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "ซิงก์ตัวเลือกเกม"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "แก้ไขการตั้งค่าเกม"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "โหลดการตั้งค่าล่าสุดแล้ว ตรวจสอบการเปลี่ยนแปลงแล้วบันทึกอีกครั้ง"
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "การตั้งค่านี้เปลี่ยนไปที่อื่น"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "การตั้งค่าที่เพิ่มโดยม็อดจะปรากฏที่นี่หลังจาก {productName} พบในอินสแตนซ์ใดอินสแตนซ์หนึ่ง"
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "ใช้ตัวเลือกเกมชุดเดียวกันในทุกอินสแตนซ์"
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "เลิกซิงก์ทั้งหมด"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "เปิดการซิงก์การตั้งค่าเกมก่อนเลือกการตั้งค่าแยก"
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "ไม่มีการตั้งค่าที่ตรงกับการค้นหาหรือตัวกรอง"
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "ซิงก์ทั้งหมด"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "ไม่สามารถโหลดการตั้งค่าเกมได้"
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "กำลังโหลดการตั้งค่า..."
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "ยังไม่มีตัวเลือกให้แก้ไข"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "ไม่ได้ซิงก์"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "ลองอีกครั้ง"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "บันทึกการตั้งค่า"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "ค้นหาการตั้งค่า..."
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "ตัวเลือกที่ซิงก์จะใช้กับทุกอินสแตนซ์และแทนที่ค่าที่มากับม็อดแพ็ก"
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "ซิงก์ {setting} ในทุกอินสแตนซ์"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "ซิงก์การตั้งค่าเกม"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "ซิงก์ในทุกอินสแตนซ์แล้ว"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "การตั้งค่าเกม"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "มีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก"
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "หยุดซิงก์ {setting} ในทุกอินสแตนซ์"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "แตกต่างกันในแต่ละอินสแตนซ์"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "ปิด"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "เปิด"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "เลือกค่า"
+  },
+  "app.settings.synced-options.multiplayer-servers": {
+    "message": "ซิงก์เซิร์ฟเวอร์มัลติเพลเยอร์"
+  },
+  "app.settings.synced-options.multiplayer-servers.address": {
+    "message": "ที่อยู่เซิร์ฟเวอร์"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "คัดลอกที่อยู่"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {# เซิร์ฟเวอร์} other {# เซิร์ฟเวอร์}}"
+  },
+  "app.settings.synced-options.multiplayer-servers.description": {
+    "message": "ใช้เซิร์ฟเวอร์มัลติเพลเยอร์ชุดเดียวกันในทุกอินสแตนซ์"
+  },
+  "app.settings.synced-options.multiplayer-servers.editor-title": {
+    "message": "แก้ไขเซิร์ฟเวอร์ที่ซิงก์"
+  },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "ขณะนี้ไม่มีเซิร์ฟเวอร์ที่ผู้ใช้เพิ่มที่ถูกซิงก์"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "ออฟไลน์"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "ออนไลน์"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "ตัวเลือกเซิร์ฟเวอร์เพิ่มเติม"
+  },
+  "app.settings.synced-options.multiplayer-servers.name": {
+    "message": "ชื่อเซิร์ฟเวอร์"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "ไม่มีเซิร์ฟเวอร์ที่ซิงก์ตรงกับการค้นหาหรือตัวกรอง"
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "ยังไม่ได้ซิงก์เซิร์ฟเวอร์ใด"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} ออนไลน์"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "ค้นหา {count, number} {count, plural, one {เซิร์ฟเวอร์ที่ซิงก์} other {เซิร์ฟเวอร์ที่ซิงก์}}..."
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "สถานะ"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "เปิดการซิงก์ก่อนแก้ไขแพ็กร่วม"
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "ซิงก์รีซอร์ซแพ็ก"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "ใช้รีซอร์ซแพ็กชุดเดียวกันในทุกอินสแตนซ์"
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "ยังไม่ได้ซิงก์รีซอร์ซแพ็กใด"
+  },
   "app.settings.tabs.appearance": {
     "message": "หน้าตา"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "พฤติกรรม"
+  },
+  "app.settings.tabs.features": {
+    "message": "ฟีเจอร์"
   },
   "app.settings.tabs.java-installations": {
     "message": "การจัดการ Java ที่ติดตั้ง"
@@ -263,6 +3419,45 @@
   "app.settings.tabs.resource-management": {
     "message": "การจัดการทรัพยากร"
   },
+  "app.settings.tabs.synced-options": {
+    "message": "การตั้งค่าที่ซิงก์"
+  },
+  "app.sidebar.advertising.label": {
+    "message": "โฆษณา"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "ตัวอย่าง · ตำแหน่ง {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "ม็อดแพ็กถัดไป"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "หยุดการเปลี่ยนชั่วคราว"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} จาก {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "ม็อดแพ็กก่อนหน้า"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "เปลี่ยนต่อ"
+  },
+  "app.sidebar.featured.title": {
+    "message": "ม็อดแพ็กแนะนำ"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "ม็อดแพ็กแนะนำไม่พร้อมใช้งานในขณะนี้"
+  },
+  "app.sidebar.featured.view": {
+    "message": "ดูโปรเจกต์"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "สำรวจบริการโฮสติ้ง"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "เซิร์ฟเวอร์ Minecraft ถัดไปของคุณ"
+  },
   "app.skins.add-button": {
     "message": "เพิ่มสกิน"
   },
@@ -271,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "นำไปใช้"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "โมเดลทั้งหมด"
+  },
+  "app.skins.catalog.classic": {
+    "message": "คลาสสิก"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "ค่าเริ่มต้น"
+  },
+  "app.skins.catalog.empty": {
+    "message": "ไม่พบสกิน ลองค้นหาอื่นๆ"
+  },
+  "app.skins.catalog.error": {
+    "message": "ผู้ให้บริการสกินนี้ใช้งานไม่ได้ โปรดลองอีกครั้งในภายหลัง"
+  },
+  "app.skins.catalog.loading": {
+    "message": "กำลังโหลดสกิน…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "ค้นหาทั่วทั้งแกลเลอรีสาธารณะของ MineSkin"
+  },
+  "app.skins.catalog.model": {
+    "message": "โมเดล"
+  },
+  "app.skins.catalog.next": {
+    "message": "หน้าถัดไป"
+  },
+  "app.skins.catalog.page": {
+    "message": "หน้า {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "ยอดนิยม"
+  },
+  "app.skins.catalog.previous": {
+    "message": "หน้าก่อนหน้า"
+  },
+  "app.skins.catalog.providers": {
+    "message": "ผู้ให้บริการสกิน"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "ผู้ให้บริการถึงขีดจำกัดคำขอแล้ว โปรดรอสักครู่ก่อนลองอีกครั้ง"
+  },
+  "app.skins.catalog.recent": {
+    "message": "ล่าสุด"
+  },
+  "app.skins.catalog.retry": {
+    "message": "ลองอีกครั้ง"
+  },
+  "app.skins.catalog.saved": {
+    "message": "บันทึกสกินในค่าเริ่มต้นแล้ว"
+  },
+  "app.skins.catalog.search": {
+    "message": "ค้นหาสกิน…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "ค้นหา"
+  },
+  "app.skins.catalog.slim": {
+    "message": "เพรียว"
+  },
+  "app.skins.catalog.sort": {
+    "message": "เรียงตาม"
+  },
+  "app.skins.catalog.tag": {
+    "message": "แท็ก (เพิ่มเติม)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "มาแรง"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "ผู้ให้บริการนี้ยังไม่ได้รับการกำหนดค่า"
   },
   "app.skins.delete-button": {
     "message": "ลบสกิน"
@@ -281,11 +3548,23 @@
   "app.skins.delete-modal.title": {
     "message": "คุณแน่ใจหรือว่าต้องการที่จะลบสกินนี้?"
   },
+  "app.skins.demo.apply-tooltip": {
+    "message": "ลงชื่อเข้าใช้เพื่อใช้สกิน"
+  },
+  "app.skins.demo.description": {
+    "message": "ลงชื่อเข้าใช้บัญชี Minecraft เพื่อบันทึกและใช้สกิน!"
+  },
+  "app.skins.demo.title": {
+    "message": "กำลังแก้ไขด้วยบัญชีทดลอง"
+  },
   "app.skins.dropped-file-error.text": {
     "message": "ไม่สามารถอ่านไฟล์ที่ถูกลากและวางได้"
   },
   "app.skins.dropped-file-error.title": {
     "message": "ข้อผิดพลาดในการประมวลผลไฟล์"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "สกินนี้ใช้ฟีเจอร์จากม็อด {ears}"
   },
   "app.skins.edit-button": {
     "message": "แก้ไขสกิน"
@@ -310,6 +3589,9 @@
   },
   "app.skins.modal.cape-section": {
     "message": "ผ้าคลุม"
+  },
+  "app.skins.modal.demo-save-tooltip": {
+    "message": "ลงชื่อเข้าใช้เพื่อบันทึกสกิน"
   },
   "app.skins.modal.edit-title": {
     "message": "แก้ไขสกิน"
@@ -359,6 +3641,9 @@
   "app.skins.section.builders-and-biomes": {
     "message": "Builders & Biomes"
   },
+  "app.skins.section.chaos-cubed": {
+    "message": "Chaos Cubed"
+  },
   "app.skins.section.chase-the-skies": {
     "message": "Chase the Skies"
   },
@@ -386,14 +3671,155 @@
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
   },
+  "app.skins.sign-in.button": {
+    "message": "ลงชื่อเข้าใช้ด้วย Microsoft"
+  },
+  "app.skins.title": {
+    "message": "ตัวเลือกสกิน"
+  },
+  "app.skins.toggle-ears-features-off": {
+    "message": "ปิด"
+  },
+  "app.skins.toggle-ears-features-on": {
+    "message": "เปิด"
+  },
+  "app.sync-instances-update.badge": {
+    "message": "ใหม่ในอัปเดตนี้"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "เลือกว่าจะคัดลอกการตั้งค่าเกม รีซอร์ซแพ็ก ประวัติคำสั่ง แถบครีเอทีฟ และเซิร์ฟเวอร์มัลติเพลเยอร์จากอินสแตนซ์ใด การตั้งค่าเหล่านี้ใช้เฉพาะการซิงก์ครั้งแรก และสามารถแก้ไขจากอินสแตนซ์ใดก็ได้ในภายหลัง"
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "เลือกแหล่งซิงก์"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "เลือกว่าจะคัดลอกดาต้าแพ็กจากอินสแตนซ์ใด แพ็กเหล่านี้ใช้เฉพาะการซิงก์ครั้งแรก และสามารถแก้ไขจากอินสแตนซ์ใดก็ได้ในภายหลัง"
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "เลือกว่าจะคัดลอกรีซอร์ซแพ็กจากอินสแตนซ์ใด แพ็กเหล่านี้ใช้เฉพาะการซิงก์ครั้งแรก และสามารถแก้ไขจากอินสแตนซ์ใดก็ได้ในภายหลัง"
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "ซิงก์แถบครีเอทีฟ"
+  },
+  "app.sync-instances-update.description": {
+    "message": "ตอนนี้สามารถซิงก์ตัวเลือกอย่างการตั้งค่าเกม เซิร์ฟเวอร์ รีซอร์ซแพ็ก และอื่น ๆ ในทุกอินสแตนซ์ ทุกอย่างจะเหมือนเดิมทุกครั้งที่เล่น!"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "ไม่สามารถโหลดการตั้งค่าซิงก์ได้ โปรดลองอีกครั้ง"
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "สามารถเปิดการซิงก์ตอนนี้และจัดการภายหลังในการตั้งค่าแอป"
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "ซิงก์การตั้งค่าเกม เซิร์ฟเวอร์ รีซอร์ซแพ็ก และอื่น ๆ ในทุกอินสแตนซ์"
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "ปิด"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "ซิงก์อินสแตนซ์"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "ดูอัปเดต"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "ลองอีกครั้ง"
+  },
+  "app.sync-instances-update.skip": {
+    "message": "ข้าม"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "ซิงก์ทั้งหมด"
+  },
+  "app.sync-instances-update.title": {
+    "message": "ซิงก์อินสแตนซ์"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "ปิดในทุกอินสแตนซ์ที่ซิงก์ หรือเฉพาะในอินสแตนซ์นี้ การปิดเฉพาะที่นี่จะเปิดการแทนที่สำหรับอินสแตนซ์นี้"
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "ปิดทุกที่"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "ปิดเนื้อหานี้ในทุกอินสแตนซ์ที่ซิงก์"
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "ปิดที่นี่"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "ปิดเนื้อหาใช่หรือไม่?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "เปิดในทุกอินสแตนซ์ที่ซิงก์ หรือเฉพาะในอินสแตนซ์นี้ การเปิดเฉพาะที่นี่จะเปิดการแทนที่สำหรับอินสแตนซ์นี้"
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "เปิดทุกที่"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "เปิดเนื้อหานี้ในทุกอินสแตนซ์ที่ซิงก์"
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "เปิดที่นี่"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "เปิดเนื้อหาใช่หรือไม่?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "ลบทุกที่"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "ลบที่นี่"
+  },
+  "app.synced-content.delete.description": {
+    "message": "การลบเนื้อหานี้จะลบในทุกอินสแตนซ์"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "เนื้อหาที่เลือกซึ่งไม่ได้ซิงก์จะถูกลบเฉพาะจากอินสแตนซ์นี้เท่านั้น"
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "สามารถลบออกจากอินสแตนซ์นี้เท่านั้น หรือออกจากอินสแตนซ์ที่ซิงก์ทั้งหมด การลบออกจากอินสแตนซ์นี้เท่านั้นจะเปิดการแทนที่ และอินสแตนซ์นี้จะไม่ได้รับการเปลี่ยนแปลงที่ซิงก์สำหรับเนื้อหาประเภทนี้อีก"
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "สามารถลบ {count, plural, one {มัน} other {พวกมัน}} ออกจากอินสแตนซ์นี้เท่านั้น หรือออกจากอินสแตนซ์ที่ซิงก์ทั้งหมด การลบ {count, plural, one {มัน} other {พวกมัน}} ออกจากอินสแตนซ์นี้เท่านั้นจะเปิดการแทนที่ และอินสแตนซ์นี้จะไม่ได้รับการเปลี่ยนแปลงรีซอร์ซแพ็กที่ซิงก์อีก"
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {รีซอร์ซแพ็กนี้ถูกซิงก์} other {รีซอร์ซแพ็กเหล่านี้ถูกซิงก์}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "อินสแตนซ์นี้จะเก็บสำเนาของตัวเอง ต้องการให้เนื้อหานี้ซิงก์ในอินสแตนซ์อื่นต่อ หรือลบออกจากอินสแตนซ์อื่น?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "เก็บไว้"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "ลบ"
+  },
+  "app.synced-content.desync.title": {
+    "message": "ยกเลิกซิงก์เนื้อหา"
+  },
+  "app.synced-content.warning.title": {
+    "message": "เนื้อหานี้ถูกซิงก์"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "ดาต้าแพ็กที่ซิงก์"
+  },
+  "app.synced-packs.empty": {
+    "message": "เพิ่มแพ็กจากหน้าการเนื้อหาของอินสแตนซ์เพื่อเริ่มซิงก์"
+  },
+  "app.synced-packs.load-failed": {
+    "message": "ไม่สามารถโหลดแพ็กได้ ลองรีเฟรช"
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "รีซอร์ซแพ็กที่ซิงก์"
+  },
   "app.update-popup.body.download-complete": {
-    "message": "ดาวน์โหลด Modrinth v{version} สำเร็จแล้ว เปิดโปรแกรมใหม่อีกครั้งเพื่ออัปเดตตอนนี้ หรือจะรออัปเดตอัตโนมัติ ซึ่งจะเกิดขึ้นเมื่อคุณกดปิดโปรแกรม Modrinth"
+    "message": "ดาวน์โหลด {productName} v{version} สำเร็จแล้ว เปิดโปรแกรมใหม่อีกครั้งเพื่ออัปเดตตอนนี้ หรือจะรออัปเดตอัตโนมัติ ซึ่งจะเกิดขึ้นเมื่อคุณกดปิดโปรแกรม {productName}"
   },
   "app.update-popup.body.linux": {
-    "message": "Modrinth v{version} พร้อมให้อัปเดตแล้ว โปรดไปที่การจัดการแพ็กเกจของคุณสำหรับการอัปเดตคุณสมบัติใหม่และการแก้ไขต่าง ๆ"
+    "message": "{productName} v{version} พร้อมให้อัปเดตแล้ว โปรดไปที่การจัดการแพ็กเกจของคุณสำหรับการอัปเดตคุณสมบัติใหม่และการแก้ไขต่าง ๆ"
   },
   "app.update-popup.body.metered": {
-    "message": "Modrinth v{version} พร้อมให้บริการแล้ว! แต่เนื่องจากคุณเปิดโหมดจำกัดปริมาณการใช้ข้อมูลเครือข่าย เราจึงไม่ได้อัปเดตเนื้อหาโดยอัตโนมัติ"
+    "message": "{productName} v{version} พร้อมให้บริการแล้ว! แต่เนื่องจากคุณเปิดโหมดจำกัดปริมาณการใช้ข้อมูลเครือข่าย เราจึงไม่ได้อัปเดตเนื้อหาโดยอัตโนมัติ"
   },
   "app.update-popup.changelog": {
     "message": "บันทึกการเปลี่ยนแปลง"
@@ -404,6 +3830,9 @@
   "app.update-popup.download-complete": {
     "message": "การดาวน์โหลดเสร็จสมบูรณ์"
   },
+  "app.update-popup.reload": {
+    "message": "รีโหลดเพื่ออัปเดต"
+  },
   "app.update-popup.title": {
     "message": "มีการอัปเดตใหม่"
   },
@@ -412,6 +3841,90 @@
   },
   "app.update.complete-toast.title": {
     "message": "เวอร์ชั่น {version} ถูกติดตั้งแล้ว"
+  },
+  "app.update.download-error.missing-version": {
+    "message": "ดาวน์โหลดอัปเดตไม่สำเร็จ: ไม่มีเวอร์ชัน"
+  },
+  "app.welcome-screen.create-instance": {
+    "message": "สร้างอินสแตนซ์"
+  },
+  "app.welcome-screen.description": {
+    "message": "พร้อมเริ่มเล่นหรือยัง?"
+  },
+  "app.welcome-screen.import-from-launcher": {
+    "message": "นำเข้าจากลอนเชอร์"
+  },
+  "app.welcome-screen.import-prompt": {
+    "message": "หนีจากลอนเชอร์อื่นใช่หรือไม่?"
+  },
+  "app.welcome-screen.quick-create-hint": {
+    "message": "กด <shortcut>N</shortcut> เพื่อสร้างอินสแตนซ์ด่วน"
+  },
+  "app.welcome-screen.title": {
+    "message": "ยินดีต้อนรับสู่ {productName}"
+  },
+  "app.window-controls.close": {
+    "message": "ปิดหน้าต่าง"
+  },
+  "app.window-controls.minimize": {
+    "message": "ย่อหน้าต่าง"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "สลับขยายหน้าต่าง"
+  },
+  "app.world-install.backup": {
+    "message": "การแทนที่จะเก็บข้อมูลสำรองของโลกเดิมไว้ การเก็บโลกเดิมและการยกเลิกจะไม่ติดตั้งอะไร การติดตั้งสำเนาอีกชุดจะสร้างโลกที่มีหมายเลขต่อท้ายชื่อ"
+  },
+  "app.world-install.backup-location": {
+    "message": "บันทึกโลกก่อนหน้าไว้ที่ {path} ภายในอินสแตนซ์แล้ว"
+  },
+  "app.world-install.conflict": {
+    "message": "มีโลกที่ใช้ชื่อนี้หรือมาจากโปรเจกต์นี้อยู่แล้ว"
+  },
+  "app.world-install.continue-anyway": {
+    "message": "ติดตั้งแม้เวอร์ชันจะแตกต่างกัน"
+  },
+  "app.world-install.copy": {
+    "message": "ติดตั้งสำเนาอีกชุด"
+  },
+  "app.world-install.description": {
+    "message": "ติดตั้งโลกใหม่ในอินสแตนซ์ โลกที่มีอยู่จะยังคงอยู่ เว้นแต่คุณจะเลือกแทนที่โลกนั้น"
+  },
+  "app.world-install.incompatible": {
+    "message": "ไฟล์นี้ไม่ได้ระบุว่ารองรับ Minecraft {version} โปรดตรวจสอบข้อกำหนดเกี่ยวกับเวอร์ชันและม็อดของผู้สร้างก่อนดำเนินการต่อ"
+  },
+  "app.world-install.installed": {
+    "message": "ติดตั้งโลกแล้ว: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "อินสแตนซ์ปลายทาง"
+  },
+  "app.world-install.keep": {
+    "message": "เก็บโลกเดิมไว้"
+  },
+  "app.world-install.no-instances": {
+    "message": "สร้างอินสแตนซ์ Minecraft ก่อน แล้วกลับมาที่นี่เพื่อติดตั้งโลก"
+  },
+  "app.world-install.open-worlds": {
+    "message": "ดูโลก"
+  },
+  "app.world-install.replace": {
+    "message": "แทนที่"
+  },
+  "app.world-install.replace-target": {
+    "message": "โลกที่จะแทนที่"
+  },
+  "app.world-install.requirements": {
+    "message": "ต้องติดตั้งม็อดหรือม็อดแพ็กที่จำเป็นในอินสแตนซ์ปลายทางไว้แล้ว โปรดตรวจสอบคำอธิบายโปรเจกต์"
+  },
+  "app.world-install.title": {
+    "message": "ติดตั้งโลก"
+  },
+  "app.world-install.version": {
+    "message": "เวอร์ชันของโลก"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
   },
   "app.world.server-modal.select-an-option": {
     "message": "เลือกตัวเลือก"
@@ -424,6 +3937,45 @@
   },
   "app.world.world-item.offline": {
     "message": "ออฟไลน์"
+  },
+  "app.world.world-item.players-online": {
+    "message": "{count} ออนไลน์"
+  },
+  "curseforge.manual.description": {
+    "message": "ดาวน์โหลด {file} จากหน้า CurseForge อย่างเป็นทางการ แล้วเลือกไฟล์ที่ดาวน์โหลดเพื่อดำเนินการต่อ ระบบจะตรวจสอบขนาดและ SHA-1 ของไฟล์"
+  },
+  "curseforge.manual.select": {
+    "message": "เลือกไฟล์ที่ดาวน์โหลด"
+  },
+  "curseforge.manual.title": {
+    "message": "ต้องดาวน์โหลดด้วยตนเอง"
+  },
+  "instance.action.create-shortcut": {
+    "message": "สร้างทางลัด"
+  },
+  "instance.action.export-modpack": {
+    "message": "ส่งออกม็อดแพ็ก"
+  },
+  "instance.action.launch-instance": {
+    "message": "เปิดอินสแตนซ์"
+  },
+  "instance.action.more-actions": {
+    "message": "การดำเนินการเพิ่มเติม"
+  },
+  "instance.action.open-folder": {
+    "message": "เปิดโฟลเดอร์"
+  },
+  "instance.action.repair": {
+    "message": "ซ่อมแซม"
+  },
+  "instance.action.settings": {
+    "message": "การตั้งค่าอินสแตนซ์"
+  },
+  "instance.action.starting": {
+    "message": "กำลังเริ่ม..."
+  },
+  "instance.action.stopping": {
+    "message": "กำลังหยุด..."
   },
   "instance.add-server.add-and-play": {
     "message": "เพิ่มและเล่นทันที"
@@ -464,8 +4016,257 @@
   "instance.files.adding-files": {
     "message": "กำลังเพิ่มไฟล์ ({completed}/{total})"
   },
+  "instance.files.managed-content-read-only": {
+    "message": "จัดการเนื้อหาที่ติดตั้งผ่านแท็บเนื้อหา"
+  },
   "instance.files.save-as": {
     "message": "บันทึกเป็น..."
+  },
+  "instance.icon-editor.background": {
+    "message": "พื้นหลัง"
+  },
+  "instance.icon-editor.background.blue": {
+    "message": "น้ำเงิน"
+  },
+  "instance.icon-editor.background.dark-gray": {
+    "message": "เทาเข้ม"
+  },
+  "instance.icon-editor.background.dark-green": {
+    "message": "เขียวเข้ม"
+  },
+  "instance.icon-editor.background.gray": {
+    "message": "เทา"
+  },
+  "instance.icon-editor.background.green": {
+    "message": "เขียว"
+  },
+  "instance.icon-editor.background.indigo": {
+    "message": "คราม"
+  },
+  "instance.icon-editor.background.lavender": {
+    "message": "ลาเวนเดอร์"
+  },
+  "instance.icon-editor.background.light-gray": {
+    "message": "เทาอ่อน"
+  },
+  "instance.icon-editor.background.lime": {
+    "message": "เขียวมะนาว"
+  },
+  "instance.icon-editor.background.orange": {
+    "message": "ส้ม"
+  },
+  "instance.icon-editor.background.pink": {
+    "message": "ชมพู"
+  },
+  "instance.icon-editor.background.purple": {
+    "message": "ม่วง"
+  },
+  "instance.icon-editor.background.red": {
+    "message": "แดง"
+  },
+  "instance.icon-editor.background.rose": {
+    "message": "กุหลาบ"
+  },
+  "instance.icon-editor.background.yellow": {
+    "message": "เหลือง"
+  },
+  "instance.icon-editor.description": {
+    "message": "ผสมองค์ประกอบเพื่อสร้างไอคอนกำหนดเอง"
+  },
+  "instance.icon-editor.recents": {
+    "message": "ล่าสุด"
+  },
+  "instance.icon-editor.save": {
+    "message": "บันทึกไอคอน"
+  },
+  "instance.icon-editor.surprise-me": {
+    "message": "สุ่ม"
+  },
+  "instance.icon-editor.symbol": {
+    "message": "สัญลักษณ์"
+  },
+  "instance.icon-editor.symbol.backpack": {
+    "message": "กระเป๋าเป้"
+  },
+  "instance.icon-editor.symbol.beacon": {
+    "message": "บีคอน"
+  },
+  "instance.icon-editor.symbol.blue-shark": {
+    "message": "ฉลามน้ำเงิน"
+  },
+  "instance.icon-editor.symbol.bookshelf": {
+    "message": "ชั้นหนังสือ"
+  },
+  "instance.icon-editor.symbol.brown-bear": {
+    "message": "หมีสีน้ำตาล"
+  },
+  "instance.icon-editor.symbol.cake": {
+    "message": "เค้ก"
+  },
+  "instance.icon-editor.symbol.campfire": {
+    "message": "กองไฟ"
+  },
+  "instance.icon-editor.symbol.chest": {
+    "message": "หีบ"
+  },
+  "instance.icon-editor.symbol.cogwheel": {
+    "message": "เฟือง"
+  },
+  "instance.icon-editor.symbol.command-block": {
+    "message": "Command Block"
+  },
+  "instance.icon-editor.symbol.cooking-pot": {
+    "message": "หม้อ"
+  },
+  "instance.icon-editor.symbol.couch": {
+    "message": "โซฟา"
+  },
+  "instance.icon-editor.symbol.crafting-table": {
+    "message": "โต๊ะคราฟต์"
+  },
+  "instance.icon-editor.symbol.create-wrench": {
+    "message": "ประแจ"
+  },
+  "instance.icon-editor.symbol.creeper": {
+    "message": "ครีปเปอร์"
+  },
+  "instance.icon-editor.symbol.enchanting-table": {
+    "message": "โต๊ะร่ายมนตร์"
+  },
+  "instance.icon-editor.symbol.ender-chest": {
+    "message": "หีบเอนเดอร์"
+  },
+  "instance.icon-editor.symbol.ender-dragon": {
+    "message": "มังกรเอนเดอร์"
+  },
+  "instance.icon-editor.symbol.engine": {
+    "message": "เครื่องยนต์"
+  },
+  "instance.icon-editor.symbol.fabric": {
+    "message": "Fabric"
+  },
+  "instance.icon-editor.symbol.forge": {
+    "message": "Forge"
+  },
+  "instance.icon-editor.symbol.furnace": {
+    "message": "เตาเผา"
+  },
+  "instance.icon-editor.symbol.gizmo": {
+    "message": "อุปกรณ์"
+  },
+  "instance.icon-editor.symbol.globe": {
+    "message": "ลูกโลก"
+  },
+  "instance.icon-editor.symbol.grass-block": {
+    "message": "บล็อกหญ้า"
+  },
+  "instance.icon-editor.symbol.lantern": {
+    "message": "โคมไฟ"
+  },
+  "instance.icon-editor.symbol.moobloom": {
+    "message": "มูบลูม"
+  },
+  "instance.icon-editor.symbol.neoforge": {
+    "message": "NeoForge"
+  },
+  "instance.icon-editor.symbol.orb": {
+    "message": "ลูกแก้ว"
+  },
+  "instance.icon-editor.symbol.oxygen-distributor": {
+    "message": "เครื่องจ่ายออกซิเจน"
+  },
+  "instance.icon-editor.symbol.pancakes": {
+    "message": "แพนเค้ก"
+  },
+  "instance.icon-editor.symbol.pickaxe": {
+    "message": "พลั่วขุด"
+  },
+  "instance.icon-editor.symbol.poke-ball": {
+    "message": "โปเกบอล"
+  },
+  "instance.icon-editor.symbol.quilt": {
+    "message": "Quilt"
+  },
+  "instance.icon-editor.symbol.redstone-block": {
+    "message": "บล็อกเรดสโตน"
+  },
+  "instance.icon-editor.symbol.sculk-sensor": {
+    "message": "สคัลก์เซนเซอร์"
+  },
+  "instance.icon-editor.symbol.skeleton": {
+    "message": "โครงกระดูก"
+  },
+  "instance.icon-editor.symbol.skillet": {
+    "message": "กระทะ"
+  },
+  "instance.icon-editor.symbol.slime-block": {
+    "message": "บล็อกสไลม์"
+  },
+  "instance.icon-editor.symbol.space-helmet": {
+    "message": "หมวกอวกาศ"
+  },
+  "instance.icon-editor.symbol.sticky-piston": {
+    "message": "ลูกสูบเหนียว"
+  },
+  "instance.icon-editor.symbol.sword": {
+    "message": "ดาบ"
+  },
+  "instance.icon-editor.symbol.terminal": {
+    "message": "เทอร์มินัล"
+  },
+  "instance.icon-editor.symbol.tiny-potato": {
+    "message": "มันฝรั่งจิ๋ว"
+  },
+  "instance.icon-editor.symbol.tire": {
+    "message": "ยาง"
+  },
+  "instance.icon-editor.symbol.tnt": {
+    "message": "TNT"
+  },
+  "instance.icon-editor.symbol.zombie": {
+    "message": "ซอมบี้"
+  },
+  "instance.icon-editor.title": {
+    "message": "ตัวแก้ไขไอคอน"
+  },
+  "instance.last-played": {
+    "message": "เล่นล่าสุด"
+  },
+  "instance.locked.badge": {
+    "message": "ล็อก"
+  },
+  "instance.locked.delete-button": {
+    "message": "ลบอินสแตนซ์"
+  },
+  "instance.locked.info-label": {
+    "message": "ข้อมูลอินสแตนซ์ที่ล็อก"
+  },
+  "instance.locked.play-tooltip": {
+    "message": "อินสแตนซ์นี้ถูกล็อกแล้ว"
+  },
+  "instance.locked.text": {
+    "message": "อินสแตนซ์นี้ถูกล็อก ไม่สามารถเล่นหรือเปลี่ยนแปลงได้ สามารถลบได้"
+  },
+  "instance.locked.title": {
+    "message": "อินสแตนซ์ถูกล็อก"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "ม็อด loader และเวอร์ชัน Minecraft"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# ชั่วโมง} other {# ชั่วโมง}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# นาที} other {# นาที}}"
+  },
+  "instance.playtime.never-played": {
+    "message": "ไม่เคยเล่น"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# วินาที} other {# วินาที}}"
+  },
+  "instance.playtime.total": {
+    "message": "เวลาเล่นทั้งหมด"
   },
   "instance.server-modal.address": {
     "message": "ที่อยู่เซิร์ฟเวอร์"
@@ -478,6 +4279,33 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "รีซอร์ซแพ็ก"
+  },
+  "instance.settings.synced-options.data-override": {
+    "message": "ปิดการแทนที่นี้เพื่อแก้ไขข้อมูลที่ซิงก์"
+  },
+  "instance.settings.synced-options.data-packs": {
+    "message": "เลิกซิงก์ดาต้าแพ็ก"
+  },
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "แยกดาต้าแพ็กของอินสแตนซ์นี้ออกจากแพ็กที่ซิงก์"
+  },
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "ปิดการซิงก์ดาต้าแพ็กในการตั้งค่าแอป"
+  },
+  "instance.settings.synced-options.edit-packs": {
+    "message": "แก้ไขแพ็กที่ซิงก์"
+  },
+  "instance.settings.synced-options.packs-override": {
+    "message": "ปิดการแทนที่นี้เพื่อแก้ไขแพ็กที่ซิงก์ แพ็กแยกสามารถจัดการในแท็บเนื้อหา"
+  },
+  "instance.settings.synced-options.resource-packs": {
+    "message": "เลิกซิงก์รีซอร์ซแพ็ก"
+  },
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "แยกรีซอร์ซแพ็กของอินสแตนซ์นี้ออกจากแพ็กที่ซิงก์"
+  },
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "ปิดการซิงก์รีซอร์ซแพ็กในการตั้งค่าแอป"
   },
   "instance.settings.tabs.general": {
     "message": "ทั่วไป"
@@ -509,6 +4337,12 @@
   "instance.settings.tabs.general.edit-icon": {
     "message": "แก้ไขสัญลักษณ์"
   },
+  "instance.settings.tabs.general.edit-icon.create": {
+    "message": "สร้างไอคอน"
+  },
+  "instance.settings.tabs.general.edit-icon.edit-created": {
+    "message": "แก้ไขไอคอน"
+  },
   "instance.settings.tabs.general.edit-icon.remove": {
     "message": "ลบสัญลักษณ์"
   },
@@ -518,8 +4352,38 @@
   "instance.settings.tabs.general.edit-icon.select": {
     "message": "เลือกรูปสัญลักษณ์"
   },
+  "instance.settings.tabs.general.icon": {
+    "message": "ไอคอน"
+  },
   "instance.settings.tabs.general.name": {
     "message": "ชื่อ"
+  },
+  "instance.settings.tabs.general.update-channel": {
+    "message": "ช่องอัปเดต"
+  },
+  "instance.settings.tabs.general.update-channel.alpha": {
+    "message": "Alpha"
+  },
+  "instance.settings.tabs.general.update-channel.alpha.description": {
+    "message": "จะแสดงเวอร์ชัน release, beta และ alpha เป็นอัปเดตที่ใช้ได้"
+  },
+  "instance.settings.tabs.general.update-channel.beta": {
+    "message": "Beta"
+  },
+  "instance.settings.tabs.general.update-channel.beta.description": {
+    "message": "จะแสดงเวอร์ชัน release และ beta เป็นอัปเดตที่ใช้ได้"
+  },
+  "instance.settings.tabs.general.update-channel.release": {
+    "message": "Release"
+  },
+  "instance.settings.tabs.general.update-channel.release.description": {
+    "message": "จะแสดงเฉพาะเวอร์ชัน release เป็นอัปเดตที่ใช้ได้"
+  },
+  "instance.settings.tabs.general.update-channel.select": {
+    "message": "เลือกช่องอัปเดต"
+  },
+  "instance.settings.tabs.hooks.description": {
+    "message": "รันคำสั่งระบบเฉพาะอินสแตนซ์ก่อนและหลังเปิดเกม"
   },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "Post-exit"
@@ -539,6 +4403,30 @@
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "ป้อนคำสั่ง..."
   },
+  "instance.settings.tabs.hooks.title": {
+    "message": "Hook เปิดเกมกำหนดเอง"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "Hook รันในไดเรกทอรีทำงานของอินสแตนซ์ พร้อมตัวแปรต่อไปนี้:"
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR: เส้นทางเต็มไปยังโฟลเดอร์ของอินสแตนซ์"
+  },
+  "instance.settings.tabs.hooks.variables.inst-id.description": {
+    "message": "$INST_ID: ชื่อโฟลเดอร์ของอินสแตนซ์"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS: อาร์กิวเมนต์ JVM ที่ส่งให้เกม"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA: เส้นทางเต็มไปยังไบนารี java"
+  },
+  "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
+    "message": "$INST_MC_DIR: นามแฝงของ $INST_DIR"
+  },
+  "instance.settings.tabs.hooks.variables.inst-name.description": {
+    "message": "$INST_NAME: ชื่อของอินสแตนซ์"
+  },
   "instance.settings.tabs.hooks.wrapper": {
     "message": "Wrapper"
   },
@@ -554,8 +4442,110 @@
   "instance.settings.tabs.installation.loader-version": {
     "message": "เวอร์ชัน {loader}"
   },
+  "instance.settings.tabs.installation.locked": {
+    "message": "การตั้งค่าการติดตั้งไม่พร้อมใช้ขณะอินสแตนซ์นี้ถูกล็อก"
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "ตั้งค่าตัวแปรสภาพแวดล้อมแยกสำหรับอินสแตนซ์นี้"
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "ตั้งค่าอาร์กิวเมนต์ Java แยกสำหรับอินสแตนซ์นี้"
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "เลือกการติดตั้ง Java อื่นสำหรับอินสแตนซ์นี้"
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "ตั้งค่าการจัดสรรหน่วยความจำแยกสำหรับอินสแตนซ์นี้"
+  },
+  "instance.settings.tabs.java.enter-environment-variables": {
+    "message": "ป้อนตัวแปรสภาพแวดล้อม..."
+  },
+  "instance.settings.tabs.java.enter-java-arguments": {
+    "message": "ป้อนอาร์กิวเมนต์ Java..."
+  },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "ตัวแปรสภาพแวดล้อมกำหนดเอง"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "Hook"
+  },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "อาร์กิวเมนต์ Java กำหนดเอง"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "การติดตั้ง Java กำหนดเอง"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "การจัดสรรหน่วยความจำกำหนดเอง"
+  },
+  "instance.settings.tabs.java.java-path-placeholder": {
+    "message": "/path/to/java"
+  },
+  "instance.settings.tabs.settings-overrides": {
+    "message": "การแทนที่ซิงก์"
+  },
+  "instance.settings.tabs.synced-options.command-history": {
+    "message": "เลิกซิงก์ประวัติคำสั่ง"
+  },
+  "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
+    "message": "ปิดการซิงก์ประวัติคำสั่งในการตั้งค่าแอป"
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "แยกประวัติคำสั่งของอินสแตนซ์นี้ออกจากประวัติที่ซิงก์"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "เลิกซิงก์แถบครีเอทีฟที่บันทึกไว้"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "ปิดการซิงก์แถบครีเอทีฟที่บันทึกไว้ในการตั้งค่าแอป"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "แยกแถบครีเอทีฟที่บันทึกไว้ของอินสแตนซ์นี้ออกจากแถบที่ซิงก์"
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "เลิกซิงก์การตั้งค่าเกม"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "แยก options.txt ของอินสแตนซ์นี้ออกจากสำเนาที่ซิงก์"
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "ปิดการซิงก์การตั้งค่าเกมในการตั้งค่าแอป"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "เวอร์ชันที่ถูกแทนที่จะถูกสำรองไว้ก่อนมีการเปลี่ยนแปลง"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "{instance} กับเวอร์ชันที่ซิงก์มีแถบครีเอทีฟต่างกัน เลือกว่าจะใช้แบบใดในทุกอินสแตนซ์"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "เลือกแถบครีเอทีฟ"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "เขียนทับอื่น"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "ใช้ที่ซิงก์"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "เลิกซิงก์เซิร์ฟเวอร์มัลติเพลเยอร์"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "ปิดการซิงก์เซิร์ฟเวอร์มัลติเพลเยอร์ในการตั้งค่าแอป"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "แยกเซิร์ฟเวอร์มัลติเพลเยอร์ของอินสแตนซ์นี้ออกจากเซิร์ฟเวอร์ที่ซิงก์"
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "จัดการการตั้งค่าที่ซิงก์"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "เปิดการแทนที่เพื่อแยกการตั้งค่าที่ซิงก์สำหรับอินสแตนซ์นี้"
+  },
+  "instance.settings.tabs.window": {
+    "message": "การตั้งค่าหน้าต่างกำหนดเอง"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "ตั้งค่าเต็มหน้าจอและความละเอียดเปิดแยกสำหรับอินสแตนซ์นี้"
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "เต็มหน้าจอ"
@@ -584,11 +4574,32 @@
   "instance.worlds.a_minecraft_server": {
     "message": "เซิร์ฟเวอร์ Minecraft"
   },
+  "instance.worlds.actions.label": {
+    "message": "การดำเนินการของโลก"
+  },
   "instance.worlds.cant_connect": {
     "message": "ไม่สามารถเชื่อมต่อกับเซิร์ฟเวอร์ได้"
   },
   "instance.worlds.copy_address": {
     "message": "คัดลอกที่อยู่"
+  },
+  "instance.worlds.create_shortcut": {
+    "message": "สร้างทางลัด"
+  },
+  "instance.worlds.desync-server.description": {
+    "message": "ต้องการเก็บเซิร์ฟเวอร์นี้ในอินสแตนซ์อื่นที่ซิงก์ต่อ หรือลบออกจากอินสแตนซ์เหล่านั้น?"
+  },
+  "instance.worlds.desync-server.keep": {
+    "message": "เก็บไว้"
+  },
+  "instance.worlds.desync-server.remove": {
+    "message": "ลบ"
+  },
+  "instance.worlds.desync-server.title": {
+    "message": "ยกเลิกซิงก์เซิร์ฟเวอร์"
+  },
+  "instance.worlds.desync_server": {
+    "message": "ยกเลิกซิงก์"
   },
   "instance.worlds.dont_show_on_home": {
     "message": "ไม่ต้องแสดงในหน้าแรก"
@@ -602,8 +4613,14 @@
   "instance.worlds.incompatible_server": {
     "message": "เซิร์ฟเวอร์ไม่รองรับ"
   },
+  "instance.worlds.instance-locked": {
+    "message": "อินสแตนซ์นี้ถูกล็อกแล้ว"
+  },
   "instance.worlds.linked_server": {
     "message": "จัดการโดยโปรเจกต์เซิร์ฟเวอร์"
+  },
+  "instance.worlds.more-options": {
+    "message": "ตัวเลือกเพิ่มเติม"
   },
   "instance.worlds.no_contact": {
     "message": "ไม่สามารถติดต่อเซิร์ฟเวอร์ได้"
@@ -617,17 +4634,32 @@
   "instance.worlds.play_instance": {
     "message": "เริ่มรันโปรแกรม"
   },
+  "instance.worlds.play_world": {
+    "message": "เล่นโลก"
+  },
+  "instance.worlds.shortcut-created": {
+    "message": "สร้างทางลัดแล้ว"
+  },
+  "instance.worlds.shortcut-creation-failed": {
+    "message": "สร้างทางลัดไม่สำเร็จ"
+  },
+  "instance.worlds.synced_server": {
+    "message": "ซิงก์ในทุกอินสแตนซ์แล้ว"
+  },
   "instance.worlds.view_instance": {
     "message": "ดูโปรแกรม"
   },
   "instance.worlds.world_in_use": {
     "message": "โลกนี้กำลังถูกใช้งานอยู่"
   },
+  "minecraft-account.accounts": {
+    "message": "บัญชี Minecraft"
+  },
   "minecraft-account.add-account": {
     "message": "เพิ่มบัญชี"
   },
-  "minecraft-account.label": {
-    "message": "บัญชี Minecraft"
+  "minecraft-account.getting-started": {
+    "message": "เริ่มต้นใช้งาน"
   },
   "minecraft-account.not-signed-in": {
     "message": "ยังไม่ได้ลงชื่อเข้าใช้"
@@ -635,11 +4667,77 @@
   "minecraft-account.remove-account": {
     "message": "ลบบัญชี"
   },
-  "minecraft-account.select-account": {
-    "message": "เลือกบัญชี"
-  },
   "minecraft-account.sign-in": {
     "message": "ลงชื่อเข้าใช้ Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "ลงชื่อเข้าใช้"
+  },
+  "minecraft-required.description": {
+    "message": "ต้องมีบัญชี Microsoft ที่เป็นเจ้าของ Minecraft ก่อนจึงจะเปิดและเล่นได้"
+  },
+  "minecraft-required.description-header": {
+    "message": "ลงชื่อเข้าใช้บัญชี Microsoft"
+  },
+  "minecraft-required.dont-have-account": {
+    "message": "ไม่มีบัญชีใช่หรือไม่?"
+  },
+  "minecraft-required.get-minecraft": {
+    "message": "รับ Minecraft"
+  },
+  "minecraft-required.get-support": {
+    "message": "ขอรับการสนับสนุน"
+  },
+  "minecraft-required.header": {
+    "message": "ต้องมี Minecraft"
+  },
+  "minecraft-required.sign-in": {
+    "message": "ลงชื่อเข้าใช้ด้วย Microsoft"
+  },
+  "onboarding-checklist.create-instance": {
+    "message": "สร้างอินสแตนซ์แรก"
+  },
+  "onboarding-checklist.login-minecraft": {
+    "message": "ลงชื่อเข้าใช้ Minecraft"
+  },
+  "onboarding-checklist.title": {
+    "message": "เริ่มต้นใช้งาน"
+  },
+  "optifine.add-component": {
+    "message": "ติดตั้ง OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "เลือก JAR แล้วดำเนินการต่อ"
+  },
+  "optifine.download-official": {
+    "message": "ดาวน์โหลดทางการ"
+  },
+  "optifine.export-notice": {
+    "message": "ไม่รวมไบนารี OptiFine Orbpack จะคงเวอร์ชันที่ต้องการไว้ แพ็ก Modrinth และ CurseForge ต้องติดตั้ง OptiFine แยก"
+  },
+  "optifine.import-canceled": {
+    "message": "ยกเลิกการเลือก OptiFine ไม่ได้ติดตั้งแพ็ก"
+  },
+  "optifine.import-description": {
+    "message": "แพ็กนี้ต้องใช้ OptiFine {version} สำหรับ Minecraft {gameVersion} ดาวน์โหลด JAR ทางการแล้วเลือกเพื่อดำเนินการต่อ OptiFine ไม่ได้รวมในแพ็ก"
+  },
+  "optifine.import-title": {
+    "message": "แพ็กนี้ต้องใช้ OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "เลือกตัวติดตั้ง OptiFine ทางการสำหรับ Minecraft {gameVersion} สำหรับแพ็กที่นำเข้า เวอร์ชันและแฮชไฟล์ต้องตรงกันด้วย"
+  },
+  "optifine.remove-component": {
+    "message": "ลบ OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "เลือก JAR ของ OptiFine ทางการ"
+  },
+  "project-type.world.category": {
+    "message": "โลก"
   },
   "search.filter.locked.instance": {
     "message": "โปรแกรมเป็นผู้กำหนด"
@@ -653,7 +4751,10 @@
   "search.filter.locked.instance.sync": {
     "message": "เชื่อมต่อกับโปรแกรม"
   },
-  "search.filter.locked.server-environment.title": {
-    "message": "มีเพียงม็อดสำหรับฝั่งเครื่องของผู้เล่นเท่านั้นที่สามารถเพิ่มลงในโปรแกรมเซิร์ฟเวอร์ดังกล่าวได้"
+  "settings.sidebar.label.account": {
+    "message": "บัญชี"
+  },
+  "settings.sidebar.label.display": {
+    "message": "การแสดงผล"
   }
 }

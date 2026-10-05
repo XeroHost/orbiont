@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import {
+	CheckIcon,
+	ExpandIcon,
 	EyeIcon,
 	EyeOffIcon,
 	MaximizeIcon,
@@ -12,8 +14,37 @@ import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 
 import { IconButton } from '#ui/components/base/buttons'
 
+import { defineMessages, useVIntl } from '../../composables/i18n'
 import { injectI18nDebug } from '../../composables/i18n-debug'
 import Input from './inputs/Input.vue'
+
+const { formatMessage } = useVIntl()
+const debugMessages = defineMessages({
+	title: { id: 'ui.i18n-debug.title', defaultMessage: 'i18n Inspector' },
+	keyCount: {
+		id: 'ui.i18n-debug.key-count',
+		defaultMessage: '{count, plural, one {# key} other {# keys}}',
+	},
+	hideKeys: { id: 'ui.i18n-debug.hide-keys', defaultMessage: 'Hide keys inline' },
+	revealKeys: { id: 'ui.i18n-debug.reveal-keys', defaultMessage: 'Reveal keys inline' },
+	toggleOverlay: { id: 'ui.i18n-debug.toggle-overlay', defaultMessage: 'Toggle CSS debug overlay' },
+	expand: { id: 'ui.i18n-debug.expand', defaultMessage: 'Expand panel' },
+	minimize: { id: 'ui.i18n-debug.minimize', defaultMessage: 'Minimize panel' },
+	close: { id: 'ui.i18n-debug.close', defaultMessage: 'Close inspector' },
+	search: { id: 'ui.i18n-debug.search', defaultMessage: 'Search keys or values...' },
+	noMatches: { id: 'ui.i18n-debug.no-matches', defaultMessage: 'No matches found' },
+	noKeys: { id: 'ui.i18n-debug.no-keys', defaultMessage: 'No keys registered' },
+	searchHint: { id: 'ui.i18n-debug.search-hint', defaultMessage: 'Try a different search term' },
+	discoverHint: {
+		id: 'ui.i18n-debug.discover-hint',
+		defaultMessage: 'Navigate the app to discover i18n keys',
+	},
+	watching: { id: 'ui.i18n-debug.watching', defaultMessage: 'Watching' },
+	copied: { id: 'ui.i18n-debug.copied', defaultMessage: 'Copied' },
+	copyHint: { id: 'ui.i18n-debug.copy-hint', defaultMessage: 'click to copy' },
+	navigate: { id: 'ui.i18n-debug.navigate', defaultMessage: 'navigate' },
+	copy: { id: 'ui.i18n-debug.copy', defaultMessage: 'copy' },
+})
 
 const debugContext = injectI18nDebug()
 
@@ -260,16 +291,7 @@ const listMaxHeight = computed(() => `${panelHeight.value - 120}px`)
 					class="absolute -bottom-0.5 -right-0.5 z-10 h-4 w-4 cursor-se-resize"
 					@mousedown="onResizeMouseDown"
 				>
-					<svg
-						width="10"
-						height="10"
-						viewBox="0 0 10 10"
-						class="absolute bottom-1 right-1 text-secondary/40"
-					>
-						<circle cx="8.5" cy="8.5" r="1" fill="currentColor" />
-						<circle cx="5" cy="8.5" r="1" fill="currentColor" />
-						<circle cx="8.5" cy="5" r="1" fill="currentColor" />
-					</svg>
+					<ExpandIcon class="absolute bottom-1 right-1 size-2.5 text-secondary/40" />
 				</div>
 
 				<!-- Header -->
@@ -283,31 +305,39 @@ const listMaxHeight = computed(() => `${panelHeight.value - 120}px`)
 							<ScanEyeIcon class="h-3.5 w-3.5 text-brand" />
 						</div>
 						<span class="text-[13px] font-semibold tracking-tight text-primary">
-							i18n Inspector
+							{{ formatMessage(debugMessages.title) }}
 						</span>
 					</div>
 
 					<!-- Key count badge -->
 					<div class="flex items-center gap-1 rounded-full bg-surface-5/50 px-2 py-0.5">
 						<span class="text-[11px] font-medium tabular-nums text-secondary">
-							{{ keyCount }} {{ keyCount === 1 ? 'key' : 'keys' }}
+							{{ formatMessage(debugMessages.keyCount, { count: keyCount }) }}
 						</span>
 					</div>
 
 					<!-- Toolbar -->
 					<div class="ml-auto flex items-center gap-0.5">
 						<IconButton
-							v-tooltip="debugContext?.keyReveal.value ? 'Hide keys inline' : 'Reveal keys inline'"
+							v-tooltip="
+								formatMessage(
+									debugContext?.keyReveal.value ? debugMessages.hideKeys : debugMessages.revealKeys,
+								)
+							"
 							type="quiet"
-							:label="debugContext?.keyReveal.value ? 'Hide keys inline' : 'Reveal keys inline'"
+							:label="
+								formatMessage(
+									debugContext?.keyReveal.value ? debugMessages.hideKeys : debugMessages.revealKeys,
+								)
+							"
 							@click="toggleKeyReveal"
 						>
 							<component :is="debugContext?.keyReveal.value ? EyeOffIcon : EyeIcon" />
 						</IconButton>
 						<IconButton
-							v-tooltip="'Toggle CSS debug overlay'"
+							v-tooltip="formatMessage(debugMessages.toggleOverlay)"
 							type="quiet"
-							:label="'Toggle CSS debug overlay'"
+							:label="formatMessage(debugMessages.toggleOverlay)"
 							@click="toggleOverlay"
 						>
 							<ScanEyeIcon />
@@ -316,17 +346,17 @@ const listMaxHeight = computed(() => `${panelHeight.value - 120}px`)
 						<div class="mx-0.5 h-4 w-px bg-surface-5/60" />
 
 						<IconButton
-							v-tooltip="minimized ? 'Expand panel' : 'Minimize panel'"
+							v-tooltip="formatMessage(minimized ? debugMessages.expand : debugMessages.minimize)"
 							type="quiet"
-							:label="minimized ? 'Expand panel' : 'Minimize panel'"
+							:label="formatMessage(minimized ? debugMessages.expand : debugMessages.minimize)"
 							@click="minimized = !minimized"
 						>
 							<component :is="minimized ? MaximizeIcon : MinusIcon" />
 						</IconButton>
 						<IconButton
-							v-tooltip="'Close inspector'"
+							v-tooltip="formatMessage(debugMessages.close)"
 							type="quiet"
-							:label="'Close inspector'"
+							:label="formatMessage(debugMessages.close)"
 							@click="closePanel"
 						>
 							<XIcon />
@@ -349,7 +379,7 @@ const listMaxHeight = computed(() => `${panelHeight.value - 120}px`)
 							<Input
 								ref="searchInputRef"
 								v-model="searchQuery"
-								placeholder="Search keys or values..."
+								:placeholder="formatMessage(debugMessages.search)"
 								clearable
 								:icon="SearchIcon"
 								size="small"
@@ -422,16 +452,8 @@ const listMaxHeight = computed(() => `${panelHeight.value - 120}px`)
 												v-if="copiedKey === entry.key"
 												class="flex items-center gap-1 rounded-md bg-green/10 px-1.5 py-0.5 text-[10px] font-medium text-green"
 											>
-												<svg width="10" height="10" viewBox="0 0 16 16" fill="none">
-													<path
-														d="M3 8.5L6.5 12L13 4"
-														stroke="currentColor"
-														stroke-width="2"
-														stroke-linecap="round"
-														stroke-linejoin="round"
-													/>
-												</svg>
-												Copied
+												<CheckIcon class="size-2.5" />
+												{{ formatMessage(debugMessages.copied) }}
 											</span>
 										</Transition>
 
@@ -440,7 +462,7 @@ const listMaxHeight = computed(() => `${panelHeight.value - 120}px`)
 											v-if="copiedKey !== entry.key"
 											class="text-[10px] text-secondary/0 transition-colors group-hover:text-secondary/60"
 										>
-											click to copy
+											{{ formatMessage(debugMessages.copyHint) }}
 										</span>
 									</div>
 								</div>
@@ -455,13 +477,13 @@ const listMaxHeight = computed(() => `${panelHeight.value - 120}px`)
 									<SearchIcon class="h-4 w-4 text-secondary/60" />
 								</div>
 								<p class="mt-3 text-[13px] font-medium text-primary">
-									{{ searchQuery ? 'No matches found' : 'No keys registered' }}
+									{{ formatMessage(searchQuery ? debugMessages.noMatches : debugMessages.noKeys) }}
 								</p>
 								<p class="mt-1 text-[11px] text-secondary">
 									{{
 										searchQuery
-											? 'Try a different search term'
-											: 'Navigate the app to discover i18n keys'
+											? formatMessage(debugMessages.searchHint)
+											: formatMessage(debugMessages.discoverHint)
 									}}
 								</p>
 							</div>
@@ -471,7 +493,9 @@ const listMaxHeight = computed(() => `${panelHeight.value - 120}px`)
 						<div class="flex items-center justify-between border-t border-surface-5/50 px-3.5 py-2">
 							<div class="flex items-center gap-2">
 								<div class="h-1.5 w-1.5 rounded-full bg-green animate-pulse" />
-								<span class="text-[11px] text-secondary"> Watching </span>
+								<span class="text-[11px] text-secondary">
+									{{ formatMessage(debugMessages.watching) }}
+								</span>
 							</div>
 							<div class="flex items-center gap-3">
 								<span class="text-[10px] text-secondary/60">
@@ -483,14 +507,14 @@ const listMaxHeight = computed(() => `${panelHeight.value - 120}px`)
 										class="rounded border border-surface-5/40 bg-surface-3/60 px-1 py-px text-[10px]"
 										>&darr;</kbd
 									>
-									navigate
+									{{ formatMessage(debugMessages.navigate) }}
 								</span>
 								<span class="text-[10px] text-secondary/60">
 									<kbd
 										class="rounded border border-surface-5/40 bg-surface-3/60 px-1 py-px text-[10px]"
 										>&crarr;</kbd
 									>
-									copy
+									{{ formatMessage(debugMessages.copy) }}
 								</span>
 							</div>
 						</div>

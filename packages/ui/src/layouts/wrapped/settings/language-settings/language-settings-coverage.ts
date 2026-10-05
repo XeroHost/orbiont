@@ -1,4 +1,4 @@
-export type LanguageProduct = 'app' | 'website'
+export type LanguageProduct = 'app'
 
 export interface LanguageCoverageStats {
 	percentage: number

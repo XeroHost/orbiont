@@ -8,6 +8,9 @@
   "app.action-bar.downloads": {
     "message": "Mga downloads"
   },
+  "app.action-bar.hide-downloads": {
+    "message": "Itago ang mga aktibong download"
+  },
   "app.action-bar.hide-more-running-instances": {
     "message": "Itago ang mas marami pang tumatakbong instansiya"
   },
@@ -16,6 +19,12 @@
   },
   "app.action-bar.install.copy-details": {
     "message": "Kopyahin ang detalye"
+  },
+  "app.action-bar.install.dismiss": {
+    "message": "Isara"
+  },
+  "app.action-bar.install.open-instance": {
+    "message": "Buksan ang instansiya"
   },
   "app.action-bar.install.retry": {
     "message": "Subukan muli"
@@ -35,6 +44,9 @@
   "app.action-bar.install.summary.content-download-failed": {
     "message": "Hindi ma-download ang mga talaksan"
   },
+  "app.action-bar.install.summary.corrupt-download": {
+    "message": "Sira ang na-download na file"
+  },
   "app.action-bar.install.summary.could-not-save-files": {
     "message": "Hindi ma-save ang mga talaksan"
   },
@@ -43,6 +55,42 @@
   },
   "app.action-bar.install.summary.instance-not-found": {
     "message": "Hindi mahanap ang instansiya"
+  },
+  "app.action-bar.install.summary.invalid-file-path": {
+    "message": "Hindi wasto ang path ng file"
+  },
+  "app.action-bar.install.summary.invalid-modpack": {
+    "message": "Hindi wasto ang datos ng modpack"
+  },
+  "app.action-bar.install.summary.invalid-modpack-files": {
+    "message": "May hindi wastong metadata ang mga file ng modpack"
+  },
+  "app.action-bar.install.summary.java-setup-failed": {
+    "message": "Hindi natapos ang pag-setup ng Java"
+  },
+  "app.action-bar.install.summary.loader-setup-failed": {
+    "message": "Nabigo ang pag-setup ng loader"
+  },
+  "app.action-bar.install.summary.local-data-error": {
+    "message": "Hindi ma-update ang lokal na datos"
+  },
+  "app.action-bar.install.summary.minecraft-setup-failed": {
+    "message": "Nabigo ang pag-setup ng Minecraft"
+  },
+  "app.action-bar.install.summary.modrinth-unreachable": {
+    "message": "Hindi maabot ang Modrinth"
+  },
+  "app.action-bar.install.summary.no-write-permission": {
+    "message": "Walang pahintulot na magsulat"
+  },
+  "app.action-bar.install.summary.pack-download-failed": {
+    "message": "Hindi ma-download ang pack"
+  },
+  "app.action-bar.install.summary.unexpected-error": {
+    "message": "May nagkaproblema"
+  },
+  "app.action-bar.install.unknown-instance": {
+    "message": "Hindi kilalang instansiya"
   },
   "app.action-bar.make-primary-instance": {
     "message": "Gumawa ng pangunahing instansiya"
@@ -58,6 +106,9 @@
   },
   "app.action-bar.reload-to-update": {
     "message": "Mag-reload upang ma-update"
+  },
+  "app.action-bar.show-downloads": {
+    "message": "Ipakita ang mga aktibong download"
   },
   "app.action-bar.show-more-running-instances": {
     "message": "Ipakita ang mas marami pang tumatakbong instansiya"
@@ -77,17 +128,296 @@
   "app.action-bar.view-logs": {
     "message": "Tignan ang logs"
   },
+  "app.appearance-settings.compact-mode.description": {
+    "message": "Ipakita ang mga instansiya ng library sa siksik na ayos ng mga hilera."
+  },
+  "app.appearance-settings.compact-mode.title": {
+    "message": "Compact mode"
+  },
   "app.appearance-settings.default-landing-page.home": {
     "message": "Tahanan"
   },
   "app.appearance-settings.default-landing-page.library": {
     "message": "Librarya"
   },
+  "app.appearance-settings.hide-nametag.description": {
+    "message": "Itago ang iyong username sa itaas ng preview ng player sa pahina ng tagapili ng Skin."
+  },
   "app.appearance-settings.hide-nametag.title": {
     "message": "Itago ang nametag"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "I-animate ang mga icon kapag tinapatan ng cursor at pinili gamit ang keyboard."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Patayin ang mga animasyon"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Palaging i-animate"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Sundin ang system"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Mga animasyon ng icon"
+  },
+  "app.appearance-settings.minimize-launcher.description": {
+    "message": "I-minimize ang {productName} kapag nagsimula ang Minecraft."
+  },
+  "app.appearance-settings.minimize-launcher.title": {
+    "message": "I-minimize ang app"
+  },
+  "app.appearance-settings.show-play-time.description": {
+    "message": "Ipakita kung gaano ka na katagal naglaro sa bawat instansiya."
+  },
+  "app.appearance-settings.show-play-time.title": {
+    "message": "Ipakita ang oras ng paglalaro"
+  },
+  "app.appearance-settings.skip-non-essential-warnings.description": {
+    "message": "Laktawan ang mga kumpirmasyon para sa mga gawaing mababa ang peligro tulad ng dobleng pag-install, karaniwang pagbura ng content, maramihang update, pag-unlink, at pagkukumpuni. Laging ipinapakita ang mga babala para sa mga mapanganib na gawain."
+  },
+  "app.appearance-settings.skip-non-essential-warnings.title": {
+    "message": "Laktawan ang mga hindi mahalagang babala"
+  },
+  "app.appearance-settings.toggle-sidebar.description": {
+    "message": "Itago ang kanang sidebar bilang default at magdagdag ng button upang ipakita o itago ito."
+  },
+  "app.appearance-settings.toggle-sidebar.title": {
+    "message": "Itago ang kanang sidebar"
+  },
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Magpakita ng babala sa kaligtasan bago mag-install ng inangkat na modpack (.mrpack o CurseForge .zip) na hindi maberipika ang pinagmulan."
+  },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Pakipaalala bago ko ma-install ang mga di-kilalang modpack"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Makipag-ugnayan sa suporta"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Kopyahin ang impormasyon sa pag-debug"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Impormasyon sa pag-debug"
+  },
+  "app.auth-error.header": {
+    "message": "Nabigo ang pag-sign in"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Paano ito aayusin"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Kumpletuhin ang proseso ng pagberipika ng pagkakakilanlan"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Nangangailangan ang account na ito ng beripikasyon ng hustong gulang ayon sa mga regulasyon ng Timog Korea."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Minecraft Login"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Suriin kung gumagana ang iyong koneksyon sa internet"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Pahintulutan ang {product} sa iyong firewall, antivirus, proxy, VPN, at mga panuntunan ng hosts file"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Sumubok ng ibang network o pansamantalang patayin ang VPN o proxy kung gumagamit ka nito"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "I-restart ang {product} at subukang mag-sign in muli"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Kung routing o DNS ang problema, makatutulong kung minsan ang serbisyong tulad ng Cloudflare WARP"
+  },
+  "app.auth-error.network.what": {
+    "message": "Hindi makakonekta ang {product} sa serbisyo ng Microsoft, Xbox, o Minecraft na kailangan sa pag-sign in. Karaniwang sanhi nito ang problema sa lokal na network, DNS, proxy, firewall, hosts file, VPN, o antivirus."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Walang mensahe ng error."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Maaari mong tingnan kung aling account ang nagmamay-ari nito sa <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Tiyaking nag-sa-sign in ka gamit ang Microsoft account na bumili ng Minecraft (o may aktibong Game Pass na may access sa PC)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Hindi pagmamay-ari ng Microsoft account na ito ang Minecraft: Java Edition, at gumagana lang ang {product} sa mga premium account."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Buksan minsan ang Minecraft: Java Edition mula sa opisyal na launcher"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Tiyaking ginagamit mo ang Microsoft account na nagmamay-ari ng Minecraft. Maaari mong tingnan kung aling account ang nagmamay-ari nito sa <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Maghintay nang hanggang isang oras kung kamakailan lang ang pagbili o pag-setup ng profile"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Hindi makapagbalik ang mga serbisyo ng Minecraft ng profile ng Java Edition para sa account na ito. Karaniwang nangyayari ito kapag kamakailan lang binili ang laro, hindi pa tapos gawin ang Java profile, o maling Microsoft account ang ginagamit."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Tiyaking nabili ang Minecraft sa account na ito"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Kumpletuhin ang pag-setup ng Xbox profile kung hinihingi"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Walang naka-setup na Xbox profile ang account na ito o hindi nito pagmamay-ari ang Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "I-restart ang {product} pagkatapos maghintay"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Subukang mag-sign in nang isang beses pa"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Maghintay nang humigit-kumulang isang oras bago sumubok muli"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Kung parehong mensahe ang lumabas, maghintay nang mas matagal bago sumubok muli upang mawala ang pansamantalang limitasyon"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Pansamantalang hinarang ng Microsoft o Minecraft ang kahilingan sa pag-sign in dahil sa dami ng kamakailang pagtatangka."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Tingnan ang <a href=\"https://www.xbox.com/en-US/regions\">Xbox Availability</a> para sa mga sinusuportahang rehiyon"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Kailangang suportado ang mga serbisyo ng Xbox sa iyong bansa bago ka makapag-sign in"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Hindi available ang Xbox Live sa iyong rehiyon, kaya harang ang pag-sign in."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Ipag-sign in ang isang tagapag-alaga sa <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "I-update ang mga pahintulot sa online na paglalaro"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Pinaghihigpitan ang account na ito at walang pahintulot na maglaro online."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Kung maayos ang serbisyo at patuloy itong nangyayari, makipag-ugnayan sa suporta kalakip ang impormasyon sa pag-debug sa ibaba"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Subukang mag-sign in gamit ang <a href=\"https://www.minecraft.net/en-us/download\">official Minecraft Launcher</a> upang kumpirmahin kung apektado rin doon ang pag-sign in sa Minecraft"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Tingnan ang <a href=\"https://support.xbox.com/xbox-live-status\">Xbox Status</a> para sa mga kasalukuyang problema sa serbisyo"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Maghintay nang ilang minuto at subukang mag-sign in muli"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Nagbabalik ng error sa server ang serbisyo sa pagpapatotoo ng Minecraft, kaya hindi ka matapos ma-sign in ng {product} sa ngayon."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Mag-sign in muli"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Kapag tapos na, subukang mag-sign in muli"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Mag-sign in gamit ang <a href=\"https://www.minecraft.net/en-us/download\">official Minecraft Launcher</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Subukang mag-sign in sa {product} muli"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Bisitahin ang <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> at mag-sign in"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Bisitahin ang <a href=\"https://www.xbox.com\">Xbox</a> at mag-sign in"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Magsumite ng apela kung may available"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Bisitahin ang <a href=\"https://support.xbox.com\">Xbox Support</a> at suriin ang mga detalye ng parusa"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Sinuspinde ang account na ito dahil sa paglabag sa mga Pamantayan ng Komunidad ng Xbox."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Kapag natapos ang bagong pag-sign in, subukang buksan muli ang Minecraft"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Mag-sign in muli sa account"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Mag-sign out sa apektadong Minecraft account sa {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Nag-expire o binawi ang nakasave mong Microsoft sign-in token, kaya hindi ma-refresh ng {product} ang iyong sesyon sa Minecraft."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Tanggapin ang mga Tuntunin kung hinihingi"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Hindi pa tinatanggap ng account na ito ang mga Tuntunin ng Serbisyo ng Xbox."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Subukang bisitahin"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Para sa karagdagang tulong, bisitahin ang <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">UK age verification on Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Pumunta sa pahina ng <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> at mag-sign in"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Kapag beripikado na, subukang mag-sign in muli"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Sundin ang mga tagubilin upang beripikahin ang iyong edad"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Nangangailangan ng beripikasyon ng edad ang iyong Minecraft/Xbox Live account upang sumunod sa mga regulasyon ng UK. Kailangan mo itong kumpletuhin bago mag-sign in."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Suriin ang <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">Family Setup Guide</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Sumali o lumikha ng family group ayon sa mga tagubilin"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Menor de edad ang account na ito at hindi naka-link sa isang Microsoft family group."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Hindi kilalang error"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Hindi namin nakikilala ang error na ito at hindi kami makapagrekomenda ng mga tiyak na hakbang upang lutasin ito."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "at mag-sign in, dahil maaaring ipakita nito ang mga kinakailangang hakbang. Maaari ka ring makipag-ugnayan sa suporta at maaari namin itong siyasatin pa."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Hindi ka namin ma-sign in sa iyong Microsoft account. Maaaring dahil ito sa mga paghihigpit sa account o mga limitasyon sa rehiyon."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Ang sa tingin naming nangyari"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Tanggapin ang anumang mga tuntunin o kumpletuhin ang anumang pag-setup ng profile na ipinapakita"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Mag-sign in nang isang beses sa <a href=\"https://www.xbox.com\">Xbox.com</a> gamit ang parehong Microsoft account"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Hindi tinanggap ng Xbox Live ang Microsoft sign-in. Karaniwang nangangahulugan ito na hindi pa kailanman nag-sign in sa Xbox ang Microsoft account o kailangang tanggapin ang mga updated na tuntunin."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Kung nabigo rin ang opisyal na launcher, sundin ang error na ipinapakita doon o makipag-ugnayan sa Suporta ng Xbox"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Kumpletuhin ang anumang mga prompt na ipinapakita ng Microsoft, Xbox, o Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Tinanggihan ng mga serbisyo ng Xbox ang kahilingan na pahintulutan ang account na ito para sa mga serbisyo ng Minecraft, ngunit walang ibinalik na tiyak na paghihigpit sa account na nakikilala ng {product}."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Maaaring hindi maaabot ang mga authentication server ng Minecraft sa ngayon. Tingnan mo ang iyong internet connection at muling subukan mamaya."
@@ -95,35 +425,563 @@
   "app.auth-servers.unreachable.header": {
     "message": "Hindi maabot ang mga authentication server"
   },
-  "app.browse.add-servers-to-instance": {
-    "message": "Idinaragdag ang server sa instansiya"
+  "app.bedrock.account": {
+    "message": "Minecraft at Microsoft Store tingnan ang iyong lisensyang Bedrock. Mag-sign in doon gamit ang account na nagmamay-ari ng Minecraft; maaaring iba ang iyong Java account sa launcher na ito."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Mga pack at script ng lokal na pag-uugali. I-configure ang mga ito sa mga setting ng mundo sa loob ng Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Mga add-on"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Pack ng pag-uugali"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Mga addon"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Mag-browse ng mga add-on, resource pack, mundo at script mula sa CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Tuklasin ang nilalaman ng Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Tumuklas ng mga add-on"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Tumuklas ng mga script"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Isara ang Minecraft bago magdagdag ng mga pack sa isang mundo, pagkatapos ay subukang muli."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "I-install sa Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Magbubukas ang Minecraft upang i-import ang nilalamang ito. Suriin ang resulta sa laro, pagkatapos ay i-activate ang mga pack sa iyong mga setting ng mundo. Ang mga kinakailangang pack at pang-eksperimentong setting ay nakalista sa paglalarawan ng proyekto."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Ang archive na ito ay hindi naglalaman ng suportadong Bedrock na nilalaman."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Hindi ma-load ang mga bersyon o mundo ng proyekto. Subukan muli."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Ang pack na ito ay nangangailangan ng isa pang pack na hindi aktibo sa mundong ito. I-install muna ang mga dependency na nakalista ng may-akda."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Walang suportadong .mcaddon, .mcpack, .mcworld o ZIP file ang available para sa proyektong ito."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Lumikha muna ng mundo sa Minecraft, pagkatapos ay i-refresh ang listahang ito."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Mga script"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Bersyon ng nilalaman"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Destination world"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Isara ang Minecraft bago i-install. Ang mga pack na ito ay idaragdag at isaaktibo lamang sa napiling mundo. Suriin ang mga kinakailangang dependency at pang-eksperimentong setting sa paglalarawan ng proyekto."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Idinagdag ang mga pack sa {world}. Buksan ang Minecraft para laruin ang mundong ito."
+  },
+  "app.bedrock.checking": {
+    "message": "Naghahanap ng Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Isara ang Minecraft upang i-edit ang mga file, tanggalin ang nilalaman o ibalik ang isang kopya."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Ang nilalamang ito ay nagbago o ang orihinal na lokasyon ay inookupahan. Ang kopya ng pagbawi ay itinago upang maiwasang ma-overwrite ang iyong mga pagbabago."
+  },
+  "app.bedrock.content": {
+    "message": "Kontento"
+  },
+  "app.bedrock.content-help": {
+    "message": "Lokal na mapagkukunan at mga skin pack. I-activate ang mga ito sa Minecraft; ang ilang nilalaman ay nabibilang sa mga indibidwal na mundo."
+  },
+  "app.bedrock.data-error": {
+    "message": "Hindi mabasa ang data ng Minecraft. I-refresh para subukang muli."
+  },
+  "app.bedrock.data-location": {
+    "message": "Minecraft lokasyon ng data"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Aalisin ang mga item na ito sa Minecraft. Ang isang kopya sa pagbawi ay itatago, kabilang ang mga apektadong mga setting ng world pack. Ang mga mundong umaasa sa isang tinanggal na pack ay maaaring mawala ang mga bloke o gawi nito; ibalik ito bago buksan ang mga mundong iyon."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Tanggalin ang lokal na nilalaman"
+  },
+  "app.bedrock.description": {
+    "message": "I-play ang Minecraft for Windows at i-import ang iyong mga mundo at add-on."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Hindi masuri ang pag-install ng Minecraft. Subukan muli."
+  },
+  "app.bedrock.development": {
+    "message": "Pag-unlad"
+  },
+  "app.bedrock.edition": {
+    "message": "Minecraft na edisyon"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Walang laman ang folder na ito."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock mundo at mga add-on"
+  },
+  "app.bedrock.file-size": {
+    "message": "Sukat"
+  },
+  "app.bedrock.files": {
+    "message": "Mga File"
+  },
+  "app.bedrock.folder": {
+    "message": "Folder"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Hindi mabuksan ang Minecraft folder na ito. I-refresh ang iyong data at subukang muli."
+  },
+  "app.bedrock.import-button": {
+    "message": "Mag-import ng file"
+  },
+  "app.bedrock.import-description": {
+    "message": "Pumili ng .mcworld, .mcpack o .mcaddon file. Ang Minecraft ay magbubukas at hahawak sa pag-import."
+  },
+  "app.bedrock.import-error": {
+    "message": "Hindi maipadala ang file sa Minecraft. Tingnan kung naka-install ang Minecraft for Windows at subukang muli."
+  },
+  "app.bedrock.import-title": {
+    "message": "Mga mundo at mga add-on"
+  },
+  "app.bedrock.installation": {
+    "message": "Opisyal na pag-install"
+  },
+  "app.bedrock.installed": {
+    "message": "Naka-install ang Minecraft for Windows"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Pumili ng wastong lokal na .mcworld, .mcpack o .mcaddon archive."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Ang file na ito ay lumampas sa 8 GiB na limitasyon sa pag-import."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Hindi mabuksan ang Minecraft. Buksan ang opisyal na launcher o Microsoft Store upang suriin ang pag-install."
+  },
+  "app.bedrock.launcher": {
+    "message": "Buksan ang opisyal na launcher"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Natukoy ang opisyal na launcher. I-install ang Minecraft for Windows doon upang magpatuloy."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Binabasa ang data ng Minecraft..."
+  },
+  "app.bedrock.location": {
+    "message": "Lokasyon"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Ipinapakita ang huling 1 MiB ng log na ito."
+  },
+  "app.bedrock.logs": {
+    "message": "Mga Log"
+  },
+  "app.bedrock.missing": {
+    "message": "I-install ang Minecraft for Windows upang makapagsimula"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Hindi mabago ang nilalamang ito. Isara ang Minecraft at i-refresh. Ang iyong kopya sa pagbawi ay itinago."
+  },
+  "app.bedrock.name": {
+    "message": "Pangalan"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Walang nakitang mga lokal na add-on. Mag-import ng .mcpack o .mcaddon file upang makapagsimula."
+  },
+  "app.bedrock.no-content": {
+    "message": "Walang nakitang lokal na nilalaman."
+  },
+  "app.bedrock.no-data": {
+    "message": "Buksan ang Minecraft nang isang beses upang gawin ang mga folder ng data nito, pagkatapos ay i-refresh dito."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Walang nakitang mga log ng nilalaman. I-enable ang content logging sa Minecraft Settings > Creator, pagkatapos ay buksan ang iyong mundo."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Wala pang mga kopya sa pagbawi."
+  },
+  "app.bedrock.no-results": {
+    "message": "Walang tugmang item."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Walang nahanap na mga lokal na mundo. Gumawa ng isa sa Minecraft o mag-import ng .mcworld file."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Buksan ang folder"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Magulang na folder"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Ang ilang mga folder ay hindi mabasa o maabot ang limitasyon sa pagpapakita. Maaari mong suriin ang mga ito sa File Explorer."
+  },
+  "app.bedrock.play": {
+    "message": "Maglaro"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Ang mga orihinal na file at tinanggal na nilalaman ay pinananatili dito. Ibalik ang isang kopya habang ang Minecraft ay sarado. Ang kasalukuyang nilalaman at mga pag-edit sa ibang pagkakataon ay hindi kailanman na-overwrite."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Mga kopya ng pagbawi"
+  },
+  "app.bedrock.refresh": {
+    "message": "Suriin muli"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "I-refresh"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "I-reload ang file na ito bago i-save."
+  },
+  "app.bedrock.repair": {
+    "message": "Ayusin o i-update ang iyong pag-install gamit ang Microsoft Store o ang opisyal na launcher."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Resource pack"
+  },
+  "app.bedrock.restore": {
+    "message": "Ibalik"
+  },
+  "app.bedrock.running": {
+    "message": "Kasalukuyang tumatakbo"
+  },
+  "app.bedrock.save-error": {
+    "message": "Hindi makapag-save. Maaaring nagbago ang file, naglalaman ng hindi wastong JSON o ginagamit. I-reload ito at subukang muli."
+  },
+  "app.bedrock.search": {
+    "message": "Maghanap ng lokal na nilalaman..."
+  },
+  "app.bedrock.select-log": {
+    "message": "Pumili ng log para basahin ito."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Skin pack"
+  },
+  "app.bedrock.store": {
+    "message": "I-install o i-update"
+  },
+  "app.bedrock.store-error": {
+    "message": "Hindi mabuksan ang Microsoft Store. Buksan ito mula sa Windows Start menu."
+  },
+  "app.bedrock.submitted": {
+    "message": "Naipadala ang file sa Minecraft. Suriin ang resulta ng pag-import sa laro."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Ang pagsasama ng Bedrock ay nangangailangan ng Windows. Maaari mong patuloy na maglaro ng Java Edition sa device na ito."
+  },
+  "app.bedrock.update": {
+    "message": "I-update ang Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "Sa Microsoft Store, tingnan ang mga update at piliin ang Minecraft for Windows. Magre-refresh ang iyong naka-install na bersyon kapag bumalik ka."
+  },
+  "app.bedrock.version": {
+    "message": "Windows pag-install {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Bersyon"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Mundo: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Mga mundo"
+  },
+  "app.behavior-settings.confirmations.title": {
+    "message": "Mga kumpirmasyon"
+  },
+  "app.behavior-settings.content.title": {
+    "message": "Home at content"
+  },
+  "app.behavior-settings.startup-and-navigation.title": {
+    "message": "Pagsisimula at pag-navigate"
   },
   "app.browse.add-to-an-instance": {
     "message": "Idagdag sa instansiya"
   },
-  "app.browse.add-to-instance": {
-    "message": "Idagdag sa instansiya"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Idagdag sa {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Dinagdag"
-  },
-  "app.browse.already-added": {
-    "message": "Nadagdag na"
-  },
   "app.browse.back-to-instance": {
     "message": "Bumalik sa instansiya"
   },
-  "app.browse.discover-servers": {
-    "message": "Tumuklas ng mga server"
+  "app.browse.discover-project-type": {
+    "message": "Tuklasin ang {projectType}"
+  },
+  "app.browse.hide-installed-modpacks": {
+    "message": "Itago ang mga naka-install na"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Buksan sa CurseForge"
+  },
+  "app.browse.project-actions.label": {
+    "message": "Mga aksyon sa proyekto"
+  },
+  "app.browse.project-type.data-packs": {
+    "message": "Data Packs"
   },
   "app.browse.project-type.modpacks": {
     "message": "Modpacks"
   },
-  "app.browse.server.installing": {
-    "message": "Ini-install"
+  "app.browse.project-type.mods": {
+    "message": "Mods"
+  },
+  "app.browse.project-type.resource-packs": {
+    "message": "Mga Resource Pack"
+  },
+  "app.browse.project-type.shaders": {
+    "message": "Mga Shader"
+  },
+  "app.content-install.no-compatible-versions": {
+    "message": "Walang available na bersyon na tumutugma sa {compatibilityLabel}. Pumili ng bersyon upang i-install pa rin. Hindi awtomatikong mai-install ang mga dependency."
+  },
+  "app.content.desync-pack": {
+    "message": "I-desync"
+  },
+  "app.content.sync-data-packs-disabled": {
+    "message": "Buksan muna ang pag-sync ng data pack sa mga setting ng app."
+  },
+  "app.content.sync-pack": {
+    "message": "I-sync"
+  },
+  "app.content.sync-packs-override": {
+    "message": "Patayin muna ang pack syncing override sa mga setting ng instansiyang ito."
+  },
+  "app.content.sync-resource-packs-disabled": {
+    "message": "Buksan muna ang pag-sync ng resource pack sa mga setting ng app."
+  },
+  "app.curseforge.rate-limit.text": {
+    "message": "Naabot na ang pinagsamang limitasyon sa kahilingan. Maghintay nang sandali, pagkatapos ay subukan muli."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "Pansamantalang abala ang CurseForge"
+  },
+  "app.download-manager.active": {
+    "message": "Aktibo"
+  },
+  "app.download-manager.attention": {
+    "message": "Nangangailangan ng pansin"
+  },
+  "app.download-manager.cancel": {
+    "message": "Kanselahin ang pag-install"
+  },
+  "app.download-manager.canceling": {
+    "message": "Kinakansela ang pag-install…"
+  },
+  "app.download-manager.clear-all": {
+    "message": "Linisin lahat"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Linisin ang lahat ng tapos na gawain"
+  },
+  "app.download-manager.complete": {
+    "message": "Tapos na"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Dinobleng instansiya"
+  },
+  "app.download-manager.empty": {
+    "message": "Walang gawain sa pag-install"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Tinatayang bilis ng pag-download"
+  },
+  "app.download-manager.eta": {
+    "message": "Tinatayang natitirang oras para sa download na ito"
+  },
+  "app.download-manager.hide": {
+    "message": "Itago ang mga gawain sa pag-install"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Inangkat na instansiya"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Pag-install ng instansiya"
+  },
+  "app.download-manager.modpack": {
+    "message": "Modpack"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Pag-install ng modpack"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Bagong instansiya"
+  },
+  "app.download-manager.pause": {
+    "message": "I-pause ang pag-install"
+  },
+  "app.download-manager.paused": {
+    "message": "Naka-pause"
+  },
+  "app.download-manager.remove": {
+    "message": "Alisin sa kasaysayan"
+  },
+  "app.download-manager.resume": {
+    "message": "Ipagpatuloy ang pag-install"
+  },
+  "app.download-manager.show": {
+    "message": "Ipakita ang mga gawain sa pag-install"
+  },
+  "app.download-manager.tasks": {
+    "message": "Mga gawain"
+  },
+  "app.download-manager.title": {
+    "message": "Tagapamahala ng pag-download"
+  },
+  "app.download-manager.verifying": {
+    "message": "Bineberipika"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Kanselahin ang pagpapalit ng direktoryo"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Kopyahin ang impormasyon sa pag-debug"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Impormasyon sa pag-debug"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "muna. Kapag tapos ka na, bumalik dito at mag-sign in!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Subukang mag-sign in gamit ang"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Gumagamit ng PC Game Pass, galing sa Bedrock, o kabibili lang ng laro?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "official Minecraft Launcher"
+  },
+  "app.error.get-support.button": {
+    "message": "Humingi ng suporta"
+  },
+  "app.error.help.end": {
+    "message": "at ikagagalak naming tumulong! Tiyaking isama ang sumusunod na impormasyon sa pag-debug:"
+  },
+  "app.error.help.start": {
+    "message": "Kung walang gumagana at kailangan mo ng tulong, bisitahin ang"
+  },
+  "app.error.help.support-link": {
+    "message": "aming pahina ng suporta"
+  },
+  "app.error.hosts.body-end": {
+    "message": "sinubukang kumonekta sa mga serbisyo ng Microsoft / Xbox / Minecraft, ngunit tinanggihan ng remote server ang koneksyon. Maaaring nangangahulugan ito na harang ang mga serbisyong ito ng hosts file. Pakibisita ang"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "para sa mga hakbang kung paano aayusin ang isyu."
+  },
+  "app.error.migrate.body-end": {
+    "message": "ay hindi makapag-migrate sa bagong direktoryo na iyong pinili. Pakimakipag-ugnayan sa suporta para sa tulong o kanselahin ang pagpapalit ng direktoryo."
+  },
+  "app.error.network.body-end": {
+    "message": "sa pagkonekta sa mga server ng Microsoft. Madalas itong resulta ng mahinang koneksyon, kaya inirerekomenda naming subukan muli upang makita kung gagana. Kung magpapatuloy ang mga isyu, sundin ang mga hakbang sa"
+  },
+  "app.error.network.body-start": {
+    "message": "Mukhang nagkaroon ng mga isyu sa"
+  },
+  "app.error.network.heading": {
+    "message": "Mga isyu sa network"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "upang i-troubleshoot."
+  },
+  "app.error.no-error-message": {
+    "message": "Walang mensahe ng error."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "nabigong mahanap ang bersyon ng loader para sa instansiyang ito."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Upang lutasin ito, kailangan mong kumpunihin ang instansiya. I-click ang button sa ibaba upang gawin ito."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Mukhang walang sapat na espasyo sa disk na naglalaman ng direktoryo na iyong pinili. Pakimagbakante ng espasyo at subukan muli o kanselahin ang pagpapalit ng direktoryo."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Walang sapat na espasyo"
+  },
+  "app.error.read-only.body-end": {
+    "message": "ay hindi makapagsulat sa direktoryo na iyong pinili. Pakisaayos ang mga pahintulot ng direktoryo at subukan muli o kanselahin ang pagpapalit ng direktoryo."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Mukhang"
+  },
+  "app.error.read-only.heading": {
+    "message": "Palitan ang mga pahintulot ng direktoryo"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Kumpunihin ang instansiya"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Subukang muli ang pagpapalit ng direktoryo"
+  },
+  "app.error.state-init.body-end": {
+    "message": "nabigong mag-load nang tama. Maaaring dahil ito sa sirang file, o dahil nawawala sa app ang mahahalagang file."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Maaari mo itong maayos sa pamamagitan ng isa sa mga sumusunod na paraan:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Tiyaking nakakonekta ka sa internet, pagkatapos ay subukang i-restart ang app."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Muling pag-download ng app."
+  },
+  "app.error.state-init.open-backups-folder": {
+    "message": "Buksan ang folder ng mga backup"
+  },
+  "app.error.support-article-link": {
+    "message": "aming artikulo ng suporta"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Hindi mapalitan ang direktoryo ng app"
+  },
+  "app.error.title.generic": {
+    "message": "May naganap na error"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Walang napiling loader"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Hindi makapag-sign in sa Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Error sa pagsisimula ng {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Subukang mag-sign in muli"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Suriing mabuti na nag-sign in ka gamit ang tamang account. Maaaring pagmamay-ari mo ang Minecraft sa ibang Microsoft account."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Sumubok ng ibang account"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Sumubok ng ibang Microsoft account"
   },
   "app.export-modal.description-placeholder": {
     "message": "Ilagay ang paglalarawan ng modpack..."
@@ -131,8 +989,38 @@
   "app.export-modal.export-button": {
     "message": "Iluwas"
   },
+  "app.export-modal.export-complete": {
+    "message": "Tapos na ang pag-export"
+  },
+  "app.export-modal.export-complete-description": {
+    "message": "Matagumpay na na-export ang {name}."
+  },
+  "app.export-modal.format-label": {
+    "message": "Pormat ng pag-export"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "CurseForge ZIP na may manifest.json at ang mga napiling file sa loob ng overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Para sa mga launcher na sumusuporta sa mga Modrinth pack. May kasamang mga reperensya sa pag-download at mga napiling karagdagang file."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Isang portable na {productName} pack na naglalaman ng mga napiling file. Buksan ito nang direkta sa launcher."
+  },
   "app.export-modal.header": {
     "message": "Iluwas ang modpack"
+  },
+  "app.export-modal.modpack-name-label": {
+    "message": "Pangalan ng modpack"
   },
   "app.export-modal.modpack-name-placeholder": {
     "message": "Pangalan ng modpack"
@@ -143,17 +1031,179 @@
   "app.export-modal.version-number-placeholder": {
     "message": "1.0.0"
   },
+  "app.features-settings.instance-pages.title": {
+    "message": "Mga instansiya"
+  },
+  "app.features-settings.play-page.title": {
+    "message": "Pahina ng paglalaro"
+  },
+  "app.features-settings.quick-instances.description": {
+    "message": "Piliin ang pinakamadaming bilang ng mga kamakailang instansiya na ipinapakita sa kaliwang sidebar. Maaari mo rin itong isaayos sa pamamagitan ng pag-drag sa divider."
+  },
+  "app.features-settings.quick-instances.title": {
+    "message": "Mabilis na mga instansiya sa sidebar"
+  },
+  "app.features-settings.show-all-screenshots.description": {
+    "message": "Magpakita ng button sa kaliwang sidebar upang tingnan ang mga screenshot mula sa lahat ng iyong instansiya."
+  },
+  "app.features-settings.show-all-screenshots.title": {
+    "message": "Ipakita ang lahat ng screenshot sa sidebar"
+  },
+  "app.features-settings.show-files-tab.title": {
+    "message": "Ipakita ang tab na Files sa mga instansiya"
+  },
+  "app.features-settings.show-jump-in.description": {
+    "message": "Ipakita ang mga kamakailang nilarong mundo at instansiya sa itaas ng pahina ng Paglalaro."
+  },
+  "app.features-settings.show-jump-in.title": {
+    "message": "Ipakita ang seksyong Jump in"
+  },
+  "app.features-settings.show-screenshots-tab.title": {
+    "message": "Ipakita ang tab na Screenshots sa mga instansiya"
+  },
+  "app.features-settings.show-skin-selector.description": {
+    "message": "Magpakita ng button sa kaliwang sidebar upang buksan ang tagapili ng skin."
+  },
+  "app.features-settings.show-skin-selector.title": {
+    "message": "Ipakita ang tagapili ng skin sa sidebar"
+  },
+  "app.features-settings.show-worlds-tab.title": {
+    "message": "Ipakita ang tab na Worlds sa mga instansiya"
+  },
+  "app.features-settings.sidebar.title": {
+    "message": "Sidebar"
+  },
+  "app.home.jump-back-in.actions.label": {
+    "message": "Mga aksyon sa instansiya"
+  },
+  "app.home.jump-back-in.instance-locked": {
+    "message": "Naka-lock ang instansiyang ito"
+  },
+  "app.home.jump-back-in.instance-open": {
+    "message": "Bukas na ang instansiya"
+  },
+  "app.home.jump-back-in.more-options": {
+    "message": "Higit pang mga opsyon"
+  },
+  "app.home.jump-back-in.never-played": {
+    "message": "Hindi pa nalaro"
+  },
+  "app.home.jump-back-in.new-instance": {
+    "message": "Bagong instansiya"
+  },
+  "app.home.jump-back-in.resize": {
+    "message": "I-drag upang baguhin ang laki"
+  },
+  "app.home.jump-back-in.title": {
+    "message": "Tuloy ang laro"
+  },
+  "app.home.jump-back-in.view-instance": {
+    "message": "Tingnan ang instansiya"
+  },
+  "app.install.phase.downloading_content": {
+    "message": "Nina-download ang content"
+  },
+  "app.install.phase.downloading_minecraft": {
+    "message": "Nina-download ang Minecraft"
+  },
+  "app.install.phase.downloading_pack_file": {
+    "message": "Nina-download ang file ng pack"
+  },
+  "app.install.phase.extracting_overrides": {
+    "message": "Binubunot ang mga overrides"
+  },
+  "app.install.phase.finalizing": {
+    "message": "Tinatatapos"
+  },
+  "app.install.phase.preparing_instance": {
+    "message": "Nakapila upang i-install"
+  },
+  "app.install.phase.preparing_java": {
+    "message": "Inihahanda ang Java"
+  },
+  "app.install.phase.preparing_java.downloading": {
+    "message": "Nina-download ang Java {version}"
+  },
+  "app.install.phase.preparing_java.extracting": {
+    "message": "Binubunot ang Java {version}"
+  },
+  "app.install.phase.preparing_java.fetching-metadata": {
+    "message": "Kumukuha ng Java {version}"
+  },
+  "app.install.phase.preparing_java.resolving": {
+    "message": "Inihahanda ang Java {version}"
+  },
+  "app.install.phase.preparing_java.validating": {
+    "message": "Bineberipika ang Java {version}"
+  },
+  "app.install.phase.reading_pack_manifest": {
+    "message": "Binabasa ang manifest ng pack"
+  },
+  "app.install.phase.resolving_loader": {
+    "message": "Nireresolba ang loader"
+  },
+  "app.install.phase.resolving_minecraft": {
+    "message": "Nireresolba ang Minecraft"
+  },
+  "app.install.phase.resolving_pack": {
+    "message": "Nireresolba ang content"
+  },
+  "app.install.phase.rolling_back": {
+    "message": "Binabalik"
+  },
+  "app.install.phase.running_loader_processors": {
+    "message": "Pinapatakbo ang mga processor ng loader"
+  },
+  "app.instance.action.add-content": {
+    "message": "Magdagdag ng content"
+  },
+  "app.instance.action.copy-path": {
+    "message": "Kopyahin ang path"
+  },
+  "app.instance.action.edit": {
+    "message": "Baguhin"
+  },
+  "app.instance.action.open-folder": {
+    "message": "Buksan ang folder"
+  },
+  "app.instance.action.play": {
+    "message": "Maglaro"
+  },
+  "app.instance.action.stop": {
+    "message": "Itigil"
+  },
+  "app.instance.actions.label": {
+    "message": "Mga aksyon sa instansiya"
+  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Ang lahat ng data ng iyong instansiya ay tuluyang mawawala, kabilang na ang iyong mga mundo, kumpigurasyon, at lahat ng na-install na kontento."
   },
   "app.instance.confirm-delete.admonition-header": {
     "message": "Hindi mababawi ang aksiyong ito"
   },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "Permanente nang buburahin ang lahat ng datos ng {count} instansiyang ito, kabilang ang kanilang mga mundo, config, at lahat ng naka-install na content."
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "Burahin ang {count} instansiya"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "Burahin ang {count} instansiya"
+  },
   "app.instance.confirm-delete.delete-button": {
     "message": "Tanggalin ang instansiya"
   },
   "app.instance.confirm-delete.header": {
     "message": "Tanggalin ang instansiya"
+  },
+  "app.instance.confirm-delete.instances-label": {
+    "message": "{count, plural, one {Instansiya} other {Mga instansiya ({count})}}"
+  },
+  "app.instance.content.managed-content.modpack-header": {
+    "message": "Content ng modpack"
+  },
+  "app.instance.content.managed-content.server-header": {
+    "message": "Content ng server"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Naka-install na ang modpack sa instansiyang <bold>{instanceName}</bold>. Sigurado ka ba sa pag-ulit nito?"
@@ -167,8 +1217,23 @@
   "app.instance.modpack-already-installed.instance": {
     "message": "Instansiya"
   },
+  "app.instance.mods.bulk-update.downloading-projects": {
+    "message": "Nina-download ang {current, number}/{total, number} proyekto..."
+  },
+  "app.instance.mods.bulk-update.finishing": {
+    "message": "Tinatatapos ang pag-update..."
+  },
+  "app.instance.mods.bulk-update.resolving-versions": {
+    "message": "Nireresolba ang mga bersyon..."
+  },
   "app.instance.mods.content-type-project": {
     "message": "proyekto"
+  },
+  "app.instance.mods.freeze-content": {
+    "message": "I-freeze ang bersyon"
+  },
+  "app.instance.mods.locked-content": {
+    "message": "Hindi mababago ang content sa mga naka-lock na instansiya."
   },
   "app.instance.mods.project-was-added": {
     "message": "Ang \"{name}\" ay nadagdag"
@@ -185,11 +1250,50 @@
   "app.instance.mods.successfully-uploaded": {
     "message": "Matagumpay na na-upload"
   },
+  "app.instance.mods.unfreeze-content": {
+    "message": "I-unfreeze ang bersyon"
+  },
+  "app.instance.navigation.back-to-instance": {
+    "message": "Bumalik sa instansiya"
+  },
+  "app.instance.shortcut.created": {
+    "message": "Nalikha ang shortcut"
+  },
+  "app.instance.shortcut.creation-error": {
+    "message": "Error sa paglikha ng shortcut"
+  },
+  "app.instance.tab.content": {
+    "message": "Content"
+  },
+  "app.instance.tab.files": {
+    "message": "Mga File"
+  },
+  "app.instance.tab.logs": {
+    "message": "Mga Log"
+  },
+  "app.instance.tab.screenshots": {
+    "message": "Mga Screenshot"
+  },
+  "app.instance.tab.worlds": {
+    "message": "Mga Mundo"
+  },
   "app.instance.worlds.add-server": {
     "message": "Magdagdag ng server"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Mag-browse ng servers"
+  "app.instance.worlds.browse": {
+    "message": "Mag-browse ng mga mundo"
+  },
+  "app.instance.worlds.delete-world-modal.delete-button": {
+    "message": "Burahin ang mundo"
+  },
+  "app.instance.worlds.delete-world-modal.title": {
+    "message": "Burahin ang mundo"
+  },
+  "app.instance.worlds.delete-world-modal.warning-body": {
+    "message": "Permanente nang buburahin ang mundong ito mula sa instansiyang ito. Hindi na ito mababawi."
+  },
+  "app.instance.worlds.delete-world-modal.warning-header": {
+    "message": "Binubura ang {name}"
   },
   "app.instance.worlds.filter-modded": {
     "message": "Modded"
@@ -209,32 +1313,704 @@
   "app.instance.worlds.no-worlds-heading": {
     "message": "Walang servers o worlds ang nalalagay"
   },
+  "app.instance.worlds.refreshing": {
+    "message": "Nire-refresh..."
+  },
+  "app.instance.worlds.remove-server-modal.remove-button": {
+    "message": "Alisin ang server"
+  },
+  "app.instance.worlds.remove-server-modal.remove-everywhere": {
+    "message": "Alisin kahit saan"
+  },
+  "app.instance.worlds.remove-server-modal.remove-here": {
+    "message": "Alisin dito"
+  },
+  "app.instance.worlds.remove-server-modal.synced-description": {
+    "message": "Maaari mo itong alisin sa instansiyang ito lang o sa lahat ng naka-sync na instansiya. Ang pag-alis dito lang ay magbubukas ng mga override, at ang instansiyang ito ay hindi na susunod sa naka-sync na listahan ng server."
+  },
+  "app.instance.worlds.remove-server-modal.synced-header": {
+    "message": "Naka-sync ang server na ito"
+  },
+  "app.instance.worlds.remove-server-modal.title": {
+    "message": "Alisin ang server"
+  },
+  "app.instance.worlds.remove-server-modal.warning-body": {
+    "message": "Aalisin ang server na ito mula sa iyong listahan ng server at mula sa in-game na listahan ng server. Maaari mo itong idagdag muli sa ibang pagkakataon kung alam mo ang address."
+  },
+  "app.instance.worlds.remove-server-modal.warning-header": {
+    "message": "Inaalis ang {name}"
+  },
   "app.instance.worlds.search-worlds-placeholder": {
     "message": "Hanapin sa {count} mundo..."
   },
-  "app.modal.install-to-play.header": {
-    "message": "Mag-install upang malaro"
+  "app.java-detection.cancel": {
+    "message": "Kanselahin"
   },
-  "app.modal.install-to-play.install-button": {
-    "message": "I-install"
+  "app.java-detection.columns.actions": {
+    "message": "Mga aksyon"
   },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {# mod} other {# na mod}}"
+  "app.java-detection.columns.path": {
+    "message": "Path"
   },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Binahaging instansiya"
+  "app.java-detection.columns.version": {
+    "message": "Bersyon"
   },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Tingnan ang mga kontento"
+  "app.java-detection.no-installations-found": {
+    "message": "Walang nahanap na pag-install ng Java."
   },
-  "app.modal.update-to-play.header": {
-    "message": "Mag-update upang malaro"
+  "app.java-detection.select": {
+    "message": "Piliin"
+  },
+  "app.java-detection.selected": {
+    "message": "Napili"
+  },
+  "app.java-detection.title": {
+    "message": "Piliin ang pag-install ng Java"
+  },
+  "app.java-selector.already-installed": {
+    "message": "Naka-install na"
+  },
+  "app.java-selector.browse": {
+    "message": "Mag-browse"
+  },
+  "app.java-selector.detect": {
+    "message": "I-detect"
+  },
+  "app.java-selector.install-recommended": {
+    "message": "I-install ang inirerekomenda"
+  },
+  "app.java-selector.installing": {
+    "message": "Ini-install..."
+  },
+  "app.java-selector.path.placeholder": {
+    "message": "/path/to/java"
+  },
+  "app.java-selector.test-installation": {
+    "message": "Subukan ang pag-install ng Java"
+  },
+  "app.launch-link.instance": {
+    "message": "Nais simulan ng isang link ang {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Simulan"
+  },
+  "app.launch-link.server": {
+    "message": "Nais simulan ng isang link ang {instance} at sumali sa server na {target}. Magpatuloy lang kung pinagkakatiwalaan mo kung saan galing ang link na ito."
+  },
+  "app.launch-link.title": {
+    "message": "Buksan ang Minecraft mula sa isang link?"
+  },
+  "app.launch-link.world": {
+    "message": "Nais simulan ng isang link ang {instance} at buksan ang mundong {target}."
+  },
+  "app.library.actions.label": {
+    "message": "Mga aksyon sa library"
+  },
+  "app.library.context-menu.create-instance": {
+    "message": "Bagong instansiya"
+  },
+  "app.library.filter.add": {
+    "message": "Magdagdag ng filter"
+  },
+  "app.library.filter.clear": {
+    "message": "Linisin ang mga filter"
+  },
+  "app.library.filter.game-version": {
+    "message": "Bersyon ng laro"
+  },
+  "app.library.filter.instance-type": {
+    "message": "Uri ng instansiya"
+  },
+  "app.library.filter.instance-type.custom": {
+    "message": "Pasadya"
+  },
+  "app.library.filter.instance-type.modpack": {
+    "message": "Modpack"
+  },
+  "app.library.filter.instance-type.server": {
+    "message": "Server"
+  },
+  "app.library.filter.label": {
+    "message": "I-filter ayon sa"
+  },
+  "app.library.filter.loader": {
+    "message": "Loader"
+  },
+  "app.library.group-by.custom-group": {
+    "message": "Pasadyang grupo"
+  },
+  "app.library.group-by.game-version": {
+    "message": "Bersyon ng laro"
+  },
+  "app.library.group-by.instance-type": {
+    "message": "Uri ng instansiya"
+  },
+  "app.library.group-by.label": {
+    "message": "Igrupo ayon sa"
+  },
+  "app.library.group-by.loader": {
+    "message": "Loader"
+  },
+  "app.library.group-by.none": {
+    "message": "Walang pagpapangkat"
+  },
+  "app.library.group.actions.label": {
+    "message": "Mga aksyon sa grupo"
+  },
+  "app.library.group.collapse": {
+    "message": "Itiklop ang grupo"
+  },
+  "app.library.group.context-menu.add-to-group": {
+    "message": "Idagdag sa grupo"
+  },
+  "app.library.group.create": {
+    "message": "Lumikha ng grupo"
+  },
+  "app.library.group.create.cancel": {
+    "message": "Kanselahin"
+  },
+  "app.library.group.delete": {
+    "message": "Burahin ang grupo"
+  },
+  "app.library.group.delete-description": {
+    "message": "Maaalis sa grupo ang mga instansiya sa grupong ito."
+  },
+  "app.library.group.edit-name": {
+    "message": "Baguhin ang pangalan ng grupo"
+  },
+  "app.library.group.empty": {
+    "message": "I-drag at i-drop upang magdagdag ng mga instansiya."
+  },
+  "app.library.group.expand": {
+    "message": "Palawakin ang grupo"
+  },
+  "app.library.group.favorites": {
+    "message": "Mga Paborito"
+  },
+  "app.library.group.instance.add": {
+    "message": "Idagdag"
+  },
+  "app.library.group.instance.added": {
+    "message": "Naidagdag"
+  },
+  "app.library.group.instances-modal.add": {
+    "message": "Idagdag"
+  },
+  "app.library.group.instances-modal.added": {
+    "message": "Naidagdag"
+  },
+  "app.library.group.instances-modal.no-instances-found": {
+    "message": "Walang nahanap na instansiya"
+  },
+  "app.library.group.instances-modal.search-placeholder": {
+    "message": "Maghanap ng instansiya"
+  },
+  "app.library.group.instances-modal.title": {
+    "message": "Magdagdag ng mga instansiya sa \"{groupName}\""
+  },
+  "app.library.group.move-down": {
+    "message": "Ibaba ang grupo"
+  },
+  "app.library.group.move-up": {
+    "message": "Itaas ang grupo"
+  },
+  "app.library.group.name": {
+    "message": "Pangalan ng grupo"
+  },
+  "app.library.group.name-empty": {
+    "message": "Hindi maaaring walang laman ang mga pangalan ng grupo."
+  },
+  "app.library.group.name-placeholder": {
+    "message": "Ilagay ang pangalan ng grupo"
+  },
+  "app.library.group.name-reserved": {
+    "message": "Nakalaan ang \"None\" at hindi ito maaaring gamitin bilang pangalan ng grupo."
+  },
+  "app.library.group.name-too-long": {
+    "message": "Hindi maaaring humaba sa {maxLength} karakter ang mga pangalan ng grupo."
+  },
+  "app.library.group.new": {
+    "message": "Bagong grupo"
+  },
+  "app.library.group.no-instances-found": {
+    "message": "Walang nahanap na instansiya"
+  },
+  "app.library.group.rename-failed": {
+    "message": "Hindi mapalitan ang pangalan ng grupo"
+  },
+  "app.library.group.search-instance": {
+    "message": "Maghanap ng instansiya"
+  },
+  "app.library.group.ungrouped": {
+    "message": "Walang grupo"
+  },
+  "app.library.group.unknown": {
+    "message": "Hindi kilalang grupo"
+  },
+  "app.library.instance.action.add-content": {
+    "message": "Magdagdag ng content"
+  },
+  "app.library.instance.action.add-to-favorites": {
+    "message": "Idagdag sa mga paborito"
+  },
+  "app.library.instance.action.copy-path": {
+    "message": "Kopyahin ang path"
+  },
+  "app.library.instance.action.delete": {
+    "message": "Burahin"
+  },
+  "app.library.instance.action.duplicate": {
+    "message": "Doblahan ang instansiya"
+  },
+  "app.library.instance.action.open-folder": {
+    "message": "Buksan ang folder"
+  },
+  "app.library.instance.action.play": {
+    "message": "Maglaro"
+  },
+  "app.library.instance.action.remove-from-favorites": {
+    "message": "Alisin sa mga paborito"
+  },
+  "app.library.instance.action.remove-from-group": {
+    "message": "Alisin sa grupo"
+  },
+  "app.library.instance.action.stop": {
+    "message": "Itigil"
+  },
+  "app.library.instance.action.view-instance": {
+    "message": "Tingnan ang instansiya"
+  },
+  "app.library.instance.actions.label": {
+    "message": "Mga aksyon sa instansiya"
+  },
+  "app.library.instance.deselect": {
+    "message": "Alisin sa pagpili ang instansiya"
+  },
+  "app.library.instance.deselect-with-name": {
+    "message": "Alisin sa pagpili ang {name}"
+  },
+  "app.library.instance.installing": {
+    "message": "Ini-install..."
+  },
+  "app.library.instance.loading": {
+    "message": "Naglo-load ang instansiya..."
+  },
+  "app.library.instance.new": {
+    "message": "Bagong instansiya"
+  },
+  "app.library.instance.open-with-name": {
+    "message": "Buksan ang {name}"
+  },
+  "app.library.instance.play": {
+    "message": "Maglaro"
+  },
+  "app.library.instance.repair": {
+    "message": "Kumpunihin"
+  },
+  "app.library.instance.select": {
+    "message": "Piliin ang instansiya"
+  },
+  "app.library.instance.select-with-name": {
+    "message": "Piliin ang {name}"
+  },
+  "app.library.instance.stop": {
+    "message": "Itigil"
+  },
+  "app.library.search.no-results.title": {
+    "message": "Walang instansiyang tumutugma sa iyong paghahanap."
+  },
+  "app.library.search.placeholder": {
+    "message": "Maghanap"
+  },
+  "app.library.selection.aria-label": {
+    "message": "Mga napiling instansiya"
+  },
+  "app.library.selection.deleting": {
+    "message": "Binubura ang mga napiling instansiya"
+  },
+  "app.library.selection.new-group": {
+    "message": "Bagong grupo"
+  },
+  "app.library.selection.remove-from-group": {
+    "message": "Alisin sa grupo"
+  },
+  "app.library.selection.selected-count": {
+    "message": "{count} napili"
+  },
+  "app.library.sort.date-created": {
+    "message": "Petsa ng paglikha"
+  },
+  "app.library.sort.date-modified": {
+    "message": "Petsa ng pagbabago"
+  },
+  "app.library.sort.game-version": {
+    "message": "Bersyon ng laro"
+  },
+  "app.library.sort.hours-played": {
+    "message": "Mga oras na nilaro"
+  },
+  "app.library.sort.label": {
+    "message": "Ayusin ayon sa"
+  },
+  "app.library.sort.last-played": {
+    "message": "Huling nilaro"
+  },
+  "app.library.sort.loader": {
+    "message": "Loader"
+  },
+  "app.library.sort.name": {
+    "message": "Pangalan"
+  },
+  "app.library.title": {
+    "message": "Library"
+  },
+  "app.nav.collapse-sidebar": {
+    "message": "Itiklop ang sidebar"
+  },
+  "app.nav.create-new-instance": {
+    "message": "Lumikha ng bagong instansiya"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Palawakin ang sidebar"
+  },
+  "app.nav.home": {
+    "message": "Home"
+  },
+  "app.nav.screenshots": {
+    "message": "Mga Screenshot"
+  },
+  "app.navigation.go-back": {
+    "message": "Bumalik"
+  },
+  "app.navigation.go-forward": {
+    "message": "Magpatuloy"
+  },
+  "app.navigation.home": {
+    "message": "Home"
+  },
+  "app.navigation.next-image": {
+    "message": "Susunod na larawan"
+  },
+  "app.notification.warning": {
+    "message": "Babala"
+  },
+  "app.project.actions.label": {
+    "message": "Mga aksyon sa proyekto"
+  },
+  "app.project.coming-soon": {
+    "message": "Malapit na"
+  },
+  "app.project.gallery.image-fallback": {
+    "message": "Larawan ng gallery"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Buksan ang larawan sa bagong tab"
   },
   "app.project.install-button.already-installed": {
     "message": "Naka-install na ang proyektong ito"
   },
+  "app.project.install-button.switch-version": {
+    "message": "Palitan ang bersyon"
+  },
   "app.project.install-context.back-to-browse": {
     "message": "Bumalik sa pagtutuklas"
+  },
+  "app.project.install-context.back-to-instance": {
+    "message": "Bumalik sa instansiya"
+  },
+  "app.project.load-error": {
+    "message": "Hindi ma-load ang datos ng proyekto."
+  },
+  "app.project.more-options": {
+    "message": "Higit pang mga opsyon"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Buksan sa CurseForge"
+  },
+  "app.project.tab.description": {
+    "message": "Paglalarawan"
+  },
+  "app.project.tab.gallery": {
+    "message": "Gallery"
+  },
+  "app.project.tab.versions": {
+    "message": "Mga Bersyon"
+  },
+  "app.project.version.all-versions": {
+    "message": "Lahat ng bersyon"
+  },
+  "app.project.version.download-in-browser": {
+    "message": "I-download sa browser"
+  },
+  "app.project.version.installing": {
+    "message": "Ini-install"
+  },
+  "app.project.versions.already-installed": {
+    "message": "Naka-install na"
+  },
+  "app.quick-instance-switcher.actions.label": {
+    "message": "Mga aksyon sa instansiya"
+  },
+  "app.quick-instance-switcher.drag-show-tooltip": {
+    "message": "I-drag upang ipakita ang mga kamakailang instansiya"
+  },
+  "app.quick-instance-switcher.drag-tooltip": {
+    "message": "I-drag upang baguhin ang laki"
+  },
+  "app.quick-instance-switcher.instance-locked": {
+    "message": "Naka-lock ang instansiyang ito"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Mga kamakailang instansiya"
+  },
+  "app.quick-instance-switcher.view-instance": {
+    "message": "Tingnan ang instansiya"
+  },
+  "app.restarting": {
+    "message": "Nire-restart..."
+  },
+  "app.screenshots.copied": {
+    "message": "Nakopya"
+  },
+  "app.screenshots.copy": {
+    "message": "Kopyahin ang larawan"
+  },
+  "app.screenshots.delete-description": {
+    "message": "Permanente bang buburahin ang {name}? Hindi na ito mababawi."
+  },
+  "app.screenshots.delete-success": {
+    "message": "Nabura ang screenshot"
+  },
+  "app.screenshots.delete-title": {
+    "message": "Burahin ang screenshot"
+  },
+  "app.screenshots.deselect": {
+    "message": "Alisin sa pagpili ang {name}"
+  },
+  "app.screenshots.edit": {
+    "message": "Baguhin ang screenshot"
+  },
+  "app.screenshots.empty-description": {
+    "message": "Lilitaw dito ang mga screenshot na kukunin mo sa laro."
+  },
+  "app.screenshots.empty-heading": {
+    "message": "Wala pang mga screenshot"
+  },
+  "app.screenshots.error-heading": {
+    "message": "Nabigong mag-load ng mga screenshot"
+  },
+  "app.screenshots.go-to-instance": {
+    "message": "Pumunta sa instansiya"
+  },
+  "app.screenshots.group-by": {
+    "message": "Igrupo ayon sa"
+  },
+  "app.screenshots.group.all-screenshots": {
+    "message": "Lahat ng screenshot"
+  },
+  "app.screenshots.group.collapse": {
+    "message": "Itiklop ang grupo"
+  },
+  "app.screenshots.group.custom": {
+    "message": "Pasadyang grupo"
+  },
+  "app.screenshots.group.date": {
+    "message": "Petsa"
+  },
+  "app.screenshots.group.delete": {
+    "message": "Burahin ang grupo"
+  },
+  "app.screenshots.group.delete-description": {
+    "message": "Maaalis sa grupo ang mga screenshot sa grupong ito."
+  },
+  "app.screenshots.group.edit": {
+    "message": "Baguhin ang pangalan ng grupo"
+  },
+  "app.screenshots.group.empty": {
+    "message": "I-drag at i-drop upang magdagdag ng mga screenshot."
+  },
+  "app.screenshots.group.expand": {
+    "message": "Palawakin ang grupo"
+  },
+  "app.screenshots.group.instance": {
+    "message": "Instansiya"
+  },
+  "app.screenshots.group.new": {
+    "message": "Bagong grupo"
+  },
+  "app.screenshots.group.none": {
+    "message": "Walang pagpapangkat"
+  },
+  "app.screenshots.group.this-month": {
+    "message": "Ngayong buwan"
+  },
+  "app.screenshots.group.this-week": {
+    "message": "Ngayong linggo"
+  },
+  "app.screenshots.group.today": {
+    "message": "Ngayon"
+  },
+  "app.screenshots.group.ungrouped": {
+    "message": "Walang grupo"
+  },
+  "app.screenshots.group.yesterday": {
+    "message": "Kahapon"
+  },
+  "app.screenshots.heading": {
+    "message": "Mga Screenshot"
+  },
+  "app.screenshots.more-actions": {
+    "message": "Higit pang mga aksyon"
+  },
+  "app.screenshots.no-results-description": {
+    "message": "Sumubok ng ibang paghahanap o filter."
+  },
+  "app.screenshots.no-results-heading": {
+    "message": "Walang tumutugmang screenshot"
+  },
+  "app.screenshots.preview.instance-and-date": {
+    "message": "{instance} · {date}"
+  },
+  "app.screenshots.search": {
+    "message": "Maghanap"
+  },
+  "app.screenshots.select": {
+    "message": "Piliin ang {name}"
+  },
+  "app.screenshots.selection.aria-label": {
+    "message": "Mga napiling screenshot"
+  },
+  "app.screenshots.selection.delete-description": {
+    "message": "Burahin ang {count, plural, one {# screenshot} other {# screenshot}}? Hindi na ito mababawi."
+  },
+  "app.screenshots.selection.delete-success": {
+    "message": "{count, plural, one {# screenshot ang nabura} other {# screenshot ang nabura}}"
+  },
+  "app.screenshots.selection.delete-title": {
+    "message": "Burahin ang mga napiling screenshot"
+  },
+  "app.screenshots.selection.export-zip": {
+    "message": "I-export ang ZIP"
+  },
+  "app.screenshots.selection.global-export-filename": {
+    "message": "{productName} screenshots.zip"
+  },
+  "app.screenshots.selection.instance-export-filename": {
+    "message": "{instance} screenshots.zip"
+  },
+  "app.screenshots.selection.remove-from-group": {
+    "message": "Alisin sa grupo"
+  },
+  "app.screenshots.selection.selected-count": {
+    "message": "{count} napili"
+  },
+  "app.screenshots.selection.zip-archive": {
+    "message": "ZIP archive"
+  },
+  "app.screenshots.show-in-folder": {
+    "message": "Ipakita sa folder"
+  },
+  "app.screenshots.sort-by": {
+    "message": "Ayusin ayon sa"
+  },
+  "app.screenshots.sort.name": {
+    "message": "Pangalan"
+  },
+  "app.screenshots.sort.newest": {
+    "message": "Pinakabago"
+  },
+  "app.screenshots.sort.oldest": {
+    "message": "Pinakaluma"
+  },
+  "app.settings.app-version": {
+    "message": "{productName} {version}"
+  },
+  "app.settings.default-instance-options.environment-variables.description": {
+    "message": "Mga environment variable na itinatakda kapag naglulunsad ng instansiya."
+  },
+  "app.settings.default-instance-options.environment-variables.placeholder": {
+    "message": "Ilagay ang mga environment variable..."
+  },
+  "app.settings.default-instance-options.environment-variables.title": {
+    "message": "Mga environment variable"
+  },
+  "app.settings.default-instance-options.fullscreen.description": {
+    "message": "Simulan ang mga instansiya sa fullscreen sa pamamagitan ng pag-update ng kanilang options.txt file."
+  },
+  "app.settings.default-instance-options.fullscreen.title": {
+    "message": "Fullscreen"
+  },
+  "app.settings.default-instance-options.height.description": {
+    "message": "Ang taas ng window ng laro kapag inilunsad."
+  },
+  "app.settings.default-instance-options.height.placeholder": {
+    "message": "Ilagay ang taas..."
+  },
+  "app.settings.default-instance-options.height.title": {
+    "message": "Taas"
+  },
+  "app.settings.default-instance-options.java-and-memory.title": {
+    "message": "Java at memorya"
+  },
+  "app.settings.default-instance-options.java-arguments.description": {
+    "message": "Mga argumentong ipinapasa sa Java kapag naglulunsad ng instansiya."
+  },
+  "app.settings.default-instance-options.java-arguments.placeholder": {
+    "message": "Ilagay ang mga argumento ng Java..."
+  },
+  "app.settings.default-instance-options.java-arguments.title": {
+    "message": "Mga argumento ng Java"
+  },
+  "app.settings.default-instance-options.launch-hooks.title": {
+    "message": "Mga launch hook"
+  },
+  "app.settings.default-instance-options.memory-allocation.description": {
+    "message": "Pinakamadaming memoryang available sa bawat instansiya."
+  },
+  "app.settings.default-instance-options.memory-allocation.title": {
+    "message": "Paglalaan ng memorya"
+  },
+  "app.settings.default-instance-options.post-exit-hook.description": {
+    "message": "Tumatakbo pagkatapos magsara ang laro."
+  },
+  "app.settings.default-instance-options.post-exit-hook.placeholder": {
+    "message": "Ilagay ang command pagkatapos magsara..."
+  },
+  "app.settings.default-instance-options.post-exit-hook.title": {
+    "message": "Hook pagkatapos magsara"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.description": {
+    "message": "Tumatakbo bago magsimula ang instansiya."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.placeholder": {
+    "message": "Ilagay ang command bago maglunsad..."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "Hook bago maglunsad"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "Ang lapad ng window ng laro kapag inilunsad."
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "Ilagay ang lapad..."
+  },
+  "app.settings.default-instance-options.width.title": {
+    "message": "Lapad"
+  },
+  "app.settings.default-instance-options.window.title": {
+    "message": "Window"
+  },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "Command na ginagamit upang balutin ang proseso ng paglulunsad ng Minecraft."
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "Ilagay ang wrapper command..."
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "Wrapper hook"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "I-toggle ang developer mode"
   },
   "app.settings.developer-mode-enabled": {
     "message": "Binuksan ang moda ng nagdi-develop."
@@ -242,8 +2018,1394 @@
   "app.settings.downloading": {
     "message": "Dina-download ang v{version}"
   },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Walang nahanap na mga flag na tumutugma sa \"{query}\""
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Ibalik sa default"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Maghanap ng mga flag..."
+  },
+  "app.settings.game-options.category.accessibility.description": {
+    "message": "Mga kagustuhan sa accessibility"
+  },
+  "app.settings.game-options.category.accessibility.label": {
+    "message": "Accessibility"
+  },
+  "app.settings.game-options.category.chat.description": {
+    "message": "Pagkakakita at itsura ng chat"
+  },
+  "app.settings.game-options.category.chat.label": {
+    "message": "Chat"
+  },
+  "app.settings.game-options.category.controls.description": {
+    "message": "Mouse, paggalaw, at mga key binding"
+  },
+  "app.settings.game-options.category.controls.label": {
+    "message": "Mga Kontrol"
+  },
+  "app.settings.game-options.category.custom.description": {
+    "message": "Mga setting na idinagdag ng mga mod"
+  },
+  "app.settings.game-options.category.custom.label": {
+    "message": "Mga pasadyang setting"
+  },
+  "app.settings.game-options.category.language.description": {
+    "message": "Wika ng laro"
+  },
+  "app.settings.game-options.category.language.label": {
+    "message": "Wika"
+  },
+  "app.settings.game-options.category.music-and-sound.description": {
+    "message": "Mga kagustuhan sa lakas at tunog"
+  },
+  "app.settings.game-options.category.music-and-sound.label": {
+    "message": "Musika at tunog"
+  },
+  "app.settings.game-options.category.online.description": {
+    "message": "Mga kagustuhan sa online at Realms"
+  },
+  "app.settings.game-options.category.online.label": {
+    "message": "Online"
+  },
+  "app.settings.game-options.category.skin-customization.description": {
+    "message": "Mga patong ng skin at pangunahing kamay"
+  },
+  "app.settings.game-options.category.skin-customization.label": {
+    "message": "Pagpapasadya ng skin"
+  },
+  "app.settings.game-options.category.video.description": {
+    "message": "Mga setting ng kamera at display"
+  },
+  "app.settings.game-options.category.video.label": {
+    "message": "Video"
+  },
+  "app.settings.game-options.choice.all": {
+    "message": "Lahat"
+  },
+  "app.settings.game-options.choice.balanced": {
+    "message": "Balanse"
+  },
+  "app.settings.game-options.choice.by-player": {
+    "message": "Ayon sa player"
+  },
+  "app.settings.game-options.choice.chat": {
+    "message": "Chat"
+  },
+  "app.settings.game-options.choice.commands-only": {
+    "message": "Mga command lang"
+  },
+  "app.settings.game-options.choice.constant": {
+    "message": "Palagian"
+  },
+  "app.settings.game-options.choice.crosshair": {
+    "message": "Crosshair"
+  },
+  "app.settings.game-options.choice.custom": {
+    "message": "Pasadya"
+  },
+  "app.settings.game-options.choice.decreased": {
+    "message": "Binawasan"
+  },
+  "app.settings.game-options.choice.default": {
+    "message": "Default"
+  },
+  "app.settings.game-options.choice.fabulous": {
+    "message": "Fabulous"
+  },
+  "app.settings.game-options.choice.fancy": {
+    "message": "Fancy"
+  },
+  "app.settings.game-options.choice.far": {
+    "message": "Malayo"
+  },
+  "app.settings.game-options.choice.fast": {
+    "message": "Mabilis"
+  },
+  "app.settings.game-options.choice.frequent": {
+    "message": "Madalas"
+  },
+  "app.settings.game-options.choice.hidden": {
+    "message": "Nakatago"
+  },
+  "app.settings.game-options.choice.hotbar": {
+    "message": "Hotbar"
+  },
+  "app.settings.game-options.choice.left": {
+    "message": "Kaliwa"
+  },
+  "app.settings.game-options.choice.limited": {
+    "message": "Limitado"
+  },
+  "app.settings.game-options.choice.max-fps": {
+    "message": "Max FPS"
+  },
+  "app.settings.game-options.choice.maximum": {
+    "message": "Pinakamadami"
+  },
+  "app.settings.game-options.choice.minimal": {
+    "message": "Pinakakaunti"
+  },
+  "app.settings.game-options.choice.minimum": {
+    "message": "Pinakakaunti"
+  },
+  "app.settings.game-options.choice.nearby": {
+    "message": "Malapit"
+  },
+  "app.settings.game-options.choice.never": {
+    "message": "Hindi kailanman"
+  },
+  "app.settings.game-options.choice.none": {
+    "message": "Wala"
+  },
+  "app.settings.game-options.choice.normal": {
+    "message": "Normal"
+  },
+  "app.settings.game-options.choice.off": {
+    "message": "Patay"
+  },
+  "app.settings.game-options.choice.on": {
+    "message": "Bukas"
+  },
+  "app.settings.game-options.choice.opengl": {
+    "message": "OpenGL"
+  },
+  "app.settings.game-options.choice.pause": {
+    "message": "Menu ng pag-pause"
+  },
+  "app.settings.game-options.choice.pause-and-toast": {
+    "message": "Menu ng pag-pause at toast"
+  },
+  "app.settings.game-options.choice.power-saver": {
+    "message": "Tagatipid ng kuryente"
+  },
+  "app.settings.game-options.choice.right": {
+    "message": "Kanan"
+  },
+  "app.settings.game-options.choice.short": {
+    "message": "Maikli"
+  },
+  "app.settings.game-options.choice.shown": {
+    "message": "Ipinapakita"
+  },
+  "app.settings.game-options.choice.system": {
+    "message": "Sistema"
+  },
+  "app.settings.game-options.choice.tiny": {
+    "message": "Napakaliit"
+  },
+  "app.settings.game-options.choice.vulkan": {
+    "message": "Vulkan"
+  },
+  "app.settings.game-options.choice.when-minimized": {
+    "message": "Kapag naka-minimize"
+  },
+  "app.settings.game-options.choice.while-afk": {
+    "message": "Kapag AFK"
+  },
+  "app.settings.game-options.compatibility.none": {
+    "message": "Hindi magagamit ng ilan sa iyong mga instansiya ang setting na ito"
+  },
+  "app.settings.game-options.compatibility.reason.launcher-controlled": {
+    "message": "Pinamamahalaan ang setting na ito ng mga launch setting ng {productName}."
+  },
+  "app.settings.game-options.custom-value.placeholder": {
+    "message": "Maglagay ng halaga"
+  },
+  "app.settings.game-options.keybind.assigned-status": {
+    "message": "Naka-bind na ngayon ang {setting} sa {binding}."
+  },
+  "app.settings.game-options.keybind.cancelled-status": {
+    "message": "Kinansela ang pagpapalit ng key binding."
+  },
+  "app.settings.game-options.keybind.change": {
+    "message": "{setting}: {binding}. I-activate upang palitan ang binding."
+  },
+  "app.settings.game-options.keybind.choose": {
+    "message": "Pumili ng key"
+  },
+  "app.settings.game-options.keybind.conflict-description": {
+    "message": "Ginagamit na ito ng {settings}."
+  },
+  "app.settings.game-options.keybind.key.arrow-down": {
+    "message": "Pababang Arrow"
+  },
+  "app.settings.game-options.keybind.key.arrow-left": {
+    "message": "Pakaliwang Arrow"
+  },
+  "app.settings.game-options.keybind.key.arrow-right": {
+    "message": "Pakanang Arrow"
+  },
+  "app.settings.game-options.keybind.key.arrow-up": {
+    "message": "Pataas na Arrow"
+  },
+  "app.settings.game-options.keybind.key.backspace": {
+    "message": "Backspace"
+  },
+  "app.settings.game-options.keybind.key.caps-lock": {
+    "message": "Caps Lock"
+  },
+  "app.settings.game-options.keybind.key.delete": {
+    "message": "Delete"
+  },
+  "app.settings.game-options.keybind.key.end": {
+    "message": "End"
+  },
+  "app.settings.game-options.keybind.key.enter": {
+    "message": "Enter"
+  },
+  "app.settings.game-options.keybind.key.escape": {
+    "message": "Escape"
+  },
+  "app.settings.game-options.keybind.key.home": {
+    "message": "Home"
+  },
+  "app.settings.game-options.keybind.key.insert": {
+    "message": "Insert"
+  },
+  "app.settings.game-options.keybind.key.keypad-key": {
+    "message": "Numpad {key}"
+  },
+  "app.settings.game-options.keybind.key.left-alt": {
+    "message": "Kaliwang Alt"
+  },
+  "app.settings.game-options.keybind.key.left-command": {
+    "message": "Kaliwang Command"
+  },
+  "app.settings.game-options.keybind.key.left-control": {
+    "message": "Kaliwang Ctrl"
+  },
+  "app.settings.game-options.keybind.key.left-shift": {
+    "message": "Kaliwang Shift"
+  },
+  "app.settings.game-options.keybind.key.left-super": {
+    "message": "Kaliwang Super"
+  },
+  "app.settings.game-options.keybind.key.menu": {
+    "message": "Menu"
+  },
+  "app.settings.game-options.keybind.key.num-lock": {
+    "message": "Num Lock"
+  },
+  "app.settings.game-options.keybind.key.page-down": {
+    "message": "Page Down"
+  },
+  "app.settings.game-options.keybind.key.page-up": {
+    "message": "Page Up"
+  },
+  "app.settings.game-options.keybind.key.pause": {
+    "message": "Pause"
+  },
+  "app.settings.game-options.keybind.key.print-screen": {
+    "message": "Print Screen"
+  },
+  "app.settings.game-options.keybind.key.right-alt": {
+    "message": "Kanang Alt"
+  },
+  "app.settings.game-options.keybind.key.right-command": {
+    "message": "Kanang Command"
+  },
+  "app.settings.game-options.keybind.key.right-control": {
+    "message": "Kanang Ctrl"
+  },
+  "app.settings.game-options.keybind.key.right-shift": {
+    "message": "Kanang Shift"
+  },
+  "app.settings.game-options.keybind.key.right-super": {
+    "message": "Kanang Super"
+  },
+  "app.settings.game-options.keybind.key.scroll-lock": {
+    "message": "Scroll Lock"
+  },
+  "app.settings.game-options.keybind.key.space": {
+    "message": "Space"
+  },
+  "app.settings.game-options.keybind.key.tab": {
+    "message": "Tab"
+  },
+  "app.settings.game-options.keybind.key.unbound": {
+    "message": "Walang bind"
+  },
+  "app.settings.game-options.keybind.key.unknown": {
+    "message": "Hindi kilalang key"
+  },
+  "app.settings.game-options.keybind.listen": {
+    "message": "Pindutin ang isang key…"
+  },
+  "app.settings.game-options.keybind.listening-status": {
+    "message": "Nakikinig para sa isang key o button ng mouse. Pindutin ang Escape upang linisin ang binding na ito."
+  },
+  "app.settings.game-options.keybind.mixed": {
+    "message": "Magkakaiba sa mga instansiya"
+  },
+  "app.settings.game-options.keybind.modifier.alt": {
+    "message": "Alt"
+  },
+  "app.settings.game-options.keybind.modifier.command": {
+    "message": "Command"
+  },
+  "app.settings.game-options.keybind.modifier.control": {
+    "message": "Ctrl"
+  },
+  "app.settings.game-options.keybind.modifier.shift": {
+    "message": "Shift"
+  },
+  "app.settings.game-options.keybind.modifier.super": {
+    "message": "Super"
+  },
+  "app.settings.game-options.keybind.mouse.button": {
+    "message": "Mouse {button}"
+  },
+  "app.settings.game-options.keybind.mouse.left": {
+    "message": "Kaliwang Mouse"
+  },
+  "app.settings.game-options.keybind.mouse.middle": {
+    "message": "Gitnang Mouse"
+  },
+  "app.settings.game-options.keybind.mouse.right": {
+    "message": "Kanang Mouse"
+  },
+  "app.settings.game-options.keybind.recording-label": {
+    "message": "{setting}: nakikinig para sa isang key o button ng mouse. Pindutin ang Escape upang linisin ang binding na ito."
+  },
+  "app.settings.game-options.keybind.scancode": {
+    "message": "Scancode {code}"
+  },
+  "app.settings.game-options.keybind.unsupported-status": {
+    "message": "Hindi magagamit ng Minecraft ang input na iyan. Pindutin ang ibang key."
+  },
+  "app.settings.game-options.setting.advanced-opengl.label": {
+    "message": "Advanced OpenGL"
+  },
+  "app.settings.game-options.setting.allow-cursor-changes.label": {
+    "message": "Payagan ang mga pagbabago sa cursor"
+  },
+  "app.settings.game-options.setting.allow-server-listing.description": {
+    "message": "Payagang lumitaw ang pangalan ng player sa mga listahan ng server."
+  },
+  "app.settings.game-options.setting.allow-server-listing.label": {
+    "message": "Mga listahan ng server"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "Mga alternatibong block"
+  },
+  "app.settings.game-options.setting.ambient-occlusion.label": {
+    "message": "Makinis na ilaw"
+  },
+  "app.settings.game-options.setting.ambient-volume.label": {
+    "message": "Paligid/Kapaligiran"
+  },
+  "app.settings.game-options.setting.anaglyph-3d.label": {
+    "message": "3D anaglyph"
+  },
+  "app.settings.game-options.setting.anisotropic-filtering.label": {
+    "message": "Anisotropic filtering"
+  },
+  "app.settings.game-options.setting.anisotropy.label": {
+    "message": "Anisotropy"
+  },
+  "app.settings.game-options.setting.attack-indicator.label": {
+    "message": "Tagapagpahiwatig ng pag-atake"
+  },
+  "app.settings.game-options.setting.auto-jump.description": {
+    "message": "Awtomatikong tumalon sa mga balakid na isang block ang taas."
+  },
+  "app.settings.game-options.setting.auto-jump.label": {
+    "message": "Awtomatikong pagtalon"
+  },
+  "app.settings.game-options.setting.auto-suggestions.label": {
+    "message": "Mga mungkahi ng command"
+  },
+  "app.settings.game-options.setting.autosave-indicator.label": {
+    "message": "Tagapagpahiwatig ng autosave"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.description": {
+    "message": "Ang layo kung saan naghahalo ang mga kulay ng biome."
+  },
+  "app.settings.game-options.setting.biome-blend-radius.label": {
+    "message": "Halo ng biome"
+  },
+  "app.settings.game-options.setting.blocks-volume.label": {
+    "message": "Mga Block"
+  },
+  "app.settings.game-options.setting.brightness.label": {
+    "message": "Liwanag"
+  },
+  "app.settings.game-options.setting.cape.description": {
+    "message": "Ipakita ang kapa ng player, kabilang ang elytra texture nito."
+  },
+  "app.settings.game-options.setting.cape.label": {
+    "message": "Kapa"
+  },
+  "app.settings.game-options.setting.chat-background-only.label": {
+    "message": "Background lang ng chat"
+  },
+  "app.settings.game-options.setting.chat-colors.label": {
+    "message": "Mga kulay ng chat"
+  },
+  "app.settings.game-options.setting.chat-delay.label": {
+    "message": "Pagkaantala ng chat"
+  },
+  "app.settings.game-options.setting.chat-line-spacing.label": {
+    "message": "Pagitan ng mga linya ng chat"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.description": {
+    "message": "Magtanong muna bago buksan ang mga link mula sa chat."
+  },
+  "app.settings.game-options.setting.chat-links-prompt.label": {
+    "message": "Magtanong sa mga link"
+  },
+  "app.settings.game-options.setting.chat-links.description": {
+    "message": "Payagang buksan ang mga web link sa chat."
+  },
+  "app.settings.game-options.setting.chat-links.label": {
+    "message": "Mga web link"
+  },
+  "app.settings.game-options.setting.chat-opacity.description": {
+    "message": "Ang opacity ng teksto ng chat."
+  },
+  "app.settings.game-options.setting.chat-opacity.label": {
+    "message": "Opacity ng chat"
+  },
+  "app.settings.game-options.setting.chat-preview.label": {
+    "message": "Preview ng chat"
+  },
+  "app.settings.game-options.setting.chat-scale.label": {
+    "message": "Sukat ng chat"
+  },
+  "app.settings.game-options.setting.chat-visibility.label": {
+    "message": "Pagkakakita ng chat"
+  },
+  "app.settings.game-options.setting.chat-width.label": {
+    "message": "Lapad ng chat"
+  },
+  "app.settings.game-options.setting.chunk-fade-time.label": {
+    "message": "Oras ng paglaho ng chunk"
+  },
+  "app.settings.game-options.setting.cloud-range.label": {
+    "message": "Layo ng ulap"
+  },
+  "app.settings.game-options.setting.clouds.label": {
+    "message": "Mga Ulap"
+  },
+  "app.settings.game-options.setting.ctrl-click-right-click.label": {
+    "message": "Control-click bilang right-click"
+  },
+  "app.settings.game-options.setting.cutout-leaves.label": {
+    "message": "Mga cutout na dahon"
+  },
+  "app.settings.game-options.setting.damage-tilt.label": {
+    "message": "Pagtagilid kapag nasaktan"
+  },
+  "app.settings.game-options.setting.dark-splash.description": {
+    "message": "Palitan ang loading screen ng Mojang Studios mula pula patungong itim."
+  },
+  "app.settings.game-options.setting.dark-splash.label": {
+    "message": "Isang-kulay na logo"
+  },
+  "app.settings.game-options.setting.darkness-pulsing.label": {
+    "message": "Pagpintig ng dilim"
+  },
+  "app.settings.game-options.setting.debug-gui-scale.label": {
+    "message": "Sukat ng debug GUI"
+  },
+  "app.settings.game-options.setting.directional-audio.label": {
+    "message": "Direksyonal na tunog"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.description": {
+    "message": "Ituring ang bawat input ng mouse wheel bilang isang hakbang ng pag-scroll."
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.label": {
+    "message": "Hiwa-hiwalay na pag-scroll"
+  },
+  "app.settings.game-options.setting.entity-distance.label": {
+    "message": "Layo ng entity"
+  },
+  "app.settings.game-options.setting.entity-shadows.label": {
+    "message": "Mga anino ng entity"
+  },
+  "app.settings.game-options.setting.exclusive-fullscreen.label": {
+    "message": "Eksklusibong fullscreen"
+  },
+  "app.settings.game-options.setting.extra-telemetry.label": {
+    "message": "Opsyonal na telemetry"
+  },
+  "app.settings.game-options.setting.focused-chat-height.label": {
+    "message": "Taas ng nakapokus na chat"
+  },
+  "app.settings.game-options.setting.force-unicode-font.label": {
+    "message": "Pilitin ang Unicode font"
+  },
+  "app.settings.game-options.setting.fov-effects.label": {
+    "message": "Mga epekto ng FOV"
+  },
+  "app.settings.game-options.setting.fov.label": {
+    "message": "Larangan ng paningin"
+  },
+  "app.settings.game-options.setting.fullscreen.label": {
+    "message": "Fullscreen"
+  },
+  "app.settings.game-options.setting.glint-speed.label": {
+    "message": "Bilis ng kislap"
+  },
+  "app.settings.game-options.setting.glint-strength.label": {
+    "message": "Lakas ng kislap"
+  },
+  "app.settings.game-options.setting.graphics-backend.label": {
+    "message": "Graphics backend"
+  },
+  "app.settings.game-options.setting.graphics.description": {
+    "message": "Kumokontrol sa kalidad ng visual at pagganap."
+  },
+  "app.settings.game-options.setting.graphics.label": {
+    "message": "Graphics"
+  },
+  "app.settings.game-options.setting.gui-scale.description": {
+    "message": "Ang laki ng interface ng laro at HUD."
+  },
+  "app.settings.game-options.setting.gui-scale.label": {
+    "message": "Sukat ng GUI"
+  },
+  "app.settings.game-options.setting.hat.description": {
+    "message": "Ipakita ang patong ng sumbrero sa skin."
+  },
+  "app.settings.game-options.setting.hat.label": {
+    "message": "Sumbrero"
+  },
+  "app.settings.game-options.setting.held-item-tooltips.label": {
+    "message": "Mga tooltip ng hawak na item"
+  },
+  "app.settings.game-options.setting.hide-lightning-flashes.label": {
+    "message": "Itago ang mga kidlat"
+  },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "Itago ang mga tumutugmang pangalan"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "Itago ang address ng server"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "Itago ang mga splash text"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "Mataas na contrast na balangkas ng block"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "Pataasin ang contrast ng mga elemento ng interface."
+  },
+  "app.settings.game-options.setting.high-contrast.label": {
+    "message": "Mataas na contrast"
+  },
+  "app.settings.game-options.setting.hostile-volume.label": {
+    "message": "Mga masasamang nilalang"
+  },
+  "app.settings.game-options.setting.improved-transparency.label": {
+    "message": "Mas mahusay na transparency"
+  },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "Mga notipikasyon sa laro"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "Binawasang framerate"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "Baligtarin ang pahalang na mouse"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "Baligtarin ang patayong paggalaw ng mouse."
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "Baligtarin ang mouse"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "Ipakita ang patong ng dyaket sa skin."
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "Dyaket"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "Mga baryant ng Japanese glyph"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "Mga Advancement"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "Umatake"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "Umatras"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "Buksan ang chat"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "Command"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "Ipakita ang mga advanced na tooltip"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "Ipakita ang mga hangganan ng chunk"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "Linisin ang chat"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "Kopyahin ang lokasyon"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "Kopyahin ang recreate command"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "Magpasimula ng debug crash"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "I-dump ang mga dynamic na texture"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "I-dump ang bersyon"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "I-pause kapag nawala ang focus"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "Mga chart ng FPS"
+  },
+  "app.settings.game-options.setting.key-debug-hitboxes.label": {
+    "message": "Ipakita ang mga hitbox"
+  },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "Debug view ng pinahusay na transparency"
+  },
+  "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
+    "message": "Texture ng lightmap"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "Debug modifier"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "Mga chart ng network"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "Mga opsyon sa pag-debug"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "Debug overlay"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "Chart ng profiling"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "Simulan ang profiling"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "I-reload ang mga chunk"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "I-reload ang mga resource pack"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "Manood ng entity"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "Palitan ang mode ng laro"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "Ihulog ang item"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "Sumulong"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "Mga Kaibigan"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "I-toggle ang fullscreen"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "Hotbar 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "Hotbar 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "Hotbar 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "Hotbar 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "Hotbar 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "Hotbar 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "Hotbar 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "Hotbar 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "Hotbar 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "Imbentaryo"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "Tumalon"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "Gumilid pakaliwa"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "I-load ang toolbar"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "Palitan ang pananaw"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "Pumulot ng block"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "Listahan ng player"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "Mabilis na mga aksyon"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "Gumilid pakanan"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "I-save ang toolbar"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "Screenshot"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "I-toggle ang cinematic camera"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "Magtago"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "Mga interaksyong panlipunan"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "Hotbar ng manonood"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "I-highlight ang mga manonood"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "Tumakbo"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "Pagpalitin ang offhand"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "I-toggle ang HUD"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "I-toggle ang shader ng manonood"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "Gamitin ang item"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "Wika"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "Kaliwang binti ng pantalon"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "Kaliwang manggas"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "Limitasyon sa framerate"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "Layo ng paningin"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "Ipakita ang menu ng macOS sa fullscreen"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "Piliin kung kaliwa o kanan ang pangunahing kamay."
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "Pangunahing kamay"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "Pangunahing lakas"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "Pinakamadaming framerate"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "Labo ng background ng menu"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "Pagpapakinis ng texture sa malayo."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "Mga antas ng mipmap"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "Sensitivity ng mouse wheel"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "Dalas ng musika"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "Piliin kung lilitaw ang mga pamagat ng musika sa menu ng pag-pause at bilang mga toast."
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "Notipikasyon ng musika"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "Musika"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "Hotkey ng tagapagsalaysay"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "Piliin kung ano ang babasahin ng tagapagsalaysay."
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "Tagapagsalaysay"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "Mga mababait na nilalang"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "Kung gaano katagal nananatiling nakikita ang mga toast notification."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "Oras ng notipikasyon"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "Tab ng mga operator item"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "Bilis ng panorama"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "Mga Particle"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "Mga Player"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "Unahin ang mga update ng chunk"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "Mga shortcut sa paglabas"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "Hilaw na input ng mouse"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "Mga notipikasyon ng Realms"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "Jukebox/Mga Note Block"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "Binawasang impormasyon sa pag-debug"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "Layo ng render"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "Kanang binti ng pantalon"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "Kanang manggas"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "Umikot kasama ng minecart"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "I-save ang mga draft ng chat"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "Mga epekto sa screen"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "Ipakita lang ang secure chat"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "Sensitivity ng mouse"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "Mga texture ng server"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "Ibahagi ang presensya"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "Kung gaano kalayo nag-a-update ang mga entity at nagti-tick ang mga block at fluid."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "Layo ng simulation"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Snooper"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "Window ng pagtakbo"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "Magpakita ng mga caption para sa mga tunog sa laro."
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "Mga Subtitle"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "Opacity ng background ng teksto"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "Pagsala ng texture"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "I-toggle ang pag-atake"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "Pindutin nang isang beses upang manatiling nakayuko."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "I-toggle ang pagyuko"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "Pindutin nang isang beses upang manatiling tumatakbo."
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "I-toggle ang pagtakbo"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "I-toggle ang paggamit"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "Touchscreen mode"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "UI"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "Taas ng hindi nakapokus na chat"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "Gamitin ang mga VBO"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "Magdagdag ng pag-ugoy sa kamera habang naglalakad."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "Pag-ugoy ng paningin"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "Vignette"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "Boses at pananalita"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "Limitahan ang framerate sa refresh rate ng display upang maiwasan ang pagkapunit ng screen."
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "Radius ng panahon"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "Panahon"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "Nagbago ang setting na ito sa ibang lugar. Suriin ito at subukan muli."
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "Pumili ng wastong halaga."
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "Pumili muna ng halaga."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "Hindi magagamit ng ilan sa iyong mga instansiya ang setting na ito"
+  },
+  "app.settings.java-installations.location.title": {
+    "message": "Lokasyon ng Java {version, number}"
+  },
+  "app.settings.operating-system.macos": {
+    "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Ipakita ang {productName} bilang iyong kasalukuyang aktibidad sa Discord. Hindi ito nakakaapekto sa Rich Presence na idinaragdag ng mga mod sa mga instansiya."
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord Rich Presence"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "Ipakita ang aksyong Copy details habang nakapila o tumatakbo ang isang pag-install. Lagi itong available para sa mga nabigo o naputol na pag-install."
+  },
+  "app.settings.resource-management.always-show-copy-details.title": {
+    "message": "Laging ipakita ang copy details"
+  },
+  "app.settings.resource-management.app-cache.confirm.description": {
+    "message": "Maaaring mas mabagal mag-load ang app hanggang sa muling mabuo ang cache."
+  },
+  "app.settings.resource-management.app-cache.confirm.title": {
+    "message": "I-purge ang cache ng app?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Linisin ang mga nakacache na datos at i-download itong muli. Maaaring mas mabagal mag-load ang app hanggang sa muling mabuo ang cache."
+  },
+  "app.settings.resource-management.app-cache.purge": {
+    "message": "I-purge ang cache"
+  },
+  "app.settings.resource-management.app-cache.title": {
+    "message": "Cache ng app"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "Nakaimbak dito ang mga backup ng mahahalagang datos ng app kung sakaling kailanganin mong mabawi ang mga ito."
+  },
+  "app.settings.resource-management.app-database-backups.open-folder": {
+    "message": "Buksan ang folder ng mga backup"
+  },
+  "app.settings.resource-management.app-database-backups.title": {
+    "message": "Mga backup ng database ng app"
+  },
+  "app.settings.resource-management.app-directory.browse": {
+    "message": "Mag-browse ng direktoryo ng app"
+  },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "Kung saan iniimbak ng {productName} ang mga instansiya at iba pang file. Magkakabisa ang mga pagbabago pagkatapos i-restart ang app."
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "Pumili ng bagong direktoryo ng app"
+  },
+  "app.settings.resource-management.app-directory.title": {
+    "message": "Direktoryo ng app"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "Bilang ng mga file na mada-download ng app nang sabay-sabay. Babaan ito kung hindi maaasahan ang mga download sa iyong koneksyon. Nangangailangan ng pag-restart ng app."
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "Pinakamadaming sabay-sabay na download"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "Bilang ng mga file na maisusulat ng app sa disk nang sabay-sabay. Babaan ito kung madalas kang makaranas ng mga I/O error. Nangangailangan ng pag-restart ng app."
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "Pinakamadaming sabay-sabay na pagsulat"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "May ilang file na nangangailangan pa ng pansin"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Itago hanggang sa ganitong dami ng hindi ginagamit na content para sa mga susunod na pag-install. Ang pagtatago ng mas marami ay makatitipid ng oras sa pag-download."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Itago ang mga hindi ginagamit na download"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Kinakalkula"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Linisin ang hindi ginagamit"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Burahin ang hindi ginagamit na na-download na content"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "Nakabakante ng {size} espasyo sa disk."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Nililinis…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Makatipid ng espasyo sa pamamagitan ng muling paggamit ng mga pag-install ng laro, mod at pack sa iyong mga instansiya."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Mag-install ng mga mod o pack upang makita dito ang iyong paggamit ng imbakan."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Tingnan ang {count, plural, one {# isyu} other {# isyu}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Walang hindi ginagamit na content na lilinisin."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Beripikahin at kumpunihin"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Isasara nito ang anumang tumatakbong instansiya."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Suriin ang mga nawawala o sirang file at kumpunihin ang mga ito."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Bineberipika at kinukumpuni…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Ibinahagi"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Imbakan ng content"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} nakaimbak"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Natatangi"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Ulila"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "Sinuri ang {checked, plural, one {# file} other {# file}} at nagsagawa ng {repaired, plural, one {# pagkukumpuni} other {# pagkukumpuni}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Tapos na ang beripikasyon"
+  },
+  "app.settings.sidebar.label.instances": {
+    "message": "Mga instansiya"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Piliin kung mula sa aling instansiya kokopyahin ang iyong kasaysayan ng command. Ginagamit lang ang kasaysayang ito para sa paunang pag-sync, at maaari mo itong baguhin mula sa anumang instansiya pagkatapos."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Piliin ang pinagmulan ng kasaysayan ng command"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Piliin kung mula sa aling instansiya kokopyahin ang iyong mga nakasave na creative hotbar. Ginagamit lang ang mga hotbar na ito para sa paunang pag-sync, at maaari mo itong baguhin mula sa anumang instansiya pagkatapos."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Piliin ang pinagmulan ng creative hotbar"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Piliin ang pinagmulan ng data pack"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Piliin kung mula sa aling instansiya kokopyahin ang iyong mga setting ng laro. Ginagamit lang ang mga setting na ito para sa paunang pag-sync, at maaari mo itong baguhin mula sa anumang instansiya pagkatapos."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Piliin ang pinagmulan ng mga setting ng laro"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Hindi mo mapipili ang instansiyang ito bilang pinagmulan ng pag-sync"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Hindi ma-load ang mga pinagmulan ng pag-sync. Pakisubukan muli."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Piliin kung mula sa aling instansiya kokopyahin ang iyong mga multiplayer server. Ginagamit lang ang mga server na ito para sa paunang pag-sync, at maaari mo itong baguhin mula sa anumang instansiya pagkatapos."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Piliin ang pinagmulan ng multiplayer server"
+  },
+  "app.settings.synced-options.choose-sync-source.no-instances-found": {
+    "message": "Walang nahanap na instansiya"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Piliin ang pinagmulan ng resource pack"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Subukan muli"
+  },
+  "app.settings.synced-options.choose-sync-source.search-placeholder": {
+    "message": "Maghanap ng instansiya"
+  },
+  "app.settings.synced-options.choose-sync-source.sync": {
+    "message": "I-sync"
+  },
+  "app.settings.synced-options.command-history": {
+    "message": "I-sync ang kasaysayan ng command"
+  },
+  "app.settings.synced-options.command-history.description": {
+    "message": "Gamitin ang parehong kasaysayan ng command sa iyong mga instansiya."
+  },
+  "app.settings.synced-options.command-history.editor-title": {
+    "message": "Baguhin ang kasaysayan ng command"
+  },
+  "app.settings.synced-options.creative-hotbars": {
+    "message": "I-sync ang mga nakasave na creative hotbar"
+  },
+  "app.settings.synced-options.creative-hotbars.description": {
+    "message": "Gamitin ang parehong mga nakasave na creative hotbar sa iyong mga instansiya."
+  },
+  "app.settings.synced-options.data-packs": {
+    "message": "I-sync ang mga data pack"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Gamitin ang parehong mga datapack sa iyong mga instansiya"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Wala ka pang na-sync na data pack"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Magdagdag ng instansiya bago baguhin ang naka-sync na datos."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Pumili ng pinagmulan ng pag-sync bago baguhin ang setting na ito."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "I-sync ang mga opsyon sa laro"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Baguhin ang mga setting ng laro"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "Na-load namin ang pinakabagong mga setting. Suriin ang iyong mga pagbabago, pagkatapos ay i-save muli."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Nagbago ang mga setting na ito sa ibang lugar"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Lilitaw dito ang mga setting na idinagdag ng mga mod pagkatapos mahanap ng {productName} ang mga ito sa isa sa iyong mga instansiya."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Gamitin ang parehong mga opsyon sa laro sa iyong mga instansiya."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "I-unsync lahat"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Buksan muna ang pag-sync ng mga setting ng laro bago pumili ng mga indibidwal na setting."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Walang setting na tumutugma sa iyong paghahanap o filter."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "I-sync lahat"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "Hindi namin ma-load ang iyong mga setting ng laro."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Naglo-load ng mga setting..."
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Wala ka pang mga opsyon upang baguhin"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Hindi sina-sync"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "Subukan muli"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "I-save ang mga setting"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Maghanap ng mga setting..."
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Inilalapat ang mga naka-sync na opsyon sa bawat instansiya at ino-override ang mga halagang kasama sa isang modpack."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "I-sync ang {setting} sa mga instansiya"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "I-sync ang mga setting ng laro"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Naka-sync sa mga instansiya"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Mga setting ng laro"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Mayroon kang mga hindi pa nasasave na pagbabago."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "Itigil ang pag-sync ng {setting} sa mga instansiya"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "Magkakaiba sa mga instansiya"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "Patay"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "Bukas"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Pumili ng halaga"
+  },
+  "app.settings.synced-options.multiplayer-servers": {
+    "message": "I-sync ang mga multiplayer server"
+  },
+  "app.settings.synced-options.multiplayer-servers.address": {
+    "message": "Address ng server"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Kopyahin ang address"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {# server} other {# server}}"
+  },
+  "app.settings.synced-options.multiplayer-servers.description": {
+    "message": "Gamitin ang parehong mga multiplayer server sa iyong mga instansiya."
+  },
+  "app.settings.synced-options.multiplayer-servers.editor-title": {
+    "message": "Baguhin ang mga naka-sync na server"
+  },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "Walang kasalukuyang naka-sync na server na idinagdag ng user."
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "Offline"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "Online"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "Higit pang mga opsyon sa server"
+  },
+  "app.settings.synced-options.multiplayer-servers.name": {
+    "message": "Pangalan ng server"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Walang naka-sync na server na tumutugma sa iyong paghahanap o mga filter."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Wala ka pang na-sync na server"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} online"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "Maghanap ng {count, number} {count, plural, one {naka-sync na server} other {naka-sync na server}}..."
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Katayuan"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Buksan muna ang pag-sync bago baguhin ang mga ibinahaging pack."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "I-sync ang mga resource pack"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Gamitin ang parehong mga resource pack sa iyong mga instansiya."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "Wala ka pang na-sync na resource pack"
+  },
   "app.settings.tabs.appearance": {
     "message": "Itsura"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "Gawi"
+  },
+  "app.settings.tabs.features": {
+    "message": "Mga Tampok"
   },
   "app.settings.tabs.java-installations": {
     "message": "Mga instalasyon ng Java"
@@ -257,8 +3419,164 @@
   "app.settings.tabs.resource-management": {
     "message": "Pamamahala ng paglalaan"
   },
+  "app.settings.tabs.synced-options": {
+    "message": "Mga naka-sync na setting"
+  },
+  "app.sidebar.advertising.label": {
+    "message": "Anunsyo"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Preview · puwesto {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Susunod na modpack"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "I-pause ang pagpapalit"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} sa {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Nakaraang modpack"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Ipagpatuloy ang pagpapalit"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Mga tampok na modpack"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Hindi available sa ngayon ang mga tampok na modpack."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Tingnan ang proyekto"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Tingnan ang hosting"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Ang susunod mong Minecraft server"
+  },
+  "app.skins.add-button": {
+    "message": "Magdagdag ng skin"
+  },
+  "app.skins.add-button.drag-and-drop": {
+    "message": "I-drag at i-drop"
+  },
   "app.skins.apply-button": {
     "message": "Ilapat"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Lahat ng modelo"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klasiko"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Default"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Walang skin nahanap. Subukang maghanap ng iba."
+  },
+  "app.skins.catalog.error": {
+    "message": "Hindi available ang skin provider na ito. Pakisubukang muli mamaya."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Nilo-load ang mga skin…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Maghanap sa buong pampublikong galeriya ng MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "Modelo"
+  },
+  "app.skins.catalog.next": {
+    "message": "Susunod na pahina"
+  },
+  "app.skins.catalog.page": {
+    "message": "Pahina {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Popular"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Nakaraang pahina"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Mga provider ng skin"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Naabot ng provider ang limitasyon nito sa mga kahilingan. Pakihintay bago magsubok muli."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Kamakailan"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Subukan muli"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Nakasave ng skin sa Default"
+  },
+  "app.skins.catalog.search": {
+    "message": "Maghanap ng skin…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Hanapin"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Payat"
+  },
+  "app.skins.catalog.sort": {
+    "message": "I-sort ayon sa"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tag (opsyonal)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Trending"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Hindi pa naka-configure ang skin provider na ito."
+  },
+  "app.skins.delete-button": {
+    "message": "Burahin ang skin"
+  },
+  "app.skins.delete-modal.description": {
+    "message": "Permanente nitong buburahin ang napiling skin. Hindi na ito mababawi."
+  },
+  "app.skins.delete-modal.title": {
+    "message": "Sigurado ka bang nais mong burahin ang skin na ito?"
+  },
+  "app.skins.demo.apply-tooltip": {
+    "message": "Mag-sign in upang maglapat ng mga skin."
+  },
+  "app.skins.demo.description": {
+    "message": "Mag-sign in sa iyong Minecraft account upang mag-save at maglapat ng mga skin!"
+  },
+  "app.skins.demo.title": {
+    "message": "Nage-edit gamit ang demo account"
+  },
+  "app.skins.dropped-file-error.text": {
+    "message": "Nabigong basahin ang binitawang file."
+  },
+  "app.skins.dropped-file-error.title": {
+    "message": "Error sa pagproseso ng file"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "Gumagamit ang skin na ito ng mga tampok mula sa {ears} mod"
+  },
+  "app.skins.edit-button": {
+    "message": "Baguhin ang skin"
+  },
+  "app.skins.modal.add-skin-button": {
+    "message": "Magdagdag ng skin"
+  },
+  "app.skins.modal.add-title": {
+    "message": "Nagdadaragdag ng skin"
+  },
+  "app.skins.modal.arm-style-section": {
+    "message": "Estilo ng braso"
   },
   "app.skins.modal.arm-style-slim": {
     "message": "Payat"
@@ -272,14 +3590,227 @@
   "app.skins.modal.cape-section": {
     "message": "Kapa"
   },
+  "app.skins.modal.demo-save-tooltip": {
+    "message": "Mag-sign in upang mag-save ng mga skin."
+  },
+  "app.skins.modal.edit-title": {
+    "message": "Nage-edit ng skin"
+  },
+  "app.skins.modal.make-edit-first-tooltip": {
+    "message": "Baguhin muna ang skin!"
+  },
   "app.skins.modal.no-cape-tooltip": {
     "message": "Walang kapa"
   },
   "app.skins.modal.none-cape-option": {
     "message": "Wala"
   },
+  "app.skins.modal.replace-texture-button": {
+    "message": "Palitan ang texture"
+  },
+  "app.skins.modal.save-skin-button": {
+    "message": "I-save ang skin"
+  },
+  "app.skins.modal.saving-tooltip": {
+    "message": "Nagsasave..."
+  },
   "app.skins.modal.texture-section": {
     "message": "Texture"
+  },
+  "app.skins.modal.upload-skin-first-tooltip": {
+    "message": "Mag-upload muna ng skin!"
+  },
+  "app.skins.preview.edit-button": {
+    "message": "Baguhin ang skin"
+  },
+  "app.skins.previewing-badge": {
+    "message": "Nagsisilip"
+  },
+  "app.skins.rate-limit.text": {
+    "message": "Masyado kang mabilis magpalit ng skin. Pansamantalang hinarang ng mga server ng Mojang ang mga susunod na kahilingan. Maghintay nang sandali bago sumubok muli."
+  },
+  "app.skins.rate-limit.title": {
+    "message": "Dahan-dahan lang!"
+  },
+  "app.skins.reorder-error.text": {
+    "message": "Hindi masave ang pagkakasunud-sunod ng iyong mga skin."
+  },
+  "app.skins.reorder-error.title": {
+    "message": "Nabigong ayusin muli ang mga skin"
+  },
+  "app.skins.section.builders-and-biomes": {
+    "message": "Builders & Biomes"
+  },
+  "app.skins.section.chaos-cubed": {
+    "message": "Chaos Cubed"
+  },
+  "app.skins.section.chase-the-skies": {
+    "message": "Chase the Skies"
+  },
+  "app.skins.section.default-skins": {
+    "message": "Mga default na skin"
+  },
+  "app.skins.section.minecon-earth-2017": {
+    "message": "MINECON Earth 2017"
+  },
+  "app.skins.section.mounts-of-mayhem": {
+    "message": "Mounts of Mayhem"
+  },
+  "app.skins.section.saved-skins": {
+    "message": "Mga nakasave na skin"
+  },
+  "app.skins.section.striding-hero": {
+    "message": "Striding Hero"
+  },
+  "app.skins.section.the-copper-age": {
+    "message": "The Copper Age"
+  },
+  "app.skins.section.the-garden-awakens": {
+    "message": "The Garden Awakens"
+  },
+  "app.skins.section.tiny-takeover": {
+    "message": "Tiny Takeover"
+  },
+  "app.skins.sign-in.button": {
+    "message": "Mag-sign in sa Microsoft"
+  },
+  "app.skins.title": {
+    "message": "Tagapili ng skin"
+  },
+  "app.skins.toggle-ears-features-off": {
+    "message": "Patayin"
+  },
+  "app.skins.toggle-ears-features-on": {
+    "message": "Buksan"
+  },
+  "app.sync-instances-update.badge": {
+    "message": "Bago sa update na ito"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "Piliin kung mula sa aling instansiya kokopyahin ang mga setting ng laro, resource pack, kasaysayan ng command, creative hotbar at multiplayer server. Ginagamit lang ang mga setting na ito para sa paunang pag-sync, at maaari mo itong baguhin mula sa anumang instansiya pagkatapos."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "Piliin ang pinagmulan ng pag-sync"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Piliin kung mula sa aling instansiya kokopyahin ang iyong mga data pack. Ginagamit lang ang mga pack na ito para sa paunang pag-sync, at maaari mo itong baguhin mula sa anumang instansiya pagkatapos."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Piliin kung mula sa aling instansiya kokopyahin ang iyong mga resource pack. Ginagamit lang ang mga pack na ito para sa paunang pag-sync, at maaari mo itong baguhin mula sa anumang instansiya pagkatapos."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "I-sync ang mga creative hotbar"
+  },
+  "app.sync-instances-update.description": {
+    "message": "Maaari mo nang i-sync ang mga opsyon tulad ng mga setting ng laro, server, resource pack, at iba pa sa iyong mga instansiya, upang manatiling pareho ang lahat sa tuwing maglalaro ka"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "Hindi ma-load ang iyong mga setting ng pag-sync. Pakisubukan muli."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "Maaari mong buksan ang pag-sync ngayon at pamahalaan ito mamaya sa mga setting ng iyong app."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "Panatilihing naka-sync ang mga setting ng laro, server, resource pack, at iba pa sa iyong mga instansiya."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "Balewalain"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "I-sync ang iyong mga instansiya"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "Tingnan ang update"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "Subukan muli"
+  },
+  "app.sync-instances-update.skip": {
+    "message": "Laktawan"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "I-sync lahat"
+  },
+  "app.sync-instances-update.title": {
+    "message": "I-sync ang iyong mga instansiya"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "Patayin ito sa lahat ng naka-sync na instansiya, o sa instansiyang ito lang. Ang pagpatay dito lang ay magbubukas ng mga override para sa instansiyang ito."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "Patayin kahit saan"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "Patayin ang content na ito sa lahat ng naka-sync na instansiya."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "Patayin dito"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "Patayin ang content?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "Buksan ito sa lahat ng naka-sync na instansiya, o sa instansiyang ito lang. Ang pagbukas nito lang dito ay magbubukas ng mga override para sa instansiyang ito."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Buksan kahit saan"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Buksan ang content na ito sa lahat ng naka-sync na instansiya."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Buksan dito"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "Buksan ang content?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Burahin kahit saan"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Burahin dito"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Ang pagbura sa content na ito ay bubura nito sa lahat ng iyong instansiya"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Ang napiling content na hindi naka-sync ay buburahin lang mula sa instansiyang ito."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Maaari mo itong alisin sa instansiyang ito lang o sa lahat ng naka-sync na instansiya. Ang pag-alis dito lang ay magbubukas ng mga override, at hindi na susunod ang instansiyang ito sa naka-sync na listahan."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "Maaari mong alisin {count, plural, one {ito} other {ang mga ito}} sa instansiyang ito lang o sa lahat ng naka-sync na instansiya. Ang pag-alis {count, plural, one {nito} other {ng mga ito}} dito lang ay magbubukas ng mga override."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {Naka-sync ang resource pack na ito} other {Naka-sync ang mga resource pack na ito}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Panatilihin ng instansiyang ito ang sarili nitong kopya. Nais mo bang panatilihing naka-sync ang content na ito sa ibang mga instansiya, o alisin ito mula sa mga ito?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "Panatilihin"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "Alisin"
+  },
+  "app.synced-content.desync.title": {
+    "message": "I-desync ang content"
+  },
+  "app.synced-content.warning.title": {
+    "message": "Naka-sync ang content na ito"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "Mga naka-sync na data pack"
+  },
+  "app.synced-packs.empty": {
+    "message": "Magdagdag ng mga pack mula sa pahina ng content ng isang instansiya upang magsimulang mag-sync."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "Hindi ma-load ang mga pack. Subukang i-refresh."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Mga naka-sync na resource pack"
   },
   "app.update-popup.body.download-complete": {
     "message": "Tapos nang ma-download ang {productName} v{version}. Mag-reload upang ma-update ngayon, o awtomatiko sa pagsara ng {productName}."
@@ -299,6 +3830,9 @@
   "app.update-popup.download-complete": {
     "message": "Nakumpleto ang pagdownload"
   },
+  "app.update-popup.reload": {
+    "message": "Mag-reload upang ma-update"
+  },
   "app.update-popup.title": {
     "message": "May bagong update"
   },
@@ -307,6 +3841,90 @@
   },
   "app.update.complete-toast.title": {
     "message": "Tagumpay na na-install ang bersiyong {version}!"
+  },
+  "app.update.download-error.missing-version": {
+    "message": "Nabigong mag-download ng update: walang available na bersyon"
+  },
+  "app.welcome-screen.create-instance": {
+    "message": "Lumikha ng instansiya"
+  },
+  "app.welcome-screen.description": {
+    "message": "Handa ka na bang maglaro?"
+  },
+  "app.welcome-screen.import-from-launcher": {
+    "message": "Mag-angkat mula sa launcher"
+  },
+  "app.welcome-screen.import-prompt": {
+    "message": "Tumakas mula sa ibang launcher?"
+  },
+  "app.welcome-screen.quick-create-hint": {
+    "message": "Pindutin ang <shortcut>N</shortcut> upang mabilis na lumikha ng instansiya"
+  },
+  "app.welcome-screen.title": {
+    "message": "Maligayang pagdating sa {productName}"
+  },
+  "app.window-controls.close": {
+    "message": "Isara ang window"
+  },
+  "app.window-controls.minimize": {
+    "message": "I-minimize ang window"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "I-toggle ang pag-maximize ng window"
+  },
+  "app.world-install.backup": {
+    "message": "Nagtatabi ng backup ng kasalukuyang mundo ang Palitan. Walang ini-install ang Panatilihin at Kanselahin. Gumagawa ng mundong may numero ang Mag-install ng isa pang kopya."
+  },
+  "app.world-install.backup-location": {
+    "message": "Na-save ang dating mundo sa {path} sa loob ng instance."
+  },
+  "app.world-install.conflict": {
+    "message": "May mundo nang may ganitong pangalan o mula sa proyektong ito."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "I-install kahit magkaiba ang bersyon"
+  },
+  "app.world-install.copy": {
+    "message": "Mag-install ng isa pang kopya"
+  },
+  "app.world-install.description": {
+    "message": "Mag-install ng bagong mundo sa isang instance. Pinapanatili ang mga kasalukuyang mundo maliban kung pipiliin mong palitan ang isa."
+  },
+  "app.world-install.incompatible": {
+    "message": "Hindi nakalista sa file na ito ang Minecraft {version} bilang tugma. Tingnan muna ang mga kinakailangan ng may-akda para sa bersyon at mga mod bago magpatuloy."
+  },
+  "app.world-install.installed": {
+    "message": "Na-install ang mundo: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Patutunguhang instance"
+  },
+  "app.world-install.keep": {
+    "message": "Panatilihin ang kasalukuyan"
+  },
+  "app.world-install.no-instances": {
+    "message": "Gumawa muna ng Minecraft instance, at bumalik dito para i-install ang mundo."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Tingnan ang mga mundo"
+  },
+  "app.world-install.replace": {
+    "message": "Palitan"
+  },
+  "app.world-install.replace-target": {
+    "message": "Mundong papalitan"
+  },
+  "app.world-install.requirements": {
+    "message": "Dapat naka-install na sa patutunguhang instance ang mga kinakailangang mod o modpack. Tingnan ang paglalarawan ng proyekto."
+  },
+  "app.world-install.title": {
+    "message": "Mag-install ng mundo"
+  },
+  "app.world-install.version": {
+    "message": "Bersyon ng mundo"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
   },
   "app.world.server-modal.select-an-option": {
     "message": "Pumili ng opsiyon"
@@ -319,6 +3937,45 @@
   },
   "app.world.world-item.offline": {
     "message": "Offline"
+  },
+  "app.world.world-item.players-online": {
+    "message": "{count} online"
+  },
+  "curseforge.manual.description": {
+    "message": "I-download ang {file} mula sa opisyal nitong pahina sa CurseForge, pagkatapos ay piliin ang na-download na file upang magpatuloy. Susuriin ang laki at SHA-1 nito."
+  },
+  "curseforge.manual.select": {
+    "message": "Piliin ang na-download na file"
+  },
+  "curseforge.manual.title": {
+    "message": "Kailangan ng manwal na pag-download"
+  },
+  "instance.action.create-shortcut": {
+    "message": "Lumikha ng shortcut"
+  },
+  "instance.action.export-modpack": {
+    "message": "I-export ang modpack"
+  },
+  "instance.action.launch-instance": {
+    "message": "Ilunsad ang instansiya"
+  },
+  "instance.action.more-actions": {
+    "message": "Higit pang mga aksyon"
+  },
+  "instance.action.open-folder": {
+    "message": "Buksan ang folder"
+  },
+  "instance.action.repair": {
+    "message": "Kumpunihin"
+  },
+  "instance.action.settings": {
+    "message": "Mga setting ng instansiya"
+  },
+  "instance.action.starting": {
+    "message": "Sinisimulan..."
+  },
+  "instance.action.stopping": {
+    "message": "Itinitigil..."
   },
   "instance.add-server.add-and-play": {
     "message": "Idagdag at laruin"
@@ -359,8 +4016,257 @@
   "instance.files.adding-files": {
     "message": "Idinadagdag ang mga file ({completed}/{total})"
   },
+  "instance.files.managed-content-read-only": {
+    "message": "Pamahalaan ang iyong naka-install na content sa pamamagitan ng tab na Content"
+  },
   "instance.files.save-as": {
     "message": "I-save bilang..."
+  },
+  "instance.icon-editor.background": {
+    "message": "Background"
+  },
+  "instance.icon-editor.background.blue": {
+    "message": "Asul"
+  },
+  "instance.icon-editor.background.dark-gray": {
+    "message": "Madilim na abo"
+  },
+  "instance.icon-editor.background.dark-green": {
+    "message": "Madilim na berde"
+  },
+  "instance.icon-editor.background.gray": {
+    "message": "Abo"
+  },
+  "instance.icon-editor.background.green": {
+    "message": "Berde"
+  },
+  "instance.icon-editor.background.indigo": {
+    "message": "Indigo"
+  },
+  "instance.icon-editor.background.lavender": {
+    "message": "Lavender"
+  },
+  "instance.icon-editor.background.light-gray": {
+    "message": "Mapusyaw na abo"
+  },
+  "instance.icon-editor.background.lime": {
+    "message": "Lima"
+  },
+  "instance.icon-editor.background.orange": {
+    "message": "Kahel"
+  },
+  "instance.icon-editor.background.pink": {
+    "message": "Rosas"
+  },
+  "instance.icon-editor.background.purple": {
+    "message": "Lila"
+  },
+  "instance.icon-editor.background.red": {
+    "message": "Pula"
+  },
+  "instance.icon-editor.background.rose": {
+    "message": "Rosasan"
+  },
+  "instance.icon-editor.background.yellow": {
+    "message": "Dilaw"
+  },
+  "instance.icon-editor.description": {
+    "message": "Paghalu-haluin ang mga elemento upang lumikha ng pasadyang icon."
+  },
+  "instance.icon-editor.recents": {
+    "message": "Mga Kamakailan"
+  },
+  "instance.icon-editor.save": {
+    "message": "I-save ang icon"
+  },
+  "instance.icon-editor.surprise-me": {
+    "message": "Random"
+  },
+  "instance.icon-editor.symbol": {
+    "message": "Simbolo"
+  },
+  "instance.icon-editor.symbol.backpack": {
+    "message": "Backpack"
+  },
+  "instance.icon-editor.symbol.beacon": {
+    "message": "Beacon"
+  },
+  "instance.icon-editor.symbol.blue-shark": {
+    "message": "Asul na Pating"
+  },
+  "instance.icon-editor.symbol.bookshelf": {
+    "message": "Lalagyan ng libro"
+  },
+  "instance.icon-editor.symbol.brown-bear": {
+    "message": "Kayumangging Oso"
+  },
+  "instance.icon-editor.symbol.cake": {
+    "message": "Cake"
+  },
+  "instance.icon-editor.symbol.campfire": {
+    "message": "Campfire"
+  },
+  "instance.icon-editor.symbol.chest": {
+    "message": "Kaban"
+  },
+  "instance.icon-editor.symbol.cogwheel": {
+    "message": "Gulong ng ngipin"
+  },
+  "instance.icon-editor.symbol.command-block": {
+    "message": "Command Block"
+  },
+  "instance.icon-editor.symbol.cooking-pot": {
+    "message": "Palayok"
+  },
+  "instance.icon-editor.symbol.couch": {
+    "message": "Sopa"
+  },
+  "instance.icon-editor.symbol.crafting-table": {
+    "message": "Crafting Table"
+  },
+  "instance.icon-editor.symbol.create-wrench": {
+    "message": "Wrench"
+  },
+  "instance.icon-editor.symbol.creeper": {
+    "message": "Creeper"
+  },
+  "instance.icon-editor.symbol.enchanting-table": {
+    "message": "Enchanting Table"
+  },
+  "instance.icon-editor.symbol.ender-chest": {
+    "message": "Ender Chest"
+  },
+  "instance.icon-editor.symbol.ender-dragon": {
+    "message": "Ender Dragon"
+  },
+  "instance.icon-editor.symbol.engine": {
+    "message": "Makina"
+  },
+  "instance.icon-editor.symbol.fabric": {
+    "message": "Fabric"
+  },
+  "instance.icon-editor.symbol.forge": {
+    "message": "Forge"
+  },
+  "instance.icon-editor.symbol.furnace": {
+    "message": "Pugon"
+  },
+  "instance.icon-editor.symbol.gizmo": {
+    "message": "Gizmo"
+  },
+  "instance.icon-editor.symbol.globe": {
+    "message": "Globo"
+  },
+  "instance.icon-editor.symbol.grass-block": {
+    "message": "Grass Block"
+  },
+  "instance.icon-editor.symbol.lantern": {
+    "message": "Parol"
+  },
+  "instance.icon-editor.symbol.moobloom": {
+    "message": "Moobloom"
+  },
+  "instance.icon-editor.symbol.neoforge": {
+    "message": "NeoForge"
+  },
+  "instance.icon-editor.symbol.orb": {
+    "message": "Orb"
+  },
+  "instance.icon-editor.symbol.oxygen-distributor": {
+    "message": "Tagapamahagi ng oxygen"
+  },
+  "instance.icon-editor.symbol.pancakes": {
+    "message": "Mga Pancake"
+  },
+  "instance.icon-editor.symbol.pickaxe": {
+    "message": "Piko"
+  },
+  "instance.icon-editor.symbol.poke-ball": {
+    "message": "Poke Ball"
+  },
+  "instance.icon-editor.symbol.quilt": {
+    "message": "Quilt"
+  },
+  "instance.icon-editor.symbol.redstone-block": {
+    "message": "Redstone Block"
+  },
+  "instance.icon-editor.symbol.sculk-sensor": {
+    "message": "Sculk Sensor"
+  },
+  "instance.icon-editor.symbol.skeleton": {
+    "message": "Kalansay"
+  },
+  "instance.icon-editor.symbol.skillet": {
+    "message": "Kawali"
+  },
+  "instance.icon-editor.symbol.slime-block": {
+    "message": "Slime Block"
+  },
+  "instance.icon-editor.symbol.space-helmet": {
+    "message": "Helmet pangkalawakan"
+  },
+  "instance.icon-editor.symbol.sticky-piston": {
+    "message": "Malagkit na Piston"
+  },
+  "instance.icon-editor.symbol.sword": {
+    "message": "Espada"
+  },
+  "instance.icon-editor.symbol.terminal": {
+    "message": "Terminal"
+  },
+  "instance.icon-editor.symbol.tiny-potato": {
+    "message": "Munting Patatas"
+  },
+  "instance.icon-editor.symbol.tire": {
+    "message": "Gulong"
+  },
+  "instance.icon-editor.symbol.tnt": {
+    "message": "TNT"
+  },
+  "instance.icon-editor.symbol.zombie": {
+    "message": "Zombie"
+  },
+  "instance.icon-editor.title": {
+    "message": "Editor ng icon"
+  },
+  "instance.last-played": {
+    "message": "Huling nilaro"
+  },
+  "instance.locked.badge": {
+    "message": "Naka-lock"
+  },
+  "instance.locked.delete-button": {
+    "message": "Burahin ang instansiya"
+  },
+  "instance.locked.info-label": {
+    "message": "Impormasyon ng naka-lock na instansiya"
+  },
+  "instance.locked.play-tooltip": {
+    "message": "Naka-lock ang instansiyang ito"
+  },
+  "instance.locked.text": {
+    "message": "Naka-lock ang instansiyang ito at hindi ito malalaro o mababago. Maaari mo itong burahin."
+  },
+  "instance.locked.title": {
+    "message": "Naka-lock ang instansiya"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Mod loader at bersyon ng Minecraft"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# oras} other {# oras}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# minuto} other {# minuto}}"
+  },
+  "instance.playtime.never-played": {
+    "message": "Hindi pa nalaro"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# segundo} other {# segundo}}"
+  },
+  "instance.playtime.total": {
+    "message": "Kabuuang oras ng paglalaro"
   },
   "instance.server-modal.address": {
     "message": "Adres"
@@ -373,6 +4279,33 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "Resource pack"
+  },
+  "instance.settings.synced-options.data-override": {
+    "message": "Patayin ang override na ito upang baguhin ang naka-sync na datos."
+  },
+  "instance.settings.synced-options.data-packs": {
+    "message": "I-unsync ang mga data pack"
+  },
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Panatilihing hiwalay ang mga data pack ng instansiyang ito mula sa mga naka-sync na pack."
+  },
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "Patay ang pag-sync ng data pack sa mga setting ng app."
+  },
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Baguhin ang mga naka-sync na pack"
+  },
+  "instance.settings.synced-options.packs-override": {
+    "message": "Patayin ang override na ito upang baguhin ang mga naka-sync na pack. Mapapamahalaan ang mga independiyenteng pack sa tab ng content."
+  },
+  "instance.settings.synced-options.resource-packs": {
+    "message": "I-unsync ang mga resource pack"
+  },
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Panatilihing hiwalay ang mga resource pack ng instansiyang ito mula sa mga naka-sync na pack."
+  },
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "Patay ang pag-sync ng resource pack sa mga setting ng app."
   },
   "instance.settings.tabs.general": {
     "message": "General"
@@ -404,6 +4337,12 @@
   "instance.settings.tabs.general.edit-icon": {
     "message": "Baguhin ang ikono"
   },
+  "instance.settings.tabs.general.edit-icon.create": {
+    "message": "Lumikha ng icon"
+  },
+  "instance.settings.tabs.general.edit-icon.edit-created": {
+    "message": "Baguhin ang icon"
+  },
   "instance.settings.tabs.general.edit-icon.remove": {
     "message": "Tanggalin ang ikono"
   },
@@ -413,14 +4352,38 @@
   "instance.settings.tabs.general.edit-icon.select": {
     "message": "Pumili ng ikono"
   },
+  "instance.settings.tabs.general.icon": {
+    "message": "Icon"
+  },
   "instance.settings.tabs.general.name": {
     "message": "Pangalan"
+  },
+  "instance.settings.tabs.general.update-channel": {
+    "message": "Channel ng update"
   },
   "instance.settings.tabs.general.update-channel.alpha": {
     "message": "Alpha"
   },
+  "instance.settings.tabs.general.update-channel.alpha.description": {
+    "message": "Ipapakita ang mga release, beta, at alpha na bersyon bilang mga available na update."
+  },
   "instance.settings.tabs.general.update-channel.beta": {
     "message": "Beta"
+  },
+  "instance.settings.tabs.general.update-channel.beta.description": {
+    "message": "Ipapakita ang mga release at beta na bersyon bilang mga available na update."
+  },
+  "instance.settings.tabs.general.update-channel.release": {
+    "message": "Release"
+  },
+  "instance.settings.tabs.general.update-channel.release.description": {
+    "message": "Ipapakita lang ang mga release na bersyon bilang mga available na update."
+  },
+  "instance.settings.tabs.general.update-channel.select": {
+    "message": "Piliin ang channel ng update"
+  },
+  "instance.settings.tabs.hooks.description": {
+    "message": "Magpatakbo ng mga system command na tiyak sa instansiya bago at pagkatapos ilunsad ang laro."
   },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "Post-exist"
@@ -440,6 +4403,30 @@
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "Ilagay ang pre-launch command..."
   },
+  "instance.settings.tabs.hooks.title": {
+    "message": "Mga pasadyang game launch hook"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "Tumatakbo ang mga hook sa working directory ng instansiya, kasama ang mga sumusunod na variable:"
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR: Ang absolute path sa folder ng instansiya"
+  },
+  "instance.settings.tabs.hooks.variables.inst-id.description": {
+    "message": "$INST_ID: Ang pangalan ng folder ng instansiya"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS: Ang mga JVM Argument na ibinigay sa laro"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA: Ang absolute path sa java binary"
+  },
+  "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
+    "message": "$INST_MC_DIR: Isang alias para sa $INST_DIR"
+  },
+  "instance.settings.tabs.hooks.variables.inst-name.description": {
+    "message": "$INST_NAME: Ang pangalan ng instansiya"
+  },
   "instance.settings.tabs.hooks.wrapper": {
     "message": "Wrapper"
   },
@@ -455,8 +4442,110 @@
   "instance.settings.tabs.installation.loader-version": {
     "message": "Bersiyon ng {loader}"
   },
+  "instance.settings.tabs.installation.locked": {
+    "message": "Hindi available ang mga setting ng pag-install habang naka-lock ang instansiyang ito."
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "Magtakda ng mga environment variable nang hiwalay para sa instansiyang ito."
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "Magtakda ng mga argumento ng Java nang hiwalay para sa instansiyang ito."
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "Pumili ng ibang pag-install ng Java para sa instansiyang ito."
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "Magtakda ng paglalaan ng memorya nang hiwalay para sa instansiyang ito."
+  },
+  "instance.settings.tabs.java.enter-environment-variables": {
+    "message": "Ilagay ang mga environmental variable..."
+  },
+  "instance.settings.tabs.java.enter-java-arguments": {
+    "message": "Ilagay ang mga argumento ng Java..."
+  },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "Pasadyang mga environment variable"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "Mga hook"
+  },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "Pasadyang mga argumento ng Java"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "Pasadyang pag-install ng Java"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "Pasadyang paglalaan ng memorya"
+  },
+  "instance.settings.tabs.java.java-path-placeholder": {
+    "message": "/path/to/java"
+  },
+  "instance.settings.tabs.settings-overrides": {
+    "message": "Mga override sa pag-sync"
+  },
+  "instance.settings.tabs.synced-options.command-history": {
+    "message": "I-unsync ang kasaysayan ng command"
+  },
+  "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
+    "message": "Patay ang pag-sync ng kasaysayan ng command sa mga setting ng app."
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "Panatilihing hiwalay ang kasaysayan ng command ng instansiyang ito mula sa naka-sync na kasaysayan ng command."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "I-unsync ang mga nakasave na creative hotbar"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "Patay ang pag-sync ng mga nakasave na creative hotbar sa mga setting ng app."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "Panatilihing hiwalay ang mga nakasave na creative hotbar ng instansiyang ito mula sa mga naka-sync na hotbar."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "I-unsync ang mga setting ng laro"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Panatilihing hiwalay ang options.txt ng instansiyang ito mula sa naka-sync na kopya."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "Patay ang pag-sync ng mga setting ng laro sa mga setting ng app."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "Iba-backup muna ang papalitan na bersyon bago may magbago."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "Magkaiba ang creative hotbar ng {instance} at ng iyong naka-sync na bersyon. Piliin kung alin ang gagamitin sa iyong mga instansiya."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "Piliin ang mga creative hotbar"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "I-overwrite ang iba"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "Gamitin ang naka-sync"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "I-unsync ang mga multiplayer server"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "Patay ang pag-sync ng multiplayer server sa mga setting ng app."
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "Panatilihing hiwalay ang mga multiplayer server ng instansiyang ito mula sa mga naka-sync na server."
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "Pamahalaan ang mga naka-sync na setting"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "Buksan ang override upang panatilihing hiwalay ang isang naka-sync na setting para sa instansiyang ito."
+  },
+  "instance.settings.tabs.window": {
+    "message": "Pasadyang mga setting ng window"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "Isaayos ang fullscreen at resolusyon sa paglulunsad nang hiwalay para sa instansiyang ito."
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "Fullscreen"
@@ -485,11 +4574,32 @@
   "instance.worlds.a_minecraft_server": {
     "message": "Isang Minecraft Server"
   },
+  "instance.worlds.actions.label": {
+    "message": "Mga aksyon sa mundo"
+  },
   "instance.worlds.cant_connect": {
     "message": "Hndi makakonekta sa server"
   },
   "instance.worlds.copy_address": {
     "message": "Kopyahin ang adres"
+  },
+  "instance.worlds.create_shortcut": {
+    "message": "Lumikha ng shortcut"
+  },
+  "instance.worlds.desync-server.description": {
+    "message": "Nais mo bang panatilihin ang server na ito sa ibang naka-sync na instansiya, o alisin ito mula sa mga ito?"
+  },
+  "instance.worlds.desync-server.keep": {
+    "message": "Panatilihin"
+  },
+  "instance.worlds.desync-server.remove": {
+    "message": "Alisin"
+  },
+  "instance.worlds.desync-server.title": {
+    "message": "I-desync ang server"
+  },
+  "instance.worlds.desync_server": {
+    "message": "I-desync"
   },
   "instance.worlds.dont_show_on_home": {
     "message": "Huwag ipakita sa Tahanan"
@@ -503,8 +4613,14 @@
   "instance.worlds.incompatible_server": {
     "message": "Hindi magkatugma sa server"
   },
+  "instance.worlds.instance-locked": {
+    "message": "Naka-lock ang instansiyang ito"
+  },
   "instance.worlds.linked_server": {
     "message": "Pinamamahala ng proyektong server"
+  },
+  "instance.worlds.more-options": {
+    "message": "Higit pang mga opsyon"
   },
   "instance.worlds.no_contact": {
     "message": "Hindi makontak ang server"
@@ -518,17 +4634,32 @@
   "instance.worlds.play_instance": {
     "message": "Laruin ang instansiya"
   },
+  "instance.worlds.play_world": {
+    "message": "Laruin ang mundo"
+  },
+  "instance.worlds.shortcut-created": {
+    "message": "Nalikha ang shortcut"
+  },
+  "instance.worlds.shortcut-creation-failed": {
+    "message": "Nabigong lumikha ng shortcut"
+  },
+  "instance.worlds.synced_server": {
+    "message": "Naka-sync sa mga instansiya"
+  },
   "instance.worlds.view_instance": {
     "message": "Tingnan ang instansiya"
   },
   "instance.worlds.world_in_use": {
     "message": "Ginagamit ang mundo"
   },
+  "minecraft-account.accounts": {
+    "message": "Mga Minecraft account"
+  },
   "minecraft-account.add-account": {
     "message": "Maglagay ng account"
   },
-  "minecraft-account.label": {
-    "message": "Minecraft account"
+  "minecraft-account.getting-started": {
+    "message": "Pagsisimula"
   },
   "minecraft-account.not-signed-in": {
     "message": "Hindi pa naka sign in"
@@ -536,11 +4667,77 @@
   "minecraft-account.remove-account": {
     "message": "Itanggal ang account"
   },
-  "minecraft-account.select-account": {
-    "message": "Pumili ng account"
-  },
   "minecraft-account.sign-in": {
     "message": "Mag sign in kay Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Mag-sign in"
+  },
+  "minecraft-required.description": {
+    "message": "Kailangan mo ng Microsoft account na nagmamay-ari ng Minecraft bago ka makapaglunsad at makapaglaro."
+  },
+  "minecraft-required.description-header": {
+    "message": "Mag-sign in sa isang Microsoft account"
+  },
+  "minecraft-required.dont-have-account": {
+    "message": "Walang account?"
+  },
+  "minecraft-required.get-minecraft": {
+    "message": "Kunin ang Minecraft"
+  },
+  "minecraft-required.get-support": {
+    "message": "Humingi ng suporta"
+  },
+  "minecraft-required.header": {
+    "message": "Kailangan ang Minecraft"
+  },
+  "minecraft-required.sign-in": {
+    "message": "Mag-sign in sa Microsoft"
+  },
+  "onboarding-checklist.create-instance": {
+    "message": "Lumikha ng unang instansiya"
+  },
+  "onboarding-checklist.login-minecraft": {
+    "message": "Mag-sign in sa Minecraft"
+  },
+  "onboarding-checklist.title": {
+    "message": "Pagsisimula"
+  },
+  "optifine.add-component": {
+    "message": "I-install ang OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Piliin ang JAR at magpatuloy"
+  },
+  "optifine.download-official": {
+    "message": "Opisyal na pag-download"
+  },
+  "optifine.export-notice": {
+    "message": "Hindi kasama ang mga OptiFine binary. Pinapanatili ng Orbpack ang kinakailangang bersyon nito; nangangailangan ang mga Modrinth at CurseForge pack ng hiwalay na pag-install ng OptiFine."
+  },
+  "optifine.import-canceled": {
+    "message": "Kinansela ang pagpili ng OptiFine. Hindi na-install ang pack."
+  },
+  "optifine.import-description": {
+    "message": "Nangangailangan ang pack na ito ng OptiFine {version} para sa Minecraft {gameVersion}. I-download ang opisyal nitong JAR at piliin ito upang magpatuloy. Hindi kasama ang OptiFine sa"
+  },
+  "optifine.import-title": {
+    "message": "Nangangailangan ang pack na ito ng OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Piliin ang opisyal na OptiFine installer para sa Minecraft {gameVersion}. Para sa inangkat na pack, kailangan ding tumugma ang bersyon at hash ng file nito."
+  },
+  "optifine.remove-component": {
+    "message": "Alisin ang OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Piliin ang opisyal na OptiFine JAR"
+  },
+  "project-type.world.category": {
+    "message": "Mga mundo"
   },
   "search.filter.locked.instance": {
     "message": "Sagot na ng instansiya"
@@ -554,7 +4751,10 @@
   "search.filter.locked.instance.sync": {
     "message": "Maki-sync sa instansiya"
   },
-  "search.filter.locked.server-environment.title": {
-    "message": "Mga mod sa panig ng client lamang ang maidadaragdag sa instansiyang server"
+  "settings.sidebar.label.account": {
+    "message": "Account"
+  },
+  "settings.sidebar.label.display": {
+    "message": "Display"
   }
 }

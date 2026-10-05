@@ -20,7 +20,6 @@ export interface InstancePageContext {
 	playServer: () => Promise<void>
 	openSettings: (tab?: number) => void
 	browseContent: (projectType?: string) => Promise<void>
-	browseServers: () => Promise<void>
 }
 
 export const [injectInstancePage, provideInstancePage] =

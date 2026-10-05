@@ -82,7 +82,10 @@
 				</Button>
 			</div>
 			<div v-else class="flex items-center gap-2">
-				<IconButton label="Browse for launcher path" @click="browseForLauncherPath">
+				<IconButton
+					:label="formatMessage(messages.browseLauncherPath)"
+					@click="browseForLauncherPath"
+				>
 					<FolderSearchIcon />
 				</IconButton>
 				<Input
@@ -151,6 +154,10 @@ const messages = defineMessages({
 	add: {
 		id: 'creation-flow.modal.import-instance.action.add',
 		defaultMessage: 'Add',
+	},
+	browseLauncherPath: {
+		id: 'creation-flow.modal.import-instance.launcher-path.browse',
+		defaultMessage: 'Browse for launcher path',
 	},
 	noInstancesFoundTitle: {
 		id: 'creation-flow.modal.import-instance.notification.no-instances-found.title',

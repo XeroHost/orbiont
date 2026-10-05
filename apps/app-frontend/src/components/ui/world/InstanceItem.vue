@@ -35,10 +35,8 @@ import { getInstanceIconUrl, kill, run } from '@/helpers/instance'
 import { get_by_instance_id } from '@/helpers/process'
 import type { GameInstance } from '@/helpers/types'
 import { showInstanceInFolder } from '@/helpers/utils'
-import { injectServerInstall } from '@/providers/server-install'
 
 const { handleError } = injectNotificationManager()
-const { playServerProject } = injectServerInstall()
 const { formatMessage } = useVIntl()
 const formatRelativeTime = useRelativeTime()
 const formatDateTime = useFormatDateTime({
@@ -110,19 +108,11 @@ const play = async (event: MouseEvent) => {
 	if (playDisabled.value) return
 	loading.value = true
 	const instance = props.instance
-	const serverProjectId =
-		instance.link?.type === 'server_project' || instance.link?.type === 'server_project_modpack'
-			? (instance.link.project_id ?? instance.link.server_project_id)
-			: undefined
 	try {
-		if (serverProjectId) {
-			await playServerProject(serverProjectId)
-			const processes = await get_by_instance_id(instance.id)
-			if (processes.length > 0) emit('play')
-		} else {
-			await run(instance.id)
-			emit('play')
-		}
+		// Sin catálogo de servidores: todas las instancias arrancan igual;
+		// los enlaces antiguos server_project se conservan como datos.
+		await run(instance.id)
+		emit('play')
 	} catch (err) {
 		handleSevereError(err, { instanceId: instance.id })
 	} finally {
@@ -240,7 +230,7 @@ function openContextMenu(event: MouseEvent) {
 						</div>
 						<TagItem
 							v-if="newlyAdded"
-							class="!border-green !bg-bg-green !px-2 !font-medium !text-green"
+							class="!border-brand !bg-brand-highlight !px-2 !font-medium !text-brand"
 						>
 							<SparklesIcon aria-hidden="true" />
 							{{ formatMessage(messages.newInstance) }}
@@ -285,7 +275,7 @@ function openContextMenu(event: MouseEvent) {
 						"
 						:disabled="playDisabled"
 						type="colored"
-						color="green"
+						color="brand"
 						@click="play"
 					>
 						<SpinnerIcon v-if="loading || installing" class="animate-spin" />

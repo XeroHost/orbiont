@@ -516,8 +516,34 @@ pub(crate) async fn fetch_file_mirrors_in(
     uri_path: Option<&'static str>,
     semaphore: &FetchSemaphore,
     exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
+    progress: Option<&mut FetchProgressFn<'_>>,
+    staging: Option<&Path>,
+) -> crate::Result<DownloadedFile> {
+    fetch_file_mirrors_in_with_client(
+        mirrors,
+        sha1,
+        download_meta,
+        uri_path,
+        semaphore,
+        exec,
+        progress,
+        staging,
+        &REQWEST_CLIENT,
+    )
+    .await
+}
+
+#[allow(clippy::too_many_arguments)]
+pub(crate) async fn fetch_file_mirrors_in_with_client(
+    mirrors: &[&str],
+    sha1: Option<&str>,
+    download_meta: Option<&DownloadMeta>,
+    uri_path: Option<&'static str>,
+    semaphore: &FetchSemaphore,
+    exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
     mut progress: Option<&mut FetchProgressFn<'_>>,
     staging: Option<&Path>,
+    client: &reqwest::Client,
 ) -> crate::Result<DownloadedFile> {
     if mirrors.is_empty() {
         return Err(
@@ -537,7 +563,7 @@ pub(crate) async fn fetch_file_mirrors_in(
             uri_path,
             semaphore,
             exec,
-            &REQWEST_CLIENT,
+            client,
             progress.as_deref_mut(),
             true,
             staging,
@@ -557,8 +583,56 @@ pub(crate) async fn fetch_file_mirrors_in(
 
 async fn read_file_response(
     response: reqwest::Response,
+    progress: Option<&mut FetchProgressFn<'_>>,
+    staging: Option<&Path>,
+) -> crate::Result<DownloadedFile> {
+    read_file_response_checked(response, progress, staging, None).await
+}
+
+/// A facade download must be a complete binary response and match API metadata.
+pub(crate) async fn read_curseforge_file_response(
+    response: reqwest::Response,
+    sha1: &str,
+    size: u64,
+    progress: Option<&mut FetchProgressFn<'_>>,
+    staging: Option<&Path>,
+) -> crate::Result<DownloadedFile> {
+    let content_type = response
+        .headers()
+        .get(reqwest::header::CONTENT_TYPE)
+        .and_then(|value| value.to_str().ok())
+        .unwrap_or("")
+        .split(';')
+        .next()
+        .unwrap_or("")
+        .trim()
+        .to_ascii_lowercase();
+    if response.status() != reqwest::StatusCode::OK
+        || !matches!(
+            content_type.as_str(),
+            "application/octet-stream"
+                | "application/java-archive"
+                | "application/zip"
+                | "application/x-zip-compressed"
+                | "application/x-java-archive"
+        )
+        || response.content_length() != Some(size)
+    {
+        return Err(ErrorKind::InputError(
+            "Invalid CurseForge download response or file length".into(),
+        )
+        .into());
+    }
+    crate::state::content_store::validate_digest(sha1, 40)?;
+    read_file_response_checked(response, progress, staging, Some((sha1, size)))
+        .await
+}
+
+async fn read_file_response_checked(
+    response: reqwest::Response,
     mut progress: Option<&mut FetchProgressFn<'_>>,
     staging: Option<&Path>,
+    expected: Option<(&str, u64)>,
 ) -> crate::Result<DownloadedFile> {
     use futures::StreamExt;
     let staging = staging.map(Path::to_path_buf).or_else(|| {
@@ -569,16 +643,40 @@ async fn read_file_response(
     let total = response.content_length().unwrap_or(0);
     let mut stream = response.bytes_stream();
     let mut hasher = ContentHasher::default();
+    let mut sha1 = sha1_smol::Sha1::new();
     let mut size = 0_u64;
     while let Some(chunk) =
         crate::install::control::download_step(stream.next()).await?
     {
         let chunk = chunk?;
+        if let Some((_, expected_size)) = expected
+            && size.saturating_add(chunk.len() as u64) > expected_size
+        {
+            return Err(ErrorKind::InputError(
+                "CurseForge download exceeds its expected size".into(),
+            )
+            .into());
+        }
         file.write_all(&chunk).await?;
         hasher.update(&chunk);
+        if expected.is_some() {
+            sha1.update(&chunk);
+        }
         size += chunk.len() as u64;
         if let Some(progress) = progress.as_mut() {
             progress(size, total).await?;
+        }
+    }
+    if let Some((expected_hash, expected_size)) = expected {
+        let hash = sha1.digest().to_string();
+        if hash != expected_hash {
+            return Err(ErrorKind::HashError(expected_hash.into(), hash).into());
+        }
+        if size != expected_size {
+            return Err(ErrorKind::InputError(
+                "Incomplete CurseForge download".into(),
+            )
+            .into());
         }
     }
     file.sync_all().await?;
@@ -589,6 +687,64 @@ async fn read_file_response(
         reused: false,
         size,
         sha512: hashes.sha512,
+    })
+}
+
+/// Manual files are staged and verified too; a mismatched selection never replaces cached content.
+pub(crate) async fn stage_curseforge_file(
+    source: &Path,
+    sha1: &str,
+    size: u64,
+    staging: &Path,
+) -> crate::Result<DownloadedFile> {
+    crate::state::content_store::validate_digest(sha1, 40)?;
+    let mut input = File::open(source).await?;
+    if input.metadata().await?.len() != size {
+        return Err(ErrorKind::InputError(
+            "Selected CurseForge file has the wrong size".into(),
+        )
+        .into());
+    }
+    let (mut file, path) = temporary_file(Some(staging)).await?;
+    let mut sha1_hasher = sha1_smol::Sha1::new();
+    let mut hasher = ContentHasher::default();
+    let mut buffer = vec![0; 262144];
+    let mut received = 0_u64;
+    loop {
+        let amount =
+            crate::install::control::download_step(input.read(&mut buffer))
+                .await??;
+        if amount == 0 {
+            break;
+        }
+        received += amount as u64;
+        if received > size {
+            return Err(ErrorKind::InputError(
+                "Selected CurseForge file exceeds its expected size".into(),
+            )
+            .into());
+        }
+        file.write_all(&buffer[..amount]).await?;
+        sha1_hasher.update(&buffer[..amount]);
+        hasher.update(&buffer[..amount]);
+    }
+    let hash = sha1_hasher.digest().to_string();
+    if hash != sha1 {
+        return Err(ErrorKind::HashError(sha1.into(), hash).into());
+    }
+    if received != size {
+        return Err(ErrorKind::InputError(
+            "Selected CurseForge file is incomplete".into(),
+        )
+        .into());
+    }
+    file.sync_all().await?;
+    drop(file);
+    Ok(DownloadedFile {
+        path: DownloadedFilePath::Temporary(Arc::new(path)),
+        size,
+        sha512: hasher.finish(size).sha512,
+        reused: true,
     })
 }
 

@@ -32,14 +32,17 @@
   "browse.advanced-filters.persistence-note": {
     "defaultMessage": "Gelişmiş hariç tutmalar oturumlar arasında saklanır. Filtre içeren paylaşılan bir bağlantıyı açmak bunların üzerine yazacaktır."
   },
+  "browse.display-mode.change": {
+    "defaultMessage": "Görüntüleme modunu değiştir"
+  },
   "browse.filter-results": {
     "defaultMessage": "Filtre sonuçları..."
   },
   "browse.no-results": {
     "defaultMessage": "Sorgunuz için sonuç bulunamadı!"
   },
-  "browse.offline": {
-    "defaultMessage": "Şu anda çevrimdışısınız. Modrinth'de gezinmek için internet'e bağlanın!"
+  "browse.offline-content": {
+    "defaultMessage": "Şu anda çevrimdışısınız. İçerik taramak için internete bağlanın."
   },
   "browse.search.placeholder": {
     "defaultMessage": "{projectType} araştır..."
@@ -260,6 +263,9 @@
   "button.upload-image": {
     "defaultMessage": "Görsel yükle"
   },
+  "card.toggle-details": {
+    "defaultMessage": "Ayrıntıları değiştir"
+  },
   "collections.label.private": {
     "defaultMessage": "Gizli"
   },
@@ -271,6 +277,39 @@
   },
   "console.actions.share": {
     "defaultMessage": "Paylaş"
+  },
+  "console.command-input-disabled": {
+    "defaultMessage": "Komut girişi devre dışı"
+  },
+  "console.crash.problems-detected": {
+    "defaultMessage": "{count, plural, one {# sorun tespit edildi} other {# sorun tespit edildi}}"
+  },
+  "console.delete-log-confirm-body": {
+    "defaultMessage": "Bu günlük dosyasını silmek geri alınamaz. Devam etmek istediğinizden emin misiniz?"
+  },
+  "console.delete-log-failed-title": {
+    "defaultMessage": "Günlük dosyası silinemedi"
+  },
+  "console.delete-log-file-header": {
+    "defaultMessage": "Günlük dosyasını sil"
+  },
+  "console.delete-log-irreversible-header": {
+    "defaultMessage": "Bu geri alınamaz"
+  },
+  "console.search-logs-placeholder": {
+    "defaultMessage": "Günlüklerde ara"
+  },
+  "console.server-not-running": {
+    "defaultMessage": "Sunucu çalışmıyor"
+  },
+  "console.share-logs-failed-title": {
+    "defaultMessage": "Günlükler paylaşılamadı"
+  },
+  "console.share-logs-header": {
+    "defaultMessage": "Günlükleri paylaş"
+  },
+  "console.unknown-error": {
+    "defaultMessage": "Bilinmeyen hata."
   },
   "content-type.content.lowercase": {
     "defaultMessage": "içerik"
@@ -322,6 +361,9 @@
   },
   "content.confirm-disable.header": {
     "defaultMessage": "{itemType} öğesini sil"
+  },
+  "content.confirm-modpack-update.admonition-body": {
+    "defaultMessage": "{action, select, downgrade {Sürüm düşürme} other {Güncelleme}} uyumluluk sorunlarına yol açabilir. Mod paketinin üzerine eklediğiniz modlar veya içerikler korunur, ancak yeni sürümle uyumlu olmayabilir."
   },
   "content.confirm-modpack-update.admonition-header": {
     "defaultMessage": "{action, select, downgrade {Sürüm Düşürme} other {Güncelleme}} uyarısı"
@@ -485,12 +527,6 @@
   "content.inline-backup.backup-failed": {
     "defaultMessage": "Yedek oluşturma başarısız. Yine de devam edebilirsiniz."
   },
-  "content.inline-backup.backup-in-progress": {
-    "defaultMessage": "Bunu yapmadan önce yedek alma işleminin bitmesini beklemeniz önerilir."
-  },
-  "content.inline-backup.backup-takes-a-while": {
-    "defaultMessage": "Sunucunuzun boyutuna göre yedek oluşturmak bir kaç dakika alabilir."
-  },
   "content.inline-backup.create-backup": {
     "defaultMessage": "Yedek oluştur"
   },
@@ -502,9 +538,6 @@
   },
   "content.inline-backup.warning-body": {
     "defaultMessage": "Herhangi bir sorun durumunda {type} inizi geri yükleyebilmeniz için, devam etmeden önce mutlaka bir yedekleme oluşturmanızı öneririz."
-  },
-  "content.inline-backup.world-label": {
-    "defaultMessage": "dünya"
   },
   "content.managed-card.modpack-content": {
     "defaultMessage": "Mod paketi içeriği"
@@ -716,32 +749,11 @@
   "creation-flow.button.create-instance": {
     "defaultMessage": "Kurulum oluştur"
   },
-  "creation-flow.button.create-world": {
-    "defaultMessage": "Dünya oluştur"
-  },
-  "creation-flow.button.finish": {
-    "defaultMessage": "Tamamla"
-  },
   "creation-flow.button.import": {
     "defaultMessage": "İçe aktar"
   },
   "creation-flow.button.import-instances": {
     "defaultMessage": "{count, plural, one {# kurulumu} other {# kurulumu}} içe aktar"
-  },
-  "creation-flow.button.setup-server": {
-    "defaultMessage": "Sunucu kurun"
-  },
-  "creation-flow.modal.custom-setup.build-number.label": {
-    "defaultMessage": "İnşaa numarası"
-  },
-  "creation-flow.modal.custom-setup.build-number.placeholder": {
-    "defaultMessage": "İnşaa numarası seçin"
-  },
-  "creation-flow.modal.custom-setup.build-number.search-placeholder": {
-    "defaultMessage": "İnşaa üyesi arayın..."
-  },
-  "creation-flow.modal.custom-setup.content-loader.label": {
-    "defaultMessage": "İçerik yükleyici"
   },
   "creation-flow.modal.custom-setup.game-version.placeholder": {
     "defaultMessage": "Oyun sürümü seç"
@@ -788,105 +800,6 @@
   "creation-flow.modal.custom-setup.options.no-versions-available": {
     "defaultMessage": "Uygun sürüm yok"
   },
-  "creation-flow.modal.final-config.additional-settings.title": {
-    "defaultMessage": "Diğer ayarlar"
-  },
-  "creation-flow.modal.final-config.backup.before-reset-server.name": {
-    "defaultMessage": "Sunucu sıfırlamadan önce"
-  },
-  "creation-flow.modal.final-config.difficulty.easy": {
-    "defaultMessage": "Kolay"
-  },
-  "creation-flow.modal.final-config.difficulty.hard": {
-    "defaultMessage": "Zor"
-  },
-  "creation-flow.modal.final-config.difficulty.label": {
-    "defaultMessage": "Zorluk"
-  },
-  "creation-flow.modal.final-config.difficulty.normal": {
-    "defaultMessage": "Normal"
-  },
-  "creation-flow.modal.final-config.difficulty.peaceful": {
-    "defaultMessage": "Barışçıl"
-  },
-  "creation-flow.modal.final-config.game-version.placeholder": {
-    "defaultMessage": "Oyun sürümü seç"
-  },
-  "creation-flow.modal.final-config.gamemode.creative": {
-    "defaultMessage": "Yaratıcı"
-  },
-  "creation-flow.modal.final-config.gamemode.hardcore": {
-    "defaultMessage": "Zorlayıcı"
-  },
-  "creation-flow.modal.final-config.gamemode.label": {
-    "defaultMessage": "Oyun modu"
-  },
-  "creation-flow.modal.final-config.gamemode.survival": {
-    "defaultMessage": "Hayatta Kalma"
-  },
-  "creation-flow.modal.final-config.generate-structures.description": {
-    "defaultMessage": "Köylerin, kalelerin ve diğer yapıların yeni parçalar halinde oluşturulup oluşturulmayacağını kontrol eder."
-  },
-  "creation-flow.modal.final-config.generate-structures.label": {
-    "defaultMessage": "Yapılar oluşturun"
-  },
-  "creation-flow.modal.final-config.generator-settings-json.placeholder": {
-    "defaultMessage": "Jeneratör ayarlarını girin JSON"
-  },
-  "creation-flow.modal.final-config.generator-settings.custom": {
-    "defaultMessage": "Özel"
-  },
-  "creation-flow.modal.final-config.generator-settings.default": {
-    "defaultMessage": "Sıradan"
-  },
-  "creation-flow.modal.final-config.generator-settings.description": {
-    "defaultMessage": "Özel Superflat katmanları gibi gelişmiş dünya özelleştirmeleri için kullanılır."
-  },
-  "creation-flow.modal.final-config.generator-settings.flat": {
-    "defaultMessage": "Düz"
-  },
-  "creation-flow.modal.final-config.generator-settings.label": {
-    "defaultMessage": "Oluşturucu ayarları"
-  },
-  "creation-flow.modal.final-config.generator-settings.placeholder": {
-    "defaultMessage": "Oluşturucu ayarları seçin"
-  },
-  "creation-flow.modal.final-config.world-name.label": {
-    "defaultMessage": "Dünya adı"
-  },
-  "creation-flow.modal.final-config.world-name.placeholder": {
-    "defaultMessage": "Dünya adı girin"
-  },
-  "creation-flow.modal.final-config.world-seed.description": {
-    "defaultMessage": "Rastgele bir tohum için boş bırakın."
-  },
-  "creation-flow.modal.final-config.world-seed.label-with-optional": {
-    "defaultMessage": "Dünya seed'i <optional>(İsteğe bağlı)</optional>"
-  },
-  "creation-flow.modal.final-config.world-seed.placeholder": {
-    "defaultMessage": "Dünya tohumu girin"
-  },
-  "creation-flow.modal.final-config.world-type.amplified": {
-    "defaultMessage": "Güçlendirilmiş"
-  },
-  "creation-flow.modal.final-config.world-type.default": {
-    "defaultMessage": "Varsayılan"
-  },
-  "creation-flow.modal.final-config.world-type.label": {
-    "defaultMessage": "Dünya türü"
-  },
-  "creation-flow.modal.final-config.world-type.large-biomes": {
-    "defaultMessage": "Büyük Biyomlar"
-  },
-  "creation-flow.modal.final-config.world-type.placeholder": {
-    "defaultMessage": "Dünya türü seçin"
-  },
-  "creation-flow.modal.final-config.world-type.single-biome": {
-    "defaultMessage": "Tek Biyom"
-  },
-  "creation-flow.modal.final-config.world-type.superflat": {
-    "defaultMessage": "Dümdüz"
-  },
   "creation-flow.modal.import-instance.action.add": {
     "defaultMessage": "Ekle"
   },
@@ -901,6 +814,9 @@
   },
   "creation-flow.modal.import-instance.launcher-path.add": {
     "defaultMessage": "Başlatıcı yolu ekle"
+  },
+  "creation-flow.modal.import-instance.launcher-path.browse": {
+    "defaultMessage": "Başlatıcı yolu için göz at"
   },
   "creation-flow.modal.import-instance.launcher-path.placeholder": {
     "defaultMessage": "Başlatıcı yolu..."
@@ -950,41 +866,50 @@
   "creation-flow.modal.setup-type.option.modpack-base.title": {
     "defaultMessage": "Bir mod veya mod paketinden başlayın"
   },
-  "creation-flow.modal.setup-type.option.upload-modpack.description": {
-    "defaultMessage": "Cihazınızdaki bir .mrpack dosyasından mod paketi yükleyin"
+  "creation-flow.modal.setup-type.option.upload-modpack.supported-formats-description": {
+    "defaultMessage": "Cihazınızdan bir .orbpack, Modrinth .mrpack veya CurseForge .zip dosyası içe aktarın."
   },
   "creation-flow.modal.setup-type.option.upload-modpack.title": {
     "defaultMessage": "Mod paketi yükle"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
-    "defaultMessage": "Mod yada plugin olmayan classic Minecraft."
-  },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "Vanilla Minecraft"
-  },
-  "creation-flow.modal.setup-type.title.installation": {
-    "defaultMessage": "Yükleme Şeklini seçin"
-  },
   "creation-flow.modal.setup-type.title.instance": {
     "defaultMessage": "Yükleme Şeklini seçin"
   },
-  "creation-flow.modal.setup-type.title.world": {
-    "defaultMessage": "Dünya Türünü Seçin"
+  "creation-flow.optifine.description": {
+    "defaultMessage": "İsteğe bağlı. Resmi yükleyiciyi seçin, başlatıcı bu kurulumda yapılandıracaktır."
+  },
+  "creation-flow.optifine.download": {
+    "defaultMessage": "Resmi indirme"
+  },
+  "creation-flow.optifine.name": {
+    "defaultMessage": "OptiFine"
+  },
+  "creation-flow.optifine.none": {
+    "defaultMessage": "Yok"
+  },
+  "creation-flow.optifine.optimization": {
+    "defaultMessage": "Optimizasyon"
+  },
+  "creation-flow.optifine.required": {
+    "defaultMessage": "Devam etmek için Minecraft {gameVersion} için resmi OptiFine JAR'ını seçin."
+  },
+  "creation-flow.optifine.select": {
+    "defaultMessage": "JAR Seç"
+  },
+  "creation-flow.optifine.selected": {
+    "defaultMessage": "OptiFine {version} · Minecraft {gameVersion}"
+  },
+  "creation-flow.optifine.validating": {
+    "defaultMessage": "Yükleyici doğrulanıyor…"
+  },
+  "creation-flow.optifine.vanilla-only": {
+    "defaultMessage": "OptiFine kurulumu şu anda yalnızca Vanilla kurulumları için kullanılabilir."
   },
   "creation-flow.title.create-instance": {
     "defaultMessage": "Kurulum oluştur"
   },
-  "creation-flow.title.create-world": {
-    "defaultMessage": "Dünya Oluştur"
-  },
   "creation-flow.title.import-instance": {
     "defaultMessage": "Kurulum aktar"
-  },
-  "creation-flow.title.reset-server": {
-    "defaultMessage": "Sunucuyu Yeniden Başlat"
-  },
-  "creation-flow.title.set-up-server": {
-    "defaultMessage": "Sunucu kurun"
   },
   "empty-state.upload-versions.description": {
     "defaultMessage": "Sürümlerinizi yükledikten sonra tekrar gelin."
@@ -1006,6 +931,12 @@
   },
   "external-project-license-status.yes": {
     "defaultMessage": "Evet"
+  },
+  "file-button.file-too-large.description": {
+    "defaultMessage": "{filename} dosyası çok büyük. En fazla dosya boyutu {maxSize}."
+  },
+  "file-button.file-too-large.title": {
+    "defaultMessage": "Dosya çok büyük"
   },
   "files.conflict-modal.header": {
     "defaultMessage": "Özeti ayıkla"
@@ -1057,6 +988,9 @@
   },
   "files.create-zip-modal.name-label": {
     "defaultMessage": "Arşiv adı"
+  },
+  "files.create-zip-modal.name-placeholder": {
+    "defaultMessage": "arsiv.zip"
   },
   "files.create-zip-modal.required": {
     "defaultMessage": "Bir arşiv adı girin."
@@ -1229,9 +1163,6 @@
   "files.navbar.home": {
     "defaultMessage": "Ana sayfa"
   },
-  "files.navbar.install-curseforge-pack": {
-    "defaultMessage": "CurseForge paketini kur"
-  },
   "files.navbar.new-file": {
     "defaultMessage": "Yeni dosya"
   },
@@ -1249,9 +1180,6 @@
   },
   "files.navbar.upload-from-zip": {
     "defaultMessage": "Upload from .zip file"
-  },
-  "files.navbar.upload-from-zip-url": {
-    "defaultMessage": ".zip URL'sinden yükle"
   },
   "files.rename-modal.header": {
     "defaultMessage": "{name} adını değiştir"
@@ -1303,63 +1231,6 @@
   },
   "files.validation.name-required": {
     "defaultMessage": "Ad gerekli."
-  },
-  "files.zip-url-modal.backup-name": {
-    "defaultMessage": "CurseForge mod paketi kurulumu"
-  },
-  "files.zip-url-modal.cf-header": {
-    "defaultMessage": "Install a CurseForge modpack"
-  },
-  "files.zip-url-modal.cf-not-found-text": {
-    "defaultMessage": "Belirtilen URL'de CurseForge mod paketi bulunamadı."
-  },
-  "files.zip-url-modal.cf-not-found-title": {
-    "defaultMessage": "CurseForge mod paketi bulunamadı"
-  },
-  "files.zip-url-modal.enter-link": {
-    "defaultMessage": "Bağlantıyı girin"
-  },
-  "files.zip-url-modal.error-cf-url": {
-    "defaultMessage": "URL, bir CurseForge mod paketi sürüm URL'si olmalıdır."
-  },
-  "files.zip-url-modal.error-url-invalid": {
-    "defaultMessage": "URL geçerli olmalıdır."
-  },
-  "files.zip-url-modal.error-url-required": {
-    "defaultMessage": "URL gerekli."
-  },
-  "files.zip-url-modal.install-button": {
-    "defaultMessage": "Kur"
-  },
-  "files.zip-url-modal.install-failed-title": {
-    "defaultMessage": "Kurulum başarısız oldu"
-  },
-  "files.zip-url-modal.step-copy-description": {
-    "defaultMessage": "Sürüm sayfası URL'sini kopyalayın ve aşağıya yapıştırın."
-  },
-  "files.zip-url-modal.step-copy-title": {
-    "defaultMessage": "URL'yi kopyala"
-  },
-  "files.zip-url-modal.step-find-description": {
-    "defaultMessage": "CurseForge'a göz atın ve istediğiniz mod paketini bulun."
-  },
-  "files.zip-url-modal.step-find-title": {
-    "defaultMessage": "Mod paketini bulun"
-  },
-  "files.zip-url-modal.step-select-description": {
-    "defaultMessage": "\"Dosyalar\" sekmesine gidin ve yüklemek istediğiniz sürümü seçin."
-  },
-  "files.zip-url-modal.step-select-title": {
-    "defaultMessage": "Bir sürüm seçin"
-  },
-  "files.zip-url-modal.unknown-error": {
-    "defaultMessage": "Bilinmeyen bir hata oluştu"
-  },
-  "files.zip-url-modal.zip-description": {
-    "defaultMessage": "Bir .zip dosyasının doğrudan indirme URL'sini kopyalayıp aşağıya yapıştırın."
-  },
-  "files.zip-url-modal.zip-header": {
-    "defaultMessage": "URL'den .zip içeriği yükleniyor"
   },
   "filter-bar.add": {
     "defaultMessage": "Ekle"
@@ -1646,9 +1517,6 @@
   "installation-settings.edit.warning-instance": {
     "defaultMessage": "İçerik kurduktan sonra kurulumunuzu değiştirmenizi tavsiye etmeyiz. Eğer değişiklik yapmak isterseniz dikkatli olun çünkü bu çeşitli sorunlara yol açabilir."
   },
-  "installation-settings.edit.warning-server": {
-    "defaultMessage": "İçerik kurduktan sonra kurulumunuzu değiştirmenizi tavsiye etmeyiz. Eğer değişiklik yapmak isterseniz sunucunuzu sıfırlayın."
-  },
   "installation-settings.incompatible-content.auto-fix-button": {
     "defaultMessage": "Oto-çöz"
   },
@@ -1706,12 +1574,6 @@
   "installation-settings.repair.instance-title": {
     "defaultMessage": "Kurulumu tamir et"
   },
-  "installation-settings.repair.server-description": {
-    "defaultMessage": "Mod yükleyicisini ve Minecraft gereksinimlerini, içeriğinizi silmeden tekrar yükler. Bu sunucunuzun düzgün başlamaması sorununu çözebilir."
-  },
-  "installation-settings.repair.server-title": {
-    "defaultMessage": "Sunucuyu tamir et"
-  },
   "installation-settings.saving": {
     "defaultMessage": "Kaydediliyor..."
   },
@@ -1726,9 +1588,6 @@
   },
   "installation-settings.type.server": {
     "defaultMessage": "sunucu"
-  },
-  "installation-settings.type.server-possessive": {
-    "defaultMessage": "sunucunun"
   },
   "installation-settings.unlink": {
     "defaultMessage": "Bağlantıyı kopar"
@@ -1754,9 +1613,6 @@
   "instance.confirm-repair.body.instance": {
     "defaultMessage": "Onarım işlemi, içeriğinizi silmeden yükleyiciyi ve Minecraft bağımlılıklarını yeniden yükler. Bu, oyununuzun başlatıcıyla ilgili hatalar nedeniyle başlatılamaması durumunda sorunları çözebilir."
   },
-  "instance.confirm-repair.body.server": {
-    "defaultMessage": "Onarım işlemi, içeriğinizi silmeden yükleyiciyi ve Minecraft bağımlılıklarını yeniden yükler. Bu, sunucunuz doğru şekilde başlatılmıyorsa sorunları çözebilir."
-  },
   "instance.confirm-repair.header": {
     "defaultMessage": "{type}'i onar"
   },
@@ -1765,9 +1621,6 @@
   },
   "instance.confirm-repair.repair-button": {
     "defaultMessage": "Tamir et"
-  },
-  "instance.confirm-repair.server-label": {
-    "defaultMessage": "sunucu"
   },
   "instance.worlds.game_mode.adventure": {
     "defaultMessage": "Macera modu"
@@ -1971,7 +1824,7 @@
     "defaultMessage": "Parolayı onayla"
   },
   "label.content": {
-    "defaultMessage": ""
+    "defaultMessage": "İçerik"
   },
   "label.copied-filename": {
     "defaultMessage": "Dosya adı kopyalandı"
@@ -2147,9 +2000,6 @@
   "label.server": {
     "defaultMessage": "Sunucu"
   },
-  "label.server-only": {
-    "defaultMessage": "Yalnızca sunucu"
-  },
   "label.servers": {
     "defaultMessage": "Sunucular"
   },
@@ -2203,9 +2053,6 @@
   },
   "label.yes": {
     "defaultMessage": "Evet"
-  },
-  "layout.account-switcher.switching": {
-    "defaultMessage": "Hesap değiştiriliyor..."
   },
   "locale.cs-CZ": {
     "defaultMessage": "Çekçe"
@@ -2303,149 +2150,56 @@
   "locale.zh-TW": {
     "defaultMessage": "Çince (Geleneksel)"
   },
-  "markdown-editor.default-image-alt-text": {
-    "defaultMessage": "Bunu bir açıklama ile değiştirin"
+  "modal.confirm.type-here-placeholder": {
+    "defaultMessage": "Buraya yazın..."
   },
-  "markdown-editor.error-label": {
-    "defaultMessage": "Hata"
+  "modal.confirm.type-to-confirm": {
+    "defaultMessage": "Devam etmek istediğinizi onaylamak için aşağıya <confirmation-text></confirmation-text> yazın:"
   },
-  "markdown-editor.image-modal.description-field.description": {
-    "defaultMessage": "Görüntüyü tamamen, görüntüyü göremeyen birine anlatacağınız gibi anlatın."
+  "modal.share.copy-failed-title": {
+    "defaultMessage": "Metin kopyalanamadı"
   },
-  "markdown-editor.image-modal.description-field.placeholder": {
-    "defaultMessage": "Görüntüyü tanımlayın..."
+  "modal.share.copy-link": {
+    "defaultMessage": "Bağlantıyı kopyala"
   },
-  "markdown-editor.image-modal.description-field.title": {
-    "defaultMessage": "Açıklama (alt metin)"
+  "modal.share.copy-qr-code": {
+    "defaultMessage": "QR kodunu kopyala"
   },
-  "markdown-editor.image-modal.header": {
-    "defaultMessage": "Resim ekle"
+  "modal.share.copy-text": {
+    "defaultMessage": "Metni kopyala"
   },
-  "markdown-editor.image-modal.upload-mode.label": {
-    "defaultMessage": "Resim kaynağı"
+  "modal.share.link-copied-text": {
+    "defaultMessage": "Bağlantı panonuza kopyalandı."
   },
-  "markdown-editor.image-modal.upload-mode.link": {
-    "defaultMessage": "Bağlantı"
+  "modal.share.link-copied-title": {
+    "defaultMessage": "Bağlantı kopyalandı"
   },
-  "markdown-editor.image-modal.upload-mode.upload": {
-    "defaultMessage": "Yükle"
+  "modal.share.open-in-new-tab": {
+    "defaultMessage": "Yeni sekmede aç"
   },
-  "markdown-editor.image-modal.upload.prompt": {
-    "defaultMessage": "Yüklemek için sürükle bırak veya dosya seçmek için tıkla"
+  "modal.share.open-link-in-browser": {
+    "defaultMessage": "Bağlantıyı tarayıcıda aç"
   },
-  "markdown-editor.image-modal.url-field.placeholder": {
-    "defaultMessage": "Resmin URL'sini girin..."
+  "modal.share.send-email": {
+    "defaultMessage": "E-posta olarak gönder"
   },
-  "markdown-editor.insert-button": {
-    "defaultMessage": "Ekle"
+  "modal.share.share": {
+    "defaultMessage": "Paylaş"
   },
-  "markdown-editor.link-modal.header": {
-    "defaultMessage": "Bağlantı ekle"
+  "modal.share.share-on-reddit": {
+    "defaultMessage": "Reddit'te paylaş"
   },
-  "markdown-editor.link-modal.label-field.placeholder": {
-    "defaultMessage": "Etiketi girin..."
+  "modal.share.toot-about-it": {
+    "defaultMessage": "Bunun hakkında toot paylaş"
   },
-  "markdown-editor.link-modal.label-field.title": {
-    "defaultMessage": "Etiket"
+  "modal.share.tweet-about-it": {
+    "defaultMessage": "Bunun hakkında tweet at"
   },
-  "markdown-editor.link-modal.url-field.placeholder": {
-    "defaultMessage": "Bağlantının URL'sini girin..."
+  "multi-select.clear-all": {
+    "defaultMessage": "Tümünü temizle"
   },
-  "markdown-editor.markdown-formatting-support": {
-    "defaultMessage": "Bu düzenleyici <markdown-link>Markdown biçimlendirmesini</markdown-link> destekler."
-  },
-  "markdown-editor.max-length.label": {
-    "defaultMessage": "Maks uzunluk:"
-  },
-  "markdown-editor.max-length.unlimited": {
-    "defaultMessage": "Sınırsız"
-  },
-  "markdown-editor.max-length.value": {
-    "defaultMessage": "{currentLength}/{maxLength}"
-  },
-  "markdown-editor.placeholder": {
-    "defaultMessage": "Bir şeyler yazın..."
-  },
-  "markdown-editor.preview-label": {
-    "defaultMessage": "Önizleme"
-  },
-  "markdown-editor.preview-toggle.label": {
-    "defaultMessage": "Önizleme"
-  },
-  "markdown-editor.toolbar.bold": {
-    "defaultMessage": "Kalın"
-  },
-  "markdown-editor.toolbar.bulleted-list": {
-    "defaultMessage": "Madde işaretli liste"
-  },
-  "markdown-editor.toolbar.code": {
-    "defaultMessage": "Kod"
-  },
-  "markdown-editor.toolbar.heading-1": {
-    "defaultMessage": "Başlık 1"
-  },
-  "markdown-editor.toolbar.heading-2": {
-    "defaultMessage": "Başlık 2"
-  },
-  "markdown-editor.toolbar.heading-3": {
-    "defaultMessage": "Başlık 3"
-  },
-  "markdown-editor.toolbar.image": {
-    "defaultMessage": "Resim"
-  },
-  "markdown-editor.toolbar.italic": {
-    "defaultMessage": "İtalik"
-  },
-  "markdown-editor.toolbar.link": {
-    "defaultMessage": "Bağlantı"
-  },
-  "markdown-editor.toolbar.ordered-list": {
-    "defaultMessage": "Sıralı liste"
-  },
-  "markdown-editor.toolbar.quote": {
-    "defaultMessage": "Alıntı"
-  },
-  "markdown-editor.toolbar.spoiler": {
-    "defaultMessage": "Spoiler"
-  },
-  "markdown-editor.toolbar.strikethrough": {
-    "defaultMessage": "Üstü çizili"
-  },
-  "markdown-editor.toolbar.video": {
-    "defaultMessage": "Video"
-  },
-  "markdown-editor.upload-error.no-file": {
-    "defaultMessage": "Dosya sağlanmadı"
-  },
-  "markdown-editor.upload-error.no-handler": {
-    "defaultMessage": "Resim yükleme işleyicisi sağlanmadı"
-  },
-  "markdown-editor.url-label": {
-    "defaultMessage": "URL"
-  },
-  "markdown-editor.url-validation-error.blocked-domain": {
-    "defaultMessage": "Geçersiz URL. Bu alan adına izin verilmiyor."
-  },
-  "markdown-editor.url-validation-error.malformed": {
-    "defaultMessage": "Geçersiz URL. URL'nin iyi biçimlendirilmiş olduğundan emin olun."
-  },
-  "markdown-editor.url-validation-error.unsupported-protocol": {
-    "defaultMessage": "Desteklenmeyen protokol. http veya https kullanın."
-  },
-  "markdown-editor.video-embed.title": {
-    "defaultMessage": "YouTube video oynatıcı"
-  },
-  "markdown-editor.video-modal.header": {
-    "defaultMessage": "YouTube videosu ekle"
-  },
-  "markdown-editor.video-modal.url-field.description": {
-    "defaultMessage": "Bir YouTube videosu için geçerli bir bağlantı girin."
-  },
-  "markdown-editor.video-modal.url-field.placeholder": {
-    "defaultMessage": "YouTube video URL'sini girin"
-  },
-  "markdown-editor.video-modal.url-field.title": {
-    "defaultMessage": "YouTube video URL'si"
+  "multi-select.selection-count": {
+    "defaultMessage": "{count, plural, one {# seçili} other {# seçili}}"
   },
   "notification.error.title": {
     "defaultMessage": "Bir hata oluştu"
@@ -2483,9 +2237,6 @@
   "notifications.server-invite.body": {
     "defaultMessage": "<actor>{actor}</actor> sizi <entity>{entity}</entity> sunucusunu yönetmeye davet etti."
   },
-  "omorphia.component.copy.action.copy": {
-    "defaultMessage": "Kodu panoya kopyala"
-  },
   "payment-method.amazon_pay": {
     "defaultMessage": "Amazon Pay"
   },
@@ -2493,7 +2244,7 @@
     "defaultMessage": "American Express"
   },
   "payment-method.card_display": {
-    "defaultMessage": ""
+    "defaultMessage": "{card_brand}, {last_four} ile biten"
   },
   "payment-method.cashapp": {
     "defaultMessage": "Cash App"
@@ -2549,162 +2300,6 @@
   "payment-method.visa": {
     "defaultMessage": "Visa"
   },
-  "profile.bio.fallback.creator": {
-    "defaultMessage": "Bir Modrinth içerik üreticisi."
-  },
-  "profile.bio.fallback.user": {
-    "defaultMessage": "Bir Modrinth kullanıcısı."
-  },
-  "profile.block-user.admonition-body": {
-    "defaultMessage": "{username} size arkadaşlık isteği gönderemeyecek, sizi paylaşılan örneklere veya Modrinth Hosting sunucularına davet edemeyecek."
-  },
-  "profile.block-user.admonition-title": {
-    "defaultMessage": "Bu kullanıcıyı engellemek istediğinize emin misiniz?"
-  },
-  "profile.block-user.error-description": {
-    "defaultMessage": "Kullanıcıyı engellerken bir sorun oluştu. Lütfen tekrar deneyin."
-  },
-  "profile.block-user.error-title": {
-    "defaultMessage": "Kullanıcı engellenemedi"
-  },
-  "profile.block-user.success-description": {
-    "defaultMessage": "{username} engellendi."
-  },
-  "profile.block-user.success-title": {
-    "defaultMessage": "Kullanıcı engellendi"
-  },
-  "profile.block-user.title": {
-    "defaultMessage": "{username}'i engelle"
-  },
-  "profile.button.analytics": {
-    "defaultMessage": "Kullanıcı analizlerini göster"
-  },
-  "profile.button.billing": {
-    "defaultMessage": "Kullanıcı faturasını yönet"
-  },
-  "profile.button.block": {
-    "defaultMessage": "Engelle"
-  },
-  "profile.button.create-collection": {
-    "defaultMessage": "Bir koleksiyon oluştur"
-  },
-  "profile.button.create-project": {
-    "defaultMessage": "Bir proje oluştur"
-  },
-  "profile.button.info": {
-    "defaultMessage": "Kullanıcı detaylarını göster"
-  },
-  "profile.button.manage-projects": {
-    "defaultMessage": "Projeleri yönet"
-  },
-  "profile.button.remove-affiliate": {
-    "defaultMessage": "Ortaklıktan çıkar"
-  },
-  "profile.button.set-affiliate": {
-    "defaultMessage": "Ortak olarak ayarla"
-  },
-  "profile.button.shared-instances": {
-    "defaultMessage": "Paylaşılan örnekleri görüntüle"
-  },
-  "profile.button.unblock": {
-    "defaultMessage": "Engellemeyi kaldır"
-  },
-  "profile.collection.projects-count": {
-    "defaultMessage": "{count, plural,one{# proje} other{# proje}}"
-  },
-  "profile.details.error.github-popup-blocked": {
-    "defaultMessage": "Modrinth için açılır pencerelere izin verin, ardından tekrar deneyin."
-  },
-  "profile.details.error.github-profile-message": {
-    "defaultMessage": "GitHub profili alınamadı. Lütfen tekrar deneyin."
-  },
-  "profile.details.error.github-profile-title": {
-    "defaultMessage": "GitHub profili açılamıyor"
-  },
-  "profile.details.label.auth-providers": {
-    "defaultMessage": "Kimlik doğrulama sağlayıcıları"
-  },
-  "profile.details.label.email-verified": {
-    "defaultMessage": "E-posta doğrulandı"
-  },
-  "profile.details.label.has-password": {
-    "defaultMessage": "Parola var"
-  },
-  "profile.details.label.has-totp": {
-    "defaultMessage": "TOTP var"
-  },
-  "profile.details.label.loading-github-profile": {
-    "defaultMessage": "Yükleniyor..."
-  },
-  "profile.details.label.payment-methods": {
-    "defaultMessage": "Ödeme yöntemleri"
-  },
-  "profile.details.label.view-github-profile": {
-    "defaultMessage": "Profili görüntüle"
-  },
-  "profile.details.title": {
-    "defaultMessage": "Kullanıcı detayları"
-  },
-  "profile.details.tooltip.email-not-verified": {
-    "defaultMessage": "E-posta doğrulanmadı"
-  },
-  "profile.details.tooltip.email-verified": {
-    "defaultMessage": "E-posta doğrulandı"
-  },
-  "profile.error.load-description": {
-    "defaultMessage": "Kullanıcı profili yüklenemedi."
-  },
-  "profile.error.not-found": {
-    "defaultMessage": "Kullanıcı bulunamadı"
-  },
-  "profile.label.affiliate": {
-    "defaultMessage": "Ortaklar"
-  },
-  "profile.label.badges": {
-    "defaultMessage": "Rozetler"
-  },
-  "profile.label.collection": {
-    "defaultMessage": "Koleksiyon"
-  },
-  "profile.label.download-count": {
-    "defaultMessage": "{count, plural, one {indirme} other {indirme}}"
-  },
-  "profile.label.joined": {
-    "defaultMessage": "Katıldı"
-  },
-  "profile.label.no-collections": {
-    "defaultMessage": "Bu kullanıcı koleksiyona sahip değil!"
-  },
-  "profile.label.no-collections-auth-description": {
-    "defaultMessage": "Henüz hiçbir koleksiyonunuz yok."
-  },
-  "profile.label.no-projects": {
-    "defaultMessage": "Bu kullanıcı hiçbir projeye sahip değil!"
-  },
-  "profile.label.no-projects-auth-description": {
-    "defaultMessage": "Henüz hiçbir projeniz yok."
-  },
-  "profile.label.organizations": {
-    "defaultMessage": "Organizasyonlar"
-  },
-  "profile.label.project-count": {
-    "defaultMessage": "{count, plural, one {proje} other {proje}}"
-  },
-  "profile.official-account": {
-    "defaultMessage": "Resmi Modrinth hesabı"
-  },
-  "profile.unblock-user.error-description": {
-    "defaultMessage": "Bu kullanıcının engelini kaldırırken bir hata oluştu. Lütfen tekrar deneyin."
-  },
-  "profile.unblock-user.error-title": {
-    "defaultMessage": "Kullanıcının engeli kaldırılamadı"
-  },
-  "profile.unblock-user.success-description": {
-    "defaultMessage": "{username} engeli kaldırıldı."
-  },
-  "profile.unblock-user.success-title": {
-    "defaultMessage": "Kullanıcının engeli kaldırıldı"
-  },
   "project-card.date.published.tooltip": {
     "defaultMessage": "{date} tarihinde yayınlandı"
   },
@@ -2731,9 +2326,6 @@
   },
   "project-type.all": {
     "defaultMessage": "Tümü"
-  },
-  "project-type.collection.plural": {
-    "defaultMessage": "Koleksiyonlar"
   },
   "project-type.datapack.capital": {
     "defaultMessage": "Veri Paketi"
@@ -2807,6 +2399,15 @@
   "project-type.shader.lowercase": {
     "defaultMessage": "{count, plural,one {shader} other {shaderlar}}"
   },
+  "project-type.world.capital": {
+    "defaultMessage": "{count, plural, one {Dünya} other {Dünyalar}}"
+  },
+  "project-type.world.category": {
+    "defaultMessage": "Dünyalar"
+  },
+  "project-type.world.lowercase": {
+    "defaultMessage": "{count, plural, one {dünya} other {dünyalar}}"
+  },
   "project.about.compatibility.environments": {
     "defaultMessage": "Desteklenen ortamlar"
   },
@@ -2839,6 +2440,9 @@
   },
   "project.about.compatibility.title": {
     "defaultMessage": "Uyumluluk"
+  },
+  "project.about.creators.no-members-error": {
+    "defaultMessage": "Hata: Projenin üyesi yok. Bu olmamalı."
   },
   "project.about.creators.organization": {
     "defaultMessage": "Organizasyon"
@@ -2903,35 +2507,20 @@
   "project.about.links.wiki": {
     "defaultMessage": "Wikiye git"
   },
-  "project.about.server.address.tooltip": {
-    "defaultMessage": "Copy Java server address"
-  },
-  "project.about.server.copied": {
-    "defaultMessage": "Kopyalandı!"
-  },
-  "project.about.server.copiedText": {
-    "defaultMessage": "Sunucu adresi panoya kopyalandı"
-  },
-  "project.about.server.downloadModpack": {
-    "defaultMessage": "Mod paketini indir"
-  },
-  "project.about.server.languages": {
-    "defaultMessage": "Diller"
-  },
-  "project.about.server.recommendedVersion": {
-    "defaultMessage": "(Önerilen)"
-  },
-  "project.about.server.region": {
-    "defaultMessage": "Bölge"
-  },
-  "project.about.server.requiredContent": {
-    "defaultMessage": "Gerekli içerik"
-  },
-  "project.about.server.title": {
-    "defaultMessage": "Sunucu detayları"
-  },
   "project.about.tags.title": {
     "defaultMessage": "Etiketler"
+  },
+  "project.compatibility.client-and-server": {
+    "defaultMessage": "İstemci ve sunucu"
+  },
+  "project.compatibility.client-side": {
+    "defaultMessage": "İstemci tarafı"
+  },
+  "project.compatibility.no-mod-loader": {
+    "defaultMessage": "Mod yükleyicisi yok"
+  },
+  "project.compatibility.server-side": {
+    "defaultMessage": "Sunucu tarafı"
   },
   "project.disclosure.advertising.title": {
     "defaultMessage": "Reklam içerir"
@@ -3071,225 +2660,6 @@
   "project.server.customModpackTooltip": {
     "defaultMessage": "Bu proje özel bir mod paketi kullanmaktadır"
   },
-  "project.server.language.af": {
-    "defaultMessage": "Afrikaanca"
-  },
-  "project.server.language.am": {
-    "defaultMessage": "Amharic"
-  },
-  "project.server.language.ar": {
-    "defaultMessage": "Arapça"
-  },
-  "project.server.language.az": {
-    "defaultMessage": "Azerice"
-  },
-  "project.server.language.be": {
-    "defaultMessage": "Belarusça"
-  },
-  "project.server.language.bg": {
-    "defaultMessage": "Bulgarca"
-  },
-  "project.server.language.bn": {
-    "defaultMessage": "Bengalce"
-  },
-  "project.server.language.bs": {
-    "defaultMessage": "Boşnakça"
-  },
-  "project.server.language.ca": {
-    "defaultMessage": "Katalanca"
-  },
-  "project.server.language.cs": {
-    "defaultMessage": "Çekçe"
-  },
-  "project.server.language.da": {
-    "defaultMessage": "Danca"
-  },
-  "project.server.language.de": {
-    "defaultMessage": "Almanca"
-  },
-  "project.server.language.el": {
-    "defaultMessage": "Yunanca"
-  },
-  "project.server.language.en": {
-    "defaultMessage": "İngilizce"
-  },
-  "project.server.language.eo": {
-    "defaultMessage": "Esperanto"
-  },
-  "project.server.language.es": {
-    "defaultMessage": "İspanyolca"
-  },
-  "project.server.language.et": {
-    "defaultMessage": "Estonca"
-  },
-  "project.server.language.eu": {
-    "defaultMessage": "Baskça"
-  },
-  "project.server.language.fa": {
-    "defaultMessage": "Farsça"
-  },
-  "project.server.language.fi": {
-    "defaultMessage": "Fince"
-  },
-  "project.server.language.fr": {
-    "defaultMessage": "Fransızca"
-  },
-  "project.server.language.ga": {
-    "defaultMessage": "İrlandaca"
-  },
-  "project.server.language.gl": {
-    "defaultMessage": "Galiçyaca"
-  },
-  "project.server.language.he": {
-    "defaultMessage": "İbranice"
-  },
-  "project.server.language.hi": {
-    "defaultMessage": "Hintçe"
-  },
-  "project.server.language.hr": {
-    "defaultMessage": "Hırvatça"
-  },
-  "project.server.language.hu": {
-    "defaultMessage": "Macarca"
-  },
-  "project.server.language.hy": {
-    "defaultMessage": "Ermenice"
-  },
-  "project.server.language.id": {
-    "defaultMessage": "Endonezce"
-  },
-  "project.server.language.is": {
-    "defaultMessage": "İzlandaca"
-  },
-  "project.server.language.it": {
-    "defaultMessage": "İtalyanca"
-  },
-  "project.server.language.ja": {
-    "defaultMessage": "Japonca"
-  },
-  "project.server.language.ka": {
-    "defaultMessage": "Gürcüce"
-  },
-  "project.server.language.kk": {
-    "defaultMessage": "Kazakça"
-  },
-  "project.server.language.km": {
-    "defaultMessage": "Kmerce"
-  },
-  "project.server.language.kn": {
-    "defaultMessage": "Kannada dili"
-  },
-  "project.server.language.ko": {
-    "defaultMessage": "Korece"
-  },
-  "project.server.language.lo": {
-    "defaultMessage": "Laoca"
-  },
-  "project.server.language.lt": {
-    "defaultMessage": "Litvanyaca"
-  },
-  "project.server.language.lv": {
-    "defaultMessage": "Letonca"
-  },
-  "project.server.language.mk": {
-    "defaultMessage": "Makedonca"
-  },
-  "project.server.language.ml": {
-    "defaultMessage": "Malayalamca"
-  },
-  "project.server.language.mn": {
-    "defaultMessage": "Moğolca"
-  },
-  "project.server.language.mr": {
-    "defaultMessage": "Marathice"
-  },
-  "project.server.language.ms": {
-    "defaultMessage": "Malayca"
-  },
-  "project.server.language.my": {
-    "defaultMessage": "Birmanca"
-  },
-  "project.server.language.ne": {
-    "defaultMessage": "Nepali"
-  },
-  "project.server.language.nl": {
-    "defaultMessage": "Flemenkçe"
-  },
-  "project.server.language.no": {
-    "defaultMessage": "Norveçce"
-  },
-  "project.server.language.pa": {
-    "defaultMessage": "Pencapça"
-  },
-  "project.server.language.pl": {
-    "defaultMessage": "Lehçe"
-  },
-  "project.server.language.pt": {
-    "defaultMessage": "Portekizce"
-  },
-  "project.server.language.ro": {
-    "defaultMessage": "Romanca"
-  },
-  "project.server.language.ru": {
-    "defaultMessage": "Rusça"
-  },
-  "project.server.language.si": {
-    "defaultMessage": "Seylanca"
-  },
-  "project.server.language.sk": {
-    "defaultMessage": "Slovakça"
-  },
-  "project.server.language.sl": {
-    "defaultMessage": "Slovence"
-  },
-  "project.server.language.sq": {
-    "defaultMessage": "Arnavutça"
-  },
-  "project.server.language.sr": {
-    "defaultMessage": "Sırpça"
-  },
-  "project.server.language.sv": {
-    "defaultMessage": "İsveççe"
-  },
-  "project.server.language.sw": {
-    "defaultMessage": "Svahili"
-  },
-  "project.server.language.ta": {
-    "defaultMessage": "Tamilce"
-  },
-  "project.server.language.te": {
-    "defaultMessage": "Telugu"
-  },
-  "project.server.language.th": {
-    "defaultMessage": "Tayca"
-  },
-  "project.server.language.tl": {
-    "defaultMessage": "Filipino"
-  },
-  "project.server.language.tr": {
-    "defaultMessage": "Türkçe"
-  },
-  "project.server.language.uk": {
-    "defaultMessage": "Ukraynaca"
-  },
-  "project.server.language.ur": {
-    "defaultMessage": "Urduca"
-  },
-  "project.server.language.uz": {
-    "defaultMessage": "Özbekçe"
-  },
-  "project.server.language.vi": {
-    "defaultMessage": "Vietnam dili"
-  },
-  "project.server.language.yo": {
-    "defaultMessage": "Yoruba dili"
-  },
-  "project.server.language.zh": {
-    "defaultMessage": "Çince"
-  },
-  "project.server.language.zu": {
-    "defaultMessage": "Zulu dili"
-  },
   "project.server.ping.ms": {
     "defaultMessage": "{ping, number} ms"
   },
@@ -3428,6 +2798,12 @@
   "project.versions.channel.release.symbol": {
     "defaultMessage": "R"
   },
+  "project.versions.create-version": {
+    "defaultMessage": "Sürüm oluştur"
+  },
+  "project.versions.downloads-tooltip": {
+    "defaultMessage": "{count, plural, one {# indirme} other {# indirme}}"
+  },
   "project.versions.filter.channel": {
     "defaultMessage": "Kanal"
   },
@@ -3436,6 +2812,9 @@
   },
   "project.versions.filter.toggle-tooltip": {
     "defaultMessage": "{filter} olarak filtrele"
+  },
+  "project.versions.no-mod-loader": {
+    "defaultMessage": "Mod yükleyicisi yok"
   },
   "project.versions.platform.modloader.short": {
     "defaultMessage": "ModLoader"
@@ -3514,6 +2893,9 @@
   },
   "report.type.spam": {
     "defaultMessage": "Gereksiz içerik"
+  },
+  "search.filter.clear-all-filters": {
+    "defaultMessage": "Tüm filtreleri temizle"
   },
   "search.filter.dependency_type.any": {
     "defaultMessage": "Herhangi bir bağımlılık türü"
@@ -3677,18 +3059,6 @@
   "search.filter_type.project_id": {
     "defaultMessage": "Proje ID'si"
   },
-  "search.filter_type.server_content_type": {
-    "defaultMessage": "Tür"
-  },
-  "search.filter_type.server_language": {
-    "defaultMessage": "Dil"
-  },
-  "search.filter_type.server_region": {
-    "defaultMessage": "Bölge"
-  },
-  "search.filter_type.server_status": {
-    "defaultMessage": "Durum"
-  },
   "search.filter_type.shader_loader": {
     "defaultMessage": "Yükleyici"
   },
@@ -3706,18 +3076,6 @@
   },
   "search.photosensitivity-warning-modal.title": {
     "defaultMessage": "Sonuçların güvenli olduğu garanti edilmez"
-  },
-  "search.server_content_type.modpack": {
-    "defaultMessage": "Modlu"
-  },
-  "search.server_content_type.vanilla": {
-    "defaultMessage": "Vanilya"
-  },
-  "servers.busy.backup-creating": {
-    "defaultMessage": "Yedek oluşturma sürüyor"
-  },
-  "servers.busy.backup-restoring": {
-    "defaultMessage": "Yedeğe dönme sürüyor"
   },
   "settings.account.title": {
     "defaultMessage": "Hesap ve güvenlik"
@@ -3797,14 +3155,14 @@
   "settings.display.theme.dark": {
     "defaultMessage": "Karanlık"
   },
-  "settings.display.theme.description": {
-    "defaultMessage": "Modrinth genelinde tercih ettiğiniz renk temasını seçin."
-  },
   "settings.display.theme.light": {
     "defaultMessage": "Aydınlık"
   },
   "settings.display.theme.oled": {
     "defaultMessage": "OLED"
+  },
+  "settings.display.theme.orbiont-description": {
+    "defaultMessage": "{productName} için tercih ettiğiniz renk temasını seçin."
   },
   "settings.display.theme.preferred-dark-theme": {
     "defaultMessage": "Tercih edilen karanlık tema"
@@ -3814,15 +3172,6 @@
   },
   "settings.display.theme.retro": {
     "defaultMessage": "Retro"
-  },
-  "settings.display.theme.sync-across-devices": {
-    "defaultMessage": "Temayı cihazlar arasında senkronize et"
-  },
-  "settings.display.theme.sync-across-devices.description": {
-    "defaultMessage": "Oturum açtığınız her yerde bu temayı kullanın. Bu cihazda ayrı bir tema tutmak için bunu kapatın."
-  },
-  "settings.display.theme.sync-across-devices.sign-in-tooltip": {
-    "defaultMessage": "Temayı senkronize etmek için Modrinth'e giriş yapın"
   },
   "settings.display.theme.system": {
     "defaultMessage": "Sistemle eşle"
@@ -3840,16 +3189,13 @@
     "defaultMessage": "Arama sonuçları"
   },
   "settings.language.coverage.app-tooltip": {
-    "defaultMessage": "Modrinth Uygulamasının yaklaşık %{percentage} kadarı bu dilde mevcuttur."
+    "defaultMessage": "{productName} Uygulamasının yaklaşık %{percentage} kadarı bu dilde mevcuttur."
   },
   "settings.language.coverage.label": {
     "defaultMessage": "{percentage}% destekleniyor"
   },
-  "settings.language.coverage.website-tooltip": {
-    "defaultMessage": "Web sitesinin yaklaşık %{percentage} kadarı bu dilde mevcuttur."
-  },
-  "settings.language.description": {
-    "defaultMessage": "{platform} için tercih ettiğiniz dili seçin. Çeviriler, gönüllüler tarafından <crowdin-link>Crowdin</crowdin-link> üzerinde katkı sağlanarak yapılmaktadır."
+  "settings.language.description.orbiont": {
+    "defaultMessage": "{platform} için tercih ettiğiniz dili seçin. Orbiont topluluk çevirilerini olduğu gibi sunar; kapsam dile göre değişir ve çevrilmemiş metinler İngilizceye döner."
   },
   "settings.language.languages.search-field.placeholder": {
     "defaultMessage": "Dil arayın..."
@@ -3863,9 +3209,6 @@
   "settings.language.platform.app": {
     "defaultMessage": "uygulama"
   },
-  "settings.language.platform.site": {
-    "defaultMessage": "site"
-  },
   "settings.language.title": {
     "defaultMessage": "Dil"
   },
@@ -3874,12 +3217,6 @@
   },
   "settings.pats.title": {
     "defaultMessage": "Kişisel erişim tokenleri"
-  },
-  "settings.preferences.update-failed.description": {
-    "defaultMessage": "Ayarlarınız Modrinth hesabınıza kaydedilemedi. Lütfen tekrar deneyin."
-  },
-  "settings.preferences.update-failed.title": {
-    "defaultMessage": "Ayarlar senkronize edilemedi"
   },
   "settings.profile.navigation-title": {
     "defaultMessage": "Profil"
@@ -3890,11 +3227,17 @@
   "settings.social.title": {
     "defaultMessage": "Sosyal"
   },
+  "skin.preview.drag-to-rotate": {
+    "defaultMessage": "Döndürmek için sürükleyin"
+  },
   "skins.select": {
     "defaultMessage": "Cilt seç"
   },
   "skins.select-named": {
     "defaultMessage": "{name} seç"
+  },
+  "table.empty-state.no-data": {
+    "defaultMessage": "Kullanılabilir veri yok."
   },
   "tag.category.128x": {
     "defaultMessage": "128x"
@@ -3907,6 +3250,9 @@
   },
   "tag.category.32x": {
     "defaultMessage": "32x"
+  },
+  "tag.category.3d-packs": {
+    "message": "3D Paketler"
   },
   "tag.category.48x": {
     "defaultMessage": "48x"
@@ -3928,6 +3274,9 @@
   },
   "tag.category.anarchy": {
     "defaultMessage": "Anarşi"
+  },
+  "tag.category.armor-tools-weapons": {
+    "message": "Zırh, Aletler ve Silahlar"
   },
   "tag.category.atmosphere": {
     "defaultMessage": "Atmosfer"
@@ -3969,7 +3318,13 @@
     "defaultMessage": "Rekabetçi"
   },
   "tag.category.core-shaders": {
-    "defaultMessage": ""
+    "defaultMessage": "Çekirdek Gölgelendiriciler"
+  },
+  "tag.category.cosmetics": {
+    "message": "Kozmetik"
+  },
+  "tag.category.creation": {
+    "defaultMessage": "Yaratıcılık"
   },
   "tag.category.creative-mode": {
     "defaultMessage": "Yaratıcılık modu"
@@ -3980,11 +3335,17 @@
   "tag.category.crossplay": {
     "defaultMessage": "Crossplay"
   },
+  "tag.category.ctm": {
+    "message": "Anıtı tamamla"
+  },
   "tag.category.cursed": {
     "defaultMessage": "Lanetli"
   },
   "tag.category.custom-content": {
     "defaultMessage": "Özel İçerik"
+  },
+  "tag.category.custom-terrain": {
+    "message": "Özel Arazi"
   },
   "tag.category.decoration": {
     "defaultMessage": "Dekorasyon"
@@ -3994,6 +3355,9 @@
   },
   "tag.category.economy": {
     "defaultMessage": "Ekonomi"
+  },
+  "tag.category.enhanced-visuals": {
+    "message": "Geliştirilmiş Görseller"
   },
   "tag.category.entities": {
     "defaultMessage": "Varlık"
@@ -4018,6 +3382,9 @@
   },
   "tag.category.food": {
     "defaultMessage": "Yiyecek"
+  },
+  "tag.category.game-map": {
+    "defaultMessage": "Oyun Haritası"
   },
   "tag.category.game-mechanics": {
     "defaultMessage": "Oyun Mekaniği"
@@ -4067,6 +3434,9 @@
   "tag.category.management": {
     "defaultMessage": "Yönetim"
   },
+  "tag.category.maps": {
+    "message": "Haritalar"
+  },
   "tag.category.media": {
     "defaultMessage": "Medya"
   },
@@ -4075,6 +3445,9 @@
   },
   "tag.category.microgames": {
     "defaultMessage": "Mikro oyunlar"
+  },
+  "tag.category.minecraft-addon-maker": {
+    "message": "Minecraft Addon Maker"
   },
   "tag.category.minigame": {
     "defaultMessage": "Mini Oyun"
@@ -4090,6 +3463,9 @@
   },
   "tag.category.modded": {
     "defaultMessage": "Modlu"
+  },
+  "tag.category.modded-world": {
+    "defaultMessage": "Modlu Dünya"
   },
   "tag.category.models": {
     "defaultMessage": "Modeller"
@@ -4124,6 +3500,9 @@
   "tag.category.personal-worlds": {
     "defaultMessage": "Kişisel Dünyalar"
   },
+  "tag.category.players": {
+    "message": "Oyuncular"
+  },
   "tag.category.plots": {
     "defaultMessage": "Arsalar"
   },
@@ -4135,6 +3514,9 @@
   },
   "tag.category.prison": {
     "defaultMessage": "Prison"
+  },
+  "tag.category.puzzle": {
+    "defaultMessage": "Bulmaca"
   },
   "tag.category.pve": {
     "defaultMessage": "PvE"
@@ -4163,20 +3545,32 @@
   "tag.category.roleplay": {
     "defaultMessage": "Rol yapma"
   },
+  "tag.category.rollercoaster": {
+    "message": "Hız treni"
+  },
   "tag.category.rpg": {
     "defaultMessage": "RPG"
   },
   "tag.category.screenshot": {
     "defaultMessage": "Ekran Görüntüsü"
   },
+  "tag.category.scripts": {
+    "message": "Komut dosyaları"
+  },
   "tag.category.semi-realistic": {
     "defaultMessage": "Yarı Gerçekçi"
+  },
+  "tag.category.shaders": {
+    "message": "Shaderlar"
   },
   "tag.category.shadows": {
     "defaultMessage": "Gölgeler"
   },
   "tag.category.simplistic": {
     "defaultMessage": "Basit"
+  },
+  "tag.category.skins": {
+    "message": "Görünümler"
   },
   "tag.category.skyblock": {
     "defaultMessage": "Skyblock"
@@ -4190,6 +3584,9 @@
   "tag.category.storage": {
     "defaultMessage": "Depolama"
   },
+  "tag.category.survival": {
+    "defaultMessage": "Hayatta Kalma"
+  },
   "tag.category.survival-mode": {
     "defaultMessage": "Hayatta kalma modu"
   },
@@ -4201,6 +3598,9 @@
   },
   "tag.category.technology": {
     "defaultMessage": "Teknoloji"
+  },
+  "tag.category.texture-packs": {
+    "message": "Doku Paketleri"
   },
   "tag.category.themed": {
     "defaultMessage": "Temalı"
@@ -4319,6 +3719,9 @@
   "tag.loader.waterfall": {
     "defaultMessage": "Waterfall"
   },
+  "terminal.scroll-to-bottom": {
+    "defaultMessage": "En alta kaydır"
+  },
   "ui.component.unsaved-changes-popup.body": {
     "defaultMessage": "Kaydedilmemiş değişikliklerin var."
   },
@@ -4336,6 +3739,60 @@
   },
   "ui.confirm-leave-modal.title": {
     "defaultMessage": "Sayfadan ayrılsın mı?"
+  },
+  "ui.i18n-debug.close": {
+    "defaultMessage": "Denetçiyi kapat"
+  },
+  "ui.i18n-debug.copied": {
+    "defaultMessage": "Kopyalandı"
+  },
+  "ui.i18n-debug.copy": {
+    "defaultMessage": "kopyala"
+  },
+  "ui.i18n-debug.copy-hint": {
+    "defaultMessage": "kopyalamak için tıkla"
+  },
+  "ui.i18n-debug.discover-hint": {
+    "defaultMessage": "i18n anahtarlarını keşfetmek için uygulamada gezinin"
+  },
+  "ui.i18n-debug.expand": {
+    "defaultMessage": "Paneli genişlet"
+  },
+  "ui.i18n-debug.hide-keys": {
+    "defaultMessage": "Anahtarları satır içi gizle"
+  },
+  "ui.i18n-debug.key-count": {
+    "defaultMessage": "{count, plural, one {# anahtar} other {# anahtar}}"
+  },
+  "ui.i18n-debug.minimize": {
+    "defaultMessage": "Paneli küçült"
+  },
+  "ui.i18n-debug.navigate": {
+    "defaultMessage": "gezin"
+  },
+  "ui.i18n-debug.no-keys": {
+    "defaultMessage": "Kayıtlı anahtar yok"
+  },
+  "ui.i18n-debug.no-matches": {
+    "defaultMessage": "Eşleşme bulunamadı"
+  },
+  "ui.i18n-debug.reveal-keys": {
+    "defaultMessage": "Anahtarları satır içi göster"
+  },
+  "ui.i18n-debug.search": {
+    "defaultMessage": "Anahtar veya değer ara..."
+  },
+  "ui.i18n-debug.search-hint": {
+    "defaultMessage": "Farklı bir arama terimi deneyin"
+  },
+  "ui.i18n-debug.title": {
+    "defaultMessage": "i18n Denetçisi"
+  },
+  "ui.i18n-debug.toggle-overlay": {
+    "defaultMessage": "CSS hata ayıklama kaplamasını değiştir"
+  },
+  "ui.i18n-debug.watching": {
+    "defaultMessage": "İzleniyor"
   },
   "ui.pagination.go-to-page": {
     "defaultMessage": "Sayfaya git"
@@ -4358,6 +3815,9 @@
   "unknown-file-warning-modal.dont-show-again": {
     "defaultMessage": "Bu uyarıyı tekrar gösterme"
   },
+  "unknown-file-warning-modal.file-unverified-body": {
+    "defaultMessage": " kaynağı doğrulanamadı. Yalnızca güvendiğiniz kaynaklardan dosya kurun."
+  },
   "unknown-file-warning-modal.header": {
     "defaultMessage": "İndirmeyi onayla"
   },
@@ -4367,119 +3827,20 @@
   "unknown-file-warning-modal.malware-warning": {
     "defaultMessage": "Kötü amaçlı yazılımlar, genellikle Discord gibi platformlarda paylaşılan mod dosyaları aracılığıyla yayılmaktadır."
   },
-  "unknown-file-warning-modal.mod-warning-body": {
-    "defaultMessage": " Modrinth'te paylaşılmamış. Yalnızca güvendiğiniz kaynaklardan gelen dosyaları yüklemenizi önemle tavsiye ederiz."
-  },
   "unknown-file-warning-modal.mod-warning-title": {
     "defaultMessage": "Bilinmeyen dosya uyarısı"
   },
-  "unknown-file-warning-modal.modpack-warning-body": {
-    "defaultMessage": " Modrinth'te yayınlanmamış doysalar barındırıyor. Yalnızca güvendiğiniz kaynaklardan dosya indirmenizi önemle tavsiye ederiz."
+  "unknown-file-warning-modal.modpack-unverified-body": {
+    "defaultMessage": " kaynağı doğrulanamayan dosyalar içeriyor. Yalnızca güvendiğiniz kaynaklardan dosya kurun."
   },
   "unknown-file-warning-modal.modpack-warning-title": {
     "defaultMessage": "Bilinmeyen dosya uyarısı"
   },
-  "unknown-file-warning-modal.reviewed-files": {
-    "defaultMessage": "Modrinth üzerinde yayınlanmayan dosyalar incelenmez."
-  },
   "unknown-file-warning-modal.unrecognized-files": {
     "defaultMessage": "Tanımlanamayan dosyalar"
   },
-  "user.profile.badge.alpha.about.1": {
-    "defaultMessage": "Bu kullanıcı, Modrinth Alpha'nın başladığı tarihten beri aktif durumda; bu dönem Kasım 2020 itibarıyla sona ermiştir."
-  },
-  "user.profile.badge.alpha.name": {
-    "defaultMessage": "Alfa Test Kullanıcısı"
-  },
-  "user.profile.badge.beta.about.1": {
-    "defaultMessage": "Bu kullanıcı, Şubat 2022'de sona eren Modrinth Beta sürümünden beri aktif durumda."
-  },
-  "user.profile.badge.beta.link": {
-    "defaultMessage": "Modrinth Beta'nın lansmanı hakkında bilgi edinmek için tıklayın."
-  },
-  "user.profile.badge.beta.name": {
-    "defaultMessage": "Deneme Kullanıcısı"
-  },
-  "user.profile.badge.downloads.about.1": {
-    "defaultMessage": "Bu kullanıcının projeleri toplamda {download_sum} indirme sağlamıştır."
-  },
-  "user.profile.badge.downloads.name": {
-    "defaultMessage": "{download_sum} İndirme"
-  },
-  "user.profile.badge.early-datapack-adopter.about.1": {
-    "defaultMessage": "Bu kullanıcı, Ocak 2023'te yayınlamadan önce Modrinth üzerinde Data Pack projelerini test etmemize yardımcı oldu."
-  },
-  "user.profile.badge.early-datapack-adopter.name": {
-    "defaultMessage": "Erken Veri Paketı Kullanıcısı"
-  },
-  "user.profile.badge.early-modpack-adopter.about.1": {
-    "defaultMessage": "Bu kullanıcı, Mayıs 2022'de yayınlamadan önce Modrinth üzerinde Modpack projelerini test etmemize yardımcı oldu."
-  },
-  "user.profile.badge.early-modpack-adopter.name": {
-    "defaultMessage": "Erken Mod Paket Kullanıcısı"
-  },
-  "user.profile.badge.early-plugin-adopter.about.1": {
-    "defaultMessage": "Bu kullanıcı, modları Ağustos 2022'de yayınlamadan önce Modrinth üzerinde Plugin projelerini test etmemize yardımcı oldu."
-  },
-  "user.profile.badge.early-plugin-adopter.name": {
-    "defaultMessage": "Erken Dönemde Eklenti Kullanıcısı"
-  },
-  "user.profile.badge.early-resourcepack-adopter.about.1": {
-    "defaultMessage": ""
-  },
-  "user.profile.badge.early-resourcepack-adopter.name": {
-    "defaultMessage": ""
-  },
-  "user.profile.badge.early-server-adopter.about.1": {
-    "defaultMessage": "Bu kullanıcı, sunucu projelerini Mart 2026'da yayınlamadan önce Modrinth üzerinde test etmemize yardımcı oldu."
-  },
-  "user.profile.badge.early-server-adopter.name": {
-    "defaultMessage": "Erken Sunucu Benimseyen"
-  },
-  "user.profile.badge.early-shader-adopter.about.1": {
-    "defaultMessage": "Bu kullanıcı, modları Ocak 2023'te yayınlamadan önce Shader projelerini Modrinth üzerinde test etmemize yardımcı oldu."
-  },
-  "user.profile.badge.early-shader-adopter.name": {
-    "defaultMessage": "Erken Shader Kullanıcısı"
-  },
-  "user.profile.badge.hosting-alpha.about.1": {
-    "defaultMessage": "Bu kullanıcı, Modrinth Hosting'in Kasım 2024'te yayınlanacak beta sürümünü piyasaya sürmeden önce gerçekleştirdiğimiz kapalı alfa testine katılmıştır."
-  },
-  "user.profile.badge.hosting-alpha.name": {
-    "defaultMessage": "Modrinth Barındırma Alfa Testi"
-  },
-  "user.profile.badge.moderator.about.1": {
-    "defaultMessage": "Bu kullanıcı, Modrinth için içerik moderatörü olarak çalışmaktadır."
-  },
-  "user.profile.badge.moderator.about.2": {
-    "defaultMessage": "Modrinth'daki içerik denetleyicileri, projeleri inceler, raporları işler ve Modrinth'in güvenliğini sağlamaya yardımcı olur."
-  },
-  "user.profile.badge.moderator.name": {
-    "defaultMessage": "İçerik Moderatörü"
-  },
-  "user.profile.badge.plus.about.1": {
-    "defaultMessage": "Bu kullanıcı, Modrinth ve platformdaki yaratıcıları desteklemek için elinden geleni yapmaktadır."
-  },
-  "user.profile.badge.plus.link": {
-    "defaultMessage": "Üyeliğe nasıl katılabileceğiniz hakkında daha fazla bilgi edinmek için tıklayın."
-  },
-  "user.profile.badge.plus.name": {
-    "defaultMessage": "Modrinth+ Üyesi"
-  },
-  "user.profile.badge.pride.about.1": {
-    "defaultMessage": "Bu kullanıcı, Modrinth'in LGBTQ+ topluluğu için düzenlediği en az bir Pride bağış kampanyasına katılmıştır."
-  },
-  "user.profile.badge.pride.link": {
-    "defaultMessage": "En son Onur Ayı bağış kampanyamızı ziyaret etmek için tıklayın."
-  },
-  "user.profile.badge.pride.name": {
-    "defaultMessage": "Onur Ayı Bağış Toplama Etkinliği Destekçisi"
-  },
-  "user.profile.badge.staff.about.1": {
-    "defaultMessage": "Bu kullanıcı Modrinth'te çalışıyor."
-  },
-  "user.profile.badge.staff.name": {
-    "defaultMessage": "Modrinth Ekibi"
+  "unknown-file-warning-modal.unverified-files": {
+    "defaultMessage": "Tanınmayan bir dosya güvenli olmayabilir. Kurmadan önce kaynağını kontrol edin."
   },
   "version.content.name": {
     "defaultMessage": "İsim"
@@ -4570,5 +3931,8 @@
   },
   "version.supplementary-resources.type": {
     "defaultMessage": "Tür"
+  },
+  "version.uploaded-by": {
+    "defaultMessage": "Yükleyen"
   }
 }

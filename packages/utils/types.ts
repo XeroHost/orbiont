@@ -19,6 +19,7 @@ export type DonationPlatform =
 	| { short: 'other'; name: 'Other' }
 
 export type ProjectType =
+	| 'world'
 	| 'mod'
 	| 'modpack'
 	| 'resourcepack'

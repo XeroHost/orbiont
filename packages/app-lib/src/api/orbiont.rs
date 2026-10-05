@@ -1,13 +1,107 @@
-//! Clients for Orbiont's backend (the orbiont-catalog repo, two services):
-//! the catalog (XeroHost modpacks and servers) and the CurseForge facade,
-//! which holds the CurseForge API key so the launcher never does.
+//! Client for the CurseForge facade, which holds the API key so the launcher never does.
 
-use crate::util::fetch::{self, INSECURE_REQWEST_CLIENT, REQWEST_CLIENT};
-use reqwest::{Method, StatusCode};
-use serde::{Deserialize, Serialize};
-use std::sync::LazyLock;
-use std::time::{Duration, Instant};
-use tokio::sync::RwLock;
+use crate::util::fetch::{INSECURE_REQWEST_CLIENT, REQWEST_CLIENT};
+use std::{sync::LazyLock, time::Duration};
+use tokio::{sync::Mutex, time::Instant};
+
+pub mod downloads;
+
+// One queue covers catalog queries, batch lookups and native installers.
+// This is a per-launcher pace, not a replacement for the VPS's global quota.
+const REQUEST_INTERVAL: Duration = Duration::from_millis(1250);
+static NEXT_REQUEST: LazyLock<Mutex<Option<Instant>>> =
+    LazyLock::new(|| Mutex::new(None));
+
+fn retry_after_delay(
+    value: Option<&str>,
+    now: chrono::DateTime<chrono::Utc>,
+) -> Duration {
+    let seconds = value
+        .and_then(|value| {
+            value.parse::<u64>().ok().or_else(|| {
+                chrono::DateTime::parse_from_rfc2822(value)
+                    .ok()
+                    .map(|date| {
+                        date.signed_duration_since(now).num_seconds().max(0)
+                            as u64
+                    })
+            })
+        })
+        .unwrap_or(60);
+    Duration::from_secs(seconds.max(1))
+}
+
+async fn send_curseforge(
+    request: reqwest::RequestBuilder,
+    path: &str,
+) -> crate::Result<serde_json::Value> {
+    Ok(send_curseforge_response(request, path)
+        .await?
+        .json()
+        .await?)
+}
+
+pub(crate) async fn send_curseforge_response(
+    request: reqwest::RequestBuilder,
+    path: &str,
+) -> crate::Result<reqwest::Response> {
+    let mut next =
+        crate::install::control::download_step(NEXT_REQUEST.lock()).await?;
+    for attempt in 0..2 {
+        if let Some(deadline) = *next {
+            let remaining = deadline.saturating_duration_since(Instant::now());
+            if remaining > Duration::from_secs(120) {
+                return Err(crate::ErrorKind::OtherError(format!(
+                    "CurseForge request to {path} failed: 429 Too Many Requests; Retry-After: {} seconds",
+                    remaining.as_secs() + 1
+                )).into());
+            }
+            crate::install::control::download_step(tokio::time::sleep_until(
+                deadline,
+            ))
+            .await?;
+        }
+        *next = Some(Instant::now() + REQUEST_INTERVAL);
+        let response = crate::install::control::download_step(
+            request
+                .try_clone()
+                .ok_or_else(|| {
+                    crate::ErrorKind::OtherError(
+                        "Cannot clone CurseForge lookup".into(),
+                    )
+                })?
+                .send(),
+        )
+        .await??;
+        let status = response.status();
+        if status == reqwest::StatusCode::TOO_MANY_REQUESTS {
+            let delay = retry_after_delay(
+                response
+                    .headers()
+                    .get(reqwest::header::RETRY_AFTER)
+                    .and_then(|header| header.to_str().ok()),
+                chrono::Utc::now(),
+            );
+            *next = Some(Instant::now() + delay.max(REQUEST_INTERVAL));
+            // Respect long server cooldowns without keeping this action pending indefinitely.
+            if attempt == 0 && delay <= Duration::from_secs(120) {
+                continue;
+            }
+            return Err(crate::ErrorKind::OtherError(format!(
+                "CurseForge request to {path} failed: 429 Too Many Requests; Retry-After: {} seconds",
+                delay.as_secs()
+            )).into());
+        }
+        if !status.is_success() && status != reqwest::StatusCode::SEE_OTHER {
+            return Err(crate::ErrorKind::OtherError(format!(
+                "CurseForge request to {path} failed: {status}"
+            ))
+            .into());
+        }
+        return Ok(response);
+    }
+    unreachable!()
+}
 
 /// Product name, for text the Tauri shell shows before the UI is up.
 pub const PRODUCT_NAME: &str = env!("ORBIONT_PRODUCT_NAME");
@@ -15,10 +109,6 @@ pub const PRODUCT_NAME: &str = env!("ORBIONT_PRODUCT_NAME");
 pub const SUPPORT_EMAIL: &str = env!("ORBIONT_SUPPORT_EMAIL");
 /// Deep-link scheme the app registers (`orbiont://...`).
 pub const DEEP_LINK_SCHEME: &str = env!("ORBIONT_DEEP_LINK_SCHEME");
-
-fn base_url() -> &'static str {
-    env!("ORBIONT_CATALOG_BASE_URL")
-}
 
 fn curseforge_api_url() -> &'static str {
     env!("ORBIONT_CURSEFORGE_API_URL")
@@ -40,154 +130,11 @@ fn client_for(url: &str) -> &'static reqwest::Client {
     }
 }
 
-/// Where CurseForge serves files from. Download URLs must be https and on one
-/// of these hosts, whatever the API says.
-const CURSEFORGE_CDN_HOSTS: &[&str] = &[
-    "edge.forgecdn.net",
-    "mediafilez.forgecdn.net",
-    "media.forgecdn.net",
-];
-
-pub(crate) fn is_curseforge_cdn_url(url: &str) -> bool {
-    reqwest::Url::parse(url).is_ok_and(|url| {
-        url.scheme() == "https"
-            && url
-                .host_str()
-                .is_some_and(|host| CURSEFORGE_CDN_HOSTS.contains(&host))
-    })
-}
-
-fn is_sha1_hex(value: &str) -> bool {
-    value.len() == 40 && value.chars().all(|c| c.is_ascii_hexdigit())
-}
-
-#[derive(Debug, Clone, Copy, Serialize, Deserialize, PartialEq, Eq)]
-#[serde(rename_all = "snake_case")]
-pub enum CatalogSource {
-    Xerohost,
-    Modrinth,
-    Curseforge,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Modpack {
-    pub id: String,
-    pub name: String,
-    pub description: String,
-    pub icon: String,
-    pub game_version: String,
-    pub loader: String,
-    pub download_url: String,
-    pub hash: String,
-    pub source: CatalogSource,
-}
-
-#[derive(Debug, Clone, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct OrbiontServer {
-    pub id: String,
-    pub name: String,
-    pub host: String,
-    pub port: u16,
-    pub icon: String,
-    pub tags: Vec<String>,
-    pub featured: bool,
-    pub modpack_id: Option<String>,
-}
-
-const CACHE_TTL: Duration = Duration::from_secs(60);
-
-struct CacheEntry<T> {
-    value: T,
-    etag: Option<String>,
-    fetched_at: Instant,
-}
-
-static MODPACKS_CACHE: LazyLock<RwLock<Option<CacheEntry<Vec<Modpack>>>>> =
-    LazyLock::new(|| RwLock::new(None));
-static SERVERS_CACHE: LazyLock<RwLock<Option<CacheEntry<Vec<OrbiontServer>>>>> =
-    LazyLock::new(|| RwLock::new(None));
-
-async fn fetch_cached<T>(
-    path: &str,
-    cache: &RwLock<Option<CacheEntry<T>>>,
-) -> crate::Result<T>
-where
-    T: for<'de> Deserialize<'de> + Clone,
-{
-    {
-        let guard = cache.read().await;
-        if let Some(entry) = guard.as_ref()
-            && entry.fetched_at.elapsed() < CACHE_TTL
-        {
-            return Ok(entry.value.clone());
-        }
-    }
-
-    let existing_etag = {
-        let guard = cache.read().await;
-        guard.as_ref().and_then(|entry| entry.etag.clone())
-    };
-
-    let url = format!("{}{path}", base_url());
-    let mut request = client_for(&url).get(&url);
-    if let Some(etag) = &existing_etag {
-        request = request.header("If-None-Match", etag);
-    }
-
-    let response = request.send().await?;
-
-    if response.status() == StatusCode::NOT_MODIFIED {
-        let mut guard = cache.write().await;
-        if let Some(entry) = guard.as_mut() {
-            entry.fetched_at = Instant::now();
-            return Ok(entry.value.clone());
-        }
-        // We sent an If-None-Match without a cached value, which shouldn't
-        // happen; fall through and re-fetch unconditionally below.
-    }
-
-    if !response.status().is_success() {
-        return Err(crate::ErrorKind::OtherError(format!(
-            "Orbiont catalog request to {path} failed: {}",
-            response.status()
-        ))
-        .into());
-    }
-
-    let etag = response
-        .headers()
-        .get(reqwest::header::ETAG)
-        .and_then(|value| value.to_str().ok())
-        .map(str::to_owned);
-    let value: T = response.json().await?;
-
-    *cache.write().await = Some(CacheEntry {
-        value: value.clone(),
-        etag,
-        fetched_at: Instant::now(),
-    });
-
-    Ok(value)
-}
-
-/// GET /v1/modpacks, cached in-memory for [`CACHE_TTL`] and revalidated with
-/// the backend's ETag afterwards.
-pub async fn get_modpacks() -> crate::Result<Vec<Modpack>> {
-    fetch_cached("/v1/modpacks", &MODPACKS_CACHE).await
-}
-
-/// GET /v1/servers, cached the same way as [`get_modpacks`].
-pub async fn get_servers() -> crate::Result<Vec<OrbiontServer>> {
-    fetch_cached("/v1/servers", &SERVERS_CACHE).await
-}
-
 /// GET {ORBIONT_CURSEFORGE_API_URL}/{path} — the facade's allowlisted, read-only
 /// pass-through to the CurseForge API. Returns CurseForge's JSON untouched;
-/// the frontend maps it onto the launcher's native data model, so CurseForge
-/// stays a data source only. `path` is relative to the CurseForge API root
-/// (e.g. "mods/search"); the catalog rejects anything off its allowlist.
+/// the frontend maps it onto the launcher's native data model. `path` is
+/// relative to the CurseForge API root (e.g. "mods/search"); the facade
+/// rejects anything off its allowlist.
 pub async fn curseforge_api(
     path: &str,
     query: &[(String, String)],
@@ -212,16 +159,7 @@ pub async fn curseforge_api(
         url.query_pairs_mut().extend_pairs(query);
     }
 
-    let response = client_for(url.as_str()).get(url).send().await?;
-    if !response.status().is_success() {
-        return Err(crate::ErrorKind::OtherError(format!(
-            "CurseForge request to {path} failed: {}",
-            response.status()
-        ))
-        .into());
-    }
-
-    Ok(response.json().await?)
+    send_curseforge(client_for(url.as_str()).get(url), path).await
 }
 
 /// POST {ORBIONT_CURSEFORGE_API_URL}/{path} — the facade's batch lookups
@@ -239,184 +177,96 @@ pub async fn curseforge_api_post(
     }
 
     let url = format!("{}/{path}", curseforge_api_url());
-    let response = client_for(&url).post(url).json(body).send().await?;
-    if !response.status().is_success() {
-        return Err(crate::ErrorKind::OtherError(format!(
-            "CurseForge batch request to {path} failed: {}",
-            response.status()
-        ))
-        .into());
-    }
-
-    Ok(response.json().await?)
+    send_curseforge(client_for(&url).post(url).json(body), path).await
 }
 
-/// Downloads a catalog modpack's .mrpack to a stable cache path (named by
-/// modpack id, so repeat installs don't re-download it). The modpack is looked
-/// up in the catalog by id — the UI can't hand over its own URL or hash — and
-/// it must have a SHA-1 and an https download URL; the file is verified
-/// against that hash. Returns the local path for `CreatePackLocation::FromFile`.
-pub async fn download_modpack_file(
-    modpack_id: &str,
-) -> crate::Result<std::path::PathBuf> {
-    let modpack = get_modpacks()
-        .await?
-        .into_iter()
-        .find(|modpack| modpack.id == modpack_id)
-        .ok_or_else(|| {
-            crate::ErrorKind::InputError(format!(
-                "Modpack {modpack_id} isn't in the catalog"
-            ))
-        })?;
-
-    let sha1 = modpack
-        .hash
-        .strip_prefix("sha1:")
-        .filter(|hash| is_sha1_hex(hash))
-        .ok_or_else(|| {
-            crate::ErrorKind::InputError(format!(
-                "Modpack {} has no valid SHA-1 in the catalog",
-                modpack.name
-            ))
-        })?;
-    if !modpack.download_url.starts_with("https://")
-        && !is_local_dev_url(&modpack.download_url)
-    {
-        return Err(crate::ErrorKind::InputError(format!(
-            "Modpack {} must be downloaded over https",
-            modpack.name
-        ))
-        .into());
-    }
-
-    let state = crate::State::get().await?;
-    let dir = state.directories.caches_dir().join("orbiont-modpacks");
-    crate::util::io::create_dir_all(&dir).await?;
-    let path = dir.join(format!("{}.mrpack", sanitize_filename(&modpack.id)));
-
-    let bytes = fetch::fetch_advanced(
-        Method::GET,
-        &modpack.download_url,
-        Some(sha1),
-        None,
-        None,
-        None,
-        None,
-        Some("orbiont_modpack"),
-        &state.fetch_semaphore,
-        &state.pool,
-    )
-    .await?;
-
-    crate::util::io::write(&path, &bytes).await?;
-
-    Ok(path)
-}
-
-fn sanitize_filename(id: &str) -> String {
-    let name: String = id
-        .chars()
-        .map(|c| {
-            if c.is_ascii_alphanumeric() || matches!(c, '-' | '_' | '.' | '+') {
-                c
-            } else {
-                '_'
-            }
-        })
-        .collect();
-    // No hidden files or "..": the name always stays inside its cache folder.
-    name.trim_start_matches('.').to_string()
-}
-
-#[derive(Deserialize)]
-struct CurseforgeFileResponse {
-    data: CurseforgeFile,
-}
-
-#[derive(Deserialize)]
-struct CurseforgeFile {
-    #[serde(rename = "modId")]
-    mod_id: u32,
-    #[serde(rename = "fileName")]
-    file_name: String,
-    #[serde(rename = "downloadUrl")]
-    download_url: Option<String>,
-    #[serde(default)]
-    hashes: Vec<CurseforgeFileHash>,
-}
-
-#[derive(Deserialize)]
-struct CurseforgeFileHash {
-    value: String,
-    algo: u8,
-}
-
-/// Downloads a CurseForge file to a cache path. The file is resolved through
-/// the facade by id (the UI can't pass a URL), must come from CurseForge's CDN
-/// over https, and is verified against CurseForge's SHA-1.
+/// Downloads a verified file through the facade. API keys stay on the VPS.
 pub async fn download_curseforge_file(
     mod_id: u32,
     file_id: u32,
 ) -> crate::Result<std::path::PathBuf> {
-    let response =
-        curseforge_api(&format!("mods/{mod_id}/files/{file_id}"), &[]).await?;
-    let file = serde_json::from_value::<CurseforgeFileResponse>(response)?.data;
-    if file.mod_id != mod_id {
-        return Err(crate::ErrorKind::InputError(format!(
-            "CurseForge file {file_id} doesn't belong to project {mod_id}"
-        ))
-        .into());
+    downloads::download_file(mod_id, file_id).await
+}
+
+#[cfg(test)]
+mod rate_limit_tests {
+    use super::*;
+
+    #[test]
+    fn accepts_seconds_and_http_dates_without_shortening_cooldown() {
+        let now = chrono::DateTime::parse_from_rfc2822(
+            "Thu, 01 Oct 2026 12:00:00 GMT",
+        )
+        .unwrap()
+        .with_timezone(&chrono::Utc);
+        assert_eq!(retry_after_delay(Some("17"), now), Duration::from_secs(17));
+        assert_eq!(
+            retry_after_delay(Some("Thu, 01 Oct 2026 12:01:30 GMT"), now),
+            Duration::from_secs(90)
+        );
+        assert_eq!(
+            retry_after_delay(Some("3600"), now),
+            Duration::from_secs(3600)
+        );
+        assert_eq!(retry_after_delay(Some("0"), now), Duration::from_secs(1));
+        assert_eq!(
+            retry_after_delay(Some("invalid"), now),
+            Duration::from_secs(60)
+        );
+        assert_eq!(retry_after_delay(None, now), Duration::from_secs(60));
     }
 
-    let url = file.download_url.ok_or_else(|| {
-        crate::ErrorKind::InputError(format!(
-            "{} can only be downloaded from CurseForge's website",
-            file.file_name
-        ))
-    })?;
-    if !is_curseforge_cdn_url(&url) {
-        return Err(crate::ErrorKind::InputError(format!(
-            "Refusing to download {} from an unexpected host",
-            file.file_name
-        ))
-        .into());
+    #[tokio::test]
+    async fn requests_share_cooldown_and_retry_only_once() {
+        use tokio::io::{AsyncReadExt, AsyncWriteExt};
+        let listener =
+            tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let url = format!("http://{}", listener.local_addr().unwrap());
+        let server = tokio::spawn(async move {
+            let mut received = Vec::new();
+            for status in [429, 200, 200, 429, 429] {
+                let (mut socket, _) = listener.accept().await.unwrap();
+                let mut bytes = [0; 2048];
+                let mut headers = Vec::new();
+                while !headers.windows(4).any(|value| value == b"\r\n\r\n") {
+                    let amount = socket.read(&mut bytes).await.unwrap();
+                    assert!(amount > 0, "request closed before HTTP headers");
+                    headers.extend_from_slice(&bytes[..amount]);
+                    assert!(headers.len() <= 16 * 1024);
+                }
+                received.push(Instant::now());
+                socket.write_all(format!("HTTP/1.1 {status} Response\r\nRetry-After: 1\r\nContent-Length: 2\r\nConnection: close\r\n\r\n{{}}").as_bytes()).await.unwrap();
+            }
+            received
+        });
+        let first = send_curseforge(client_for(&url).get(&url), "test");
+        let second = send_curseforge(
+            client_for(&url).post(&url).json(&serde_json::json!({})),
+            "test",
+        );
+        let (first, second) = tokio::join!(first, second);
+        assert!(first.is_ok() && second.is_ok());
+        let error = send_curseforge(client_for(&url).get(&url), "test")
+            .await
+            .unwrap_err();
+        assert!(error.to_string().contains("429"));
+        let times = server.await.unwrap();
+        for pair in times.windows(2) {
+            assert!(
+                pair[1].duration_since(pair[0]) >= Duration::from_millis(1200)
+            );
+        }
+        *NEXT_REQUEST.lock().await =
+            Some(Instant::now() + Duration::from_secs(3600));
+        // A new action during a long cooldown returns promptly without sending HTTP.
+        let blocked = tokio::time::timeout(
+            Duration::from_millis(100),
+            send_curseforge(client_for(&url).get(&url), "test"),
+        )
+        .await
+        .unwrap()
+        .unwrap_err();
+        assert!(blocked.to_string().contains("429"));
+        *NEXT_REQUEST.lock().await = None;
     }
-    let sha1 = file
-        .hashes
-        .iter()
-        .find(|hash| hash.algo == 1 && is_sha1_hex(&hash.value))
-        .map(|hash| hash.value.to_ascii_lowercase())
-        .ok_or_else(|| {
-            crate::ErrorKind::InputError(format!(
-                "CurseForge gave no SHA-1 for {}",
-                file.file_name
-            ))
-        })?;
-
-    let state = crate::State::get().await?;
-    let dir = state
-        .directories
-        .caches_dir()
-        .join("orbiont-curseforge-files")
-        .join(file_id.to_string());
-    crate::util::io::create_dir_all(&dir).await?;
-    let path = dir.join(sanitize_filename(&file.file_name));
-
-    let bytes = fetch::fetch_advanced(
-        Method::GET,
-        &url,
-        Some(&sha1),
-        None,
-        None,
-        None,
-        None,
-        Some("orbiont_curseforge_file"),
-        &state.fetch_semaphore,
-        &state.pool,
-    )
-    .await?;
-
-    crate::util::io::write(&path, &bytes).await?;
-
-    Ok(path)
 }

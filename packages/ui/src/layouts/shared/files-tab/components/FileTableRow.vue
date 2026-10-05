@@ -201,7 +201,7 @@ const menuOptions = computed<ButtonMenuOption[]>(() => {
 	const item = { name: props.name, type: props.type, path: props.path }
 	const wd = props.writeDisabled
 	const wdTooltip = props.writeDisabledTooltip
-	return [
+	const options: ButtonMenuOption[] = [
 		{
 			id: 'copy-filename',
 			label: formatMessage(commonMessages.copyFilenameButton),
@@ -284,6 +284,13 @@ const menuOptions = computed<ButtonMenuOption[]>(() => {
 			tone: 'red',
 		},
 	]
+	return ctx.browseOnly
+		? options.filter(
+				(option) =>
+					'id' in option &&
+					['copy-filename', 'copy-full-path', 'open-in-folder'].includes(option.id ?? ''),
+			)
+		: options
 })
 
 const iconComponent = computed(() => {
@@ -301,24 +308,27 @@ const iconComponent = computed(() => {
 })
 
 const formattedModifiedDate = computed(() => {
+	if (!props.modified) return '—'
 	const date = new Date(props.modified * 1000)
 	return formatDateTime(date)
 })
 
 const formattedCreationDate = computed(() => {
+	if (!props.created) return '—'
 	const date = new Date(props.created * 1000)
 	return formatDateTime(date)
 })
 
 const isEditableFile = computed(() => {
-	if (props.type === 'file') {
-		return canOpenInFileEditor(props.name)
+	if (props.type === 'file' && (!ctx.browseOnly || ctx.allowEditing)) {
+		return ctx.canEditFile?.(props.name) ?? canOpenInFileEditor(props.name)
 	}
 	return false
 })
 
 const formattedSize = computed(() => {
 	if (props.type === 'directory') {
+		if (props.count == null) return '—'
 		return formatMessage(messages.itemCount, { count: props.count ?? 0 })
 	}
 
@@ -354,7 +364,7 @@ function selectItem() {
 }
 
 function handlePointerDown(e: PointerEvent) {
-	if (e.button !== 0) return
+	if (e.button !== 0 || props.writeDisabled || ctx.browseOnly) return
 	startFileDrag(
 		{ name: props.name, type: props.type, path: props.path },
 		e,

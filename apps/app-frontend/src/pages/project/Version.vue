@@ -38,24 +38,30 @@
 				</Button>
 				<TeleportOverflowMenu
 					type="outlined"
-					label="More options"
+					:label="formatMessage(commonMessages.moreOptionsButton)"
 					:tooltip="formatMessage(commonMessages.moreOptionsButton)"
 					:options="[
 						{
 							id: 'open-in-browser',
 							label: formatMessage(commonMessages.openInBrowserButton),
 							type: 'link',
-							href: `${config.siteUrl}/${project.project_type}/${project.slug}/version/${version.id}`,
+							href: isCurseforgeId(project.id)
+								? `${(project as any).page_url}/files/${version.id.split('-')[2]}`
+								: `${config.siteUrl}/${project.project_type}/${project.slug}/version/${version.id}`,
 							target: '_blank',
 						},
-						{
-							id: 'report',
-							label: formatMessage(commonMessages.reportButton),
-							type: 'link',
-							tone: 'red',
-							href: `${config.siteUrl}/report?item=version&itemID=${version.id}`,
-							target: '_blank',
-						},
+						...(!isCurseforgeId(project.id)
+							? [
+									{
+										id: 'report',
+										label: formatMessage(commonMessages.reportButton),
+										type: 'link',
+										tone: 'red',
+										href: `${config.siteUrl}/report?item=version&itemID=${version.id}`,
+										target: '_blank',
+									},
+								]
+							: []),
 					]"
 				>
 					<MoreVerticalIcon aria-hidden="true" />
@@ -103,6 +109,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { SwapIcon } from '@/assets/icons'
 import { config } from '@/config'
 import { get_project_many, get_version_many } from '@/helpers/cache.js'
+import { isCurseforgeId } from '@/helpers/curseforge'
 import { useBreadcrumb } from '@/providers/breadcrumbs'
 
 const { formatMessage } = useVIntl()

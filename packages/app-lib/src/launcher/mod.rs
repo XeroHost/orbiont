@@ -668,6 +668,16 @@ async fn install_minecraft_inner(
         }
     }
 
+    if let Some(reporter) = &reporter
+        && crate::optifine::read_reference(&crate::instance::get_full_path(&instance.id).await?).await?.is_some() {
+            reporter.update(InstallPhaseId::RunningLoaderProcessors, None,
+                InstallPhaseDetails::Instance { name: "OptiFine".into() }).await?;
+    }
+    crate::optifine::ensure_installed(
+        &crate::instance::get_full_path(&instance.id).await?,
+        &content_set.game_version, content_set.loader, &client_path,
+        Path::new(&java_version.path), repairing,
+    ).await?;
     let protocol_version = read_protocol_version_from_jar(client_path).await?;
 
     crate::state::instances::commands::set_applied_content_set_protocol_version(
@@ -928,7 +938,6 @@ pub async fn launch_minecraft(
         .version_dir(&version_jar)
         .join(format!("{version_jar}.jar"));
 
-    let args = version_info.arguments.clone().unwrap_or_default();
     let mut command = match wrapper {
         Some(hook) => {
             let mut cmd = shlex::split(hook)
@@ -981,6 +990,20 @@ pub async fn launch_minecraft(
         runtime_lease = state.content_store.runtime_cache_lock.read().await;
     }
     let _runtime_lease = runtime_lease;
+
+    if let Some(reference) = crate::optifine::ensure_installed(
+        &instance_path,
+        &content_set.game_version,
+        content_set.loader,
+        &client_path,
+        Path::new(&java_version.path),
+        false,
+    )
+    .await?
+    {
+        crate::optifine::apply_launch_patch(&mut version_info, &reference);
+    }
+    let args = version_info.arguments.clone().unwrap_or_default();
 
     let natives_dir = state.directories.version_natives_dir(&version_jar);
     if !natives_dir.exists() {

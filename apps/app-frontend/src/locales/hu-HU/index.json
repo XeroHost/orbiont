@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Ismeretlen példány"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Megosztott tartalom frissítése"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Beállítás elsődleges példányként"
   },
@@ -149,6 +146,21 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "Névcímke eltüntetése"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Ikonok animálása rámutatáskor és billentyűzetes fókusznál."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Animációk kikapcsolása"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Mindig animáljon"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Rendszer követése"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Ikonanimációk"
+  },
   "app.appearance-settings.minimize-launcher.description": {
     "message": "A {productName} bezáródik a Minecraft indításakor"
   },
@@ -173,17 +185,533 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "Jobb oldalsáv elrejtése"
   },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Biztonsági figyelmeztetést jelenít meg, mielőtt olyan Modrinth Csomagfájlt (.mrpack) telepítenél, amely nem a Modrinthról származik."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Mutass biztonsági figyelmeztetést importált modcsomag (.mrpack vagy CurseForge .zip) telepítése előtt, ha a forrása nem ellenőrizhető."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Figyelmeztetés ismeretlen modcsomagok telepítése előtt"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Segítség kérése"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Hibakeresési adatok másolása"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Hibakeresési információk"
+  },
+  "app.auth-error.header": {
+    "message": "Sikertelen bejelentkezés"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Így javíthatod ki"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Végezd el a személyazonosság-ellenőrzési folyamatot"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Ez a fiók a dél-koreai szabályozás szerinti felnőttkor-ellenőrzést igényel."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Minecraft bejelentkezés"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Ellenőrizd, hogy működik-e az internetkapcsolatod"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Engedélyezd a(z) {product} alkalmazást a tűzfaladban, vírusirtódban, a proxyn, a VPN-en és a hosts-fájl szabályaiban"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Próbálj másik hálózatot, vagy ideiglenesen kapcsold ki a VPN-/proxyszoftvert, ha használod"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Indítsd újra a(z) {product} alkalmazást, és próbálj meg újra bejelentkezni"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Ha útvonalválasztási vagy DNS-probléma áll fenn, néha segíthet egy Cloudflare WARP-hoz hasonló szolgáltatás"
+  },
+  "app.auth-error.network.what": {
+    "message": "A(z) {product} nem tudott kapcsolódni a bejelentkezéshez szükséges Microsoft-, Xbox- vagy Minecraft-szolgáltatáshoz. Ezt általában helyi hálózati, DNS-, proxy-, tűzfal-, hosts-fájl-, VPN- vagy vírusirtó-probléma okozza."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Nincs hibaüzenet."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Azt, hogy melyik fiók birtokolja, itt ellenőrizheted: <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Győződj meg róla, hogy azzal a Microsoft-fiókkal jelentkezel be, amelyik megvásárolta a Minecraftot (vagy aktív, PC-hozzáféréssel rendelkező Game Pass előfizetése van)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Ez a Microsoft-fiók nem rendelkezik Minecraft: Java Edition játékkal, a(z) {product} pedig csak prémium fiókokkal működik."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Indítsd el egyszer a Minecraft: Java Edition játékot a hivatalos indítóból"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Győződj meg róla, hogy azt a Microsoft-fiókot használod, amelyik birtokolja a Minecraftot. Azt, hogy melyik fiók birtokolja, itt ellenőrizheted: <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Várj akár egy órát, ha a vásárlás vagy a profil beállítása nemrég történt"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "A Minecraft szolgáltatásai nem tudtak Java Edition profilt visszaadni ehhez a fiókhoz. Ez leggyakrabban akkor fordul elő, ha a játékot nemrég vásárolták, a Java-profil még nem készült el, vagy a rossz Microsoft-fiókot használod."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Győződj meg róla, hogy ezen a fiókon meg van vásárolva a Minecraft"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Fejezd be az Xbox-profil beállítását, ha arra kér"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Ehhez a fiókhoz nincs Xbox-profil beállítva, vagy nem rendelkezik Minecrafttal."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Várás után indítsd újra a(z) {product} alkalmazást"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Próbálj meg még egyszer bejelentkezni"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Várj körülbelül egy órát, mielőtt újra próbálkozol"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Ha ugyanez az üzenet jelenik meg, várj tovább az újrapróbálkozás előtt, hogy az ideiglenes korlátozás megszűnhessen"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "A Microsoft vagy a Minecraft ideiglenesen blokkolta a bejelentkezési kérést, mert túl sok kísérlet történt rövid időn belül."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Nézd meg az <a href=\"https://www.xbox.com/en-US/regions\">Xbox elérhetőségét</a> a támogatott régiókhoz"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Az Xbox-szolgáltatásoknak támogatottaknak kell lenniük az országodban, mielőtt bejelentkezhetsz"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Az Xbox Live nem érhető el a régiódban, ezért a bejelentkezés blokkolva van."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Kérd meg a gyámot, hogy jelentkezzen be a <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a> oldalra"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Frissítsd az online játékra vonatkozó engedélyeket"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Ez a fiók korlátozott, és nincs engedélye az online játékra."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Ha a szolgáltatás rendben működik, és a hiba továbbra is fennáll, vedd fel a kapcsolatot a támogatással az alábbi hibakeresési adatokkal"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Próbálj meg bejelentkezni a <a href=\"https://www.minecraft.net/en-us/download\">hivatalos Minecraft indítóval</a>, hogy megbizonyosodj róla, ott is fennáll-e a probléma"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Nézd meg az <a href=\"https://support.xbox.com/xbox-live-status\">Xbox állapotát</a> az aktuális szolgáltatáshibákért"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Várj néhány percet, majd próbálj meg újra bejelentkezni"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "A Minecraft hitelesítési szolgáltatása szerverhibát ad vissza, ezért a(z) {product} most nem tudja befejezni a bejelentkezést."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Jelentkezz be újra"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Ha végeztél, próbálj meg újra bejelentkezni"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Jelentkezz be a <a href=\"https://www.minecraft.net/en-us/download\">hivatalos Minecraft indítóval</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Próbálj meg újra bejelentkezni a(z) {product} alkalmazásba"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Nyisd meg a <a href=\"https://www.minecraft.net/en-us/login\">Minecraft bejelentkezést</a>, és jelentkezz be"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Nyisd meg az <a href=\"https://www.xbox.com\">Xbox</a> oldalt, és jelentkezz be"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Nyújts be fellebbezést, ha elérhető"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Nyisd meg az <a href=\"https://support.xbox.com\">Xbox támogatást</a>, és nézd át az intézkedés részleteit"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Ezt a fiókot az Xbox közösségi irányelveinek megsértése miatt felfüggesztették."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Az új bejelentkezés befejezése után próbáld meg újra elindítani a Minecraftot"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Jelentkezz be újra a fiókba"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Jelentkezz ki az érintett Minecraft-fiókból a(z) {product} alkalmazásban"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "A mentett Microsoft bejelentkezési token lejárt, vagy visszavonták, ezért a(z) {product} nem tudja frissíteni a Minecraft-munkamenetedet."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Fogadd el a feltételeket, ha arra kér"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Ez a fiók még nem fogadta el az Xbox használati feltételeit."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Próbáld megnyitni"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "További segítségért lásd: <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">UK age verification on Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Menj a <a href=\"https://www.minecraft.net/en-us/login\">Minecraft bejelentkezés</a> oldalra, és jelentkezz be"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Az ellenőrzés után próbálj meg újra bejelentkezni"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Kövesd az utasításokat az életkorod ellenőrzéséhez"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "A Minecraft-/Xbox Live-fiókod az Egyesült Királyság szabályozása szerinti életkor-ellenőrzést igényel. Ezt a bejelentkezés előtt el kell végezned."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Olvasd át a <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">családbeállítási útmutatót</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Csatlakozz egy családi csoporthoz, vagy hozz létre egyet a leírtak szerint"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Ez a fiók kiskorú, és nincs Microsoft családi csoporthoz kapcsolva."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Ismeretlen hiba"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Nem ismerjük fel ezt a hibát, ezért nem tudunk konkrét megoldási lépéseket javasolni."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "és a bejelentkezésnél, mivel ott megjelenhetnek a szükséges lépések. A támogatáshoz is fordulhatsz, és tovább vizsgáljuk az esetet."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Nem sikerült bejelentkeztetni a Microsoft-fiókodba. Ezt fiók- vagy regionális korlátozások okozhatják."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Szerintünk ez történt"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Fogadj el minden megjelenő feltételt, vagy fejezd be a profil beállítását"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Jelentkezz be egyszer ugyanazzal a Microsoft-fiókkal az <a href=\"https://www.xbox.com\">Xbox.com</a> oldalon"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Az Xbox Live nem fogadta el a Microsoft-bejelentkezést. Ez általában azt jelenti, hogy a Microsoft-fiók még soha nem jelentkezett be az Xboxra, vagy el kell fogadnia a frissített feltételeket."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Ha a hivatalos indító is hibázik, kövesd az ott látható hibát, vagy fordulj az Xbox támogatáshoz"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Teljesítsd a Microsoft, az Xbox vagy a Minecraft által megjelenített kéréseket"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Az Xbox szolgáltatásai elutasították a fiók Minecraft-szolgáltatásokra való engedélyezési kérését, de nem adtak vissza olyan konkrét fiókkorlátozást, amelyet a(z) {product} felismer."
   },
   "app.auth-servers.unreachable.body": {
     "message": "A Minecraft hitelesítő szerverek lehet, hogy nem üzemelnek. Bizonyosodj meg róla, hogy van internetkapcsolatod és próbáld meg újra."
   },
   "app.auth-servers.unreachable.header": {
     "message": "Nem lehet elérni a hitelesítési kiszolgálókat"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft és Microsoft Store ellenőrizze a Bedrock licencét. Jelentkezzen be azzal a fiókkal, amelyiknek a Minecraft; Java-fiókja ebben az indítóban eltérő lehet."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Helyi viselkedési csomagok és szkriptek. Konfigurálja őket a Minecraft világbeállításaiban."
+  },
+  "app.bedrock.addons": {
+    "message": "Kiegészítők"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Viselkedéscsomag"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Kiegészítők"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Böngésszen a CurseForge kiegészítői, erőforrás-csomagjai, világai és szkriptjei között."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Fedezze fel a Bedrock tartalmat"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Fedezze fel a kiegészítőket"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Fedezze fel a szkripteket"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Zárja be a Minecraft elemet, mielőtt csomagokat adna egy világhoz, majd próbálkozzon újra."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Telepítse a Minecraft Bedrock-be"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "A Minecraft megnyílik a tartalom importálásához. Ellenőrizze az eredményt a játékban, majd aktiválja a csomagokat a világ beállításaiban. A szükséges csomagok és kísérleti beállítások a projekt leírásában találhatók."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Ez az archívum nem tartalmaz támogatott Bedrock tartalmat."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Nem sikerült betölteni a projekt verzióit vagy világait. Próbáld újra."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Ehhez a csomaghoz egy másik csomagra van szükség, amely nem aktív ezen a világon. Először telepítse a szerző által felsorolt ​​függőségeket."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Ehhez a projekthez nem állnak rendelkezésre támogatott .mcaddon, .mcpack, .mcworld vagy ZIP fájlok."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Először hozzon létre egy világot a Minecraft-ben, majd frissítse ezt a listát."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Szkriptek"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Tartalmi verzió"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Úticél világ"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "A telepítés előtt zárja be a Minecraft-t. Ezek a csomagok csak a kiválasztott világban kerülnek hozzáadásra és aktiválásra. Ellenőrizze a szükséges függőségeket és a kísérleti beállításokat a projekt leírásában."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Csomagok hozzáadva a {world}-hez. Nyissa meg a Minecraft-t, hogy játsszon ebben a világban."
+  },
+  "app.bedrock.checking": {
+    "message": "A Minecraft for Windows-t keresem…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Fájlok szerkesztéséhez, tartalom törléséhez vagy másolat visszaállításához zárja be a Minecraft-t."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Ez a tartalom megváltozott, vagy az eredeti hely foglalt. A helyreállítási másolatot megtartottuk, hogy elkerüljük a módosítások felülírását."
+  },
+  "app.bedrock.content": {
+    "message": "Tartalom"
+  },
+  "app.bedrock.content-help": {
+    "message": "Helyi erőforrás- és bőrcsomagok. Aktiválja őket a Minecraft-ben; egyes tartalmak az egyes világokhoz tartoznak."
+  },
+  "app.bedrock.data-error": {
+    "message": "Nem sikerült beolvasni a Minecraft adatokat. Frissítse az újbóli próbálkozáshoz."
+  },
+  "app.bedrock.data-location": {
+    "message": "Minecraft adathely"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Ezeket az elemeket eltávolítjuk a Minecraft mappából. A helyreállítási másolat megmarad, beleértve az érintett világcsomag beállításait is. A törölt csomagtól függő világok elveszíthetik blokkjait vagy viselkedését; állítsa vissza, mielőtt megnyitná azokat a világokat."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Törölje a helyi tartalmat"
+  },
+  "app.bedrock.description": {
+    "message": "Játsszon a Minecraft for Windows játékkal, és importálja világait és kiegészítőit."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Nem sikerült ellenőrizni a Minecraft telepítést. Próbáld újra."
+  },
+  "app.bedrock.development": {
+    "message": "Fejlesztés"
+  },
+  "app.bedrock.edition": {
+    "message": "Minecraft kiadás"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Ez a mappa üres."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock világok és kiegészítők"
+  },
+  "app.bedrock.file-size": {
+    "message": "Méret"
+  },
+  "app.bedrock.files": {
+    "message": "Fájlok"
+  },
+  "app.bedrock.folder": {
+    "message": "Mappa"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Ez a Minecraft mappa nem nyitható meg. Frissítse az adatokat, és próbálja újra."
+  },
+  "app.bedrock.import-button": {
+    "message": "Fájl importálása"
+  },
+  "app.bedrock.import-description": {
+    "message": "Válasszon egy .mcworld, .mcpack vagy .mcaddon fájlt. A Minecraft megnyitja és kezeli az importálást."
+  },
+  "app.bedrock.import-error": {
+    "message": "Nem sikerült elküldeni a fájlt a Minecraft számára. Ellenőrizze, hogy a Minecraft for Windows telepítve van-e, és próbálja újra."
+  },
+  "app.bedrock.import-title": {
+    "message": "Világok és kiegészítők"
+  },
+  "app.bedrock.installation": {
+    "message": "Hivatalos telepítés"
+  },
+  "app.bedrock.installed": {
+    "message": "A Minecraft for Windows telepítve van"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Válasszon egy érvényes helyi .mcworld, .mcpack vagy .mcaddon archívumot."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Ez a fájl meghaladja a 8 GiB importálási korlátot."
+  },
+  "app.bedrock.launch-error": {
+    "message": "A Minecraft nem nyitható meg. Nyissa meg a hivatalos indítót vagy a Microsoft Store programot a telepítés ellenőrzéséhez."
+  },
+  "app.bedrock.launcher": {
+    "message": "Nyissa meg a hivatalos indítót"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Hivatalos indítóeszköz észlelve. A folytatáshoz telepítse oda a Minecraft for Windows-t."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Minecraft adatok beolvasása…"
+  },
+  "app.bedrock.location": {
+    "message": "Helyszín"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "A napló utolsó 1 MiB-je látható."
+  },
+  "app.bedrock.logs": {
+    "message": "Naplók"
+  },
+  "app.bedrock.missing": {
+    "message": "A kezdéshez telepítse a Minecraft for Windows-t"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Ez a tartalom nem módosítható. Zárja be a Minecraft elemet, és frissítse. A helyreállítási másolatot megőriztük."
+  },
+  "app.bedrock.name": {
+    "message": "Név"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Nem található helyi bővítmény. A kezdéshez importáljon egy .mcpack vagy .mcaddon fájlt."
+  },
+  "app.bedrock.no-content": {
+    "message": "Nem található helyi tartalom."
+  },
+  "app.bedrock.no-data": {
+    "message": "Nyissa meg egyszer a Minecraft fájlt az adatmappák létrehozásához, majd frissítse itt."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Nem található tartalomnapló. Engedélyezze a tartalomnaplózást a Minecraft Beállítások > Alkotó menüpontban, majd nyissa meg a világát."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Még nincsenek helyreállítási másolatok."
+  },
+  "app.bedrock.no-results": {
+    "message": "Nincsenek megfelelő elemek."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Nem található helyi világ. Hozzon létre egyet a Minecraft fájlban, vagy importáljon egy .mcworld fájlt."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Mappa megnyitása"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Szülőmappa"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Egyes mappák nem olvashatók, vagy elérték a megjelenítési korlátot. A File Explorerben megtekintheti őket."
+  },
+  "app.bedrock.play": {
+    "message": "Játék indítása"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Az eredeti fájlokat és a törölt tartalmakat itt tároljuk. Állítsa vissza a másolatot, amíg a Minecraft be van zárva. A meglévő tartalom és a későbbi szerkesztések soha nem íródnak felül."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Helyreállítási másolatok"
+  },
+  "app.bedrock.refresh": {
+    "message": "Ellenőrizze újra"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Újratöltés"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Mentés előtt töltse be újra ezt a fájlt."
+  },
+  "app.bedrock.repair": {
+    "message": "Javítsa meg vagy frissítse a telepítést a Microsoft Store vagy a hivatalos indító segítségével."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Forráscsomag"
+  },
+  "app.bedrock.restore": {
+    "message": "Visszaállítás"
+  },
+  "app.bedrock.running": {
+    "message": "Fut"
+  },
+  "app.bedrock.save-error": {
+    "message": "Nem sikerült menteni. Lehet, hogy a fájl megváltozott, érvénytelen JSON fájlt tartalmazhat, vagy használatban van. Töltse be újra, és próbálja újra."
+  },
+  "app.bedrock.search": {
+    "message": "Helyi tartalom keresése…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Válasszon ki egy naplót az olvasáshoz."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Skincsomag"
+  },
+  "app.bedrock.store": {
+    "message": "Telepítés vagy frissítés"
+  },
+  "app.bedrock.store-error": {
+    "message": "Nem sikerült megnyitni a Microsoft Store fájlt. Nyissa meg a Windows Start menüből."
+  },
+  "app.bedrock.submitted": {
+    "message": "A fájl elküldve a Minecraft címre. Ellenőrizze az importálás eredményét a játékban."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "A Bedrock integrációhoz Windows szükséges. Továbbra is játszhat a Java Edition játékkal ezen az eszközön."
+  },
+  "app.bedrock.update": {
+    "message": "Frissítse a Minecraft-t"
+  },
+  "app.bedrock.update-help": {
+    "message": "A Microsoft Store-ben ellenőrizze a frissítéseket, és válassza a Minecraft for Windows lehetőséget. A telepített verzió frissül, amikor visszatér."
+  },
+  "app.bedrock.version": {
+    "message": "Windows telepítés {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Verzió"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Világ: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Világok"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "Megerősítések"
@@ -194,32 +722,8 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "Indítás és navigáció"
   },
-  "app.behavior-settings.sync-across-devices.description": {
-    "message": "Ezeket a működési beállításokat minden olyan eszközön alkalmazza, amelyen be vagy jelentkezve. Kapcsold ki ezt a beállítást, ha ezen az eszközön külön beállításokat szeretnél használni."
-  },
-  "app.behavior-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Jelentkezz be egy Modrinth-fiókba a beállítások szinkronizálásához."
-  },
-  "app.behavior-settings.sync-across-devices.title": {
-    "message": "Beállítások szinkronizálása az eszközök között"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "Szerver hozzáadása az példányhoz"
-  },
   "app.browse.add-to-an-instance": {
     "message": "Hozzáadás egy példányhoz"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Hozzáadás a példányhoz"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Hozzáadás ehhez: {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Hozzáadva"
-  },
-  "app.browse.already-added": {
-    "message": "Már hozzá van adva"
   },
   "app.browse.back-to-instance": {
     "message": "Vissza a példányhoz"
@@ -227,14 +731,11 @@
   "app.browse.discover-project-type": {
     "message": "{projectType} keresése"
   },
-  "app.browse.discover-servers": {
-    "message": "Szerverek böngészése"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "A már hozzáadott szerverek elrejtése"
-  },
   "app.browse.hide-installed-modpacks": {
     "message": "Már telepített tartalom elrejtése"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Megnyitás a CurseForge-ban"
   },
   "app.browse.project-actions.label": {
     "message": "Projektműveletek"
@@ -251,17 +752,8 @@
   "app.browse.project-type.resource-packs": {
     "message": "Forráscsomagok"
   },
-  "app.browse.project-type.servers": {
-    "message": "Szerverek"
-  },
   "app.browse.project-type.shaders": {
     "message": "Shaderek"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "Ha saját tartalmat adsz hozzá, előfordulhat, hogy nem tudsz csatlakozni ehhez a szerverhez. Minden általad hozzáadott tartalom törlődik, amikor a szerver által kezelt tartalom frissül."
-  },
-  "app.browse.server.installing": {
-    "message": "Letöltés..."
   },
   "app.content-install.no-compatible-versions": {
     "message": "Nincs olyan elérhető verzió, amely kompatibilis a(z) {compatibilityLabel} értékkel. Válassz ki egy verziót a telepítés mindenképp történő folytatásához. A függőségek nem lesznek automatikusan telepítve."
@@ -281,8 +773,215 @@
   "app.content.sync-resource-packs-disabled": {
     "message": "Először kapcsold be az erőforráscsomagok szinkronizálását az alkalmazás beállításaiban."
   },
+  "app.curseforge.rate-limit.text": {
+    "message": "A megosztott kérelemkorlát betelt. Várj egy kicsit, majd próbáld újra."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "A CurseForge ideiglenesen túlterhelt"
+  },
+  "app.download-manager.active": {
+    "message": "Aktív"
+  },
+  "app.download-manager.attention": {
+    "message": "Figyelmet igényel"
+  },
+  "app.download-manager.cancel": {
+    "message": "Telepítés megszakítása"
+  },
+  "app.download-manager.canceling": {
+    "message": "Telepítés megszakítása..."
+  },
+  "app.download-manager.clear-all": {
+    "message": "Összes törlése"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Minden befejezett feladat törlése"
+  },
+  "app.download-manager.complete": {
+    "message": "Befejezés"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Példány megkettőzése"
+  },
+  "app.download-manager.empty": {
+    "message": "Nincsenek telepítési feladatok"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Becsült letöltési sebesség"
+  },
+  "app.download-manager.eta": {
+    "message": "A letöltés becsült hátralévő ideje"
+  },
+  "app.download-manager.hide": {
+    "message": "Telepítési feladatok elrejtése"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Importált példány"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Példány telepítése"
+  },
+  "app.download-manager.modpack": {
+    "message": "Modcsomag"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Modcsomag telepítése"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Új példány"
+  },
+  "app.download-manager.pause": {
+    "message": "Telepítés szüneteltetése"
+  },
+  "app.download-manager.paused": {
+    "message": "Szüneteltetve"
+  },
+  "app.download-manager.remove": {
+    "message": "Eltávolítás az előzményekből"
+  },
+  "app.download-manager.resume": {
+    "message": "Telepítés folytatása"
+  },
+  "app.download-manager.show": {
+    "message": "Telepítési feladatok megjelenítése"
+  },
+  "app.download-manager.tasks": {
+    "message": "Feladatok"
+  },
+  "app.download-manager.title": {
+    "message": "Letöltéskezelő"
+  },
+  "app.download-manager.verifying": {
+    "message": "Ellenőrzés"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Könyvtárváltás megszakítása"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Hibakeresési adatok másolása"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Hibakeresési információk"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "először. Ha végeztél, gyere vissza ide, és jelentkezz be!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Próbálj meg bejelentkezni a"
+  },
+  "app.error.game-pass.heading": {
+    "message": "PC Game Pass-t használsz, Bedrockról jössz, vagy most vásároltad meg a játékot?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "hivatalos Minecraft indítóval"
+  },
+  "app.error.get-support.button": {
+    "message": "Segítség kérése"
+  },
+  "app.error.help.end": {
+    "message": "és szívesen segítünk! Mindenképp mellékeld a következő hibakeresési adatokat:"
+  },
+  "app.error.help.start": {
+    "message": "Ha semmi sem működik, és segítségre van szükséged, látogass el ide:"
+  },
+  "app.error.help.support-link": {
+    "message": "támogatási oldalunkra"
+  },
+  "app.error.hosts.body-end": {
+    "message": "megpróbált kapcsolódni a Microsoft / Xbox / Minecraft szolgáltatásokhoz, de a távoli szerver elutasította a kapcsolatot. Ez arra utalhat, hogy ezeket a szolgáltatásokat a hosts-fájl blokkolja. Kérjük, látogasd meg"
+  },
+  "app.error.hosts.fix-end": {
+    "message": ", ahol megtalálod a hiba kijavításának lépéseit."
+  },
+  "app.error.migrate.body-end": {
+    "message": "nem tud átköltözni az általad kiválasztott új könyvtárba. Kérj segítséget a támogatástól, vagy szakítsd meg a könyvtárváltást."
+  },
+  "app.error.network.body-end": {
+    "message": "a Microsoft szervereihez való kapcsolódáskor. Ez gyakran gyenge kapcsolat következménye, ezért javasoljuk, hogy próbáld meg újra. Ha a probléma továbbra is fennáll, kövesd a következő lépéseket:"
+  },
+  "app.error.network.body-start": {
+    "message": "Úgy tűnik, problémák voltak a"
+  },
+  "app.error.network.heading": {
+    "message": "Hálózati problémák"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "a hibaelhárításhoz."
+  },
+  "app.error.no-error-message": {
+    "message": "Nincs hibaüzenet."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "nem találta a példány betöltőverzióját."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Ennek megoldásához javítanod kell a példányt. Kattints az alábbi gombra."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Úgy tűnik, nincs elég hely a kiválasztott könyvtárat tartalmazó lemezen. Szabadíts fel helyet, és próbáld meg újra, vagy szakítsd meg a könyvtárváltást."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Nincs elég hely"
+  },
+  "app.error.read-only.body-end": {
+    "message": "nem tud írni az általad kiválasztott könyvtárba. Módosítsd a könyvtár jogosultságait, és próbáld meg újra, vagy szakítsd meg a könyvtárváltást."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Úgy tűnik,"
+  },
+  "app.error.read-only.heading": {
+    "message": "Könyvtár jogosultságainak módosítása"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Példány javítása"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Könyvtárváltás újrapróbálása"
+  },
+  "app.error.state-init.body-end": {
+    "message": "nem tudott megfelelően betöltődni. Ezt sérült fájl vagy hiányzó fontos alkalmazásfájlok okozhatják."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Lehet, hogy az alábbi módok egyikével kijavíthatod:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Győződj meg róla, hogy csatlakozva vagy az internethez, majd indítsd újra az alkalmazást."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Töltsd le újra az alkalmazást."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "A biztonsági mentések mappájának megnyitása"
+  },
+  "app.error.support-article-link": {
+    "message": "támogatási cikkünket"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Nem sikerült módosítani az alkalmazáskönyvtárat"
+  },
+  "app.error.title.generic": {
+    "message": "Hiba történt"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Nincs betöltő kiválasztva"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Nem sikerült bejelentkezni a Minecraftba"
+  },
+  "app.error.title.state-init": {
+    "message": "Hiba a(z) {product} inicializálásakor"
+  },
+  "app.error.try-again.button": {
+    "message": "Próbálj meg újra bejelentkezni"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Ellenőrizd, hogy a megfelelő fiókkal jelentkeztél-e be. Lehet, hogy a Minecraft egy másik Microsoft-fiókhoz tartozik."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Másik fiók kipróbálása"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Próbálj meg egy másik Microsoft-fiókot"
   },
   "app.export-modal.description-placeholder": {
     "message": "Írd be a modcsomag leírását..."
@@ -295,6 +994,27 @@
   },
   "app.export-modal.export-complete-description": {
     "message": "{name} exportálása sikeresen megtörtént."
+  },
+  "app.export-modal.format-label": {
+    "message": "Exportálási formátum"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "CurseForge ZIP manifest.json fájllal és a kiválasztott fájlokkal az overrides mappában."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "A Modrinth-csomagokat támogató indítókhoz. Letöltési hivatkozásokat és a kiválasztott további fájlokat tartalmazza."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Hordozható {productName}-csomag a kiválasztott fájlokkal. Nyisd meg közvetlenül az indítóban."
   },
   "app.export-modal.header": {
     "message": "Modcsomag exportálása"
@@ -352,15 +1072,6 @@
   },
   "app.features-settings.sidebar.title": {
     "message": "Oldalsáv"
-  },
-  "app.features-settings.sync-across-devices.description": {
-    "message": "Használd ezeket a funkcióbeállításokat minden olyan helyen, ahol be vagy jelentkezve. Kapcsold ki ezt, ha külön beállításokat szeretnél használni ezen az eszközön."
-  },
-  "app.features-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Jelentkezz be egy Modrinth-fiókba a beállítások szinkronizálásához."
-  },
-  "app.features-settings.sync-across-devices.title": {
-    "message": "Funkciók szinkronizálása az eszközök között"
   },
   "app.home.jump-back-in.actions.label": {
     "message": "Példány-műveletek"
@@ -464,57 +1175,6 @@
   "app.instance.actions.label": {
     "message": "Példány-műveletek"
   },
-  "app.instance.add-server.add": {
-    "message": "Hozzáadás"
-  },
-  "app.instance.add-server.added": {
-    "message": "Hozzáadva"
-  },
-  "app.instance.add-server.adding": {
-    "message": "Hozzáadás..."
-  },
-  "app.instance.add-server.cancel": {
-    "message": "Mégse"
-  },
-  "app.instance.add-server.compatibility-warning": {
-    "message": "Ez a szerver nem biztos hogy minden példánnyal kompatibilitis."
-  },
-  "app.instance.add-server.search-placeholder": {
-    "message": "Példány keresése"
-  },
-  "app.instance.add-server.title": {
-    "message": "Szerver hozzáadása az példányhoz"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Hozzáadva"
-  },
-  "app.instance.admonitions.shared-instance.changes-body": {
-    "message": "A te gépeden lévő példány újabb, mint azoké a felhasználóké, akikkel megosztottad."
-  },
-  "app.instance.admonitions.shared-instance.changes-header": {
-    "message": "A változtatásaid még nem lettek megosztva"
-  },
-  "app.instance.admonitions.shared-instance.publish-button": {
-    "message": "Frissítés közzététele"
-  },
-  "app.instance.admonitions.shared-instance.publishing-button": {
-    "message": "Közzététel..."
-  },
-  "app.instance.admonitions.shared-instance.removed-label": {
-    "message": "Eltávolítva"
-  },
-  "app.instance.admonitions.shared-instance.review-admonition-header": {
-    "message": "Frissítés közzététele"
-  },
-  "app.instance.admonitions.shared-instance.review-description": {
-    "message": "A példányt használó összes résztvevővel megosztásra kerülő tartalomváltoztatások áttekintése."
-  },
-  "app.instance.admonitions.shared-instance.review-header": {
-    "message": "Változtatások áttekintése"
-  },
-  "app.instance.admonitions.shared-instance.reviewing-button": {
-    "message": "Áttekintés..."
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "A példányodhoz tartozó összes adat véglegesen törlődik, beleértve a világjaidat, a beállításaidat és az összes telepített tartalmat."
   },
@@ -542,8 +1202,8 @@
   "app.instance.content.managed-content.modpack-header": {
     "message": "Modcsomag tartalma"
   },
-  "app.instance.content.managed-content.shared-header": {
-    "message": "Megosztott tartalom"
+  "app.instance.content.managed-content.server-header": {
+    "message": "Szerver tartalma"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Ez a modcsomag már telepítve van a(z) <bold>{instanceName}</bold> példányban. Biztosan meg szeretnéd kettőzni?"
@@ -596,36 +1256,6 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Vissza a példányhoz"
   },
-  "app.instance.shared-instance-already-installed.body": {
-    "message": "Ez a megosztott példány már telepítve van <bold>{instanceName} </bold> néven. Biztosan telepíteni szeretnél egy másik másolatot?"
-  },
-  "app.instance.shared-instance-already-installed.header": {
-    "message": "A megosztott példány már telepítve van"
-  },
-  "app.instance.shared-instance-already-installed.install-anyway": {
-    "message": "Telepítés mindenképp"
-  },
-  "app.instance.shared-instance-already-installed.instance": {
-    "message": "Példány"
-  },
-  "app.instance.shared-instance-wrong-account.fallback-username": {
-    "message": "az összekapcsolt fiók"
-  },
-  "app.instance.shared-instance-wrong-account.owner-admonition-body-v2": {
-    "message": ", hogy kezelhesd ezt a megosztott példányt. Nem fogod tudni közzétenni a frissítéseket."
-  },
-  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
-    "message": "Jelentkezz be mint"
-  },
-  "app.instance.shared-instance-wrong-account.signed-out-header": {
-    "message": "Be kell jelentkezned a Modrinthba"
-  },
-  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
-    "message": ", hogy frissítéseket kapj ehhez a megosztott példányhoz."
-  },
-  "app.instance.shared-instance-wrong-account.warning-header": {
-    "message": "Nem a megfelelő Modrinth-fiókot használod"
-  },
   "app.instance.shortcut.created": {
     "message": "Parancsikon létrehozva"
   },
@@ -644,17 +1274,14 @@
   "app.instance.tab.screenshots": {
     "message": "Képernyőképek"
   },
-  "app.instance.tab.share": {
-    "message": "Megosztás"
-  },
   "app.instance.tab.worlds": {
     "message": "Világok"
   },
   "app.instance.worlds.add-server": {
     "message": "Szerver hozzáadása"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Szerverek böngészése"
+  "app.instance.worlds.browse": {
+    "message": "Világok böngészése"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Világ törlése"
@@ -760,6 +1387,21 @@
   },
   "app.java-selector.test-installation": {
     "message": "Java-telepítés tesztelése"
+  },
+  "app.launch-link.instance": {
+    "message": "Egy hivatkozás el szeretné indítani a következőt: {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Indítás"
+  },
+  "app.launch-link.server": {
+    "message": "Egy hivatkozás el szeretné indítani a következőt: {instance}, és csatlakozni szeretne a(z) {target} szerverhez. Csak akkor folytasd, ha megbízol a hivatkozás forrásában."
+  },
+  "app.launch-link.title": {
+    "message": "Megnyitod a Minecraftot egy hivatkozásból?"
+  },
+  "app.launch-link.world": {
+    "message": "Egy hivatkozás el szeretné indítani a következőt: {instance}, és meg szeretné nyitni a(z) {target} világot."
   },
   "app.library.actions.label": {
     "message": "Könyvtárműveletek"
@@ -1022,122 +1664,14 @@
   "app.library.title": {
     "message": "Könyvtár"
   },
-  "app.modal.install-to-play.additional-context": {
-    "message": "További kontextus"
-  },
-  "app.modal.install-to-play.additional-context-placeholder": {
-    "message": "Ha lehetséges és hasznos, adj meg linkeket és képeket is"
-  },
-  "app.modal.install-to-play.block-user": {
-    "message": "Felhasználó letiltása"
-  },
-  "app.modal.install-to-play.content-you-are-reporting": {
-    "message": "A példány, amelyet bejelenteni kívánsz"
-  },
-  "app.modal.install-to-play.delete-instance": {
-    "message": "Példány törlése"
-  },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "Ne telepítse"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "Telepítés a játékhoz"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Telepítés mindenképp"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "Telepítés"
-  },
-  "app.modal.install-to-play.invite-warning": {
-    "message": "Ezt a meghívót nem a Modrinth, hanem egy másik Modrinth-felhasználó hozta létre. Csak olyan személyektől fogadd el a meghívásokat, akikben megbízol."
-  },
-  "app.modal.install-to-play.invite-warning-with-creator": {
-    "message": "Ezt a meghívót <creator>{username}</creator> készítette, nem pedig a Modrinth. Csak olyan személyektől fogadd el a meghívásokat, akikben megbízol."
-  },
-  "app.modal.install-to-play.managed-content.modpack-header": {
-    "message": "A modcsomag tartalma"
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count} mod"
-  },
-  "app.modal.install-to-play.report-description": {
-    "message": "Ezt az űrlapot használva olyan példányokat jelenthetsz, amelyek megsérthetik a <rules-link>Szabályzatunkat</rules-link> vagy a <terms-link>Felhasználási feltételeinket</terms-link>."
-  },
-  "app.modal.install-to-play.report-image-invalid-type": {
-    "message": "A fájl nem támogatott képfájlformátumot használ"
-  },
-  "app.modal.install-to-play.report-image-too-large": {
-    "message": "A fájl meghaladja az 1 MiB-os méretkorlátot"
-  },
-  "app.modal.install-to-play.report-legal-claims": {
-    "message": "A DMCA-bejelentésekkel és egyéb jogi igényekkel kapcsolatban lásd a <copyright-link>Szerzői jogi szabályzatunkat</copyright-link>."
-  },
-  "app.modal.install-to-play.report-reason": {
-    "message": "Melyik szabályt sérti ez az adott példány?"
-  },
-  "app.modal.install-to-play.report-shared-instance-header": {
-    "message": "Megosztott példány jelentése"
-  },
-  "app.modal.install-to-play.report-submitted": {
-    "message": "Jelentés elküldve"
-  },
-  "app.modal.install-to-play.report-support-and-bugs": {
-    "message": "Ha segítségre van szükséged, vedd fel a kapcsolatot a <support-link>támogatási csapatunkkal</support-link>. Hibajelentésekhez nyiss egy <github-link>GitHub-issue-t</github-link>."
-  },
-  "app.modal.install-to-play.reviewed-files": {
-    "message": "Azok a fájlok, amelyek nincsenek közzétéve a Modrinthon, nincsenek ellenőrizve."
-  },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Megosztott példány"
-  },
-  "app.modal.install-to-play.shared-instance-content": {
-    "message": "Megosztott példány tartalma"
-  },
-  "app.modal.install-to-play.shared-instance-unknown-files-description": {
-    "message": "Ez a megosztott példány olyan fájlokat tartalmaz, amelyek nincsenek közzétéve a Modrinth-on. Határozottan javasoljuk, hogy kizárólag olyan forrásokból telepíts fájlokat, amelyekben megbízol."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "Ez a szervermodcsomag olyan fájlokat tartalmaz, amelyeket nem tettek közzé a Modrinthen. Nyomatékosan javasoljuk, hogy csak megbízható forrásból származó fájlokat telepíts."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Figyelmeztetés ismeretlen fájlokról"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Felismerhetetlen fájlok"
-  },
-  "app.modal.install-to-play.user-blocked": {
-    "message": "Felhasználó letiltva"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Tartalom megtekintése"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Frissítsd a játékhoz"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "Eltávolítva"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "Ez a szervermodcsomag-frissítés olyan fájlokat tartalmaz, amelyek nem találhatók meg a Modrinthen. Erősen javasoljuk, hogy csak megbízható forrásokból telepíts fájlokat."
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "Hozzáadva"
-  },
-  "app.modal.update-to-play.shared-instance-removed-label": {
-    "message": "Eltávolítva"
-  },
-  "app.modal.update-to-play.shared-instance-unknown-files-description": {
-    "message": "Ez a megosztott példányfrissítés olyan fájlokat tartalmaz, amelyek nincsenek közzétéve a Modrinth-on. Határozottan javasoljuk, hogy kizárólag olyan forrásokból telepíts fájlokat, amelyekben megbízol."
-  },
-  "app.modal.update-to-play.update-required": {
-    "message": "Frissítés szükséges"
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "Egy frissítés szükséges a(z) {name} példányhoz. Kérjük, frissítsd a játékot a legújabb verzióra az indításhoz."
+  "app.nav.collapse-sidebar": {
+    "message": "Oldalsáv összecsukása"
   },
   "app.nav.create-new-instance": {
     "message": "Új példány létrehozása"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Oldalsáv kibontása"
   },
   "app.nav.home": {
     "message": "Kezdőlap"
@@ -1166,6 +1700,12 @@
   "app.project.coming-soon": {
     "message": "Nemsokára"
   },
+  "app.project.gallery.image-fallback": {
+    "message": "Galériakép"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Kép megnyitása új lapon"
+  },
   "app.project.install-button.already-installed": {
     "message": "Ez a projekt már telepítve van"
   },
@@ -1183,6 +1723,9 @@
   },
   "app.project.more-options": {
     "message": "További lehetőségek"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Megnyitás a CurseForge-ban"
   },
   "app.project.tab.description": {
     "message": "Leírás"
@@ -1216,6 +1759,9 @@
   },
   "app.quick-instance-switcher.instance-locked": {
     "message": "Ez a példány zárolva van"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Legutóbbi példányok"
   },
   "app.quick-instance-switcher.view-instance": {
     "message": "Játékprofil megnyitása"
@@ -1471,6 +2017,15 @@
   },
   "app.settings.downloading": {
     "message": "v{version} letöltése"
+  },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Nincs a keresésnek megfelelő jelző: „{query}”"
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Visszaállítás alapértékre"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Jelzők keresése…"
   },
   "app.settings.game-options.category.accessibility.description": {
     "message": "Kisegítő lehetőségek beállításai"
@@ -2486,6 +3041,9 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "A(z) {productName} megjelenítése aktuális tevékenységként a Discordon. Ez nem érinti a modok által a példányokhoz adott Rich Presence-t."
+  },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
   },
@@ -2500,6 +3058,9 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "Törlöd az alkalmazás gyorsítótárát?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Töröld a gyorsítótárazott adatokat, és töltsd le újra. Az alkalmazás lassabban tölthet be, amíg a gyorsítótár újra fel nem épül."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Gyorsítótár törlése"
@@ -2539,6 +3100,78 @@
   },
   "app.settings.resource-management.maximum-concurrent-writes.title": {
     "message": "Maximális egyidejű írási műveletek"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Néhány fájl figyelmet igényel"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Tartsd meg eddig a mennyiségig a nem használt tartalmat a jövőbeli telepítésekhez. Több megőrzése letöltési időt takaríthat meg."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Nem használt letöltések megtartása"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Kiszámítás"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Nem használt törlése"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Nem használt letöltött tartalom törlése"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "{size} lemezterület felszabadítva."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Törlés…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Takaríts meg helyet azzal, hogy a játéktelepítéseket, modokat és csomagokat a példányok között újrahasznosítod."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Telepíts modokat vagy csomagokat, hogy itt lásd a tárhelyhasználatodat."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "{count, plural, one {# probléma} other {# probléma}} megtekintése"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Nincs törölhető nem használt tartalom."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Ellenőrzés és javítás"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Ez bezárja az összes futó példányt."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Hiányzó vagy sérült fájlok keresése és javítása."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Ellenőrzés és javítás…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Megosztott"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Tartalomtár"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} tárolva"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Egyedi"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Árva"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "{checked, plural, one {# fájl} other {# fájl}} ellenőrizve, és {repaired, plural, one {# javítás} other {# javítás}} elvégezve."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Sikeres hitelesítés"
   },
   "app.settings.sidebar.label.instances": {
     "message": "Példányok"
@@ -2789,8 +3422,41 @@
   "app.settings.tabs.synced-options": {
     "message": "Szinkronizált beállítások"
   },
-  "app.sidebar.playing-as": {
-    "message": "Játékfiók"
+  "app.sidebar.advertising.label": {
+    "message": "Hirdetés"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Előnézet · {number}. hely"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Következő modcsomag"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Váltás szüneteltetése"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} / {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Előző modcsomag"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Váltás folytatása"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Kiemelt modcsomagok"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "A kiemelt modcsomagok jelenleg nem érhetők el."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Projekt megtekintése"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Tárhelylehetőségek"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "A következő Minecraft-szervered"
   },
   "app.skins.add-button": {
     "message": "Kinézet hozzáadása"
@@ -2800,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Alkalmaz"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Minden modell"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klasszikus"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Alapértelmezett"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Nem található kinézet. Próbálj másik keresést."
+  },
+  "app.skins.catalog.error": {
+    "message": "Ez a kinézet-szolgáltató nem érhető el. Próbáld újra később."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Kinézetek betöltése…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Keress a MineSkin teljes nyilvános galériájában."
+  },
+  "app.skins.catalog.model": {
+    "message": "Modell"
+  },
+  "app.skins.catalog.next": {
+    "message": "Következő oldal"
+  },
+  "app.skins.catalog.page": {
+    "message": "{page}. oldal"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Népszerű"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Előző oldal"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Kinézet-szolgáltatók"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "A szolgáltató elérte a kérési korlátját. Várj, mielőtt újra próbálkozol."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Előzmények"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Próbáld újra"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Kinézet mentve az Alapértelmezett-be"
+  },
+  "app.skins.catalog.search": {
+    "message": "Kinézetek keresése…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Keresés"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Vékony"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Rendezés"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Címke (opcionális)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Trendek"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Ez a szolgáltató még nincs beállítva."
   },
   "app.skins.delete-button": {
     "message": "Kinézet törlése"
@@ -3107,9 +3845,6 @@
   "app.update.download-error.missing-version": {
     "message": "Nem sikerult a frissítést letölteni: nincs elérehtő verzió"
   },
-  "app.user.project.install-to-instance": {
-    "message": "Telepítés a példányba"
-  },
   "app.welcome-screen.create-instance": {
     "message": "Új példány létrehozása"
   },
@@ -3126,7 +3861,70 @@
     "message": "Nyomd meg az <shortcut>N</shortcut> billentyűt egy példány gyors létrehozásához"
   },
   "app.welcome-screen.title": {
-    "message": "Üdvözlünk a Modrinthon"
+    "message": "Üdvözlünk a {productName}on"
+  },
+  "app.window-controls.close": {
+    "message": "Ablak bezárása"
+  },
+  "app.window-controls.minimize": {
+    "message": "Ablak kis méretbe állítása"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Ablak maximalizálásának váltása"
+  },
+  "app.world-install.backup": {
+    "message": "A csere biztonsági másolatot készít a meglévő világról. A Megtartás és a Mégse nem telepít semmit. Egy újabb példány telepítése számozott világot hoz létre."
+  },
+  "app.world-install.backup-location": {
+    "message": "Az előző világ a példányon belüli {path} helyre lett mentve."
+  },
+  "app.world-install.conflict": {
+    "message": "Már létezik ilyen nevű vagy ebből a projektből származó világ."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Telepítés az eltérő verzió ellenére"
+  },
+  "app.world-install.copy": {
+    "message": "Újabb példány telepítése"
+  },
+  "app.world-install.description": {
+    "message": "Telepíts új világot egy példányba. A meglévő világok megmaradnak, hacsak nem választod valamelyik lecserélését."
+  },
+  "app.world-install.incompatible": {
+    "message": "Ez a fájl nem jelzi a kompatibilitást a Minecraft {version} verziójával. A folytatás előtt ellenőrizd a készítő által előírt verziót és modokat."
+  },
+  "app.world-install.installed": {
+    "message": "Világ telepítve: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Célpéldány"
+  },
+  "app.world-install.keep": {
+    "message": "Meglévő megtartása"
+  },
+  "app.world-install.no-instances": {
+    "message": "Először hozz létre egy Minecraft-példányt, majd térj vissza ide a világ telepítéséhez."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Világok megtekintése"
+  },
+  "app.world-install.replace": {
+    "message": "Csere"
+  },
+  "app.world-install.replace-target": {
+    "message": "Lecserélendő világ"
+  },
+  "app.world-install.requirements": {
+    "message": "A szükséges modoknak vagy modcsomagoknak már telepítve kell lenniük a célpéldányban. Olvasd el a projekt leírását."
+  },
+  "app.world-install.title": {
+    "message": "Világ telepítése"
+  },
+  "app.world-install.version": {
+    "message": "Világverzió"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
   },
   "app.world.server-modal.select-an-option": {
     "message": "Válassz egy lehetőséget"
@@ -3143,80 +3941,14 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
-  "content.shared-instance.change-version-body": {
-    "message": "A verzió módosítása csak a helyi példányt érinti. A megosztott példány jövőbeli frissítései felülírhatják vagy ismét megváltoztathatják azt."
+  "curseforge.manual.description": {
+    "message": "Töltsd le a(z) {file} fájlt a hivatalos CurseForge-oldaláról, majd válaszd ki a letöltött fájlt a folytatáshoz. A méretet és az SHA-1 értéket ellenőrizzük."
   },
-  "content.shared-instance.delete-bulk-body": {
-    "message": "A kiválasztott projektek egy része a megosztott példány része. Törlésük csak a helyi példányt módosítja, és a megosztott példány jövőbeli frissítései visszaállíthatják vagy ismét módosíthatják őket."
+  "curseforge.manual.select": {
+    "message": "Letöltött fájl kiválasztása"
   },
-  "content.shared-instance.delete-button": {
-    "message": "Törlés mindenképp"
-  },
-  "content.shared-instance.delete-many-button": {
-    "message": "{count, number} projekt törlése mindenképp"
-  },
-  "content.shared-instance.delete-single-body": {
-    "message": "A törlése csak a helyi példányt módosítja. A megosztott példány jövőbeli frissítései visszaállíthatják vagy ismét módosíthatják."
-  },
-  "content.shared-instance.disable-bulk-body": {
-    "message": "A kiválasztott projektek egy része a megosztott példány része. Letiltásuk csak a helyi példányt módosítja, és a megosztott példány jövőbeli frissítései újra engedélyezhetik, visszaállíthatják vagy ismét módosíthatják őket."
-  },
-  "content.shared-instance.disable-button": {
-    "message": "Letíltás mindenképp"
-  },
-  "content.shared-instance.disable-many-button": {
-    "message": "{count, number} projekt letíltása mindenképp"
-  },
-  "content.shared-instance.disable-single-body": {
-    "message": "A letiltása csak a helyi példányt módosítja. A megosztott példány jövőbeli frissítései újra engedélyezhetik, visszaállíthatják vagy ismét módosíthatják."
-  },
-  "content.shared-instance.unlink-body": {
-    "message": "A leválasztás csak a helyi példányt érinti. A megosztott példány jövőbeli frissítései felülírhatják vagy ismét megváltoztathatják azt."
-  },
-  "content.shared-instance.warning-header": {
-    "message": "Ez egy megosztott példány része"
-  },
-  "installation-settings.shared-instance.linked-title": {
-    "message": "Összekapcsolt megosztott példány"
-  },
-  "installation-settings.shared-instance.title": {
-    "message": "Példány megosztásának visszavonása"
-  },
-  "installation-settings.shared-instance.unlink-button": {
-    "message": "Megosztott példány leválasztása"
-  },
-  "installation-settings.shared-instance.unlink-description": {
-    "message": "Leválasztja ezt a helyi példányt a jövőbeli megosztott frissítésekről."
-  },
-  "installation-settings.shared-instance.unlinking-button": {
-    "message": "Leválasztás..."
-  },
-  "installation-settings.shared-instance.unpublish-button": {
-    "message": "Megosztott példány megosztásának visszavonása"
-  },
-  "installation-settings.shared-instance.unpublish-description": {
-    "message": "Eltávolítja ezt a megosztott példányt a Modrinthból, és nem küld többé frissítéseket azoknak, akik használják. A helyi példányodat ez nem érinti."
-  },
-  "installation-settings.shared-instance.unpublishing-button": {
-    "message": "Közzététel visszavonása..."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-body": {
-    "message": "Ez kizárólag a helyi példányodra vonatkozik. A telepített tartalmaid ezen az eszközön maradnak, és ez nem érinti a megosztott példányt, illetve az azt használó többi felhasználót."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-header": {
-    "message": "Megosztott példány leválasztása"
-  },
-  "installation-settings.unlink-shared-instance.modal.header": {
-    "message": "Megosztott példány leválasztása"
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-body": {
-    "message": "Ezzel a megosztott példány törlődik a Modrinth szervereiről. A Modrinth Appban az ezt használók többé nem kapnak frissítéseket, de a helyipéldány és annak tartalma továbbra is ezen az eszközön marad."
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-header": {
-    "message": "Visszavonod a megosztott példány megosztását"
-  },
-  "installation-settings.unpublish-shared-instance.modal.header": {
-    "message": "Megosztott példány megosztásának visszavonása"
+  "curseforge.manual.title": {
+    "message": "Kézi letöltés szükséges"
   },
   "instance.action.create-shortcut": {
     "message": "Parancsikon létrehozása"
@@ -3283,6 +4015,9 @@
   },
   "instance.files.adding-files": {
     "message": "Fájlok hozzáadása ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "A telepített tartalmaidat a Tartalom lapon kezelheted"
   },
   "instance.files.save-as": {
     "message": "Mentés másként..."
@@ -3431,9 +4166,6 @@
   "instance.icon-editor.symbol.moobloom": {
     "message": "Múúvirág"
   },
-  "instance.icon-editor.symbol.mr-pack": {
-    "message": "Mr Pack"
-  },
   "instance.icon-editor.symbol.neoforge": {
     "message": "NeoForge"
   },
@@ -3500,14 +4232,41 @@
   "instance.last-played": {
     "message": "Legutóbb játszva"
   },
+  "instance.locked.badge": {
+    "message": "Zárolt"
+  },
   "instance.locked.delete-button": {
     "message": "Példány törlése"
+  },
+  "instance.locked.info-label": {
+    "message": "Zárolt példány adatai"
   },
   "instance.locked.play-tooltip": {
     "message": "Ez a példány zárolva van"
   },
+  "instance.locked.text": {
+    "message": "Ez a példány zárolva van, nem játszható és nem módosítható. Törölheted."
+  },
+  "instance.locked.title": {
+    "message": "Példány zárolva"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Modbetöltő és Minecraft-verzió"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# óra} other {# óra}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# perc} other {# perc}}"
+  },
   "instance.playtime.never-played": {
     "message": "Még nem játszott"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# másodperc} other {# másodperc}}"
+  },
+  "instance.playtime.total": {
+    "message": "Teljes játékidő"
   },
   "instance.server-modal.address": {
     "message": "Cím"
@@ -3520,45 +4279,6 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "Forráscsomag"
-  },
-  "instance.settings.sharing.active-invites.actions": {
-    "message": "Műveletek"
-  },
-  "instance.settings.sharing.active-invites.code": {
-    "message": "Meghívó link"
-  },
-  "instance.settings.sharing.active-invites.description": {
-    "message": "Bárki, akinek van ilyen meghívó linkje, csatlakozhat, amíg az aktív marad."
-  },
-  "instance.settings.sharing.active-invites.empty": {
-    "message": "Nincsenek aktív meghívások."
-  },
-  "instance.settings.sharing.active-invites.expires": {
-    "message": "Lejár"
-  },
-  "instance.settings.sharing.active-invites.revoke": {
-    "message": "Meghívó törlése"
-  },
-  "instance.settings.sharing.active-invites.revoke-with-code": {
-    "message": "A(z) {code} meghívó törlése"
-  },
-  "instance.settings.sharing.active-invites.title": {
-    "message": "Aktív meghívások"
-  },
-  "instance.settings.sharing.active-invites.uses": {
-    "message": "Használatok"
-  },
-  "instance.settings.sharing.revoke-invite.admonition-body": {
-    "message": "A(z) <monospace>{code}</monospace> meghívó link azonnal érvényét veszti. Azok, akik már csatlakoztak, továbbra is hozzáférhetnek."
-  },
-  "instance.settings.sharing.revoke-invite.admonition-header": {
-    "message": "Ezt a műveletet nem lehet visszavonni"
-  },
-  "instance.settings.sharing.revoke-invite.confirm": {
-    "message": "Meghívó törlése"
-  },
-  "instance.settings.sharing.revoke-invite.header": {
-    "message": "Meghívó törlése"
   },
   "instance.settings.synced-options.data-override": {
     "message": "Kapcsold ki ezt a felülírást hogy szerkeszthető legyen a szinkronizált adat."
@@ -3764,9 +4484,6 @@
   "instance.settings.tabs.settings-overrides": {
     "message": "Szinkronizálási felülírások"
   },
-  "instance.settings.tabs.sharing": {
-    "message": "Megosztás"
-  },
   "instance.settings.tabs.synced-options.command-history": {
     "message": "Parancselőzmények szinkronizálásának megszüntetése"
   },
@@ -3854,63 +4571,6 @@
   "instance.settings.tabs.window.width.enter": {
     "message": "Szélesség megadása..."
   },
-  "instance.shared-instance.error.title": {
-    "message": "Valami hiba történt"
-  },
-  "instance.shared-instance.network-error.text": {
-    "message": "Nem sikerült csatlakozni a megosztott példányok API-jához"
-  },
-  "instance.shared-instance.network-error.title": {
-    "message": "Hálózati hiba"
-  },
-  "instance.shared-instance.owner-tooltip": {
-    "message": "Ennek a példánynak a tartalma meg van osztva más felhasználókkal."
-  },
-  "instance.shared-instance.publish-review.added-label": {
-    "message": "Hozzáadva:"
-  },
-  "instance.shared-instance.publish-review.admonition-header": {
-    "message": "Frissítés közzététele a játékosoknak"
-  },
-  "instance.shared-instance.publish-review.config-title-v2": {
-    "message": "Konfigurációs fájlok kiválasztása"
-  },
-  "instance.shared-instance.publish-review.description": {
-    "message": "Ellenőrizd a tartalmi módosításokat, és válaszd ki azokat a konfigurációs fájlokat, amelyeket be szeretnél vonni ebbe a frissítésbe."
-  },
-  "instance.shared-instance.publish-review.header": {
-    "message": "Változtatások áttekintése"
-  },
-  "instance.shared-instance.publish-review.publish-button": {
-    "message": "Frissítés közzététele"
-  },
-  "instance.shared-instance.publish-review.removed-label": {
-    "message": "Eltávolítva:"
-  },
-  "instance.shared-instance.tooltip": {
-    "message": "Ennek a példánynak a tartalmát más kezeli."
-  },
-  "instance.shared-instance.unavailable.access-revoked-text": {
-    "message": "A megosztott példányhoz való hozzáférésedet megvonták. Ez a példány továbbra is elérhető, de már nincs összekapcsolva, és többé nem kap frissítéseket."
-  },
-  "instance.shared-instance.unavailable.deleted-text": {
-    "message": "Az elsődleges példányt törölték. Ez a példány továbbra is elérhető, de már nincs összekapcsolva, és többé nem kap frissítéseket."
-  },
-  "instance.shared-instance.unavailable.locked-text": {
-    "message": "Ezt a megosztott példányt a Tartalommoderációs csapat zárolta. Többé nem kap frissítéseket az elsődleges példánytól, és nem lehet játszani vele."
-  },
-  "instance.shared-instance.unavailable.locked-title": {
-    "message": "Példány zárolva"
-  },
-  "instance.shared-instance.unavailable.manager-fallback": {
-    "message": "a példánykezelő"
-  },
-  "instance.shared-instance.unavailable.text": {
-    "message": "A helyi példányod továbbra is elérhető, de már nincs összekapcsolva, és többé nem kap frissítéseket."
-  },
-  "instance.shared-instance.unavailable.title": {
-    "message": "A megosztott példány már nem elérhető"
-  },
   "instance.worlds.a_minecraft_server": {
     "message": "Egy Minecraft szerver"
   },
@@ -3992,11 +4652,14 @@
   "instance.worlds.world_in_use": {
     "message": "A világ használatban van"
   },
+  "minecraft-account.accounts": {
+    "message": "Minecraft-fiókok"
+  },
   "minecraft-account.add-account": {
     "message": "Fiók hozzáadása"
   },
-  "minecraft-account.label": {
-    "message": "Minecraft-fiók"
+  "minecraft-account.getting-started": {
+    "message": "Első lépések"
   },
   "minecraft-account.not-signed-in": {
     "message": "Nem vagy bejelentkezve"
@@ -4004,11 +4667,11 @@
   "minecraft-account.remove-account": {
     "message": "Fiók eltávolítása"
   },
-  "minecraft-account.select-account": {
-    "message": "Fiók kiválasztása"
-  },
   "minecraft-account.sign-in": {
     "message": "Bejelentkezés a Minecraftba"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Bejelentkezés"
   },
   "minecraft-required.description": {
     "message": "A játék indítása és használata előtt rendelkezned kell egy Microsoft-fiókkal, amelyhez Minecraft tartozik."
@@ -4031,39 +4694,6 @@
   "minecraft-required.sign-in": {
     "message": "Bejelentkezés a Microsft-ba"
   },
-  "modal.modrinth-account-required.browser-description": {
-    "message": "Megnyílt egy új lap a bejelentkezéshez. Végezd el ott a bejelentkezést, majd térj vissza az alkalmazásba."
-  },
-  "modal.modrinth-account-required.continue-in-browser-heading": {
-    "message": "Folytatás a böngészőben"
-  },
-  "modal.modrinth-account-required.create-account-button": {
-    "message": "Fiók létrehozása"
-  },
-  "modal.modrinth-account-required.description": {
-    "message": "Ahhoz, hogy ezt a funkciót használhas, be kell jelentkeznie a Modrinth-fiókjába."
-  },
-  "modal.modrinth-account-required.header": {
-    "message": "Fiók szükséges"
-  },
-  "modal.modrinth-account-required.open-browser-again-button": {
-    "message": "Böngésző megnyitása újra"
-  },
-  "modal.modrinth-account-required.sign-in-button": {
-    "message": "Jelentkezz be a Modrinthbe"
-  },
-  "modal.modrinth-account-required.sign-in-heading": {
-    "message": "Jelentkezz be egy Modrinth-fiókba"
-  },
-  "modal.modrinth-account-required.signing-in-header": {
-    "message": "Bejelentkezés"
-  },
-  "modal.modrinth-account-required.support-prompt": {
-    "message": "Problémád van a bejelentkezéssel? <support>Segítség</support>"
-  },
-  "modal.modrinth-account-required.waiting-for-browser": {
-    "message": "Várakozás a böngésző megerősítésére..."
-  },
   "onboarding-checklist.create-instance": {
     "message": "Első példány létrehozása"
   },
@@ -4072,6 +4702,42 @@
   },
   "onboarding-checklist.title": {
     "message": "Első lépések"
+  },
+  "optifine.add-component": {
+    "message": "OptiFine telepítése"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "JAR kiválasztása és folytatás"
+  },
+  "optifine.download-official": {
+    "message": "Hivatalos letöltés"
+  },
+  "optifine.export-notice": {
+    "message": "Az OptiFine bináris fájlok kimaradnak. Az Orbpack megőrzi a szükséges verziót; a Modrinth- és CurseForge-modcsomagokhoz az OptiFine-t külön kell telepíteni."
+  },
+  "optifine.import-canceled": {
+    "message": "Az OptiFine kiválasztása megszakadt. A modcsomag nem lett telepítve."
+  },
+  "optifine.import-description": {
+    "message": "Ehhez a modcsomaghoz OptiFine {version} szükséges Minecraft {gameVersion} verzióhoz. Töltsd le a hivatalos JAR fájlt, és válaszd ki a folytatáshoz. Az OptiFine nem része a modcsomagnak."
+  },
+  "optifine.import-title": {
+    "message": "Ehhez a modcsomaghoz OptiFine szükséges"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Válaszd ki a hivatalos OptiFine telepítőt Minecraft {gameVersion} verzióhoz. Importált modcsomag esetén a verziónak és a fájl hashének is egyeznie kell."
+  },
+  "optifine.remove-component": {
+    "message": "OptiFine eltávolítása"
+  },
+  "optifine.select-installer": {
+    "message": "Hivatalos OptiFine JAR kiválasztása"
+  },
+  "project-type.world.category": {
+    "message": "Világok"
   },
   "search.filter.locked.instance": {
     "message": "Pédány által megadva"
@@ -4084,9 +4750,6 @@
   },
   "search.filter.locked.instance.sync": {
     "message": "Szinkronizálás a példánnyal"
-  },
-  "search.filter.locked.server-environment.title": {
-    "message": "Szerverpéldányokhoz csak szerveroldali modok adhatók hozzá"
   },
   "settings.sidebar.label.account": {
     "message": "Fiók"

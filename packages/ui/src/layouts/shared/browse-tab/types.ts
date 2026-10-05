@@ -7,7 +7,6 @@ export interface BrowseSearchResponse {
 		installed?: boolean
 		installing?: boolean
 	})[]
-	serverHits: Labrinth.Search.v3.ResultSearchProject[]
 	total_hits: number
 	per_page: number
 }
@@ -54,11 +53,4 @@ export interface CardAction {
 	circular?: boolean
 	tooltip?: string
 	onClick: () => void | Promise<void>
-}
-
-export interface ServerModpackContent {
-	name: string
-	icon?: string
-	onclick?: () => void
-	showCustomModpackTooltip: boolean
 }

@@ -15,8 +15,8 @@ pub use model::{
     InstallRequest,
 };
 pub use runner::{
-    cancel_job, create_instance, create_modpack_instance, dismiss_job,
-    duplicate_instance, get_job, import_instance, install_existing_instance,
-    install_pack_to_existing_instance, job_support_details, list_jobs,
-    pause_job, resume_job, retry_job,
+    cancel_job, change_optifine, create_instance, create_modpack_instance,
+    dismiss_job, duplicate_instance, get_job, import_instance,
+    install_existing_instance, install_pack_to_existing_instance,
+    job_support_details, list_jobs, pause_job, resume_job, retry_job,
 };

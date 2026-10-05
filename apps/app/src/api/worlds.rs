@@ -23,7 +23,6 @@ pub fn init<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
             backup_world,
             delete_world,
             add_server_to_instance,
-            ensure_managed_server_in_instance,
             edit_server_in_instance,
             remove_server_from_instance,
             desync_server,
@@ -31,8 +30,64 @@ pub fn init<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
             get_server_status,
             start_join_singleplayer_world,
             start_join_server,
+            inspect_world_archive,
+            import_world_archive,
         ])
         .build()
+}
+
+#[tauri::command]
+pub async fn inspect_world_archive(
+    instance_id: String,
+    archive_path: std::path::PathBuf,
+    project_id: String,
+) -> Result<theseus::world_install::WorldInstallPreview> {
+    let instance = get_full_path(&instance_id).await?;
+    Ok(tokio::task::spawn_blocking(move || {
+        theseus::world_install::inspect_archive(
+            &instance,
+            &archive_path,
+            &project_id,
+        )
+    })
+    .await
+    .map_err(|error| theseus::ErrorKind::from(error).as_error())??)
+}
+
+#[tauri::command]
+pub async fn import_world_archive(
+    instance_id: String,
+    archive_path: std::path::PathBuf,
+    project_id: String,
+    action: theseus::world_install::WorldInstallAction,
+    conflict: Option<theseus::world_install::WorldInstallConflict>,
+) -> Result<theseus::world_install::WorldInstallResult> {
+    if !matches!(
+        action,
+        theseus::world_install::WorldInstallAction::Keep
+            | theseus::world_install::WorldInstallAction::Cancel
+    ) && !theseus::process::get_by_instance_id(&instance_id)
+        .await?
+        .is_empty()
+    {
+        return Err(theseus::ErrorKind::InputError(
+            "Close Minecraft before installing a world in this instance".into(),
+        )
+        .as_error()
+        .into());
+    }
+    let instance = get_full_path(&instance_id).await?;
+    Ok(tokio::task::spawn_blocking(move || {
+        theseus::world_install::import_archive(
+            &instance,
+            &archive_path,
+            &project_id,
+            action,
+            conflict,
+        )
+    })
+    .await
+    .map_err(|error| theseus::ErrorKind::from(error).as_error())??)
 }
 
 #[tauri::command]
@@ -165,18 +220,6 @@ pub async fn add_server_to_instance(
         content_kind,
     )
     .await?)
-}
-
-#[tauri::command]
-pub async fn ensure_managed_server_in_instance(
-    instance_id: &str,
-    name: String,
-    address: String,
-) -> Result<()> {
-    Ok(
-        worlds::ensure_managed_server_in_instance(instance_id, name, address)
-            .await?,
-    )
 }
 
 #[tauri::command]

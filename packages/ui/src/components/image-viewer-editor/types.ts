@@ -10,6 +10,7 @@ export type ImageViewerEditorItem = {
 	title?: string
 	description?: string
 	editorSource?: ImageViewerEditorSource
+	youtubeVideoId?: string
 }
 
 export type ImageViewerEditorData = {

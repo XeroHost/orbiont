@@ -14,6 +14,11 @@ pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
     tauri::plugin::Builder::new("install")
         .invoke_handler(tauri::generate_handler![
             install_get_modpack_preview,
+            install_inspect_optifine,
+            install_optifine_download_url,
+            install_get_pack_optifine,
+            install_get_instance_optifine,
+            install_change_optifine,
             install_create_instance,
             install_create_modpack_instance,
             install_import_instance,
@@ -42,6 +47,7 @@ pub struct InstallCreateInstanceRequest {
     pub icon_path: Option<String>,
     pub icon_config: Option<theseus::data::InstanceIconConfig>,
     pub link: Option<InstanceLink>,
+    pub optifine_installer_path: Option<PathBuf>,
 }
 
 #[derive(Deserialize)]
@@ -78,6 +84,18 @@ pub async fn install_get_modpack_preview(
 pub async fn install_create_instance(
     request: InstallCreateInstanceRequest,
 ) -> Result<InstallJobSnapshot> {
+    let optifine = match request.optifine_installer_path {
+        Some(path) => Some(
+            theseus::optifine::cache_installer(
+                &path,
+                &request.game_version,
+                request.loader,
+                None,
+            )
+            .await?,
+        ),
+        None => None,
+    };
     Ok(theseus::install::create_instance(
         request.name.trim().to_string(),
         request.game_version,
@@ -89,6 +107,7 @@ pub async fn install_create_instance(
             Some(link) => link.into_core()?,
             None => theseus::data::InstanceLink::Unmanaged,
         },
+        optifine,
     )
     .await?)
 }
@@ -97,7 +116,9 @@ pub async fn install_create_instance(
 pub async fn install_create_modpack_instance(
     location: CreatePackLocation,
     post_install_edit: Option<InstallPostInstallEditRequest>,
+    optifine_installer_path: Option<PathBuf>,
 ) -> Result<InstallJobSnapshot> {
+    prepare_pack_optifine(&location, optifine_installer_path).await?;
     Ok(theseus::install::create_modpack_instance(
         location,
         post_install_edit.map(|edit| edit.into_core()).transpose()?,
@@ -139,13 +160,91 @@ pub async fn install_pack_to_existing_instance(
     instance_id: String,
     location: CreatePackLocation,
     post_install_edit: Option<InstallPostInstallEditRequest>,
+    optifine_installer_path: Option<PathBuf>,
 ) -> Result<InstallJobSnapshot> {
+    prepare_pack_optifine(&location, optifine_installer_path).await?;
     Ok(theseus::install::install_pack_to_existing_instance(
         instance_id,
         location,
         post_install_edit.map(|edit| edit.into_core()).transpose()?,
     )
     .await?)
+}
+
+#[tauri::command]
+pub async fn install_inspect_optifine(
+    path: PathBuf,
+) -> Result<theseus::optifine::OptifineReference> {
+    Ok(theseus::optifine::inspect_installer(path).await?)
+}
+
+#[tauri::command]
+pub fn install_optifine_download_url() -> String {
+    theseus::optifine::DOWNLOADS_URL.into()
+}
+
+#[tauri::command]
+pub async fn install_get_pack_optifine(
+    path: PathBuf,
+) -> Result<Option<theseus::optifine::OptifineReference>> {
+    Ok(theseus::pack::install_from::get_optifine_reference(path).await?)
+}
+
+#[tauri::command]
+pub async fn install_get_instance_optifine(
+    instance_id: String,
+) -> Result<Option<theseus::optifine::OptifineReference>> {
+    Ok(theseus::optifine::get_instance_reference(&instance_id).await?)
+}
+
+#[tauri::command]
+pub async fn install_change_optifine(
+    instance_id: String,
+    installer_path: Option<PathBuf>,
+) -> Result<InstallJobSnapshot> {
+    let metadata =
+        theseus::instance::get(&instance_id).await?.ok_or_else(|| {
+            theseus::Error::from(theseus::ErrorKind::InputError(
+                "Unknown instance".into(),
+            ))
+        })?;
+    let reference = match installer_path {
+        Some(path) => Some(
+            theseus::optifine::cache_installer(
+                &path,
+                &metadata.applied_content_set.game_version,
+                metadata.applied_content_set.loader,
+                None,
+            )
+            .await?,
+        ),
+        None => None,
+    };
+    Ok(theseus::install::change_optifine(instance_id, reference).await?)
+}
+
+async fn prepare_pack_optifine(
+    location: &CreatePackLocation,
+    path: Option<PathBuf>,
+) -> Result<()> {
+    if let CreatePackLocation::FromFile { path: pack } = location
+        && let Some(reference) =
+            theseus::pack::install_from::get_optifine_reference(pack.clone())
+                .await?
+    {
+        if let Some(path) = path {
+            theseus::optifine::cache_installer(
+                &path,
+                &reference.minecraft_version,
+                ModLoader::Vanilla,
+                Some(&reference),
+            )
+            .await?;
+        } else {
+            theseus::optifine::require_cached(&reference).await?;
+        }
+    }
+    Ok(())
 }
 
 #[tauri::command]

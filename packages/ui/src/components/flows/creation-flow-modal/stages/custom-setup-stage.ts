@@ -8,6 +8,8 @@ import CustomSetupStage from '../components/CustomSetupStage.vue'
 import { type CreationFlowContextValue, creationFlowMessages } from '../creation-flow-context'
 
 function isForwardBlocked(ctx: CreationFlowContextValue): boolean {
+	if (ctx.optifineBusy.value || (ctx.optifineEnabled.value && !ctx.optifineInstaller.value))
+		return true
 	if (!ctx.selectedGameVersion.value) return true
 	if (!ctx.hideLoaderChips.value && !ctx.selectedLoader.value) return true
 	if (!ctx.hideLoaderVersion.value && !ctx.selectedLoaderVersion.value) return true

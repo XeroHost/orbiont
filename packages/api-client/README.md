@@ -1,25 +1,20 @@
 # `@orbiont/api-client`
 
-Cliente HTTP del frontend del launcher. Solo cubre lo que la app usa:
+HTTP client for the launcher frontend:
 
-- **API de contenido de Modrinth** (`client.labrinth`): proyectos, etiquetas y
-  usuarios (autores). Modrinth es una fuente de contenido; el launcher no usa
-  cuentas de Modrinth.
-- **mclo.gs** (`client.mclogs`): compartir y analizar logs.
-- **Manifiesto de loaders** (`client.launchermeta`): versiones de Fabric,
-  Forge, NeoForge y Quilt.
+- **Modrinth content API** (`client.labrinth`): projects, tags, and content attribution types. Modrinth is a content provider; the launcher does not use Modrinth accounts or expose author profile pages.
+- **mclo.gs** (`client.mclogs`): sharing and analyzing logs.
+- **Loader manifests** (`client.launchermeta`): Fabric, Forge, NeoForge, and Quilt versions.
 
-Las peticiones pasan por el plugin HTTP de Tauri (`TauriApiClient`). El resto
-de servicios del launcher (catálogo de XeroHost, fachada de CurseForge,
-Minecraft) los llama el núcleo en Rust, no este paquete.
+Requests use the Tauri HTTP plugin through `TauriApiClient`. Native Rust APIs handle CurseForge, skin catalog access, and Minecraft authentication.
 
-## Uso
+## Usage
 
 ```ts
 import { TauriApiClient, VerboseLoggingFeature } from '@orbiont/api-client'
 
 const client = new TauriApiClient({
-	userAgent: 'mi-launcher/1.0.0',
+	userAgent: 'example-launcher/1.0.0',
 	labrinthBaseUrl: 'https://api.modrinth.com',
 	features: [new VerboseLoggingFeature()],
 })
@@ -27,13 +22,10 @@ const client = new TauriApiClient({
 const project = await client.labrinth.projects_v2.get('sodium')
 ```
 
-En los componentes, el cliente se inyecta con `injectApiClient()` de
-`@orbiont/ui` (la app lo registra con `provideApiClient` en `App.vue`).
+Components receive the client with `injectApiClient()` from `@orbiont/ui`. The app registers it with `provideApiClient` in `App.vue`.
 
-## Añadir un módulo
+## Adding a module
 
-1. Crea la clase en `src/modules/<api>/<modulo>/<version>.ts` extendiendo
-   `AbstractModule` y devuelve su id en `getModuleID()` (`<api>_<modulo>`).
-2. Añádela a `MODULE_REGISTRY` en `src/modules/index.ts`; el tipo del cliente
-   se infiere solo.
-3. Los tipos de la API van en `src/modules/<api>/types.ts`.
+1. Create a class in `src/modules/<api>/<module>/<version>.ts` extending `AbstractModule`. Return its identifier from `getModuleID()`.
+2. Add it to `MODULE_REGISTRY` in `src/modules/index.ts`, using a key such as `<api>_<module>_<version>`. The client type is inferred from this registry.
+3. Define API types in `src/modules/<api>/types.ts`.

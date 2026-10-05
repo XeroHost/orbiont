@@ -17,7 +17,6 @@
 				:offline="offline"
 				@unlinked="refreshInstance"
 			/>
-			<UpdateToPlayModal ref="updateToPlayModal" :instance="instance" />
 			<InstancePageHeader
 				:instance="instance"
 				:icon-src="icon"
@@ -93,7 +92,6 @@ import { onBeforeRouteUpdate, useRoute, useRouter } from 'vue-router'
 
 import ExportModal from '@/components/ui/ExportModal.vue'
 import ConfirmDeleteInstanceModal from '@/components/ui/modal/ConfirmDeleteInstanceModal.vue'
-import UpdateToPlayModal from '@/components/ui/modal/UpdateToPlayModal.vue'
 import {
 	fetchCachedServerStatus,
 	getFreshCachedServerStatus,
@@ -117,7 +115,6 @@ import { createInstanceShortcut, showInstanceInFolder } from '@/helpers/utils.js
 import type { ServerStatus } from '@/helpers/worlds'
 import { useRootBreadcrumb } from '@/providers/breadcrumbs'
 import { provideInstanceBackup } from '@/providers/instance-backup'
-import { injectServerInstall } from '@/providers/server-install'
 
 import InstanceAdmonitions from './components/admonitions/index.vue'
 import InstancePageHeader from './components/page-header/index.vue'
@@ -134,7 +131,6 @@ import {
 dayjs.extend(relativeTime)
 
 const { addNotification, handleError } = injectNotificationManager()
-const { playServerProject } = injectServerInstall()
 const queryClient = useQueryClient()
 const route = useRoute()
 const { formatMessage } = useVIntl()
@@ -287,7 +283,6 @@ const loading = ref(false)
 const subpagePending = ref(false)
 const stopping = ref(false)
 const exportModal = ref<InstanceType<typeof ExportModal>>()
-const updateToPlayModal = ref<InstanceType<typeof UpdateToPlayModal>>()
 const deleteConfirmModal = ref<InstanceType<typeof ConfirmDeleteInstanceModal>>()
 const settingsModal = ref<InstanceType<typeof InstanceSettingsModal>>()
 const selectedInstanceToDelete = ref<GameInstance | null>(null)
@@ -453,11 +448,6 @@ const startInstance = async () => {
 	if (!instance.value || instance.value.quarantined) return
 	if (loading.value || playing.value) return
 
-	if (updateToPlayModal.value?.hasUpdate) {
-		updateToPlayModal.value.show(instance.value)
-		return
-	}
-
 	await launchInstance()
 }
 
@@ -470,15 +460,10 @@ const stopInstance = async () => {
 	queryClient.setQueryData(instanceKeys.processes(currentInstance.id), [])
 }
 
+// Legacy server-linked instances launch normally. Users join servers from
+// the Worlds tab using the same flow as manually added servers.
 const handlePlayServer = async () => {
-	if (!instance.value?.link?.project_id || instance.value.quarantined) return
-	loading.value = true
-	try {
-		await playServerProject(instance.value.link.project_id)
-	} finally {
-		await refreshPlayState()
-		loading.value = false
-	}
+	await startInstance()
 }
 
 function openSettings(tab?: number) {
@@ -491,14 +476,6 @@ async function browseContent(projectType?: string) {
 	await router.push({
 		path: `/browse/${projectType ?? (currentInstance.loader === 'vanilla' ? 'resourcepack' : 'mod')}`,
 		query: { i: currentInstance.id },
-	})
-}
-
-async function browseServers() {
-	if (!instance.value || instance.value.quarantined) return
-	await router.push({
-		path: '/browse/server',
-		query: { i: instance.value.id, from: 'worlds' },
 	})
 }
 
@@ -630,7 +607,6 @@ provideInstancePage({
 	playServer: handlePlayServer,
 	openSettings,
 	browseContent,
-	browseServers,
 })
 provideInstanceBackup(() => instance.value!)
 

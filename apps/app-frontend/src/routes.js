@@ -11,6 +11,15 @@ export default new createRouter({
 			component: () => import('@/pages/Index.vue'),
 		},
 		{
+			path: '/bedrock',
+			name: 'Minecraft Bedrock',
+			component: () => import('@/pages/Bedrock.vue'),
+		},
+		{
+			path: '/browse/server',
+			redirect: (to) => ({ path: '/browse/modpack', query: to.query }),
+		},
+		{
 			path: '/browse/:projectType',
 			name: 'Discover content',
 			component: () => import('@/pages/Browse.vue'),
@@ -22,8 +31,7 @@ export default new createRouter({
 		},
 		{
 			path: '/servers',
-			name: 'Servers',
-			component: () => import('@/pages/Servers.vue'),
+			redirect: (to) => ({ path: '/browse/modpack', query: to.query }),
 		},
 		{
 			path: '/screenshots',
@@ -32,8 +40,7 @@ export default new createRouter({
 		},
 		{
 			path: '/user/:user/:projectType?',
-			name: 'User',
-			component: () => import('@/pages/User.vue'),
+			redirect: '/',
 		},
 		{
 			path: '/:projectType(mod|plugin|datapack|resourcepack|shader|modpack)/:id/:rest(.*)*',

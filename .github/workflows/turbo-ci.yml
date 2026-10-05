@@ -1,13 +1,12 @@
 name: CI
 
 on:
-  push:
-    branches: [main]
+  workflow_call:
   pull_request:
     types: [opened, synchronize]
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
+  group: ci-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
@@ -71,7 +70,7 @@ jobs:
 
       - name: Set app environment
         working-directory: packages/app-lib
-        run: cp .env.prod .env
+        run: cp .env.example .env
 
       - name: Lint and test
         run: pnpm run ci

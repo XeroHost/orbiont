@@ -8,7 +8,7 @@
 		>
 			<IconButton
 				type="quiet"
-				label="Minimize window"
+				:label="formatMessage(messages.minimizeWindow)"
 				class="relative expanded-button"
 				@click="getCurrentWindow().minimize()"
 			>
@@ -16,7 +16,7 @@
 			</IconButton>
 			<IconButton
 				type="quiet"
-				label="Toggle maximize window"
+				:label="formatMessage(messages.toggleMaximizeWindow)"
 				class="relative expanded-button"
 				@click="getCurrentWindow().toggleMaximize()"
 			>
@@ -25,7 +25,7 @@
 			</IconButton>
 			<IconButton
 				type="quiet"
-				label="Close window"
+				:label="formatMessage(messages.closeWindow)"
 				class="relative expanded-button close-button"
 				@click="handleClose"
 			>
@@ -36,8 +36,13 @@
 </template>
 
 <script setup>
-import { MaximizeIcon, MinimizeIcon, RestoreIcon, XIcon } from '@orbiont/assets'
-import { IconButton } from '@orbiont/ui'
+import {
+	CopyIcon as RestoreIcon,
+	MinusIcon as MinimizeIcon,
+	SquareIcon as MaximizeIcon,
+	XIcon,
+} from '@orbiont/assets'
+import { defineMessages, IconButton, useVIntl } from '@orbiont/ui'
 import { getCurrentWindow } from '@tauri-apps/api/window'
 import { saveWindowState, StateFlags } from '@tauri-apps/plugin-window-state'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
@@ -45,6 +50,23 @@ import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { get as getSettings } from '@/helpers/settings.ts'
 import { getOS } from '@/helpers/utils.js'
+
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	minimizeWindow: {
+		id: 'app.window-controls.minimize',
+		defaultMessage: 'Minimize window',
+	},
+	toggleMaximizeWindow: {
+		id: 'app.window-controls.toggle-maximize',
+		defaultMessage: 'Toggle maximize window',
+	},
+	closeWindow: {
+		id: 'app.window-controls.close',
+		defaultMessage: 'Close window',
+	},
+})
 
 const appSettings = useAppSettings()
 

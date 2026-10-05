@@ -1,6 +1,6 @@
 /**
  * CurseForge as a *data source* for the launcher's one native browse/project
- * UI (see the build plan, Fase 4).
+ * UI.
  *
  * There is deliberately no CurseForge-specific UI anywhere: this module maps
  * CurseForge's API onto the same data model the rest of the app already
@@ -20,7 +20,13 @@ import type { Labrinth } from '@orbiont/api-client'
 import { registerCategoryIconAliases } from '@orbiont/assets'
 import { invoke } from '@tauri-apps/api/core'
 
-export type CurseforgeProjectType = 'modpack' | 'mod' | 'resourcepack' | 'datapack' | 'shader'
+export type CurseforgeProjectType =
+	| 'modpack'
+	| 'mod'
+	| 'resourcepack'
+	| 'datapack'
+	| 'shader'
+	| 'world'
 
 const PREFIX = 'cf-'
 
@@ -31,6 +37,20 @@ const CLASS_IDS: Record<CurseforgeProjectType, number> = {
 	resourcepack: 12,
 	datapack: 6945,
 	shader: 6552,
+	world: 17,
+}
+export const BEDROCK_GAME_ID = 78022
+export const BEDROCK_CLASS_IDS = {
+	mod: 4984,
+	resourcepack: 6929,
+	world: 6913,
+	datapack: 6940,
+} as const
+export type MinecraftEdition = 'java' | 'bedrock'
+function classId(type: CurseforgeProjectType, edition: MinecraftEdition) {
+	if (edition === 'java') return CLASS_IDS[type]
+	if (!(type in BEDROCK_CLASS_IDS)) throw new Error('Unsupported Bedrock content type')
+	return BEDROCK_CLASS_IDS[type as keyof typeof BEDROCK_CLASS_IDS]
 }
 const PROJECT_TYPE_BY_CLASS_ID = Object.fromEntries(
 	Object.entries(CLASS_IDS).map(([type, id]) => [id, type]),
@@ -92,7 +112,18 @@ const SORT_FIELDS: Record<string, number> = {
 
 // Resource pack resolutions use the same "resolutions" header (and so the same
 // single-choice filter group) as Modrinth's.
-const RESOLUTION_CATEGORIES = new Set(['16x', '32x', '64x', '128x', '256x', '512x and Higher'])
+const RESOLUTION_CATEGORIES = new Set([
+	'16x',
+	'32x',
+	'64x',
+	'128x',
+	'256x',
+	'512x and Higher',
+	'x16',
+	'x32',
+	'x64',
+	'x128',
+])
 
 /**
  * CurseForge category name -> the launcher's own category icon, so CurseForge
@@ -187,6 +218,29 @@ const CATEGORY_ICONS: Record<string, string> = {
 	// Shaders
 	realistic: 'realistic',
 	vanilla: 'vanilla-like',
+	// Worlds
+	creation: 'blocks',
+	'game map': 'map-pinned',
+	'modded world': 'modded',
+	parkour: 'footprints',
+	puzzle: 'game-mechanics',
+	survival: 'heart-pulse',
+	// Bedrock uses a separate category taxonomy.
+	'texture packs': 'palette',
+	pvp: 'combat',
+	players: 'users',
+	maps: 'map-pinned',
+	roleplay: 'theater',
+	skins: 'users',
+	cosmetics: 'decoration',
+	'minecraft addon maker': 'modded',
+	shaders: 'core-shaders',
+	'l 3d packs': 'models',
+	'enhanced visuals': 'reflections',
+	rollercoaster: 'transportation',
+	ctm: 'flag',
+	'custom terrain': 'worldgen',
+	scripts: 'terminal',
 }
 registerCategoryIconAliases(CATEGORY_ICONS)
 
@@ -261,6 +315,7 @@ interface CfFileIndex {
 
 interface CfMod {
 	id: number
+	gameId?: number
 	name: string
 	slug: string
 	summary: string
@@ -276,6 +331,7 @@ interface CfMod {
 	authors: { id: number; name: string; url: string; avatarUrl?: string | null }[]
 	logo: { thumbnailUrl?: string; url?: string } | null
 	screenshots: { title: string; description: string; thumbnailUrl: string; url: string }[]
+	videos?: { url: string; title?: string; description?: string }[]
 	latestFiles: CfFile[]
 	latestFilesIndexes: CfFileIndex[]
 	dateCreated: string
@@ -284,31 +340,79 @@ interface CfMod {
 	allowModDistribution: boolean | null
 }
 
-async function api<T>(path: string, query: Record<string, string | undefined> = {}): Promise<T> {
-	const pairs = Object.entries(query).filter((entry): entry is [string, string] => !!entry[1])
-	return await invoke('plugin:orbiont|orbiont_curseforge_api', { path, query: pairs })
+const requestsInFlight = new Map<string, Promise<unknown>>()
+function request<T>(command: string, args: Record<string, unknown>): Promise<T> {
+	const key = JSON.stringify([command, args])
+	let pending = requestsInFlight.get(key)
+	if (!pending) {
+		pending = invoke(command, args).catch((error: unknown) => {
+			const message =
+				typeof error === 'object' && error !== null && 'message' in error
+					? String(error.message)
+					: String(error)
+			throw new Error(message)
+		})
+		requestsInFlight.set(key, pending)
+		pending.then(
+			() => requestsInFlight.delete(key),
+			() => requestsInFlight.delete(key),
+		)
+	}
+	return pending as Promise<T>
 }
 
-const modCache = new Map<number, Promise<CfMod>>()
+async function api<T>(path: string, query: Record<string, string | undefined> = {}): Promise<T> {
+	const pairs = Object.entries(query).filter((entry): entry is [string, string] => !!entry[1])
+	return await request('plugin:orbiont|orbiont_curseforge_api', { path, query: pairs })
+}
+
+async function batch<T>(
+	path: 'mods' | 'mods/files',
+	key: 'modIds' | 'fileIds',
+	ids: number[],
+): Promise<T[]> {
+	const data: T[] = []
+	const unique = [...new Set(ids)]
+	for (let offset = 0; offset < unique.length; offset += 2000) {
+		const response = await request<{ data: T[] }>('plugin:orbiont|orbiont_curseforge_api_post', {
+			path,
+			body: { [key]: unique.slice(offset, offset + 2000) },
+		})
+		data.push(...response.data)
+	}
+	return data
+}
+
+// Coalesce simultaneous requests without retaining CurseForge API data.
+const modInFlight = new Map<number, Promise<CfMod>>()
 function getMod(modId: number): Promise<CfMod> {
-	let pending = modCache.get(modId)
+	let pending = modInFlight.get(modId)
 	if (!pending) {
 		pending = api<{ data: CfMod }>(`mods/${modId}`).then((body) => body.data)
-		pending.catch(() => modCache.delete(modId))
-		modCache.set(modId, pending)
+		pending.then(
+			() => modInFlight.delete(modId),
+			() => modInFlight.delete(modId),
+		)
+		modInFlight.set(modId, pending)
 	}
 	return pending
 }
 
 const MAX_FILE_PAGES = 10
 const FILE_PAGE_SIZE = 50
-const filesCache = new Map<number, Promise<CfFile[]>>()
-function getFiles(modId: number): Promise<CfFile[]> {
-	let pending = filesCache.get(modId)
+const filesInFlight = new Map<string, Promise<CfFile[]>>()
+function getFiles(
+	modId: number,
+	options: { gameVersion?: string; loader?: string } = {},
+): Promise<CfFile[]> {
+	const key = JSON.stringify([modId, options.gameVersion, options.loader])
+	let pending = filesInFlight.get(key)
 	if (!pending) {
 		pending = (async () => {
 			const page = (index: number) =>
 				api<{ data: CfFile[]; pagination: { totalCount: number } }>(`mods/${modId}/files`, {
+					gameVersion: options.gameVersion,
+					modLoaderType: options.loader ? LOADER_TYPE_BY_NAME[options.loader] : undefined,
 					index: String(index * FILE_PAGE_SIZE),
 					pageSize: String(FILE_PAGE_SIZE),
 				})
@@ -317,27 +421,37 @@ function getFiles(modId: number): Promise<CfFile[]> {
 				MAX_FILE_PAGES,
 				Math.ceil(first.pagination.totalCount / FILE_PAGE_SIZE),
 			)
-			const rest = await Promise.all(
-				Array.from({ length: Math.max(0, pages - 1) }, (_, i) => page(i + 1)),
-			)
+			const rest = []
+			for (let index = 1; index < pages; index++) rest.push(await page(index))
 			const files = [first, ...rest].flatMap((body) => body.data)
 			return files.sort((a, b) => Date.parse(b.fileDate) - Date.parse(a.fileDate))
 		})()
-		pending.catch(() => filesCache.delete(modId))
-		filesCache.set(modId, pending)
+		pending.then(
+			() => filesInFlight.delete(key),
+			() => filesInFlight.delete(key),
+		)
+		filesInFlight.set(key, pending)
 	}
 	return pending
 }
 
-const categoriesCache = new Map<CurseforgeProjectType, Promise<CfCategory[]>>()
-function getCategories(projectType: CurseforgeProjectType): Promise<CfCategory[]> {
-	let pending = categoriesCache.get(projectType)
+const categoriesInFlight = new Map<string, Promise<CfCategory[]>>()
+function getCategories(
+	projectType: CurseforgeProjectType,
+	edition: MinecraftEdition = 'java',
+): Promise<CfCategory[]> {
+	const key = `${edition}:${projectType}`
+	let pending = categoriesInFlight.get(key)
 	if (!pending) {
 		pending = api<{ data: CfCategory[] }>('categories', {
-			classId: String(CLASS_IDS[projectType]),
+			gameId: edition === 'bedrock' ? String(BEDROCK_GAME_ID) : undefined,
+			classId: String(classId(projectType, edition)),
 		}).then((body) => body.data.filter((category) => !category.isClass))
-		pending.catch(() => categoriesCache.delete(projectType))
-		categoriesCache.set(projectType, pending)
+		pending.then(
+			() => categoriesInFlight.delete(key),
+			() => categoriesInFlight.delete(key),
+		)
+		categoriesInFlight.set(key, pending)
 	}
 	return pending
 }
@@ -350,6 +464,9 @@ function iconOf(mod: CfMod) {
 }
 
 function projectTypeOf(mod: CfMod): CurseforgeProjectType {
+	if (mod.gameId === BEDROCK_GAME_ID)
+		return (Object.entries(BEDROCK_CLASS_IDS).find(([, id]) => id === mod.classId)?.[0] ??
+			'mod') as CurseforgeProjectType
 	return PROJECT_TYPE_BY_CLASS_ID[mod.classId] ?? 'mod'
 }
 
@@ -395,8 +512,9 @@ function fileDownloadUrl(file: CfFile) {
 
 export async function getCurseforgeCategoryTags(
 	projectType: CurseforgeProjectType,
+	edition: MinecraftEdition = 'java',
 ): Promise<Labrinth.Tags.v2.Category[]> {
-	const categories = await getCategories(projectType)
+	const categories = await getCategories(projectType, edition)
 	const seen = new Set<string>()
 	return categories
 		.filter((category) => !seen.has(category.name) && seen.add(category.name))
@@ -422,13 +540,18 @@ export interface CurseforgeSearchFilter {
 
 export async function searchCurseforge(options: {
 	projectType: CurseforgeProjectType
+	edition?: MinecraftEdition
 	query: string
 	sort: string
 	limit: number
 	page: number
 	filters: CurseforgeSearchFilter[]
 }): Promise<{ hits: CurseforgeSearchHit[]; totalHits: number }> {
-	const categories = await getCategories(options.projectType)
+	const categories = options.filters.some(
+		(filter) => filter.type.startsWith('category_') && !filter.negative,
+	)
+		? await getCategories(options.projectType, options.edition)
+		: []
 	const categoryIdByName = new Map(categories.map((category) => [category.name, category.id]))
 
 	const includedCategories: string[] = []
@@ -461,7 +584,8 @@ export async function searchCurseforge(options: {
 	const index = Math.min((options.page - 1) * limit, MAX_REACHABLE_RESULTS - limit)
 
 	const body = await api<{ data: CfMod[]; pagination: { totalCount: number } }>('mods/search', {
-		classId: String(CLASS_IDS[options.projectType]),
+		gameId: options.edition === 'bedrock' ? String(BEDROCK_GAME_ID) : undefined,
+		classId: String(classId(options.projectType, options.edition ?? 'java')),
 		searchFilter: options.query || undefined,
 		sortField: String(SORT_FIELDS[options.sort] ?? SORT_FIELDS.relevance),
 		sortOrder: 'desc',
@@ -481,6 +605,11 @@ export async function searchCurseforge(options: {
 	// semantics to the returned page so the shared filter UI means the same
 	// thing for every provider.
 	const hits = body.data
+		.filter(
+			(mod) =>
+				options.edition !== 'bedrock' ||
+				(mod.gameId === BEDROCK_GAME_ID && mod.classId === classId(options.projectType, 'bedrock')),
+		)
 		.map((mod) => toSearchHit(mod, options.projectType))
 		.filter((hit) => {
 			if (excludedProjectIds.has(hit.project_id)) return false
@@ -500,12 +629,14 @@ export async function searchCurseforge(options: {
 /** A native search hit, plus the CurseForge website page for "open in browser". */
 export type CurseforgeSearchHit = Labrinth.Search.v3.ResultSearchProject & {
 	page_url: string | null
+	minecraft_edition?: MinecraftEdition
 }
 
 function toSearchHit(mod: CfMod, projectType: CurseforgeProjectType): CurseforgeSearchHit {
 	const categories = categoriesOf(mod)
 	return {
 		project_id: projectIdOf(mod.id),
+		minecraft_edition: mod.gameId === BEDROCK_GAME_ID ? 'bedrock' : 'java',
 		project_types: [projectType],
 		all_project_types: [projectType],
 		slug: projectIdOf(mod.id),
@@ -528,7 +659,7 @@ function toSearchHit(mod: CfMod, projectType: CurseforgeProjectType): Curseforge
 		gallery: mod.screenshots.map((shot) => shot.url),
 		featured_gallery: null,
 		color: null,
-		loaders: loadersOf(mod),
+		loaders: mod.gameId === BEDROCK_GAME_ID ? [] : loadersOf(mod),
 		project_loader_fields: { game_versions: gameVersionsOf(mod) },
 		disclosure_types: [],
 		page_url: mod.links.websiteUrl ?? null,
@@ -541,9 +672,8 @@ function toSearchHit(mod: CfMod, projectType: CurseforgeProjectType): Curseforge
 
 export async function getCurseforgeProject(id: string): Promise<Labrinth.Projects.v2.Project> {
 	const modId = parseProjectId(id)
-	const [mod, files, description] = await Promise.all([
+	const [mod, description] = await Promise.all([
 		getMod(modId),
-		getFiles(modId),
 		api<{ data: string }>(`mods/${modId}/description`)
 			.then((body) => body.data)
 			.catch(() => ''),
@@ -553,6 +683,7 @@ export async function getCurseforgeProject(id: string): Promise<Labrinth.Project
 
 	return {
 		id: projectIdOf(mod.id),
+		minecraft_edition: mod.gameId === BEDROCK_GAME_ID ? 'bedrock' : 'java',
 		slug: projectIdOf(mod.id),
 		project_type: projectType,
 		team: projectIdOf(mod.id),
@@ -575,9 +706,19 @@ export async function getCurseforgeProject(id: string): Promise<Labrinth.Project
 		followers: null,
 		categories: categoriesOf(mod),
 		additional_categories: [],
-		game_versions: [...new Set(files.flatMap(fileGameVersions))],
-		loaders: [...new Set([...files.flatMap(fileLoaders), ...loadersOf(mod)])],
-		versions: files.map((file) => versionIdOf(mod.id, file.id)),
+		game_versions: [
+			...new Set([...gameVersionsOf(mod), ...mod.latestFiles.flatMap(fileGameVersions)]),
+		],
+		loaders:
+			mod.gameId === BEDROCK_GAME_ID
+				? []
+				: [...new Set([...mod.latestFiles.flatMap(fileLoaders), ...loadersOf(mod)])],
+		versions: [
+			...new Set([
+				...mod.latestFilesIndexes.map((index) => index.fileId),
+				...mod.latestFiles.map((file) => file.id),
+			]),
+		].map((fileId) => versionIdOf(mod.id, fileId)),
 		icon_url: icon,
 		raw_icon_url: icon,
 		issues_url: mod.links.issuesUrl ?? null,
@@ -594,6 +735,7 @@ export async function getCurseforgeProject(id: string): Promise<Labrinth.Project
 			created: mod.dateModified,
 			ordering,
 		})),
+		videos: mod.videos ?? [],
 		color: null,
 		thread_id: '',
 		monetization_status: 'demonetized',
@@ -615,7 +757,11 @@ export async function getCurseforgeProjectV3(id: string) {
 	}
 }
 
-function toVersion(file: CfFile, projectType: CurseforgeProjectType): Labrinth.Versions.v2.Version {
+function toVersion(
+	file: CfFile,
+	projectType: CurseforgeProjectType,
+	bedrock = false,
+): Labrinth.Versions.v2.Version {
 	const sha1 = file.hashes.find((hash) => hash.algo === 1)?.value
 	const loaders = fileLoaders(file)
 	return {
@@ -651,8 +797,9 @@ function toVersion(file: CfFile, projectType: CurseforgeProjectType): Labrinth.V
 				dependency_type: 'required',
 			})),
 		game_versions: fileGameVersions(file),
-		loaders:
-			loaders.length > 0
+		loaders: bedrock
+			? []
+			: loaders.length > 0
 				? loaders
 				: projectType === 'resourcepack'
 					? ['minecraft']
@@ -667,26 +814,50 @@ function toVersion(file: CfFile, projectType: CurseforgeProjectType): Labrinth.V
 export async function getCurseforgeVersions(
 	versionIds: string[],
 ): Promise<Labrinth.Versions.v2.Version[]> {
-	const byMod = new Map<number, Set<number>>()
-	for (const id of versionIds) {
-		const { modId, fileId } = parseVersionId(id)
-		if (!byMod.has(modId)) byMod.set(modId, new Set())
-		byMod.get(modId)!.add(fileId)
-	}
+	const requested = versionIds.map(parseVersionId)
+	const [files, mods] = await Promise.all([
+		batch<CfFile>(
+			'mods/files',
+			'fileIds',
+			requested.map((id) => id.fileId),
+		),
+		batch<CfMod>(
+			'mods',
+			'modIds',
+			requested.map((id) => id.modId),
+		),
+	])
+	const filesById = new Map(files.map((file) => [file.id, file]))
+	const modsById = new Map(mods.map((mod) => [mod.id, mod]))
+	return requested.map(({ modId, fileId }) => {
+		const file = filesById.get(fileId)
+		const mod = modsById.get(modId)
+		if (!file || !mod || file.modId !== modId)
+			throw new Error(`CurseForge file ${fileId} not found in project ${modId}`)
+		return toVersion(file, projectTypeOf(mod), mod.gameId === BEDROCK_GAME_ID)
+	})
+}
 
-	const versions: Labrinth.Versions.v2.Version[] = []
-	for (const [modId, fileIds] of byMod) {
-		const [mod, files] = await Promise.all([getMod(modId), getFiles(modId)])
-		const projectType = projectTypeOf(mod)
-		const known = new Map(files.map((file) => [file.id, file]))
-		for (const fileId of fileIds) {
-			const file =
-				known.get(fileId) ??
-				(await api<{ data: CfFile }>(`mods/${modId}/files/${fileId}`).then((body) => body.data))
-			versions.push(toVersion(file, projectType))
-		}
-	}
-	return versions
+/** Fetch history only when choosing a version; constrain it to the target instance when possible. */
+export async function getCurseforgeProjectVersions(
+	id: string,
+	options: { gameVersion?: string; loader?: string } = {},
+) {
+	const modId = parseProjectId(id)
+	const [mod, files] = await Promise.all([getMod(modId), getFiles(modId, options)])
+	return files.map((file) => toVersion(file, projectTypeOf(mod), mod.gameId === BEDROCK_GAME_ID))
+}
+
+export async function getBedrockGameVersions(): Promise<Labrinth.Tags.v2.GameVersion[]> {
+	const body = await api<{ data: { versions: string[] }[] }>('games/78022/versions')
+	return [...new Set(body.data.flatMap((group) => group.versions))]
+		.sort((a, b) => b.localeCompare(a, 'en', { numeric: true }))
+		.map((version) => ({
+			version,
+			version_type: 'release',
+			date: '',
+			major: false,
+		}))
 }
 
 export async function getCurseforgeVersion(versionId: string) {
@@ -734,25 +905,112 @@ export async function getCurseforgeVersionFile(versionId: string) {
  * Downloads a CurseForge file. The core resolves it by id through the facade,
  * only accepts CurseForge's CDN over https and verifies the file's SHA-1.
  */
-async function downloadVersionFile(versionId: string): Promise<string> {
-	// Surfaces "only downloadable from CurseForge's website" with the page link.
-	await getCurseforgeVersionFile(versionId)
+export async function downloadVersionFile(versionId: string): Promise<string> {
 	const { modId, fileId } = parseVersionId(versionId)
-	return await invoke('plugin:orbiont|orbiont_download_curseforge_file', { modId, fileId })
+	try {
+		return await request('plugin:orbiont|orbiont_download_curseforge_file', { modId, fileId })
+	} catch (error) {
+		const manual = parseCurseforgeManualDownload(error)
+		if (!manual) throw error
+		if (manual.projectId !== modId || manual.fileId !== fileId) throw error
+		return requestCurseforgeManualDownload(manual)
+	}
+}
+
+export interface CurseforgeManualDownload {
+	projectId: number
+	fileId: number
+	fileName: string
+	fileSize: number
+	sha1: string
+	pageUrl: string | null
+}
+
+export function parseCurseforgeManualDownload(error: unknown): CurseforgeManualDownload | null {
+	const message =
+		error instanceof Error
+			? error.message
+			: typeof error === 'string'
+				? error
+				: String((error as { message?: unknown })?.message ?? '')
+	const marker = 'CURSEFORGE_MANUAL_DOWNLOAD:'
+	const position = message.indexOf(marker)
+	if (position < 0) return null
+	try {
+		const file = JSON.parse(message.slice(position + marker.length))
+		if (
+			!Number.isSafeInteger(file.projectId) ||
+			file.projectId <= 0 ||
+			!Number.isSafeInteger(file.fileId) ||
+			file.fileId <= 0 ||
+			typeof file.fileName !== 'string' ||
+			!Number.isSafeInteger(file.fileSize) ||
+			file.fileSize < 0 ||
+			!/^[a-f0-9]{40}$/.test(file.sha1)
+		)
+			return null
+		const url = new URL(file.pageUrl)
+		if (
+			url.protocol !== 'https:' ||
+			url.hostname !== 'www.curseforge.com' ||
+			url.port ||
+			url.username ||
+			url.password ||
+			url.search ||
+			url.hash ||
+			(!url.pathname.startsWith('/minecraft/') &&
+				!url.pathname.startsWith('/minecraft-bedrock/')) ||
+			!url.pathname.endsWith(`/files/${file.fileId}`)
+		)
+			return null
+		return file
+	} catch {
+		return null
+	}
+}
+
+let manualDownloadHandler: ((file: CurseforgeManualDownload) => Promise<string | null>) | undefined
+export class CurseforgeDownloadCancelled extends Error {
+	constructor(fileName: string) {
+		super(`CurseForge manual download canceled: ${fileName}`)
+		this.name = 'CurseforgeDownloadCancelled'
+	}
+}
+let manualQueue: Promise<unknown> = Promise.resolve()
+const manualRequests = new Map<string, Promise<string>>()
+export function setCurseforgeManualDownloadHandler(
+	handler: NonNullable<typeof manualDownloadHandler>,
+) {
+	manualDownloadHandler = handler
+}
+
+export async function requestCurseforgeManualDownload(
+	file: CurseforgeManualDownload,
+): Promise<string> {
+	if (!manualDownloadHandler)
+		throw new Error(
+			`CurseForge manual download required: ${file.fileName}${file.pageUrl ? ` — ${file.pageUrl}` : ''}`,
+		)
+	const key = `${file.projectId}/${file.fileId}/${file.sha1}`
+	let pending = manualRequests.get(key)
+	if (!pending) {
+		pending = manualQueue
+			.catch(() => {})
+			.then(async () => {
+				const path = await manualDownloadHandler!(file)
+				if (!path) throw new CurseforgeDownloadCancelled(file.fileName)
+				return path
+			})
+			.finally(() => manualRequests.delete(key))
+		manualRequests.set(key, pending)
+		manualQueue = pending
+	}
+	return pending
 }
 
 const LOADER_TYPE_BY_NAME = Object.fromEntries(
 	Object.entries(LOADER_BY_TYPE).map(([type, name]) => [name, type]),
 ) as Record<string, string>
-
-async function addFileToInstance(instanceId: string, versionId: string, projectType?: string) {
-	const path = await downloadVersionFile(versionId)
-	return await invoke<string>('plugin:instance|instance_add_project_from_path', {
-		instanceId,
-		projectPath: path,
-		projectType: projectType === 'shader' ? 'shaderpack' : projectType,
-	})
-}
 
 /** The newest file of `modId` that fits the instance, preferring releases. */
 async function latestCompatibleFile(
@@ -765,9 +1023,7 @@ async function latestCompatibleFile(
 		modLoaderType: LOADER_TYPE_BY_NAME[loader],
 		pageSize: '50',
 	})
-	const files = body.data
-		.filter((file) => file.downloadUrl)
-		.sort((a, b) => Date.parse(b.fileDate) - Date.parse(a.fileDate))
+	const files = body.data.sort((a, b) => Date.parse(b.fileDate) - Date.parse(a.fileDate))
 	return files.find((file) => file.releaseType === 1) ?? files[0] ?? null
 }
 
@@ -804,16 +1060,26 @@ export async function installCurseforgeVersionToInstance(
 	)
 
 	const { modId } = parseVersionId(versionId)
-	await addFileToInstance(instanceId, versionId, contentType)
+	const [primaryVersion] = await getCurseforgeVersions([versionId])
+	const pending = [
+		{ versionId, projectType: contentType, path: await downloadVersionFile(versionId) },
+	]
 	const result: CurseforgeInstallResult = {
 		projectId: projectIdOf(modId),
 		versionId,
 		dependencies: [],
 	}
-	if (!instance) return result
+	if (!instance) {
+		await invoke('plugin:instance|instance_add_project_from_path', {
+			instanceId,
+			projectPath: pending[0].path,
+			projectType: contentType === 'shader' ? 'shaderpack' : contentType,
+		})
+		return result
+	}
 
 	const visited = new Set([modId])
-	const queue = [...(await getCurseforgeVersions([versionId]))[0].dependencies]
+	const queue = [...primaryVersion.dependencies]
 	while (queue.length > 0) {
 		const dependency = queue.shift()!
 		const dependencyModId = parseProjectId(dependency.project_id!)
@@ -821,40 +1087,47 @@ export async function installCurseforgeVersionToInstance(
 		visited.add(dependencyModId)
 
 		const file = await latestCompatibleFile(dependencyModId, instance.game_version, instance.loader)
-		if (!file || existingNames.has(file.fileName)) continue
+		if (!file)
+			throw new Error(`No compatible CurseForge file for required dependency ${dependencyModId}`)
+		queue.push(...toVersion(file, 'mod').dependencies)
+		if (existingNames.has(file.fileName)) continue
 
 		const dependencyVersionId = versionIdOf(dependencyModId, file.id)
 		const dependencyType = projectTypeOf(await getMod(dependencyModId))
-		await addFileToInstance(instanceId, dependencyVersionId, dependencyType)
+		pending.push({
+			versionId: dependencyVersionId,
+			projectType: dependencyType,
+			path: await downloadVersionFile(dependencyVersionId),
+		})
 		existingNames.add(file.fileName)
 		result.dependencies.push({
 			projectId: projectIdOf(dependencyModId),
 			versionId: dependencyVersionId,
 		})
-		queue.push(...toVersion(file, dependencyType).dependencies)
 	}
+	// All required downloads (including manual selections) succeed before changing the instance.
+	for (const file of pending)
+		await invoke('plugin:instance|instance_add_project_from_path', {
+			instanceId,
+			projectPath: file.path,
+			projectType: file.projectType === 'shader' ? 'shaderpack' : file.projectType,
+		})
 	return result
 }
 
-/** A modpack file left out because only curseforge.com may distribute it. */
+/** A required modpack file that needs an official manual download. */
 export interface CurseforgeSkippedFile {
 	name: string
 	pageUrl: string | null
-}
-
-type SkippedFilesListener = (packName: string, files: CurseforgeSkippedFile[]) => void
-const skippedFilesListeners = new Set<SkippedFilesListener>()
-
-/** Notified when a converted modpack had to leave files out. */
-export function onCurseforgeSkippedFiles(listener: SkippedFilesListener) {
-	skippedFilesListeners.add(listener)
-	return () => skippedFilesListeners.delete(listener)
+	projectId: number
+	fileId: number
 }
 
 /**
  * Downloads a CurseForge modpack version and converts it into an `.mrpack`
  * (see `theseus::curseforge_pack`), so it installs through the native
- * modpack installer like any other pack. Returns the `.mrpack` path.
+ * modpack installer like any other pack. Required restricted files are verified
+ * manually before starting the install. Returns the `.mrpack` path.
  */
 export async function downloadCurseforgeModpack(
 	versionId: string,
@@ -862,12 +1135,23 @@ export async function downloadCurseforgeModpack(
 	packName?: string,
 ): Promise<string> {
 	const zipPath = await downloadVersionFile(versionId)
+	return convertCurseforgeModpack(zipPath, packName)
+}
+
+/** Convert a local CurseForge export using the same installer as catalog downloads. */
+export async function convertCurseforgeModpack(
+	path: string,
+	/** Omit while inspecting a preview to avoid showing duplicate notifications. */
+	packName?: string,
+): Promise<string> {
 	const converted = await invoke<{ path: string; skipped: CurseforgeSkippedFile[] }>(
 		'plugin:orbiont|orbiont_convert_curseforge_pack',
-		{ path: zipPath },
+		{ path },
 	)
 	if (packName !== undefined && converted.skipped.length > 0) {
-		for (const listener of skippedFilesListeners) listener(packName, converted.skipped)
+		if (!manualDownloadHandler) throw new Error('CurseForge manual download required for this pack')
+		for (const file of converted.skipped)
+			await downloadVersionFile(versionIdOf(file.projectId, file.fileId))
 	}
 	return converted.path
 }

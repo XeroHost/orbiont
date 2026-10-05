@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Ukjent tilfelle"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Oppdaterer delt innhold"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Gjør om til primærtilfelle"
   },
@@ -149,17 +146,278 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "Gjøm navnelapp"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Animer ikoner når pekeren holdes over dem og ved tastaturfokus."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Deaktiver animasjoner"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Animer alltid"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Følg systemet"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Ikonanimasjoner"
+  },
+  "app.appearance-settings.minimize-launcher.description": {
+    "message": "Minimer {productName} når Minecraft starter."
+  },
   "app.appearance-settings.minimize-launcher.title": {
     "message": "Minimer app"
+  },
+  "app.appearance-settings.show-play-time.description": {
+    "message": "Vis hvor lenge du har spilt hver instans."
   },
   "app.appearance-settings.show-play-time.title": {
     "message": "Vis spilletid"
   },
+  "app.appearance-settings.skip-non-essential-warnings.description": {
+    "message": "Hopp over bekreftelser for lavrisiko-handlinger som dupliserte installasjoner, vanlig sletting av innhold, masseoppdateringer, frakobling og reparasjoner. Advarsler for farlige handlinger vises alltid."
+  },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Hopp over mindre viktige advarsler"
   },
+  "app.appearance-settings.toggle-sidebar.description": {
+    "message": "Skjul det høyre sidepanelet som standard, og legg til en knapp for å vise eller skjule det."
+  },
+  "app.appearance-settings.toggle-sidebar.title": {
+    "message": "Skjul høyre sidepanel"
+  },
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Vis en sikkerhetsadvarsel før du installerer en importert modpack (.mrpack eller CurseForge .zip) der kilden ikke kunne verifiseres."
+  },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Advar meg før jeg installerer ukjente modpakker"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Kontakt støtte"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Kopier feilsøkingsinfo"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Feilsøkingsinformasjon"
+  },
+  "app.auth-error.header": {
+    "message": "Innlogging mislyktes"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Slik løser du det"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Fullfør identitetsbekreftelsen"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Denne kontoen krever bekreftelse av voksen alder etter sørkoreanske regler."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Minecraft-innlogging"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Sjekk at internettforbindelsen din fungerer"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Tillat {product} i brannmuren, antivirusprogrammet, proxyen, VPN-et og hosts-filreglene dine"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Prøv et annet nettverk, eller deaktiver midlertidig VPN-/proxyprogramvare hvis du bruker det"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Start {product} på nytt, og prøv å logge inn igjen"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Hvis ruting eller DNS er problemet, kan en tjeneste som Cloudflare WARP noen ganger hjelpe"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} kunne ikke koble til en Microsoft-, Xbox- eller Minecraft-tjeneste som kreves for innlogging. Dette skyldes vanligvis et problem med lokalt nettverk, DNS, proxy, brannmur, hosts-fil, VPN eller antivirus."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Ingen feilmelding."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Du kan sjekke hvilken konto som eier det på <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Sørg for at du logger inn med Microsoft-kontoen som kjøpte Minecraft (eller har et aktivt Game Pass med PC-tilgang)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Denne Microsoft-kontoen eier ikke Minecraft: Java Edition, og {product} fungerer bare med premiumkontoer."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Start Minecraft: Java Edition én gang fra den offisielle launcheren"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Sørg for at du bruker Microsoft-kontoen som eier Minecraft. Du kan sjekke hvilken konto som eier det på <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Vent opptil én time hvis kjøpet eller profiloppsettet var nylig"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Minecraft-tjenestene kunne ikke returnere en Java Edition-profil for denne kontoen. Dette skjer oftest når spillet ble kjøpt nylig, Java-profilen ikke er ferdig opprettet, eller feil Microsoft-konto brukes."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Sørg for at Minecraft er kjøpt på denne kontoen"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Fullfør Xbox-profiloppsettet hvis du blir bedt om det"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Denne kontoen har ingen Xbox-profil opprettet, eller eier ikke Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Start {product} på nytt etter å ha ventet"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Prøv å logge inn én gang til"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Vent omtrent én time før du prøver igjen"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Hvis samme melding vises, vent lenger før du prøver igjen, slik at den midlertidige begrensningen oppheves"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft eller Minecraft blokkerte innloggingsforespørselen midlertidig fordi det har vært for mange forsøk i det siste."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Sjekk <a href=\"https://www.xbox.com/en-US/regions\">Xbox Availability</a> for støttede regioner"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Xbox-tjenester må støttes i landet ditt før du kan logge inn"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live er ikke tilgjengelig i regionen din, så innlogging er blokkert."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "La en foresatt logge inn på <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Oppdater tillatelser for nettspill"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Denne kontoen er begrenset og har ikke tillatelse til å spille på nett."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Hvis tjenesten fungerer som den skal og dette fortsetter, kontakt støtte med feilsøkingsinformasjonen nedenfor"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Prøv å logge inn med den <a href=\"https://www.minecraft.net/en-us/download\">offisielle Minecraft-launcheren</a> for å bekrefte om Minecraft-innloggingen også er berørt der"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Sjekk <a href=\"https://support.xbox.com/xbox-live-status\">Xbox Status</a> for aktuelle tjenesteproblemer"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Vent noen minutter, og prøv å logge inn igjen"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Minecrafts autentiseringstjeneste returnerer en serverfeil, så {product} kan ikke fullføre innloggingen din akkurat nå."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Logg inn igjen"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Når det er ferdig, prøv å logge inn igjen"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Logg inn med den <a href=\"https://www.minecraft.net/en-us/download\">offisielle Minecraft-launcheren</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Prøv å logge inn på {product} igjen"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Besøk <a href=\"https://www.minecraft.net/en-us/login\">Minecraft-innlogging</a>, og logg inn"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Besøk <a href=\"https://www.xbox.com\">Xbox</a>, og logg inn"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Send inn en klage hvis det er tilgjengelig"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Besøk <a href=\"https://support.xbox.com\">Xbox Support</a>, og gå gjennom detaljene om håndhevingen"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Denne kontoen ble utestengt for brudd på Xbox Community Standards."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Når den nye innloggingen er ferdig, prøv å starte Minecraft igjen"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Logg inn på kontoen igjen"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Logg ut av den berørte Minecraft-kontoen i {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Det lagrede Microsoft-innloggingstokenet ditt er utløpt eller tilbakekalt, så {product} kan ikke oppdatere Minecraft-økten din."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Godta vilkårene hvis du blir bedt om det"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Denne kontoen har ikke godtatt Xbox sine bruksvilkår."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Prøv å besøke"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "For mer hjelp, besøk <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">UK age verification on Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Gå til <a href=\"https://www.minecraft.net/en-us/login\">Minecraft-innlogging</a>-siden, og logg inn"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Når bekreftelsen er fullført, prøv å logge inn igjen"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Følg instruksjonene for å bekrefte alderen din"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Minecraft-/Xbox Live-kontoen din krever aldersbekreftelse for å oppfylle britiske regler. Du må fullføre dette før du logger inn."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Les <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">Family Setup Guide</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Bli med i eller opprett en familiegruppe som anvist"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Denne kontoen er mindreårig og er ikke knyttet til en Microsoft-familiegruppe."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Ukjent feil"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Vi gjenkjenner ikke denne feilen og kan ikke anbefale konkrete trinn for å løse den."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "og logg inn, siden det kan vise de nødvendige trinnene. Du kan også kontakte støtte, så kan vi undersøke det nærmere."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Vi kunne ikke logge deg inn på Microsoft-kontoen din. Dette kan skyldes kontobegrensninger eller regionale begrensninger."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Dette tror vi skjedde"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Godta eventuelle vilkår, eller fullfør profiloppsettet som vises"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Logg inn én gang på <a href=\"https://www.xbox.com\">Xbox.com</a> med samme Microsoft-konto"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live godtok ikke Microsoft-innloggingen. Dette betyr vanligvis at Microsoft-kontoen aldri har logget inn på Xbox, eller må godta oppdaterte vilkår."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Hvis den offisielle launcheren også mislykkes, følg feilen som vises der, eller kontakt Xbox Support"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Fullfør eventuelle forespørsler som vises av Microsoft, Xbox eller Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Xbox-tjenestene avviste forespørselen om å autorisere denne kontoen for Minecraft-tjenester, men returnerte ingen spesifikk kontobegrensning som {product} gjenkjenner."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Minecraft-autentiseringsservere kan være nede for øyeblikket. Kontroller internettforbindelsen din og prøv igjen senere."
@@ -167,44 +425,563 @@
   "app.auth-servers.unreachable.header": {
     "message": "Kan ikke nå autentiseringsservere"
   },
-  "app.browse.add-servers-to-instance": {
-    "message": "Legger til server til tilfelle"
+  "app.bedrock.account": {
+    "message": "Minecraft og Microsoft Store sjekk din Bedrock-lisens. Logg på der med kontoen som eier Minecraft; Java-kontoen din i denne lanseringen kan være annerledes."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Lokale atferdspakker og skript. Konfigurer dem i verdensinnstillingene i Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Tillegg"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Atferdspakke"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Tillegg"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Bla gjennom tillegg, ressurspakker, verdener og skript fra CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Oppdag Bedrock-innhold"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Oppdag tillegg"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Oppdag skript"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Lukk Minecraft før du legger til pakker til en verden, og prøv på nytt."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Installer i Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft åpnes for å importere dette innholdet. Sjekk resultatet i spillet, og aktiver deretter pakkene i verdensinnstillingene dine. Nødvendige pakker og eksperimentelle innstillinger er oppført i prosjektbeskrivelsen."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Dette arkivet inneholder ikke støttet Bedrock-innhold."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Kunne ikke laste prosjektversjonene eller verdenene. Prøv igjen."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Denne pakken krever en annen pakke som ikke er aktiv i denne verden. Installer avhengighetene oppført av forfatteren først."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Ingen støttede .mcaddon-, .mcpack-, .mcworld- eller ZIP-filer er tilgjengelige for dette prosjektet."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Lag en verden i Minecraft først, og oppdater deretter denne listen."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Skript"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Innholdsversjon"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Destinasjonsverden"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Lukk Minecraft før installasjon. Disse pakkene vil bare bli lagt til og aktivert i den valgte verden. Sjekk nødvendige avhengigheter og eksperimentelle innstillinger i prosjektbeskrivelsen."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Pakker lagt til {world}. Åpne Minecraft for å spille denne verden."
+  },
+  "app.bedrock.checking": {
+    "message": "Ser etter Minecraft for Windows..."
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Lukk Minecraft for å redigere filer, slette innhold eller gjenopprette en kopi."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Dette innholdet er endret eller den opprinnelige plasseringen er okkupert. Gjenopprettingskopien har blitt beholdt for å unngå å overskrive endringene dine."
+  },
+  "app.bedrock.content": {
+    "message": "Innhold"
+  },
+  "app.bedrock.content-help": {
+    "message": "Lokale ressurser og hudpakker. Aktiver dem i Minecraft; noe innhold tilhører individuelle verdener."
+  },
+  "app.bedrock.data-error": {
+    "message": "Kunne ikke lese Minecraft-data. Last inn på nytt for å prøve igjen."
+  },
+  "app.bedrock.data-location": {
+    "message": "Minecraft dataplassering"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Disse elementene vil bli fjernet fra Minecraft. En gjenopprettingskopi vil bli beholdt, inkludert berørte world pack-innstillinger. Verdener som er avhengige av en slettet pakke kan miste blokkeringene eller virkemåten; gjenopprette den før du åpner disse verdenene."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Slett lokalt innhold"
+  },
+  "app.bedrock.description": {
+    "message": "Spill Minecraft for Windows og importer verdenene og tilleggene dine."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Kunne ikke sjekke Minecraft-installasjonen. Prøv igjen."
+  },
+  "app.bedrock.development": {
+    "message": "Utvikling"
+  },
+  "app.bedrock.edition": {
+    "message": "Minecraft utgave"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Denne mappen er tom."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock verdener og tillegg"
+  },
+  "app.bedrock.file-size": {
+    "message": "Størrelse"
+  },
+  "app.bedrock.files": {
+    "message": "Filer"
+  },
+  "app.bedrock.folder": {
+    "message": "Mappe"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Kunne ikke åpne denne Minecraft-mappen. Oppdater dataene dine og prøv igjen."
+  },
+  "app.bedrock.import-button": {
+    "message": "Importer fil"
+  },
+  "app.bedrock.import-description": {
+    "message": "Velg en .mcworld-, .mcpack- eller .mcaddon-fil. Minecraft vil åpne og håndtere importen."
+  },
+  "app.bedrock.import-error": {
+    "message": "Kunne ikke sende filen til Minecraft. Sjekk at Minecraft for Windows er installert og prøv igjen."
+  },
+  "app.bedrock.import-title": {
+    "message": "Verdener og tillegg"
+  },
+  "app.bedrock.installation": {
+    "message": "Offisiell installasjon"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows er installert"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Velg et gyldig lokalt .mcworld-, .mcpack- eller .mcaddon-arkiv."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Denne filen overskrider importgrensen for 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Kunne ikke åpne Minecraft. Åpne den offisielle lanseringen eller Microsoft Store for å sjekke installasjonen."
+  },
+  "app.bedrock.launcher": {
+    "message": "Åpne den offisielle lanseringen"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Offisiell lansering oppdaget. Installer Minecraft for Windows der for å fortsette."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Leser Minecraft-data …"
+  },
+  "app.bedrock.location": {
+    "message": "Beliggenhet"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Viser den siste 1 MiB i denne loggen."
+  },
+  "app.bedrock.logs": {
+    "message": "Logger"
+  },
+  "app.bedrock.missing": {
+    "message": "Installer Minecraft for Windows for å komme i gang"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Kunne ikke endre dette innholdet. Lukk Minecraft og oppdater. Gjenopprettingskopien din har blitt beholdt."
+  },
+  "app.bedrock.name": {
+    "message": "Navn"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Finner ingen lokale tillegg. Importer en .mcpack- eller .mcaddon-fil for å komme i gang."
+  },
+  "app.bedrock.no-content": {
+    "message": "Finner ikke noe lokalt innhold."
+  },
+  "app.bedrock.no-data": {
+    "message": "Åpne Minecraft én gang for å opprette datamappene, og oppdater deretter her."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Finner ingen innholdslogger. Aktiver innholdslogging i Minecraft Innstillinger > Skaper, og åpne deretter din verden."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Ingen gjenopprettingskopier ennå."
+  },
+  "app.bedrock.no-results": {
+    "message": "Ingen samsvarende varer."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Ingen lokale verdener funnet. Opprett en i Minecraft eller importer en .mcworld-fil."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Åpne mappe"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Overordnet mappe"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Noen mapper kunne ikke leses eller nådde visningsgrensen. Du kan inspisere dem i Filutforsker."
+  },
+  "app.bedrock.play": {
+    "message": "Spill"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Originalfiler og slettet innhold beholdes her. Gjenopprett en kopi mens Minecraft er lukket. Eksisterende innhold og senere redigeringer blir aldri overskrevet."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Gjenopprettingskopier"
+  },
+  "app.bedrock.refresh": {
+    "message": "Sjekk igjen"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Oppdater"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Last inn denne filen på nytt før du lagrer."
+  },
+  "app.bedrock.repair": {
+    "message": "Reparer eller oppdater installasjonen ved å bruke Microsoft Store eller den offisielle lanseringen."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Ressurspakke"
+  },
+  "app.bedrock.restore": {
+    "message": "Gjenopprett"
+  },
+  "app.bedrock.running": {
+    "message": "Kjører"
+  },
+  "app.bedrock.save-error": {
+    "message": "Kunne ikke lagre. Filen kan ha endret seg, inneholde ugyldig JSON eller være i bruk. Last den inn på nytt og prøv igjen."
+  },
+  "app.bedrock.search": {
+    "message": "Søk i lokalt innhold …"
+  },
+  "app.bedrock.select-log": {
+    "message": "Velg en logg for å lese den."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Skinpakke"
+  },
+  "app.bedrock.store": {
+    "message": "Installer eller oppdater"
+  },
+  "app.bedrock.store-error": {
+    "message": "Kunne ikke åpne Microsoft Store. Åpne den fra Windows Start-menyen."
+  },
+  "app.bedrock.submitted": {
+    "message": "Fil sendt til Minecraft. Sjekk importresultatet i spillet."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Bedrock-integrasjon krever Windows. Du kan fortsette å spille Java Edition på denne enheten."
+  },
+  "app.bedrock.update": {
+    "message": "Oppdater Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "I Microsoft Store, se etter oppdateringer og velg Minecraft for Windows. Den installerte versjonen din vil oppdateres når du kommer tilbake."
+  },
+  "app.bedrock.version": {
+    "message": "Windows installasjon {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Versjon"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Verden: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Verdener"
+  },
+  "app.behavior-settings.confirmations.title": {
+    "message": "Bekreftelser"
+  },
+  "app.behavior-settings.content.title": {
+    "message": "Hjem og innhold"
+  },
+  "app.behavior-settings.startup-and-navigation.title": {
+    "message": "Oppstart og navigering"
   },
   "app.browse.add-to-an-instance": {
     "message": "Legg til til et tilfelle"
   },
-  "app.browse.add-to-instance": {
-    "message": "Legg til til tilfelle"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Legg til til {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Lagt til"
-  },
-  "app.browse.already-added": {
-    "message": "Allerede lagt til"
-  },
   "app.browse.back-to-instance": {
     "message": "Tilbake til tilfelle"
   },
-  "app.browse.discover-servers": {
-    "message": "Oppdag servere"
+  "app.browse.discover-project-type": {
+    "message": "Utforsk {projectType}"
   },
-  "app.browse.hide-added-servers": {
-    "message": "Gjem servere som allerede er lagt til"
+  "app.browse.hide-installed-modpacks": {
+    "message": "Skjul allerede installerte"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Åpne i CurseForge"
+  },
+  "app.browse.project-actions.label": {
+    "message": "Prosjekthandlinger"
+  },
+  "app.browse.project-type.data-packs": {
+    "message": "Datapakker"
   },
   "app.browse.project-type.modpacks": {
     "message": "Modpakker"
   },
-  "app.browse.server.installing": {
-    "message": "Installerer"
+  "app.browse.project-type.mods": {
+    "message": "Modder"
+  },
+  "app.browse.project-type.resource-packs": {
+    "message": "Ressurspakker"
+  },
+  "app.browse.project-type.shaders": {
+    "message": "Shadere"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Ingen tilgjengelige versjoner matcher {compatibilityLabel}. Velg en versjon for å installere uansett. Avhengigheter vil ikke bli installert automatisk."
   },
+  "app.content.desync-pack": {
+    "message": "Usynk"
+  },
+  "app.content.sync-data-packs-disabled": {
+    "message": "Slå på synkronisering av datapakker i appinnstillingene først."
+  },
+  "app.content.sync-pack": {
+    "message": "Synk"
+  },
+  "app.content.sync-packs-override": {
+    "message": "Slå av overstyringen av pakkesynkronisering i innstillingene for denne instansen først."
+  },
   "app.content.sync-resource-packs-disabled": {
     "message": "Slå på synkronisering av ressurspakker i appinstillingene først."
+  },
+  "app.curseforge.rate-limit.text": {
+    "message": "Den delte forespørselsgrensen er nådd. Vent litt, og prøv igjen."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge er midlertidig opptatt"
+  },
+  "app.download-manager.active": {
+    "message": "Aktiv"
+  },
+  "app.download-manager.attention": {
+    "message": "Trenger oppmerksomhet"
+  },
+  "app.download-manager.cancel": {
+    "message": "Avbryt installasjon"
+  },
+  "app.download-manager.canceling": {
+    "message": "Avbryter installasjon …"
+  },
+  "app.download-manager.clear-all": {
+    "message": "Fjern alle"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Fjern alle fullførte oppgaver"
+  },
+  "app.download-manager.complete": {
+    "message": "Fullført"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Duplisert instans"
+  },
+  "app.download-manager.empty": {
+    "message": "Ingen installasjonsoppgaver"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Estimert nedlastingshastighet"
+  },
+  "app.download-manager.eta": {
+    "message": "Estimert gjenstående tid for denne nedlastingen"
+  },
+  "app.download-manager.hide": {
+    "message": "Skjul installasjonsoppgaver"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Importert instans"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Instansinstallasjon"
+  },
+  "app.download-manager.modpack": {
+    "message": "Modpack"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Modpackinstallasjon"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Ny instans"
+  },
+  "app.download-manager.pause": {
+    "message": "Sett installasjon på pause"
+  },
+  "app.download-manager.paused": {
+    "message": "På pause"
+  },
+  "app.download-manager.remove": {
+    "message": "Fjern fra historikk"
+  },
+  "app.download-manager.resume": {
+    "message": "Fortsett installasjon"
+  },
+  "app.download-manager.show": {
+    "message": "Vis installasjonsoppgaver"
+  },
+  "app.download-manager.tasks": {
+    "message": "Oppgaver"
+  },
+  "app.download-manager.title": {
+    "message": "Nedlastingsbehandler"
+  },
+  "app.download-manager.verifying": {
+    "message": "Verifiserer"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Avbryt mappeendring"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Kopier feilsøkingsinfo"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Feilsøkingsinformasjon"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "først. Når du er ferdig, kom tilbake hit og logg inn!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Prøv å logge inn med"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Bruker du PC Game Pass, kommer fra Bedrock, eller har nettopp kjøpt spillet?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "den offisielle Minecraft-launcheren"
+  },
+  "app.error.get-support.button": {
+    "message": "Få støtte"
+  },
+  "app.error.help.end": {
+    "message": "og vi hjelper deg mer enn gjerne! Sørg for å ta med følgende feilsøkingsinformasjon:"
+  },
+  "app.error.help.start": {
+    "message": "Hvis ingenting fungerer og du trenger hjelp, besøk"
+  },
+  "app.error.help.support-link": {
+    "message": "støttesiden vår"
+  },
+  "app.error.hosts.body-end": {
+    "message": "prøvde å koble til Microsoft-/Xbox-/Minecraft-tjenester, men den eksterne serveren avviste tilkoblingen. Dette kan tyde på at disse tjenestene blokkeres av hosts-filen. Besøk"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "for trinn for hvordan du løser problemet."
+  },
+  "app.error.migrate.body-end": {
+    "message": "kan ikke migrere til den nye mappen du valgte. Kontakt støtte for hjelp, eller avbryt mappeendringen."
+  },
+  "app.error.network.body-end": {
+    "message": "koble til Microsofts servere. Dette skyldes ofte en dårlig tilkobling, så vi anbefaler å prøve igjen for å se om det fungerer. Hvis problemene vedvarer, følg trinnene i"
+  },
+  "app.error.network.body-start": {
+    "message": "Det ser ut til at det oppsto problemer med"
+  },
+  "app.error.network.heading": {
+    "message": "Nettverksproblemer"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "for å feilsøke."
+  },
+  "app.error.no-error-message": {
+    "message": "Ingen feilmelding."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "fant ikke loader-versjonen for denne instansen."
+  },
+  "app.error.no-loader.fix": {
+    "message": "For å løse dette må du reparere instansen. Klikk på knappen nedenfor for å gjøre det."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Det ser ut til at det ikke er nok plass på disken som inneholder mappen du valgte. Frigjør litt plass, og prøv igjen, eller avbryt mappeendringen."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Ikke nok plass"
+  },
+  "app.error.read-only.body-end": {
+    "message": "kan ikke skrive til mappen du valgte. Juster tillatelsene for mappen, og prøv igjen, eller avbryt mappeendringen."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Det ser ut til at"
+  },
+  "app.error.read-only.heading": {
+    "message": "Endre mappetillatelser"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Reparer instans"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Prøv mappeendringen igjen"
+  },
+  "app.error.state-init.body-end": {
+    "message": "kunne ikke lastes inn på riktig måte. Dette kan skyldes en skadet fil, eller at appen mangler viktige filer."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Du kan kanskje fikse det på en av følgende måter:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Sørg for at du er koblet til internett, og prøv deretter å starte appen på nytt."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Last ned appen på nytt."
+  },
+  "app.error.state-init.open-backups-folder": {
+    "message": "Åpne sikkerhetskopimappen"
+  },
+  "app.error.support-article-link": {
+    "message": "støtteartikkelen vår"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Kunne ikke endre appmappe"
+  },
+  "app.error.title.generic": {
+    "message": "Det oppsto en feil"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Ingen loader valgt"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Kunne ikke logge inn på Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Feil ved initialisering av {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Prøv å logge inn igjen"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Dobbeltsjekk at du har logget inn med riktig konto. Du eier kanskje Minecraft på en annen Microsoft-konto."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Prøv en annen konto"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Prøv en annen Microsoft-konto"
   },
   "app.export-modal.description-placeholder": {
     "message": "Skriv en modpakkebeskrivelse..."
@@ -215,14 +992,146 @@
   "app.export-modal.export-complete": {
     "message": "Eksportering fullført"
   },
+  "app.export-modal.export-complete-description": {
+    "message": "{name} ble eksportert."
+  },
+  "app.export-modal.format-label": {
+    "message": "Eksportformat"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "CurseForge-ZIP med manifest.json og de valgte filene i overrides-mappen."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "For launchere som støtter Modrinth-pakker. Inkluderer nedlastingsreferanser og valgte ekstrafiler."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "En portabel {productName}-pakke som inneholder de valgte filene. Åpne den direkte i launcheren."
+  },
   "app.export-modal.header": {
     "message": "Eksperter modpakke"
   },
   "app.export-modal.modpack-name-label": {
     "message": "Navn på modpakke"
   },
+  "app.export-modal.modpack-name-placeholder": {
+    "message": "Modpacknavn"
+  },
+  "app.export-modal.version-number-label": {
+    "message": "Versjonsnummer"
+  },
+  "app.export-modal.version-number-placeholder": {
+    "message": "1.0.0"
+  },
+  "app.features-settings.instance-pages.title": {
+    "message": "Instanser"
+  },
+  "app.features-settings.play-page.title": {
+    "message": "Spillsiden"
+  },
   "app.features-settings.quick-instances.description": {
     "message": "Velg maksimal antall av installasjoner vist i venstre sidebar. Du kan også justere dette med å dra på divideren."
+  },
+  "app.features-settings.quick-instances.title": {
+    "message": "Hurtiginstanser i sidepanelet"
+  },
+  "app.features-settings.show-all-screenshots.description": {
+    "message": "Vis en knapp i venstre sidepanel for å se skjermbilder fra alle instansene dine."
+  },
+  "app.features-settings.show-all-screenshots.title": {
+    "message": "Vis alle skjermbilder i sidepanelet"
+  },
+  "app.features-settings.show-files-tab.title": {
+    "message": "Vis Filer-fanen i instanser"
+  },
+  "app.features-settings.show-jump-in.description": {
+    "message": "Vis nylig spilte verdener og instanser øverst på Spill-siden."
+  },
+  "app.features-settings.show-jump-in.title": {
+    "message": "Vis Hopp inn-seksjonen"
+  },
+  "app.features-settings.show-screenshots-tab.title": {
+    "message": "Vis Skjermbilder-fanen i instanser"
+  },
+  "app.features-settings.show-skin-selector.description": {
+    "message": "Vis en knapp i venstre sidepanel for å åpne skinvelgeren."
+  },
+  "app.features-settings.show-skin-selector.title": {
+    "message": "Vis skinvelger i sidepanelet"
+  },
+  "app.features-settings.show-worlds-tab.title": {
+    "message": "Vis Verdener-fanen i instanser"
+  },
+  "app.features-settings.sidebar.title": {
+    "message": "Sidepanel"
+  },
+  "app.home.jump-back-in.actions.label": {
+    "message": "Instanshandlinger"
+  },
+  "app.home.jump-back-in.instance-locked": {
+    "message": "Denne instansen er låst"
+  },
+  "app.home.jump-back-in.instance-open": {
+    "message": "Instansen er allerede åpen"
+  },
+  "app.home.jump-back-in.more-options": {
+    "message": "Flere alternativer"
+  },
+  "app.home.jump-back-in.never-played": {
+    "message": "Aldri spilt"
+  },
+  "app.home.jump-back-in.new-instance": {
+    "message": "Ny instans"
+  },
+  "app.home.jump-back-in.resize": {
+    "message": "Dra for å endre størrelse"
+  },
+  "app.home.jump-back-in.title": {
+    "message": "Hopp inn"
+  },
+  "app.home.jump-back-in.view-instance": {
+    "message": "Vis instans"
+  },
+  "app.install.phase.downloading_content": {
+    "message": "Laster ned innhold"
+  },
+  "app.install.phase.downloading_minecraft": {
+    "message": "Laster ned Minecraft"
+  },
+  "app.install.phase.downloading_pack_file": {
+    "message": "Laster ned pakkefil"
+  },
+  "app.install.phase.extracting_overrides": {
+    "message": "Pakker ut overstyringer"
+  },
+  "app.install.phase.finalizing": {
+    "message": "Fullfører"
+  },
+  "app.install.phase.preparing_instance": {
+    "message": "I kø for installasjon"
+  },
+  "app.install.phase.preparing_java": {
+    "message": "Forbereder Java"
+  },
+  "app.install.phase.preparing_java.downloading": {
+    "message": "Laster ned Java {version}"
+  },
+  "app.install.phase.preparing_java.extracting": {
+    "message": "Pakker ut Java {version}"
+  },
+  "app.install.phase.preparing_java.fetching-metadata": {
+    "message": "Henter Java {version}"
+  },
+  "app.install.phase.preparing_java.resolving": {
+    "message": "Forbereder Java {version}"
   },
   "app.install.phase.preparing_java.validating": {
     "message": "Validerer Java {version}"
@@ -230,11 +1139,74 @@
   "app.install.phase.reading_pack_manifest": {
     "message": "Leser pakkemanifest"
   },
+  "app.install.phase.resolving_loader": {
+    "message": "Løser loader"
+  },
+  "app.install.phase.resolving_minecraft": {
+    "message": "Løser Minecraft"
+  },
+  "app.install.phase.resolving_pack": {
+    "message": "Løser innhold"
+  },
+  "app.install.phase.rolling_back": {
+    "message": "Ruller tilbake"
+  },
+  "app.install.phase.running_loader_processors": {
+    "message": "Kjører loader-prosessorer"
+  },
+  "app.instance.action.add-content": {
+    "message": "Legg til innhold"
+  },
+  "app.instance.action.copy-path": {
+    "message": "Kopier sti"
+  },
+  "app.instance.action.edit": {
+    "message": "Rediger"
+  },
+  "app.instance.action.open-folder": {
+    "message": "Åpne mappe"
+  },
+  "app.instance.action.play": {
+    "message": "Spill"
+  },
+  "app.instance.action.stop": {
+    "message": "Stopp"
+  },
+  "app.instance.actions.label": {
+    "message": "Instanshandlinger"
+  },
+  "app.instance.confirm-delete.admonition-body": {
+    "message": "Alle data for instansen din slettes permanent, inkludert verdener, konfigurasjoner og alt installert innhold."
+  },
+  "app.instance.confirm-delete.admonition-header": {
+    "message": "Denne handlingen kan ikke angres"
+  },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "Alle data for disse {count} instansene slettes permanent, inkludert deres verdener, konfigurasjoner og alt installert innhold."
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "Slett {count} instanser"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "Slett {count} instanser"
+  },
   "app.instance.confirm-delete.delete-button": {
     "message": "Slett tilfelle"
   },
   "app.instance.confirm-delete.header": {
     "message": "Slett tilfelle"
+  },
+  "app.instance.confirm-delete.instances-label": {
+    "message": "{count, plural, one {Instans} other {Instanser ({count})}}"
+  },
+  "app.instance.content.managed-content.modpack-header": {
+    "message": "Modpackinnhold"
+  },
+  "app.instance.content.managed-content.server-header": {
+    "message": "Serverinnhold"
+  },
+  "app.instance.modpack-already-installed.body": {
+    "message": "Denne modpacken er allerede installert i <bold>{instanceName}</bold>-instansen. Er du sikker på at du vil duplisere den?"
   },
   "app.instance.modpack-already-installed.create": {
     "message": "Opprett"
@@ -251,8 +1223,17 @@
   "app.instance.mods.bulk-update.finishing": {
     "message": "Fullfører oppdatering..."
   },
+  "app.instance.mods.bulk-update.resolving-versions": {
+    "message": "Løser versjoner …"
+  },
   "app.instance.mods.content-type-project": {
     "message": "prosjekt"
+  },
+  "app.instance.mods.freeze-content": {
+    "message": "Frys versjon"
+  },
+  "app.instance.mods.locked-content": {
+    "message": "Innhold i låste instanser kan ikke endres."
   },
   "app.instance.mods.project-was-added": {
     "message": "\"{name}\" ble lagt til"
@@ -263,20 +1244,773 @@
   "app.instance.mods.share-text": {
     "message": "Sjekk ut prosjektene jeg bruker i min modpakke!"
   },
-  "app.modal.install-to-play.header": {
-    "message": "Installer for å spille"
+  "app.instance.mods.share-title": {
+    "message": "Deler modpackinnhold"
   },
-  "app.modal.install-to-play.install-button": {
-    "message": "Installer"
+  "app.instance.mods.successfully-uploaded": {
+    "message": "Opplasting vellykket"
   },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {#mod} other {# modder}}"
+  "app.instance.mods.unfreeze-content": {
+    "message": "Frigi versjon"
   },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Delt tilfelle"
+  "app.instance.navigation.back-to-instance": {
+    "message": "Tilbake til instans"
   },
-  "app.modal.update-to-play.header": {
-    "message": "Oppdater for å spille"
+  "app.instance.shortcut.created": {
+    "message": "Snarvei opprettet"
+  },
+  "app.instance.shortcut.creation-error": {
+    "message": "Feil ved oppretting av snarvei"
+  },
+  "app.instance.tab.content": {
+    "message": "Innhold"
+  },
+  "app.instance.tab.files": {
+    "message": "Filer"
+  },
+  "app.instance.tab.logs": {
+    "message": "Logger"
+  },
+  "app.instance.tab.screenshots": {
+    "message": "Skjermbilder"
+  },
+  "app.instance.tab.worlds": {
+    "message": "Verdener"
+  },
+  "app.instance.worlds.add-server": {
+    "message": "Legg til server"
+  },
+  "app.instance.worlds.browse": {
+    "message": "Bla gjennom verdener"
+  },
+  "app.instance.worlds.delete-world-modal.delete-button": {
+    "message": "Slett verden"
+  },
+  "app.instance.worlds.delete-world-modal.title": {
+    "message": "Slett verden"
+  },
+  "app.instance.worlds.delete-world-modal.warning-body": {
+    "message": "Denne verdenen slettes permanent fra denne instansen. Denne handlingen kan ikke angres."
+  },
+  "app.instance.worlds.delete-world-modal.warning-header": {
+    "message": "Sletter {name}"
+  },
+  "app.instance.worlds.filter-modded": {
+    "message": "Moddet"
+  },
+  "app.instance.worlds.filter-offline": {
+    "message": "Frakoblet"
+  },
+  "app.instance.worlds.filter-online": {
+    "message": "Tilkoblet"
+  },
+  "app.instance.worlds.filter-vanilla": {
+    "message": "Vanilla"
+  },
+  "app.instance.worlds.no-worlds-description": {
+    "message": "Legg til en server eller utforsk for å komme i gang"
+  },
+  "app.instance.worlds.no-worlds-heading": {
+    "message": "Ingen servere eller verdener lagt til"
+  },
+  "app.instance.worlds.refreshing": {
+    "message": "Oppdaterer …"
+  },
+  "app.instance.worlds.remove-server-modal.remove-button": {
+    "message": "Fjern server"
+  },
+  "app.instance.worlds.remove-server-modal.remove-everywhere": {
+    "message": "Fjern overalt"
+  },
+  "app.instance.worlds.remove-server-modal.remove-here": {
+    "message": "Fjern her"
+  },
+  "app.instance.worlds.remove-server-modal.synced-description": {
+    "message": "Du kan fjerne den fra bare denne instansen eller fra alle synkroniserte instanser. Fjerning fra bare denne instansen slår på overstyringer, og denne instansen mottar ikke lenger synkroniserte serverendringer."
+  },
+  "app.instance.worlds.remove-server-modal.synced-header": {
+    "message": "Denne serveren er synkronisert"
+  },
+  "app.instance.worlds.remove-server-modal.title": {
+    "message": "Fjern server"
+  },
+  "app.instance.worlds.remove-server-modal.warning-body": {
+    "message": "Denne serveren fjernes fra serverlisten din og fra serverlisten i spillet. Du kan legge den til igjen senere hvis du vet adressen."
+  },
+  "app.instance.worlds.remove-server-modal.warning-header": {
+    "message": "Fjerner {name}"
+  },
+  "app.instance.worlds.search-worlds-placeholder": {
+    "message": "Søk i {count} verdener …"
+  },
+  "app.java-detection.cancel": {
+    "message": "Avbryt"
+  },
+  "app.java-detection.columns.actions": {
+    "message": "Handlinger"
+  },
+  "app.java-detection.columns.path": {
+    "message": "Sti"
+  },
+  "app.java-detection.columns.version": {
+    "message": "Versjon"
+  },
+  "app.java-detection.no-installations-found": {
+    "message": "Ingen Java-installasjoner funnet."
+  },
+  "app.java-detection.select": {
+    "message": "Velg"
+  },
+  "app.java-detection.selected": {
+    "message": "Valgt"
+  },
+  "app.java-detection.title": {
+    "message": "Velg Java-installasjon"
+  },
+  "app.java-selector.already-installed": {
+    "message": "Allerede installert"
+  },
+  "app.java-selector.browse": {
+    "message": "Bla gjennom"
+  },
+  "app.java-selector.detect": {
+    "message": "Oppdag"
+  },
+  "app.java-selector.install-recommended": {
+    "message": "Installer anbefalt"
+  },
+  "app.java-selector.installing": {
+    "message": "Installerer …"
+  },
+  "app.java-selector.path.placeholder": {
+    "message": "/sti/til/java"
+  },
+  "app.java-selector.test-installation": {
+    "message": "Test Java-installasjon"
+  },
+  "app.launch-link.instance": {
+    "message": "En lenke vil starte {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Start"
+  },
+  "app.launch-link.server": {
+    "message": "En lenke vil starte {instance} og bli med på serveren {target}. Fortsett bare hvis du stoler på hvor lenken kom fra."
+  },
+  "app.launch-link.title": {
+    "message": "Åpne Minecraft fra en lenke?"
+  },
+  "app.launch-link.world": {
+    "message": "En lenke vil starte {instance} og åpne verdenen {target}."
+  },
+  "app.library.actions.label": {
+    "message": "Bibliotekhandlinger"
+  },
+  "app.library.context-menu.create-instance": {
+    "message": "Ny instans"
+  },
+  "app.library.filter.add": {
+    "message": "Legg til filter"
+  },
+  "app.library.filter.clear": {
+    "message": "Fjern filtre"
+  },
+  "app.library.filter.game-version": {
+    "message": "Spillversjon"
+  },
+  "app.library.filter.instance-type": {
+    "message": "Instanstype"
+  },
+  "app.library.filter.instance-type.custom": {
+    "message": "Egendefinert"
+  },
+  "app.library.filter.instance-type.modpack": {
+    "message": "Modpack"
+  },
+  "app.library.filter.instance-type.server": {
+    "message": "Server"
+  },
+  "app.library.filter.label": {
+    "message": "Filtrer etter"
+  },
+  "app.library.filter.loader": {
+    "message": "Loader"
+  },
+  "app.library.group-by.custom-group": {
+    "message": "Egendefinert gruppe"
+  },
+  "app.library.group-by.game-version": {
+    "message": "Spillversjon"
+  },
+  "app.library.group-by.instance-type": {
+    "message": "Instanstype"
+  },
+  "app.library.group-by.label": {
+    "message": "Grupper etter"
+  },
+  "app.library.group-by.loader": {
+    "message": "Loader"
+  },
+  "app.library.group-by.none": {
+    "message": "Ingen gruppering"
+  },
+  "app.library.group.actions.label": {
+    "message": "Gruppehandlinger"
+  },
+  "app.library.group.collapse": {
+    "message": "Skjul gruppe"
+  },
+  "app.library.group.context-menu.add-to-group": {
+    "message": "Legg til i gruppe"
+  },
+  "app.library.group.create": {
+    "message": "Opprett gruppe"
+  },
+  "app.library.group.create.cancel": {
+    "message": "Avbryt"
+  },
+  "app.library.group.delete": {
+    "message": "Slett gruppe"
+  },
+  "app.library.group.delete-description": {
+    "message": "Instanser i denne gruppen blir opphevet fra gruppen."
+  },
+  "app.library.group.edit-name": {
+    "message": "Rediger gruppenavn"
+  },
+  "app.library.group.empty": {
+    "message": "Dra og slipp for å legge til instanser."
+  },
+  "app.library.group.expand": {
+    "message": "Utvid gruppe"
+  },
+  "app.library.group.favorites": {
+    "message": "Favoritter"
+  },
+  "app.library.group.instance.add": {
+    "message": "Legg til"
+  },
+  "app.library.group.instance.added": {
+    "message": "Lagt til"
+  },
+  "app.library.group.instances-modal.add": {
+    "message": "Legg til"
+  },
+  "app.library.group.instances-modal.added": {
+    "message": "Lagt til"
+  },
+  "app.library.group.instances-modal.no-instances-found": {
+    "message": "Ingen instanser funnet"
+  },
+  "app.library.group.instances-modal.search-placeholder": {
+    "message": "Søk etter instans"
+  },
+  "app.library.group.instances-modal.title": {
+    "message": "Legg til instanser i «{groupName}»"
+  },
+  "app.library.group.move-down": {
+    "message": "Flytt gruppe ned"
+  },
+  "app.library.group.move-up": {
+    "message": "Flytt gruppe opp"
+  },
+  "app.library.group.name": {
+    "message": "Gruppenavn"
+  },
+  "app.library.group.name-empty": {
+    "message": "Gruppenavn kan ikke være tomme."
+  },
+  "app.library.group.name-placeholder": {
+    "message": "Skriv inn gruppenavn"
+  },
+  "app.library.group.name-reserved": {
+    "message": "«None» er reservert og kan ikke brukes som gruppenavn."
+  },
+  "app.library.group.name-too-long": {
+    "message": "Gruppenavn kan ikke være lenger enn {maxLength} tegn."
+  },
+  "app.library.group.new": {
+    "message": "Ny gruppe"
+  },
+  "app.library.group.no-instances-found": {
+    "message": "Ingen instanser funnet"
+  },
+  "app.library.group.rename-failed": {
+    "message": "Kunne ikke gi gruppen nytt navn"
+  },
+  "app.library.group.search-instance": {
+    "message": "Søk etter instans"
+  },
+  "app.library.group.ungrouped": {
+    "message": "Ugruppert"
+  },
+  "app.library.group.unknown": {
+    "message": "Ukjent gruppe"
+  },
+  "app.library.instance.action.add-content": {
+    "message": "Legg til innhold"
+  },
+  "app.library.instance.action.add-to-favorites": {
+    "message": "Legg til i favoritter"
+  },
+  "app.library.instance.action.copy-path": {
+    "message": "Kopier sti"
+  },
+  "app.library.instance.action.delete": {
+    "message": "Slett"
+  },
+  "app.library.instance.action.duplicate": {
+    "message": "Dupliser instans"
+  },
+  "app.library.instance.action.open-folder": {
+    "message": "Åpne mappe"
+  },
+  "app.library.instance.action.play": {
+    "message": "Spill"
+  },
+  "app.library.instance.action.remove-from-favorites": {
+    "message": "Fjern fra favoritter"
+  },
+  "app.library.instance.action.remove-from-group": {
+    "message": "Fjern fra gruppe"
+  },
+  "app.library.instance.action.stop": {
+    "message": "Stopp"
+  },
+  "app.library.instance.action.view-instance": {
+    "message": "Vis instans"
+  },
+  "app.library.instance.actions.label": {
+    "message": "Instanshandlinger"
+  },
+  "app.library.instance.deselect": {
+    "message": "Velg bort instans"
+  },
+  "app.library.instance.deselect-with-name": {
+    "message": "Velg bort {name}"
+  },
+  "app.library.instance.installing": {
+    "message": "Installerer …"
+  },
+  "app.library.instance.loading": {
+    "message": "Instansen laster …"
+  },
+  "app.library.instance.new": {
+    "message": "Ny instans"
+  },
+  "app.library.instance.open-with-name": {
+    "message": "Åpne {name}"
+  },
+  "app.library.instance.play": {
+    "message": "Spill"
+  },
+  "app.library.instance.repair": {
+    "message": "Reparer"
+  },
+  "app.library.instance.select": {
+    "message": "Velg instans"
+  },
+  "app.library.instance.select-with-name": {
+    "message": "Velg {name}"
+  },
+  "app.library.instance.stop": {
+    "message": "Stopp"
+  },
+  "app.library.search.no-results.title": {
+    "message": "Ingen instanser samsvarer med søket ditt."
+  },
+  "app.library.search.placeholder": {
+    "message": "Søk"
+  },
+  "app.library.selection.aria-label": {
+    "message": "Valgte instanser"
+  },
+  "app.library.selection.deleting": {
+    "message": "Sletter valgte instanser"
+  },
+  "app.library.selection.new-group": {
+    "message": "Ny gruppe"
+  },
+  "app.library.selection.remove-from-group": {
+    "message": "Fjern fra gruppe"
+  },
+  "app.library.selection.selected-count": {
+    "message": "{count} valgt"
+  },
+  "app.library.sort.date-created": {
+    "message": "Opprettelsesdato"
+  },
+  "app.library.sort.date-modified": {
+    "message": "Endringsdato"
+  },
+  "app.library.sort.game-version": {
+    "message": "Spillversjon"
+  },
+  "app.library.sort.hours-played": {
+    "message": "Timer spilt"
+  },
+  "app.library.sort.label": {
+    "message": "Sorter etter"
+  },
+  "app.library.sort.last-played": {
+    "message": "Sist spilt"
+  },
+  "app.library.sort.loader": {
+    "message": "Loader"
+  },
+  "app.library.sort.name": {
+    "message": "Navn"
+  },
+  "app.library.title": {
+    "message": "Bibliotek"
+  },
+  "app.nav.collapse-sidebar": {
+    "message": "Skjul sidepanelet"
+  },
+  "app.nav.create-new-instance": {
+    "message": "Opprett ny instans"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Utvid sidepanelet"
+  },
+  "app.nav.home": {
+    "message": "Hjem"
+  },
+  "app.nav.screenshots": {
+    "message": "Skjermbilder"
+  },
+  "app.navigation.go-back": {
+    "message": "Gå tilbake"
+  },
+  "app.navigation.go-forward": {
+    "message": "Gå fremover"
+  },
+  "app.navigation.home": {
+    "message": "Hjem"
+  },
+  "app.navigation.next-image": {
+    "message": "Neste bilde"
+  },
+  "app.notification.warning": {
+    "message": "Advarsel"
+  },
+  "app.project.actions.label": {
+    "message": "Prosjekthandlinger"
+  },
+  "app.project.coming-soon": {
+    "message": "Kommer snart"
+  },
+  "app.project.gallery.image-fallback": {
+    "message": "Galleribilde"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Åpne bilde i ny fane"
+  },
+  "app.project.install-button.already-installed": {
+    "message": "Dette prosjektet er allerede installert"
+  },
+  "app.project.install-button.switch-version": {
+    "message": "Bytt versjon"
+  },
+  "app.project.install-context.back-to-browse": {
+    "message": "Tilbake til utforsk"
+  },
+  "app.project.install-context.back-to-instance": {
+    "message": "Tilbake til instans"
+  },
+  "app.project.load-error": {
+    "message": "Prosjektdata kunne ikke lastes."
+  },
+  "app.project.more-options": {
+    "message": "Flere alternativer"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Åpne i CurseForge"
+  },
+  "app.project.tab.description": {
+    "message": "Beskrivelse"
+  },
+  "app.project.tab.gallery": {
+    "message": "Galleri"
+  },
+  "app.project.tab.versions": {
+    "message": "Versjoner"
+  },
+  "app.project.version.all-versions": {
+    "message": "Alle versjoner"
+  },
+  "app.project.version.download-in-browser": {
+    "message": "Last ned i nettleser"
+  },
+  "app.project.version.installing": {
+    "message": "Installerer"
+  },
+  "app.project.versions.already-installed": {
+    "message": "Allerede installert"
+  },
+  "app.quick-instance-switcher.actions.label": {
+    "message": "Instanshandlinger"
+  },
+  "app.quick-instance-switcher.drag-show-tooltip": {
+    "message": "Dra for å vise nylige instanser"
+  },
+  "app.quick-instance-switcher.drag-tooltip": {
+    "message": "Dra for å endre størrelse"
+  },
+  "app.quick-instance-switcher.instance-locked": {
+    "message": "Denne instansen er låst"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Nylige instanser"
+  },
+  "app.quick-instance-switcher.view-instance": {
+    "message": "Vis instans"
+  },
+  "app.restarting": {
+    "message": "Starter på nytt …"
+  },
+  "app.screenshots.copied": {
+    "message": "Kopiert"
+  },
+  "app.screenshots.copy": {
+    "message": "Kopier bilde"
+  },
+  "app.screenshots.delete-description": {
+    "message": "Slette {name} permanent? Denne handlingen kan ikke angres."
+  },
+  "app.screenshots.delete-success": {
+    "message": "Skjermbilde slettet"
+  },
+  "app.screenshots.delete-title": {
+    "message": "Slett skjermbilde"
+  },
+  "app.screenshots.deselect": {
+    "message": "Velg bort {name}"
+  },
+  "app.screenshots.edit": {
+    "message": "Rediger skjermbilde"
+  },
+  "app.screenshots.empty-description": {
+    "message": "Skjermbilder du tar i spillet, vises her."
+  },
+  "app.screenshots.empty-heading": {
+    "message": "Ingen skjermbilder ennå"
+  },
+  "app.screenshots.error-heading": {
+    "message": "Kunne ikke laste skjermbilder"
+  },
+  "app.screenshots.go-to-instance": {
+    "message": "Gå til instans"
+  },
+  "app.screenshots.group-by": {
+    "message": "Grupper etter"
+  },
+  "app.screenshots.group.all-screenshots": {
+    "message": "Alle skjermbilder"
+  },
+  "app.screenshots.group.collapse": {
+    "message": "Skjul gruppe"
+  },
+  "app.screenshots.group.custom": {
+    "message": "Egendefinert gruppe"
+  },
+  "app.screenshots.group.date": {
+    "message": "Dato"
+  },
+  "app.screenshots.group.delete": {
+    "message": "Slett gruppe"
+  },
+  "app.screenshots.group.delete-description": {
+    "message": "Skjermbilder i denne gruppen blir opphevet fra gruppen."
+  },
+  "app.screenshots.group.edit": {
+    "message": "Rediger gruppenavn"
+  },
+  "app.screenshots.group.empty": {
+    "message": "Dra og slipp for å legge til skjermbilder."
+  },
+  "app.screenshots.group.expand": {
+    "message": "Utvid gruppe"
+  },
+  "app.screenshots.group.instance": {
+    "message": "Instans"
+  },
+  "app.screenshots.group.new": {
+    "message": "Ny gruppe"
+  },
+  "app.screenshots.group.none": {
+    "message": "Ingen gruppering"
+  },
+  "app.screenshots.group.this-month": {
+    "message": "Denne måneden"
+  },
+  "app.screenshots.group.this-week": {
+    "message": "Denne uken"
+  },
+  "app.screenshots.group.today": {
+    "message": "I dag"
+  },
+  "app.screenshots.group.ungrouped": {
+    "message": "Ugruppert"
+  },
+  "app.screenshots.group.yesterday": {
+    "message": "I går"
+  },
+  "app.screenshots.heading": {
+    "message": "Skjermbilder"
+  },
+  "app.screenshots.more-actions": {
+    "message": "Flere handlinger"
+  },
+  "app.screenshots.no-results-description": {
+    "message": "Prøv et annet søk eller filter."
+  },
+  "app.screenshots.no-results-heading": {
+    "message": "Ingen samsvarende skjermbilder"
+  },
+  "app.screenshots.preview.instance-and-date": {
+    "message": "{instance} · {date}"
+  },
+  "app.screenshots.search": {
+    "message": "Søk"
+  },
+  "app.screenshots.select": {
+    "message": "Velg {name}"
+  },
+  "app.screenshots.selection.aria-label": {
+    "message": "Valgte skjermbilder"
+  },
+  "app.screenshots.selection.delete-description": {
+    "message": "Slette {count, plural, one {# skjermbilde} other {# skjermbilder}}? Denne handlingen kan ikke angres."
+  },
+  "app.screenshots.selection.delete-success": {
+    "message": "{count, plural, one {# skjermbilde slettet} other {# skjermbilder slettet}}"
+  },
+  "app.screenshots.selection.delete-title": {
+    "message": "Slett valgte skjermbilder"
+  },
+  "app.screenshots.selection.export-zip": {
+    "message": "Eksporter ZIP"
+  },
+  "app.screenshots.selection.global-export-filename": {
+    "message": "{productName}-skjermbilder.zip"
+  },
+  "app.screenshots.selection.instance-export-filename": {
+    "message": "{instance}-skjermbilder.zip"
+  },
+  "app.screenshots.selection.remove-from-group": {
+    "message": "Fjern fra gruppe"
+  },
+  "app.screenshots.selection.selected-count": {
+    "message": "{count} valgt"
+  },
+  "app.screenshots.selection.zip-archive": {
+    "message": "ZIP-arkiv"
+  },
+  "app.screenshots.show-in-folder": {
+    "message": "Vis i mappe"
+  },
+  "app.screenshots.sort-by": {
+    "message": "Sorter etter"
+  },
+  "app.screenshots.sort.name": {
+    "message": "Navn"
+  },
+  "app.screenshots.sort.newest": {
+    "message": "Nyeste"
+  },
+  "app.screenshots.sort.oldest": {
+    "message": "Eldste"
+  },
+  "app.settings.app-version": {
+    "message": "{productName} {version}"
+  },
+  "app.settings.default-instance-options.environment-variables.description": {
+    "message": "Miljøvariabler som settes når en instans startes."
+  },
+  "app.settings.default-instance-options.environment-variables.placeholder": {
+    "message": "Skriv inn miljøvariabler …"
+  },
+  "app.settings.default-instance-options.environment-variables.title": {
+    "message": "Miljøvariabler"
+  },
+  "app.settings.default-instance-options.fullscreen.description": {
+    "message": "Start instanser i fullskjerm ved å oppdatere options.txt-filen deres."
+  },
+  "app.settings.default-instance-options.fullscreen.title": {
+    "message": "Fullskjerm"
+  },
+  "app.settings.default-instance-options.height.description": {
+    "message": "Høyden på spillvinduet ved oppstart."
+  },
+  "app.settings.default-instance-options.height.placeholder": {
+    "message": "Skriv inn høyde …"
+  },
+  "app.settings.default-instance-options.height.title": {
+    "message": "Høyde"
+  },
+  "app.settings.default-instance-options.java-and-memory.title": {
+    "message": "Java og minne"
+  },
+  "app.settings.default-instance-options.java-arguments.description": {
+    "message": "Argumenter som sendes til Java når en instans startes."
+  },
+  "app.settings.default-instance-options.java-arguments.placeholder": {
+    "message": "Skriv inn Java-argumenter …"
+  },
+  "app.settings.default-instance-options.java-arguments.title": {
+    "message": "Java-argumenter"
+  },
+  "app.settings.default-instance-options.launch-hooks.title": {
+    "message": "Startkroker"
+  },
+  "app.settings.default-instance-options.memory-allocation.description": {
+    "message": "Maksimalt minne tilgjengelig for hver instans."
+  },
+  "app.settings.default-instance-options.memory-allocation.title": {
+    "message": "Minnetildeling"
+  },
+  "app.settings.default-instance-options.post-exit-hook.description": {
+    "message": "Kjøres etter at spillet lukkes."
+  },
+  "app.settings.default-instance-options.post-exit-hook.placeholder": {
+    "message": "Skriv inn kommando etter avslutning …"
+  },
+  "app.settings.default-instance-options.post-exit-hook.title": {
+    "message": "Krok etter avslutning"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.description": {
+    "message": "Kjøres før instansen starter."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.placeholder": {
+    "message": "Skriv inn kommando før start …"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "Krok før start"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "Bredden på spillvinduet ved oppstart."
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "Skriv inn bredde …"
+  },
+  "app.settings.default-instance-options.width.title": {
+    "message": "Bredde"
+  },
+  "app.settings.default-instance-options.window.title": {
+    "message": "Vindu"
+  },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "Kommando som brukes til å pakke inn oppstartsprosessen for Minecraft."
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "Skriv inn wrapper-kommando …"
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "Wrapper-krok"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "Slå utviklermodus på/av"
   },
   "app.settings.developer-mode-enabled": {
     "message": "Utviklermodus aktivert."
@@ -284,8 +2018,1394 @@
   "app.settings.downloading": {
     "message": "Laster ned v{version}"
   },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Ingen flagg funnet som samsvarer med «{query}»"
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Tilbakestill til standard"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Søk i flagg …"
+  },
+  "app.settings.game-options.category.accessibility.description": {
+    "message": "Tilgjengelighetspreferanser"
+  },
+  "app.settings.game-options.category.accessibility.label": {
+    "message": "Tilgjengelighet"
+  },
+  "app.settings.game-options.category.chat.description": {
+    "message": "Chats synlighet og utseende"
+  },
+  "app.settings.game-options.category.chat.label": {
+    "message": "Chat"
+  },
+  "app.settings.game-options.category.controls.description": {
+    "message": "Mus, bevegelse og tastetilordninger"
+  },
+  "app.settings.game-options.category.controls.label": {
+    "message": "Kontroller"
+  },
+  "app.settings.game-options.category.custom.description": {
+    "message": "Innstillinger lagt til av modder"
+  },
+  "app.settings.game-options.category.custom.label": {
+    "message": "Egendefinerte innstillinger"
+  },
+  "app.settings.game-options.category.language.description": {
+    "message": "Spillspråk"
+  },
+  "app.settings.game-options.category.language.label": {
+    "message": "Språk"
+  },
+  "app.settings.game-options.category.music-and-sound.description": {
+    "message": "Volum- og lydpreferanser"
+  },
+  "app.settings.game-options.category.music-and-sound.label": {
+    "message": "Musikk og lyd"
+  },
+  "app.settings.game-options.category.online.description": {
+    "message": "Preferanser for nettspill og Realms"
+  },
+  "app.settings.game-options.category.online.label": {
+    "message": "Nettspill"
+  },
+  "app.settings.game-options.category.skin-customization.description": {
+    "message": "Skinlag og hovedhånd"
+  },
+  "app.settings.game-options.category.skin-customization.label": {
+    "message": "Skintilpasning"
+  },
+  "app.settings.game-options.category.video.description": {
+    "message": "Kamera- og skjerminnstillinger"
+  },
+  "app.settings.game-options.category.video.label": {
+    "message": "Video"
+  },
+  "app.settings.game-options.choice.all": {
+    "message": "Alle"
+  },
+  "app.settings.game-options.choice.balanced": {
+    "message": "Balansert"
+  },
+  "app.settings.game-options.choice.by-player": {
+    "message": "Av spiller"
+  },
+  "app.settings.game-options.choice.chat": {
+    "message": "Chat"
+  },
+  "app.settings.game-options.choice.commands-only": {
+    "message": "Kun kommandoer"
+  },
+  "app.settings.game-options.choice.constant": {
+    "message": "Konstant"
+  },
+  "app.settings.game-options.choice.crosshair": {
+    "message": "Trådkors"
+  },
+  "app.settings.game-options.choice.custom": {
+    "message": "Egendefinert"
+  },
+  "app.settings.game-options.choice.decreased": {
+    "message": "Redusert"
+  },
+  "app.settings.game-options.choice.default": {
+    "message": "Standard"
+  },
+  "app.settings.game-options.choice.fabulous": {
+    "message": "Fabelaktig"
+  },
+  "app.settings.game-options.choice.fancy": {
+    "message": "Flott"
+  },
+  "app.settings.game-options.choice.far": {
+    "message": "Lang"
+  },
+  "app.settings.game-options.choice.fast": {
+    "message": "Rask"
+  },
+  "app.settings.game-options.choice.frequent": {
+    "message": "Hyppig"
+  },
+  "app.settings.game-options.choice.hidden": {
+    "message": "Skjult"
+  },
+  "app.settings.game-options.choice.hotbar": {
+    "message": "Hurtigrad"
+  },
+  "app.settings.game-options.choice.left": {
+    "message": "Venstre"
+  },
+  "app.settings.game-options.choice.limited": {
+    "message": "Begrenset"
+  },
+  "app.settings.game-options.choice.max-fps": {
+    "message": "Maks FPS"
+  },
+  "app.settings.game-options.choice.maximum": {
+    "message": "Maksimum"
+  },
+  "app.settings.game-options.choice.minimal": {
+    "message": "Minimal"
+  },
+  "app.settings.game-options.choice.minimum": {
+    "message": "Minimum"
+  },
+  "app.settings.game-options.choice.nearby": {
+    "message": "I nærheten"
+  },
+  "app.settings.game-options.choice.never": {
+    "message": "Aldri"
+  },
+  "app.settings.game-options.choice.none": {
+    "message": "Ingen"
+  },
+  "app.settings.game-options.choice.normal": {
+    "message": "Normal"
+  },
+  "app.settings.game-options.choice.off": {
+    "message": "Av"
+  },
+  "app.settings.game-options.choice.on": {
+    "message": "På"
+  },
+  "app.settings.game-options.choice.opengl": {
+    "message": "OpenGL"
+  },
+  "app.settings.game-options.choice.pause": {
+    "message": "Pausemeny"
+  },
+  "app.settings.game-options.choice.pause-and-toast": {
+    "message": "Pausemeny og varsel"
+  },
+  "app.settings.game-options.choice.power-saver": {
+    "message": "Strømsparing"
+  },
+  "app.settings.game-options.choice.right": {
+    "message": "Høyre"
+  },
+  "app.settings.game-options.choice.short": {
+    "message": "Kort"
+  },
+  "app.settings.game-options.choice.shown": {
+    "message": "Vises"
+  },
+  "app.settings.game-options.choice.system": {
+    "message": "System"
+  },
+  "app.settings.game-options.choice.tiny": {
+    "message": "Bitteliten"
+  },
+  "app.settings.game-options.choice.vulkan": {
+    "message": "Vulkan"
+  },
+  "app.settings.game-options.choice.when-minimized": {
+    "message": "Ved minimering"
+  },
+  "app.settings.game-options.choice.while-afk": {
+    "message": "Ved inaktivitet"
+  },
+  "app.settings.game-options.compatibility.none": {
+    "message": "Noen av instansene dine kan ikke bruke denne innstillingen"
+  },
+  "app.settings.game-options.compatibility.reason.launcher-controlled": {
+    "message": "Denne innstillingen styres av startinnstillingene til {productName}."
+  },
+  "app.settings.game-options.custom-value.placeholder": {
+    "message": "Skriv inn en verdi"
+  },
+  "app.settings.game-options.keybind.assigned-status": {
+    "message": "{setting} er nå bundet til {binding}."
+  },
+  "app.settings.game-options.keybind.cancelled-status": {
+    "message": "Endringen av tastetilordningen ble avbrutt."
+  },
+  "app.settings.game-options.keybind.change": {
+    "message": "{setting}: {binding}. Aktiver for å endre tilordningen."
+  },
+  "app.settings.game-options.keybind.choose": {
+    "message": "Velg en tast"
+  },
+  "app.settings.game-options.keybind.conflict-description": {
+    "message": "Denne brukes allerede av {settings}."
+  },
+  "app.settings.game-options.keybind.key.arrow-down": {
+    "message": "Pil ned"
+  },
+  "app.settings.game-options.keybind.key.arrow-left": {
+    "message": "Pil venstre"
+  },
+  "app.settings.game-options.keybind.key.arrow-right": {
+    "message": "Pil høyre"
+  },
+  "app.settings.game-options.keybind.key.arrow-up": {
+    "message": "Pil opp"
+  },
+  "app.settings.game-options.keybind.key.backspace": {
+    "message": "Tilbake"
+  },
+  "app.settings.game-options.keybind.key.caps-lock": {
+    "message": "Caps Lock"
+  },
+  "app.settings.game-options.keybind.key.delete": {
+    "message": "Slett"
+  },
+  "app.settings.game-options.keybind.key.end": {
+    "message": "End"
+  },
+  "app.settings.game-options.keybind.key.enter": {
+    "message": "Enter"
+  },
+  "app.settings.game-options.keybind.key.escape": {
+    "message": "Escape"
+  },
+  "app.settings.game-options.keybind.key.home": {
+    "message": "Home"
+  },
+  "app.settings.game-options.keybind.key.insert": {
+    "message": "Insert"
+  },
+  "app.settings.game-options.keybind.key.keypad-key": {
+    "message": "Numpad {key}"
+  },
+  "app.settings.game-options.keybind.key.left-alt": {
+    "message": "Venstre Alt"
+  },
+  "app.settings.game-options.keybind.key.left-command": {
+    "message": "Venstre Command"
+  },
+  "app.settings.game-options.keybind.key.left-control": {
+    "message": "Venstre Ctrl"
+  },
+  "app.settings.game-options.keybind.key.left-shift": {
+    "message": "Venstre Shift"
+  },
+  "app.settings.game-options.keybind.key.left-super": {
+    "message": "Venstre Super"
+  },
+  "app.settings.game-options.keybind.key.menu": {
+    "message": "Meny"
+  },
+  "app.settings.game-options.keybind.key.num-lock": {
+    "message": "Num Lock"
+  },
+  "app.settings.game-options.keybind.key.page-down": {
+    "message": "Page Down"
+  },
+  "app.settings.game-options.keybind.key.page-up": {
+    "message": "Page Up"
+  },
+  "app.settings.game-options.keybind.key.pause": {
+    "message": "Pause"
+  },
+  "app.settings.game-options.keybind.key.print-screen": {
+    "message": "Print Screen"
+  },
+  "app.settings.game-options.keybind.key.right-alt": {
+    "message": "Høyre Alt"
+  },
+  "app.settings.game-options.keybind.key.right-command": {
+    "message": "Høyre Command"
+  },
+  "app.settings.game-options.keybind.key.right-control": {
+    "message": "Høyre Ctrl"
+  },
+  "app.settings.game-options.keybind.key.right-shift": {
+    "message": "Høyre Shift"
+  },
+  "app.settings.game-options.keybind.key.right-super": {
+    "message": "Høyre Super"
+  },
+  "app.settings.game-options.keybind.key.scroll-lock": {
+    "message": "Scroll Lock"
+  },
+  "app.settings.game-options.keybind.key.space": {
+    "message": "Mellomrom"
+  },
+  "app.settings.game-options.keybind.key.tab": {
+    "message": "Tab"
+  },
+  "app.settings.game-options.keybind.key.unbound": {
+    "message": "Ikke tilordnet"
+  },
+  "app.settings.game-options.keybind.key.unknown": {
+    "message": "Ukjent tast"
+  },
+  "app.settings.game-options.keybind.listen": {
+    "message": "Trykk på en tast …"
+  },
+  "app.settings.game-options.keybind.listening-status": {
+    "message": "Lytter etter en tast eller museknapp. Trykk Escape for å fjerne denne tilordningen."
+  },
+  "app.settings.game-options.keybind.mixed": {
+    "message": "Forskjellig på tvers av instanser"
+  },
+  "app.settings.game-options.keybind.modifier.alt": {
+    "message": "Alt"
+  },
+  "app.settings.game-options.keybind.modifier.command": {
+    "message": "Command"
+  },
+  "app.settings.game-options.keybind.modifier.control": {
+    "message": "Ctrl"
+  },
+  "app.settings.game-options.keybind.modifier.shift": {
+    "message": "Shift"
+  },
+  "app.settings.game-options.keybind.modifier.super": {
+    "message": "Super"
+  },
+  "app.settings.game-options.keybind.mouse.button": {
+    "message": "Mus {button}"
+  },
+  "app.settings.game-options.keybind.mouse.left": {
+    "message": "Venstre museknapp"
+  },
+  "app.settings.game-options.keybind.mouse.middle": {
+    "message": "Midtre museknapp"
+  },
+  "app.settings.game-options.keybind.mouse.right": {
+    "message": "Høyre museknapp"
+  },
+  "app.settings.game-options.keybind.recording-label": {
+    "message": "{setting}: lytter etter en tast eller museknapp. Trykk Escape for å fjerne denne tilordningen."
+  },
+  "app.settings.game-options.keybind.scancode": {
+    "message": "Skankode {code}"
+  },
+  "app.settings.game-options.keybind.unsupported-status": {
+    "message": "Denne inndataen kan ikke brukes av Minecraft. Trykk på en annen tast."
+  },
+  "app.settings.game-options.setting.advanced-opengl.label": {
+    "message": "Avansert OpenGL"
+  },
+  "app.settings.game-options.setting.allow-cursor-changes.label": {
+    "message": "Tillat markørendringer"
+  },
+  "app.settings.game-options.setting.allow-server-listing.description": {
+    "message": "Tillat at spillerens navn vises i serverlister."
+  },
+  "app.settings.game-options.setting.allow-server-listing.label": {
+    "message": "Serverlister"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "Alternative blokker"
+  },
+  "app.settings.game-options.setting.ambient-occlusion.label": {
+    "message": "Myk belysning"
+  },
+  "app.settings.game-options.setting.ambient-volume.label": {
+    "message": "Omgivelser/miljø"
+  },
+  "app.settings.game-options.setting.anaglyph-3d.label": {
+    "message": "3D-anaglyf"
+  },
+  "app.settings.game-options.setting.anisotropic-filtering.label": {
+    "message": "Anisotropisk filtrering"
+  },
+  "app.settings.game-options.setting.anisotropy.label": {
+    "message": "Anisotropi"
+  },
+  "app.settings.game-options.setting.attack-indicator.label": {
+    "message": "Angrepsindikator"
+  },
+  "app.settings.game-options.setting.auto-jump.description": {
+    "message": "Hopp automatisk over hindringer som er én blokk høye."
+  },
+  "app.settings.game-options.setting.auto-jump.label": {
+    "message": "Autohopp"
+  },
+  "app.settings.game-options.setting.auto-suggestions.label": {
+    "message": "Kommandoforslag"
+  },
+  "app.settings.game-options.setting.autosave-indicator.label": {
+    "message": "Autolagringsindikator"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.description": {
+    "message": "Avstanden som biomfarger går over i hverandre på."
+  },
+  "app.settings.game-options.setting.biome-blend-radius.label": {
+    "message": "Biomovergang"
+  },
+  "app.settings.game-options.setting.blocks-volume.label": {
+    "message": "Blokker"
+  },
+  "app.settings.game-options.setting.brightness.label": {
+    "message": "Lysstyrke"
+  },
+  "app.settings.game-options.setting.cape.description": {
+    "message": "Vis spillerens kappe, inkludert elytra-teksturen."
+  },
+  "app.settings.game-options.setting.cape.label": {
+    "message": "Kappe"
+  },
+  "app.settings.game-options.setting.chat-background-only.label": {
+    "message": "Kun chatbakgrunn"
+  },
+  "app.settings.game-options.setting.chat-colors.label": {
+    "message": "Chatfarger"
+  },
+  "app.settings.game-options.setting.chat-delay.label": {
+    "message": "Chatforsinkelse"
+  },
+  "app.settings.game-options.setting.chat-line-spacing.label": {
+    "message": "Linjeavstand i chat"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.description": {
+    "message": "Spør før lenker fra chatten åpnes."
+  },
+  "app.settings.game-options.setting.chat-links-prompt.label": {
+    "message": "Bekreft lenker"
+  },
+  "app.settings.game-options.setting.chat-links.description": {
+    "message": "Tillat at nettlenker i chatten åpnes."
+  },
+  "app.settings.game-options.setting.chat-links.label": {
+    "message": "Nettlenker"
+  },
+  "app.settings.game-options.setting.chat-opacity.description": {
+    "message": "Gjennomsiktigheten til chatteksten."
+  },
+  "app.settings.game-options.setting.chat-opacity.label": {
+    "message": "Chatgjennomsiktighet"
+  },
+  "app.settings.game-options.setting.chat-preview.label": {
+    "message": "Chatforhåndsvisning"
+  },
+  "app.settings.game-options.setting.chat-scale.label": {
+    "message": "Chatskala"
+  },
+  "app.settings.game-options.setting.chat-visibility.label": {
+    "message": "Chatsynlighet"
+  },
+  "app.settings.game-options.setting.chat-width.label": {
+    "message": "Chatbredde"
+  },
+  "app.settings.game-options.setting.chunk-fade-time.label": {
+    "message": "Chunk-fadetid"
+  },
+  "app.settings.game-options.setting.cloud-range.label": {
+    "message": "Skyavstand"
+  },
+  "app.settings.game-options.setting.clouds.label": {
+    "message": "Skyer"
+  },
+  "app.settings.game-options.setting.ctrl-click-right-click.label": {
+    "message": "Control-klikk som høyreklikk"
+  },
+  "app.settings.game-options.setting.cutout-leaves.label": {
+    "message": "Utskårne blader"
+  },
+  "app.settings.game-options.setting.damage-tilt.label": {
+    "message": "Skaderisting"
+  },
+  "app.settings.game-options.setting.dark-splash.description": {
+    "message": "Endre lasteskjermen til Mojang Studios fra rød til svart."
+  },
+  "app.settings.game-options.setting.dark-splash.label": {
+    "message": "Monokrom logo"
+  },
+  "app.settings.game-options.setting.darkness-pulsing.label": {
+    "message": "Pulserende mørke"
+  },
+  "app.settings.game-options.setting.debug-gui-scale.label": {
+    "message": "Debug-GUI-skala"
+  },
+  "app.settings.game-options.setting.directional-audio.label": {
+    "message": "Retningsbestemt lyd"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.description": {
+    "message": "Behandle hver inndata fra musehjulet som ett enkelt rulletrinn."
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.label": {
+    "message": "Diskret rulling"
+  },
+  "app.settings.game-options.setting.entity-distance.label": {
+    "message": "Entitetsavstand"
+  },
+  "app.settings.game-options.setting.entity-shadows.label": {
+    "message": "Entitetsskygger"
+  },
+  "app.settings.game-options.setting.exclusive-fullscreen.label": {
+    "message": "Eksklusiv fullskjerm"
+  },
+  "app.settings.game-options.setting.extra-telemetry.label": {
+    "message": "Valgfri telemetri"
+  },
+  "app.settings.game-options.setting.focused-chat-height.label": {
+    "message": "Fokusert chathøyde"
+  },
+  "app.settings.game-options.setting.force-unicode-font.label": {
+    "message": "Tving Unicode-skrift"
+  },
+  "app.settings.game-options.setting.fov-effects.label": {
+    "message": "Synsfeltseffekter"
+  },
+  "app.settings.game-options.setting.fov.label": {
+    "message": "Synsfelt"
+  },
+  "app.settings.game-options.setting.fullscreen.label": {
+    "message": "Fullskjerm"
+  },
+  "app.settings.game-options.setting.glint-speed.label": {
+    "message": "Glanshastighet"
+  },
+  "app.settings.game-options.setting.glint-strength.label": {
+    "message": "Glansstyrke"
+  },
+  "app.settings.game-options.setting.graphics-backend.label": {
+    "message": "Grafikkmotor"
+  },
+  "app.settings.game-options.setting.graphics.description": {
+    "message": "Styrer visuell kvalitet og ytelse."
+  },
+  "app.settings.game-options.setting.graphics.label": {
+    "message": "Grafikk"
+  },
+  "app.settings.game-options.setting.gui-scale.description": {
+    "message": "Størrelsen på spillgrensesnittet og HUD-en."
+  },
+  "app.settings.game-options.setting.gui-scale.label": {
+    "message": "GUI-skala"
+  },
+  "app.settings.game-options.setting.hat.description": {
+    "message": "Vis hattens skinlag."
+  },
+  "app.settings.game-options.setting.hat.label": {
+    "message": "Hatt"
+  },
+  "app.settings.game-options.setting.held-item-tooltips.label": {
+    "message": "Verktøytips for holdt gjenstand"
+  },
+  "app.settings.game-options.setting.hide-lightning-flashes.label": {
+    "message": "Skjul lynglimt"
+  },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "Skjul samsvarende navn"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "Skjul serveradresse"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "Skjul splashtekster"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "Blokkontur med høy kontrast"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "Forbedre kontrasten til grensesnittelementer."
+  },
+  "app.settings.game-options.setting.high-contrast.label": {
+    "message": "Høy kontrast"
+  },
+  "app.settings.game-options.setting.hostile-volume.label": {
+    "message": "Fiendtlige skapninger"
+  },
+  "app.settings.game-options.setting.improved-transparency.label": {
+    "message": "Forbedret gjennomsiktighet"
+  },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "Varsler i spillet"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "Redusert bildefrekvens"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "Inverter horisontal mus"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "Inverter vertikal musbevegelse."
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "Inverter mus"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "Vis jakkens skinlag."
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "Jakke"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "Japanske glyfvarienter"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "Fremskritt"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "Angrip"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "Gå bakover"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "Åpne chat"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "Kommando"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "Vis avanserte verktøytips"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "Vis chunk-grenser"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "Tøm chat"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "Kopier posisjon"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "Kopier gjenopprettingskommando"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "Utløs debug-krasj"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "Dump dynamiske teksturer"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "Dump versjon"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "Sett på pause ved mistet fokus"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "FPS-diagrammer"
+  },
+  "app.settings.game-options.setting.key-debug-hitboxes.label": {
+    "message": "Vis treffbokser"
+  },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "Debug-visning for forbedret gjennomsiktighet"
+  },
+  "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
+    "message": "Lightmap-tekstur"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "Debug-modifikator"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "Nettverksdiagrammer"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "Debug-alternativer"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "Debug-overlegg"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "Profileringsdiagram"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "Start profilering"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "Last inn chunks på nytt"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "Last inn ressurspakker på nytt"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "Observer entitet"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "Bytt spillmodus"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "Slipp gjenstand"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "Gå fremover"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "Venner"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "Slå fullskjerm på/av"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "Hurtigrad 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "Hurtigrad 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "Hurtigrad 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "Hurtigrad 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "Hurtigrad 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "Hurtigrad 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "Hurtigrad 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "Hurtigrad 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "Hurtigrad 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "Inventar"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "Hopp"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "Gå til venstre"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "Last inn verktøylinje"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "Bytt perspektiv"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "Velg blokk"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "Spillerliste"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "Hurtighandlinger"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "Gå til høyre"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "Lagre verktøylinje"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "Skjermbilde"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "Slå kinokamera på/av"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "Snik"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "Sosiale interaksjoner"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "Tilskuerens hurtigrad"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "Marker tilskuere"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "Sprint"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "Bytt annen hånd"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "Slå HUD på/av"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "Slå tilskuershader på/av"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "Bruk gjenstand"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "Språk"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "Venstre buksebein"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "Venstre erme"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "Bildefrekvensgrense"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "Syns avstand"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "Vis macOS-meny i fullskjerm"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "Velg om hovedhånden er venstre eller høyre."
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "Hovedhånd"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "Hovedvolum"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "Maksimal bildefrekvens"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "Uskarphet for menybakgrunn"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "Teksturutjevning på avstand."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "Mipmap-nivåer"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "Følsomhet for musehjul"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "Musikkfrekvens"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "Velg om musikktitler vises i pausemenyen og som varsler."
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "Musikkvarsel"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "Musikk"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "Hurtigtast for forteller"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "Velg hva fortelleren leser opp."
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "Forteller"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "Vennlige skapninger"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "Hvor lenge varselvarsler forblir synlige."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "Varseltid"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "Fanen for operatørgjenstander"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "Panoramahastighet"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "Partikler"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "Spillere"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "Prioriter chunk-oppdateringer"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "Hurtigtaster for avslutning"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "Rå musinndata"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "Realms-varsler"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "Jukeboks/noteblokker"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "Redusert feilsøkingsinformasjon"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "Renderingsavstand"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "Høyre buksebein"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "Høyre erme"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "Roter med gruvevogn"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "Lagre chatutkast"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "Skjermeffekter"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "Vis kun sikker chat"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "Musfølsomhet"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "Serverteksturer"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "Del status"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "Hvor langt unna entiteter oppdateres og blokker og væsker tikker."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "Simuleringsavstand"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Snooper"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "Sprintvindu"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "Vis undertekster for lyder som spilles i spillet."
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "Undertekster"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "Gjennomsiktighet for tekstbakgrunn"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "Teksturfiltrering"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "Slå angrep på/av"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "Trykk én gang for å forbli huket."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "Slå huk på/av"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "Trykk én gang for å fortsette å sprinte."
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "Slå sprint på/av"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "Slå bruk på/av"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "Berøringsskjermmodus"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "Grensesnitt"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "Ufokusert chathøyde"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "Bruk VBO-er"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "Legg til en gyngende bevegelse på kameraet mens du går."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "Gyngende visning"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "Vignett"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "Stemme og tale"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "Begrens bildefrekvensen til skjermens oppdateringsfrekvens for å forhindre screen tearing."
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "Værradius"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "Vær"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "Denne innstillingen ble endret et annet sted. Sjekk den, og prøv igjen."
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "Velg en gyldig verdi."
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "Velg en verdi først."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "Noen av instansene dine kan ikke bruke denne innstillingen"
+  },
+  "app.settings.java-installations.location.title": {
+    "message": "Plassering for Java {version, number}"
+  },
+  "app.settings.operating-system.macos": {
+    "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Vis {productName} som din gjeldende aktivitet på Discord. Dette påvirker ikke Rich Presence som modder legger til på instanser."
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord Rich Presence"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "Vis handlingen Kopier detaljer mens en installasjon står i kø eller kjører. Den er alltid tilgjengelig for mislykkede eller avbrutte installasjoner."
+  },
+  "app.settings.resource-management.always-show-copy-details.title": {
+    "message": "Vis alltid kopieringsdetaljer"
+  },
+  "app.settings.resource-management.app-cache.confirm.description": {
+    "message": "Appen kan laste saktere til hurtigbufferen er bygget opp igjen."
+  },
+  "app.settings.resource-management.app-cache.confirm.title": {
+    "message": "Tømme appbufferen?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Tøm bufrede data, og last dem ned igjen. Appen kan laste saktere til hurtigbufferen er bygget opp igjen."
+  },
+  "app.settings.resource-management.app-cache.purge": {
+    "message": "Tøm buffer"
+  },
+  "app.settings.resource-management.app-cache.title": {
+    "message": "Appbuffer"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "Sikkerhetskopier av viktige appdata lagres her i tilfelle du må gjenopprette dem senere."
+  },
+  "app.settings.resource-management.app-database-backups.open-folder": {
+    "message": "Åpne sikkerhetskopimappen"
+  },
+  "app.settings.resource-management.app-database-backups.title": {
+    "message": "Sikkerhetskopier av appdatabase"
+  },
+  "app.settings.resource-management.app-directory.browse": {
+    "message": "Bla gjennom etter en appmappe"
+  },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "Der {productName} lagrer instanser og andre filer. Endringer trer i kraft etter at appen startes på nytt."
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "Velg en ny appmappe"
+  },
+  "app.settings.resource-management.app-directory.title": {
+    "message": "Appmappe"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "Antall filer appen kan laste ned samtidig. Senk dette hvis nedlastinger er ustabile på tilkoblingen din. Krever omstart av appen."
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "Maksimalt antall samtidige nedlastinger"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "Antall filer appen kan skrive til disken samtidig. Senk dette hvis du ofte får I/O-feil. Krever omstart av appen."
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "Maksimalt antall samtidige skrivinger"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Noen filer trenger fortsatt oppmerksomhet"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Behold opptil så mye ubrukt innhold for fremtidige installasjoner. Å beholde mer kan spare nedlastingstid."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Behold ubrukte nedlastinger"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Beregner"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Tøm ubrukt"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Slett ubrukt nedlastet innhold"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "Frigjorde {size} diskplass."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Tømmer …"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Spar plass ved å gjenbruke spillinstallasjoner, modder og pakker på tvers av instansene dine."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Installer modder eller pakker for å se lagringsbruken din her."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Vis {count, plural, one {# problem} other {# problemer}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Ikke noe ubrukt innhold å tømme."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Bekreft og reparer"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Dette lukker alle kjørende instanser."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Se etter manglende eller skadede filer, og reparer dem."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Bekrefter og reparerer …"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Delt"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Innholdslagring"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} lagret"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Unik"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Foreldreløs"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "Sjekket {checked, plural, one {# fil} other {# filer}} og utførte {repaired, plural, one {# reparasjon} other {# reparasjoner}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Bekreftelsen er fullført"
+  },
+  "app.settings.sidebar.label.instances": {
+    "message": "Instanser"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Velg hvilken instans du vil kopiere kommandohistorikken din fra. Denne historikken brukes bare til den første synkroniseringen, og du kan redigere den fra en hvilken som helst instans etterpå."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Velg kilde for kommandohistorikk"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Velg hvilken instans du vil kopiere dine lagrede kreative hurtigrader fra. Disse hurtigradene brukes bare til den første synkroniseringen, og du kan redigere dem fra en hvilken som helst instans etterpå."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Velg kilde for kreative hurtigrader"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Velg kilde for datapakker"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Velg hvilken instans du vil kopiere spillinnstillingene dine fra. Disse innstillingene brukes bare til den første synkroniseringen, og du kan redigere dem fra en hvilken som helst instans etterpå."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Velg kilde for spillinnstillinger"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Du kan ikke velge denne instansen som synkroniseringskilde"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Kunne ikke laste synkroniseringskilder. Prøv igjen."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Velg hvilken instans du vil kopiere flerspillerserverne dine fra. Disse serverne brukes bare til den første synkroniseringen, og du kan redigere dem fra en hvilken som helst instans etterpå."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Velg kilde for flerspillerservere"
+  },
+  "app.settings.synced-options.choose-sync-source.no-instances-found": {
+    "message": "Ingen instanser funnet"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Velg kilde for ressurspakker"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Prøv igjen"
+  },
+  "app.settings.synced-options.choose-sync-source.search-placeholder": {
+    "message": "Søk etter instans"
+  },
+  "app.settings.synced-options.choose-sync-source.sync": {
+    "message": "Synkroniser"
+  },
+  "app.settings.synced-options.command-history": {
+    "message": "Synkroniser kommandohistorikk"
+  },
+  "app.settings.synced-options.command-history.description": {
+    "message": "Bruk samme kommandohistorikk på tvers av instansene dine."
+  },
+  "app.settings.synced-options.command-history.editor-title": {
+    "message": "Rediger kommandohistorikk"
+  },
+  "app.settings.synced-options.creative-hotbars": {
+    "message": "Synkroniser lagrede kreative hurtigrader"
+  },
+  "app.settings.synced-options.creative-hotbars.description": {
+    "message": "Bruk samme lagrede kreative hurtigrader på tvers av instansene dine."
+  },
+  "app.settings.synced-options.data-packs": {
+    "message": "Synkroniser datapakker"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Bruk samme datapakker på tvers av instansene dine"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Du har ikke synkronisert noen datapakker ennå"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Legg til en instans før du redigerer synkroniserte data."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Velg en synkroniseringskilde før du redigerer denne innstillingen."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "Synkroniser spillalternativer"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Rediger spillinnstillinger"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "Vi lastet de nyeste innstillingene. Sjekk endringene dine, og lagre igjen."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Disse innstillingene ble endret et annet sted"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Innstillinger lagt til av modder vises her når {productName} finner dem i en av instansene dine."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Bruk samme spillalternativer på tvers av instansene dine."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "Avsynkroniser alt"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Slå på synkronisering av spillinnstillinger før du velger enkeltinnstillinger."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Ingen innstillinger samsvarer med søket eller filteret ditt."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "Synkroniser alt"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "Vi kunne ikke laste spillinnstillingene dine."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Laster innstillinger …"
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Du har ingen alternativer å redigere ennå"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Synkroniseres ikke"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "Prøv igjen"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "Lagre innstillinger"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Søk i innstillinger …"
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Synkroniserte alternativer brukes på hver instans og overstyrer verdiene som følger med en modpack."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "Synkroniser {setting} på tvers av instanser"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "Synkroniser spillinnstillinger"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Synkronisert på tvers av instanser"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Spillinnstillinger"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Du har ulagrede endringer."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "Slutt å synkronisere {setting} på tvers av instanser"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "Forskjellig på tvers av instanser"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "Av"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "På"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Velg en verdi"
+  },
+  "app.settings.synced-options.multiplayer-servers": {
+    "message": "Synkroniser flerspillerservere"
+  },
+  "app.settings.synced-options.multiplayer-servers.address": {
+    "message": "Serveradresse"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Kopier adresse"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {# server} other {# servere}}"
+  },
+  "app.settings.synced-options.multiplayer-servers.description": {
+    "message": "Bruk samme flerspillerservere på tvers av instansene dine."
+  },
+  "app.settings.synced-options.multiplayer-servers.editor-title": {
+    "message": "Rediger synkroniserte servere"
+  },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "Ingen brukerlagte servere synkroniseres for øyeblikket."
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "Frakoblet"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "Tilkoblet"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "Flere serveralternativer"
+  },
+  "app.settings.synced-options.multiplayer-servers.name": {
+    "message": "Servernavn"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Ingen synkroniserte servere samsvarer med søket eller filtrene dine."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Du har ikke synkronisert noen servere ennå"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} pålogget"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "Søk i {count, number} {count, plural, one {synkronisert server} other {synkroniserte servere}} …"
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Status"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Slå på synkronisering før du redigerer delte pakker."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "Synkroniser ressurspakker"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Bruk samme ressurspakker på tvers av instansene dine."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "Du har ikke synkronisert noen ressurspakker ennå"
+  },
   "app.settings.tabs.appearance": {
     "message": "Utseende"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "Atferd"
+  },
+  "app.settings.tabs.features": {
+    "message": "Funksjoner"
   },
   "app.settings.tabs.java-installations": {
     "message": "Java installasjoner"
@@ -299,11 +3419,563 @@
   "app.settings.tabs.resource-management": {
     "message": "Ressursforvaltning"
   },
+  "app.settings.tabs.synced-options": {
+    "message": "Synkroniserte innstillinger"
+  },
+  "app.sidebar.advertising.label": {
+    "message": "Annonse"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Forhåndsvisning · plassering {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Neste modpakke"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Sett rotasjon på pause"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} av {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Forrige modpakke"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Fortsett rotasjon"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Utvalgte modpakker"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Utvalgte modpakker er ikke tilgjengelige akkurat nå."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Vis prosjekt"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Se hostingmuligheter"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Din neste Minecraft-server"
+  },
+  "app.skins.add-button": {
+    "message": "Legg til skin"
+  },
+  "app.skins.add-button.drag-and-drop": {
+    "message": "Dra og slipp"
+  },
+  "app.skins.apply-button": {
+    "message": "Bruk"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Alle modeller"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klassisk"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Standard"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Ingen skinn funnet. Prøv et annet søk."
+  },
+  "app.skins.catalog.error": {
+    "message": "Denne skinleverandøren er ikke tilgjengelig. Prøv igjen senere."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Laster inn skinn…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Søk i hele det offentlige MineSkin-galleriet."
+  },
+  "app.skins.catalog.model": {
+    "message": "Modell"
+  },
+  "app.skins.catalog.next": {
+    "message": "Neste side"
+  },
+  "app.skins.catalog.page": {
+    "message": "Side {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Populær"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Forrige side"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Skinleverandører"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Leverandøren har nådd forespørselsgrensen. Vent før du prøver igjen."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Nylige"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Prøv igjen"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Skinn lagret i Standard"
+  },
+  "app.skins.catalog.search": {
+    "message": "Søk etter skinn…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Søk"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Smal"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Sorter etter"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tag (valgfri)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Trendende"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Denne leverandøren er ennå ikke konfigurert."
+  },
+  "app.skins.delete-button": {
+    "message": "Slett skin"
+  },
+  "app.skins.delete-modal.description": {
+    "message": "Dette sletter det valgte skinnet permanent. Denne handlingen kan ikke angres."
+  },
+  "app.skins.delete-modal.title": {
+    "message": "Er du sikker på at du vil slette dette skinnet?"
+  },
+  "app.skins.demo.apply-tooltip": {
+    "message": "Logg inn for å bruke skins."
+  },
+  "app.skins.demo.description": {
+    "message": "Logg inn på Minecraft-kontoen din for å lagre og bruke skins!"
+  },
+  "app.skins.demo.title": {
+    "message": "Redigering med en demokonto"
+  },
+  "app.skins.dropped-file-error.text": {
+    "message": "Kunne ikke lese den slupne filen."
+  },
+  "app.skins.dropped-file-error.title": {
+    "message": "Feil ved behandling av fil"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "Dette skinnet bruker funksjoner fra {ears}-modden"
+  },
+  "app.skins.edit-button": {
+    "message": "Rediger skin"
+  },
+  "app.skins.modal.add-skin-button": {
+    "message": "Legg til skin"
+  },
+  "app.skins.modal.add-title": {
+    "message": "Legger til et skin"
+  },
+  "app.skins.modal.arm-style-section": {
+    "message": "Armstil"
+  },
+  "app.skins.modal.arm-style-slim": {
+    "message": "Smal"
+  },
+  "app.skins.modal.arm-style-wide": {
+    "message": "Bred"
+  },
+  "app.skins.modal.cape-fallback-name": {
+    "message": "Kappe"
+  },
+  "app.skins.modal.cape-section": {
+    "message": "Kappe"
+  },
+  "app.skins.modal.demo-save-tooltip": {
+    "message": "Logg inn for å lagre skins."
+  },
+  "app.skins.modal.edit-title": {
+    "message": "Redigerer skin"
+  },
+  "app.skins.modal.make-edit-first-tooltip": {
+    "message": "Gjør en endring på skinnet først!"
+  },
+  "app.skins.modal.no-cape-tooltip": {
+    "message": "Ingen kappe"
+  },
+  "app.skins.modal.none-cape-option": {
+    "message": "Ingen"
+  },
+  "app.skins.modal.replace-texture-button": {
+    "message": "Bytt ut tekstur"
+  },
+  "app.skins.modal.save-skin-button": {
+    "message": "Lagre skin"
+  },
+  "app.skins.modal.saving-tooltip": {
+    "message": "Lagrer …"
+  },
+  "app.skins.modal.texture-section": {
+    "message": "Tekstur"
+  },
+  "app.skins.modal.upload-skin-first-tooltip": {
+    "message": "Last opp et skin først!"
+  },
+  "app.skins.preview.edit-button": {
+    "message": "Rediger skin"
+  },
+  "app.skins.previewing-badge": {
+    "message": "Forhåndsviser"
+  },
+  "app.skins.rate-limit.text": {
+    "message": "Du endrer skinnet ditt for ofte. Mojangs servere har midlertidig blokkert flere forespørsler. Vent litt før du prøver igjen."
+  },
+  "app.skins.rate-limit.title": {
+    "message": "Rolig nå!"
+  },
+  "app.skins.reorder-error.text": {
+    "message": "Skinrekkefølgen din kunne ikke lagres."
+  },
+  "app.skins.reorder-error.title": {
+    "message": "Kunne ikke endre skinrekkefølge"
+  },
+  "app.skins.section.builders-and-biomes": {
+    "message": "Builders & Biomes"
+  },
+  "app.skins.section.chaos-cubed": {
+    "message": "Chaos Cubed"
+  },
+  "app.skins.section.chase-the-skies": {
+    "message": "Chase the Skies"
+  },
+  "app.skins.section.default-skins": {
+    "message": "Standardskins"
+  },
+  "app.skins.section.minecon-earth-2017": {
+    "message": "MINECON Earth 2017"
+  },
+  "app.skins.section.mounts-of-mayhem": {
+    "message": "Mounts of Mayhem"
+  },
+  "app.skins.section.saved-skins": {
+    "message": "Lagrede skins"
+  },
+  "app.skins.section.striding-hero": {
+    "message": "Striding Hero"
+  },
+  "app.skins.section.the-copper-age": {
+    "message": "The Copper Age"
+  },
+  "app.skins.section.the-garden-awakens": {
+    "message": "The Garden Awakens"
+  },
+  "app.skins.section.tiny-takeover": {
+    "message": "Tiny Takeover"
+  },
+  "app.skins.sign-in.button": {
+    "message": "Logg inn på Microsoft"
+  },
+  "app.skins.title": {
+    "message": "Skinvelger"
+  },
+  "app.skins.toggle-ears-features-off": {
+    "message": "Slå av"
+  },
+  "app.skins.toggle-ears-features-on": {
+    "message": "Slå på"
+  },
+  "app.sync-instances-update.badge": {
+    "message": "Nytt i denne oppdateringen"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "Velg hvilken instans du vil kopiere spillinnstillinger, ressurspakker, kommandohistorikk, kreative hurtigrader og flerspillerservere fra. Disse innstillingene brukes bare til den første synkroniseringen, og du kan redigere dem fra en hvilken som helst instans etterpå."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "Velg synkroniseringskilde"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Velg hvilken instans du vil kopiere datapakkene dine fra. Disse pakkene brukes bare til den første synkroniseringen, og du kan redigere dem fra en hvilken som helst instans etterpå."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Velg hvilken instans du vil kopiere ressurspakkene dine fra. Disse pakkene brukes bare til den første synkroniseringen, og du kan redigere dem fra en hvilken som helst instans etterpå."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "Synkroniser kreative hurtigrader"
+  },
+  "app.sync-instances-update.description": {
+    "message": "Du kan nå synkronisere alternativer som spillinnstillinger, servere, ressurspakker og mer på tvers av instansene dine, slik at alt forblir likt hver gang du spiller!"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "Kunne ikke laste synkroniseringsinnstillingene dine. Prøv igjen."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "Du kan slå på synkronisering nå og administrere den senere i appinnstillingene."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "Hold spillinnstillinger, servere, ressurspakker og mer synkronisert på tvers av instansene dine."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "Avvis"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "Synkroniser instansene dine"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "Vis oppdatering"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "Prøv igjen"
+  },
+  "app.sync-instances-update.skip": {
+    "message": "Hopp over"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "Synkroniser alt"
+  },
+  "app.sync-instances-update.title": {
+    "message": "Synkroniser instansene dine"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "Deaktiver det på tvers av alle synkroniserte instanser, eller bare i denne instansen. Deaktivering bare her slår på overstyringer for denne instansen."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "Deaktiver overalt"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "Deaktiver dette innholdet på tvers av alle synkroniserte instanser."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "Deaktiver her"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "Deaktivere innhold?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "Aktiver det på tvers av alle synkroniserte instanser, eller bare i denne instansen. Aktivering bare her slår på overstyringer for denne instansen."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Aktiver overalt"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Aktiver dette innholdet på tvers av alle synkroniserte instanser."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Aktiver her"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "Aktivere innhold?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Slett overalt"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Slett her"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Sletting av dette innholdet sletter det på tvers av alle instansene dine"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Valgt innhold som ikke er synkronisert, slettes bare fra denne instansen."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Du kan fjerne det fra bare denne instansen eller fra alle synkroniserte instanser. Fjerning fra bare denne instansen slår på overstyringer, og denne instansen mottar ikke lenger synkroniserte endringer for disse innholdstypene."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "Du kan fjerne {count, plural, one {den} other {dem}} fra bare denne instansen eller fra alle synkroniserte instanser. Fjerning av {count, plural, one {den} other {dem}} fra bare denne instansen slår på overstyringer, og denne instansen mottar ikke lenger synkroniserte ressurspakkeendringer."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {Denne ressurspakken er synkronisert} other {Disse ressurspakkene er synkronisert}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Denne instansen beholder sin egen kopi. Vil du beholde dette innholdet synkronisert i andre instanser, eller fjerne det fra dem?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "Behold"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "Fjern"
+  },
+  "app.synced-content.desync.title": {
+    "message": "Avsynkroniser innhold"
+  },
+  "app.synced-content.warning.title": {
+    "message": "Dette innholdet er synkronisert"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "Synkroniserte datapakker"
+  },
+  "app.synced-packs.empty": {
+    "message": "Legg til pakker fra en instans sin innholdsside for å starte synkronisering."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "Pakkene kunne ikke lastes. Prøv å oppdatere."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Synkroniserte ressurspakker"
+  },
+  "app.update-popup.body.download-complete": {
+    "message": "{productName} v{version} er ferdig nedlastet. Last inn på nytt for å oppdatere nå, eller automatisk når du lukker {productName}."
+  },
+  "app.update-popup.body.linux": {
+    "message": "{productName} v{version} er tilgjengelig. Bruk pakkebehandleren din for å oppdatere til de nyeste funksjonene og rettelsene!"
+  },
+  "app.update-popup.body.metered": {
+    "message": "{productName} v{version} er tilgjengelig nå! Siden du er på et nettverk med databegrensning, lastet vi den ikke ned automatisk."
+  },
+  "app.update-popup.changelog": {
+    "message": "Endringslogg"
+  },
+  "app.update-popup.download": {
+    "message": "Last ned ({size})"
+  },
+  "app.update-popup.download-complete": {
+    "message": "Nedlasting fullført"
+  },
+  "app.update-popup.reload": {
+    "message": "Last inn på nytt for å oppdatere"
+  },
+  "app.update-popup.title": {
+    "message": "Oppdatering tilgjengelig"
+  },
   "app.update.complete-toast.text": {
     "message": "Klikk her for å se endringsloggen."
   },
   "app.update.complete-toast.title": {
     "message": "Versjon {version} ble installert!"
+  },
+  "app.update.download-error.missing-version": {
+    "message": "Kunne ikke laste ned oppdatering: ingen versjon tilgjengelig"
+  },
+  "app.welcome-screen.create-instance": {
+    "message": "Opprett en instans"
+  },
+  "app.welcome-screen.description": {
+    "message": "Klar til å begynne å spille?"
+  },
+  "app.welcome-screen.import-from-launcher": {
+    "message": "Importer fra launcher"
+  },
+  "app.welcome-screen.import-prompt": {
+    "message": "På flukt fra en annen launcher?"
+  },
+  "app.welcome-screen.quick-create-hint": {
+    "message": "Trykk <shortcut>N</shortcut> for å hurtigopprette en instans"
+  },
+  "app.welcome-screen.title": {
+    "message": "Velkommen til {productName}"
+  },
+  "app.window-controls.close": {
+    "message": "Lukk vindu"
+  },
+  "app.window-controls.minimize": {
+    "message": "Minimer vindu"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Slå maksimer vindu på/av"
+  },
+  "app.world-install.backup": {
+    "message": "Erstatt lagrer en sikkerhetskopi av den eksisterende verdenen. Behold og Avbryt installerer ingenting. Installer en ny kopi oppretter en nummerert verden."
+  },
+  "app.world-install.backup-location": {
+    "message": "Den tidligere verdenen ble lagret i {path} i instansen."
+  },
+  "app.world-install.conflict": {
+    "message": "En verden med dette navnet eller fra dette prosjektet finnes allerede."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Installer til tross for ulik versjon"
+  },
+  "app.world-install.copy": {
+    "message": "Installer en ny kopi"
+  },
+  "app.world-install.description": {
+    "message": "Installer en ny verden i en instans. Eksisterende verdener beholdes med mindre du velger å erstatte en."
+  },
+  "app.world-install.incompatible": {
+    "message": "Denne filen oppgir ikke kompatibilitet med Minecraft {version}. Sjekk forfatterens versjons- og modkrav før du fortsetter."
+  },
+  "app.world-install.installed": {
+    "message": "Verden installert: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Målinstans"
+  },
+  "app.world-install.keep": {
+    "message": "Behold eksisterende verden"
+  },
+  "app.world-install.no-instances": {
+    "message": "Opprett først en Minecraft-instans, og kom deretter tilbake hit for å installere verdenen."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Vis verdener"
+  },
+  "app.world-install.replace": {
+    "message": "Erstatt"
+  },
+  "app.world-install.replace-target": {
+    "message": "Verden som skal erstattes"
+  },
+  "app.world-install.requirements": {
+    "message": "Nødvendige mods eller modpakker må allerede være installert i målinstansen. Les prosjektbeskrivelsen."
+  },
+  "app.world-install.title": {
+    "message": "Installer verden"
+  },
+  "app.world-install.version": {
+    "message": "Verdensversjon"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
+  },
+  "app.world.server-modal.select-an-option": {
+    "message": "Velg et alternativ"
+  },
+  "app.world.world-item.incompatible-version": {
+    "message": "Inkompatibel versjon {version}"
+  },
+  "app.world.world-item.not-played-yet": {
+    "message": "Ikke spilt ennå"
+  },
+  "app.world.world-item.offline": {
+    "message": "Frakoblet"
+  },
+  "app.world.world-item.players-online": {
+    "message": "{count} pålogget"
+  },
+  "curseforge.manual.description": {
+    "message": "Last ned {file} fra den offisielle CurseForge-siden, og velg den nedlastede filen for å fortsette. Størrelsen og SHA-1 blir kontrollert."
+  },
+  "curseforge.manual.select": {
+    "message": "Velg nedlastet fil"
+  },
+  "curseforge.manual.title": {
+    "message": "Manuell nedlasting kreves"
+  },
+  "instance.action.create-shortcut": {
+    "message": "Opprett snarvei"
+  },
+  "instance.action.export-modpack": {
+    "message": "Eksporter modpack"
+  },
+  "instance.action.launch-instance": {
+    "message": "Start instans"
+  },
+  "instance.action.more-actions": {
+    "message": "Flere handlinger"
+  },
+  "instance.action.open-folder": {
+    "message": "Åpne mappe"
+  },
+  "instance.action.repair": {
+    "message": "Reparer"
+  },
+  "instance.action.settings": {
+    "message": "Instansinnstillinger"
+  },
+  "instance.action.starting": {
+    "message": "Starter …"
+  },
+  "instance.action.stopping": {
+    "message": "Stopper …"
   },
   "instance.add-server.add-and-play": {
     "message": "Legg til og spill"
@@ -341,6 +4013,261 @@
   "instance.edit-world.title": {
     "message": "Rediger verden"
   },
+  "instance.files.adding-files": {
+    "message": "Legger til filer ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "Administrer det installerte innholdet ditt via Innhold-fanen"
+  },
+  "instance.files.save-as": {
+    "message": "Lagre som …"
+  },
+  "instance.icon-editor.background": {
+    "message": "Bakgrunn"
+  },
+  "instance.icon-editor.background.blue": {
+    "message": "Blå"
+  },
+  "instance.icon-editor.background.dark-gray": {
+    "message": "Mørkegrå"
+  },
+  "instance.icon-editor.background.dark-green": {
+    "message": "Mørkegrønn"
+  },
+  "instance.icon-editor.background.gray": {
+    "message": "Grå"
+  },
+  "instance.icon-editor.background.green": {
+    "message": "Grønn"
+  },
+  "instance.icon-editor.background.indigo": {
+    "message": "Indigo"
+  },
+  "instance.icon-editor.background.lavender": {
+    "message": "Lavendel"
+  },
+  "instance.icon-editor.background.light-gray": {
+    "message": "Lysegrå"
+  },
+  "instance.icon-editor.background.lime": {
+    "message": "Limegrønn"
+  },
+  "instance.icon-editor.background.orange": {
+    "message": "Oransje"
+  },
+  "instance.icon-editor.background.pink": {
+    "message": "Rosa"
+  },
+  "instance.icon-editor.background.purple": {
+    "message": "Lilla"
+  },
+  "instance.icon-editor.background.red": {
+    "message": "Rød"
+  },
+  "instance.icon-editor.background.rose": {
+    "message": "Rose"
+  },
+  "instance.icon-editor.background.yellow": {
+    "message": "Gul"
+  },
+  "instance.icon-editor.description": {
+    "message": "Kombiner elementer for å lage et egendefinert ikon."
+  },
+  "instance.icon-editor.recents": {
+    "message": "Nylige"
+  },
+  "instance.icon-editor.save": {
+    "message": "Lagre ikon"
+  },
+  "instance.icon-editor.surprise-me": {
+    "message": "Tilfeldig"
+  },
+  "instance.icon-editor.symbol": {
+    "message": "Symbol"
+  },
+  "instance.icon-editor.symbol.backpack": {
+    "message": "Ryggsekk"
+  },
+  "instance.icon-editor.symbol.beacon": {
+    "message": "Fyr"
+  },
+  "instance.icon-editor.symbol.blue-shark": {
+    "message": "Blåhai"
+  },
+  "instance.icon-editor.symbol.bookshelf": {
+    "message": "Bokhylle"
+  },
+  "instance.icon-editor.symbol.brown-bear": {
+    "message": "Brunbjørn"
+  },
+  "instance.icon-editor.symbol.cake": {
+    "message": "Kake"
+  },
+  "instance.icon-editor.symbol.campfire": {
+    "message": "Leirbål"
+  },
+  "instance.icon-editor.symbol.chest": {
+    "message": "Kiste"
+  },
+  "instance.icon-editor.symbol.cogwheel": {
+    "message": "Tannhjul"
+  },
+  "instance.icon-editor.symbol.command-block": {
+    "message": "Kommandoblokk"
+  },
+  "instance.icon-editor.symbol.cooking-pot": {
+    "message": "Gryte"
+  },
+  "instance.icon-editor.symbol.couch": {
+    "message": "Sofa"
+  },
+  "instance.icon-editor.symbol.crafting-table": {
+    "message": "Arbeidsbenk"
+  },
+  "instance.icon-editor.symbol.create-wrench": {
+    "message": "Skiftnøkkel"
+  },
+  "instance.icon-editor.symbol.creeper": {
+    "message": "Creeper"
+  },
+  "instance.icon-editor.symbol.enchanting-table": {
+    "message": "Fortryllingsbord"
+  },
+  "instance.icon-editor.symbol.ender-chest": {
+    "message": "Enderkiste"
+  },
+  "instance.icon-editor.symbol.ender-dragon": {
+    "message": "Enderedrage"
+  },
+  "instance.icon-editor.symbol.engine": {
+    "message": "Motor"
+  },
+  "instance.icon-editor.symbol.fabric": {
+    "message": "Fabric"
+  },
+  "instance.icon-editor.symbol.forge": {
+    "message": "Forge"
+  },
+  "instance.icon-editor.symbol.furnace": {
+    "message": "Ovn"
+  },
+  "instance.icon-editor.symbol.gizmo": {
+    "message": "Gizmo"
+  },
+  "instance.icon-editor.symbol.globe": {
+    "message": "Globus"
+  },
+  "instance.icon-editor.symbol.grass-block": {
+    "message": "Gressblokk"
+  },
+  "instance.icon-editor.symbol.lantern": {
+    "message": "Lanterne"
+  },
+  "instance.icon-editor.symbol.moobloom": {
+    "message": "Moobloom"
+  },
+  "instance.icon-editor.symbol.neoforge": {
+    "message": "NeoForge"
+  },
+  "instance.icon-editor.symbol.orb": {
+    "message": "Orb"
+  },
+  "instance.icon-editor.symbol.oxygen-distributor": {
+    "message": "Oksygendistributør"
+  },
+  "instance.icon-editor.symbol.pancakes": {
+    "message": "Pannekaker"
+  },
+  "instance.icon-editor.symbol.pickaxe": {
+    "message": "Hakke"
+  },
+  "instance.icon-editor.symbol.poke-ball": {
+    "message": "Pokeball"
+  },
+  "instance.icon-editor.symbol.quilt": {
+    "message": "Quilt"
+  },
+  "instance.icon-editor.symbol.redstone-block": {
+    "message": "Redstone-blokk"
+  },
+  "instance.icon-editor.symbol.sculk-sensor": {
+    "message": "Sculk-sensor"
+  },
+  "instance.icon-editor.symbol.skeleton": {
+    "message": "Skjelett"
+  },
+  "instance.icon-editor.symbol.skillet": {
+    "message": "Stekepanne"
+  },
+  "instance.icon-editor.symbol.slime-block": {
+    "message": "Slimblokk"
+  },
+  "instance.icon-editor.symbol.space-helmet": {
+    "message": "Romhjelm"
+  },
+  "instance.icon-editor.symbol.sticky-piston": {
+    "message": "Klebrig stempel"
+  },
+  "instance.icon-editor.symbol.sword": {
+    "message": "Sverd"
+  },
+  "instance.icon-editor.symbol.terminal": {
+    "message": "Terminal"
+  },
+  "instance.icon-editor.symbol.tiny-potato": {
+    "message": "Liten potet"
+  },
+  "instance.icon-editor.symbol.tire": {
+    "message": "Dekk"
+  },
+  "instance.icon-editor.symbol.tnt": {
+    "message": "Dynamitt"
+  },
+  "instance.icon-editor.symbol.zombie": {
+    "message": "Zombie"
+  },
+  "instance.icon-editor.title": {
+    "message": "Ikonredigering"
+  },
+  "instance.last-played": {
+    "message": "Sist spilt"
+  },
+  "instance.locked.badge": {
+    "message": "Låst"
+  },
+  "instance.locked.delete-button": {
+    "message": "Slett instans"
+  },
+  "instance.locked.info-label": {
+    "message": "Informasjon om låst instans"
+  },
+  "instance.locked.play-tooltip": {
+    "message": "Denne instansen er låst"
+  },
+  "instance.locked.text": {
+    "message": "Denne instansen er låst og kan ikke spilles eller endres. Du kan slette den."
+  },
+  "instance.locked.title": {
+    "message": "Instansen er låst"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Modloader og Minecraft-versjon"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# time} other {# timer}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# minutt} other {# minutter}}"
+  },
+  "instance.playtime.never-played": {
+    "message": "Aldri spilt"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# sekund} other {# sekunder}}"
+  },
+  "instance.playtime.total": {
+    "message": "Total spilletid"
+  },
   "instance.server-modal.address": {
     "message": "Adresse"
   },
@@ -352,6 +4279,33 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "Resurspakke"
+  },
+  "instance.settings.synced-options.data-override": {
+    "message": "Slå av denne overstyringen for å redigere synkroniserte data."
+  },
+  "instance.settings.synced-options.data-packs": {
+    "message": "Avsynkroniser datapakker"
+  },
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Hold denne instansens datapakker atskilt fra synkroniserte pakker."
+  },
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "Synkronisering av datapakker er slått av i appinnstillingene."
+  },
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Rediger synkroniserte pakker"
+  },
+  "instance.settings.synced-options.packs-override": {
+    "message": "Slå av denne overstyringen for å redigere synkroniserte pakker. Uavhengige pakker kan administreres i innholdsfanen."
+  },
+  "instance.settings.synced-options.resource-packs": {
+    "message": "Avsynkroniser ressurspakker"
+  },
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Hold denne instansens ressurspakker atskilt fra synkroniserte pakker."
+  },
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "Synkronisering av ressurspakker er slått av i appinnstillingene."
   },
   "instance.settings.tabs.general": {
     "message": "Generelt"
@@ -383,6 +4337,12 @@
   "instance.settings.tabs.general.edit-icon": {
     "message": "Rediger ikon"
   },
+  "instance.settings.tabs.general.edit-icon.create": {
+    "message": "Opprett et ikon"
+  },
+  "instance.settings.tabs.general.edit-icon.edit-created": {
+    "message": "Rediger ikon"
+  },
   "instance.settings.tabs.general.edit-icon.remove": {
     "message": "Fjern ikon"
   },
@@ -392,8 +4352,38 @@
   "instance.settings.tabs.general.edit-icon.select": {
     "message": "Velg ikon"
   },
+  "instance.settings.tabs.general.icon": {
+    "message": "Ikon"
+  },
   "instance.settings.tabs.general.name": {
     "message": "Navn"
+  },
+  "instance.settings.tabs.general.update-channel": {
+    "message": "Oppdateringskanal"
+  },
+  "instance.settings.tabs.general.update-channel.alpha": {
+    "message": "Alfa"
+  },
+  "instance.settings.tabs.general.update-channel.alpha.description": {
+    "message": "Utgivelses-, beta- og alfaversjoner vises som tilgjengelige oppdateringer."
+  },
+  "instance.settings.tabs.general.update-channel.beta": {
+    "message": "Beta"
+  },
+  "instance.settings.tabs.general.update-channel.beta.description": {
+    "message": "Utgivelses- og betaversjoner vises som tilgjengelige oppdateringer."
+  },
+  "instance.settings.tabs.general.update-channel.release": {
+    "message": "Utgivelse"
+  },
+  "instance.settings.tabs.general.update-channel.release.description": {
+    "message": "Bare utgivelsesversjoner vises som tilgjengelige oppdateringer."
+  },
+  "instance.settings.tabs.general.update-channel.select": {
+    "message": "Velg oppdateringskanal"
+  },
+  "instance.settings.tabs.hooks.description": {
+    "message": "Kjør instansspesifikke systemkommandoer før og etter at spillet startes."
   },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "Etter avslutning"
@@ -413,6 +4403,30 @@
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "Skriv inn forstartskommando..."
   },
+  "instance.settings.tabs.hooks.title": {
+    "message": "Egendefinerte kroker for spillstart"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "Kroker kjøres i instansens arbeidskatalog med følgende variabler:"
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR: Den absolutte stien til instansens mappe"
+  },
+  "instance.settings.tabs.hooks.variables.inst-id.description": {
+    "message": "$INST_ID: Navnet på instansens mappe"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS: JVM-argumentene som gis til spillet"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA: Den absolutte stien til java-binæren"
+  },
+  "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
+    "message": "$INST_MC_DIR: Et alias for $INST_DIR"
+  },
+  "instance.settings.tabs.hooks.variables.inst-name.description": {
+    "message": "$INST_NAME: Navnet på instansen"
+  },
   "instance.settings.tabs.hooks.wrapper": {
     "message": "Wrapper"
   },
@@ -428,8 +4442,110 @@
   "instance.settings.tabs.installation.loader-version": {
     "message": "{loader} versjon"
   },
+  "instance.settings.tabs.installation.locked": {
+    "message": "Installasjonsinnstillinger er utilgjengelige mens denne instansen er låst."
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "Angi miljøvariabler separat for denne instansen."
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "Angi Java-argumenter separat for denne instansen."
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "Velg en annen Java-installasjon for denne instansen."
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "Angi minnetildeling separat for denne instansen."
+  },
+  "instance.settings.tabs.java.enter-environment-variables": {
+    "message": "Skriv inn miljøvariabler …"
+  },
+  "instance.settings.tabs.java.enter-java-arguments": {
+    "message": "Skriv inn Java-argumenter …"
+  },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "Egendefinerte miljøvariabler"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "Hooker"
+  },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "Egendefinerte Java-argumenter"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "Egendefinert Java-installasjon"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "Egendefinert minnetildeling"
+  },
+  "instance.settings.tabs.java.java-path-placeholder": {
+    "message": "/sti/til/java"
+  },
+  "instance.settings.tabs.settings-overrides": {
+    "message": "Synkroniser overstyringer"
+  },
+  "instance.settings.tabs.synced-options.command-history": {
+    "message": "Avsynkroniser kommandohistorikk"
+  },
+  "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
+    "message": "Synkronisering av kommandohistorikk er slått av i appinnstillingene."
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "Hold denne instansens kommandohistorikk atskilt fra synkronisert kommandohistorikk."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "Avsynkroniser lagrede kreative hurtigrader"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "Synkronisering av lagrede kreative hurtigrader er slått av i appinnstillingene."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "Hold denne instansens lagrede kreative hurtigrader atskilt fra synkroniserte hurtigrader."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "Avsynkroniser spillinnstillinger"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Hold denne instansens options.txt atskilt fra den synkroniserte kopien."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "Synkronisering av spillinnstillinger er slått av i appinnstillingene."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "Versjonen som erstattes, sikkerhetskopieres før noe endres."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "{instance} og din synkroniserte versjon har forskjellige kreative hurtigrader. Velg hvilken som skal brukes på tvers av instansene dine."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "Velg kreative hurtigrader"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "Overskriv andre"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "Bruk synkronisert"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "Avsynkroniser flerspillerservere"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "Synkronisering av flerspillerservere er slått av i appinnstillingene."
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "Hold denne instansens flerspillerservere atskilt fra synkroniserte servere."
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "Administrer synkroniserte innstillinger"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "Slå på en overstyring for å holde en synkronisert innstilling atskilt for denne instansen."
+  },
+  "instance.settings.tabs.window": {
+    "message": "Egendefinerte vindusinnstillinger"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "Konfigurer fullskjerm og startoppløsning separat for denne instansen."
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "Fullskjerm"
@@ -458,11 +4574,32 @@
   "instance.worlds.a_minecraft_server": {
     "message": "En Minecraft server"
   },
+  "instance.worlds.actions.label": {
+    "message": "Verdenhandlinger"
+  },
   "instance.worlds.cant_connect": {
     "message": "Kunne ikke koble til serveren"
   },
   "instance.worlds.copy_address": {
     "message": "Kopier addresse"
+  },
+  "instance.worlds.create_shortcut": {
+    "message": "Opprett snarvei"
+  },
+  "instance.worlds.desync-server.description": {
+    "message": "Vil du beholde denne serveren i andre synkroniserte instanser, eller fjerne den fra dem?"
+  },
+  "instance.worlds.desync-server.keep": {
+    "message": "Behold"
+  },
+  "instance.worlds.desync-server.remove": {
+    "message": "Fjern"
+  },
+  "instance.worlds.desync-server.title": {
+    "message": "Avsynkroniser server"
+  },
+  "instance.worlds.desync_server": {
+    "message": "Avsynkroniser"
   },
   "instance.worlds.dont_show_on_home": {
     "message": "Ikke vis på Hjem"
@@ -476,6 +4613,15 @@
   "instance.worlds.incompatible_server": {
     "message": "Serveren er inkompatibel"
   },
+  "instance.worlds.instance-locked": {
+    "message": "Denne instansen er låst"
+  },
+  "instance.worlds.linked_server": {
+    "message": "Administrert av serverprosjekt"
+  },
+  "instance.worlds.more-options": {
+    "message": "Flere alternativer"
+  },
   "instance.worlds.no_contact": {
     "message": "Server kunne ikke kontaktes"
   },
@@ -488,11 +4634,110 @@
   "instance.worlds.play_instance": {
     "message": "Spill tilfelle"
   },
+  "instance.worlds.play_world": {
+    "message": "Spill verden"
+  },
+  "instance.worlds.shortcut-created": {
+    "message": "Snarvei opprettet"
+  },
+  "instance.worlds.shortcut-creation-failed": {
+    "message": "Kunne ikke opprette snarvei"
+  },
+  "instance.worlds.synced_server": {
+    "message": "Synkronisert på tvers av instanser"
+  },
   "instance.worlds.view_instance": {
     "message": "Vis instans"
   },
   "instance.worlds.world_in_use": {
     "message": "Verdenen er i bruk"
+  },
+  "minecraft-account.accounts": {
+    "message": "Minecraft-kontoer"
+  },
+  "minecraft-account.add-account": {
+    "message": "Legg til konto"
+  },
+  "minecraft-account.getting-started": {
+    "message": "Kom i gang"
+  },
+  "minecraft-account.not-signed-in": {
+    "message": "Ikke logget inn"
+  },
+  "minecraft-account.remove-account": {
+    "message": "Fjern konto"
+  },
+  "minecraft-account.sign-in": {
+    "message": "Logg inn på Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Logg inn"
+  },
+  "minecraft-required.description": {
+    "message": "Du trenger en Microsoft-konto som eier Minecraft før du kan starte og spille."
+  },
+  "minecraft-required.description-header": {
+    "message": "Logg inn på en Microsoft-konto"
+  },
+  "minecraft-required.dont-have-account": {
+    "message": "Har du ingen konto?"
+  },
+  "minecraft-required.get-minecraft": {
+    "message": "Skaff Minecraft"
+  },
+  "minecraft-required.get-support": {
+    "message": "Få støtte"
+  },
+  "minecraft-required.header": {
+    "message": "Minecraft kreves"
+  },
+  "minecraft-required.sign-in": {
+    "message": "Logg inn på Microsoft"
+  },
+  "onboarding-checklist.create-instance": {
+    "message": "Opprett første instans"
+  },
+  "onboarding-checklist.login-minecraft": {
+    "message": "Logg inn på Minecraft"
+  },
+  "onboarding-checklist.title": {
+    "message": "Kom i gang"
+  },
+  "optifine.add-component": {
+    "message": "Installer OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Velg JAR og fortsett"
+  },
+  "optifine.download-official": {
+    "message": "Offisiell nedlasting"
+  },
+  "optifine.export-notice": {
+    "message": "OptiFine-binærfiler er utelatt. Orbpack bevarer den påkrevde versjonen; Modrinth- og CurseForge-pakker krever at OptiFine installeres separat."
+  },
+  "optifine.import-canceled": {
+    "message": "OptiFine-valg avbrutt. Pakken ble ikke installert."
+  },
+  "optifine.import-description": {
+    "message": "Denne pakken krever OptiFine {version} for Minecraft {gameVersion}. Last ned den offisielle JAR-filen og velg den for å fortsette. OptiFine følger ikke med i pakken."
+  },
+  "optifine.import-title": {
+    "message": "Denne pakken krever OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Velg det offisielle OptiFine-installasjonsprogrammet for Minecraft {gameVersion}. For en importert pakke må versjonen og filhashen også samsvare."
+  },
+  "optifine.remove-component": {
+    "message": "Fjern OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Velg offisiell OptiFine-JAR"
+  },
+  "project-type.world.category": {
+    "message": "Verdener"
   },
   "search.filter.locked.instance": {
     "message": "Levert av instansen"
@@ -505,5 +4750,11 @@
   },
   "search.filter.locked.instance.sync": {
     "message": "Synkroniser med instans"
+  },
+  "settings.sidebar.label.account": {
+    "message": "Konto"
+  },
+  "settings.sidebar.label.display": {
+    "message": "Visning"
   }
 }

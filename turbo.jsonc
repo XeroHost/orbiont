@@ -12,7 +12,7 @@
 		"build": {
 			"dependsOn": ["//#i18n:coverage", "^build"],
 			"inputs": ["$TURBO_DEFAULT$", ".env*"],
-			"outputs": [".nuxt/**", "dist/**", ".output/**", "$TURBO_ROOT$/target/**"],
+			"outputs": ["dist/**"],
 			"env": [
 				"NODE_ENV",
 				"SITE_URL",
@@ -31,6 +31,29 @@
 				"NEXTEST_*",
 				"BUILD_ENV",
 				"PREVIEW"
+			],
+			"passThroughEnv": ["SCCACHE_*", "RUSTC_WRAPPER", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
+		},
+		"@orbiont/app#build": {
+			"cache": false,
+			"dependsOn": ["//#i18n:coverage", "^build"],
+			"inputs": ["$TURBO_DEFAULT$", ".env*"],
+			"env": [
+				"NODE_ENV",
+				"SITE_URL",
+				"BASE_URL",
+				"PREVIEW",
+				"BUILD_ENV",
+				"FLAG_OVERRIDES",
+				"BROWSER_BASE_URL",
+				"PORT",
+				"SQLX_OFFLINE",
+				"DATABASE_URL",
+				"CARGO_*",
+				"RUST_*",
+				"RUSTFLAGS",
+				"FORCE_COLOR",
+				"NEXTEST_*"
 			],
 			"passThroughEnv": ["SCCACHE_*", "RUSTC_WRAPPER", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
 		},

@@ -40,9 +40,7 @@ function isPhotosensitivityExclusionSelected(filters: { type: string; option: st
 
 watch(
 	() => ({
-		selected: isPhotosensitivityExclusionSelected(
-			ctx.isServerType.value ? ctx.serverCurrentFilters.value : ctx.currentFilters.value,
-		),
+		selected: isPhotosensitivityExclusionSelected(ctx.currentFilters.value),
 		saved: advancedPrefs.value.includes(PHOTOSENSITIVITY_FILTER_OPTION),
 	}),
 	(current, previous) => {
@@ -110,14 +108,6 @@ function getFilterOpenByDefault(filterId: string): boolean {
 	if (filterId === 'compatible_dependency_project_ids') {
 		return true
 	}
-	if (ctx.isServerType.value) {
-		return ![
-			'server_category_minecraft_server_meta',
-			'server_category_minecraft_server_community',
-			'server_game_version',
-			'server_status',
-		].includes(filterId)
-	}
 	if (isApp.value) {
 		return filterId.startsWith('category') || filterId === 'environment' || filterId === 'license'
 	}
@@ -161,27 +151,13 @@ function getFilterOpenByDefault(filterId: string): boolean {
 		</div>
 
 		<div
-			v-if="
-				ctx.showHideInstalled?.value || ctx.showHideSelected?.value || ctx.showServerOnly?.value
-			"
+			v-if="ctx.showHideInstalled?.value || ctx.showHideSelected?.value"
 			:class="
 				isApp
 					? 'flex flex-col gap-3 border-0 border-b-[1px] p-4 last:border-b-0 border-[--brand-gradient-border] border-solid'
 					: 'card-shadow flex flex-col gap-3 rounded-2xl bg-bg-raised border-solid border-surface-4 border p-4'
 			"
 		>
-			<label
-				v-if="ctx.showServerOnly?.value"
-				class="flex cursor-pointer items-center justify-between gap-3 text-contrast font-medium"
-			>
-				{{ ctx.serverOnlyLabel?.value ?? formatMessage(commonMessages.serverOnlyLabel) }}
-				<Toggle
-					v-model="ctx.serverOnly!.value"
-					small
-					class="shrink-0"
-					@update:model-value="ctx.onFilterChange()"
-				/>
-			</label>
 			<label
 				v-if="ctx.showHideInstalled?.value"
 				class="flex cursor-pointer items-center justify-between gap-3 text-contrast font-medium"
@@ -212,97 +188,65 @@ function getFilterOpenByDefault(filterId: string): boolean {
 
 		<slot name="filters-prepend" />
 
-		<template v-if="ctx.isServerType.value">
-			<SearchSidebarFilter
-				v-for="filterType in ctx.serverFilterTypes.value.filter(
-					(f) => f.options.length > 0 && !hiddenFilterTypes.includes(f.id),
-				)"
-				:key="`server-filter-${filterType.id}`"
-				v-model:selected-filters="ctx.serverCurrentFilters.value"
-				v-model:toggled-groups="ctx.serverToggledGroups.value"
-				:provided-filters="[]"
-				:filter-type="filterType"
-				:project-type="ctx.projectType.value"
-				:class="filterClass"
-				:button-class="buttonClass"
-				:content-class="contentClass"
-				:inner-panel-class="innerPanelClass"
-				:selected-project-class="selectedProjectClass"
-				:open-by-default="getFilterOpenByDefault(filterType.id)"
-				@on-open="() => filterType.id === 'advanced' && setAdvancedFiltersCollapsed(false)"
-				@on-close="() => filterType.id === 'advanced' && setAdvancedFiltersCollapsed(true)"
+		<SearchSidebarFilter
+			v-for="filter in ctx.filters.value.filter(
+				(f) => f.display !== 'none' && !hiddenFilterTypes.includes(f.id),
+			)"
+			:key="`filter-${filter.id}`"
+			v-model:selected-filters="ctx.currentFilters.value"
+			v-model:toggled-groups="ctx.toggledGroups.value"
+			v-model:overridden-provided-filter-types="ctx.overriddenProvidedFilterTypes.value"
+			:provided-filters="ctx.providedFilters?.value ?? []"
+			:filter-type="filter"
+			:project-type="ctx.projectType.value"
+			:result-count="ctx.totalHits.value"
+			:loading="ctx.loading.value"
+			:refreshing="ctx.refreshing.value"
+			:class="filterClass"
+			:button-class="buttonClass"
+			:content-class="contentClass"
+			:inner-panel-class="innerPanelClass"
+			:selected-project-class="selectedProjectClass"
+			:open-by-default="getFilterOpenByDefault(filter.id)"
+			@on-open="() => filter.id === 'advanced' && setAdvancedFiltersCollapsed(false)"
+			@on-close="() => filter.id === 'advanced' && setAdvancedFiltersCollapsed(true)"
+		>
+			<template #header>
+				<h3 :class="isApp ? 'text-base m-0' : 'm-0 text-lg font-semibold'">
+					{{ filter.formatted_name }}
+				</h3>
+			</template>
+			<template v-if="filter.id === 'advanced'" #prefix>
+				<AdvancedFiltersPersistenceNote />
+			</template>
+			<template
+				v-else-if="
+					lockedMessages?.gameVersionShaderMessage &&
+					ctx.projectType.value === 'shader' &&
+					filter.id === 'game_version'
+				"
+				#prefix
 			>
-				<template #header>
-					<h3 :class="isApp ? 'text-base m-0' : 'm-0 text-base font-semibold'">
-						{{ filterType.formatted_name }}
-					</h3>
-				</template>
-				<template v-if="filterType.id === 'advanced'" #prefix>
-					<AdvancedFiltersPersistenceNote />
-				</template>
-			</SearchSidebarFilter>
-		</template>
-		<template v-else>
-			<SearchSidebarFilter
-				v-for="filter in ctx.filters.value.filter(
-					(f) => f.display !== 'none' && !hiddenFilterTypes.includes(f.id),
-				)"
-				:key="`filter-${filter.id}`"
-				v-model:selected-filters="ctx.currentFilters.value"
-				v-model:toggled-groups="ctx.toggledGroups.value"
-				v-model:overridden-provided-filter-types="ctx.overriddenProvidedFilterTypes.value"
-				:provided-filters="ctx.providedFilters?.value ?? []"
-				:filter-type="filter"
-				:project-type="ctx.projectType.value"
-				:result-count="ctx.totalHits.value"
-				:loading="ctx.loading.value"
-				:refreshing="ctx.refreshing.value"
-				:class="filterClass"
-				:button-class="buttonClass"
-				:content-class="contentClass"
-				:inner-panel-class="innerPanelClass"
-				:selected-project-class="selectedProjectClass"
-				:open-by-default="getFilterOpenByDefault(filter.id)"
-				@on-open="() => filter.id === 'advanced' && setAdvancedFiltersCollapsed(false)"
-				@on-close="() => filter.id === 'advanced' && setAdvancedFiltersCollapsed(true)"
-			>
-				<template #header>
-					<h3 :class="isApp ? 'text-base m-0' : 'm-0 text-lg font-semibold'">
-						{{ filter.formatted_name }}
-					</h3>
-				</template>
-				<template v-if="filter.id === 'advanced'" #prefix>
-					<AdvancedFiltersPersistenceNote />
-				</template>
-				<template
-					v-else-if="
-						lockedMessages?.gameVersionShaderMessage &&
-						ctx.projectType.value === 'shader' &&
-						filter.id === 'game_version'
-					"
-					#prefix
-				>
-					<div class="mb-4 grid grid-cols-[auto_1fr] gap-2 px-3 text-sm font-medium text-blue">
-						<InfoIcon class="mt-1 size-4" />
-						<span>{{ lockedMessages?.gameVersionShaderMessage }}</span>
-					</div>
-				</template>
-				<template v-if="lockedMessages?.gameVersion" #locked-game_version>
-					{{ lockedMessages.gameVersion }}
-				</template>
-				<template v-if="lockedMessages?.modLoader" #locked-mod_loader>
-					{{ lockedMessages.modLoader }}
-				</template>
-				<template v-if="lockedMessages?.modLoader" #locked-shader_loader>
-					{{ lockedMessages.modLoader }}
-				</template>
-				<template v-if="lockedMessages?.environment" #locked-environment>
-					{{ lockedMessages.environment }}
-				</template>
-				<template v-if="lockedMessages?.syncButton" #sync-button>
-					{{ lockedMessages.syncButton }}
-				</template>
-			</SearchSidebarFilter>
-		</template>
+				<div class="mb-4 grid grid-cols-[auto_1fr] gap-2 px-3 text-sm font-medium text-blue">
+					<InfoIcon class="mt-1 size-4" />
+					<span>{{ lockedMessages?.gameVersionShaderMessage }}</span>
+				</div>
+			</template>
+			<template v-if="lockedMessages?.gameVersion" #locked-game_version>
+				{{ lockedMessages.gameVersion }}
+			</template>
+			<template v-if="lockedMessages?.modLoader" #locked-mod_loader>
+				{{ lockedMessages.modLoader }}
+			</template>
+			<template v-if="lockedMessages?.modLoader" #locked-shader_loader>
+				{{ lockedMessages.modLoader }}
+			</template>
+			<template v-if="lockedMessages?.environment" #locked-environment>
+				{{ lockedMessages.environment }}
+			</template>
+			<template v-if="lockedMessages?.syncButton" #sync-button>
+				{{ lockedMessages.syncButton }}
+			</template>
+		</SearchSidebarFilter>
 	</div>
 </template>

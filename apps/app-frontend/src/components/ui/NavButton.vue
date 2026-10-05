@@ -2,6 +2,7 @@
 	<component
 		:is="isLink ? RouterLink : 'button'"
 		v-tooltip.right="showLabel ? undefined : (tooltip ?? label)"
+		data-animated-icon-trigger
 		:to="isLink ? to : undefined"
 		v-bind="$attrs"
 		:disabled="isLink ? undefined : disabled"

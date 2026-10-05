@@ -46,6 +46,7 @@ export interface EmbeddedContentMetadata {
 
 export interface ContentCardTableItem {
 	id: string
+	subtitle?: string
 	project: ContentCardProject
 	projectLink?: string | RouteLocationRaw
 	version?: ContentCardVersion

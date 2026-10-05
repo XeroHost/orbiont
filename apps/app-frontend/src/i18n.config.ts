@@ -1,7 +1,7 @@
 import {
 	buildLocaleMessages,
+	type CatalogMessages,
 	createMessageCompiler,
-	type CrowdinMessages,
 	LOCALES,
 } from '@orbiont/ui'
 import englishUi from '@orbiont/ui/src/locales/en-US/index.json'
@@ -33,10 +33,11 @@ const i18n = createI18n({
 	}),
 })
 
+// A language combines app-frontend/src/locales and packages/ui/src/locales.
 const pendingLocales = new Map<string, Promise<Record<string, string>>>()
 let localeRequest = 0
 
-async function fetchMessages(url: string): Promise<CrowdinMessages> {
+async function fetchMessages(url: string): Promise<CatalogMessages> {
 	const response = await fetch(url)
 	if (!response.ok) throw new Error(`Could not load translations: ${response.status}`)
 	return response.json()

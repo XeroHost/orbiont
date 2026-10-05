@@ -31,6 +31,7 @@ import {
 	UnknownIcon,
 	UpdatedIcon,
 	USDCColorIcon,
+	WorldIcon,
 	XCircleIcon,
 	XIcon,
 } from '@orbiont/assets'
@@ -45,6 +46,7 @@ import {
 } from './file-extensions'
 
 export const PROJECT_TYPE_ICONS: Record<ProjectType, Component> = {
+	world: WorldIcon,
 	mod: BoxIcon,
 	modpack: PackageOpenIcon,
 	resourcepack: PaintbrushIcon,

@@ -1,8 +1,18 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
+# Agents
+.claude
+.serena
+.freebuff/
+docs
+CLAUDE.md
+HANDOFF.md
+Plan.md
+
 # compiled output
 dist
 tmp
+.tmp
 /out-tsc
 
 # dependencies
@@ -55,6 +65,7 @@ Thumbs.db
 
 # frontend generated files
 apps/frontend/src/generated
+apps/app-frontend/used-modules.json
 /packages/ui/src/layouts/wrapped/settings/language-settings/language-settings-coverage.generated.ts
 
 .turbo
@@ -69,6 +80,8 @@ generated
 !apps/app-frontend/src/generated/app-events/postcard/index.js
 !apps/app-frontend/src/generated/app-events/postcard/package.json
 .env
+packages/app-lib/.env.*
+!packages/app-lib/.env.example
 
 # app testing dir
 app-playground-data/*

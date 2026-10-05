@@ -9,6 +9,32 @@ fn main() {
         tauri_build::Attributes::new()
             .codegen(tauri_build::CodegenContext::new())
             .plugin(
+                "bedrock",
+                InlinedPlugin::new()
+                    .commands(&[
+                        "get_status",
+                        "get_workspace",
+                        "list_files",
+                        "read_file",
+                        "write_file",
+                        "delete_item",
+                        "list_recoveries",
+                        "restore_item",
+                        "read_log",
+                        "open_folder",
+                        "open_updates",
+                        "launch_game",
+                        "stop_game",
+                        "launch_official_launcher",
+                        "open_store",
+                        "import_file",
+                        "import_catalog_file",
+                    ])
+                    .default_permission(
+                        DefaultPermissionRule::AllowAllCommands,
+                    ),
+            )
+            .plugin(
                 "auth",
                 InlinedPlugin::new()
                     .commands(&[
@@ -122,6 +148,8 @@ fn main() {
                         "flush_pending_skin_change_for_profile",
                         "normalize_skin_texture",
                         "get_dragged_skin_data",
+                        "get_skin_catalog",
+                        "get_catalog_skin_texture",
                     ])
                     .default_permission(
                         DefaultPermissionRule::AllowAllCommands,
@@ -140,6 +168,11 @@ fn main() {
                 InlinedPlugin::new()
                     .commands(&[
                         "install_get_modpack_preview",
+                        "install_inspect_optifine",
+                        "install_optifine_download_url",
+                        "install_get_pack_optifine",
+                        "install_get_instance_optifine",
+                        "install_change_optifine",
                         "install_create_instance",
                         "install_create_modpack_instance",
                         "install_import_instance",
@@ -193,6 +226,7 @@ fn main() {
                         "instance_get_mod_full_path",
                         "instance_list_screenshots",
                         "instance_list_all_screenshots",
+                        "instance_list_bedrock_screenshots",
                         "instance_list_synced_screenshots",
                         "instance_save_edited_screenshot",
                         "instance_list_screenshot_groups",
@@ -317,20 +351,6 @@ fn main() {
                     ),
             )
             .plugin(
-                "users",
-                InlinedPlugin::new()
-                    .commands(&[
-                        "search_user",
-                        "get_user_profile",
-                        "get_user_projects",
-                        "get_user_organizations",
-                        "get_user_collections",
-                    ])
-                    .default_permission(
-                        DefaultPermissionRule::AllowAllCommands,
-                    ),
-            )
-            .plugin(
                 "utils",
                 InlinedPlugin::new()
                     .commands(&[
@@ -371,12 +391,11 @@ fn main() {
                 "orbiont",
                 InlinedPlugin::new()
                     .commands(&[
-                        "orbiont_get_modpacks",
-                        "orbiont_get_servers",
                         "orbiont_curseforge_api",
+                        "orbiont_curseforge_api_post",
                         "orbiont_convert_curseforge_pack",
-                        "orbiont_download_modpack",
                         "orbiont_download_curseforge_file",
+                        "orbiont_import_curseforge_file",
                     ])
                     .default_permission(
                         DefaultPermissionRule::AllowAllCommands,
@@ -388,6 +407,8 @@ fn main() {
                     .commands(&[
                         "get_recent_worlds",
                         "get_instance_worlds",
+                        "inspect_world_archive",
+                        "import_world_archive",
                         "get_singleplayer_world",
                         "set_world_display_status",
                         "rename_world",
@@ -395,7 +416,6 @@ fn main() {
                         "backup_world",
                         "delete_world",
                         "add_server_to_instance",
-                        "ensure_managed_server_in_instance",
                         "edit_server_in_instance",
                         "remove_server_from_instance",
                         "desync_server",

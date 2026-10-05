@@ -2785,7 +2785,6 @@ dependencies = [
  "http",
  "http-body",
  "httparse",
- "httpdate",
  "itoa",
  "pin-project-lite",
  "pin-utils",
@@ -7385,17 +7384,12 @@ version = "1.0.0-beta.1"
 dependencies = [
  "async_zip",
  "chrono",
- "core-foundation 0.10.1",
- "core-graphics 0.24.0",
  "daedalus",
  "dashmap",
  "either",
  "enumset",
- "hyper",
- "hyper-util",
  "image",
  "native-dialog",
- "objc2-app-kit",
  "paste",
  "path-util",
  "serde",
@@ -7420,9 +7414,7 @@ dependencies = [
  "url",
  "urlencoding",
  "uuid 1.23.3",
- "webview2-com",
  "windows",
- "windows-core 0.61.2",
 ]
 
 [[package]]

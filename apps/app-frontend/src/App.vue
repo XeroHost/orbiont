@@ -1,22 +1,10 @@
 <script setup>
 import { ApiError, TauriApiClient, VerboseLoggingFeature } from '@orbiont/api-client'
-import {
-	ChevronLeftIcon,
-	ChevronRightIcon,
-	CompassIcon,
-	ImageIcon,
-	PanelLeftIcon,
-	PlayIcon,
-	PlusIcon,
-	RefreshCwIcon,
-	RightArrowIcon,
-	ServerIcon,
-	SettingsIcon,
-	ShirtIcon,
-} from '@orbiont/assets'
-import { changelogUrl, productName, supportEmail } from '@orbiont/branding'
+import { ChevronLeftIcon, ChevronRightIcon, PanelLeftIcon, RefreshCwIcon } from '@orbiont/assets'
+import { changelogUrl, companySiteUrl, productName, supportEmail } from '@orbiont/branding'
 import {
 	Admonition,
+	AnimatedIcon,
 	commonMessages,
 	ContentInstallModal,
 	ContentUpdaterModal,
@@ -53,19 +41,21 @@ import AppActionBar from '@/components/ui/AppActionBar.vue'
 import AppLogo from '@/components/ui/AppLogo.vue'
 import Breadcrumbs from '@/components/ui/Breadcrumbs.vue'
 import ErrorModal from '@/components/ui/ErrorModal.vue'
-import AddServerToInstanceModal from '@/components/ui/install_flow/AddServerToInstanceModal.vue'
+import BedrockInstallModal from '@/components/ui/install_flow/BedrockInstallModal.vue'
+import CurseforgeDownloadModal from '@/components/ui/install_flow/CurseforgeDownloadModal.vue'
+import OptifineImportModal from '@/components/ui/install_flow/OptifineImportModal.vue'
 import UnknownPackWarningModal from '@/components/ui/install_flow/UnknownPackWarningModal.vue'
 import IconEditorModal from '@/components/ui/instance_settings/icon-editor-modal/index.vue'
 import MinecraftAuthErrorModal from '@/components/ui/minecraft-auth-error-modal/MinecraftAuthErrorModal.vue'
 import MinecraftRequiredModal from '@/components/ui/minecraft-required-modal/MinecraftRequiredModal.vue'
+import MinecraftEditionSelector from '@/components/ui/MinecraftEditionSelector.vue'
 import AppSettingsModal from '@/components/ui/modal/AppSettingsModal.vue'
-import InstallToPlayModal from '@/components/ui/modal/InstallToPlayModal.vue'
 import LaunchLinkConfirmModal from '@/components/ui/modal/LaunchLinkConfirmModal.vue'
 import ModpackAlreadyInstalledModal from '@/components/ui/modal/ModpackAlreadyInstalledModal.vue'
-import UpdateToPlayModal from '@/components/ui/modal/UpdateToPlayModal.vue'
 import NavButton from '@/components/ui/NavButton.vue'
 import OnboardingChecklist from '@/components/ui/onboarding-checklist/index.vue'
 import QuickInstanceSwitcher from '@/components/ui/QuickInstanceSwitcher.vue'
+import SidebarContent from '@/components/ui/sidebar/SidebarContent.vue'
 import SplashScreen from '@/components/ui/SplashScreen.vue'
 import SyncInstancesUpdateModal from '@/components/ui/sync-instances-update-modal/index.vue'
 import {
@@ -73,19 +63,30 @@ import {
 	shouldShowSyncInstancesUpdateNotification,
 } from '@/components/ui/sync-instances-update-modal/show-notification'
 import WindowControls from '@/components/ui/WindowControls.vue'
+import InstallWorldModal from '@/components/ui/world/modal/InstallWorldModal.vue'
 import { useCheckDisableMouseover } from '@/composables/macCssFix.js'
 import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { useError } from '@/composables/use-error.js'
+import { useIconMotion } from '@/composables/use-icon-motion'
 import { useInstanceMetadataRefresh } from '@/composables/use-instance-metadata-refresh'
 import { useNavExpanded } from '@/composables/use-nav-expanded'
 import { useTheme } from '@/composables/use-theme.ts'
 import { config } from '@/config'
 import { check_reachable } from '@/helpers/auth.js'
+import { setBedrockInstallHandler } from '@/helpers/bedrock-catalog'
 import { get_version } from '@/helpers/cache.js'
-import { onCurseforgeSkippedFiles } from '@/helpers/curseforge'
+import {
+	parseCurseforgeManualDownload,
+	requestCurseforgeManualDownload,
+	setCurseforgeManualDownloadHandler,
+} from '@/helpers/curseforge'
 import { gameSettingsQueryOptions } from '@/helpers/game-options'
-import { install_create_modpack_instance, install_get_modpack_preview } from '@/helpers/install'
+import {
+	install_create_modpack_instance,
+	install_get_modpack_preview,
+	install_job_retry,
+} from '@/helpers/install'
 import { get as getInstance, run } from '@/helpers/instance'
 import { maxMemoryQueryOptions } from '@/helpers/jre.js'
 import { mergeUrlQuery, parseModrinthLink } from '@/helpers/project-links.ts'
@@ -103,7 +104,6 @@ import {
 	syncedServersQueryOptions,
 } from '@/helpers/synced-options'
 import { syncedPackQueryOptions } from '@/helpers/synced-packs'
-import { parse_modrinth_user_link } from '@/helpers/users'
 import {
 	areUpdatesEnabled,
 	enqueueUpdateForInstallation,
@@ -113,6 +113,7 @@ import {
 	isNetworkMetered,
 	setRestartAfterPendingUpdate,
 } from '@/helpers/utils.js'
+import { setWorldInstallHandler } from '@/helpers/world-install'
 import { start_join_server, start_join_singleplayer_world } from '@/helpers/worlds.ts'
 import { setLocale } from '@/i18n.config'
 import { instanceListQueryOptions } from '@/pages/instance/query-options'
@@ -132,7 +133,6 @@ import {
 	provideAppUpdateDownloadProgress,
 	subscribeToDownloadProgress,
 } from '@/providers/download-progress.ts'
-import { createServerInstall, provideServerInstall } from '@/providers/server-install'
 import { setupProviders } from '@/providers/setup'
 import { setupAppEventsProvider } from '@/providers/setup/app-events'
 import { setupLoadingStateProvider } from '@/providers/setup/loading-state'
@@ -150,8 +150,12 @@ const leftBarStyle = computed(() => ({ '--left-bar-width': leftBarWidth.value })
 const appTheme = useTheme()
 const router = useRouter()
 const route = useRoute()
+const isBedrock = computed(
+	() => route.path.startsWith('/bedrock') || route.query.edition === 'bedrock',
+)
 const { channel: appEventChannel, events: appEvents } = setupAppEventsProvider()
 useInstanceMetadataRefresh(appEvents)
+useIconMotion()
 const breadcrumbManager = createBreadcrumbManager()
 provideBreadcrumbManager(breadcrumbManager)
 const canNavigateBack = ref(false)
@@ -165,28 +169,28 @@ function updateHistoryNavigationState() {
 
 updateHistoryNavigationState()
 
-const APP_SIDEBAR_WIDTH = 300
-const sidebarToggled = ref(true)
-watch(
-	() => appSettings.toggleSidebar,
-	(toggleSidebar) => {
-		sidebarToggled.value = !toggleSidebar
-	},
-)
+const APP_SIDEBAR_WIDTH = 324
 const forceSidebar = computed(
-	() =>
-		route.path.startsWith('/browse') ||
-		route.path.startsWith('/project') ||
-		route.path.startsWith('/user'),
+	() => route.path.startsWith('/browse') || route.path.startsWith('/project'),
 )
-// Only force-sidebar routes teleport content into the sidebar (the account
-// lives in the top bar), so elsewhere there's nothing to reserve space for.
-const hasSidebarContent = computed(() => forceSidebar.value)
-const sidebarVisible = computed(
-	() => forceSidebar.value || (sidebarToggled.value && hasSidebarContent.value),
-)
+const sidebarLayout = computed(() => {
+	if (forceSidebar.value) return 'catalog'
+	if (
+		route.path === '/' ||
+		route.path === '/bedrock' ||
+		route.path === '/skins' ||
+		route.path === '/screenshots' ||
+		route.path.startsWith('/instance/')
+	)
+		return 'full'
+	return 'none'
+})
+const sidebarVisible = computed(() => sidebarLayout.value !== 'none')
 
-const notificationManager = new AppNotificationManager()
+const notificationManager = new AppNotificationManager(() => ({
+	title: formatMessage(messages.curseforgeLimitTitle),
+	text: formatMessage(messages.curseforgeLimitText),
+}))
 provideNotificationManager(notificationManager)
 const { handleError, addNotification } = notificationManager
 
@@ -201,17 +205,35 @@ useAppEvent(
 	appEvents,
 )
 
-// CurseForge modpacks can list files their authors only allow downloading
-// from curseforge.com; the pack still installs, and this says what's missing.
-onCurseforgeSkippedFiles((packName, files) =>
-	addNotification({
-		title: formatMessage(messages.curseforgeSkippedTitle, { count: files.length }),
-		text: formatMessage(messages.curseforgeSkippedText, {
-			pack: packName,
-			files: files.map((file) => file.name).join(', '),
-		}),
-		type: 'warning',
-	}),
+const curseforgeDownloadModal = ref(null)
+const installWorldModal = ref(null)
+const bedrockInstallModal = ref(null)
+setBedrockInstallHandler(
+	(request) => bedrockInstallModal.value?.show(request) ?? Promise.resolve(null),
+)
+setWorldInstallHandler((request) => installWorldModal.value?.show(request) ?? Promise.resolve(null))
+setCurseforgeManualDownloadHandler(
+	(file) => curseforgeDownloadModal.value?.show(file) ?? Promise.resolve(null),
+)
+// A provider can change distribution permissions between pack preview and installation.
+const manualJobs = new Set()
+useAppEvent(
+	'install_job',
+	async (job) => {
+		if (job.status !== 'failed' || manualJobs.has(job.job_id)) return
+		const manual = parseCurseforgeManualDownload(job.error?.message)
+		if (!manual) return
+		manualJobs.add(job.job_id)
+		try {
+			await requestCurseforgeManualDownload(manual)
+			await install_job_retry(job.job_id)
+		} catch (error) {
+			handleError(error)
+		} finally {
+			manualJobs.delete(job.job_id)
+		}
+	},
+	appEvents,
 )
 
 const popupNotificationManager = new AppPopupNotificationManager()
@@ -248,6 +270,8 @@ const creationIconTarget = ref('creation-flow')
 
 const {
 	installationModal,
+	openOptifineDownloads,
+	pickOptifineInstaller,
 	unknownPackWarningModal,
 	fetchExistingInstanceNames,
 	handleCreate,
@@ -410,15 +434,15 @@ const { formatMessage } = useVIntl()
 const formatBytes = useFormatBytes()
 
 const messages = defineMessages({
-	curseforgeSkippedTitle: {
-		id: 'app.curseforge.skipped-files.title',
-		defaultMessage: '{count, plural, one {# mod needs} other {# mods need}} a manual download',
+	curseforgeLimitTitle: {
+		id: 'app.curseforge.rate-limit.title',
+		defaultMessage: 'CurseForge is temporarily busy',
 	},
-	curseforgeSkippedText: {
-		id: 'app.curseforge.skipped-files.text',
-		defaultMessage:
-			'The authors only allow downloading these from CurseForge’s website, so {pack} was installed without them: {files}. Download them from CurseForge and add them to the instance’s mods folder.',
+	curseforgeLimitText: {
+		id: 'app.curseforge.rate-limit.text',
+		defaultMessage: 'The shared request limit has been reached. Wait a moment, then try again.',
 	},
+
 	syncUpdateTitle: {
 		id: 'app.sync-instances-update.notification.title',
 		defaultMessage: 'Sync your instances',
@@ -473,10 +497,6 @@ const messages = defineMessages({
 		id: 'app.nav.expand-sidebar',
 		defaultMessage: 'Expand sidebar',
 	},
-	servers: {
-		id: 'app.nav.servers',
-		defaultMessage: 'Servers',
-	},
 	screenshots: {
 		id: 'app.nav.screenshots',
 		defaultMessage: 'Screenshots',
@@ -501,7 +521,6 @@ async function setupApp() {
 		locale,
 		hide_nametag_skins_page,
 		advanced_rendering,
-		toggle_sidebar,
 		show_files_tab_in_instances,
 		show_worlds_tab_in_instances,
 		show_screenshots_tab_in_instances,
@@ -537,7 +556,6 @@ async function setupApp() {
 	appTheme.preferred = theme
 	appTheme.advancedRendering = advanced_rendering
 	appSettings.hideNametagSkinsPage = hide_nametag_skins_page
-	appSettings.toggleSidebar = toggle_sidebar
 	appSettings.showFilesTabInInstances = show_files_tab_in_instances
 	appSettings.showWorldsTabInInstances = show_worlds_tab_in_instances
 	appSettings.showScreenshotsTabInInstances = show_screenshots_tab_in_instances
@@ -762,28 +780,11 @@ async function prepareCreationProjectInstall(projectId, projectType) {
 	}
 }
 
-const serverInstall = createServerInstall({
-	router,
-	handleError,
-	popupNotificationManager,
-	appEvents,
-})
-provideServerInstall(serverInstall)
-const {
-	setInstallToPlayModal: setServerInstallToPlayModal,
-	setUpdateToPlayModal: setServerUpdateToPlayModal,
-	setAddServerToInstanceModal: setServerAddServerToInstanceModal,
-	playServerProject,
-} = serverInstall
-
 const modInstallModal = ref()
 const launchLinkConfirmModal = ref()
 const modpackAlreadyInstalledModal = ref()
 const contentInstallModpackAlreadyInstalledModal = ref()
-const addServerToInstanceModal = ref()
 const incompatibilityWarningModal = ref()
-const installToPlayModal = ref()
-const updateToPlayModal = ref()
 
 const appSettingsModal = ref()
 const syncInstancesUpdateModal = ref()
@@ -851,9 +852,6 @@ onMounted(() => {
 	setContentInstallModal(modInstallModal.value)
 	setContentInstallModpackAlreadyInstalledModal(contentInstallModpackAlreadyInstalledModal.value)
 	setModpackAlreadyInstalledModal(modpackAlreadyInstalledModal.value)
-	setServerAddServerToInstanceModal(addServerToInstanceModal.value)
-	setServerInstallToPlayModal(installToPlayModal.value)
-	setServerUpdateToPlayModal(updateToPlayModal.value)
 })
 
 const accounts = ref(null)
@@ -865,10 +863,11 @@ async function handleCommand(e) {
 	if (!e) return
 
 	if (e.event === 'RunMRPack') {
-		// RunMRPack should directly install a local mrpack given a path
-		if (e.path.endsWith('.mrpack')) {
+		// Keep the existing command event compatible for all supported pack files.
+		if (/\.(orbpack|mrpack|zip)$/i.test(e.path)) {
 			const location = { type: 'fromFile', path: e.path }
 			const preview = await install_get_modpack_preview(location).catch(handleError)
+			if (!preview) return
 			if (preview?.unknownFile || preview?.externalFilesInModpack.length > 0) {
 				const splitPath = e.path.split(/[\\/]/)
 				const fileName = splitPath ? splitPath[splitPath.length - 1] : e.path
@@ -902,9 +901,6 @@ async function handleCommand(e) {
 		} else {
 			await run(e.id).catch(handleError)
 		}
-	} else if (e.event === 'InstallServer') {
-		await router.push(`/project/${e.id}`)
-		await playServerProject(e.id).catch(handleError)
 	} else if (e.event === 'InstallVersion') {
 		const version = await get_version(e.id, 'must_revalidate').catch(handleError)
 		if (version) {
@@ -1259,11 +1255,8 @@ function handleClick(e) {
 				!target.href.startsWith('https://tauri.localhost') &&
 				!target.href.startsWith('http://tauri.localhost')
 			) {
-				const userPath = parse_modrinth_user_link(target.href)
 				const parsed = parseModrinthLink(target.href)
-				if (userPath) {
-					void router.push(userPath)
-				} else if (target.target !== '_blank' && parsed) {
+				if (target.target !== '_blank' && parsed) {
 					void openModrinthProjectLinkInApp(parsed)
 				} else {
 					openUrl(target.href)
@@ -1354,6 +1347,8 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 			:prepare-project-install="prepareCreationProjectInstall"
 			:create-project-install="handleCreateAndInstall"
 			:get-loader-manifest="getLoaderManifest"
+			:pick-optifine-installer="pickOptifineInstaller"
+			:open-optifine-downloads="openOptifineDownloads"
 			:randomize-instance-icon="randomizeCreationIcon"
 			:customize-instance-icon="customizeCreationIcon"
 			@create="handleCreate"
@@ -1365,64 +1360,70 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 			@saved="onCreationIconSaved"
 		/>
 		<UnknownPackWarningModal ref="unknownPackWarningModal" />
+		<OptifineImportModal ref="optifineImportModal" />
+		<CurseforgeDownloadModal ref="curseforgeDownloadModal" />
+		<BedrockInstallModal ref="bedrockInstallModal" />
+		<InstallWorldModal
+			ref="installWorldModal"
+			@navigate="(id) => router.push(`/instance/${encodeURIComponent(id)}/worlds`)"
+		/>
 		<div
 			class="app-grid-navbar bg-bg-raised flex flex-col p-[0.5rem] pt-0 gap-[0.25rem] w-[--left-bar-width]"
 			:class="{ 'app-grid-navbar--expanded': navExpanded }"
 		>
+			<MinecraftEditionSelector :expanded="navExpanded" class="mb-2 mt-2 shrink-0" />
 			<NavButton
 				:label="formatMessage(messages.home)"
-				to="/"
-				:is-primary="(route) => route.path === '/'"
+				:to="isBedrock ? '/bedrock' : '/'"
+				:is-primary="(route) => route.path === '/' || route.path === '/bedrock'"
 				:is-subpage="
 					() =>
 						(route.path.startsWith('/browse') || route.path.startsWith('/project')) && route.query.i
 				"
 			>
-				<PlayIcon class="ml-0.5" />
+				<AnimatedIcon name="play" class="ml-0.5" />
 			</NavButton>
 			<NavButton
 				:label="formatMessage(commonMessages.discoverContentLabel)"
-				to="/browse/modpack"
+				:to="isBedrock ? '/browse/mod?edition=bedrock&src=curseforge' : '/browse/modpack'"
 				:is-primary="() => route.path.startsWith('/browse') && !route.query.i && !route.query.sid"
 				:is-subpage="
 					(route) => route.path.startsWith('/project') && !route.query.i && !route.query.sid
 				"
 			>
-				<CompassIcon />
-			</NavButton>
-			<NavButton :label="formatMessage(messages.servers)" to="/servers">
-				<ServerIcon />
+				<AnimatedIcon name="compass" />
 			</NavButton>
 			<NavButton
-				v-if="appSettings.showSkinSelectorInSidebar"
+				v-if="!isBedrock && appSettings.showSkinSelectorInSidebar"
 				:label="formatMessage(appMessages.skinSelectorLabel)"
 				to="/skins"
 			>
-				<ShirtIcon />
+				<AnimatedIcon name="shirt" />
 			</NavButton>
 			<NavButton
-				v-if="globalSyncedOptionsQuery.data.value?.screenshots"
+				v-if="isBedrock || globalSyncedOptionsQuery.data.value?.screenshots"
 				:label="formatMessage(messages.screenshots)"
-				to="/screenshots"
+				:to="isBedrock ? '/screenshots?edition=bedrock' : '/screenshots'"
 			>
-				<ImageIcon />
+				<AnimatedIcon name="image" />
 			</NavButton>
-			<suspense>
+			<suspense v-if="!isBedrock">
 				<QuickInstanceSwitcher>
 					<NavButton
 						:label="formatMessage(messages.createNewInstance)"
 						:to="() => installationModal?.show()"
 						:disabled="offline"
 					>
-						<PlusIcon />
+						<AnimatedIcon name="add" />
 					</NavButton>
 				</QuickInstanceSwitcher>
 			</suspense>
+			<div v-if="isBedrock" class="min-h-0 flex-1" />
 			<NavButton
 				:label="formatMessage(commonMessages.settingsLabel)"
 				:to="() => appSettingsModal?.show()"
 			>
-				<SettingsIcon />
+				<AnimatedIcon name="settings" />
 			</NavButton>
 		</div>
 		<div data-tauri-drag-region class="app-grid-statusbar bg-bg-raised h-[--top-bar-height] flex">
@@ -1476,16 +1477,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 				<Breadcrumbs />
 			</div>
 			<section data-tauri-drag-region class="flex shrink-0 ml-auto items-center">
-				<IconButton
-					v-if="!forceSidebar && hasSidebarContent && appSettings.toggleSidebar"
-					:type="sidebarToggled ? 'base' : 'quiet'"
-					:label="formatMessage(messages.nextImage)"
-					class="mr-3 transition-transform"
-					:class="{ 'rotate-180': !sidebarToggled }"
-					@click="sidebarToggled = !sidebarToggled"
-				>
-					<RightArrowIcon />
-				</IconButton>
 				<div class="flex mr-3">
 					<Suspense>
 						<AppActionBar />
@@ -1550,7 +1541,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 			<RouterView v-slot="{ Component }">
 				<template v-if="Component">
 					<Suspense @pending="onSuspensePending" @resolve="onSuspenseResolve">
-						<component :is="Component"></component>
+						<component :is="Component" :key="isBedrock ? 'bedrock' : 'java'"></component>
 					</Suspense>
 				</template>
 			</RouterView>
@@ -1563,8 +1554,14 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 				class="app-sidebar-scrollable flex-grow shrink relative"
 				data-overlayscrollbars-initialize
 			>
-				<div id="sidebar-teleport-target" class="sidebar-teleport-content"></div>
-				<div class="sidebar-default-content" :class="{ 'sidebar-enabled': sidebarVisible }"></div>
+				<!-- Keep Vue's component mount target stable when OverlayScrollbars moves its children. -->
+				<div class="app-sidebar-content w-full min-w-0 min-h-full flex flex-col">
+					<SidebarContent
+						:bedrock="isBedrock"
+						:layout="sidebarVisible ? sidebarLayout : 'none'"
+						@visit-hosting="openUrl(companySiteUrl).catch(handleError)"
+					/>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -1598,7 +1595,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 		@create-anyway="handleModpackDuplicateCreateAnyway"
 		@go-to-instance="handleModpackDuplicateGoToInstance"
 	/>
-	<AddServerToInstanceModal ref="addServerToInstanceModal" />
 	<ContentUpdaterModal
 		ref="incompatibilityWarningModal"
 		mode="incompatibility-warning"
@@ -1620,15 +1616,13 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 		@create-anyway="handleContentInstallModpackDuplicateCreateAnyway"
 		@go-to-instance="handleContentInstallModpackDuplicateGoToInstance"
 	/>
-	<InstallToPlayModal ref="installToPlayModal" :show-external-warnings="false" />
-	<UpdateToPlayModal ref="updateToPlayModal" :show-external-warnings="false" />
 </template>
 
 <style lang="scss" scoped>
 .app-grid-layout,
 .app-contents {
 	--top-bar-height: 3rem;
-	--right-bar-width: 300px;
+	--right-bar-width: 324px;
 }
 
 .app-grid-layout {
@@ -1683,7 +1677,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 	// transition: grid-template-columns 0.4s ease-in-out;
 
 	&.sidebar-enabled {
-		grid-template-columns: 1fr 300px;
+		grid-template-columns: minmax(0, 1fr) var(--right-bar-width);
 	}
 }
 
@@ -1694,7 +1688,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 
 .app-sidebar {
 	overflow: visible;
-	width: 300px;
+	width: var(--right-bar-width);
 	position: relative;
 	height: calc(100vh - var(--top-bar-height));
 	background: var(--brand-gradient-bg);
@@ -1756,18 +1750,6 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 	border-width: 1px;
 	border-style: solid;
 	pointer-events: none;
-}
-
-.sidebar-teleport-content {
-	display: contents;
-}
-
-.sidebar-default-content {
-	display: none;
-}
-
-.sidebar-teleport-content:empty + .sidebar-default-content.sidebar-enabled {
-	display: contents;
 }
 
 @media (prefers-reduced-motion: no-preference) {

@@ -13,10 +13,68 @@ import QrcodeVue from 'qrcode.vue'
 import { computed, nextTick, ref } from 'vue'
 
 import { ButtonLink, IconButton } from '#ui/components/base/buttons'
+import { defineMessages, useVIntl } from '#ui/composables/i18n'
 import { injectNotificationManager } from '#ui/providers'
 
 import { useDebugLogger } from '../../composables/debug-logger'
 import { NewModal, Textarea } from '../index'
+
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	copyQrCode: {
+		id: 'modal.share.copy-qr-code',
+		defaultMessage: 'Copy QR code',
+	},
+	copyText: {
+		id: 'modal.share.copy-text',
+		defaultMessage: 'Copy Text',
+	},
+	copyLink: {
+		id: 'modal.share.copy-link',
+		defaultMessage: 'Copy Link',
+	},
+	share: {
+		id: 'modal.share.share',
+		defaultMessage: 'Share',
+	},
+	sendEmail: {
+		id: 'modal.share.send-email',
+		defaultMessage: 'Send as an email',
+	},
+	openLinkInBrowser: {
+		id: 'modal.share.open-link-in-browser',
+		defaultMessage: 'Open link in browser',
+	},
+	tootAboutIt: {
+		id: 'modal.share.toot-about-it',
+		defaultMessage: 'Toot about it',
+	},
+	tweetAboutIt: {
+		id: 'modal.share.tweet-about-it',
+		defaultMessage: 'Tweet about it',
+	},
+	shareOnReddit: {
+		id: 'modal.share.share-on-reddit',
+		defaultMessage: 'Share on Reddit',
+	},
+	openInNewTab: {
+		id: 'modal.share.open-in-new-tab',
+		defaultMessage: 'Open in new tab',
+	},
+	linkCopiedTitle: {
+		id: 'modal.share.link-copied-title',
+		defaultMessage: 'Link copied',
+	},
+	linkCopiedText: {
+		id: 'modal.share.link-copied-text',
+		defaultMessage: 'The link has been copied to your clipboard.',
+	},
+	copyFailedTitle: {
+		id: 'modal.share.copy-failed-title',
+		defaultMessage: 'Failed to copy text',
+	},
+})
 
 const debug = useDebugLogger('ShareModal')
 
@@ -110,14 +168,14 @@ const copyText = async () => {
 		await navigator.clipboard.writeText(url.value ?? content.value)
 		addNotification({
 			type: 'success',
-			title: 'Link copied',
-			text: 'The link has been copied to your clipboard.',
+			title: formatMessage(messages.linkCopiedTitle),
+			text: formatMessage(messages.linkCopiedText),
 		})
 	} catch (error) {
 		const message = error instanceof Error ? error.message : String(error)
 		addNotification({
 			type: 'error',
-			title: 'Failed to copy text',
+			title: formatMessage(messages.copyFailedTitle),
 			text: message,
 		})
 	}
@@ -161,9 +219,9 @@ defineExpose({
 						<QrcodeVue :value="url" class="!bg-white rounded-[var(--radius-md)]" margin="3" />
 					</div>
 					<IconButton
-						v-tooltip="'Copy QR code'"
+						v-tooltip="formatMessage(messages.copyQrCode)"
 						type="quiet"
-						label="Copy QR code"
+						:label="formatMessage(messages.copyQrCode)"
 						class="absolute top-0 right-0 m-2"
 						@click="copyImage"
 					>
@@ -173,9 +231,9 @@ defineExpose({
 				<Textarea v-else v-model="content" resize="vertical" wrapper-class="h-full w-[30rem]">
 					<template #right>
 						<IconButton
-							v-tooltip="'Copy Text'"
+							v-tooltip="formatMessage(messages.copyText)"
 							type="quiet"
-							label="Copy Text"
+							:label="formatMessage(messages.copyText)"
 							native-type="button"
 							class="absolute top-0 right-0 m-2"
 							@click="copyText"
@@ -190,7 +248,7 @@ defineExpose({
 				>
 					<button
 						v-if="link"
-						v-tooltip="'Copy Link'"
+						v-tooltip="formatMessage(messages.copyLink)"
 						type="button"
 						class="flex h-10 w-full cursor-pointer items-center justify-between gap-2 rounded-xl border-none bg-button-bg px-3 pr-1.5 text-primary transition-all hover:bg-button-bg-hover hover:brightness-125 active:scale-95"
 						@click="copyText"
@@ -207,18 +265,23 @@ defineExpose({
 						:href="url"
 						target="_blank"
 						rel="noopener noreferrer"
-						aria-label="Open in new tab"
+						:aria-label="formatMessage(messages.openInNewTab)"
 						class="w-full"
 					>
-						Open in new tab
+						{{ formatMessage(messages.openInNewTab) }}
 						<ExternalIcon aria-hidden="true" />
 					</ButtonLink>
 					<div v-if="socialButtons" class="flex flex-row gap-1">
-						<IconButton v-if="canShare" v-tooltip="'Share'" label="Share" @click="share">
+						<IconButton
+							v-if="canShare"
+							v-tooltip="formatMessage(messages.share)"
+							:label="formatMessage(messages.share)"
+							@click="share"
+						>
 							<ShareIcon aria-hidden="true" />
 						</IconButton>
 						<ButtonLink
-							v-tooltip="'Send as an email'"
+							v-tooltip="formatMessage(messages.sendEmail)"
 							:href="sendEmail"
 							:target="targetParameter"
 							class="!w-9 !px-0 !rounded-full"
@@ -227,7 +290,7 @@ defineExpose({
 						</ButtonLink>
 						<ButtonLink
 							v-if="link"
-							v-tooltip="'Open link in browser'"
+							v-tooltip="formatMessage(messages.openLinkInBrowser)"
 							:target="targetParameter"
 							:href="url"
 							class="!w-9 !px-0 !rounded-full"
@@ -235,7 +298,7 @@ defineExpose({
 							<GlobeIcon aria-hidden="true" />
 						</ButtonLink>
 						<ButtonLink
-							v-tooltip="'Toot about it'"
+							v-tooltip="formatMessage(messages.tootAboutIt)"
 							:target="targetParameter"
 							:href="sendToot"
 							class="!w-9 !px-0 !rounded-full"
@@ -243,7 +306,7 @@ defineExpose({
 							<MastodonIcon aria-hidden="true" />
 						</ButtonLink>
 						<ButtonLink
-							v-tooltip="'Tweet about it'"
+							v-tooltip="formatMessage(messages.tweetAboutIt)"
 							:target="targetParameter"
 							:href="sendTweet"
 							class="!w-9 !px-0 !rounded-full"
@@ -251,7 +314,7 @@ defineExpose({
 							<TwitterIcon aria-hidden="true" />
 						</ButtonLink>
 						<ButtonLink
-							v-tooltip="'Share on Reddit'"
+							v-tooltip="formatMessage(messages.shareOnReddit)"
 							:target="targetParameter"
 							:href="postOnReddit"
 							class="!w-9 !px-0 !rounded-full"

@@ -7,6 +7,16 @@ on:
       - 'v*'
     paths:
       - .github/workflows/theseus-build.yml
+      - .github/workflows/turbo-ci.yml
+      - Cargo.toml
+      - Cargo.lock
+      - package.json
+      - pnpm-lock.yaml
+      - pnpm-workspace.yaml
+      - turbo.jsonc
+      - .nvmrc
+      - rust-toolchain.toml
+      - 'scripts/**'
       - 'apps/app/**'
       - 'apps/app-frontend/**'
       - 'packages/**'
@@ -22,8 +32,13 @@ concurrency:
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
 jobs:
+  validation:
+    name: Validate release source
+    uses: ./.github/workflows/turbo-ci.yml
+
   build:
     name: Build
+    needs: validation
     strategy:
       fail-fast: false
       matrix:
@@ -113,7 +128,30 @@ jobs:
             dasel put -f apps/app-frontend/package.json -t string -v "${APP_VERSION#v}" 'version'
           fi
 
-          cp packages/app-lib/.env.prod packages/app-lib/.env
+      - name: Set app environment
+        shell: bash
+        env:
+          MICROSOFT_CLIENT_ID: ${{ vars.MICROSOFT_CLIENT_ID }}
+          DISCORD_CLIENT_ID: ${{ vars.DISCORD_CLIENT_ID }}
+        run: |
+          node --input-type=module <<'NODE'
+          import { readFileSync, writeFileSync } from 'node:fs';
+          const microsoftId = (process.env.MICROSOFT_CLIENT_ID || '').trim();
+          const discordId = (process.env.DISCORD_CLIENT_ID || '').trim();
+          if (microsoftId && !/^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i.test(microsoftId)) {
+            throw new Error('Repository variable MICROSOFT_CLIENT_ID must be a valid public client ID.');
+          }
+          if (process.env.IS_RELEASE === 'true' && !microsoftId) {
+            throw new Error('Set repository variable MICROSOFT_CLIENT_ID before building a release.');
+          }
+          if (discordId && !/^\d+$/.test(discordId)) {
+            throw new Error('Repository variable DISCORD_CLIENT_ID must be a numeric application ID.');
+          }
+          const content = readFileSync('packages/app-lib/.env.example', 'utf8')
+            .replace(/^MICROSOFT_CLIENT_ID=.*$/m, `MICROSOFT_CLIENT_ID=${microsoftId}`)
+            .replace(/^DISCORD_CLIENT_ID=.*$/m, `DISCORD_CLIENT_ID=${discordId}`);
+          writeFileSync('packages/app-lib/.env', content);
+          NODE
 
       - name: Install dependencies
         run: pnpm install
@@ -147,8 +185,8 @@ jobs:
         run: |
           $env:JAVA_HOME = "$env:JAVA_HOME_17_X64"
           $config = if ($env:IS_RELEASE -eq 'true') { 'tauri-release.conf.json' } else { 'tauri-dev.conf.json' }
-          $bundles = if ($env:IS_RELEASE -eq 'true') { 'nsis,updater' } else { 'nsis' }
-          pnpm --filter=@orbiont/app run tauri build --config $config --verbose --bundles $bundles
+          pnpm --filter=@orbiont/app run tauri build --config $config --verbose --bundles nsis
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
         env:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
@@ -157,6 +195,7 @@ jobs:
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: App bundle (${{ matrix.artifact-target-name }})
+          if-no-files-found: error
           path: |
             target/release/bundle/appimage/Orbiont*.AppImage*
             target/release/bundle/deb/Orbiont*.deb*

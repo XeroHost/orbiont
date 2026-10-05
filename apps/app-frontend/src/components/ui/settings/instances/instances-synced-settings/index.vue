@@ -6,11 +6,13 @@ import {
 	IconButton,
 	injectNotificationManager,
 	Toggle,
+	useSavable,
 	useVIntl,
 } from '@orbiont/ui'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, nextTick, onScopeDispose, ref } from 'vue'
 
+import { useSettingsChanges } from '@/composables/use-settings-changes'
 import { gameSettingsKeys } from '@/helpers/game-options'
 import {
 	type GlobalSyncedOptions,
@@ -367,7 +369,8 @@ function emptySyncedContentMessage(row: (typeof globalRows)[number]) {
 }
 
 function canEditGlobalOption(row: (typeof globalRows)[number]): boolean {
-	if (!row.editable || !globalOptions.value[row.option]) return false
+	if (!row.editable || !globalOptions.value[row.option] || !globalDraft.current.value[row.option])
+		return false
 	if (emptySyncedContentMessage(row)) return false
 	if (row.editable === 'resourcepack' || row.editable === 'datapack') return true
 	if (row.editable === 'game-settings') return hasGameOptionsToEdit.value
@@ -408,26 +411,7 @@ const globalOptionMutation = useMutation({
 	mutationKey: syncedOptionsKeys.set,
 	mutationFn: ({ option, enabled, baseInstanceId }: GlobalOptionMutationVariables) =>
 		set_global_synced_option(option, enabled, baseInstanceId),
-	onMutate: async ({ option, enabled }) => {
-		await queryClient.cancelQueries({ queryKey: syncedOptionsKeys.global })
-		const previous = globalOptions.value[option]
-
-		if (option !== 'game_options' || !enabled) {
-			queryClient.setQueryData<GlobalSyncedOptions>(syncedOptionsKeys.global, (current) => ({
-				...(current ?? defaultGlobalOptions),
-				[option]: enabled,
-			}))
-		}
-
-		return { previous }
-	},
-	onError: (error, { option }, context) => {
-		queryClient.setQueryData<GlobalSyncedOptions>(syncedOptionsKeys.global, (current) => ({
-			...(current ?? defaultGlobalOptions),
-			[option]: context?.previous ?? defaultGlobalOptions[option],
-		}))
-		handleError(error)
-	},
+	onMutate: () => queryClient.cancelQueries({ queryKey: syncedOptionsKeys.global }),
 	onSuccess: async (options, { option, enabled }) => {
 		queryClient.setQueryData(syncedOptionsKeys.global, options)
 		if (option === 'game_options') {
@@ -457,9 +441,44 @@ const globalOptionMutation = useMutation({
 	},
 })
 
+const stagedSources = ref<Partial<Record<SyncedOption, string | undefined>>>({})
+const globalDraft = useSavable(
+	() => ({ ...globalOptions.value }),
+	async (changes) => {
+		for (const option of Object.keys(changes) as SyncedOption[]) {
+			await globalOptionMutation.mutateAsync({
+				option,
+				enabled: !!changes[option],
+				baseInstanceId: stagedSources.value[option],
+			})
+			stagedSources.value[option] = undefined
+		}
+	},
+)
+useSettingsChanges('global-synced-options', {
+	hasChanges: () => globalDraft.hasChanges.value,
+	getOriginal: () => globalDraft.saved.value,
+	getModified: () => globalDraft.changes.value,
+	isSaving: () => globalDraft.saving.value,
+	canSave: () =>
+		!globalDraft.hasChanges.value || (!!globalOptionsQuery.data.value && !baseOption.value),
+	reset: () => {
+		globalDraft.reset()
+		stagedSources.value = {}
+	},
+	save: globalDraft.save,
+})
+
+function stageGlobalOption(option: SyncedOption, enabled: boolean, source?: string) {
+	globalDraft.current.value[option] = enabled
+	if (enabled) stagedSources.value[option] = source
+	else stagedSources.value[option] = undefined
+}
+
 const canToggleGlobalOptions = computed(
 	() =>
 		!!globalOptionsQuery.data.value &&
+		!globalDraft.saving.value &&
 		!globalOptionMutation.isPending.value &&
 		!baseSourcesLoading.value,
 )
@@ -491,11 +510,7 @@ async function chooseBaseInstance(option: SyncedOption) {
 	}
 
 	try {
-		await globalOptionMutation.mutateAsync({
-			option,
-			enabled: true,
-			baseInstanceId: eligibleSources[0]?.id,
-		})
+		stageGlobalOption(option, true, eligibleSources[0]?.id)
 		await nextTick()
 		if (!baseModal.value?.hide()) clearBaseSource()
 	} catch {
@@ -505,21 +520,17 @@ async function chooseBaseInstance(option: SyncedOption) {
 
 function toggleGlobalOption(option: SyncedOption, enabled: boolean) {
 	if (!isSyncedOptionAvailable(option) || !canToggleGlobalOptions.value) return
-	if (enabled && option !== 'screenshots') {
+	if (enabled && !globalOptions.value[option] && option !== 'screenshots') {
 		void chooseBaseInstance(option)
 		return
 	}
-	globalOptionMutation.mutate({ option, enabled })
+	stageGlobalOption(option, enabled)
 }
 
 async function confirmBaseInstance() {
 	if (!baseOption.value || !baseInstanceId.value) return
 	try {
-		await globalOptionMutation.mutateAsync({
-			option: baseOption.value,
-			enabled: true,
-			baseInstanceId: baseInstanceId.value,
-		})
+		stageGlobalOption(baseOption.value, true, baseInstanceId.value)
 		await nextTick()
 		baseModal.value?.hide()
 	} catch {
@@ -622,7 +633,7 @@ onScopeDispose(clearBaseSource)
 							</span>
 							<Toggle
 								:id="`global-sync-${row.option}`"
-								:model-value="globalOptions[row.option]"
+								:model-value="globalDraft.current.value[row.option]"
 								:disabled="!canToggleGlobalOptions"
 								:aria-label="formatMessage(messages[row.title])"
 								@update:model-value="(enabled) => toggleGlobalOption(row.option, enabled)"

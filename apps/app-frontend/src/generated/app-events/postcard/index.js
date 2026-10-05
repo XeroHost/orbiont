@@ -257,13 +257,6 @@ function deserialize_COMMAND_PAYLOAD(d) {
         };
     case 3:
         return {
-            tag: "InstallServer",
-            value: {
-                id: d.deserialize_string()
-            }
-        };
-    case 4:
-        return {
             tag: "LaunchInstance",
             value: {
                 id: d.deserialize_string(),
@@ -271,7 +264,7 @@ function deserialize_COMMAND_PAYLOAD(d) {
                 singleplayer_world: (d.deserialize_number(U32_BYTES, false) === 0) ? undefined : d.deserialize_string()
             }
         };
-    case 5:
+    case 4:
         return {
             tag: "RunMRPack",
             value: {

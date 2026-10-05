@@ -928,6 +928,7 @@ export namespace Labrinth {
 			export type MonetizationStatus = 'monetized' | 'demonetized' | 'force-demonetized'
 
 			export type ProjectType =
+				| 'world'
 				| 'mod'
 				| 'modpack'
 				| 'resourcepack'

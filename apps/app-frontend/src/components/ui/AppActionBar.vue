@@ -25,7 +25,7 @@
 				<div class="text-contrast flex items-center gap-2">
 					<router-link
 						v-tooltip="formatMessage(messages.viewInstance)"
-						:to="`/instance/${encodeURIComponent(selectedProcess.instance.id)}`"
+						:to="processRoute(selectedProcess)"
 						class="hover:underline"
 					>
 						{{ selectedProcess.instance.name }}
@@ -82,6 +82,8 @@
 									<button
 										v-tooltip="formatMessage(messages.stopInstance)"
 										class="active:scale-95 flex"
+										:disabled="stopping.includes(process.uuid)"
+										:aria-label="formatMessage(messages.stopInstance)"
 										@click.stop="stop(process)"
 									>
 										<StopCircleIcon class="text-red size-5" />
@@ -89,7 +91,7 @@
 									<button
 										v-tooltip="formatMessage(messages.viewLogs)"
 										class="active:scale-95 flex"
-										@click.stop="goToTerminal(process.instance.id)"
+										@click.stop="goToTerminal(process)"
 									>
 										<TerminalSquareIcon class="text-secondary size-5" />
 									</button>
@@ -101,6 +103,8 @@
 				<button
 					v-tooltip="formatMessage(messages.stopInstance)"
 					class="active:scale-95 flex"
+					:disabled="stopping.includes(selectedProcess.uuid)"
+					:aria-label="formatMessage(messages.stopInstance)"
 					@click="stop(selectedProcess)"
 				>
 					<StopCircleIcon class="text-red size-5" />
@@ -141,6 +145,7 @@ import {
 	type PopupNotificationStandard,
 	useVIntl,
 } from '@orbiont/ui'
+import { useQuery } from '@tanstack/vue-query'
 import { convertFileSrc } from '@tauri-apps/api/core'
 import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
@@ -148,6 +153,8 @@ import { useRouter } from 'vue-router'
 import AppUpdateButton from '@/components/ui/app-update-button/index.vue'
 import DownloadManager from '@/components/ui/download-manager/index.vue'
 import { useAppEvent } from '@/composables/use-app-event'
+import { bedrockStatusQueryOptions, stopBedrock } from '@/helpers/bedrock'
+import { bedrockMessages } from '@/helpers/bedrock-messages'
 import { get_many as getInstances } from '@/helpers/instance'
 import { get_all as getRunningProcesses, kill as killProcess } from '@/helpers/process'
 import type { LoadingBar } from '@/helpers/state'
@@ -165,7 +172,8 @@ const showInstances = ref(false)
 interface RunningProcess {
 	uuid: string
 	instance_id: string
-	instance: GameInstance
+	instance: Pick<GameInstance, 'id' | 'name'>
+	edition: 'java' | 'bedrock'
 }
 
 const messages = defineMessages({
@@ -246,8 +254,28 @@ function toggleDownloadNotifications(): void {
 	}
 }
 
-const currentProcesses = ref<RunningProcess[]>([])
-const selectedProcess = ref<RunningProcess | undefined>()
+const javaProcesses = ref<RunningProcess[]>([])
+const bedrockStatus = useQuery(bedrockStatusQueryOptions())
+const currentProcesses = computed<RunningProcess[]>(() => [
+	...javaProcesses.value,
+	...(bedrockStatus.data.value?.game_running
+		? [
+				{
+					uuid: 'bedrock',
+					instance_id: 'bedrock',
+					instance: { id: 'bedrock', name: formatMessage(bedrockMessages.title) },
+					edition: 'bedrock' as const,
+				},
+			]
+		: []),
+])
+const selectedUuid = ref<string>()
+const selectedProcess = computed(
+	() =>
+		currentProcesses.value.find((process) => process.uuid === selectedUuid.value) ??
+		currentProcesses.value[0],
+)
+const stopping = ref<string[]>([])
 
 const refresh = async () => {
 	const processes = ((await getRunningProcesses().catch((error) => {
@@ -260,7 +288,7 @@ const refresh = async () => {
 		return []
 	})
 
-	currentProcesses.value = processes
+	javaProcesses.value = processes
 		.map((process) => {
 			const instance = instances.find((item) => process.instance_id === item.id)
 			if (!instance) {
@@ -269,12 +297,10 @@ const refresh = async () => {
 			return {
 				...process,
 				instance,
+				edition: 'java' as const,
 			}
 		})
 		.filter((process): process is RunningProcess => process !== null)
-	if (!selectedProcess.value || !currentProcesses.value.includes(selectedProcess.value)) {
-		selectedProcess.value = currentProcesses.value[0]
-	}
 }
 
 await refresh()
@@ -297,20 +323,33 @@ useAppEvent('process', async () => {
 })
 
 const stop = async (process: RunningProcess) => {
+	if (stopping.value.includes(process.uuid)) return
+	stopping.value.push(process.uuid)
 	try {
-		await killProcess(process.uuid).catch(handleError)
+		if (process.edition === 'bedrock') {
+			await stopBedrock()
+			await bedrockStatus.refetch()
+		} else {
+			await killProcess(process.uuid)
+			await refresh()
+		}
 	} catch (e) {
-		console.error(e)
+		handleError(e)
+	} finally {
+		stopping.value = stopping.value.filter((uuid) => uuid !== process.uuid)
 	}
-	await refresh()
 }
 
-function goToTerminal(instanceId?: string) {
-	const selectedInstanceId = instanceId ?? selectedProcess.value?.instance.id
-	if (!selectedInstanceId) {
-		return
-	}
-	router.push(`/instance/${encodeURIComponent(selectedInstanceId)}/logs`)
+function processRoute(process: RunningProcess, logs = false) {
+	return process.edition === 'bedrock'
+		? logs
+			? '/bedrock?tab=logs'
+			: '/bedrock'
+		: `/instance/${encodeURIComponent(process.instance.id)}${logs ? '/logs' : ''}`
+}
+
+function goToTerminal(process = selectedProcess.value) {
+	if (process) void router.push(processRoute(process, true))
 }
 
 const currentLoadingBars = ref<LoadingBar[]>([])
@@ -502,7 +541,7 @@ function openDownloadToast() {
 }
 
 function selectProcess(process: RunningProcess) {
-	selectedProcess.value = process
+	selectedUuid.value = process.uuid
 }
 
 onBeforeUnmount(() => {

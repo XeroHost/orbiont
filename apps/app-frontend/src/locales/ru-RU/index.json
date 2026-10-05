@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Неизвестная сборка"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Обновление совместного контента"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Сделать основной сборкой"
   },
@@ -149,8 +146,23 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "Без имени над скином"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Анимировать значки при наведении и фокусе с клавиатуры."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Отключить анимацию"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Всегда анимировать"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Как в системе"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Анимация значков"
+  },
   "app.appearance-settings.minimize-launcher.description": {
-    "message": "Сворачивать Modrinth App при запуске Minecraft."
+    "message": "Сворачивать {productName} App при запуске Minecraft."
   },
   "app.appearance-settings.minimize-launcher.title": {
     "message": "Сворачивание приложения"
@@ -173,17 +185,533 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "Скрытие панели справа"
   },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Предупреждать о рисках перед установкой файлов .mrpack, не размещённых на Modrinth."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Показывать предупреждение о безопасности перед установкой импортированной сборки модов (.mrpack или .zip из CurseForge), источник которой не удалось проверить."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Предупреждение о сторонних сборках"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Связаться с поддержкой"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Скопировать отладочную информацию"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Отладочная информация"
+  },
+  "app.auth-error.header": {
+    "message": "Не удалось войти"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Как это исправить"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Пройдите проверку личности"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Для этого аккаунта требуется подтверждение совершеннолетия в соответствии с законодательством Южной Кореи."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Вход в Minecraft"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Проверьте, работает ли подключение к интернету"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Разрешите {product} в брандмауэре, антивирусе, прокси, VPN и правилах файла hosts"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Попробуйте другую сеть или временно отключите VPN/прокси, если используете их"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Перезапустите {product} и попробуйте войти снова"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Если проблема в маршрутизации или DNS, иногда может помочь сервис вроде Cloudflare WARP"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} не удалось подключиться к службе Microsoft, Xbox или Minecraft, необходимой для входа. Обычно это вызвано проблемами с локальной сетью, DNS, прокси, брандмауэром, файлом hosts, VPN или антивирусом."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Нет сообщения об ошибке."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Проверить, какому аккаунту принадлежит игра, можно на <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Убедитесь, что входите через аккаунт Microsoft, на котором куплен Minecraft (или есть активная подписка Game Pass с доступом к ПК)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "На этом аккаунте Microsoft нет Minecraft: Java Edition, а {product} работает только с лицензионными аккаунтами."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Запустите Minecraft: Java Edition один раз через официальный лаунчер"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Убедитесь, что используете аккаунт Microsoft, которому принадлежит Minecraft. Проверить, какому аккаунту принадлежит игра, можно на <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Подождите до часа, если покупка или настройка профиля была недавно"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Службы Minecraft не смогли получить профиль Java Edition для этого аккаунта. Чаще всего это происходит, если игра была куплена недавно, профиль Java ещё не создан или используется не тот аккаунт Microsoft."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Убедитесь, что на этом аккаунте куплен Minecraft"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Завершите настройку профиля Xbox, если появится запрос"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "У этого аккаунта не настроен профиль Xbox или на нём нет Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "После ожидания перезапустите {product}"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Попробуйте войти ещё раз"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Подождите около часа, прежде чем повторить попытку"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Если появится то же сообщение, подождите дольше перед повторной попыткой, чтобы временное ограничение сбросилось"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft или Minecraft временно заблокировали запрос на вход из-за слишком большого числа недавних попыток."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Проверьте <a href=\"https://www.xbox.com/en-US/regions\">доступность Xbox</a> для списка поддерживаемых регионов"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Службы Xbox должны поддерживаться в вашей стране, прежде чем вы сможете войти"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live недоступен в вашем регионе, поэтому вход заблокирован."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Попросите опекуна войти в <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Обновите разрешения на игру по сети"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Этот аккаунт ограничен и не имеет разрешения на игру по сети."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Если служба работает, а ошибка повторяется, обратитесь в поддержку, приложив отладочную информацию ниже"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Попробуйте войти через <a href=\"https://www.minecraft.net/en-us/download\">официальный лаунчер Minecraft</a>, чтобы проверить, возникает ли та же проблема там"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Проверьте <a href=\"https://support.xbox.com/xbox-live-status\">состояние Xbox</a> на наличие текущих сбоев"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Подождите несколько минут и попробуйте войти снова"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Служба аутентификации Minecraft возвращает ошибку сервера, поэтому {product} сейчас не может завершить вход."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Войти снова"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "После завершения попробуйте войти снова"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Войдите через <a href=\"https://www.minecraft.net/en-us/download\">официальный лаунчер Minecraft</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Попробуйте снова войти в {product}"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Откройте <a href=\"https://www.minecraft.net/en-us/login\">вход в Minecraft</a> и войдите"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Откройте <a href=\"https://www.xbox.com\">Xbox</a> и войдите"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Подайте апелляцию, если она доступна"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Откройте <a href=\"https://support.xbox.com\">поддержку Xbox</a> и ознакомьтесь с деталями санкции"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Этот аккаунт был заблокирован за нарушение стандартов сообщества Xbox."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "После завершения нового входа попробуйте снова запустить Minecraft"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Снова войдите в аккаунт"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Выйдите из проблемного аккаунта Minecraft в {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Сохранённый токен входа Microsoft истёк или был отозван, поэтому {product} не может обновить сессию Minecraft."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Примите условия, если появится запрос"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Этот аккаунт не принял условия использования Xbox."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Попробуйте открыть"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Дополнительная помощь: <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">проверка возраста для Великобритании на Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Перейдите на страницу <a href=\"https://www.minecraft.net/en-us/login\">входа в Minecraft</a> и войдите"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "После проверки попробуйте войти снова"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Следуйте инструкциям для подтверждения возраста"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Для вашего аккаунта Minecraft/Xbox Live требуется подтверждение возраста в соответствии с законодательством Великобритании. Это необходимо сделать до входа."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Ознакомьтесь с <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">руководством по настройке семьи</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Присоединитесь к семейной группе или создайте её, как указано"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Этот аккаунт несовершеннолетний и не привязан к семейной группе Microsoft."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Неизвестная ошибка"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Мы не распознали эту ошибку и не можем предложить конкретных шагов для её решения."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "и входе, так как это может показать необходимые шаги. Также можно обратиться в поддержку, и мы разберёмся подробнее."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Не удалось войти в ваш аккаунт Microsoft. Это может быть связано с ограничениями аккаунта или региона."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Что, по нашему мнению, произошло"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Примите условия или завершите настройку профиля, если появится запрос"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Войдите один раз на <a href=\"https://www.xbox.com\">Xbox.com</a> с тем же аккаунтом Microsoft"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live не принял вход Microsoft. Обычно это значит, что аккаунт Microsoft ни разу не входил в Xbox или должен принять обновлённые условия."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Если официальный лаунчер тоже не работает, следуйте показанной там ошибке или обратитесь в поддержку Xbox"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Выполните все запросы, показанные Microsoft, Xbox или Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Службы Xbox отклонили запрос на авторизацию этого аккаунта для служб Minecraft, но не вернули конкретного ограничения, которое распознаёт {product}."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Серверы аутентификации Minecraft сейчас могут быть недоступны. Проверьте подключение к интернету и повторите попытку позже."
   },
   "app.auth-servers.unreachable.header": {
     "message": "Нет связи с серверами аутентификации"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft и Microsoft Store проверяют вашу лицензию Bedrock. Войдите туда под учетной записью, которой принадлежит Minecraft; ваша учетная запись Java в этом лаунчере может отличаться."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Локальные пакеты поведения и сценарии. Настройте их в настройках мира внутри Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Дополнения"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Пакет поведения"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Аддоны"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Просмотрите дополнения, пакеты ресурсов, миры и скрипты из CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Откройте для себя контент Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Откройте для себя дополнения"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Откройте для себя скрипты"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Закройте Minecraft перед добавлением пакетов в мир, а затем повторите попытку."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Установить в Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft откроется для импорта этого контента. Проверьте результат в игре, затем активируйте пакеты в настройках вашего мира. Необходимые пакеты и экспериментальные настройки указаны в описании проекта."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Этот архив не содержит поддерживаемого контента Bedrock."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Не удалось загрузить версии проекта или миры. Попробуйте еще раз."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Для этого пакета требуется другой пакет, который не активен в этом мире. Сначала установите зависимости, перечисленные автором."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Для этого проекта недоступны поддерживаемые файлы .mcaddon, .mcpack, .mcworld или ZIP."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Сначала создайте мир в Minecraft, затем обновите этот список."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Скрипты"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Версия контента"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Мир назначения"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Перед установкой закройте Minecraft. Эти пакеты будут добавлены и активированы только в выбранном мире. Проверьте необходимые зависимости и экспериментальные настройки в описании проекта."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Пакеты добавлены в {world}. Откройте Minecraft, чтобы поиграть в этот мир."
+  },
+  "app.bedrock.checking": {
+    "message": "Ищем Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Закройте Minecraft, чтобы редактировать файлы, удалять содержимое или восстанавливать копию."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Этот контент изменился или исходное местоположение занято. Копия для восстановления сохранена во избежание перезаписи изменений."
+  },
+  "app.bedrock.content": {
+    "message": "Контент"
+  },
+  "app.bedrock.content-help": {
+    "message": "Местные ресурсы и пакеты скинов. Активируйте их в Minecraft; некоторый контент принадлежит отдельным мирам."
+  },
+  "app.bedrock.data-error": {
+    "message": "Не удалось прочитать данные Minecraft. Обновите, чтобы повторить попытку."
+  },
+  "app.bedrock.data-location": {
+    "message": "Местоположение данных Minecraft"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Эти элементы будут удалены из Minecraft. Копия для восстановления будет сохранена вместе с затронутыми настройками пакетов миров. Миры, использующие удалённый пакет, могут потерять его блоки или поведение. Восстановите пакет, прежде чем открывать эти миры."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Удалить локальный контент"
+  },
+  "app.bedrock.description": {
+    "message": "Играйте в Minecraft for Windows и импортируйте свои миры и дополнения."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Не удалось проверить установку Minecraft. Попробуйте еще раз."
+  },
+  "app.bedrock.development": {
+    "message": "Развитие"
+  },
+  "app.bedrock.edition": {
+    "message": "Версия Minecraft"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Эта папка пуста."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock миры и дополнения"
+  },
+  "app.bedrock.file-size": {
+    "message": "Размер"
+  },
+  "app.bedrock.files": {
+    "message": "Файлы"
+  },
+  "app.bedrock.folder": {
+    "message": "Папка"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Не удалось открыть папку Minecraft. Обновите данные и повторите попытку."
+  },
+  "app.bedrock.import-button": {
+    "message": "Импортировать файл"
+  },
+  "app.bedrock.import-description": {
+    "message": "Выберите файл .mcworld, .mcpack или .mcaddon. Minecraft откроет и обработает импорт."
+  },
+  "app.bedrock.import-error": {
+    "message": "Не удалось отправить файл на Minecraft. Убедитесь, что Minecraft for Windows установлен, и повторите попытку."
+  },
+  "app.bedrock.import-title": {
+    "message": "Миры и дополнения"
+  },
+  "app.bedrock.installation": {
+    "message": "Официальная установка"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows установлен."
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Выберите действительный локальный архив .mcworld, .mcpack или .mcaddon."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Этот файл превышает лимит импорта 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Не удалось открыть Minecraft. Откройте официальный лаунчер или Microsoft Store, чтобы проверить установку."
+  },
+  "app.bedrock.launcher": {
+    "message": "Открыть официальный лаунчер"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Обнаружен официальный лаунчер. Установите туда Minecraft for Windows, чтобы продолжить."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Чтение данных Minecraft…"
+  },
+  "app.bedrock.location": {
+    "message": "Расположение"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Показан последний 1 MiB этого журнала."
+  },
+  "app.bedrock.logs": {
+    "message": "Журнал"
+  },
+  "app.bedrock.missing": {
+    "message": "Установите Minecraft for Windows, чтобы начать работу."
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Не удалось изменить это содержимое. Закройте Minecraft и обновите. Ваша резервная копия сохранена."
+  },
+  "app.bedrock.name": {
+    "message": "Название"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Локальных дополнений не обнаружено. Чтобы начать, импортируйте файл .mcpack или .mcaddon."
+  },
+  "app.bedrock.no-content": {
+    "message": "Местный контент не найден."
+  },
+  "app.bedrock.no-data": {
+    "message": "Откройте Minecraft один раз, чтобы создать папки с данными, а затем обновите здесь."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Журналы контента не найдены. Включите регистрацию контента в Minecraft «Настройки» > «Создатель», а затем откройте свой мир."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Копий для восстановления пока нет."
+  },
+  "app.bedrock.no-results": {
+    "message": "Нет подходящих предметов."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Локальных миров не обнаружено. Создайте его в Minecraft или импортируйте файл .mcworld."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Открыть папку"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Родительская папка"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Некоторые папки не удалось прочитать или достигнут предел отображения. Вы можете проверить их в проводнике."
+  },
+  "app.bedrock.play": {
+    "message": "Играть"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Здесь хранятся оригинальные файлы и удаленный контент. Восстановите копию, пока Minecraft закрыт. Существующий контент и последующие изменения никогда не перезаписываются."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Резервные копии"
+  },
+  "app.bedrock.refresh": {
+    "message": "Проверьте еще раз"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Перезагрузить"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Перезагрузите этот файл перед сохранением."
+  },
+  "app.bedrock.repair": {
+    "message": "Восстановите или обновите установку с помощью Microsoft Store или официального средства запуска."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Набор ресурсов"
+  },
+  "app.bedrock.restore": {
+    "message": "Восстановить"
+  },
+  "app.bedrock.running": {
+    "message": "Запущено"
+  },
+  "app.bedrock.save-error": {
+    "message": "Не удалось сохранить. Возможно, файл изменился, содержит недопустимый JSON или уже используется. Перезагрузите его и попробуйте еще раз."
+  },
+  "app.bedrock.search": {
+    "message": "Поиск местного контента…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Выберите журнал, чтобы прочитать его."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Пакет скинов"
+  },
+  "app.bedrock.store": {
+    "message": "Установить или обновить"
+  },
+  "app.bedrock.store-error": {
+    "message": "Не удалось открыть Microsoft Store. Откройте его из меню «Пуск» Windows."
+  },
+  "app.bedrock.submitted": {
+    "message": "Файл отправлен на Minecraft. Проверьте результат импорта в игре."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Для интеграции Bedrock требуется Windows. Вы можете продолжать играть в Java Edition на этом устройстве."
+  },
+  "app.bedrock.update": {
+    "message": "Обновить Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "В Microsoft Store проверьте наличие обновлений и выберите Minecraft for Windows. Установленная версия обновится, когда вы вернетесь."
+  },
+  "app.bedrock.version": {
+    "message": "Установка Windows {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Версия"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Мир: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Миры"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "Подтверждения"
@@ -194,32 +722,8 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "Запуск и навигация"
   },
-  "app.behavior-settings.sync-across-devices.description": {
-    "message": "Применять текущие настройки везде, где вы вошли. Отключите, чтобы настроить это устройство отдельно."
-  },
-  "app.behavior-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Войдите в аккаунт Modrinth для синхронизации настроек."
-  },
-  "app.behavior-settings.sync-across-devices.title": {
-    "message": "Синхронизация поведения между устройствами"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "Добавление серверов в сборку"
-  },
   "app.browse.add-to-an-instance": {
     "message": "Добавить в сборку"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Добавить в сборку"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Добавить в {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Добавлено"
-  },
-  "app.browse.already-added": {
-    "message": "Уже добавлено"
   },
   "app.browse.back-to-instance": {
     "message": "Вернуться к сборке"
@@ -227,14 +731,11 @@
   "app.browse.discover-project-type": {
     "message": "Поиск {projectType}"
   },
-  "app.browse.discover-servers": {
-    "message": "Поиск серверов"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "Скрывать добавленные"
-  },
   "app.browse.hide-installed-modpacks": {
     "message": "Скрывать установленные"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Открыть в CurseForge"
   },
   "app.browse.project-actions.label": {
     "message": "Действия с проектом"
@@ -251,17 +752,8 @@
   "app.browse.project-type.resource-packs": {
     "message": "Наборы ресурсов"
   },
-  "app.browse.project-type.servers": {
-    "message": "Серверы"
-  },
   "app.browse.project-type.shaders": {
     "message": "Шейдеры"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "Добавление контента может помешать присоединению к этому серверу. Любой контент, который вы добавляете, будет удалён, когда содержимое управляемого сервера будет обновлено."
-  },
-  "app.browse.server.installing": {
-    "message": "Установка"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Не найдено доступных версий, совместимых с {compatibilityLabel}. Выберите версию для установки вручную. Зависимости не будут установлены автоматически."
@@ -281,8 +773,215 @@
   "app.content.sync-resource-packs-disabled": {
     "message": "В начале включите синхронизацию ресурс паков в настройках."
   },
+  "app.curseforge.rate-limit.text": {
+    "message": "Достигнут общий лимит запросов. Подождите немного и попробуйте снова."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge временно перегружен"
+  },
+  "app.download-manager.active": {
+    "message": "Активные"
+  },
+  "app.download-manager.attention": {
+    "message": "Есть проблемы"
+  },
+  "app.download-manager.cancel": {
+    "message": "Отменить установку"
+  },
+  "app.download-manager.canceling": {
+    "message": "Отмена установки..."
+  },
+  "app.download-manager.clear-all": {
+    "message": "Очистить"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Удалить все выполненные задачи"
+  },
+  "app.download-manager.complete": {
+    "message": "Выполненные"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Копия сборки"
+  },
+  "app.download-manager.empty": {
+    "message": "Нет задач установки"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Примерная скорость скачивания"
+  },
+  "app.download-manager.eta": {
+    "message": "Примерное время до завершения скачивания"
+  },
+  "app.download-manager.hide": {
+    "message": "Скрыть задачи установки"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Импортированная сборка"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Установка сборки"
+  },
+  "app.download-manager.modpack": {
+    "message": "Готовая сборка"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Установка готовой сборки"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Новая сборка"
+  },
+  "app.download-manager.pause": {
+    "message": "Приостановить установку"
+  },
+  "app.download-manager.paused": {
+    "message": "Приостановлено"
+  },
+  "app.download-manager.remove": {
+    "message": "Удалить из истории"
+  },
+  "app.download-manager.resume": {
+    "message": "Возобновить установку"
+  },
+  "app.download-manager.show": {
+    "message": "Показать задачи установки"
+  },
+  "app.download-manager.tasks": {
+    "message": "Задачи"
+  },
+  "app.download-manager.title": {
+    "message": "Управление загрузками"
+  },
+  "app.download-manager.verifying": {
+    "message": "Проверка"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Отменить смену каталога"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Скопировать отладочную информацию"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Отладочная информация"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "сначала. Когда закончите, вернитесь сюда и войдите!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Попробуйте войти через"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Используете PC Game Pass, перешли из Bedrock или только что купили игру?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "официальный лаунчер Minecraft"
+  },
+  "app.error.get-support.button": {
+    "message": "Получить поддержку"
+  },
+  "app.error.help.end": {
+    "message": "и мы будем рады помочь! Обязательно приложите следующую отладочную информацию:"
+  },
+  "app.error.help.start": {
+    "message": "Если ничего не помогает и нужна помощь, посетите"
+  },
+  "app.error.help.support-link": {
+    "message": "нашу страницу поддержки"
+  },
+  "app.error.hosts.body-end": {
+    "message": "попытался подключиться к службам Microsoft / Xbox / Minecraft, но удалённый сервер отклонил соединение. Это может означать, что эти службы заблокированы в файле hosts. Посетите"
+  },
+  "app.error.hosts.fix-end": {
+    "message": ", чтобы узнать, как исправить проблему."
+  },
+  "app.error.migrate.body-end": {
+    "message": "не может перейти в выбранный новый каталог. Обратитесь в поддержку за помощью или отмените смену каталога."
+  },
+  "app.error.network.body-end": {
+    "message": "при подключении к серверам Microsoft. Часто это следствие плохого соединения, поэтому советуем попробовать ещё раз. Если проблемы сохраняются, выполните шаги в"
+  },
+  "app.error.network.body-start": {
+    "message": "Похоже, возникли проблемы с"
+  },
+  "app.error.network.heading": {
+    "message": "Проблемы с сетью"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "для устранения неполадок."
+  },
+  "app.error.no-error-message": {
+    "message": "Нет сообщения об ошибке."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "не удалось найти версию загрузчика для этой сборки."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Чтобы исправить это, нужно восстановить сборку. Нажмите кнопку ниже."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Похоже, на диске с выбранным каталогом недостаточно места. Освободите немного места и попробуйте снова или отмените смену каталога."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Недостаточно места"
+  },
+  "app.error.read-only.body-end": {
+    "message": "не может записывать в выбранный каталог. Измените права доступа к каталогу и попробуйте снова или отмените смену каталога."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Похоже, что"
+  },
+  "app.error.read-only.heading": {
+    "message": "Измените права доступа к каталогу"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Восстановить сборку"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Повторить смену каталога"
+  },
+  "app.error.state-init.body-end": {
+    "message": "не удалось загрузиться правильно. Возможно, файл повреждён или в приложении отсутствуют важные файлы."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Возможно, это удастся исправить одним из следующих способов:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Убедитесь, что подключены к интернету, затем попробуйте перезапустить приложение."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Скачайте приложение заново."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "Открыть папку резервных копий"
+  },
+  "app.error.support-article-link": {
+    "message": "нашу статью поддержки"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Не удалось сменить каталог приложения"
+  },
+  "app.error.title.generic": {
+    "message": "Произошла ошибка"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Загрузчик не выбран"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Не удалось войти в Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Ошибка инициализации {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Попробовать войти снова"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Проверьте, что вошли в правильный аккаунт. Возможно, Minecraft куплен на другом аккаунте Microsoft."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Попробовать другой аккаунт"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Попробуйте другой аккаунт Microsoft"
   },
   "app.export-modal.description-placeholder": {
     "message": "Введите описание сборки..."
@@ -295,6 +994,27 @@
   },
   "app.export-modal.export-complete-description": {
     "message": "{name} Успешно экспортирован."
+  },
+  "app.export-modal.format-label": {
+    "message": "Формат экспорта"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "ZIP CurseForge с manifest.json и выбранными файлами в папке overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Для лаунчеров с поддержкой сборок Modrinth. Содержит ссылки на скачивание и выбранные дополнительные файлы."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Переносимая сборка {productName} с выбранными файлами. Откройте её прямо в лаунчере."
   },
   "app.export-modal.header": {
     "message": "Экспорт сборки"
@@ -352,15 +1072,6 @@
   },
   "app.features-settings.sidebar.title": {
     "message": "Боковая панель"
-  },
-  "app.features-settings.sync-across-devices.description": {
-    "message": "Используйте эти настройки везде, где вы вошли в систему. Отключите эту опцию, чтобы сохранить отдельные настройки на этом устройстве."
-  },
-  "app.features-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Войдите в аккаунт Modrinth для синхронизации настроек."
-  },
-  "app.features-settings.sync-across-devices.title": {
-    "message": "Синхронизировать настройки между устройствами"
   },
   "app.home.jump-back-in.actions.label": {
     "message": "Действия со сборкой"
@@ -464,62 +1175,20 @@
   "app.instance.actions.label": {
     "message": "Действия со сборкой"
   },
-  "app.instance.add-server.add": {
-    "message": "Добавить"
-  },
-  "app.instance.add-server.added": {
-    "message": "Добавлен"
-  },
-  "app.instance.add-server.adding": {
-    "message": "Добавление..."
-  },
-  "app.instance.add-server.cancel": {
-    "message": "Отмена"
-  },
-  "app.instance.add-server.compatibility-warning": {
-    "message": "Этот сервер может быть несовместим со всеми сборками."
-  },
-  "app.instance.add-server.search-placeholder": {
-    "message": "Поиск сборки"
-  },
-  "app.instance.add-server.title": {
-    "message": "Добавление сервера в сборку"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Добавлен"
-  },
-  "app.instance.admonitions.shared-instance.changes-body": {
-    "message": "Локальная сборка опережает версию других участников."
-  },
-  "app.instance.admonitions.shared-instance.changes-header": {
-    "message": "Изменения не отправлены"
-  },
-  "app.instance.admonitions.shared-instance.publish-button": {
-    "message": "Отправить изменения"
-  },
-  "app.instance.admonitions.shared-instance.publishing-button": {
-    "message": "Отправка..."
-  },
-  "app.instance.admonitions.shared-instance.removed-label": {
-    "message": "Удалён"
-  },
-  "app.instance.admonitions.shared-instance.review-admonition-header": {
-    "message": "Отправка изменений"
-  },
-  "app.instance.admonitions.shared-instance.review-description": {
-    "message": "Ознакомьтесь с изменениями содержимого, которые будут доступны всем пользователям этого экземпляра."
-  },
-  "app.instance.admonitions.shared-instance.review-header": {
-    "message": "Проверьте изменения"
-  },
-  "app.instance.admonitions.shared-instance.reviewing-button": {
-    "message": "Проверка..."
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Все данные сборки будут удалены навсегда, в том числе миры, настройки и весь установленный контент."
   },
   "app.instance.confirm-delete.admonition-header": {
     "message": "Это действие необратимо"
+  },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "Все данные для этих {count} сборок будут удалены навсегда, в том числе миры, настройки и весь установленный контент."
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "Удалить {count} сборок"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "Удалить {count} сборок"
   },
   "app.instance.confirm-delete.delete-button": {
     "message": "Удалить сборку"
@@ -533,8 +1202,8 @@
   "app.instance.content.managed-content.modpack-header": {
     "message": "Контент сборки"
   },
-  "app.instance.content.managed-content.shared-header": {
-    "message": "Совместный контент"
+  "app.instance.content.managed-content.server-header": {
+    "message": "Содержимое сервера"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Выбранное содержимое уже установлено в сборке <bold>{instanceName}</bold>. Создать копию?"
@@ -569,6 +1238,9 @@
   "app.instance.mods.project-was-added": {
     "message": "«{name}» добавлен"
   },
+  "app.instance.mods.projects-were-added": {
+    "message": "Добавлено проектов: {count}"
+  },
   "app.instance.mods.share-text": {
     "message": "Что в моей сборке:"
   },
@@ -583,36 +1255,6 @@
   },
   "app.instance.navigation.back-to-instance": {
     "message": "Вернуться к сборке"
-  },
-  "app.instance.shared-instance-already-installed.body": {
-    "message": "Совместный контент уже установлен в сборке <bold>{instanceName}</bold>. Создать копию?"
-  },
-  "app.instance.shared-instance-already-installed.header": {
-    "message": "Сборка уже установлена"
-  },
-  "app.instance.shared-instance-already-installed.install-anyway": {
-    "message": "Всё равно установить"
-  },
-  "app.instance.shared-instance-already-installed.instance": {
-    "message": "Сборка"
-  },
-  "app.instance.shared-instance-wrong-account.fallback-username": {
-    "message": "привязанный аккаунт"
-  },
-  "app.instance.shared-instance-wrong-account.owner-admonition-body-v2": {
-    "message": "для управления этим общим экземпляром. Вы не сможете отправлять обновления пользователям."
-  },
-  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
-    "message": "Войдите как"
-  },
-  "app.instance.shared-instance-wrong-account.signed-out-header": {
-    "message": "Необходимо войти в Modrinth"
-  },
-  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
-    "message": "для получения обновлений совместной сборки."
-  },
-  "app.instance.shared-instance-wrong-account.warning-header": {
-    "message": "Используется неверный аккаунт Modrinth"
   },
   "app.instance.shortcut.created": {
     "message": "Ярлык создан"
@@ -632,17 +1274,14 @@
   "app.instance.tab.screenshots": {
     "message": "Скриншоты"
   },
-  "app.instance.tab.share": {
-    "message": "Доступ"
-  },
   "app.instance.tab.worlds": {
     "message": "Миры"
   },
   "app.instance.worlds.add-server": {
     "message": "Добавить сервер"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Найти серверы"
+  "app.instance.worlds.browse": {
+    "message": "Просмотреть миры"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Удалить мир"
@@ -701,6 +1340,9 @@
   "app.instance.worlds.remove-server-modal.warning-header": {
     "message": "Удаление {name}"
   },
+  "app.instance.worlds.search-worlds-placeholder": {
+    "message": "Поиск {count} миров..."
+  },
   "app.java-detection.cancel": {
     "message": "Отмена"
   },
@@ -745,6 +1387,21 @@
   },
   "app.java-selector.test-installation": {
     "message": "Проверить установку Java"
+  },
+  "app.launch-link.instance": {
+    "message": "Ссылка хочет запустить {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Запустить"
+  },
+  "app.launch-link.server": {
+    "message": "Ссылка хочет запустить {instance} и подключиться к серверу {target}. Продолжайте, только если доверяете источнику этой ссылки."
+  },
+  "app.launch-link.title": {
+    "message": "Открыть Minecraft по ссылке?"
+  },
+  "app.launch-link.world": {
+    "message": "Ссылка хочет запустить {instance} и открыть мир {target}."
   },
   "app.library.actions.label": {
     "message": "Действия в библиотеке"
@@ -977,6 +1634,9 @@
   "app.library.selection.remove-from-group": {
     "message": "Удалить из группы"
   },
+  "app.library.selection.selected-count": {
+    "message": "Выбрано: {count}"
+  },
   "app.library.sort.date-created": {
     "message": "Дата создания"
   },
@@ -1004,122 +1664,14 @@
   "app.library.title": {
     "message": "Библиотека"
   },
-  "app.modal.install-to-play.additional-context": {
-    "message": "Подробности"
-  },
-  "app.modal.install-to-play.additional-context-placeholder": {
-    "message": "При желании прикрепите ссылки и изображения"
-  },
-  "app.modal.install-to-play.block-user": {
-    "message": "Заблокировать пользователя"
-  },
-  "app.modal.install-to-play.content-you-are-reporting": {
-    "message": "Сборка, на которую вы жалуетесь"
-  },
-  "app.modal.install-to-play.delete-instance": {
-    "message": "Удалить сборку"
-  },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "Отмена"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "Установка перед запуском"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Всё равно установить"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "Установить"
-  },
-  "app.modal.install-to-play.invite-warning": {
-    "message": "Приглашение создано другим пользователем, а не Modrinth. Принимайте приглашения только от тех, кому доверяете."
-  },
-  "app.modal.install-to-play.invite-warning-with-creator": {
-    "message": "Приглашение создано <creator>{username}</creator>, а не Modrinth. Принимайте приглашения только от тех, кому доверяете."
-  },
-  "app.modal.install-to-play.managed-content.modpack-header": {
-    "message": "Контент сборки"
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {# мод} few {# мода} other {# модов}}"
-  },
-  "app.modal.install-to-play.report-description": {
-    "message": "Используйте эту форму, чтобы отправить жалобу на сборки, которые могут нарушать наши <rules-link>Правила</rules-link> или <terms-link>Условия использования</terms-link>."
-  },
-  "app.modal.install-to-play.report-image-invalid-type": {
-    "message": "Тип изображения не принимается"
-  },
-  "app.modal.install-to-play.report-image-too-large": {
-    "message": "Размер файла превышает лимит в 1 МиБ"
-  },
-  "app.modal.install-to-play.report-legal-claims": {
-    "message": "По вопросам, касающимся уведомлений DMCA или других юридических претензий, ознакомьтесь с нашей <copyright-link>Политикой в ​​отношении авторских прав</copyright-link>."
-  },
-  "app.modal.install-to-play.report-reason": {
-    "message": "Какое правило нарушено этой сборкой?"
-  },
-  "app.modal.install-to-play.report-shared-instance-header": {
-    "message": "Жалоба на совместную сборку"
-  },
-  "app.modal.install-to-play.report-submitted": {
-    "message": "Жалоба отправлена"
-  },
-  "app.modal.install-to-play.report-support-and-bugs": {
-    "message": "Для запросов в поддержку обращайтесь в нашу <support-link>службу поддержки</support-link>. Для сообщений об ошибках открывайте запросы в <github-link>GitHub </github-link>."
-  },
-  "app.modal.install-to-play.reviewed-files": {
-    "message": "Файлы не c Modrinth не проверяются."
-  },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Сборка"
-  },
-  "app.modal.install-to-play.shared-instance-content": {
-    "message": "Контент совместной сборки"
-  },
-  "app.modal.install-to-play.shared-instance-unknown-files-description": {
-    "message": "Совместная сборка содержит файлы не с Modrinth. Устанавливайте только проверенные файлы."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "Серверная сборка содержит файлы не с Modrinth. Устанавливайте только проверенные файлы."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Предупреждение о неизвестных файлах"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Нераспознанные файлы"
-  },
-  "app.modal.install-to-play.user-blocked": {
-    "message": "Пользователь заблокирован"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Посмотреть контент"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Обновление перед запуском"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "Удалён"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "Обновление серверной сборки содержит файлы не с Modrinth. Устанавливайте только проверенные файлы."
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "Добавлен"
-  },
-  "app.modal.update-to-play.shared-instance-removed-label": {
-    "message": "Удалён"
-  },
-  "app.modal.update-to-play.shared-instance-unknown-files-description": {
-    "message": "Обновление совместной сборки содержит файлы не с Modrinth. Устанавливайте только проверенные файлы."
-  },
-  "app.modal.update-to-play.update-required": {
-    "message": "Требуется обновление"
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "Обновите {name} до последней версии, чтобы запустить игру."
+  "app.nav.collapse-sidebar": {
+    "message": "Свернуть боковую панель"
   },
   "app.nav.create-new-instance": {
     "message": "Создать новую сборку"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Развернуть боковую панель"
   },
   "app.nav.home": {
     "message": "Главная"
@@ -1148,6 +1700,12 @@
   "app.project.coming-soon": {
     "message": "Скоро"
   },
+  "app.project.gallery.image-fallback": {
+    "message": "Изображение галереи"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Открыть изображение в новой вкладке"
+  },
   "app.project.install-button.already-installed": {
     "message": "Этот проект уже установлен"
   },
@@ -1165,6 +1723,9 @@
   },
   "app.project.more-options": {
     "message": "Дополнительно"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Открыть в CurseForge"
   },
   "app.project.tab.description": {
     "message": "Описание"
@@ -1340,6 +1901,9 @@
   "app.screenshots.selection.remove-from-group": {
     "message": "Удалить из группы"
   },
+  "app.screenshots.selection.selected-count": {
+    "message": "Выбрано: {count}"
+  },
   "app.screenshots.selection.zip-archive": {
     "message": "Архив ZIP"
   },
@@ -1453,6 +2017,15 @@
   },
   "app.settings.downloading": {
     "message": "Скачивание версии {version}"
+  },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Не найдено флагов по запросу «{query}»"
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Сбросить к значению по умолчанию"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Поиск флагов..."
   },
   "app.settings.game-options.category.accessibility.description": {
     "message": "Специальные возможности"
@@ -2468,6 +3041,9 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Показывать {productName} как текущую активность в Discord. Это не влияет на Rich Presence, добавляемый в сборки модами."
+  },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
   },
@@ -2482,6 +3058,9 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "Очистить кеш приложения?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Очистить кешированные данные и скачать их заново. Приложение может загружаться медленнее, пока кеш не восстановится."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Очистить кеш"
@@ -2502,7 +3081,7 @@
     "message": "Выбрать каталог приложения"
   },
   "app.settings.resource-management.app-directory.description": {
-    "message": "Здесь Modrinth App хранит сборки и другие файлы. Изменения вступят в силу после перезапуска."
+    "message": "Здесь {productName} App хранит сборки и другие файлы. Изменения вступят в силу после перезапуска."
   },
   "app.settings.resource-management.app-directory.select": {
     "message": "Выбор нового каталога приложения"
@@ -2521,6 +3100,78 @@
   },
   "app.settings.resource-management.maximum-concurrent-writes.title": {
     "message": "Лимит одновременных записей"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Остались проблемные файлы"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Хранить указанный объём лишнего контента для будущих установок. Это может ускорить скачивание."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Кеш лишних скачиваний"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "ГиБ"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Вычисление"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Удалить лишний"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Удалить лишний скачанный контент"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "Освобождено {size} на диске."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Удаление..."
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Экономьте место, используя общие файлы игры и контент в сборках."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Установите контент, чтобы отслеживать объём занятого места."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Посмотреть {count, plural, one {# проблему} few {# проблемы} other {# проблем}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "В хранилище нет лишнего контента."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Проверить и исправить"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Все активные сборки будут закрыты."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Проверить целостность файлов и исправить найденные проблемы."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Проверка и исправление..."
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Общий"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Хранилище контента"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "Занято: {size}"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Свой"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Лишний"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "Проверено файлов: {checked, plural, other {#}}, исправлено: {repaired, plural, other {#}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Проверка завершена"
   },
   "app.settings.sidebar.label.instances": {
     "message": "Сборки"
@@ -2771,8 +3422,41 @@
   "app.settings.tabs.synced-options": {
     "message": "Глобальные настройки"
   },
-  "app.sidebar.playing-as": {
-    "message": "Сейчас играет"
+  "app.sidebar.advertising.label": {
+    "message": "Реклама"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Предпросмотр · место {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Следующая сборка"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Приостановить смену"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} из {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Предыдущая сборка"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Возобновить смену"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Рекомендуемые сборки"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Рекомендуемые сборки сейчас недоступны."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Открыть проект"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Выбрать хостинг"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Ваш следующий сервер Minecraft"
   },
   "app.skins.add-button": {
     "message": "Добавить скин"
@@ -2782,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Применить"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Все модели"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Классика"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "По умолчанию"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Скины не найдены. Попробуйте другой поиск."
+  },
+  "app.skins.catalog.error": {
+    "message": "Этот провайдер скинов недоступен. Попробуйте позже."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Загрузка скинов…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Ищите во всей публичной галерее MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "Модель"
+  },
+  "app.skins.catalog.next": {
+    "message": "Следующая страница"
+  },
+  "app.skins.catalog.page": {
+    "message": "Страница {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Популярные"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Предыдущая страница"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Провайдеры скинов"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Провайдер достиг лимита запросов. Подождите перед повторной попыткой."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Недавние"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Повторить"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Скин сохранён в «По умолчанию»"
+  },
+  "app.skins.catalog.search": {
+    "message": "Поиск скинов…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Поиск"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Тонкие"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Сортировка:"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Тег (необязательный)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "В тренде"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Этот провайдер ещё не настроен."
   },
   "app.skins.delete-button": {
     "message": "Удалить скин"
@@ -3057,13 +3813,13 @@
     "message": "Синхронизированные наборы ресурсов"
   },
   "app.update-popup.body.download-complete": {
-    "message": "Скачивание версии Modrinth App {version} завершено. Перезапустите приложение, чтобы обновить его, или оно обновится автоматически после закрытия."
+    "message": "Скачивание версии {productName} App {version} завершено. Перезапустите приложение, чтобы обновить его, или оно обновится автоматически после закрытия."
   },
   "app.update-popup.body.linux": {
-    "message": "Доступна версия Modrinth App {version}. Обновите приложение через менеджер пакетов, чтобы получить последние улучшения и исправления!"
+    "message": "Доступна версия {productName} App {version}. Обновите приложение через менеджер пакетов, чтобы получить последние улучшения и исправления!"
   },
   "app.update-popup.body.metered": {
-    "message": "Версия Modrinth App {version} доступна для скачивания! Используется сеть с лимитным тарифным планом, поэтому скачивание не началось автоматически."
+    "message": "Версия {productName} App {version} доступна для скачивания! Используется сеть с лимитным тарифным планом, поэтому скачивание не началось автоматически."
   },
   "app.update-popup.changelog": {
     "message": "Список изменений"
@@ -3089,9 +3845,6 @@
   "app.update.download-error.missing-version": {
     "message": "Не удалось загрузить обновление: нет доступных версий"
   },
-  "app.user.project.install-to-instance": {
-    "message": "Установить в сборку"
-  },
   "app.welcome-screen.create-instance": {
     "message": "Создать сборку"
   },
@@ -3110,6 +3863,69 @@
   "app.welcome-screen.title": {
     "message": "Добро пожаловать в {productName}"
   },
+  "app.window-controls.close": {
+    "message": "Закрыть окно"
+  },
+  "app.window-controls.minimize": {
+    "message": "Свернуть окно"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Развернуть/восстановить окно"
+  },
+  "app.world-install.backup": {
+    "message": "Замена сохраняет резервную копию существующего мира. Сохранить и Отмена ничего не устанавливают. Установка ещё одной копии создаёт мир с номером."
+  },
+  "app.world-install.backup-location": {
+    "message": "Предыдущий мир сохранён в {path} внутри сборки."
+  },
+  "app.world-install.conflict": {
+    "message": "Мир с таким названием или из этого проекта уже существует."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Установить несмотря на различие версий"
+  },
+  "app.world-install.copy": {
+    "message": "Установить ещё одну копию"
+  },
+  "app.world-install.description": {
+    "message": "Установите новый мир в сборку. Существующие миры сохранятся, если вы не выберете замену одного из них."
+  },
+  "app.world-install.incompatible": {
+    "message": "Этот файл не указывает совместимость с Minecraft {version}. Перед продолжением проверьте версию игры и моды, требуемые автором."
+  },
+  "app.world-install.installed": {
+    "message": "Мир установлен: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Целевая сборка"
+  },
+  "app.world-install.keep": {
+    "message": "Сохранить существующий"
+  },
+  "app.world-install.no-instances": {
+    "message": "Сначала создайте сборку Minecraft, затем вернитесь сюда для установки мира."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Показать миры"
+  },
+  "app.world-install.replace": {
+    "message": "Заменить"
+  },
+  "app.world-install.replace-target": {
+    "message": "Мир для замены"
+  },
+  "app.world-install.requirements": {
+    "message": "Необходимые моды или модпаки должны быть уже установлены в целевой сборке. Ознакомьтесь с описанием проекта."
+  },
+  "app.world-install.title": {
+    "message": "Установить мир"
+  },
+  "app.world-install.version": {
+    "message": "Версия мира"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
+  },
   "app.world.server-modal.select-an-option": {
     "message": "Выберите вариант"
   },
@@ -3125,80 +3941,14 @@
   "app.world.world-item.players-online": {
     "message": "{count} в игре"
   },
-  "content.shared-instance.change-version-body": {
-    "message": "Изменение версии затрагивает только локальную копию. В будущих обновлениях общего экземпляра она может быть восстановлена ​​или изменена снова."
+  "curseforge.manual.description": {
+    "message": "Скачайте {file} с официальной страницы CurseForge, затем выберите скачанный файл для продолжения. Размер и SHA-1 будут проверены."
   },
-  "content.shared-instance.delete-bulk-body": {
-    "message": "Некоторые выбранные проекты являются частью совместной сборки. Их удаление затрагивает только вашу локальную копию, и будущие обновления могут восстановить или изменить их снова."
+  "curseforge.manual.select": {
+    "message": "Выбрать скачанный файл"
   },
-  "content.shared-instance.delete-button": {
-    "message": "Всё равно удалить"
-  },
-  "content.shared-instance.delete-many-button": {
-    "message": "Всё равно удалить {count, plural, one {# проект} few {# проекта} other {# проектов}}"
-  },
-  "content.shared-instance.delete-single-body": {
-    "message": "Удаление затрагивает только локальную копию. В будущих обновлениях общего экземпляра он может быть восстановлен или изменен снова."
-  },
-  "content.shared-instance.disable-bulk-body": {
-    "message": "Некоторые выбранные проекты являются частью общего экземпляра. Отключение этих проектов затрагивает только вашу локальную копию, и будущие обновления общего экземпляра могут снова включить, восстановить или изменить их."
-  },
-  "content.shared-instance.disable-button": {
-    "message": "Всё равно отключить"
-  },
-  "content.shared-instance.disable-many-button": {
-    "message": "Всё равно отключить {count, plural, one {# проект} few {# проекта} other {# проектов}}"
-  },
-  "content.shared-instance.disable-single-body": {
-    "message": "Отключение этой функции затрагивает только локальную копию. В будущих обновлениях общего экземпляра она может быть повторно включена, восстановлена ​​или изменена."
-  },
-  "content.shared-instance.unlink-body": {
-    "message": "Удаление привязки затрагивает только локальную копию. В будущих обновлениях общего экземпляра она может быть восстановлена ​​или изменена снова."
-  },
-  "content.shared-instance.warning-header": {
-    "message": "Это часть сборки"
-  },
-  "installation-settings.shared-instance.linked-title": {
-    "message": "Отвязка совместной сборки"
-  },
-  "installation-settings.shared-instance.title": {
-    "message": "Закрытие доступа"
-  },
-  "installation-settings.shared-instance.unlink-button": {
-    "message": "Отвязать совместную сборку"
-  },
-  "installation-settings.shared-instance.unlink-description": {
-    "message": "Отключает от обновлений совместной сборки."
-  },
-  "installation-settings.shared-instance.unlinking-button": {
-    "message": "Отвязка..."
-  },
-  "installation-settings.shared-instance.unpublish-button": {
-    "message": "Закрыть доступ к сборке"
-  },
-  "installation-settings.shared-instance.unpublish-description": {
-    "message": "Удаляет сборку с серверов Modrinth и прекращает отправку обновлений. Локальная сборка останется нетронутой."
-  },
-  "installation-settings.shared-instance.unpublishing-button": {
-    "message": "Закрытие доступа..."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-body": {
-    "message": "Будет затронута только локальная сборка. Весь контент останется на устройстве, а совместная сборка у других участников не изменится."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-header": {
-    "message": "Отвязка совместной сборки"
-  },
-  "installation-settings.unlink-shared-instance.modal.header": {
-    "message": "Отвязка совместной сборки"
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-body": {
-    "message": "Сборка будет удалена с серверов Modrinth. Локальная копия и её контент останутся на устройстве, а другие участники перестанут получать обновления."
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-header": {
-    "message": "Закрытие доступа к сборке"
-  },
-  "installation-settings.unpublish-shared-instance.modal.header": {
-    "message": "Закрытие доступа к сборке"
+  "curseforge.manual.title": {
+    "message": "Требуется ручная загрузка"
   },
   "instance.action.create-shortcut": {
     "message": "Создать ярлык"
@@ -3262,6 +4012,12 @@
   },
   "instance.edit-world.title": {
     "message": "Настройка мира"
+  },
+  "instance.files.adding-files": {
+    "message": "Добавление файлов ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "Управляйте установленным контентом через вкладку Контент"
   },
   "instance.files.save-as": {
     "message": "Сохранить как..."
@@ -3410,9 +4166,6 @@
   "instance.icon-editor.symbol.moobloom": {
     "message": "Коровоцвет"
   },
-  "instance.icon-editor.symbol.mr-pack": {
-    "message": "М‑р Пак"
-  },
   "instance.icon-editor.symbol.neoforge": {
     "message": "NeoForge"
   },
@@ -3479,14 +4232,41 @@
   "instance.last-played": {
     "message": "Последний запуск"
   },
+  "instance.locked.badge": {
+    "message": "Заблокировано"
+  },
   "instance.locked.delete-button": {
     "message": "Удалить сборку"
+  },
+  "instance.locked.info-label": {
+    "message": "Информация о заблокированной сборке"
   },
   "instance.locked.play-tooltip": {
     "message": "Сборка заблокирована"
   },
+  "instance.locked.text": {
+    "message": "Эта сборка заблокирована, её нельзя запустить или изменить. Её можно удалить."
+  },
+  "instance.locked.title": {
+    "message": "Сборка заблокирована"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Загрузчик модов и версия Minecraft"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# час} few {# часа} other {# часов}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# минута} few {# минуты} other {# минут}}"
+  },
   "instance.playtime.never-played": {
     "message": "Не запускалась"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# секунда} few {# секунды} other {# секунд}}"
+  },
+  "instance.playtime.total": {
+    "message": "Общее время игры"
   },
   "instance.server-modal.address": {
     "message": "Адрес"
@@ -3499,45 +4279,6 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "Набор ресурсов"
-  },
-  "instance.settings.sharing.active-invites.actions": {
-    "message": "Действия"
-  },
-  "instance.settings.sharing.active-invites.code": {
-    "message": "Ссылка"
-  },
-  "instance.settings.sharing.active-invites.description": {
-    "message": "Любой, у кого есть одна из этих ссылок, может присоединиться, пока она активна."
-  },
-  "instance.settings.sharing.active-invites.empty": {
-    "message": "Нет действующих приглашений."
-  },
-  "instance.settings.sharing.active-invites.expires": {
-    "message": "Истекает"
-  },
-  "instance.settings.sharing.active-invites.revoke": {
-    "message": "Отозвать приглашение"
-  },
-  "instance.settings.sharing.active-invites.revoke-with-code": {
-    "message": "Отозвать приглашение {code}"
-  },
-  "instance.settings.sharing.active-invites.title": {
-    "message": "Действующие приглашения"
-  },
-  "instance.settings.sharing.active-invites.uses": {
-    "message": "Использований"
-  },
-  "instance.settings.sharing.revoke-invite.admonition-body": {
-    "message": "Ссылка <monospace>{code}</monospace> сразу перестанет работать. Уже присоединившиеся пользователи сохранят доступ."
-  },
-  "instance.settings.sharing.revoke-invite.admonition-header": {
-    "message": "Это действие необратимо"
-  },
-  "instance.settings.sharing.revoke-invite.confirm": {
-    "message": "Отозвать приглашение"
-  },
-  "instance.settings.sharing.revoke-invite.header": {
-    "message": "Отзыв приглашения"
   },
   "instance.settings.synced-options.data-override": {
     "message": "Отключить это переопределение для редактирования синхронизированных данных."
@@ -3743,9 +4484,6 @@
   "instance.settings.tabs.settings-overrides": {
     "message": "Переопределения"
   },
-  "instance.settings.tabs.sharing": {
-    "message": "Доступ"
-  },
   "instance.settings.tabs.synced-options.command-history": {
     "message": "Рассинхронизация истории команд"
   },
@@ -3833,63 +4571,6 @@
   "instance.settings.tabs.window.width.enter": {
     "message": "Введите ширину..."
   },
-  "instance.shared-instance.error.title": {
-    "message": "Произошла ошибка"
-  },
-  "instance.shared-instance.network-error.text": {
-    "message": "Не удалось подключиться к API сборок"
-  },
-  "instance.shared-instance.network-error.title": {
-    "message": "Ошибка сети"
-  },
-  "instance.shared-instance.owner-tooltip": {
-    "message": "Контент сборки доступен другим пользователям."
-  },
-  "instance.shared-instance.publish-review.added-label": {
-    "message": "Добавлен"
-  },
-  "instance.shared-instance.publish-review.admonition-header": {
-    "message": "Отправка изменений игрокам"
-  },
-  "instance.shared-instance.publish-review.config-title-v2": {
-    "message": "Выберите файлы настройки"
-  },
-  "instance.shared-instance.publish-review.description": {
-    "message": "Ознакомьтесь с изменениями в содержимом и выберите файлы конфигурации, которые следует включить в это обновление."
-  },
-  "instance.shared-instance.publish-review.header": {
-    "message": "Обзор изменений"
-  },
-  "instance.shared-instance.publish-review.publish-button": {
-    "message": "Отправить изменения"
-  },
-  "instance.shared-instance.publish-review.removed-label": {
-    "message": "Удалён"
-  },
-  "instance.shared-instance.tooltip": {
-    "message": "Контент сборки управляется другим пользователем."
-  },
-  "instance.shared-instance.unavailable.access-revoked-text": {
-    "message": "Доступ к сборке отозван. Сборка всё ещё доступна, но она не будет связана и не будет обновляться."
-  },
-  "instance.shared-instance.unavailable.deleted-text": {
-    "message": "Основная сборка была удалена. Эта сборка всё ещё доступна, но она теперь не связана и не будет получать обновления."
-  },
-  "instance.shared-instance.unavailable.locked-text": {
-    "message": "Совместная сборка заблокирована модераторами контента. Она больше не будет получать обновления от основной сборки и недоступна для игры."
-  },
-  "instance.shared-instance.unavailable.locked-title": {
-    "message": "Сборка заблокирована"
-  },
-  "instance.shared-instance.unavailable.manager-fallback": {
-    "message": "менеджер сборки"
-  },
-  "instance.shared-instance.unavailable.text": {
-    "message": "Локальная сборка всё доступна, но она теперь не связана и не будет получать обновления."
-  },
-  "instance.shared-instance.unavailable.title": {
-    "message": "Совместная сборка больше не доступна"
-  },
   "instance.worlds.a_minecraft_server": {
     "message": "Сервер Minecraft"
   },
@@ -3971,11 +4652,14 @@
   "instance.worlds.world_in_use": {
     "message": "Мир используется"
   },
+  "minecraft-account.accounts": {
+    "message": "Аккаунты Minecraft"
+  },
   "minecraft-account.add-account": {
     "message": "Добавить аккаунт"
   },
-  "minecraft-account.label": {
-    "message": "Аккаунт Minecraft"
+  "minecraft-account.getting-started": {
+    "message": "Начало работы"
   },
   "minecraft-account.not-signed-in": {
     "message": "Вход не выполнен"
@@ -3983,11 +4667,11 @@
   "minecraft-account.remove-account": {
     "message": "Удалить аккаунт"
   },
-  "minecraft-account.select-account": {
-    "message": "Выберите аккаунт"
-  },
   "minecraft-account.sign-in": {
     "message": "Войти в Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Войти"
   },
   "minecraft-required.description": {
     "message": "Для запуска и игры требуется аккаунт Microsoft с приобретённым Minecraft."
@@ -4010,39 +4694,6 @@
   "minecraft-required.sign-in": {
     "message": "Войти в Microsoft"
   },
-  "modal.modrinth-account-required.browser-description": {
-    "message": "Открылась вкладка для входа. Завершите вход и вернитесь в приложение."
-  },
-  "modal.modrinth-account-required.continue-in-browser-heading": {
-    "message": "Продолжите в браузере"
-  },
-  "modal.modrinth-account-required.create-account-button": {
-    "message": "Создать аккаунт"
-  },
-  "modal.modrinth-account-required.description": {
-    "message": "Войдите в аккаунт Modrinth, чтобы использовать эту функцию."
-  },
-  "modal.modrinth-account-required.header": {
-    "message": "Требуется аккаунт"
-  },
-  "modal.modrinth-account-required.open-browser-again-button": {
-    "message": "Открыть браузер снова"
-  },
-  "modal.modrinth-account-required.sign-in-button": {
-    "message": "Войти в Modrinth"
-  },
-  "modal.modrinth-account-required.sign-in-heading": {
-    "message": "Войдите в аккаунт Modrinth"
-  },
-  "modal.modrinth-account-required.signing-in-header": {
-    "message": "Вход"
-  },
-  "modal.modrinth-account-required.support-prompt": {
-    "message": "Проблемы с входом? <support>Обратитесь в поддержку</support>"
-  },
-  "modal.modrinth-account-required.waiting-for-browser": {
-    "message": "Ожидание подтверждения браузера..."
-  },
   "onboarding-checklist.create-instance": {
     "message": "Создайте сборку"
   },
@@ -4051,6 +4702,42 @@
   },
   "onboarding-checklist.title": {
     "message": "Начало работы"
+  },
+  "optifine.add-component": {
+    "message": "Установить OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Выбрать JAR и продолжить"
+  },
+  "optifine.download-official": {
+    "message": "Официальная загрузка"
+  },
+  "optifine.export-notice": {
+    "message": "Бинарные файлы OptiFine исключены. Orbpack сохраняет требуемую версию; для сборок Modrinth и CurseForge требуется отдельная установка OptiFine."
+  },
+  "optifine.import-canceled": {
+    "message": "Выбор OptiFine отменён. Сборка не была установлена."
+  },
+  "optifine.import-description": {
+    "message": "Этой сборке требуется OptiFine {version} для Minecraft {gameVersion}. Скачайте её официальный JAR и выберите его, чтобы продолжить. OptiFine не входит в состав сборки."
+  },
+  "optifine.import-title": {
+    "message": "Этой сборке требуется OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Выберите официальный установщик OptiFine для Minecraft {gameVersion}. Для импортированной сборки её версия и хеш файла также должны совпадать."
+  },
+  "optifine.remove-component": {
+    "message": "Удалить OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Выбрать официальный JAR OptiFine"
+  },
+  "project-type.world.category": {
+    "message": "Миры"
   },
   "search.filter.locked.instance": {
     "message": "Управляется сборкой"
@@ -4063,9 +4750,6 @@
   },
   "search.filter.locked.instance.sync": {
     "message": "Использовать из сборки"
-  },
-  "search.filter.locked.server-environment.title": {
-    "message": "В серверной сборке доступны только клиентские моды"
   },
   "settings.sidebar.label.account": {
     "message": "Аккаунт"

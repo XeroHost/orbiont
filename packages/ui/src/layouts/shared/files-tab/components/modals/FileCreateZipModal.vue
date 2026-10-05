@@ -6,7 +6,7 @@
 				<Input
 					ref="targetInput"
 					v-model="target"
-					placeholder="archive.zip"
+					:placeholder="formatMessage(messages.namePlaceholder)"
 					wrapper-class="w-full"
 				/>
 				<div class="min-h-5 text-sm text-red" aria-live="polite">{{ displayedError }}</div>
@@ -42,6 +42,7 @@ const { formatMessage } = useVIntl()
 const messages = defineMessages({
 	header: { id: 'files.create-zip-modal.header', defaultMessage: 'Create ZIP' },
 	nameLabel: { id: 'files.create-zip-modal.name-label', defaultMessage: 'Archive name' },
+	namePlaceholder: { id: 'files.create-zip-modal.name-placeholder', defaultMessage: 'archive.zip' },
 	createButton: { id: 'files.create-zip-modal.create-button', defaultMessage: 'Create ZIP' },
 	required: { id: 'files.create-zip-modal.required', defaultMessage: 'Enter an archive name.' },
 	invalid: {
@@ -64,7 +65,7 @@ const props = defineProps<{
 const emit = defineEmits<{ create: [target: string] }>()
 const modal = ref<InstanceType<typeof NewModal>>()
 const targetInput = ref<HTMLInputElement | null>(null)
-const target = ref('archive.zip')
+const target = ref(formatMessage(messages.namePlaceholder))
 const submitted = ref(false)
 const availabilityError = ref('')
 let checkGeneration = 0
@@ -141,8 +142,9 @@ async function handleSubmit() {
 	}
 }
 function show() {
-	const targetUnchanged = target.value === 'archive.zip'
-	target.value = 'archive.zip'
+	const defaultName = formatMessage(messages.namePlaceholder)
+	const targetUnchanged = target.value === defaultName
+	target.value = defaultName
 	submitted.value = false
 	availabilityError.value = ''
 	submitting = false

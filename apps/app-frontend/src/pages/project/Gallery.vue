@@ -1,14 +1,21 @@
 <template>
 	<div class="gallery">
-		<Card v-for="(image, index) in filteredGallery" :key="image.url" class="gallery-item">
-			<a @click="expandImage(image, index)">
-				<img :src="image.url" :alt="image.title" class="gallery-image" />
-			</a>
+		<Card v-for="(image, index) in galleryMedia" :key="image.id" class="gallery-item">
+			<button type="button" class="gallery-preview" @click="expandImage(index)">
+				<img
+					:src="image.thumbnail"
+					:alt="image.title || formatMessage(messages.galleryImageFallback)"
+					class="gallery-image"
+				/>
+				<span v-if="image.youtubeVideoId" class="gallery-play" aria-hidden="true"
+					><PlayIcon
+				/></span>
+			</button>
 			<div class="gallery-body">
 				<h3>{{ image.title }}</h3>
 				{{ image.description }}
 			</div>
-			<span class="gallery-time">
+			<span v-if="image.created" class="gallery-time">
 				<CalendarIcon />
 				{{ formatDate(new Date(image.created)) }}
 			</span>
@@ -19,7 +26,7 @@
 			<Button
 				type="quiet"
 				class="!w-9 !rounded-full !p-0"
-				aria-label="Open image in new tab"
+				:aria-label="formatMessage(commonMessages.openInBrowserButton)"
 				@click="openUrl(item.src)"
 			>
 				<ExternalIcon aria-hidden="true" />
@@ -29,12 +36,29 @@
 </template>
 
 <script setup>
-import { CalendarIcon, ExternalIcon } from '@orbiont/assets'
-import { Button, Card, ImageViewerEditor, useFormatDateTime } from '@orbiont/ui'
+import { CalendarIcon, ExternalIcon, PlayIcon } from '@orbiont/assets'
+import {
+	Button,
+	Card,
+	commonMessages,
+	defineMessages,
+	ImageViewerEditor,
+	useFormatDateTime,
+	useVIntl,
+} from '@orbiont/ui'
 import { openUrl } from '@tauri-apps/plugin-opener'
 import { computed, ref } from 'vue'
 
-const MC_SERVER_BANNER_NAME = '__mc_server_banner__'
+import { getProjectGalleryMedia } from '@/helpers/project-gallery'
+
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	galleryImageFallback: {
+		id: 'app.project.gallery.image-fallback',
+		defaultMessage: 'Gallery image',
+	},
+})
 
 const formatDate = useFormatDateTime({
 	year: 'numeric',
@@ -49,22 +73,21 @@ const props = defineProps({
 	},
 })
 
-const filteredGallery = computed(
-	() => props.project.gallery?.filter((img) => img.title !== MC_SERVER_BANNER_NAME) ?? [],
-)
+const galleryMedia = computed(() => getProjectGalleryMedia(props.project))
 
 const galleryViewer = ref()
 const galleryViewerItems = computed(() =>
-	filteredGallery.value.map((image) => ({
-		id: image.url,
-		src: image.raw_url ?? image.url,
-		alt: image.title || 'Gallery image',
+	galleryMedia.value.map((image) => ({
+		id: image.id,
+		src: image.src,
+		youtubeVideoId: image.youtubeVideoId,
+		alt: image.title || formatMessage(messages.galleryImageFallback),
 		title: image.title,
 		description: image.description,
 	})),
 )
 
-const expandImage = (item, index) => {
+const expandImage = (index) => {
 	galleryViewer.value?.show(index)
 }
 </script>
@@ -83,6 +106,31 @@ const expandImage = (item, index) => {
 	margin: 0;
 	display: flex;
 	flex-direction: column;
+
+	.gallery-preview {
+		position: relative;
+		padding: 0;
+		border: 0;
+		background: transparent;
+		cursor: pointer;
+	}
+
+	.gallery-play {
+		position: absolute;
+		inset: 0;
+		display: grid;
+		place-items: center;
+		background: rgb(0 0 0 / 15%);
+
+		svg {
+			width: 3rem;
+			height: 3rem;
+			padding: 0.75rem;
+			border-radius: 50%;
+			color: white;
+			background: rgb(0 0 0 / 70%);
+		}
+	}
 
 	.gallery-image {
 		width: 100%;

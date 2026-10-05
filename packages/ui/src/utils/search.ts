@@ -183,6 +183,7 @@ export interface GameVersion {
 }
 
 export type ProjectType =
+	| 'world'
 	| 'mod'
 	| 'modpack'
 	| 'resourcepack'
@@ -518,7 +519,7 @@ export function useSearch(
 						defaultMessage: 'Game version',
 					}),
 				),
-				supported_project_types: ALL_PROJECT_TYPES,
+				supported_project_types: [...ALL_PROJECT_TYPES, 'world'],
 				display: 'scrollable',
 				query_param: 'v',
 				supports: ['include'],

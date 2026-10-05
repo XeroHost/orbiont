@@ -12,6 +12,12 @@ import type {
 } from '../types'
 
 export interface FileManagerContext {
+	/** Browse existing files without exposing editor, downloads or write operations. */
+	browseOnly?: boolean
+	/** Enable the shared editor while keeping unsupported file operations hidden. */
+	allowEditing?: boolean
+	canEditFile?: (name: string) => boolean
+	formatFileError?: (error: unknown) => string
 	items: Ref<FileItem[]>
 	loading: Ref<boolean>
 	error: Ref<Error | null>

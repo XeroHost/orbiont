@@ -49,6 +49,7 @@ import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import { useAppEvent } from '@/composables/use-app-event'
+import { bedrockMessages } from '@/helpers/bedrock-messages'
 import {
 	create_screenshot_group,
 	delete_screenshot_group,
@@ -69,6 +70,7 @@ import {
 } from '@/helpers/instance'
 import { MAX_INSTANCE_GROUP_NAME_LENGTH } from '@/helpers/instance-groups'
 import {
+	bedrockScreenshotsQueryOptions,
 	instanceListQueryOptions,
 	instanceScreenshotsQueryOptions,
 	screenshotGroupsQueryOptions,
@@ -135,16 +137,18 @@ const FALLBACK_SCREENSHOT_CARD_WIDTH = 320
 const props = withDefaults(
 	defineProps<{
 		instanceId?: string
+		bedrock?: boolean
 		showHeading?: boolean
 	}>(),
 	{
 		instanceId: undefined,
+		bedrock: false,
 		showHeading: false,
 	},
 )
 
 const isGlobal = computed(() => !props.instanceId)
-const storageSuffix = props.instanceId ? 'instance' : 'global'
+const storageSuffix = props.bedrock ? 'bedrock' : props.instanceId ? 'instance' : 'global'
 const search = ref('')
 const sort = useStorage<ScreenshotSort>(`screenshots-sort-${storageSuffix}`, 'newest')
 const groupBy = useStorage<ScreenshotGroupBy>(`screenshots-group-v2-${storageSuffix}`, 'date')
@@ -321,12 +325,14 @@ const messages = defineMessages({
 
 const screenshotsQuery = useQuery(
 	computed(() =>
-		props.instanceId
-			? instanceScreenshotsQueryOptions(props.instanceId)
-			: syncedScreenshotsQueryOptions(),
+		props.bedrock
+			? bedrockScreenshotsQueryOptions()
+			: props.instanceId
+				? instanceScreenshotsQueryOptions(props.instanceId)
+				: syncedScreenshotsQueryOptions(),
 	),
 )
-const instancesQuery = useQuery(instanceListQueryOptions())
+const instancesQuery = useQuery({ ...instanceListQueryOptions(), enabled: !props.bedrock })
 const screenshotGroupsQuery = useQuery(screenshotGroupsQueryOptions())
 const screenshotsQueryPending = useReadyState(screenshotsQuery)
 const screenshotGroupsQueryPending = useReadyState(screenshotGroupsQuery)
@@ -821,6 +827,7 @@ function getScreenshotKey(screenshot: InstanceScreenshot): ScreenshotKey {
 }
 
 async function migrateLegacyScreenshotGroups() {
+	if (props.bedrock) return
 	const legacy = legacyCustomGrouping.value
 	if (migratingLegacyGroups.value || legacy.groups.length === 0) return
 
@@ -1008,6 +1015,7 @@ async function invalidateScreenshots(instanceIds: string[]) {
 	const uniqueInstanceIds = [...new Set(instanceIds)]
 	await Promise.all([
 		queryClient.invalidateQueries({ queryKey: screenshotKeys.global() }),
+		queryClient.invalidateQueries({ queryKey: screenshotKeys.bedrock() }),
 		...uniqueInstanceIds.map((instanceId) =>
 			queryClient.invalidateQueries({ queryKey: screenshotKeys.instance(instanceId) }),
 		),
@@ -1077,7 +1085,7 @@ function showScreenshotOptions(screenshot: InstanceScreenshot, event: MouseEvent
 		},
 		{
 			id: 'go-to-instance',
-			label: formatMessage(messages.goToInstance),
+			label: formatMessage(props.bedrock ? bedrockMessages.bedrock : messages.goToInstance),
 			action: () => void goToInstance(screenshot),
 		},
 		{ type: 'divider' },
@@ -1093,6 +1101,7 @@ function showScreenshotOptions(screenshot: InstanceScreenshot, event: MouseEvent
 }
 
 function goToInstance(screenshot: InstanceScreenshot) {
+	if (props.bedrock) return router.push('/bedrock')
 	return router.push(`/instance/${encodeURIComponent(screenshot.instance_id)}`)
 }
 
@@ -1242,7 +1251,29 @@ async function exportSelected() {
 
 async function copyScreenshot(screenshot: InstanceScreenshot) {
 	try {
-		const png = readFile(screenshot.path).then((bytes) => new Blob([bytes], { type: 'image/png' }))
+		const png = readFile(screenshot.path).then(async (bytes) => {
+			if (/\.png$/i.test(screenshot.file_name)) return new Blob([bytes], { type: 'image/png' })
+			const bitmap = await createImageBitmap(new Blob([bytes], { type: 'image/jpeg' }))
+			try {
+				const canvas = document.createElement('canvas')
+				canvas.width = bitmap.width
+				canvas.height = bitmap.height
+				const context = canvas.getContext('2d')
+				if (!context) throw new Error(formatMessage(commonMessages.errorNotificationTitle))
+				context.drawImage(bitmap, 0, 0)
+				return await new Promise<Blob>((resolve, reject) =>
+					canvas.toBlob(
+						(blob) =>
+							blob
+								? resolve(blob)
+								: reject(new Error(formatMessage(commonMessages.errorNotificationTitle))),
+						'image/png',
+					),
+				)
+			} finally {
+				bitmap.close()
+			}
+		})
 		await navigator.clipboard.write([new ClipboardItem({ 'image/png': png })])
 		markScreenshotCopied(screenshot.id)
 	} catch (error) {
@@ -1433,7 +1464,7 @@ onBeforeUnmount(() => {
 				size="1rem"
 				class="shrink-0"
 			/>
-			{{ formatMessage(messages.goToInstance) }}
+			{{ formatMessage(props.bedrock ? bedrockMessages.bedrock : messages.goToInstance) }}
 		</template>
 	</ContextMenu>
 	<ImageViewerEditor

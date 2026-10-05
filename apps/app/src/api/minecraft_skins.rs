@@ -20,8 +20,26 @@ pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
             flush_pending_skin_change_for_profile,
             normalize_skin_texture,
             get_dragged_skin_data,
+            get_skin_catalog,
+            get_catalog_skin_texture,
         ])
         .build()
+}
+
+#[tauri::command]
+pub async fn get_skin_catalog(
+    provider: String,
+    query: Option<Vec<(String, String)>>,
+) -> Result<theseus::skin_catalog::CatalogPage> {
+    Ok(
+        theseus::skin_catalog::list(&provider, &query.unwrap_or_default())
+            .await?,
+    )
+}
+
+#[tauri::command]
+pub async fn get_catalog_skin_texture(url: String) -> Result<Bytes> {
+    Ok(theseus::skin_catalog::texture(&url).await?.into())
 }
 
 /// `invoke('plugin:minecraft-skins|get_available_capes')`

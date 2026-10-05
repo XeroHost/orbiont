@@ -32,14 +32,17 @@
   "browse.advanced-filters.persistence-note": {
     "defaultMessage": "Napredna izuzeća se čuvaju u svim sesijama. Otvaranjem deljenog linka sa filterima će se poništiti."
   },
+  "browse.display-mode.change": {
+    "defaultMessage": "Promeni režim prikaza"
+  },
   "browse.filter-results": {
     "defaultMessage": "Filtriranje resultata..."
   },
   "browse.no-results": {
     "defaultMessage": "Nema rezultata za tvoju potragu!"
   },
-  "browse.offline": {
-    "defaultMessage": "Upravo si oflajn. Poveži se na internet da pretražuješ Modrinth!"
+  "browse.offline-content": {
+    "defaultMessage": "Trenutno si oflajn. Poveži se na internet da pregledaš sadržaj."
   },
   "browse.search.placeholder": {
     "defaultMessage": "Traži {projectType}..."
@@ -260,6 +263,9 @@
   "button.upload-image": {
     "defaultMessage": "Postavi sliku"
   },
+  "card.toggle-details": {
+    "defaultMessage": "Uključi/isključi detalje"
+  },
   "collections.label.private": {
     "defaultMessage": "Privatno"
   },
@@ -271,6 +277,39 @@
   },
   "console.actions.share": {
     "defaultMessage": "Podeli"
+  },
+  "console.command-input-disabled": {
+    "defaultMessage": "Unos komandi onemogućen"
+  },
+  "console.crash.problems-detected": {
+    "defaultMessage": "{count, plural, one {Otkriven # problem} few {Otkrivena # problema} other {Otkriveno # problema}}"
+  },
+  "console.delete-log-confirm-body": {
+    "defaultMessage": "Brisanje ovog log fajla ne može se poništiti. Da li si siguran da želiš da nastaviš?"
+  },
+  "console.delete-log-failed-title": {
+    "defaultMessage": "Brisanje log fajla nije uspelo"
+  },
+  "console.delete-log-file-header": {
+    "defaultMessage": "Izbriši log fajl"
+  },
+  "console.delete-log-irreversible-header": {
+    "defaultMessage": "Ovo je nepovratno"
+  },
+  "console.search-logs-placeholder": {
+    "defaultMessage": "Pretraži logove"
+  },
+  "console.server-not-running": {
+    "defaultMessage": "Server ne radi"
+  },
+  "console.share-logs-failed-title": {
+    "defaultMessage": "Deljenje logova nije uspelo"
+  },
+  "console.share-logs-header": {
+    "defaultMessage": "Podeli logove"
+  },
+  "console.unknown-error": {
+    "defaultMessage": "Nepoznata greška."
   },
   "content-type.content.lowercase": {
     "defaultMessage": "sadržaji"
@@ -488,12 +527,6 @@
   "content.inline-backup.backup-failed": {
     "defaultMessage": "Kreiranje backupa nije uspelo. Ipak možeš nastaviti."
   },
-  "content.inline-backup.backup-in-progress": {
-    "defaultMessage": "Backup se trenutno pravi; preporučuje se da sačekaš da se taj proces završi pre nego što izvršiš ovu radnju."
-  },
-  "content.inline-backup.backup-takes-a-while": {
-    "defaultMessage": "Kreiranje backupa može potrajati nekoliko minuta u zavisnosti od veličine tvog servera."
-  },
   "content.inline-backup.create-backup": {
     "defaultMessage": "Napravi backup"
   },
@@ -505,9 +538,6 @@
   },
   "content.inline-backup.warning-body": {
     "defaultMessage": "Preporučujemo da napraviš backup pre nego što nastaviš, kako bi mogao da vratiš svoj {type} ukoliko dođe do nekog problema."
-  },
-  "content.inline-backup.world-label": {
-    "defaultMessage": "svet"
   },
   "content.managed-card.modpack-content": {
     "defaultMessage": "Sadržaj modpacka"
@@ -719,32 +749,11 @@
   "creation-flow.button.create-instance": {
     "defaultMessage": "Kreiraj instancu"
   },
-  "creation-flow.button.create-world": {
-    "defaultMessage": "Napravi svet"
-  },
-  "creation-flow.button.finish": {
-    "defaultMessage": "Završi"
-  },
   "creation-flow.button.import": {
     "defaultMessage": "Uvedi"
   },
   "creation-flow.button.import-instances": {
     "defaultMessage": "Uvezi {count, plural, one {# instancu} few {# instance} other {# instanca}}"
-  },
-  "creation-flow.button.setup-server": {
-    "defaultMessage": "Podesi server"
-  },
-  "creation-flow.modal.custom-setup.build-number.label": {
-    "defaultMessage": "Broj verzije"
-  },
-  "creation-flow.modal.custom-setup.build-number.placeholder": {
-    "defaultMessage": "Izaberi broj verzije"
-  },
-  "creation-flow.modal.custom-setup.build-number.search-placeholder": {
-    "defaultMessage": "Traži broj verzije..."
-  },
-  "creation-flow.modal.custom-setup.content-loader.label": {
-    "defaultMessage": "Učitavač sadržaja"
   },
   "creation-flow.modal.custom-setup.game-version.placeholder": {
     "defaultMessage": "Izaberi verziju igre"
@@ -791,105 +800,6 @@
   "creation-flow.modal.custom-setup.options.no-versions-available": {
     "defaultMessage": "Nijedna verzija nije dostupna"
   },
-  "creation-flow.modal.final-config.additional-settings.title": {
-    "defaultMessage": "Dodatna podešavanja"
-  },
-  "creation-flow.modal.final-config.backup.before-reset-server.name": {
-    "defaultMessage": "Prije resetiranja servera"
-  },
-  "creation-flow.modal.final-config.difficulty.easy": {
-    "defaultMessage": "Lagano"
-  },
-  "creation-flow.modal.final-config.difficulty.hard": {
-    "defaultMessage": "Teško"
-  },
-  "creation-flow.modal.final-config.difficulty.label": {
-    "defaultMessage": "Težina"
-  },
-  "creation-flow.modal.final-config.difficulty.normal": {
-    "defaultMessage": "Normalno"
-  },
-  "creation-flow.modal.final-config.difficulty.peaceful": {
-    "defaultMessage": "Bezbedno"
-  },
-  "creation-flow.modal.final-config.game-version.placeholder": {
-    "defaultMessage": "Izaberi verziju igre"
-  },
-  "creation-flow.modal.final-config.gamemode.creative": {
-    "defaultMessage": "Kreativnost"
-  },
-  "creation-flow.modal.final-config.gamemode.hardcore": {
-    "defaultMessage": "Hardcore"
-  },
-  "creation-flow.modal.final-config.gamemode.label": {
-    "defaultMessage": "Režim igre"
-  },
-  "creation-flow.modal.final-config.gamemode.survival": {
-    "defaultMessage": "Preživljavanje"
-  },
-  "creation-flow.modal.final-config.generate-structures.description": {
-    "defaultMessage": "Određuje da li se sela, utvrđenja i druge građevine generišu u novim delovima sveta."
-  },
-  "creation-flow.modal.final-config.generate-structures.label": {
-    "defaultMessage": "Generacija struktura"
-  },
-  "creation-flow.modal.final-config.generator-settings-json.placeholder": {
-    "defaultMessage": "Unesi JSON sa podešavanjima generatora"
-  },
-  "creation-flow.modal.final-config.generator-settings.custom": {
-    "defaultMessage": "Prilagođen"
-  },
-  "creation-flow.modal.final-config.generator-settings.default": {
-    "defaultMessage": "Podrazumevan"
-  },
-  "creation-flow.modal.final-config.generator-settings.description": {
-    "defaultMessage": "Koristi se za napredno prilagođavanje sveta kao što su prilagođeni ravni slojevi."
-  },
-  "creation-flow.modal.final-config.generator-settings.flat": {
-    "defaultMessage": "Ravan"
-  },
-  "creation-flow.modal.final-config.generator-settings.label": {
-    "defaultMessage": "Podešavanja generatora"
-  },
-  "creation-flow.modal.final-config.generator-settings.placeholder": {
-    "defaultMessage": "Izaberi podešavanja generatora"
-  },
-  "creation-flow.modal.final-config.world-name.label": {
-    "defaultMessage": "Ime sveta"
-  },
-  "creation-flow.modal.final-config.world-name.placeholder": {
-    "defaultMessage": "Ukucaj ime sveta"
-  },
-  "creation-flow.modal.final-config.world-seed.description": {
-    "defaultMessage": "Ostavi prazno za nasumičnu početnu vrednost."
-  },
-  "creation-flow.modal.final-config.world-seed.label-with-optional": {
-    "defaultMessage": "Seed sveta <optional>(opciono)</optional>"
-  },
-  "creation-flow.modal.final-config.world-seed.placeholder": {
-    "defaultMessage": "Unesi seed sveta"
-  },
-  "creation-flow.modal.final-config.world-type.amplified": {
-    "defaultMessage": "Pojačan"
-  },
-  "creation-flow.modal.final-config.world-type.default": {
-    "defaultMessage": "Podrazumevan"
-  },
-  "creation-flow.modal.final-config.world-type.label": {
-    "defaultMessage": "Tip sveta"
-  },
-  "creation-flow.modal.final-config.world-type.large-biomes": {
-    "defaultMessage": "Veliki biomi"
-  },
-  "creation-flow.modal.final-config.world-type.placeholder": {
-    "defaultMessage": "Izaberi tip sveta"
-  },
-  "creation-flow.modal.final-config.world-type.single-biome": {
-    "defaultMessage": "Jedinstveni biom"
-  },
-  "creation-flow.modal.final-config.world-type.superflat": {
-    "defaultMessage": "Ravan"
-  },
   "creation-flow.modal.import-instance.action.add": {
     "defaultMessage": "Dodaj"
   },
@@ -904,6 +814,9 @@
   },
   "creation-flow.modal.import-instance.launcher-path.add": {
     "defaultMessage": "Dodaj put pokretača"
+  },
+  "creation-flow.modal.import-instance.launcher-path.browse": {
+    "defaultMessage": "Pretraži putanju launcher-a"
   },
   "creation-flow.modal.import-instance.launcher-path.placeholder": {
     "defaultMessage": "Put do pokretača..."
@@ -953,41 +866,50 @@
   "creation-flow.modal.setup-type.option.modpack-base.title": {
     "defaultMessage": "Započni od moda ili modpacka"
   },
-  "creation-flow.modal.setup-type.option.upload-modpack.description": {
-    "defaultMessage": "Preuzmi modpack iz .mrpack fajla koji se nalazi na tvom uređaju."
+  "creation-flow.modal.setup-type.option.upload-modpack.supported-formats-description": {
+    "defaultMessage": "Uvezi .orbpack, Modrinth .mrpack ili CurseForge .zip fajl sa svog uređaja."
   },
   "creation-flow.modal.setup-type.option.upload-modpack.title": {
     "defaultMessage": "Otpremi modpack"
   },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.description": {
-    "defaultMessage": "Klasični Minecraft bez modova ili plugina."
-  },
-  "creation-flow.modal.setup-type.option.vanilla-minecraft.title": {
-    "defaultMessage": "Vanila Minecraft"
-  },
-  "creation-flow.modal.setup-type.title.installation": {
-    "defaultMessage": "Izaberi tip instalacije"
-  },
   "creation-flow.modal.setup-type.title.instance": {
     "defaultMessage": "Izaberi tip instance"
   },
-  "creation-flow.modal.setup-type.title.world": {
-    "defaultMessage": "Izaberi tip sveta"
+  "creation-flow.optifine.description": {
+    "defaultMessage": "Opciono. Izaberi zvanični installer i launcher će ga podesiti u ovoj instanci."
+  },
+  "creation-flow.optifine.download": {
+    "defaultMessage": "Zvanično preuzimanje"
+  },
+  "creation-flow.optifine.name": {
+    "defaultMessage": "OptiFine"
+  },
+  "creation-flow.optifine.none": {
+    "defaultMessage": "Ništa"
+  },
+  "creation-flow.optifine.optimization": {
+    "defaultMessage": "Optimizacija"
+  },
+  "creation-flow.optifine.required": {
+    "defaultMessage": "Izaberi zvanični OptiFine JAR za Minecraft {gameVersion} da nastaviš."
+  },
+  "creation-flow.optifine.select": {
+    "defaultMessage": "Izaberi JAR"
+  },
+  "creation-flow.optifine.selected": {
+    "defaultMessage": "OptiFine {version} · Minecraft {gameVersion}"
+  },
+  "creation-flow.optifine.validating": {
+    "defaultMessage": "Provera installera…"
+  },
+  "creation-flow.optifine.vanilla-only": {
+    "defaultMessage": "Instalacija OptiFine-a je trenutno dostupna samo za Vanilla instance."
   },
   "creation-flow.title.create-instance": {
     "defaultMessage": "Kreiraj instancu"
   },
-  "creation-flow.title.create-world": {
-    "defaultMessage": "Napravi svet"
-  },
   "creation-flow.title.import-instance": {
     "defaultMessage": "Uvozi instancu"
-  },
-  "creation-flow.title.reset-server": {
-    "defaultMessage": "Resetuj server"
-  },
-  "creation-flow.title.set-up-server": {
-    "defaultMessage": "Podesi server"
   },
   "empty-state.upload-versions.description": {
     "defaultMessage": "Vrati se nazad nakon što si otpremio tvoju verziju."
@@ -1009,6 +931,12 @@
   },
   "external-project-license-status.yes": {
     "defaultMessage": "Da"
+  },
+  "file-button.file-too-large.description": {
+    "defaultMessage": "Fajl {filename} je prevelik. Maksimalna velicina fajla je {maxSize}."
+  },
+  "file-button.file-too-large.title": {
+    "defaultMessage": "Fajl je prevelik."
   },
   "files.conflict-modal.header": {
     "defaultMessage": "Raspakuj rezime"
@@ -1060,6 +988,9 @@
   },
   "files.create-zip-modal.name-label": {
     "defaultMessage": "Ime arhive"
+  },
+  "files.create-zip-modal.name-placeholder": {
+    "defaultMessage": "arhiva.zip"
   },
   "files.create-zip-modal.required": {
     "defaultMessage": "Unesi ime arhive."
@@ -1232,9 +1163,6 @@
   "files.navbar.home": {
     "defaultMessage": "Početna stranica"
   },
-  "files.navbar.install-curseforge-pack": {
-    "defaultMessage": "Instaliraj modpack od CurseForge"
-  },
   "files.navbar.new-file": {
     "defaultMessage": "Nova datoteka"
   },
@@ -1252,9 +1180,6 @@
   },
   "files.navbar.upload-from-zip": {
     "defaultMessage": "Postavi od .zip datoteke"
-  },
-  "files.navbar.upload-from-zip-url": {
-    "defaultMessage": "Postavi od .zip URL"
   },
   "files.rename-modal.header": {
     "defaultMessage": "Preimenuj {name}"
@@ -1306,63 +1231,6 @@
   },
   "files.validation.name-required": {
     "defaultMessage": "Potrebno je ime."
-  },
-  "files.zip-url-modal.backup-name": {
-    "defaultMessage": "Instalacija modpacka od CurseForge"
-  },
-  "files.zip-url-modal.cf-header": {
-    "defaultMessage": "Instaliraj modpack od CurseForge"
-  },
-  "files.zip-url-modal.cf-not-found-text": {
-    "defaultMessage": "Nismo mogli da pronađemo CurseForge modpack na toj URL adresi."
-  },
-  "files.zip-url-modal.cf-not-found-title": {
-    "defaultMessage": "Modpack od CurseForge nije pronađen"
-  },
-  "files.zip-url-modal.enter-link": {
-    "defaultMessage": "Ubaci link"
-  },
-  "files.zip-url-modal.error-cf-url": {
-    "defaultMessage": "URL mora biti URL verzije CurseForge modpacka."
-  },
-  "files.zip-url-modal.error-url-invalid": {
-    "defaultMessage": "URL mora biti važeći."
-  },
-  "files.zip-url-modal.error-url-required": {
-    "defaultMessage": "Potrebna je URL."
-  },
-  "files.zip-url-modal.install-button": {
-    "defaultMessage": "Instaliraj"
-  },
-  "files.zip-url-modal.install-failed-title": {
-    "defaultMessage": "Neuspešna instalacija"
-  },
-  "files.zip-url-modal.step-copy-description": {
-    "defaultMessage": "Kopiraj URL adresu stranice verzije i nalepi je ispod."
-  },
-  "files.zip-url-modal.step-copy-title": {
-    "defaultMessage": "Kopiraj URL"
-  },
-  "files.zip-url-modal.step-find-description": {
-    "defaultMessage": "Pregledaj CurseForge i pronađi željeni modpak."
-  },
-  "files.zip-url-modal.step-find-title": {
-    "defaultMessage": "Pronađi modpack"
-  },
-  "files.zip-url-modal.step-select-description": {
-    "defaultMessage": "Idi na karticu „Datoteke” i izaberi verziju za instalaciju."
-  },
-  "files.zip-url-modal.step-select-title": {
-    "defaultMessage": "Izaberi verziju"
-  },
-  "files.zip-url-modal.unknown-error": {
-    "defaultMessage": "Došlo je do nepoznate greške"
-  },
-  "files.zip-url-modal.zip-description": {
-    "defaultMessage": "Kopiraj i nalepi URL adresu za direktno preuzimanje .zip datoteke."
-  },
-  "files.zip-url-modal.zip-header": {
-    "defaultMessage": "Postavljanje sadržaja .zip arhive sa URL-a"
   },
   "filter-bar.add": {
     "defaultMessage": "Dodaj"
@@ -1649,9 +1517,6 @@
   "installation-settings.edit.warning-instance": {
     "defaultMessage": "Ne preporučujemo uređivanje podešavanja instalacije nakon instaliranja sadržaja. Ako želiš da ih izmeniš, budi oprezan jer to može prouzrokovati probleme."
   },
-  "installation-settings.edit.warning-server": {
-    "defaultMessage": "Ne preporučujemo uređivanje podešavanja instalacije nakon instaliranja sadržaja. Ako želiš da ih izmeniš, resetuj svoj server."
-  },
   "installation-settings.incompatible-content.auto-fix-button": {
     "defaultMessage": "Automatski popravi"
   },
@@ -1709,12 +1574,6 @@
   "installation-settings.repair.instance-title": {
     "defaultMessage": "Popravi instancu"
   },
-  "installation-settings.repair.server-description": {
-    "defaultMessage": "Ponovo instalira program za učitavanje i zavisnosti Minecrafta bez brisanja vašeg sadržaja. Ovo može rešiti probleme ako se tvoj server ne pokreće ispravno."
-  },
-  "installation-settings.repair.server-title": {
-    "defaultMessage": "Popravi server"
-  },
   "installation-settings.saving": {
     "defaultMessage": "Sačuvavanje..."
   },
@@ -1729,9 +1588,6 @@
   },
   "installation-settings.type.server": {
     "defaultMessage": "server"
-  },
-  "installation-settings.type.server-possessive": {
-    "defaultMessage": "od servera"
   },
   "installation-settings.unlink": {
     "defaultMessage": "Ukloni vezu"
@@ -1757,9 +1613,6 @@
   "instance.confirm-repair.body.instance": {
     "defaultMessage": "Popravak ponovo instalira program za pokretanje i zavisnosti Minecrafta bez brisanja sadržaja. Ovo može rešiti probleme ako se tvoja igra ne pokreće zbog grešaka povezanih sa pokretačem."
   },
-  "instance.confirm-repair.body.server": {
-    "defaultMessage": "Popravka ponovo instalira pokretač i zavisnosti za Minecraft, bez brisanja vašeg sadržaja. Ovo može rešiti probleme ukoliko se server ne pokreće pravilno."
-  },
   "instance.confirm-repair.header": {
     "defaultMessage": "Popravi {type}"
   },
@@ -1768,9 +1621,6 @@
   },
   "instance.confirm-repair.repair-button": {
     "defaultMessage": "Popravi"
-  },
-  "instance.confirm-repair.server-label": {
-    "defaultMessage": "server"
   },
   "instance.worlds.game_mode.adventure": {
     "defaultMessage": "Avanturistički režim"
@@ -1834,6 +1684,45 @@
   },
   "instances.content-install.show-unavailable": {
     "defaultMessage": "Prikaži nedostupno"
+  },
+  "instances.managed-content-modal.disabled": {
+    "defaultMessage": "Isključeno"
+  },
+  "instances.managed-content-modal.download-file": {
+    "defaultMessage": "Skini fajl"
+  },
+  "instances.managed-content-modal.empty-description": {
+    "defaultMessage": "Ovaj izvor ne sadrži sadržaj kojim se upravlja."
+  },
+  "instances.managed-content-modal.empty-title": {
+    "defaultMessage": "Sadržaj nije pronađen"
+  },
+  "instances.managed-content-modal.enabled": {
+    "defaultMessage": "Uključeno"
+  },
+  "instances.managed-content-modal.external-content": {
+    "defaultMessage": "Spoljašnje"
+  },
+  "instances.managed-content-modal.external-content-description": {
+    "defaultMessage": "Ovaj fajl nije objavljen na Modrinth-u."
+  },
+  "instances.managed-content-modal.header": {
+    "defaultMessage": "Upravljan sadržaj"
+  },
+  "instances.managed-content-modal.loading": {
+    "defaultMessage": "Učitavanje sadržaja..."
+  },
+  "instances.managed-content-modal.no-results": {
+    "defaultMessage": "Nijedan projekat ne odgovara vašoj pretrazi."
+  },
+  "instances.managed-content-modal.open-in-slicer": {
+    "defaultMessage": "Otvori u Slicer-u"
+  },
+  "instances.managed-content-modal.search-placeholder": {
+    "defaultMessage": "Pretraži {count, number} {count, plural, one {projekt} few {projekta} other {projekata}}"
+  },
+  "instances.managed-content-modal.warnings": {
+    "defaultMessage": "Upozorenja"
   },
   "instances.updater-modal.badge.current": {
     "defaultMessage": "Upravo"
@@ -1967,6 +1856,9 @@
   "label.details": {
     "defaultMessage": "Detalji"
   },
+  "label.discover-content": {
+    "defaultMessage": "Istraži sadržaj"
+  },
   "label.done": {
     "defaultMessage": "Gotovo"
   },
@@ -1981,6 +1873,9 @@
   },
   "label.error": {
     "defaultMessage": "Greška"
+  },
+  "label.explanation": {
+    "defaultMessage": "Objašnjenje"
   },
   "label.extract-failed": {
     "defaultMessage": "Neuspešno raspakovanje"
@@ -2045,6 +1940,9 @@
   "label.password": {
     "defaultMessage": "Lozinka"
   },
+  "label.permissions": {
+    "defaultMessage": "Dozvole"
+  },
   "label.plan-custom": {
     "defaultMessage": "Prilagođeno"
   },
@@ -2101,9 +1999,6 @@
   },
   "label.server": {
     "defaultMessage": "Server"
-  },
-  "label.server-only": {
-    "defaultMessage": "Samo server"
   },
   "label.servers": {
     "defaultMessage": "Serveri"
@@ -2255,155 +2150,92 @@
   "locale.zh-TW": {
     "defaultMessage": "Kineski (Tradicionalni)"
   },
-  "markdown-editor.default-image-alt-text": {
-    "defaultMessage": "Zameni ovo opisom"
+  "modal.confirm.type-here-placeholder": {
+    "defaultMessage": "Ukucaj ovde..."
   },
-  "markdown-editor.error-label": {
-    "defaultMessage": "Greška"
+  "modal.confirm.type-to-confirm": {
+    "defaultMessage": "Da potvrdiš da želiš da nastaviš, ukucaj <confirmation-text></confirmation-text> ispod:"
   },
-  "markdown-editor.image-modal.description-field.description": {
-    "defaultMessage": "Opiši sliku u potpunosti, kao što bi to učinio nekome ko ne može da je vidi."
+  "modal.share.copy-failed-title": {
+    "defaultMessage": "Kopiranje teksta nije uspelo"
   },
-  "markdown-editor.image-modal.description-field.placeholder": {
-    "defaultMessage": "Opiši sliku..."
+  "modal.share.copy-link": {
+    "defaultMessage": "Kopiraj link"
   },
-  "markdown-editor.image-modal.description-field.title": {
-    "defaultMessage": "Opis (alternativni tekst)"
+  "modal.share.copy-qr-code": {
+    "defaultMessage": "Kopiraj QR kod"
   },
-  "markdown-editor.image-modal.header": {
-    "defaultMessage": "Ubaci sliku"
+  "modal.share.copy-text": {
+    "defaultMessage": "Kopiraj tekst"
   },
-  "markdown-editor.image-modal.upload-mode.label": {
-    "defaultMessage": "Izvor slike"
+  "modal.share.link-copied-text": {
+    "defaultMessage": "Link je kopiran u tvoj međuspremnik."
   },
-  "markdown-editor.image-modal.upload-mode.link": {
-    "defaultMessage": "Link"
+  "modal.share.link-copied-title": {
+    "defaultMessage": "Link kopiran"
   },
-  "markdown-editor.image-modal.upload-mode.upload": {
-    "defaultMessage": "Postavi"
+  "modal.share.open-in-new-tab": {
+    "defaultMessage": "Otvori u novoj kartici"
   },
-  "markdown-editor.image-modal.upload.prompt": {
-    "defaultMessage": "Prevuci i ispusti da bi otpremio ili klikni da bi izabrao datoteku"
+  "modal.share.open-link-in-browser": {
+    "defaultMessage": "Otvori link u pregledaču"
   },
-  "markdown-editor.image-modal.url-field.placeholder": {
-    "defaultMessage": "Ubaci URL slike..."
+  "modal.share.send-email": {
+    "defaultMessage": "Pošalji kao e-mail"
   },
-  "markdown-editor.insert-button": {
-    "defaultMessage": "Ubaci"
+  "modal.share.share": {
+    "defaultMessage": "Podeli"
   },
-  "markdown-editor.link-modal.header": {
-    "defaultMessage": "Ubaci link"
+  "modal.share.share-on-reddit": {
+    "defaultMessage": "Podeli na Reddit-u"
   },
-  "markdown-editor.link-modal.label-field.placeholder": {
-    "defaultMessage": "Unesi oznaku..."
+  "modal.share.toot-about-it": {
+    "defaultMessage": "Tootuj o tome"
   },
-  "markdown-editor.link-modal.label-field.title": {
-    "defaultMessage": "Oznaka"
+  "modal.share.tweet-about-it": {
+    "defaultMessage": "Tweetuj o tome"
   },
-  "markdown-editor.link-modal.url-field.placeholder": {
-    "defaultMessage": "Ubaci URL linka..."
+  "multi-select.clear-all": {
+    "defaultMessage": "Obriši sve"
   },
-  "markdown-editor.markdown-formatting-support": {
-    "defaultMessage": "Ovaj uređivač podržava <markdown-link>Markdown formatiranje</markdown-link>."
-  },
-  "markdown-editor.max-length.label": {
-    "defaultMessage": "Maksimalna dužina:"
-  },
-  "markdown-editor.max-length.unlimited": {
-    "defaultMessage": "Neograničeno"
-  },
-  "markdown-editor.max-length.value": {
-    "defaultMessage": "{currentLength}/{maxLength}"
-  },
-  "markdown-editor.placeholder": {
-    "defaultMessage": "Napiši nešto..."
-  },
-  "markdown-editor.preview-label": {
-    "defaultMessage": "Pregled"
-  },
-  "markdown-editor.preview-toggle.label": {
-    "defaultMessage": "Pregled"
-  },
-  "markdown-editor.toolbar.bold": {
-    "defaultMessage": "Podebljano"
-  },
-  "markdown-editor.toolbar.bulleted-list": {
-    "defaultMessage": "Lista sa nabrajanjem"
-  },
-  "markdown-editor.toolbar.code": {
-    "defaultMessage": "Kod"
-  },
-  "markdown-editor.toolbar.heading-1": {
-    "defaultMessage": "Naslov 1"
-  },
-  "markdown-editor.toolbar.heading-2": {
-    "defaultMessage": "Naslov 2"
-  },
-  "markdown-editor.toolbar.heading-3": {
-    "defaultMessage": "Naslov 3"
-  },
-  "markdown-editor.toolbar.image": {
-    "defaultMessage": "Slika"
-  },
-  "markdown-editor.toolbar.italic": {
-    "defaultMessage": "Kurzivno"
-  },
-  "markdown-editor.toolbar.link": {
-    "defaultMessage": "Link"
-  },
-  "markdown-editor.toolbar.ordered-list": {
-    "defaultMessage": "Uređena lista"
-  },
-  "markdown-editor.toolbar.quote": {
-    "defaultMessage": "Citat"
-  },
-  "markdown-editor.toolbar.spoiler": {
-    "defaultMessage": "Spojler"
-  },
-  "markdown-editor.toolbar.strikethrough": {
-    "defaultMessage": "Precrtano"
-  },
-  "markdown-editor.toolbar.video": {
-    "defaultMessage": "Video"
-  },
-  "markdown-editor.upload-error.no-file": {
-    "defaultMessage": "Nije priložena nijedna datoteka"
-  },
-  "markdown-editor.upload-error.no-handler": {
-    "defaultMessage": "Nije obezbeđen program za otpremanje slika"
-  },
-  "markdown-editor.url-label": {
-    "defaultMessage": "URL"
-  },
-  "markdown-editor.url-validation-error.blocked-domain": {
-    "defaultMessage": "Nevažeća URL adresa. Ovaj domen nije dozvoljen."
-  },
-  "markdown-editor.url-validation-error.malformed": {
-    "defaultMessage": "Nevažeća URL adresa. Proveri da li je URL adresa ispravno oblikovana."
-  },
-  "markdown-editor.url-validation-error.unsupported-protocol": {
-    "defaultMessage": "Nepodržan protokol. Koristi http ili https."
-  },
-  "markdown-editor.video-embed.title": {
-    "defaultMessage": "YouTube video igrač"
-  },
-  "markdown-editor.video-modal.header": {
-    "defaultMessage": "Ubaci YouTube video"
-  },
-  "markdown-editor.video-modal.url-field.description": {
-    "defaultMessage": "Unesi važeći link ka YouTube videu."
-  },
-  "markdown-editor.video-modal.url-field.placeholder": {
-    "defaultMessage": "Ukucaj URL YouTube videa"
-  },
-  "markdown-editor.video-modal.url-field.title": {
-    "defaultMessage": "YouTube video URL"
+  "multi-select.selection-count": {
+    "defaultMessage": "{count, plural, one {# izabran} few {# izabrana} other {# izabrano}}"
   },
   "notification.error.title": {
     "defaultMessage": "Došlo je do greške"
   },
-  "omorphia.component.copy.action.copy": {
-    "defaultMessage": "Kopiraj kod u međuspremnik"
+  "notifications.actor.unknown": {
+    "defaultMessage": "Neko"
+  },
+  "notifications.close": {
+    "defaultMessage": "Zatvori"
+  },
+  "notifications.dismiss": {
+    "defaultMessage": "Skloni obaveštenje"
+  },
+  "notifications.friend-request.body": {
+    "defaultMessage": "<actor>{actor}</actor> vam je poslao/la zahtev za prijateljstvo."
+  },
+  "notifications.instance-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> te je pozvao u instancu <entity>{entity}</entity>."
+  },
+  "notifications.instance-ready.launch-game": {
+    "defaultMessage": "Pokreni igru"
+  },
+  "notifications.instance-ready.open-instance": {
+    "defaultMessage": "Instanca"
+  },
+  "notifications.instance-ready.status": {
+    "defaultMessage": "Instalirano i spremno za igru."
+  },
+  "notifications.invite.accept": {
+    "defaultMessage": "Prihvati"
+  },
+  "notifications.invite.decline": {
+    "defaultMessage": "Odbij"
+  },
+  "notifications.server-invite.body": {
+    "defaultMessage": "<actor>{actor}</actor> te je pozvao da upravljaš serverom <entity>{entity}</entity>."
   },
   "payment-method.amazon_pay": {
     "defaultMessage": "Amazon Pay"
@@ -2468,99 +2300,6 @@
   "payment-method.visa": {
     "defaultMessage": "Viza"
   },
-  "profile.details.error.github-profile-message": {
-    "defaultMessage": "Profil sa GitHub-a nije mogao biti preuzet. Molimo pokušajte ponovo."
-  },
-  "profile.details.error.github-profile-title": {
-    "defaultMessage": "Nije moguće otvoriti GitHub profil"
-  },
-  "profile.details.label.auth-providers": {
-    "defaultMessage": "Provajderi ovlašćenja"
-  },
-  "profile.details.label.email-verified": {
-    "defaultMessage": "E-Mail verifikovan"
-  },
-  "profile.details.label.has-password": {
-    "defaultMessage": "Ima šifru"
-  },
-  "profile.details.label.has-totp": {
-    "defaultMessage": "Ima TOTP"
-  },
-  "profile.details.label.loading-github-profile": {
-    "defaultMessage": "Učitavanje..."
-  },
-  "profile.details.label.payment-methods": {
-    "defaultMessage": "Način plaćanja"
-  },
-  "profile.details.label.view-github-profile": {
-    "defaultMessage": "Pogledaj profil"
-  },
-  "profile.details.title": {
-    "defaultMessage": "Detalji korisnika"
-  },
-  "profile.details.tooltip.email-not-verified": {
-    "defaultMessage": "E-Mail nije verifikovan"
-  },
-  "profile.details.tooltip.email-verified": {
-    "defaultMessage": "E-Mail je verifikovan"
-  },
-  "profile.error.load-description": {
-    "defaultMessage": "Korisnikova slika nije bila moguća da se učita."
-  },
-  "profile.error.not-found": {
-    "defaultMessage": "Korisnik nije pronađen"
-  },
-  "profile.label.affiliate": {
-    "defaultMessage": "Partner"
-  },
-  "profile.label.badges": {
-    "defaultMessage": "Bedževi"
-  },
-  "profile.label.collection": {
-    "defaultMessage": "Kolekcija"
-  },
-  "profile.label.download-count": {
-    "defaultMessage": "{count, plural, one {preuzimanje} other {preuzimanja}}"
-  },
-  "profile.label.joined": {
-    "defaultMessage": "Pridružen"
-  },
-  "profile.label.no-collections": {
-    "defaultMessage": "Ovaj korisnik nema nijednu kolekciju!"
-  },
-  "profile.label.no-collections-auth-description": {
-    "defaultMessage": "Ti nemaš trenutno nijednu kolekciju."
-  },
-  "profile.label.no-projects": {
-    "defaultMessage": "Ovaj korisnik nema nijedan projekat!"
-  },
-  "profile.label.no-projects-auth-description": {
-    "defaultMessage": "Ti trenutno nemaš nijedan projekat."
-  },
-  "profile.label.organizations": {
-    "defaultMessage": "Organizacije"
-  },
-  "profile.label.project-count": {
-    "defaultMessage": "{count, plural,one {projekat} other {projekta}}"
-  },
-  "profile.official-account": {
-    "defaultMessage": "Zvanični Modrinth nalog"
-  },
-  "profile.official-account.bio": {
-    "defaultMessage": "Zvanični nalog Modrinth-a. Dobiji pomoć putem <support-link></support-link> ili preko E-Mail-a na <email></email>"
-  },
-  "profile.unblock-user.error-description": {
-    "defaultMessage": "Desila se greška tokom odblokiranja ovog korisnika. Molimo pokušajte ponovo."
-  },
-  "profile.unblock-user.error-title": {
-    "defaultMessage": "Neuspešno odblokiranje korisnika"
-  },
-  "profile.unblock-user.success-description": {
-    "defaultMessage": "{username} je odblokiran."
-  },
-  "profile.unblock-user.success-title": {
-    "defaultMessage": "Korisnik blokiran"
-  },
   "project-card.date.published.tooltip": {
     "defaultMessage": "Objavljeno {date}"
   },
@@ -2587,9 +2326,6 @@
   },
   "project-type.all": {
     "defaultMessage": "Sve"
-  },
-  "project-type.collection.plural": {
-    "defaultMessage": "Kolekcije"
   },
   "project-type.datapack.capital": {
     "defaultMessage": "{count, plural, one {Data pack} other {Data packovi}}"
@@ -2663,6 +2399,15 @@
   "project-type.shader.lowercase": {
     "defaultMessage": "{count, plural, one {shader} other {shaderi}}"
   },
+  "project-type.world.capital": {
+    "defaultMessage": "{count, plural, one {Svet} few {Sveta} other {Svetova}}"
+  },
+  "project-type.world.category": {
+    "defaultMessage": "Svetovi"
+  },
+  "project-type.world.lowercase": {
+    "defaultMessage": "{count, plural, one {svet} few {sveta} other {svetova}}"
+  },
   "project.about.compatibility.environments": {
     "defaultMessage": "Podržana okruženja"
   },
@@ -2695,6 +2440,9 @@
   },
   "project.about.compatibility.title": {
     "defaultMessage": "Kompatibilnost"
+  },
+  "project.about.creators.no-members-error": {
+    "defaultMessage": "Greška: Projekat nema članova. To ne bi trebalo da se dogodi."
   },
   "project.about.creators.organization": {
     "defaultMessage": "Organizacija"
@@ -2759,38 +2507,26 @@
   "project.about.links.wiki": {
     "defaultMessage": "Posjeti viki"
   },
-  "project.about.server.address.tooltip": {
-    "defaultMessage": "Kopiraj adresu Java servera"
-  },
-  "project.about.server.copied": {
-    "defaultMessage": "Kopirano!"
-  },
-  "project.about.server.copiedText": {
-    "defaultMessage": "Adresa servera kopirana u međuspremnik"
-  },
-  "project.about.server.downloadModpack": {
-    "defaultMessage": "Instaliraj modpack"
-  },
-  "project.about.server.languages": {
-    "defaultMessage": "Jeziki"
-  },
-  "project.about.server.recommendedVersion": {
-    "defaultMessage": "(Preporučeno)"
-  },
-  "project.about.server.region": {
-    "defaultMessage": "Region"
-  },
-  "project.about.server.requiredContent": {
-    "defaultMessage": "Potreban sadržaj"
-  },
-  "project.about.server.title": {
-    "defaultMessage": "Detalji servera"
-  },
   "project.about.tags.title": {
     "defaultMessage": "Oznake"
   },
+  "project.compatibility.client-and-server": {
+    "defaultMessage": "Klijent i server"
+  },
+  "project.compatibility.client-side": {
+    "defaultMessage": "Na strani klijenta"
+  },
+  "project.compatibility.no-mod-loader": {
+    "defaultMessage": "Nema učitavača modova"
+  },
+  "project.compatibility.server-side": {
+    "defaultMessage": "Na strani servera"
+  },
   "project.disclosure.advertising.title": {
     "defaultMessage": "Sadrži reklamiranje"
+  },
+  "project.disclosure.ai-functionality.title": {
+    "defaultMessage": "Funkcionalnost generativne AI"
   },
   "project.disclosure.ai-generated-content.title": {
     "defaultMessage": "Sadrži {types} koji je napravljen putem veštačke inteligencije (AI)"
@@ -2924,225 +2660,6 @@
   "project.server.customModpackTooltip": {
     "defaultMessage": "Ovaj projekat koristi prilagođeni modpack"
   },
-  "project.server.language.af": {
-    "defaultMessage": "Afrički"
-  },
-  "project.server.language.am": {
-    "defaultMessage": "Amharski"
-  },
-  "project.server.language.ar": {
-    "defaultMessage": "Arapski"
-  },
-  "project.server.language.az": {
-    "defaultMessage": "Azerbejdžanski"
-  },
-  "project.server.language.be": {
-    "defaultMessage": "Beloruski"
-  },
-  "project.server.language.bg": {
-    "defaultMessage": "Bugarski"
-  },
-  "project.server.language.bn": {
-    "defaultMessage": "Bengalski"
-  },
-  "project.server.language.bs": {
-    "defaultMessage": "Bosanski"
-  },
-  "project.server.language.ca": {
-    "defaultMessage": "Katalonski"
-  },
-  "project.server.language.cs": {
-    "defaultMessage": "Češki"
-  },
-  "project.server.language.da": {
-    "defaultMessage": "Danski"
-  },
-  "project.server.language.de": {
-    "defaultMessage": "Nemački"
-  },
-  "project.server.language.el": {
-    "defaultMessage": "Grčki"
-  },
-  "project.server.language.en": {
-    "defaultMessage": "Engleski"
-  },
-  "project.server.language.eo": {
-    "defaultMessage": "Esparanto"
-  },
-  "project.server.language.es": {
-    "defaultMessage": "Španski"
-  },
-  "project.server.language.et": {
-    "defaultMessage": "Estonski"
-  },
-  "project.server.language.eu": {
-    "defaultMessage": "Baskijski"
-  },
-  "project.server.language.fa": {
-    "defaultMessage": "Persijski"
-  },
-  "project.server.language.fi": {
-    "defaultMessage": "Finski"
-  },
-  "project.server.language.fr": {
-    "defaultMessage": "Francuski"
-  },
-  "project.server.language.ga": {
-    "defaultMessage": "Irski"
-  },
-  "project.server.language.gl": {
-    "defaultMessage": "Galacijski"
-  },
-  "project.server.language.he": {
-    "defaultMessage": "Hebrejski"
-  },
-  "project.server.language.hi": {
-    "defaultMessage": "Hindi"
-  },
-  "project.server.language.hr": {
-    "defaultMessage": "Hrvatski"
-  },
-  "project.server.language.hu": {
-    "defaultMessage": "Mađarski"
-  },
-  "project.server.language.hy": {
-    "defaultMessage": "Jermenski"
-  },
-  "project.server.language.id": {
-    "defaultMessage": "Indonezijski"
-  },
-  "project.server.language.is": {
-    "defaultMessage": "Islandski"
-  },
-  "project.server.language.it": {
-    "defaultMessage": "Italijanski"
-  },
-  "project.server.language.ja": {
-    "defaultMessage": "Japanski"
-  },
-  "project.server.language.ka": {
-    "defaultMessage": "Gruzijski"
-  },
-  "project.server.language.kk": {
-    "defaultMessage": "Kazaški"
-  },
-  "project.server.language.km": {
-    "defaultMessage": "Kmerski"
-  },
-  "project.server.language.kn": {
-    "defaultMessage": "Kanadski"
-  },
-  "project.server.language.ko": {
-    "defaultMessage": "Korejski"
-  },
-  "project.server.language.lo": {
-    "defaultMessage": "Lao"
-  },
-  "project.server.language.lt": {
-    "defaultMessage": "Litvanski"
-  },
-  "project.server.language.lv": {
-    "defaultMessage": "Letonski"
-  },
-  "project.server.language.mk": {
-    "defaultMessage": "Makedonski"
-  },
-  "project.server.language.ml": {
-    "defaultMessage": "Malajalam"
-  },
-  "project.server.language.mn": {
-    "defaultMessage": "Mongolski"
-  },
-  "project.server.language.mr": {
-    "defaultMessage": "Marati"
-  },
-  "project.server.language.ms": {
-    "defaultMessage": "Malajski"
-  },
-  "project.server.language.my": {
-    "defaultMessage": "Burmanski"
-  },
-  "project.server.language.ne": {
-    "defaultMessage": "Nepalski"
-  },
-  "project.server.language.nl": {
-    "defaultMessage": "Holandski"
-  },
-  "project.server.language.no": {
-    "defaultMessage": "Norveški"
-  },
-  "project.server.language.pa": {
-    "defaultMessage": "Pandžabi"
-  },
-  "project.server.language.pl": {
-    "defaultMessage": "Poljski"
-  },
-  "project.server.language.pt": {
-    "defaultMessage": "Portugalski"
-  },
-  "project.server.language.ro": {
-    "defaultMessage": "Rumunski"
-  },
-  "project.server.language.ru": {
-    "defaultMessage": "Ruski"
-  },
-  "project.server.language.si": {
-    "defaultMessage": "Sinhala"
-  },
-  "project.server.language.sk": {
-    "defaultMessage": "Slovački"
-  },
-  "project.server.language.sl": {
-    "defaultMessage": "Slovenski"
-  },
-  "project.server.language.sq": {
-    "defaultMessage": "Albanski"
-  },
-  "project.server.language.sr": {
-    "defaultMessage": "Srpski"
-  },
-  "project.server.language.sv": {
-    "defaultMessage": "Švedski"
-  },
-  "project.server.language.sw": {
-    "defaultMessage": "Suahili"
-  },
-  "project.server.language.ta": {
-    "defaultMessage": "Tamilski"
-  },
-  "project.server.language.te": {
-    "defaultMessage": "Telugu"
-  },
-  "project.server.language.th": {
-    "defaultMessage": "Tajski"
-  },
-  "project.server.language.tl": {
-    "defaultMessage": "Filipinski"
-  },
-  "project.server.language.tr": {
-    "defaultMessage": "Turski"
-  },
-  "project.server.language.uk": {
-    "defaultMessage": "Ukrajinski"
-  },
-  "project.server.language.ur": {
-    "defaultMessage": "Urdu"
-  },
-  "project.server.language.uz": {
-    "defaultMessage": "Uzbečki"
-  },
-  "project.server.language.vi": {
-    "defaultMessage": "Vijetnamski"
-  },
-  "project.server.language.yo": {
-    "defaultMessage": "Joruba"
-  },
-  "project.server.language.zh": {
-    "defaultMessage": "Kineski"
-  },
-  "project.server.language.zu": {
-    "defaultMessage": "Zulu"
-  },
   "project.server.ping.ms": {
     "defaultMessage": "{ping, number} ms"
   },
@@ -3190,6 +2707,27 @@
   },
   "project.settings.description.title": {
     "defaultMessage": "Opis"
+  },
+  "project.settings.disclosures.ai.types-assets": {
+    "defaultMessage": "Resursi"
+  },
+  "project.settings.disclosures.ai.types-code": {
+    "defaultMessage": "Kod"
+  },
+  "project.settings.disclosures.ai.types-text": {
+    "defaultMessage": "Tekst"
+  },
+  "project.settings.disclosures.telemetry.consent-always-active": {
+    "defaultMessage": "Uvek aktivno"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-in": {
+    "defaultMessage": "Opt-in"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-out": {
+    "defaultMessage": "Opt-out"
+  },
+  "project.settings.disclosures.title": {
+    "defaultMessage": "Objave"
   },
   "project.settings.environment.client_and_server.title": {
     "defaultMessage": "Klijent i server"
@@ -3245,6 +2783,12 @@
   "project.settings.view.title": {
     "defaultMessage": "Pogled"
   },
+  "project.stats.downloads-label": {
+    "defaultMessage": "{count, plural, one {preuzimanje} few {preuzimanja} other {preuzimanja}}"
+  },
+  "project.stats.followers-label": {
+    "defaultMessage": "{count, plural, one {pratilac} few {pratioca} other {pratilaca}}"
+  },
   "project.versions.channel.alpha.symbol": {
     "defaultMessage": "A"
   },
@@ -3254,8 +2798,23 @@
   "project.versions.channel.release.symbol": {
     "defaultMessage": "I"
   },
+  "project.versions.create-version": {
+    "defaultMessage": "Napravi verziju"
+  },
+  "project.versions.downloads-tooltip": {
+    "defaultMessage": "{count, plural, one {# preuzimanje} few {# preuzimanja} other {# preuzimanja}}"
+  },
+  "project.versions.filter.channel": {
+    "defaultMessage": "Kanal"
+  },
+  "project.versions.filter.selected-count": {
+    "defaultMessage": "{count, number} izabrano"
+  },
   "project.versions.filter.toggle-tooltip": {
     "defaultMessage": "Uključi/isključi filter za {filter}"
+  },
+  "project.versions.no-mod-loader": {
+    "defaultMessage": "Nema učitavača modova"
   },
   "project.versions.platform.modloader.short": {
     "defaultMessage": "ModLoader"
@@ -3311,6 +2870,84 @@
   "report.item-type.version": {
     "defaultMessage": "verzija"
   },
+  "report.type.ai-images": {
+    "defaultMessage": "AI-generisane slike u ikoni, galeriji ili opisu"
+  },
+  "report.type.copyright": {
+    "defaultMessage": "Ponovo otpremljen rad"
+  },
+  "report.type.fully-ai-generated": {
+    "defaultMessage": "Potpuno AI-generisan projekat"
+  },
+  "report.type.inappropriate": {
+    "defaultMessage": "Neprimereno"
+  },
+  "report.type.malicious": {
+    "defaultMessage": "Zlonamerno"
+  },
+  "report.type.missing-disclosure": {
+    "defaultMessage": "Nedostajuća ili netačna objava"
+  },
+  "report.type.name-squatting": {
+    "defaultMessage": "Preuzimanje imena"
+  },
+  "report.type.spam": {
+    "defaultMessage": "Spam"
+  },
+  "search.filter.clear-all-filters": {
+    "defaultMessage": "Obriši sve filtere"
+  },
+  "search.filter.dependency_type.any": {
+    "defaultMessage": "Bilo koji tip zavisnosti"
+  },
+  "search.filter.dependency_type.embedded": {
+    "defaultMessage": "Ugrađeno"
+  },
+  "search.filter.dependency_type.optional": {
+    "defaultMessage": "Opciono"
+  },
+  "search.filter.dependency_type.optional_or_embedded": {
+    "defaultMessage": "Opciono ili ugrađeno"
+  },
+  "search.filter.dependency_type.required": {
+    "defaultMessage": "Obavezno"
+  },
+  "search.filter.dependency_type.required_or_embedded": {
+    "defaultMessage": "Obavezno ili ugrađeno"
+  },
+  "search.filter.dependency_type.required_or_optional": {
+    "defaultMessage": "Obavezno ili opciono"
+  },
+  "search.filter.dependent_project": {
+    "defaultMessage": "Zavisi od: {project}"
+  },
+  "search.filter.dependent_project.clear": {
+    "defaultMessage": "Obriši filter zavisnosti"
+  },
+  "search.filter.dependent_project.search_placeholder": {
+    "defaultMessage": "Pretraži projekat..."
+  },
+  "search.filter.excluded_projects": {
+    "defaultMessage": "Isključuje: {projects}"
+  },
+  "search.filter.included_content.exclude": {
+    "defaultMessage": "Isključi"
+  },
+  "search.filter.included_content.excluded": {
+    "defaultMessage": "Isključeno"
+  },
+  "search.filter.included_content.remove_project": {
+    "defaultMessage": "Ukloni {project}"
+  },
+  "search.filter.included_content.remove_project.tooltip": {
+    "defaultMessage": "Ukloni projekat"
+  },
+  "search.filter.included_content.search_placeholder": {
+    "defaultMessage": "Pretraži sadržaj..."
+  },
+  "search.filter.included_projects": {
+    "defaultMessage": "Uključuje: {projects}"
+  },
   "search.filter.locked.default": {
     "defaultMessage": "Filter zaključan"
   },
@@ -3340,6 +2977,42 @@
   },
   "search.filter.option.show_more": {
     "defaultMessage": "Pokaži više"
+  },
+  "search.filter.option.sub_options.collapse.tooltip": {
+    "defaultMessage": "Sakrij više opcija"
+  },
+  "search.filter.option.sub_options.expand.tooltip": {
+    "defaultMessage": "Prikaži više opcija"
+  },
+  "search.filter_type.advanced": {
+    "defaultMessage": "Napredna isključenja"
+  },
+  "search.filter_type.advanced.disclosure.advertisements": {
+    "defaultMessage": "Reklame"
+  },
+  "search.filter_type.advanced.disclosure.ai_content": {
+    "defaultMessage": "AI-generisan sadržaj"
+  },
+  "search.filter_type.advanced.disclosure.ai_content.usage": {
+    "defaultMessage": "AI {usage}"
+  },
+  "search.filter_type.advanced.disclosure.ai_functionality": {
+    "defaultMessage": "Funkcionalnost generativne AI"
+  },
+  "search.filter_type.advanced.disclosure.archived": {
+    "defaultMessage": "Arhivirano"
+  },
+  "search.filter_type.advanced.disclosure.derivative_work": {
+    "defaultMessage": "Izvedeni sadržaj"
+  },
+  "search.filter_type.advanced.disclosure.epilepsy_triggers": {
+    "defaultMessage": "Okidači fotosenzitivnosti"
+  },
+  "search.filter_type.advanced.disclosure.paid_features": {
+    "defaultMessage": "Plaćene funkcije"
+  },
+  "search.filter_type.advanced.disclosure.system_interactions": {
+    "defaultMessage": "Interakcije sa spoljnim sistemima"
   },
   "search.filter_type.advanced.disclosure.telemetry": {
     "defaultMessage": "Telementarija"
@@ -3386,18 +3059,6 @@
   "search.filter_type.project_id": {
     "defaultMessage": "ID projekata"
   },
-  "search.filter_type.server_content_type": {
-    "defaultMessage": "Tip"
-  },
-  "search.filter_type.server_language": {
-    "defaultMessage": "Jezik"
-  },
-  "search.filter_type.server_region": {
-    "defaultMessage": "Region"
-  },
-  "search.filter_type.server_status": {
-    "defaultMessage": "Status"
-  },
   "search.filter_type.shader_loader": {
     "defaultMessage": "Učitavač"
   },
@@ -3416,18 +3077,6 @@
   "search.photosensitivity-warning-modal.title": {
     "defaultMessage": "Rezultati nisu zagarantovani da budu sigurni"
   },
-  "search.server_content_type.modpack": {
-    "defaultMessage": "Modificiran"
-  },
-  "search.server_content_type.vanilla": {
-    "defaultMessage": "Vanilla"
-  },
-  "servers.busy.backup-creating": {
-    "defaultMessage": "Kreacija backupa u toku"
-  },
-  "servers.busy.backup-restoring": {
-    "defaultMessage": "Vraćanje backupa u toku"
-  },
   "settings.account.title": {
     "defaultMessage": "Račun i sigurnost"
   },
@@ -3443,6 +3092,66 @@
   "settings.billing.title": {
     "defaultMessage": "Naplate i pretplate"
   },
+  "settings.display.project-list-layouts.datapack": {
+    "defaultMessage": "Stranica Data paketa"
+  },
+  "settings.display.project-list-layouts.description": {
+    "defaultMessage": "Izaberi željeni raspored za svaku stranicu koja prikazuje liste projekata."
+  },
+  "settings.display.project-list-layouts.mod": {
+    "defaultMessage": "Stranica modova"
+  },
+  "settings.display.project-list-layouts.mode.grid": {
+    "defaultMessage": "Mreža"
+  },
+  "settings.display.project-list-layouts.mode.rows": {
+    "defaultMessage": "Redovi"
+  },
+  "settings.display.project-list-layouts.modpack": {
+    "defaultMessage": "Stranica modpackova"
+  },
+  "settings.display.project-list-layouts.plugin": {
+    "defaultMessage": "Stranica pluginova"
+  },
+  "settings.display.project-list-layouts.resourcepack": {
+    "defaultMessage": "Stranica Resurs paketa"
+  },
+  "settings.display.project-list-layouts.server": {
+    "defaultMessage": "Stranica servera"
+  },
+  "settings.display.project-list-layouts.shader": {
+    "defaultMessage": "Stranica šejdera"
+  },
+  "settings.display.project-list-layouts.title": {
+    "defaultMessage": "Rasporedi lista projekata"
+  },
+  "settings.display.project-list-layouts.user": {
+    "defaultMessage": "Stranice korisničkih profila"
+  },
+  "settings.display.sidebar.advanced-rendering.description": {
+    "defaultMessage": "Omogućava napredno renderovanje kao što su efekti zamućenja koji mogu izazvati probleme sa performansama bez hardverski ubrzanog renderovanja."
+  },
+  "settings.display.sidebar.advanced-rendering.title": {
+    "defaultMessage": "Napredno renderovanje"
+  },
+  "settings.display.sidebar.external-links-new-tab.description": {
+    "defaultMessage": "Neka se linkovi koji vode van Modrinth-a otvaraju u novoj kartici. Bez obzira na ovo podešavanje, linkovi na istoj domeni i u Markdown opisima otvaraće se u istoj kartici, a linkovi na reklamama i stranicama za uređivanje otvaraće se u novoj kartici."
+  },
+  "settings.display.sidebar.external-links-new-tab.title": {
+    "defaultMessage": "Otvori spoljne linkove u novoj kartici"
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.description": {
+    "defaultMessage": "Poravnava bočnu traku sa levom stranom sadržaja stranice."
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.title": {
+    "defaultMessage": "Levo poravnata bočna traka na stranicama sadržaja"
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.description": {
+    "defaultMessage": "Poravnava bočnu traku filtera sa desnom stranom rezultata pretrage."
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.title": {
+    "defaultMessage": "Desno poravnata bočna traka filtera na stranicama pretrage"
+  },
   "settings.display.theme.dark": {
     "defaultMessage": "Tamno"
   },
@@ -3451,6 +3160,9 @@
   },
   "settings.display.theme.oled": {
     "defaultMessage": "OLED"
+  },
+  "settings.display.theme.orbiont-description": {
+    "defaultMessage": "Izaberi željenu temu boja za {productName}."
   },
   "settings.display.theme.preferred-dark-theme": {
     "defaultMessage": "Preferirana tamna tema"
@@ -3476,8 +3188,14 @@
   "settings.language.categories.search-result": {
     "defaultMessage": "Rezultati pretrage"
   },
-  "settings.language.description": {
-    "defaultMessage": "Izaberi željeni jezik za {platform}. Prevode doprinose volonteri <crowdin-link>na Crowdin-u</crowdin-link>."
+  "settings.language.coverage.app-tooltip": {
+    "defaultMessage": "Oko {percentage}% od {productName} je dostupno na ovom jeziku."
+  },
+  "settings.language.coverage.label": {
+    "defaultMessage": "{percentage}% podržano"
+  },
+  "settings.language.description.orbiont": {
+    "defaultMessage": "Izaberi željeni jezik za {platform}. Orbiont isporučuje prevode zajednice takve kakvi jesu; pokrivenost se razlikuje po jeziku, a neprevedeni tekst se vraća na engleski."
   },
   "settings.language.languages.search-field.placeholder": {
     "defaultMessage": "Pretraži jezik..."
@@ -3491,9 +3209,6 @@
   "settings.language.platform.app": {
     "defaultMessage": "aplikacija"
   },
-  "settings.language.platform.site": {
-    "defaultMessage": "stranica"
-  },
   "settings.language.title": {
     "defaultMessage": "Jezik"
   },
@@ -3503,8 +3218,26 @@
   "settings.pats.title": {
     "defaultMessage": "Lični tokeni za pristup"
   },
+  "settings.profile.navigation-title": {
+    "defaultMessage": "Profil"
+  },
   "settings.sessions.title": {
     "defaultMessage": "Sesije"
+  },
+  "settings.social.title": {
+    "defaultMessage": "Društveno"
+  },
+  "skin.preview.drag-to-rotate": {
+    "defaultMessage": "Prevuci za rotiranje"
+  },
+  "skins.select": {
+    "defaultMessage": "Izaberi skin"
+  },
+  "skins.select-named": {
+    "defaultMessage": "Izaberi {name}"
+  },
+  "table.empty-state.no-data": {
+    "defaultMessage": "Nema dostupnih podataka."
   },
   "tag.category.128x": {
     "defaultMessage": "128x"
@@ -3517,6 +3250,9 @@
   },
   "tag.category.32x": {
     "defaultMessage": "32x"
+  },
+  "tag.category.3d-packs": {
+    "message": "3D paketi"
   },
   "tag.category.48x": {
     "defaultMessage": "48x"
@@ -3538,6 +3274,9 @@
   },
   "tag.category.anarchy": {
     "defaultMessage": "Anarhija"
+  },
+  "tag.category.armor-tools-weapons": {
+    "message": "Oklop, alati i oružje"
   },
   "tag.category.atmosphere": {
     "defaultMessage": "Atmosfera"
@@ -3581,6 +3320,12 @@
   "tag.category.core-shaders": {
     "defaultMessage": "Core Shaders"
   },
+  "tag.category.cosmetics": {
+    "message": "Kozmetika"
+  },
+  "tag.category.creation": {
+    "defaultMessage": "Stvaranje"
+  },
   "tag.category.creative-mode": {
     "defaultMessage": "Kreativni režim"
   },
@@ -3590,11 +3335,17 @@
   "tag.category.crossplay": {
     "defaultMessage": "Crossplay"
   },
+  "tag.category.ctm": {
+    "message": "Dovršite spomenik"
+  },
   "tag.category.cursed": {
     "defaultMessage": "Začarano"
   },
   "tag.category.custom-content": {
     "defaultMessage": "Prilagođeni sadržaj"
+  },
+  "tag.category.custom-terrain": {
+    "message": "Custom Terrain"
   },
   "tag.category.decoration": {
     "defaultMessage": "Dekoracija"
@@ -3604,6 +3355,9 @@
   },
   "tag.category.economy": {
     "defaultMessage": "Ekonomija"
+  },
+  "tag.category.enhanced-visuals": {
+    "message": "Enhanced Visuals"
   },
   "tag.category.entities": {
     "defaultMessage": "Entitete"
@@ -3628,6 +3382,9 @@
   },
   "tag.category.food": {
     "defaultMessage": "Hrana"
+  },
+  "tag.category.game-map": {
+    "defaultMessage": "Mapa za igru"
   },
   "tag.category.game-mechanics": {
     "defaultMessage": "Mehanike igre"
@@ -3677,6 +3434,9 @@
   "tag.category.management": {
     "defaultMessage": "Menadžment"
   },
+  "tag.category.maps": {
+    "message": "Maps"
+  },
   "tag.category.media": {
     "defaultMessage": "Medija"
   },
@@ -3685,6 +3445,9 @@
   },
   "tag.category.microgames": {
     "defaultMessage": "Microgames"
+  },
+  "tag.category.minecraft-addon-maker": {
+    "message": "Minecraft Addon Maker"
   },
   "tag.category.minigame": {
     "defaultMessage": "Minigame"
@@ -3700,6 +3463,9 @@
   },
   "tag.category.modded": {
     "defaultMessage": "Modifikovano"
+  },
+  "tag.category.modded-world": {
+    "defaultMessage": "Svet sa modovima"
   },
   "tag.category.models": {
     "defaultMessage": "Modeli"
@@ -3734,6 +3500,9 @@
   "tag.category.personal-worlds": {
     "defaultMessage": "Lični svetovi"
   },
+  "tag.category.players": {
+    "message": "Igrači"
+  },
   "tag.category.plots": {
     "defaultMessage": "Zapleti"
   },
@@ -3745,6 +3514,9 @@
   },
   "tag.category.prison": {
     "defaultMessage": "Zatvor"
+  },
+  "tag.category.puzzle": {
+    "defaultMessage": "Zagonetke"
   },
   "tag.category.pve": {
     "defaultMessage": "PvE"
@@ -3773,20 +3545,32 @@
   "tag.category.roleplay": {
     "defaultMessage": "Igranje uloga"
   },
+  "tag.category.rollercoaster": {
+    "message": "Rollercoaster"
+  },
   "tag.category.rpg": {
     "defaultMessage": "RPG"
   },
   "tag.category.screenshot": {
     "defaultMessage": "Snimak ekrana / ekstremno"
   },
+  "tag.category.scripts": {
+    "message": "Skripte"
+  },
   "tag.category.semi-realistic": {
     "defaultMessage": "Polurealistički"
+  },
+  "tag.category.shaders": {
+    "message": "Shaderi"
   },
   "tag.category.shadows": {
     "defaultMessage": "Senke"
   },
   "tag.category.simplistic": {
     "defaultMessage": "Uprošćeno"
+  },
+  "tag.category.skins": {
+    "message": "Skinovi"
   },
   "tag.category.skyblock": {
     "defaultMessage": "Skyblock"
@@ -3800,6 +3584,9 @@
   "tag.category.storage": {
     "defaultMessage": "Skladištenje"
   },
+  "tag.category.survival": {
+    "defaultMessage": "Preživljavanje"
+  },
   "tag.category.survival-mode": {
     "defaultMessage": "Režim preživljavanja"
   },
@@ -3811,6 +3598,9 @@
   },
   "tag.category.technology": {
     "defaultMessage": "Tehnologija"
+  },
+  "tag.category.texture-packs": {
+    "message": "Paketi tekstura"
   },
   "tag.category.themed": {
     "defaultMessage": "Tematski"
@@ -3929,6 +3719,9 @@
   "tag.loader.waterfall": {
     "defaultMessage": "Waterfall"
   },
+  "terminal.scroll-to-bottom": {
+    "defaultMessage": "Skroluj do dna"
+  },
   "ui.component.unsaved-changes-popup.body": {
     "defaultMessage": "Imaš nesačuvane izmene."
   },
@@ -3947,6 +3740,69 @@
   "ui.confirm-leave-modal.title": {
     "defaultMessage": "Napusti stranicu?"
   },
+  "ui.i18n-debug.close": {
+    "defaultMessage": "Zatvori inspektor"
+  },
+  "ui.i18n-debug.copied": {
+    "defaultMessage": "Kopirano"
+  },
+  "ui.i18n-debug.copy": {
+    "defaultMessage": "kopiraj"
+  },
+  "ui.i18n-debug.copy-hint": {
+    "defaultMessage": "klikni za kopiranje"
+  },
+  "ui.i18n-debug.discover-hint": {
+    "defaultMessage": "Navigiraj kroz aplikaciju da otkriješ i18n ključeve"
+  },
+  "ui.i18n-debug.expand": {
+    "defaultMessage": "Proširi panel"
+  },
+  "ui.i18n-debug.hide-keys": {
+    "defaultMessage": "Sakrij ključeve umetnute"
+  },
+  "ui.i18n-debug.key-count": {
+    "defaultMessage": "{count, plural, one {# ključ} few {# ključa} other {# ključeva}}"
+  },
+  "ui.i18n-debug.minimize": {
+    "defaultMessage": "Minimizuj panel"
+  },
+  "ui.i18n-debug.navigate": {
+    "defaultMessage": "navigiraj"
+  },
+  "ui.i18n-debug.no-keys": {
+    "defaultMessage": "Nema registrovanih ključeva"
+  },
+  "ui.i18n-debug.no-matches": {
+    "defaultMessage": "Nema pronađenih podudaranja"
+  },
+  "ui.i18n-debug.reveal-keys": {
+    "defaultMessage": "Prikaži ključeve umetnute"
+  },
+  "ui.i18n-debug.search": {
+    "defaultMessage": "Pretraži ključeve ili vrednosti..."
+  },
+  "ui.i18n-debug.search-hint": {
+    "defaultMessage": "Probaj drugi pojam za pretragu"
+  },
+  "ui.i18n-debug.title": {
+    "defaultMessage": "i18n inspektor"
+  },
+  "ui.i18n-debug.toggle-overlay": {
+    "defaultMessage": "Uključi/isključi CSS debug overlay"
+  },
+  "ui.i18n-debug.watching": {
+    "defaultMessage": "Praćenje"
+  },
+  "ui.pagination.go-to-page": {
+    "defaultMessage": "Idi na stranicu"
+  },
+  "ui.pagination.next-page": {
+    "defaultMessage": "Sledeća stranica"
+  },
+  "ui.pagination.previous-page": {
+    "defaultMessage": "Prethodna stranica"
+  },
   "ui.stacked-admonitions.alert-count": {
     "defaultMessage": "{count, plural, one {# uzbuna} few {# uzbune} other {# uzbuna}}"
   },
@@ -3959,6 +3815,9 @@
   "unknown-file-warning-modal.dont-show-again": {
     "defaultMessage": "Ne prikazuj ovo upozorenje ponovo"
   },
+  "unknown-file-warning-modal.file-unverified-body": {
+    "defaultMessage": " ima izvor koji nije mogao biti verifikovan. Instaliraj fajlove samo iz izvora kojima veruješ."
+  },
   "unknown-file-warning-modal.header": {
     "defaultMessage": "Potvrdi instalaciju"
   },
@@ -3968,14 +3827,11 @@
   "unknown-file-warning-modal.malware-warning": {
     "defaultMessage": "Zlonamerni softver se često distribuira putem datoteka modova deljenjem na platformama poput Discord-a."
   },
-  "unknown-file-warning-modal.mod-warning-body": {
-    "defaultMessage": " nije postavljeno na Modrinth-u. Preporučujemo da instaliraš datoteke samo iz izvora kojima veruješ."
-  },
   "unknown-file-warning-modal.mod-warning-title": {
     "defaultMessage": "Upozorenje nepoznatih datoteka"
   },
-  "unknown-file-warning-modal.modpack-warning-body": {
-    "defaultMessage": " sadrži datoteke koje nisu postavljene na Modrinth-u. Preporučujemo da instaliraš datoteke samo iz izvora kojima veruješ."
+  "unknown-file-warning-modal.modpack-unverified-body": {
+    "defaultMessage": " sadrži fajlove čiji izvor nije mogao biti verifikovan. Instaliraj fajlove samo iz izvora kojima veruješ."
   },
   "unknown-file-warning-modal.modpack-warning-title": {
     "defaultMessage": "Upozorenje nepoznatih datoteka"
@@ -3983,101 +3839,8 @@
   "unknown-file-warning-modal.unrecognized-files": {
     "defaultMessage": "Nepoznate datoteke"
   },
-  "user.profile.badge.alpha.about.1": {
-    "defaultMessage": "Ovaj koristnik je tu od Modrinth Alfa, koji je završio u novembru 2020."
-  },
-  "user.profile.badge.alpha.name": {
-    "defaultMessage": "Alfa tester"
-  },
-  "user.profile.badge.beta.about.1": {
-    "defaultMessage": "Ovaj koristnik je tu od Modrinth Beta, koji je završio u februaru 2022."
-  },
-  "user.profile.badge.beta.link": {
-    "defaultMessage": "Klikni da pročitaš o pokretu Modrinth Bete."
-  },
-  "user.profile.badge.beta.name": {
-    "defaultMessage": "Beta tester"
-  },
-  "user.profile.badge.downloads.about.1": {
-    "defaultMessage": "Projekti ovog koristnika su kolektivno sakupili {download_sum} preuzimanja."
-  },
-  "user.profile.badge.downloads.name": {
-    "defaultMessage": "{download_sum} preuzimanja"
-  },
-  "user.profile.badge.early-datapack-adopter.about.1": {
-    "defaultMessage": "Ovaj koristnik nam je pomogao sa testiranjem data packe na Modrinthu pre nego što smo ih lansirali u januaru 2023."
-  },
-  "user.profile.badge.early-datapack-adopter.name": {
-    "defaultMessage": "Rani usvojitelj data packa"
-  },
-  "user.profile.badge.early-modpack-adopter.about.1": {
-    "defaultMessage": "Ovaj koristnik nam je pomogao sa testiranjem modpacka na Modrinthu pre nego što smo ih lansirali u maju 2022."
-  },
-  "user.profile.badge.early-modpack-adopter.name": {
-    "defaultMessage": "Rani usvojitelj modpackova"
-  },
-  "user.profile.badge.early-plugin-adopter.about.1": {
-    "defaultMessage": "Ovaj koristnik nam je pomogao sa testiranjem projekate plugina na Modrinthu pre nego što smo ih lansirali u august 2022."
-  },
-  "user.profile.badge.early-plugin-adopter.name": {
-    "defaultMessage": "Rani usvojitelj plugina"
-  },
-  "user.profile.badge.early-resourcepack-adopter.about.1": {
-    "defaultMessage": "Ovaj koristnik nam je pomogao sa testiranjem resurs paketa na Modrinthu pre nego što smo ih lansirali u augustu 2022."
-  },
-  "user.profile.badge.early-resourcepack-adopter.name": {
-    "defaultMessage": "Rani usvojitelj resurs paketa"
-  },
-  "user.profile.badge.early-server-adopter.about.1": {
-    "defaultMessage": "Ovaj koristnik nam je pomogao sa testiranjem projekate servera na Modrinthu pre nego što smo ih lansirali u martu 2026."
-  },
-  "user.profile.badge.early-server-adopter.name": {
-    "defaultMessage": "Rani usvojitelj servera"
-  },
-  "user.profile.badge.early-shader-adopter.about.1": {
-    "defaultMessage": "Ovaj koristnik nam je pomogao sa testiranjem shader packe na Modrinthu pre nego što smo ih lansirali u januaru 2023."
-  },
-  "user.profile.badge.early-shader-adopter.name": {
-    "defaultMessage": "Rani usvojitelj shader packova"
-  },
-  "user.profile.badge.hosting-alpha.about.1": {
-    "defaultMessage": "Ovaj korisnik je učestvovao u zatvorenom alfa testiranju Modrinth Hosting-a pre nego što smo pokrenuli Modrinth Hosting Beta u novembru 2024."
-  },
-  "user.profile.badge.hosting-alpha.name": {
-    "defaultMessage": "Alfa tester hostinga Modrinth"
-  },
-  "user.profile.badge.moderator.about.1": {
-    "defaultMessage": "Ovaj koristnik radi za Modrinth kao moderator sadržaja."
-  },
-  "user.profile.badge.moderator.about.2": {
-    "defaultMessage": "Moderatori sadržaja na Modrinthu pregledaju projekate, obrađuju izveštaje, i pomože u održavanju bezbednosti Modrintha."
-  },
-  "user.profile.badge.moderator.name": {
-    "defaultMessage": "Moderator sadržaja"
-  },
-  "user.profile.badge.plus.about.1": {
-    "defaultMessage": "Ovaj korisnik se posebno trudi da podrži Modrinth i kreatore na platformi."
-  },
-  "user.profile.badge.plus.link": {
-    "defaultMessage": "Klikni da saznaš kako možes postati član."
-  },
-  "user.profile.badge.plus.name": {
-    "defaultMessage": "Član od Modrinth+"
-  },
-  "user.profile.badge.pride.about.1": {
-    "defaultMessage": "Ovaj koristnik je učestvovao u barem jednoj od Modrinthovih akcija prikupljanja sredstava za LGBT+ zajednicu povodom ponosa."
-  },
-  "user.profile.badge.pride.link": {
-    "defaultMessage": "Klikni da posjetiš našu najnoviju akciju prikupljanja sredstava za ponos."
-  },
-  "user.profile.badge.pride.name": {
-    "defaultMessage": "Pristalica prikupljanja sredstava ponosa"
-  },
-  "user.profile.badge.staff.about.1": {
-    "defaultMessage": "Ovaj korstnik radi za Modrinth."
-  },
-  "user.profile.badge.staff.name": {
-    "defaultMessage": "Modrinth tim"
+  "unknown-file-warning-modal.unverified-files": {
+    "defaultMessage": "Nepoznat fajl može biti nesiguran. Proveri njegov izvor pre instaliranja."
   },
   "version.content.name": {
     "defaultMessage": "Ime"
@@ -4087,6 +3850,9 @@
   },
   "version.file-type.dev-jar": {
     "defaultMessage": "Dev jar"
+  },
+  "version.file-type.javadoc-jar": {
+    "defaultMessage": "Javadocs JAR"
   },
   "version.file-type.optional-resource-pack": {
     "defaultMessage": "Opcionalni paket resursa"
@@ -4099,6 +3865,9 @@
   },
   "version.file-type.signature": {
     "defaultMessage": "Datoteka sa potpisom"
+  },
+  "version.file-type.sources-jar": {
+    "defaultMessage": "Izvor JAR"
   },
   "version.file-type.unknown": {
     "defaultMessage": "Drugo"
@@ -4162,5 +3931,8 @@
   },
   "version.supplementary-resources.type": {
     "defaultMessage": "Tip"
+  },
+  "version.uploaded-by": {
+    "defaultMessage": "Otpremio"
   }
 }

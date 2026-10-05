@@ -44,6 +44,7 @@ export interface ContentManagerContext {
 
 	// Labelling
 	contentTypeLabel: Ref<string> | ComputedRef<string>
+	getTypeLabel?: (type: string) => string | undefined
 
 	// Core actions
 	toggleEnabled: (item: ContentItem) => Promise<void>

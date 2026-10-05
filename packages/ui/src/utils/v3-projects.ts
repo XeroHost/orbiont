@@ -1,10 +1,28 @@
 import type { Labrinth } from '@orbiont/api-client'
 import { getPrimaryProjectType } from '@orbiont/utils'
 
+import { defineMessage } from '../composables/i18n'
 import { normalizeProjectType } from './common-messages'
 import { sortProjectTypes } from './project-types'
 
 export type ProjectLinkMode = 'website' | 'app'
+
+export const SERVER_REGIONS = {
+	us_east: defineMessage({ id: 'project.server.region.us_east', defaultMessage: 'US East' }),
+	us_west: defineMessage({ id: 'project.server.region.us_west', defaultMessage: 'US West' }),
+	europe: defineMessage({ id: 'project.server.region.europe', defaultMessage: 'Europe' }),
+	asia: defineMessage({ id: 'project.server.region.asia', defaultMessage: 'Asia' }),
+	australia: defineMessage({ id: 'project.server.region.australia', defaultMessage: 'Australia' }),
+	south_america: defineMessage({
+		id: 'project.server.region.south_america',
+		defaultMessage: 'South America',
+	}),
+	middle_east: defineMessage({
+		id: 'project.server.region.middle_east',
+		defaultMessage: 'Middle East',
+	}),
+	russia: defineMessage({ id: 'project.server.region.russia', defaultMessage: 'Russia' }),
+}
 
 export type ServerModpackContent = {
 	name: string

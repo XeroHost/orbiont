@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SearchIcon } from '@orbiont/assets'
-import { Button, Input, Toggle } from '@orbiont/ui'
+import { Button, defineMessages, Input, Toggle, useVIntl } from '@orbiont/ui'
 import Fuse from 'fuse.js'
 import { computed, ref, watch } from 'vue'
 
@@ -10,6 +10,23 @@ import {
 	useAppSettings,
 } from '@/composables/use-app-settings.ts'
 import { get as getSettings, set as setSettings } from '@/helpers/settings.ts'
+
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	searchFlagsPlaceholder: {
+		id: 'app.settings.feature-flags.search-placeholder',
+		defaultMessage: 'Search flags...',
+	},
+	resetToDefault: {
+		id: 'app.settings.feature-flags.reset-to-default',
+		defaultMessage: 'Reset to default',
+	},
+	noFlagsFound: {
+		id: 'app.settings.feature-flags.no-flags-found',
+		defaultMessage: 'No flags found matching "{query}"',
+	},
+})
 
 const appSettings = useAppSettings()
 
@@ -50,7 +67,7 @@ watch(
 			v-model="searchQuery"
 			type="search"
 			:icon="SearchIcon"
-			placeholder="Search flags..."
+			:placeholder="formatMessage(messages.searchFlagsPlaceholder)"
 			wrapper-class="w-full"
 		/>
 		<div v-for="option in filteredFlags" :key="option" class="flex items-center justify-between">
@@ -65,7 +82,7 @@ watch(
 					:disabled="appSettings.getFeatureFlag(option) === DEFAULT_FEATURE_FLAGS[option]"
 					@click="setFeatureFlag(option, DEFAULT_FEATURE_FLAGS[option])"
 				>
-					Reset to default
+					{{ formatMessage(messages.resetToDefault) }}
 				</Button>
 				<Toggle
 					id="advanced-rendering"
@@ -75,7 +92,7 @@ watch(
 			</div>
 		</div>
 		<p v-if="filteredFlags.length === 0" class="text-center text-secondary">
-			No flags found matching "{{ searchQuery }}"
+			{{ formatMessage(messages.noFlagsFound, { query: searchQuery }) }}
 		</p>
 	</div>
 </template>

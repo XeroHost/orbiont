@@ -1,6 +1,6 @@
 use super::operations::{
-    InstanceScreenshot, has_png_extension, sort_screenshots,
-    source_screenshots_dir,
+    InstanceScreenshot, has_png_extension, has_screenshot_extension,
+    is_bedrock_source, sort_screenshots, source_screenshots_dir,
 };
 use crate::State;
 use crate::state::instances::adapters::sqlite::{
@@ -80,6 +80,10 @@ pub(super) async fn list_source_screenshots(
     source: InstanceScreenshotSource,
 ) -> crate::Result<Vec<InstanceScreenshot>> {
     let _lock = state.lock_instance_screenshots(&source.id).await;
+    if is_bedrock_source(&source.id) {
+        sqlx::query("INSERT INTO screenshot_sources(id) VALUES (?) ON CONFLICT(id) DO NOTHING")
+            .bind(&source.id).execute(&state.pool).await?;
+    }
     let scanned = scan_source_screenshots(state, &source).await?;
     reconcile_source_screenshots(state, &source, scanned).await
 }
@@ -104,20 +108,25 @@ pub(super) async fn scan_source_screenshots(
     source: &InstanceScreenshotSource,
 ) -> crate::Result<Vec<ScannedScreenshot>> {
     let instance_dir = state.directories.instances_dir().join(&source.path);
-    if !tokio::fs::try_exists(&instance_dir)
-        .await
-        .map_err(|error| IOError::with_path(error, &instance_dir))?
+    if !is_bedrock_source(&source.id)
+        && !tokio::fs::try_exists(&instance_dir)
+            .await
+            .map_err(|error| IOError::with_path(error, &instance_dir))?
     {
         return Ok(Vec::new());
     }
 
     let screenshots_dir = source_screenshots_dir(state, source).await?;
-    tokio::task::spawn_blocking(move || scan_screenshots_dir(&screenshots_dir))
-        .await?
+    let bedrock = is_bedrock_source(&source.id);
+    tokio::task::spawn_blocking(move || {
+        scan_screenshots_dir(&screenshots_dir, bedrock)
+    })
+    .await?
 }
 
 fn scan_screenshots_dir(
     screenshots_dir: &Path,
+    bedrock: bool,
 ) -> crate::Result<Vec<ScannedScreenshot>> {
     let entries = match std::fs::read_dir(screenshots_dir) {
         Ok(entries) => entries,
@@ -139,7 +148,9 @@ fn scan_screenshots_dir(
         }
 
         let path = entry.path();
-        if !has_png_extension(&path) {
+        if !(has_png_extension(&path)
+            || (bedrock && has_screenshot_extension(&path)))
+        {
             continue;
         }
 
@@ -307,4 +318,29 @@ pub(super) async fn reconcile_source_screenshots(
         .collect::<Vec<_>>();
     sort_screenshots(&mut screenshots);
     Ok(screenshots)
+}
+
+#[cfg(test)]
+mod scan_tests {
+    use super::*;
+
+    #[test]
+    fn bedrock_reads_jpeg_and_png_without_adding_metadata_or_changing_java_scan()
+     {
+        let temp = tempfile::tempdir().unwrap();
+        for name in ["a.png", "b.JPG", "c.jpeg", "index.json", "gallery.mc"] {
+            std::fs::write(temp.path().join(name), b"image fixture").unwrap();
+        }
+        std::fs::create_dir(temp.path().join("not-an-image.png")).unwrap();
+        let mut bedrock = scan_screenshots_dir(temp.path(), true)
+            .unwrap()
+            .into_iter()
+            .map(|shot| shot.file_name)
+            .collect::<Vec<_>>();
+        bedrock.sort();
+        assert_eq!(bedrock, ["a.png", "b.JPG", "c.jpeg"]);
+        let java = scan_screenshots_dir(temp.path(), false).unwrap();
+        assert_eq!(java.len(), 1);
+        assert_eq!(java[0].file_name, "a.png");
+    }
 }

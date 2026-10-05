@@ -36,6 +36,7 @@ export interface ContentFilterConfig {
 	showEnvironmentWarnings?: boolean
 	isPackLocked?: Ref<boolean>
 	persistKey?: string
+	getTypeLabel?: (type: string) => string | undefined
 }
 
 const messages = defineMessages({
@@ -84,7 +85,9 @@ export function useContentFilters(items: Ref<ContentItem[]>, config?: ContentFil
 			for (const type of types) {
 				const msg =
 					commonProjectTypeCategoryMessages[type as keyof typeof commonProjectTypeCategoryMessages]
-				const label = msg ? formatMessage(msg) : type.charAt(0).toUpperCase() + type.slice(1) + 's'
+				const label =
+					config?.getTypeLabel?.(type) ??
+					(msg ? formatMessage(msg) : type.charAt(0).toUpperCase() + type.slice(1) + 's')
 				options.push({ id: type, label })
 			}
 		}

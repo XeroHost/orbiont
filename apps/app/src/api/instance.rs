@@ -47,6 +47,7 @@ pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
             instance_get_mod_full_path,
             instance_list_screenshots,
             instance_list_all_screenshots,
+            instance_list_bedrock_screenshots,
             instance_list_synced_screenshots,
             instance_save_edited_screenshot,
             instance_list_screenshot_groups,
@@ -598,6 +599,14 @@ pub async fn instance_list_all_screenshots<R: Runtime>(
     app_handle: AppHandle<R>,
 ) -> Result<Vec<InstanceScreenshot>> {
     let screenshots = theseus::instance::list_all_screenshots().await?;
+    serialize_screenshots(&app_handle, screenshots)
+}
+
+#[tauri::command]
+pub async fn instance_list_bedrock_screenshots<R: Runtime>(
+    app_handle: AppHandle<R>,
+) -> Result<Vec<InstanceScreenshot>> {
+    let screenshots = theseus::instance::list_bedrock_screenshots().await?;
     serialize_screenshots(&app_handle, screenshots)
 }
 
@@ -1181,8 +1190,9 @@ pub async fn instance_export_mrpack(
     version_id: Option<String>,
     description: Option<String>,
     name: Option<String>,
+    format: Option<theseus::instance::PackExportFormat>,
 ) -> Result<()> {
-    theseus::instance::export_mrpack(
+    theseus::instance::export_modpack(
         instance_id,
         export_location,
         included_overrides,
@@ -1190,6 +1200,7 @@ pub async fn instance_export_mrpack(
         version_id,
         description,
         name,
+        format.unwrap_or(theseus::instance::PackExportFormat::Mrpack),
     )
     .await?;
     Ok(())

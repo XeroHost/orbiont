@@ -1,7 +1,9 @@
-import { provideFilePicker } from '@orbiont/ui'
+import { commonMessages, provideFilePicker, useVIntl } from '@orbiont/ui'
 import { convertFileSrc, invoke } from '@tauri-apps/api/core'
 import { open } from '@tauri-apps/plugin-dialog'
 import { readFile } from '@tauri-apps/plugin-fs'
+
+import { getPackImportFilters } from '@/helpers/pack-formats'
 
 function getFileName(path: string, fallback: string) {
 	return path.split(/[\\/]/).pop() || fallback
@@ -25,6 +27,7 @@ async function createNativeFileFromPath(path: string, fallbackName: string, type
 }
 
 export function setupFilePickerProvider() {
+	const { formatMessage } = useVIntl()
 	provideFilePicker({
 		async pickFiles(options) {
 			const result = await open({
@@ -58,7 +61,7 @@ export function setupFilePickerProvider() {
 		async pickModpackFile(options) {
 			const result = await open({
 				multiple: false,
-				filters: [{ name: 'Modpack', extensions: ['mrpack'] }],
+				filters: getPackImportFilters(formatMessage(commonMessages.modpackLabel)),
 			})
 			if (!result) return null
 			const path = getDialogPath(result)
@@ -70,8 +73,12 @@ export function setupFilePickerProvider() {
 			return {
 				file: await createFileFromPath(
 					path,
-					'modpack.mrpack',
-					'application/x-modrinth-modpack+zip',
+					'modpack.orbpack',
+					/\.orbpack$/i.test(path)
+						? 'application/x-orbiont-modpack+zip'
+						: /\.zip$/i.test(path)
+							? 'application/zip'
+							: 'application/x-modrinth-modpack+zip',
 				),
 				path,
 				previewUrl: '',

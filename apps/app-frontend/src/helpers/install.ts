@@ -9,7 +9,9 @@ import type { InstallProgress } from '@/generated/app-events/InstallProgress'
 import type { InstallProgressSecondary } from '@/generated/app-events/InstallProgressSecondary'
 import type { AppEvents } from '@/providers/app-events'
 
-import { downloadCurseforgeModpack, isCurseforgeId } from './curseforge'
+import { convertCurseforgeModpack, downloadCurseforgeModpack, isCurseforgeId } from './curseforge'
+import { requestOptifineForPack } from './optifine'
+import type { OptifineReference } from './optifine-selection'
 import type { InstanceIconConfig, InstanceLink, InstanceLoader } from './types'
 
 export type {
@@ -38,6 +40,7 @@ export interface PackLocationFile {
 export type CreatePackLocation = PackLocationVersionId | PackLocationFile
 
 export interface InstallModpackPreview {
+	optifine?: OptifineReference | null
 	name: string
 	gameVersion: string
 	modloader: InstanceLoader
@@ -50,6 +53,7 @@ export interface InstallModpackPreview {
 }
 
 export interface InstallCreateInstanceRequest {
+	optifineInstallerPath?: string | null
 	name: string
 	gameVersion: string
 	loader: InstanceLoader
@@ -91,6 +95,11 @@ async function resolvePackLocation(
 		)
 		return { type: 'fromFile', path }
 	}
+	if (location.type === 'fromFile' && /\.zip$/i.test(location.path)) {
+		const packName = location.path.split(/[\\/]/).pop() ?? location.path
+		const path = await convertCurseforgeModpack(location.path, reportSkipped ? packName : undefined)
+		return { type: 'fromFile', path }
+	}
 	return location
 }
 
@@ -111,11 +120,13 @@ export async function install_create_modpack_instance(
 ) {
 	if (location.type === 'fromVersionId' && isCurseforgeId(location.version_id)) {
 		postInstallEdit ??= { name: location.title }
-		location = await resolvePackLocation(location, true)
 	}
+	location = await resolvePackLocation(location, true)
+	const optifineInstallerPath = await requestOptifineForPack(location)
 	return await invoke<InstallJobSnapshot>('plugin:install|install_create_modpack_instance', {
 		location,
 		postInstallEdit,
+		optifineInstallerPath,
 	})
 }
 
@@ -149,10 +160,13 @@ export async function install_pack_to_existing_instance(
 	location: CreatePackLocation,
 	postInstallEdit?: InstallPostInstallEdit | null,
 ) {
+	location = await resolvePackLocation(location, true)
+	const optifineInstallerPath = await requestOptifineForPack(location)
 	return await invoke<InstallJobSnapshot>('plugin:install|install_pack_to_existing_instance', {
 		instanceId,
 		location,
 		postInstallEdit,
+		optifineInstallerPath,
 	})
 }
 

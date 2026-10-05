@@ -1,4 +1,5 @@
 //! API for interacting with Theseus
+pub mod bedrock;
 pub mod cache;
 pub mod curseforge_pack;
 pub mod handler;
@@ -9,13 +10,16 @@ pub mod metadata;
 pub mod minecraft_auth;
 pub mod minecraft_skins;
 pub mod onboarding_checklist;
+pub mod optifine;
 pub mod orbiont;
 pub mod pack;
 pub mod process;
 pub mod server_address;
 pub mod settings;
+pub mod skin_catalog;
 pub mod tags;
 pub mod users;
+pub mod world_install;
 pub mod worlds;
 
 pub mod data {

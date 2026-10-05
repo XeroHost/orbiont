@@ -232,7 +232,7 @@ impl ContentStore {
         let mut unused_runtime = runtime
             .files
             .into_iter()
-            .filter(|file| file.references == 0)
+            .filter(|file| file.is_unused())
             .collect::<Vec<_>>();
         unused_runtime.sort_by_key(|file| file.last_used_at);
         for file in unused_runtime {

@@ -12,7 +12,12 @@
 				/>
 			</Transition>
 			<div v-if="!isAtBottom" class="absolute bottom-4 right-4 z-10">
-				<IconButton size="xl" label="Scroll to bottom" class="!shadow-2xl" @click="scrollToBottom">
+				<IconButton
+					size="xl"
+					:label="formatMessage(messages.scrollToBottom)"
+					class="!shadow-2xl"
+					@click="scrollToBottom"
+				>
 					<ChevronDownIcon />
 				</IconButton>
 			</div>
@@ -43,7 +48,17 @@ import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 
 import { IconButton } from '#ui/components/base/buttons'
 import Input from '#ui/components/base/inputs/Input.vue'
+import { defineMessages, useVIntl } from '#ui/composables/i18n'
 import { useTerminal } from '#ui/composables/terminal'
+
+const { formatMessage } = useVIntl()
+
+const messages = defineMessages({
+	scrollToBottom: {
+		id: 'terminal.scroll-to-bottom',
+		defaultMessage: 'Scroll to bottom',
+	},
+})
 
 const props = withDefaults(
 	defineProps<{

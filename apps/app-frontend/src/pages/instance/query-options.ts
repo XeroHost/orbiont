@@ -4,6 +4,7 @@ import { get_project_v3 } from '@/helpers/cache.js'
 import {
 	get as getInstance,
 	list as listInstances,
+	list_bedrock_screenshots,
 	list_instance_screenshots,
 	list_screenshot_groups,
 	list_synced_screenshots,
@@ -35,6 +36,7 @@ export const instanceKeys = {
 export const screenshotKeys = {
 	all: ['screenshots'] as const,
 	global: () => [...screenshotKeys.all, 'global'] as const,
+	bedrock: () => [...screenshotKeys.all, 'bedrock'] as const,
 	instance: (instanceId: string) => [...screenshotKeys.all, 'instance', instanceId] as const,
 	groups: () => [...screenshotKeys.all, 'groups'] as const,
 }
@@ -52,6 +54,15 @@ export function syncedScreenshotsQueryOptions() {
 		queryKey: screenshotKeys.global(),
 		queryFn: list_synced_screenshots,
 		staleTime: 0,
+	})
+}
+
+export function bedrockScreenshotsQueryOptions() {
+	return queryOptions({
+		queryKey: screenshotKeys.bedrock(),
+		queryFn: list_bedrock_screenshots,
+		staleTime: 0,
+		refetchInterval: 10_000,
 	})
 }
 

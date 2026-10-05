@@ -6,6 +6,7 @@ import { invoke } from '@tauri-apps/api/core'
 import {
 	getCurseforgeProject,
 	getCurseforgeProjectV3,
+	getCurseforgeProjectVersions,
 	getCurseforgeTeam,
 	getCurseforgeVersion,
 	getCurseforgeVersions,
@@ -113,8 +114,7 @@ export async function purge_cache_types(cacheTypes) {
  */
 export async function get_project_versions(projectId, cacheBehaviour) {
 	if (isCurseforgeId(projectId)) {
-		const project = await getCurseforgeProject(projectId)
-		return await getCurseforgeVersions(project.versions)
+		return await getCurseforgeProjectVersions(projectId)
 	}
 	return await invoke('plugin:cache|get_project_versions', {
 		projectId,

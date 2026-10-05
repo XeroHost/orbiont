@@ -26,10 +26,6 @@ export function injectI18nDebug(): I18nDebugContext | null {
 	return inject(I18N_DEBUG_KEY, null)
 }
 
-export function buildCrowdinUrl(key: string, locale: string): string {
-	return `https://crowdin.com/translate/modrinth-platform/all/en-${locale}?filter=basic&value=0&search_type=identifier&search=${encodeURIComponent(key)}`
-}
-
 export function initI18nDebugRuntime(context: I18nDebugContext): () => void {
 	let runtime: EffectScope | undefined
 	const stop = watch(

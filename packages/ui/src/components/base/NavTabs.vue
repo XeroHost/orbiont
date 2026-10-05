@@ -39,14 +39,16 @@
 			</template>
 
 			<template v-else>
-				<div
+				<button
 					v-for="(link, index) in filteredLinks"
 					v-show="link.shown ?? true"
 					:key="link.href"
 					ref="tabLinkElements"
-					class="button-animation z-[1] flex flex-row items-center gap-2 px-4 py-2 hover:cursor-pointer focus:rounded-full"
+					type="button"
+					:disabled="link.disabled"
+					class="button-animation z-[1] flex flex-row items-center gap-2 border-0 bg-transparent [font:inherit] text-[inherit] px-4 py-2 hover:cursor-pointer focus:rounded-full disabled:cursor-not-allowed disabled:opacity-40"
 					:class="getSSRFallbackClasses(index)"
-					@click="emit('tabClick', index, link)"
+					@click="!link.disabled && emit('tabClick', index, link)"
 				>
 					<component
 						:is="link.icon"
@@ -57,7 +59,7 @@
 					<span class="tab-color text-nowrap" :class="getLabelClasses(index)">
 						{{ link.label }}
 					</span>
-				</div>
+				</button>
 			</template>
 
 			<div
@@ -77,9 +79,9 @@
 <script setup lang="ts">
 import type { Component } from 'vue'
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
-import { RouterLink, useRoute } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 
-const route = useRoute()
+const router = useRouter()
 
 defineOptions({ inheritAttrs: false })
 
@@ -87,6 +89,7 @@ interface Tab {
 	label: string
 	href: string
 	shown?: boolean
+	disabled?: boolean
 	icon?: Component
 	subpages?: string[]
 	onHover?: () => void
@@ -181,6 +184,7 @@ function computeActiveIndex(): { index: number; isSubpage: boolean } {
 			isSubpage: false,
 		}
 	}
+	const route = router.currentRoute.value
 
 	for (let i = filteredLinks.value.length - 1; i >= 0; i--) {
 		const link = filteredLinks.value[i]
@@ -336,7 +340,7 @@ onUnmounted(() => {
 })
 
 watch(
-	() => [route.path, route.query],
+	() => router.currentRoute.value.fullPath,
 	() => {
 		if (props.mode === 'navigation') {
 			updateActiveTab()

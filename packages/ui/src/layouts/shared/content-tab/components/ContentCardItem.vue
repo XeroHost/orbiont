@@ -62,6 +62,7 @@ const messages = defineMessages({
 })
 
 interface Props {
+	subtitle?: string
 	project: ContentCardProject
 	projectLink?: string | RouteLocationRaw
 	version?: ContentCardVersion
@@ -93,6 +94,7 @@ interface Props {
 }
 
 const props = withDefaults(defineProps<Props>(), {
+	subtitle: undefined,
 	projectLink: undefined,
 	version: undefined,
 	showVersion: true,
@@ -258,6 +260,9 @@ const installTooltip = computed(() => {
 					</div>
 
 					<div class="flex min-w-0 items-center gap-1">
+						<span v-if="subtitle" class="truncate text-sm leading-5 text-secondary">{{
+							subtitle
+						}}</span>
 						<template v-if="source">
 							<AutoLink
 								:target="
@@ -496,7 +501,7 @@ const installTooltip = computed(() => {
 			<TeleportOverflowMenu
 				v-if="overflowOptions?.length"
 				type="quiet"
-				label="More options"
+				:label="formatMessage(commonMessages.moreOptionsButton)"
 				:options="overflowOptions"
 				:disabled="isDisabled"
 			>

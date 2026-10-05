@@ -16,7 +16,7 @@ export interface MessageDescriptor {
 
 export type MessageDescriptorMap<K extends string> = Record<K, MessageDescriptor>
 
-export type CrowdinMessages = Record<string, { message?: string; defaultMessage?: string } | string>
+export type CatalogMessages = Record<string, { message?: string; defaultMessage?: string } | string>
 
 export function defineMessage<T extends MessageDescriptor>(descriptor: T): T {
 	return descriptor
@@ -219,7 +219,7 @@ export const LOCALES: LocaleDefinition[] = [
 	},
 ]
 
-export function transformCrowdinMessages(messages: CrowdinMessages): Record<string, string> {
+export function transformCatalogMessages(messages: CatalogMessages): Record<string, string> {
 	const result: Record<string, string> = {}
 	for (const [key, value] of Object.entries(messages)) {
 		if (typeof value === 'string') {
@@ -242,7 +242,7 @@ const LOCALE_CODES = new Set(LOCALES.map((l) => l.code))
  * Usage: buildLocaleMessages(import.meta.glob('./locales/* /index.json', { eager: true }))
  */
 export function buildLocaleMessages(
-	...allModules: Record<string, { default: CrowdinMessages }>[]
+	...allModules: Record<string, { default: CatalogMessages }>[]
 ): Record<string, Record<string, string>> {
 	const messages: Record<string, Record<string, string>> = {}
 	for (const modules of allModules) {
@@ -254,7 +254,7 @@ export function buildLocaleMessages(
 				// Only include locales that are in our LOCALES list
 				if (LOCALE_CODES.has(locale)) {
 					const mergedMessages = messages[locale] ?? {}
-					messages[locale] = Object.assign(mergedMessages, transformCrowdinMessages(module.default))
+					messages[locale] = Object.assign(mergedMessages, transformCatalogMessages(module.default))
 				}
 			}
 		}

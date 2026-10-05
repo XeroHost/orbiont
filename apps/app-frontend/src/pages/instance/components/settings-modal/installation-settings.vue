@@ -15,6 +15,7 @@ import type { GameVersionTag, PlatformTag } from '@orbiont/utils'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, ref } from 'vue'
 
+import OptifineSettings from '@/components/ui/OptifineSettings.vue'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { get_project_versions, get_version } from '@/helpers/cache'
 import {
@@ -432,4 +433,10 @@ provideInstallationSettings({
 
 <template>
 	<InstallationSettingsLayout />
+	<OptifineSettings
+		:instance-id="instance.id"
+		:game-version="instance.game_version"
+		:game-loader="instance.loader"
+		:disabled="installationSettingsBusy"
+	/>
 </template>

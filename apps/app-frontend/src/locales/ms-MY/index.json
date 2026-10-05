@@ -8,6 +8,9 @@
   "app.action-bar.downloads": {
     "message": "Muat Turun"
   },
+  "app.action-bar.hide-downloads": {
+    "message": "Sembunyikan muat turun aktif"
+  },
   "app.action-bar.hide-more-running-instances": {
     "message": "Sembunyikan lebih banyak pemasangan yang berjalan"
   },
@@ -20,8 +23,74 @@
   "app.action-bar.install.dismiss": {
     "message": "Ketepikan"
   },
+  "app.action-bar.install.open-instance": {
+    "message": "Buka pemasangan"
+  },
   "app.action-bar.install.retry": {
     "message": "Cuba semula"
+  },
+  "app.action-bar.install.summary.app-closing": {
+    "message": "Dibatalkan kerana aplikasi ditutup"
+  },
+  "app.action-bar.install.summary.bad-modpack-file": {
+    "message": "Tidak dapat membaca pek mod"
+  },
+  "app.action-bar.install.summary.canceled": {
+    "message": "Dibatalkan"
+  },
+  "app.action-bar.install.summary.cleanup-incomplete": {
+    "message": "Pembersihan tidak selesai"
+  },
+  "app.action-bar.install.summary.content-download-failed": {
+    "message": "Tidak dapat memuat turun fail"
+  },
+  "app.action-bar.install.summary.corrupt-download": {
+    "message": "Fail yang dimuat turun rosak"
+  },
+  "app.action-bar.install.summary.could-not-save-files": {
+    "message": "Tidak dapat menyimpan fail"
+  },
+  "app.action-bar.install.summary.download-failed": {
+    "message": "Muat turun tidak dapat diselesaikan"
+  },
+  "app.action-bar.install.summary.instance-not-found": {
+    "message": "Pemasangan tidak ditemui"
+  },
+  "app.action-bar.install.summary.invalid-file-path": {
+    "message": "Laluan fail tidak sah"
+  },
+  "app.action-bar.install.summary.invalid-modpack": {
+    "message": "Data pek mod tidak sah"
+  },
+  "app.action-bar.install.summary.invalid-modpack-files": {
+    "message": "Fail pek mod mempunyai metadata tidak sah"
+  },
+  "app.action-bar.install.summary.java-setup-failed": {
+    "message": "Persediaan Java tidak dapat diselesaikan"
+  },
+  "app.action-bar.install.summary.loader-setup-failed": {
+    "message": "Persediaan pemuat gagal"
+  },
+  "app.action-bar.install.summary.local-data-error": {
+    "message": "Tidak dapat mengemas kini data setempat"
+  },
+  "app.action-bar.install.summary.minecraft-setup-failed": {
+    "message": "Persediaan Minecraft gagal"
+  },
+  "app.action-bar.install.summary.modrinth-unreachable": {
+    "message": "Tidak dapat menghubungi Modrinth"
+  },
+  "app.action-bar.install.summary.no-write-permission": {
+    "message": "Tiada kebenaran untuk menulis"
+  },
+  "app.action-bar.install.summary.pack-download-failed": {
+    "message": "Tidak dapat memuat turun pek"
+  },
+  "app.action-bar.install.summary.unexpected-error": {
+    "message": "Sesuatu tidak kena"
+  },
+  "app.action-bar.install.unknown-instance": {
+    "message": "Pemasangan tidak diketahui"
   },
   "app.action-bar.make-primary-instance": {
     "message": "Jadikan pemasangan utama"
@@ -34,6 +103,12 @@
   },
   "app.action-bar.primary-instance": {
     "message": "Pemasangan utama"
+  },
+  "app.action-bar.reload-to-update": {
+    "message": "Muat semula untuk mengemas kini"
+  },
+  "app.action-bar.show-downloads": {
+    "message": "Tunjukkan muat turun aktif"
   },
   "app.action-bar.show-more-running-instances": {
     "message": "Tunjukkan lebih banyak pemasangan yang berjalan"
@@ -53,17 +128,296 @@
   "app.action-bar.view-logs": {
     "message": "Lihat log"
   },
+  "app.appearance-settings.compact-mode.description": {
+    "message": "Paparkan pemasangan pustaka dalam susun atur baris padat."
+  },
+  "app.appearance-settings.compact-mode.title": {
+    "message": "Mod padat"
+  },
   "app.appearance-settings.default-landing-page.home": {
     "message": "Laman utama"
   },
   "app.appearance-settings.default-landing-page.library": {
     "message": "Pustaka"
   },
+  "app.appearance-settings.hide-nametag.description": {
+    "message": "Sembunyikan nama pengguna anda di atas pratonton pemain pada halaman pemilih skin."
+  },
   "app.appearance-settings.hide-nametag.title": {
     "message": "Sembunyikan tanda nama"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Animasikan ikon apabila penuding berada di atasnya dan semasa fokus papan kekunci."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Nyahaktifkan animasi"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Sentiasa animasikan"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Ikut sistem"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Animasi ikon"
+  },
+  "app.appearance-settings.minimize-launcher.description": {
+    "message": "Kecilkan {productName} apabila Minecraft bermula."
+  },
+  "app.appearance-settings.minimize-launcher.title": {
+    "message": "Kecilkan aplikasi"
+  },
+  "app.appearance-settings.show-play-time.description": {
+    "message": "Tunjukkan berapa lama anda telah bermain setiap pemasangan."
+  },
+  "app.appearance-settings.show-play-time.title": {
+    "message": "Tunjuk masa bermain"
+  },
+  "app.appearance-settings.skip-non-essential-warnings.description": {
+    "message": "Langkau pengesahan untuk tindakan berisiko rendah seperti pemasangan pendua, pemadaman kandungan biasa, kemas kini pukal, nyahpaut dan pembaikan. Amaran untuk tindakan berbahaya sentiasa dipaparkan."
+  },
+  "app.appearance-settings.skip-non-essential-warnings.title": {
+    "message": "Langkau amaran tidak penting"
+  },
+  "app.appearance-settings.toggle-sidebar.description": {
+    "message": "Sembunyikan bar sisi kanan secara lalai dan tambah butang untuk menunjuk atau menyembunyikannya."
+  },
+  "app.appearance-settings.toggle-sidebar.title": {
+    "message": "Sembunyikan bar sisi kanan"
+  },
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Tunjukkan amaran keselamatan sebelum memasang pek mod yang diimport (.mrpack atau .zip CurseForge) yang sumbernya tidak dapat disahkan."
+  },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Beri saya amaran sebelum memasang pek mod yang tidak diketahui"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Hubungi sokongan"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Salin maklumat nyahpepijat"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Maklumat nyahpepijat"
+  },
+  "app.auth-error.header": {
+    "message": "Log masuk gagal"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Cara membaikinya"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Lengkapkan proses pengesahan identiti"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Akaun ini memerlukan pengesahan dewasa di bawah peraturan Korea Selatan."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Log Masuk Minecraft"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Periksa sama ada sambungan internet anda berfungsi"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Benarkan {product} melalui firewall, antivirus, proksi, VPN dan peraturan fail hosts anda"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Cuba rangkaian lain, atau matikan perisian VPN/proksi sementara jika anda menggunakannya"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Mulakan semula {product} dan cuba log masuk lagi"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Jika isu ini berkaitan penghalaan atau DNS, perkhidmatan seperti Cloudflare WARP kadangkala boleh membantu"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} tidak dapat menyambung ke perkhidmatan Microsoft, Xbox atau Minecraft yang diperlukan untuk log masuk. Biasanya ini disebabkan isu rangkaian setempat, DNS, proksi, firewall, fail hosts, VPN atau antivirus."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Tiada mesej ralat."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Anda boleh periksa akaun mana yang memilikinya di <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Pastikan anda log masuk dengan akaun Microsoft yang membeli Minecraft (atau mempunyai Game Pass aktif dengan akses PC)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Akaun Microsoft ini tidak memiliki Minecraft: Java Edition, dan {product} hanya berfungsi dengan akaun premium."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Jalankan Minecraft: Java Edition sekali daripada pelancar rasmi"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Pastikan anda menggunakan akaun Microsoft yang memiliki Minecraft. Anda boleh periksa akaun mana yang memilikinya di <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Tunggu sehingga satu jam jika pembelian atau penyediaan profil baru sahaja dibuat"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Perkhidmatan Minecraft tidak dapat mengembalikan profil Java Edition untuk akaun ini. Ini paling kerap berlaku apabila permainan baru dibeli, profil Java belum selesai dicipta, atau akaun Microsoft yang salah digunakan."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Pastikan Minecraft telah dibeli pada akaun ini"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Lengkapkan penyediaan profil Xbox jika diminta"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Akaun ini tidak mempunyai profil Xbox yang disediakan atau tidak memiliki Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Mulakan semula {product} selepas menunggu"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Cuba log masuk sekali lagi"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Tunggu kira-kira sejam sebelum mencuba lagi"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Jika mesej yang sama muncul, tunggu lebih lama sebelum mencuba lagi supaya had sementara itu hilang"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft atau Minecraft menyekat permintaan log masuk sementara kerana terlalu banyak percubaan baru-baru ini."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Periksa <a href=\"https://www.xbox.com/en-US/regions\">Ketersediaan Xbox</a> untuk wilayah yang disokong"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Perkhidmatan Xbox mesti disokong di negara anda sebelum anda boleh log masuk"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live tidak tersedia di wilayah anda, jadi log masuk disekat."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Minta penjaga log masuk ke <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Kemas kini kebenaran bermain dalam talian"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Akaun ini dihadkan dan tidak mempunyai kebenaran untuk bermain dalam talian."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Jika perkhidmatan berfungsi dan ini terus berlaku, hubungi sokongan dengan maklumat nyahpepijat di bawah"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Cuba log masuk dengan <a href=\"https://www.minecraft.net/en-us/download\">Pelancar Minecraft rasmi</a> untuk mengesahkan sama ada log masuk Minecraft turut terjejas di sana"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Periksa <a href=\"https://support.xbox.com/xbox-live-status\">Status Xbox</a> untuk isu perkhidmatan semasa"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Tunggu beberapa minit dan cuba log masuk lagi"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Perkhidmatan pengesahan Minecraft mengembalikan ralat pelayan, jadi {product} tidak dapat melengkapkan log masuk anda sekarang."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Log masuk semula"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Setelah selesai, cuba log masuk lagi"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Log masuk dengan <a href=\"https://www.minecraft.net/en-us/download\">Pelancar Minecraft rasmi</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Cuba log masuk ke {product} lagi"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Lawati <a href=\"https://www.minecraft.net/en-us/login\">Log Masuk Minecraft</a> dan log masuk"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Lawati <a href=\"https://www.xbox.com\">Xbox</a> dan log masuk"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Hantar rayuan jika tersedia"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Lawati <a href=\"https://support.xbox.com\">Sokongan Xbox</a> dan semak butiran tindakan penguatkuasaan"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Akaun ini telah digantung kerana melanggar Standard Komuniti Xbox."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Setelah log masuk baharu selesai, cuba jalankan Minecraft lagi"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Log masuk semula ke akaun"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Log keluar daripada akaun Minecraft yang terjejas dalam {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Token log masuk Microsoft anda yang disimpan telah tamat tempoh atau dibatalkan, jadi {product} tidak dapat memperbaharui sesi Minecraft anda."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Terima Terma jika diminta"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Akaun ini belum menerima Terma Perkhidmatan Xbox."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Cuba lawati"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Untuk bantuan tambahan, lawati <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">pengesahan umur UK di Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Pergi ke halaman <a href=\"https://www.minecraft.net/en-us/login\">Log Masuk Minecraft</a> dan log masuk"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Setelah disahkan, cuba log masuk lagi"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Ikut arahan untuk mengesahkan umur anda"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Akaun Minecraft/Xbox Live anda memerlukan pengesahan umur untuk mematuhi peraturan UK. Anda mesti melengkapkannya sebelum log masuk."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Semak <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">Panduan Persediaan Keluarga</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Sertai atau cipta kumpulan keluarga seperti yang diarahkan"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Akaun ini di bawah umur dan tidak dipautkan kepada kumpulan keluarga Microsoft."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Ralat tidak diketahui"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Kami tidak mengenali ralat ini dan tidak dapat mencadangkan langkah khusus untuk menyelesaikannya."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "dan log masuk, kerana ia mungkin memaparkan langkah yang diperlukan. Anda juga boleh menghubungi sokongan dan kami boleh menyiasatnya dengan lebih lanjut."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Kami tidak dapat log masuk anda ke akaun Microsoft anda. Ini mungkin disebabkan sekatan akaun atau had wilayah."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Apa yang kami rasa berlaku"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Terima sebarang terma atau lengkapkan penyediaan profil yang dipaparkan"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Log masuk sekali di <a href=\"https://www.xbox.com\">Xbox.com</a> dengan akaun Microsoft yang sama"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live tidak menerima log masuk Microsoft. Biasanya ini bermakna akaun Microsoft itu belum pernah log masuk ke Xbox atau perlu menerima terma yang dikemas kini."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Jika pelancar rasmi juga gagal, ikut ralat yang dipaparkan di sana atau hubungi Sokongan Xbox"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Lengkapkan sebarang gesaan yang dipaparkan oleh Microsoft, Xbox atau Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Perkhidmatan Xbox menolak permintaan untuk mengesahkan akaun ini bagi perkhidmatan Minecraft, tetapi tidak mengembalikan sekatan akaun khusus yang dikenali oleh {product}."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Pelayan pengesahan Minecraft mungkin sedang tergendala sekarang. Periksa sambungan internet anda dan cuba lagi kemudian."
@@ -71,29 +425,323 @@
   "app.auth-servers.unreachable.header": {
     "message": "Tidak dapat mencapai pelayan pengesahan"
   },
-  "app.browse.add-servers-to-instance": {
-    "message": "Menambah pelayan ke dalam pemasangan"
+  "app.bedrock.account": {
+    "message": "Minecraft dan Microsoft Store semak lesen Bedrock anda. Log masuk di sana dengan akaun yang memiliki Minecraft; akaun Java anda dalam pelancar ini mungkin berbeza."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Pek dan skrip tingkah laku setempat. Konfigurasikannya dalam tetapan dunia dalam Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Alat tambah"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Pek tingkah laku"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Addons"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Semak imbas alat tambah, pek sumber, dunia dan skrip daripada CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Temui kandungan Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Temui alat tambah"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Temui skrip"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Tutup Minecraft sebelum menambah pek ke dunia, kemudian cuba lagi."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Pasang dalam Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft akan dibuka untuk mengimport kandungan ini. Semak keputusan dalam permainan, kemudian aktifkan pek dalam tetapan dunia anda. Pek yang diperlukan dan tetapan percubaan disenaraikan dalam perihalan projek."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Arkib ini tidak mengandungi kandungan Bedrock yang disokong."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Tidak dapat memuatkan versi projek atau dunia. Cuba lagi."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Pek ini memerlukan pek lain yang tidak aktif di dunia ini. Pasang dependensi yang disenaraikan oleh pengarang dahulu."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Tiada fail .mcaddon, .mcpack, .mcworld atau ZIP yang disokong tersedia untuk projek ini."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Cipta dunia dalam Minecraft dahulu, kemudian muat semula senarai ini."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Skrip"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Versi kandungan"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Dunia destinasi"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Tutup Minecraft sebelum memasang. Pek ini akan ditambah dan diaktifkan hanya dalam dunia yang dipilih. Semak kebergantungan yang diperlukan dan tetapan percubaan dalam perihalan projek."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Pek ditambah pada {world}. Buka Minecraft untuk bermain dunia ini."
+  },
+  "app.bedrock.checking": {
+    "message": "Mencari Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Tutup Minecraft untuk mengedit fail, memadam kandungan atau memulihkan salinan."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Kandungan ini telah berubah atau lokasi asal telah diduduki. Salinan pemulihan telah disimpan untuk mengelakkan perubahan ganti anda."
+  },
+  "app.bedrock.content": {
+    "message": "Kandungan"
+  },
+  "app.bedrock.content-help": {
+    "message": "Sumber tempatan dan pek kulit. Aktifkan mereka dalam Minecraft; sesetengah kandungan adalah milik dunia individu."
+  },
+  "app.bedrock.data-error": {
+    "message": "Tidak dapat membaca data Minecraft. Muat semula untuk mencuba lagi."
+  },
+  "app.bedrock.data-location": {
+    "message": "Minecraft lokasi data"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Item ini akan dialih keluar daripada Minecraft. Salinan pemulihan akan disimpan, termasuk tetapan pek dunia yang terjejas. Dunia yang bergantung pada pek yang dipadamkan mungkin kehilangan sekatan atau tingkah lakunya; memulihkannya sebelum membuka dunia tersebut."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Padamkan kandungan tempatan"
+  },
+  "app.bedrock.description": {
+    "message": "Main Minecraft for Windows dan import dunia dan alat tambah anda."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Tidak dapat menyemak pemasangan Minecraft. Cuba lagi."
+  },
+  "app.bedrock.development": {
+    "message": "Pembangunan"
+  },
+  "app.bedrock.edition": {
+    "message": "Edisi Minecraft"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Folder ini kosong."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock dunia dan alat tambah"
+  },
+  "app.bedrock.file-size": {
+    "message": "Saiz"
+  },
+  "app.bedrock.files": {
+    "message": "Fail"
+  },
+  "app.bedrock.folder": {
+    "message": "folder"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Tidak dapat membuka folder Minecraft ini. Muat semula data anda dan cuba lagi."
+  },
+  "app.bedrock.import-button": {
+    "message": "Import fail"
+  },
+  "app.bedrock.import-description": {
+    "message": "Pilih fail .mcworld, .mcpack atau .mcaddon. Minecraft akan membuka dan mengendalikan import."
+  },
+  "app.bedrock.import-error": {
+    "message": "Tidak dapat menghantar fail ke Minecraft. Semak bahawa Minecraft for Windows dipasang dan cuba lagi."
+  },
+  "app.bedrock.import-title": {
+    "message": "Dunia dan alat tambah"
+  },
+  "app.bedrock.installation": {
+    "message": "Pemasangan rasmi"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows dipasang"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Pilih arkib .mcworld, .mcpack atau .mcaddon tempatan yang sah."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Fail ini melebihi had import 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Tidak dapat membuka Minecraft. Buka pelancar rasmi atau Microsoft Store untuk menyemak pemasangan."
+  },
+  "app.bedrock.launcher": {
+    "message": "Buka pelancar rasmi"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Pelancar rasmi dikesan. Pasang Minecraft for Windows di sana untuk meneruskan."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Membaca data Minecraft…"
+  },
+  "app.bedrock.location": {
+    "message": "Lokasi"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Menunjukkan 1 MiB terakhir log ini."
+  },
+  "app.bedrock.logs": {
+    "message": "Log"
+  },
+  "app.bedrock.missing": {
+    "message": "Pasang Minecraft for Windows untuk bermula"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Tidak dapat menukar kandungan ini. Tutup Minecraft dan muat semula. Salinan pemulihan anda telah disimpan."
+  },
+  "app.bedrock.name": {
+    "message": "Nama"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Tiada alat tambah tempatan ditemui. Import fail .mcpack atau .mcaddon untuk bermula."
+  },
+  "app.bedrock.no-content": {
+    "message": "Tiada kandungan tempatan ditemui."
+  },
+  "app.bedrock.no-data": {
+    "message": "Buka Minecraft sekali untuk mencipta folder datanya, kemudian muat semula di sini."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Tiada log kandungan ditemui. Dayakan pengelogan kandungan dalam Tetapan Minecraft > Pencipta, kemudian buka dunia anda."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Tiada salinan pemulihan lagi."
+  },
+  "app.bedrock.no-results": {
+    "message": "Tiada item yang sepadan."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Tiada dunia tempatan ditemui. Buat satu dalam Minecraft atau import fail .mcworld."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Buka folder"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Folder induk"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Sesetengah folder tidak dapat dibaca atau mencapai had paparan. Anda boleh memeriksanya dalam File Explorer."
+  },
+  "app.bedrock.play": {
+    "message": "Main"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Fail asal dan kandungan yang dipadam disimpan di sini. Pulihkan salinan semasa Minecraft ditutup. Kandungan sedia ada dan suntingan kemudian tidak pernah ditimpa."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Salinan pemulihan"
+  },
+  "app.bedrock.refresh": {
+    "message": "Semak semula"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Segar Semula"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Muat semula fail ini sebelum menyimpan."
+  },
+  "app.bedrock.repair": {
+    "message": "Baiki atau kemas kini pemasangan anda menggunakan Microsoft Store atau pelancar rasmi."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Pek sumber"
+  },
+  "app.bedrock.restore": {
+    "message": "Pulihkan"
+  },
+  "app.bedrock.running": {
+    "message": "Sedang berjalan"
+  },
+  "app.bedrock.save-error": {
+    "message": "Tidak dapat menyimpan. Fail mungkin telah berubah, mengandungi JSON yang tidak sah atau sedang digunakan. Muat semula dan cuba lagi."
+  },
+  "app.bedrock.search": {
+    "message": "Cari kandungan tempatan…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Pilih log untuk membacanya."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Pek skin"
+  },
+  "app.bedrock.store": {
+    "message": "Pasang atau kemas kini"
+  },
+  "app.bedrock.store-error": {
+    "message": "Tidak dapat membuka Microsoft Store. Bukanya dari menu Mula Windows."
+  },
+  "app.bedrock.submitted": {
+    "message": "Fail dihantar ke Minecraft. Semak keputusan import dalam permainan."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Penyepaduan Bedrock memerlukan Windows. Anda boleh terus bermain Java Edition pada peranti ini."
+  },
+  "app.bedrock.update": {
+    "message": "Kemas kini Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "Dalam Microsoft Store, semak kemas kini dan pilih Minecraft for Windows. Versi yang anda pasang akan dimuat semula apabila anda kembali."
+  },
+  "app.bedrock.version": {
+    "message": "Pemasangan Windows {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Versi"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Dunia: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Dunia"
+  },
+  "app.behavior-settings.confirmations.title": {
+    "message": "Pengesahan"
+  },
+  "app.behavior-settings.content.title": {
+    "message": "Utama dan kandungan"
+  },
+  "app.behavior-settings.startup-and-navigation.title": {
+    "message": "Permulaan dan navigasi"
   },
   "app.browse.add-to-an-instance": {
     "message": "Tambahkan ke dalam pemasangan"
   },
-  "app.browse.add-to-instance": {
-    "message": "Tambahkan ke dalam pemasangan"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Tambahkan ke {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Ditambah"
-  },
-  "app.browse.already-added": {
-    "message": "Sudah ditambah"
-  },
   "app.browse.back-to-instance": {
     "message": "Kembali ke pemasangan"
   },
-  "app.browse.discover-servers": {
-    "message": "Temui pelayan"
+  "app.browse.discover-project-type": {
+    "message": "Temui {projectType}"
+  },
+  "app.browse.hide-installed-modpacks": {
+    "message": "Sembunyikan yang sudah dipasang"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Buka dalam CurseForge"
+  },
+  "app.browse.project-actions.label": {
+    "message": "Tindakan projek"
+  },
+  "app.browse.project-type.data-packs": {
+    "message": "Pek Data"
   },
   "app.browse.project-type.modpacks": {
     "message": "Pek Mod"
@@ -101,8 +749,11 @@
   "app.browse.project-type.mods": {
     "message": "Mod"
   },
-  "app.browse.server.installing": {
-    "message": "Sedang memasang"
+  "app.browse.project-type.resource-packs": {
+    "message": "Pek Sumber"
+  },
+  "app.browse.project-type.shaders": {
+    "message": "Shader"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Tiada versi tersedia yang sepadan dengan {compatibilityLabel}. Pilih versi untuk dipasang juga. Kebergantungan tidak akan dipasang secara automatik."
@@ -110,8 +761,227 @@
   "app.content.desync-pack": {
     "message": "Nyahsegerakkan"
   },
+  "app.content.sync-data-packs-disabled": {
+    "message": "Hidupkan penyelarasan pek data dalam tetapan aplikasi dahulu."
+  },
   "app.content.sync-pack": {
     "message": "Segerakkan"
+  },
+  "app.content.sync-packs-override": {
+    "message": "Matikan pengatasan penyelarasan pek dalam tetapan pemasangan ini dahulu."
+  },
+  "app.content.sync-resource-packs-disabled": {
+    "message": "Hidupkan penyelarasan pek sumber dalam tetapan aplikasi dahulu."
+  },
+  "app.curseforge.rate-limit.text": {
+    "message": "Had permintaan berkongsi telah dicapai. Tunggu sebentar, kemudian cuba lagi."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge sibuk buat sementara waktu"
+  },
+  "app.download-manager.active": {
+    "message": "Aktif"
+  },
+  "app.download-manager.attention": {
+    "message": "Perlu perhatian"
+  },
+  "app.download-manager.cancel": {
+    "message": "Batal pemasangan"
+  },
+  "app.download-manager.canceling": {
+    "message": "Membatalkan pemasangan…"
+  },
+  "app.download-manager.clear-all": {
+    "message": "Kosongkan semua"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Kosongkan semua tugas yang selesai"
+  },
+  "app.download-manager.complete": {
+    "message": "Selesai"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Pemasangan pendua"
+  },
+  "app.download-manager.empty": {
+    "message": "Tiada tugas pemasangan"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Kelajuan muat turun dianggarkan"
+  },
+  "app.download-manager.eta": {
+    "message": "Anggaran masa berbaki untuk muat turun ini"
+  },
+  "app.download-manager.hide": {
+    "message": "Sembunyikan tugas pemasangan"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Pemasangan yang diimport"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Pemasangan instans"
+  },
+  "app.download-manager.modpack": {
+    "message": "Pek mod"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Pemasangan pek mod"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Pemasangan baharu"
+  },
+  "app.download-manager.pause": {
+    "message": "Jedakan pemasangan"
+  },
+  "app.download-manager.paused": {
+    "message": "Dijedakan"
+  },
+  "app.download-manager.remove": {
+    "message": "Buang daripada sejarah"
+  },
+  "app.download-manager.resume": {
+    "message": "Sambung pemasangan"
+  },
+  "app.download-manager.show": {
+    "message": "Tunjukkan tugas pemasangan"
+  },
+  "app.download-manager.tasks": {
+    "message": "Tugas"
+  },
+  "app.download-manager.title": {
+    "message": "Pengurus muat turun"
+  },
+  "app.download-manager.verifying": {
+    "message": "Mengesahkan"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Batal perubahan direktori"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Salin maklumat nyahpepijat"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Maklumat nyahpepijat"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "dahulu. Setelah selesai, kembali ke sini dan log masuk!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Cuba log masuk dengan"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Menggunakan PC Game Pass, datang daripada Bedrock, atau baru membeli permainan?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "Pelancar Minecraft rasmi"
+  },
+  "app.error.get-support.button": {
+    "message": "Dapatkan sokongan"
+  },
+  "app.error.help.end": {
+    "message": "dan kami dengan senang hati akan membantu! Pastikan sertakan maklumat nyahpepijat berikut:"
+  },
+  "app.error.help.start": {
+    "message": "Jika tiada apa yang berfungsi dan anda perlukan bantuan, lawati"
+  },
+  "app.error.help.support-link": {
+    "message": "halaman sokongan kami"
+  },
+  "app.error.hosts.body-end": {
+    "message": "cuba menyambung ke perkhidmatan Microsoft / Xbox / Minecraft, tetapi pelayan jauh menolak sambungan itu. Ini mungkin menunjukkan perkhidmatan ini disekat oleh fail hosts. Sila lawati"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "untuk langkah membaiki isu ini."
+  },
+  "app.error.migrate.body-end": {
+    "message": "tidak dapat berpindah ke direktori baharu yang anda pilih. Sila hubungi sokongan untuk bantuan atau batal perubahan direktori."
+  },
+  "app.error.network.body-end": {
+    "message": "menyambung ke pelayan Microsoft. Ini selalunya akibat sambungan lemah, jadi kami syorkan cuba lagi untuk melihat sama ada ia berkesan. Jika isu berterusan, ikut langkah dalam"
+  },
+  "app.error.network.body-start": {
+    "message": "Nampaknya"
+  },
+  "app.error.network.heading": {
+    "message": "Isu rangkaian"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "untuk menyelesaikan masalah."
+  },
+  "app.error.no-error-message": {
+    "message": "Tiada mesej ralat."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "gagal mencari versi pemuat untuk pemasangan ini."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Untuk menyelesaikannya, anda perlu membaiki pemasangan. Klik butang di bawah."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Nampaknya ruang pada cakera yang mengandungi direktori pilihan anda tidak mencukupi. Sila kosongkan sedikit ruang dan cuba lagi atau batal perubahan direktori."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Ruang tidak mencukupi"
+  },
+  "app.error.read-only.body-end": {
+    "message": "tidak dapat menulis ke direktori yang anda pilih. Sila laraskan kebenaran direktori itu dan cuba lagi atau batal perubahan direktori."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Nampaknya"
+  },
+  "app.error.read-only.heading": {
+    "message": "Tukar kebenaran direktori"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Baiki pemasangan"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Cuba semula perubahan direktori"
+  },
+  "app.error.state-init.body-end": {
+    "message": "gagal dimuatkan dengan betul. Ini mungkin disebabkan fail yang rosak, atau kerana aplikasi kehilangan fail penting."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Anda mungkin dapat membaikinya melalui salah satu cara berikut:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Pastikan anda bersambung ke internet, kemudian cuba mulakan semula aplikasi."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Muat turun aplikasi semula."
+  },
+  "app.error.state-init.open-backups-folder": {
+    "message": "Buka folder sandaran"
+  },
+  "app.error.support-article-link": {
+    "message": "artikel sokongan kami"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Tidak dapat menukar direktori aplikasi"
+  },
+  "app.error.title.generic": {
+    "message": "Ralat telah berlaku"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Tiada pemuat dipilih"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Tidak dapat log masuk ke Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Ralat memulakan {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Cuba log masuk lagi"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Pastikan anda log masuk dengan akaun yang betul. Anda mungkin memiliki Minecraft pada akaun Microsoft yang lain."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Cuba akaun lain"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Cuba akaun Microsoft lain"
   },
   "app.export-modal.description-placeholder": {
     "message": "Masukkan keterangan pek mod..."
@@ -119,8 +989,38 @@
   "app.export-modal.export-button": {
     "message": "Eksport"
   },
+  "app.export-modal.export-complete": {
+    "message": "Eksport selesai"
+  },
+  "app.export-modal.export-complete-description": {
+    "message": "{name} berjaya dieksport."
+  },
+  "app.export-modal.format-label": {
+    "message": "Format eksport"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "ZIP CurseForge dengan manifest.json dan fail terpilih dalam overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Untuk pelancar yang menyokong pek Modrinth. Termasuk rujukan muat turun dan fail tambahan terpilih."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Pek {productName} mudah alih yang mengandungi fail terpilih. Buka terus dalam pelancar."
+  },
   "app.export-modal.header": {
     "message": "Eksport pek mod"
+  },
+  "app.export-modal.modpack-name-label": {
+    "message": "Nama pek mod"
   },
   "app.export-modal.modpack-name-placeholder": {
     "message": "Nama pek mod"
@@ -130,6 +1030,96 @@
   },
   "app.export-modal.version-number-placeholder": {
     "message": "1.0.0"
+  },
+  "app.features-settings.instance-pages.title": {
+    "message": "Instans"
+  },
+  "app.features-settings.play-page.title": {
+    "message": "Halaman Main"
+  },
+  "app.features-settings.quick-instances.description": {
+    "message": "Pilih bilangan maksimum pemasangan terkini yang dipaparkan dalam bar sisi kiri. Anda juga boleh laraskannya dengan menyeret pemisah."
+  },
+  "app.features-settings.quick-instances.title": {
+    "message": "Pemasangan pantas dalam bar sisi"
+  },
+  "app.features-settings.show-all-screenshots.description": {
+    "message": "Tunjukkan butang dalam bar sisi kiri untuk melihat tangkapan skrin daripada semua pemasangan anda."
+  },
+  "app.features-settings.show-all-screenshots.title": {
+    "message": "Tunjukkan semua tangkapan skrin dalam bar sisi"
+  },
+  "app.features-settings.show-files-tab.title": {
+    "message": "Tunjukkan tab Fail dalam instans"
+  },
+  "app.features-settings.show-jump-in.description": {
+    "message": "Tunjukkan dunia dan pemasangan yang baru dimainkan di bahagian atas halaman Main."
+  },
+  "app.features-settings.show-jump-in.title": {
+    "message": "Tunjukkan bahagian Lompat masuk"
+  },
+  "app.features-settings.show-screenshots-tab.title": {
+    "message": "Tunjukkan tab Tangkapan skrin dalam instans"
+  },
+  "app.features-settings.show-skin-selector.description": {
+    "message": "Tunjukkan butang dalam bar sisi kiri untuk membuka pemilih skin."
+  },
+  "app.features-settings.show-skin-selector.title": {
+    "message": "Tunjukkan pemilih skin dalam bar sisi"
+  },
+  "app.features-settings.show-worlds-tab.title": {
+    "message": "Tunjukkan tab Dunia dalam instans"
+  },
+  "app.features-settings.sidebar.title": {
+    "message": "Bar sisi"
+  },
+  "app.home.jump-back-in.actions.label": {
+    "message": "Tindakan instans"
+  },
+  "app.home.jump-back-in.instance-locked": {
+    "message": "Instans ini telah dikunci"
+  },
+  "app.home.jump-back-in.instance-open": {
+    "message": "Instans sudah dibuka"
+  },
+  "app.home.jump-back-in.more-options": {
+    "message": "Pilihan lain"
+  },
+  "app.home.jump-back-in.never-played": {
+    "message": "Belum pernah dimainkan"
+  },
+  "app.home.jump-back-in.new-instance": {
+    "message": "Instans baharu"
+  },
+  "app.home.jump-back-in.resize": {
+    "message": "Seret untuk mengubah saiz"
+  },
+  "app.home.jump-back-in.title": {
+    "message": "Lompat masuk"
+  },
+  "app.home.jump-back-in.view-instance": {
+    "message": "Lihat instans"
+  },
+  "app.install.phase.downloading_content": {
+    "message": "Memuat turun kandungan"
+  },
+  "app.install.phase.downloading_minecraft": {
+    "message": "Memuat turun Minecraft"
+  },
+  "app.install.phase.downloading_pack_file": {
+    "message": "Memuat turun fail pek"
+  },
+  "app.install.phase.extracting_overrides": {
+    "message": "Mengekstrak overrides"
+  },
+  "app.install.phase.finalizing": {
+    "message": "Memuktamadkan"
+  },
+  "app.install.phase.preparing_instance": {
+    "message": "Dalam baris gilir untuk dipasang"
+  },
+  "app.install.phase.preparing_java": {
+    "message": "Menyediakan Java"
   },
   "app.install.phase.preparing_java.downloading": {
     "message": "Sedang memuat turun Java {version}"
@@ -149,8 +1139,32 @@
   "app.install.phase.reading_pack_manifest": {
     "message": "Sedang membaca manifest pek"
   },
+  "app.install.phase.resolving_loader": {
+    "message": "Menyelesaikan pemuat"
+  },
+  "app.install.phase.resolving_minecraft": {
+    "message": "Menyelesaikan Minecraft"
+  },
+  "app.install.phase.resolving_pack": {
+    "message": "Menyelesaikan kandungan"
+  },
+  "app.install.phase.rolling_back": {
+    "message": "Memulihkan"
+  },
+  "app.install.phase.running_loader_processors": {
+    "message": "Menjalankan pemproses pemuat"
+  },
+  "app.instance.action.add-content": {
+    "message": "Tambah kandungan"
+  },
+  "app.instance.action.copy-path": {
+    "message": "Salin laluan"
+  },
   "app.instance.action.edit": {
     "message": "Sunting"
+  },
+  "app.instance.action.open-folder": {
+    "message": "Buka folder"
   },
   "app.instance.action.play": {
     "message": "Main"
@@ -158,17 +1172,8 @@
   "app.instance.action.stop": {
     "message": "Hentikan"
   },
-  "app.instance.add-server.add": {
-    "message": "Tambah"
-  },
-  "app.instance.add-server.added": {
-    "message": "Ditambah"
-  },
-  "app.instance.add-server.cancel": {
-    "message": "Batal"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Ditambah"
+  "app.instance.actions.label": {
+    "message": "Tindakan instans"
   },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Semua data untuk pemasangan anda akan dipadamkan secara kekal, termasuk dunia, konfigurasi dan semua kandungan yang dipasang."
@@ -176,11 +1181,29 @@
   "app.instance.confirm-delete.admonition-header": {
     "message": "Tindakan ini tidak boleh dibatalkan"
   },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "Semua data untuk {count} pemasangan ini akan dipadamkan secara kekal, termasuk dunia, konfigurasi dan semua kandungan yang dipasang."
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "Padam {count} pemasangan"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "Padam {count} pemasangan"
+  },
   "app.instance.confirm-delete.delete-button": {
     "message": "Padam pemasangan"
   },
   "app.instance.confirm-delete.header": {
     "message": "Padam pemasangan"
+  },
+  "app.instance.confirm-delete.instances-label": {
+    "message": "{count, plural, other {Pemasangan ({count})}}"
+  },
+  "app.instance.content.managed-content.modpack-header": {
+    "message": "Kandungan pek mod"
+  },
+  "app.instance.content.managed-content.server-header": {
+    "message": "Kandungan pelayan"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Pek mod ini telah dipasang dalam pemasangan <bold>{instanceName}</bold>. Adakah anda pasti mahu menduakannya?"
@@ -194,8 +1217,23 @@
   "app.instance.modpack-already-installed.instance": {
     "message": "Pemasangan"
   },
+  "app.instance.mods.bulk-update.downloading-projects": {
+    "message": "Memuat turun {current, number}/{total, number} projek..."
+  },
+  "app.instance.mods.bulk-update.finishing": {
+    "message": "Menyelesaikan kemas kini..."
+  },
+  "app.instance.mods.bulk-update.resolving-versions": {
+    "message": "Menyelesaikan versi..."
+  },
   "app.instance.mods.content-type-project": {
     "message": "projek"
+  },
+  "app.instance.mods.freeze-content": {
+    "message": "Kunci versi"
+  },
+  "app.instance.mods.locked-content": {
+    "message": "Kandungan dalam instans berkunci tidak boleh diubah."
   },
   "app.instance.mods.project-was-added": {
     "message": "\"{name}\" telah ditambahkan"
@@ -212,14 +1250,29 @@
   "app.instance.mods.successfully-uploaded": {
     "message": "Berjaya dimuat naik"
   },
+  "app.instance.mods.unfreeze-content": {
+    "message": "Buka kunci versi"
+  },
+  "app.instance.navigation.back-to-instance": {
+    "message": "Kembali ke instans"
+  },
+  "app.instance.shortcut.created": {
+    "message": "Pintasan dicipta"
+  },
+  "app.instance.shortcut.creation-error": {
+    "message": "Ralat mencipta pintasan"
+  },
+  "app.instance.tab.content": {
+    "message": "Kandungan"
+  },
   "app.instance.tab.files": {
     "message": "Fail"
   },
   "app.instance.tab.logs": {
     "message": "Log"
   },
-  "app.instance.tab.share": {
-    "message": "Kongsi"
+  "app.instance.tab.screenshots": {
+    "message": "Tangkapan skrin"
   },
   "app.instance.tab.worlds": {
     "message": "Dunia"
@@ -227,8 +1280,20 @@
   "app.instance.worlds.add-server": {
     "message": "Tambah pelayan"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Layari pelayan"
+  "app.instance.worlds.browse": {
+    "message": "Layari dunia"
+  },
+  "app.instance.worlds.delete-world-modal.delete-button": {
+    "message": "Padam dunia"
+  },
+  "app.instance.worlds.delete-world-modal.title": {
+    "message": "Padam dunia"
+  },
+  "app.instance.worlds.delete-world-modal.warning-body": {
+    "message": "Dunia ini akan dipadamkan secara kekal daripada pemasangan ini. Tindakan ini tidak boleh dibuat asal."
+  },
+  "app.instance.worlds.delete-world-modal.warning-header": {
+    "message": "Memadam {name}"
   },
   "app.instance.worlds.filter-modded": {
     "message": "Diubah Suai"
@@ -248,17 +1313,62 @@
   "app.instance.worlds.no-worlds-heading": {
     "message": "Tiada pelayan atau dunia ditambah"
   },
+  "app.instance.worlds.refreshing": {
+    "message": "Menyegarkan..."
+  },
+  "app.instance.worlds.remove-server-modal.remove-button": {
+    "message": "Buang pelayan"
+  },
+  "app.instance.worlds.remove-server-modal.remove-everywhere": {
+    "message": "Buang di semua tempat"
+  },
+  "app.instance.worlds.remove-server-modal.remove-here": {
+    "message": "Buang di sini"
+  },
+  "app.instance.worlds.remove-server-modal.synced-description": {
+    "message": "Anda boleh membuangnya hanya daripada pemasangan ini atau daripada semua pemasangan yang diselaraskan. Membuangnya daripada pemasangan ini sahaja akan mengaktifkan pengatasan, dan pemasangan ini tidak lagi menerima perubahan pelayan yang diselaraskan."
+  },
+  "app.instance.worlds.remove-server-modal.synced-header": {
+    "message": "Pelayan ini diselaraskan"
+  },
+  "app.instance.worlds.remove-server-modal.title": {
+    "message": "Buang pelayan"
+  },
+  "app.instance.worlds.remove-server-modal.warning-body": {
+    "message": "Pelayan ini akan dibuang daripada senarai pelayan anda dan daripada senarai pelayan dalam permainan. Anda boleh menambahnya semula kemudian jika anda tahu alamatnya."
+  },
+  "app.instance.worlds.remove-server-modal.warning-header": {
+    "message": "Membuang {name}"
+  },
   "app.instance.worlds.search-worlds-placeholder": {
     "message": "Cari {count} dunia..."
   },
   "app.java-detection.cancel": {
     "message": "Batal"
   },
+  "app.java-detection.columns.actions": {
+    "message": "Tindakan"
+  },
   "app.java-detection.columns.path": {
     "message": "Laluan"
   },
+  "app.java-detection.columns.version": {
+    "message": "Versi"
+  },
+  "app.java-detection.no-installations-found": {
+    "message": "Tiada pemasangan Java ditemui."
+  },
   "app.java-detection.select": {
     "message": "Pilih"
+  },
+  "app.java-detection.selected": {
+    "message": "Dipilih"
+  },
+  "app.java-detection.title": {
+    "message": "Pilih pemasangan Java"
+  },
+  "app.java-selector.already-installed": {
+    "message": "Sudah dipasang"
   },
   "app.java-selector.browse": {
     "message": "Gelintar"
@@ -266,20 +1376,116 @@
   "app.java-selector.detect": {
     "message": "Kesan"
   },
+  "app.java-selector.install-recommended": {
+    "message": "Pasang yang disyorkan"
+  },
+  "app.java-selector.installing": {
+    "message": "Memasang..."
+  },
+  "app.java-selector.path.placeholder": {
+    "message": "/path/to/java"
+  },
+  "app.java-selector.test-installation": {
+    "message": "Uji pemasangan Java"
+  },
+  "app.launch-link.instance": {
+    "message": "Pautan mahu memulakan {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Mula"
+  },
+  "app.launch-link.server": {
+    "message": "Pautan mahu memulakan {instance} dan menyertai pelayan {target}. Teruskan hanya jika anda mempercayai asal pautan ini."
+  },
+  "app.launch-link.title": {
+    "message": "Buka Minecraft daripada pautan?"
+  },
+  "app.launch-link.world": {
+    "message": "Pautan mahu memulakan {instance} dan membuka dunia {target}."
+  },
+  "app.library.actions.label": {
+    "message": "Tindakan pustaka"
+  },
+  "app.library.context-menu.create-instance": {
+    "message": "Instans baharu"
+  },
+  "app.library.filter.add": {
+    "message": "Tambah penapis"
+  },
+  "app.library.filter.clear": {
+    "message": "Kosongkan penapis"
+  },
+  "app.library.filter.game-version": {
+    "message": "Versi permainan"
+  },
+  "app.library.filter.instance-type": {
+    "message": "Jenis instans"
+  },
   "app.library.filter.instance-type.custom": {
     "message": "Tersuai"
+  },
+  "app.library.filter.instance-type.modpack": {
+    "message": "Pek mod"
   },
   "app.library.filter.instance-type.server": {
     "message": "Pelayan"
   },
+  "app.library.filter.label": {
+    "message": "Tapis mengikut"
+  },
   "app.library.filter.loader": {
     "message": "Pemuat"
+  },
+  "app.library.group-by.custom-group": {
+    "message": "Kumpulan tersuai"
+  },
+  "app.library.group-by.game-version": {
+    "message": "Versi permainan"
+  },
+  "app.library.group-by.instance-type": {
+    "message": "Jenis instans"
+  },
+  "app.library.group-by.label": {
+    "message": "Kumpul mengikut"
   },
   "app.library.group-by.loader": {
     "message": "Pemuat"
   },
+  "app.library.group-by.none": {
+    "message": "Tiada pengumpulan"
+  },
+  "app.library.group.actions.label": {
+    "message": "Tindakan kumpulan"
+  },
+  "app.library.group.collapse": {
+    "message": "Runtuhkan kumpulan"
+  },
+  "app.library.group.context-menu.add-to-group": {
+    "message": "Tambah ke kumpulan"
+  },
+  "app.library.group.create": {
+    "message": "Cipta kumpulan"
+  },
   "app.library.group.create.cancel": {
     "message": "Batal"
+  },
+  "app.library.group.delete": {
+    "message": "Padam kumpulan"
+  },
+  "app.library.group.delete-description": {
+    "message": "Instans dalam kumpulan ini akan dinyahkumpulkan."
+  },
+  "app.library.group.edit-name": {
+    "message": "Sunting nama kumpulan"
+  },
+  "app.library.group.empty": {
+    "message": "Seret dan lepas untuk menambah instans."
+  },
+  "app.library.group.expand": {
+    "message": "Kembangkan kumpulan"
+  },
+  "app.library.group.favorites": {
+    "message": "Kegemaran"
   },
   "app.library.group.instance.add": {
     "message": "Tambah"
@@ -293,14 +1499,107 @@
   "app.library.group.instances-modal.added": {
     "message": "Ditambah"
   },
+  "app.library.group.instances-modal.no-instances-found": {
+    "message": "Tiada instans ditemui"
+  },
+  "app.library.group.instances-modal.search-placeholder": {
+    "message": "Cari instans"
+  },
+  "app.library.group.instances-modal.title": {
+    "message": "Tambah instans ke \"{groupName}\""
+  },
+  "app.library.group.move-down": {
+    "message": "Alih kumpulan ke bawah"
+  },
+  "app.library.group.move-up": {
+    "message": "Alih kumpulan ke atas"
+  },
+  "app.library.group.name": {
+    "message": "Nama kumpulan"
+  },
+  "app.library.group.name-empty": {
+    "message": "Nama kumpulan tidak boleh kosong."
+  },
+  "app.library.group.name-placeholder": {
+    "message": "Masukkan nama kumpulan"
+  },
+  "app.library.group.name-reserved": {
+    "message": "\"None\" dikhaskan dan tidak boleh digunakan sebagai nama kumpulan."
+  },
+  "app.library.group.name-too-long": {
+    "message": "Nama kumpulan tidak boleh lebih panjang daripada {maxLength} aksara."
+  },
+  "app.library.group.new": {
+    "message": "Kumpulan baharu"
+  },
+  "app.library.group.no-instances-found": {
+    "message": "Tiada instans ditemui"
+  },
+  "app.library.group.rename-failed": {
+    "message": "Tidak dapat menamakan semula kumpulan"
+  },
+  "app.library.group.search-instance": {
+    "message": "Cari instans"
+  },
+  "app.library.group.ungrouped": {
+    "message": "Tidak dikumpulkan"
+  },
+  "app.library.group.unknown": {
+    "message": "Kumpulan tidak diketahui"
+  },
+  "app.library.instance.action.add-content": {
+    "message": "Tambah kandungan"
+  },
+  "app.library.instance.action.add-to-favorites": {
+    "message": "Tambah ke kegemaran"
+  },
+  "app.library.instance.action.copy-path": {
+    "message": "Salin laluan"
+  },
   "app.library.instance.action.delete": {
     "message": "Padam"
+  },
+  "app.library.instance.action.duplicate": {
+    "message": "Duplikasi instans"
+  },
+  "app.library.instance.action.open-folder": {
+    "message": "Buka folder"
   },
   "app.library.instance.action.play": {
     "message": "Main"
   },
+  "app.library.instance.action.remove-from-favorites": {
+    "message": "Buang daripada kegemaran"
+  },
+  "app.library.instance.action.remove-from-group": {
+    "message": "Buang daripada kumpulan"
+  },
   "app.library.instance.action.stop": {
     "message": "Hentikan"
+  },
+  "app.library.instance.action.view-instance": {
+    "message": "Lihat instans"
+  },
+  "app.library.instance.actions.label": {
+    "message": "Tindakan instans"
+  },
+  "app.library.instance.deselect": {
+    "message": "Nyahpilih instans"
+  },
+  "app.library.instance.deselect-with-name": {
+    "message": "Nyahpilih {name}"
+  },
+  "app.library.instance.installing": {
+    "message": "Memasang..."
+  },
+  "app.library.instance.loading": {
+    "message": "Instans sedang dimuatkan..."
+  },
+  "app.library.instance.new": {
+    "message": "Instans baharu"
+  },
+  "app.library.instance.open-with-name": {
+    "message": "Buka {name}"
   },
   "app.library.instance.play": {
     "message": "Main"
@@ -308,11 +1607,53 @@
   "app.library.instance.repair": {
     "message": "Baiki"
   },
+  "app.library.instance.select": {
+    "message": "Pilih instans"
+  },
+  "app.library.instance.select-with-name": {
+    "message": "Pilih {name}"
+  },
   "app.library.instance.stop": {
     "message": "Hentikan"
   },
+  "app.library.search.no-results.title": {
+    "message": "Tiada instans sepadan dengan carian anda."
+  },
   "app.library.search.placeholder": {
     "message": "Cari"
+  },
+  "app.library.selection.aria-label": {
+    "message": "Instans dipilih"
+  },
+  "app.library.selection.deleting": {
+    "message": "Memadam instans dipilih"
+  },
+  "app.library.selection.new-group": {
+    "message": "Kumpulan baharu"
+  },
+  "app.library.selection.remove-from-group": {
+    "message": "Buang daripada kumpulan"
+  },
+  "app.library.selection.selected-count": {
+    "message": "{count} dipilih"
+  },
+  "app.library.sort.date-created": {
+    "message": "Tarikh dicipta"
+  },
+  "app.library.sort.date-modified": {
+    "message": "Tarikh diubah"
+  },
+  "app.library.sort.game-version": {
+    "message": "Versi permainan"
+  },
+  "app.library.sort.hours-played": {
+    "message": "Jam dimainkan"
+  },
+  "app.library.sort.label": {
+    "message": "Susun mengikut"
+  },
+  "app.library.sort.last-played": {
+    "message": "Kali terakhir dimainkan"
   },
   "app.library.sort.loader": {
     "message": "Pemuat"
@@ -320,50 +1661,257 @@
   "app.library.sort.name": {
     "message": "Nama"
   },
-  "app.modal.install-to-play.header": {
-    "message": "Pasang untuk mainkan"
+  "app.library.title": {
+    "message": "Pustaka"
   },
-  "app.modal.install-to-play.install-button": {
-    "message": "Pasang"
+  "app.nav.collapse-sidebar": {
+    "message": "Runtuhkan bar sisi"
   },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, other {# mod}}"
+  "app.nav.create-new-instance": {
+    "message": "Cipta instans baharu"
   },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Pemasangan yang dikongsi"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Lihat kandungan"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Kemas kini untuk mainkan"
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "Ditambah"
+  "app.nav.expand-sidebar": {
+    "message": "Kembangkan bar sisi"
   },
   "app.nav.home": {
     "message": "Laman utama"
   },
+  "app.nav.screenshots": {
+    "message": "Tangkapan skrin"
+  },
+  "app.navigation.go-back": {
+    "message": "Kembali"
+  },
+  "app.navigation.go-forward": {
+    "message": "Ke hadapan"
+  },
   "app.navigation.home": {
     "message": "Laman utama"
+  },
+  "app.navigation.next-image": {
+    "message": "Imej seterusnya"
+  },
+  "app.notification.warning": {
+    "message": "Amaran"
+  },
+  "app.project.actions.label": {
+    "message": "Tindakan projek"
+  },
+  "app.project.coming-soon": {
+    "message": "Akan datang"
+  },
+  "app.project.gallery.image-fallback": {
+    "message": "Imej galeri"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Buka imej dalam tab baharu"
   },
   "app.project.install-button.already-installed": {
     "message": "Projek ini sudah dipasang"
   },
+  "app.project.install-button.switch-version": {
+    "message": "Tukar versi"
+  },
   "app.project.install-context.back-to-browse": {
     "message": "Kembali menemukan"
+  },
+  "app.project.install-context.back-to-instance": {
+    "message": "Kembali ke instans"
+  },
+  "app.project.load-error": {
+    "message": "Data projek tidak dapat dimuatkan."
+  },
+  "app.project.more-options": {
+    "message": "Pilihan lain"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Buka dalam CurseForge"
+  },
+  "app.project.tab.description": {
+    "message": "Penerangan"
+  },
+  "app.project.tab.gallery": {
+    "message": "Galeri"
+  },
+  "app.project.tab.versions": {
+    "message": "Versi"
+  },
+  "app.project.version.all-versions": {
+    "message": "Semua versi"
+  },
+  "app.project.version.download-in-browser": {
+    "message": "Muat turun dalam pelayar"
+  },
+  "app.project.version.installing": {
+    "message": "Memasang"
+  },
+  "app.project.versions.already-installed": {
+    "message": "Sudah dipasang"
+  },
+  "app.quick-instance-switcher.actions.label": {
+    "message": "Tindakan instans"
+  },
+  "app.quick-instance-switcher.drag-show-tooltip": {
+    "message": "Seret untuk menunjukkan pemasangan terkini"
+  },
+  "app.quick-instance-switcher.drag-tooltip": {
+    "message": "Seret untuk mengubah saiz"
+  },
+  "app.quick-instance-switcher.instance-locked": {
+    "message": "Instans ini telah dikunci"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Pemasangan terkini"
+  },
+  "app.quick-instance-switcher.view-instance": {
+    "message": "Lihat instans"
+  },
+  "app.restarting": {
+    "message": "Memulakan semula..."
   },
   "app.screenshots.copied": {
     "message": "Disalin"
   },
+  "app.screenshots.copy": {
+    "message": "Salin imej"
+  },
+  "app.screenshots.delete-description": {
+    "message": "Padam {name} secara kekal? Tindakan ini tidak boleh dibuat asal."
+  },
+  "app.screenshots.delete-success": {
+    "message": "Tangkapan skrin dipadamkan"
+  },
+  "app.screenshots.delete-title": {
+    "message": "Padam tangkapan skrin"
+  },
+  "app.screenshots.deselect": {
+    "message": "Nyahpilih {name}"
+  },
+  "app.screenshots.edit": {
+    "message": "Sunting tangkapan skrin"
+  },
+  "app.screenshots.empty-description": {
+    "message": "Tangkapan skrin yang anda ambil dalam permainan akan muncul di sini."
+  },
+  "app.screenshots.empty-heading": {
+    "message": "Belum ada tangkapan skrin"
+  },
+  "app.screenshots.error-heading": {
+    "message": "Gagal memuatkan tangkapan skrin"
+  },
+  "app.screenshots.go-to-instance": {
+    "message": "Pergi ke instans"
+  },
+  "app.screenshots.group-by": {
+    "message": "Kumpul mengikut"
+  },
+  "app.screenshots.group.all-screenshots": {
+    "message": "Semua tangkapan skrin"
+  },
+  "app.screenshots.group.collapse": {
+    "message": "Runtuhkan kumpulan"
+  },
+  "app.screenshots.group.custom": {
+    "message": "Kumpulan tersuai"
+  },
   "app.screenshots.group.date": {
     "message": "Tarikh"
+  },
+  "app.screenshots.group.delete": {
+    "message": "Padam kumpulan"
+  },
+  "app.screenshots.group.delete-description": {
+    "message": "Tangkapan skrin dalam kumpulan ini akan dinyahkumpulkan."
+  },
+  "app.screenshots.group.edit": {
+    "message": "Sunting nama kumpulan"
+  },
+  "app.screenshots.group.empty": {
+    "message": "Seret dan lepas untuk menambah tangkapan skrin."
+  },
+  "app.screenshots.group.expand": {
+    "message": "Kembangkan kumpulan"
+  },
+  "app.screenshots.group.instance": {
+    "message": "Instans"
+  },
+  "app.screenshots.group.new": {
+    "message": "Kumpulan baharu"
+  },
+  "app.screenshots.group.none": {
+    "message": "Tiada pengumpulan"
+  },
+  "app.screenshots.group.this-month": {
+    "message": "Bulan ini"
+  },
+  "app.screenshots.group.this-week": {
+    "message": "Minggu ini"
   },
   "app.screenshots.group.today": {
     "message": "Hari ini"
   },
+  "app.screenshots.group.ungrouped": {
+    "message": "Tidak dikumpulkan"
+  },
+  "app.screenshots.group.yesterday": {
+    "message": "Semalam"
+  },
+  "app.screenshots.heading": {
+    "message": "Tangkapan skrin"
+  },
+  "app.screenshots.more-actions": {
+    "message": "Tindakan lain"
+  },
+  "app.screenshots.no-results-description": {
+    "message": "Cuba carian atau penapis yang lain."
+  },
+  "app.screenshots.no-results-heading": {
+    "message": "Tiada tangkapan skrin sepadan"
+  },
+  "app.screenshots.preview.instance-and-date": {
+    "message": "{instance} · {date}"
+  },
   "app.screenshots.search": {
     "message": "Cari"
+  },
+  "app.screenshots.select": {
+    "message": "Pilih {name}"
+  },
+  "app.screenshots.selection.aria-label": {
+    "message": "Tangkapan skrin dipilih"
+  },
+  "app.screenshots.selection.delete-description": {
+    "message": "Padam {count, plural, other {# tangkapan skrin}}? Tindakan ini tidak boleh dibuat asal."
+  },
+  "app.screenshots.selection.delete-success": {
+    "message": "{count, plural, other {# tangkapan skrin dipadamkan}}"
+  },
+  "app.screenshots.selection.delete-title": {
+    "message": "Padam tangkapan skrin yang dipilih"
+  },
+  "app.screenshots.selection.export-zip": {
+    "message": "Eksport ZIP"
+  },
+  "app.screenshots.selection.global-export-filename": {
+    "message": "Tangkapan skrin {productName}.zip"
+  },
+  "app.screenshots.selection.instance-export-filename": {
+    "message": "Tangkapan skrin {instance}.zip"
+  },
+  "app.screenshots.selection.remove-from-group": {
+    "message": "Buang daripada kumpulan"
+  },
+  "app.screenshots.selection.selected-count": {
+    "message": "{count} dipilih"
+  },
+  "app.screenshots.selection.zip-archive": {
+    "message": "Arkib ZIP"
+  },
+  "app.screenshots.show-in-folder": {
+    "message": "Tunjukkan dalam folder"
+  },
+  "app.screenshots.sort-by": {
+    "message": "Susun mengikut"
   },
   "app.screenshots.sort.name": {
     "message": "Nama"
@@ -374,8 +1922,77 @@
   "app.screenshots.sort.oldest": {
     "message": "Paling lama"
   },
+  "app.settings.app-version": {
+    "message": "{productName} {version}"
+  },
+  "app.settings.default-instance-options.environment-variables.description": {
+    "message": "Pemboleh ubah persekitaran yang ditetapkan semasa memulakan instans."
+  },
+  "app.settings.default-instance-options.environment-variables.placeholder": {
+    "message": "Masukkan pemboleh ubah persekitaran..."
+  },
+  "app.settings.default-instance-options.environment-variables.title": {
+    "message": "Pemboleh ubah persekitaran"
+  },
+  "app.settings.default-instance-options.fullscreen.description": {
+    "message": "Mulakan instans dalam skrin penuh dengan mengemas kini fail options.txt mereka."
+  },
+  "app.settings.default-instance-options.fullscreen.title": {
+    "message": "Skrin penuh"
+  },
+  "app.settings.default-instance-options.height.description": {
+    "message": "Ketinggian tetingkap permainan apabila dimulakan."
+  },
+  "app.settings.default-instance-options.height.placeholder": {
+    "message": "Masukkan tinggi..."
+  },
   "app.settings.default-instance-options.height.title": {
     "message": "Tinggi"
+  },
+  "app.settings.default-instance-options.java-and-memory.title": {
+    "message": "Java dan memori"
+  },
+  "app.settings.default-instance-options.java-arguments.description": {
+    "message": "Argumen yang dihantar kepada Java semasa memulakan instans."
+  },
+  "app.settings.default-instance-options.java-arguments.placeholder": {
+    "message": "Masukkan argumen Java..."
+  },
+  "app.settings.default-instance-options.java-arguments.title": {
+    "message": "Argumen Java"
+  },
+  "app.settings.default-instance-options.launch-hooks.title": {
+    "message": "Cangkuk pelancaran"
+  },
+  "app.settings.default-instance-options.memory-allocation.description": {
+    "message": "Memori maksimum tersedia untuk setiap instans."
+  },
+  "app.settings.default-instance-options.memory-allocation.title": {
+    "message": "Peruntukan memori"
+  },
+  "app.settings.default-instance-options.post-exit-hook.description": {
+    "message": "Berjalan selepas permainan ditutup."
+  },
+  "app.settings.default-instance-options.post-exit-hook.placeholder": {
+    "message": "Masukkan arahan selepas keluar..."
+  },
+  "app.settings.default-instance-options.post-exit-hook.title": {
+    "message": "Cangkuk selepas keluar"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.description": {
+    "message": "Berjalan sebelum instans bermula."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.placeholder": {
+    "message": "Masukkan arahan sebelum pelancaran..."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "Cangkuk sebelum pelancaran"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "Lebar tetingkap permainan apabila dimulakan."
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "Masukkan lebar..."
   },
   "app.settings.default-instance-options.width.title": {
     "message": "Lebar"
@@ -383,11 +2000,32 @@
   "app.settings.default-instance-options.window.title": {
     "message": "Tetingkap"
   },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "Arahan yang digunakan untuk membalut proses pelancaran Minecraft."
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "Masukkan arahan pembalut..."
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "Cangkuk pembalut"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "Togol mod pembangun"
+  },
   "app.settings.developer-mode-enabled": {
     "message": "Mod pembangun didayakan."
   },
   "app.settings.downloading": {
     "message": "Sedang memuat turun v{version}"
+  },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Tiada bendera ditemui sepadan dengan \"{query}\""
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Tetapkan semula kepada lalai"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Cari bendera..."
   },
   "app.settings.game-options.category.accessibility.description": {
     "message": "Pilihan kebolehcapaian"
@@ -748,6 +2386,9 @@
   },
   "app.settings.game-options.setting.allow-server-listing.label": {
     "message": "Penyenaraian pelayan"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "Blok alternatif"
   },
   "app.settings.game-options.setting.ambient-occlusion.label": {
     "message": "Pencahayaan licin"
@@ -1394,11 +3035,299 @@
   "app.settings.game-options.validation.no-compatible-instances": {
     "message": "Beberapa pemasangan anda tidak boleh menggunakan tetapan ini"
   },
+  "app.settings.java-installations.location.title": {
+    "message": "Lokasi Java {version, number}"
+  },
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Tunjukkan {productName} sebagai aktiviti semasa anda pada Discord. Ini tidak menjejaskan Rich Presence yang ditambah kepada instans oleh mod."
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord Rich Presence"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "Tunjukkan tindakan Salin butiran semasa pemasangan dalam baris gilir atau sedang berjalan. Ia sentiasa tersedia untuk pemasangan yang gagal atau terganggu."
+  },
+  "app.settings.resource-management.always-show-copy-details.title": {
+    "message": "Sentiasa tunjukkan butiran salinan"
+  },
+  "app.settings.resource-management.app-cache.confirm.description": {
+    "message": "Aplikasi mungkin dimuatkan dengan lebih perlahan sehingga cache dibina semula."
+  },
+  "app.settings.resource-management.app-cache.confirm.title": {
+    "message": "Buang cache aplikasi?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Kosongkan data cache dan muat turunnya semula. Aplikasi mungkin dimuatkan dengan lebih perlahan sehingga cache dibina semula."
+  },
+  "app.settings.resource-management.app-cache.purge": {
+    "message": "Buang cache"
+  },
+  "app.settings.resource-management.app-cache.title": {
+    "message": "Cache aplikasi"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "Sandaran data aplikasi penting disimpan di sini sekiranya anda perlu memulihkannya kemudian."
+  },
+  "app.settings.resource-management.app-database-backups.open-folder": {
+    "message": "Buka folder sandaran"
+  },
+  "app.settings.resource-management.app-database-backups.title": {
+    "message": "Sandaran pangkalan data aplikasi"
+  },
+  "app.settings.resource-management.app-directory.browse": {
+    "message": "Cari direktori aplikasi"
+  },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "Tempat {productName} menyimpan instans dan fail lain. Perubahan berkuat kuasa selepas memulakan semula aplikasi."
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "Pilih direktori aplikasi baharu"
+  },
+  "app.settings.resource-management.app-directory.title": {
+    "message": "Direktori aplikasi"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "Bilangan fail yang boleh dimuat turun oleh aplikasi sekali gus. Rendahkan ini jika muat turun tidak boleh diharap pada sambungan anda. Memerlukan permulaan semula aplikasi."
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "Muat turun serentak maksimum"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "Bilangan fail yang boleh ditulis oleh aplikasi ke cakera sekali gus. Rendahkan ini jika anda sering menghadapi ralat I/O. Memerlukan permulaan semula aplikasi."
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "Penulisan serentak maksimum"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Beberapa fail masih perlu perhatian"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Simpan sehingga jumlah kandungan tidak digunakan ini untuk pemasangan akan datang. Menyimpan lebih banyak boleh menjimatkan masa muat turun."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Simpan muat turun tidak digunakan"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Mengira"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Kosongkan yang tidak digunakan"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Padam kandungan yang dimuat turun tetapi tidak digunakan"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "Mengosongkan {size} ruang cakera."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Mengosongkan…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Jimatkan ruang dengan menggunakan semula pemasangan permainan, mod dan pek merentas instans anda."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Pasang mod atau pek untuk melihat penggunaan storan anda di sini."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Lihat {count, plural, other {# masalah}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Tiada kandungan tidak digunakan untuk dikosongkan."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Sahkan dan baiki"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Ini akan menutup sebarang instans yang sedang berjalan."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Periksa fail yang hilang atau rosak dan baiki."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Mengesahkan dan membaiki…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Dikongsi"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Storan kandungan"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} disimpan"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Unik"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Yatim"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "Memeriksa {checked, plural, other {# fail}} dan melakukan {repaired, plural, other {# pembaikan}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Pengesahan selesai"
+  },
+  "app.settings.sidebar.label.instances": {
+    "message": "Instans"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Pilih pemasangan mana untuk menyalin sejarah arahan anda. Sejarah ini hanya digunakan untuk penyelarasan awal, dan anda boleh menyuntingnya daripada mana-mana pemasangan selepas itu."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Pilih sumber sejarah arahan"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Pilih pemasangan mana untuk menyalin bar panas kreatif anda yang disimpan. Bar panas ini hanya digunakan untuk penyelarasan awal, dan anda boleh menyuntingnya daripada mana-mana pemasangan selepas itu."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Pilih sumber bar panas kreatif"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Pilih sumber pek data"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Pilih pemasangan mana untuk menyalin tetapan permainan anda. Tetapan ini hanya digunakan untuk penyelarasan awal, dan anda boleh menyuntingnya daripada mana-mana pemasangan selepas itu."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Pilih sumber tetapan permainan"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Anda tidak boleh memilih pemasangan ini sebagai sumber penyelarasan"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Tidak dapat memuatkan sumber penyelarasan. Sila cuba lagi."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Pilih pemasangan mana untuk menyalin pelayan multipemain anda. Pelayan ini hanya digunakan untuk penyelarasan awal, dan anda boleh menyuntingnya daripada mana-mana pemasangan selepas itu."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Pilih sumber pelayan multipemain"
+  },
+  "app.settings.synced-options.choose-sync-source.no-instances-found": {
+    "message": "Tiada instans ditemui"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Pilih sumber pek sumber"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Cuba lagi"
+  },
+  "app.settings.synced-options.choose-sync-source.search-placeholder": {
+    "message": "Cari instans"
+  },
+  "app.settings.synced-options.choose-sync-source.sync": {
+    "message": "Selaras"
+  },
+  "app.settings.synced-options.command-history": {
+    "message": "Selaraskan sejarah arahan"
+  },
+  "app.settings.synced-options.command-history.description": {
+    "message": "Gunakan sejarah arahan yang sama merentas instans anda."
+  },
+  "app.settings.synced-options.command-history.editor-title": {
+    "message": "Sunting sejarah arahan"
+  },
+  "app.settings.synced-options.creative-hotbars": {
+    "message": "Selaraskan bar panas kreatif yang disimpan"
+  },
+  "app.settings.synced-options.creative-hotbars.description": {
+    "message": "Gunakan bar panas kreatif tersimpan yang sama merentas instans anda."
+  },
+  "app.settings.synced-options.data-packs": {
+    "message": "Selaraskan pek data"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Gunakan pek data yang sama merentas instans anda"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Anda belum menyelaraskan sebarang pek data"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Tambah instans sebelum menyunting data yang diselaraskan."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Pilih sumber penyelarasan sebelum menyunting tetapan ini."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "Selaraskan pilihan permainan"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Sunting tetapan permainan"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "Kami telah memuatkan tetapan terkini. Periksa perubahan anda, kemudian simpan lagi."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Tetapan ini berubah di tempat lain"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Tetapan yang ditambah oleh mod akan muncul di sini selepas {productName} menemuinya dalam salah satu pemasangan anda."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Gunakan pilihan permainan yang sama merentas instans anda."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "Nyahselaras semua"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Hidupkan penyelarasan tetapan permainan sebelum memilih tetapan individu."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Tiada tetapan sepadan dengan carian atau penapis anda."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "Selaraskan semua"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "Kami tidak dapat memuatkan tetapan permainan anda."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Memuatkan tetapan..."
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Anda belum mempunyai sebarang pilihan untuk disunting"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Tidak diselaraskan"
+  },
   "app.settings.synced-options.game-settings.retry": {
     "message": "Cuba semula"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "Simpan tetapan"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Cari tetapan..."
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Pilihan yang diselaraskan digunakan pada setiap instans dan mengatasi nilai yang disertakan dalam pek mod."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "Selaraskan {setting} merentas instans"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "Selaraskan tetapan permainan"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Diselaraskan merentas instans"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Tetapan permainan"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Anda mempunyai perubahan yang belum disimpan."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "Hentikan penyelarasan {setting} merentas instans"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "Berbeza merentas instans"
   },
   "app.settings.synced-options.game-settings.value-off": {
     "message": "Tutup"
@@ -1406,8 +3335,77 @@
   "app.settings.synced-options.game-settings.value-on": {
     "message": "Buka"
   },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Pilih nilai"
+  },
+  "app.settings.synced-options.multiplayer-servers": {
+    "message": "Selaraskan pelayan multipemain"
+  },
+  "app.settings.synced-options.multiplayer-servers.address": {
+    "message": "Alamat pelayan"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Salin alamat"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, other {# pelayan}}"
+  },
+  "app.settings.synced-options.multiplayer-servers.description": {
+    "message": "Gunakan pelayan multipemain yang sama merentas instans anda."
+  },
+  "app.settings.synced-options.multiplayer-servers.editor-title": {
+    "message": "Sunting pelayan yang diselaraskan"
+  },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "Tiada pelayan yang ditambah pengguna sedang diselaraskan."
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "Luar talian"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "Dalam talian"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "Pilihan pelayan lain"
+  },
+  "app.settings.synced-options.multiplayer-servers.name": {
+    "message": "Nama pelayan"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Tiada pelayan yang diselaraskan sepadan dengan carian atau penapis anda."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Anda belum menyelaraskan sebarang pelayan"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} dalam talian"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "Cari {count, number} {count, plural, other {pelayan diselaraskan}}..."
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Status"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Hidupkan penyelarasan sebelum menyunting pek yang dikongsi."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "Selaraskan pek sumber"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Gunakan pek sumber yang sama merentas instans anda."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "Anda belum menyelaraskan sebarang pek sumber"
+  },
   "app.settings.tabs.appearance": {
     "message": "Tampilan"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "Tingkah laku"
+  },
+  "app.settings.tabs.features": {
+    "message": "Ciri"
   },
   "app.settings.tabs.java-installations": {
     "message": "Pemasangan Java"
@@ -1421,11 +3419,125 @@
   "app.settings.tabs.resource-management": {
     "message": "Pengurusan sumber"
   },
+  "app.settings.tabs.synced-options": {
+    "message": "Tetapan diselaraskan"
+  },
+  "app.sidebar.advertising.label": {
+    "message": "Iklan"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Pratonton · penempatan {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Pek mod seterusnya"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Jeda pertukaran"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} daripada {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Pek mod sebelumnya"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Sambung pertukaran"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Pek mod pilihan"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Pek mod pilihan tidak tersedia buat masa ini."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Lihat projek"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Terokai pengehosan"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Pelayan Minecraft anda yang seterusnya"
+  },
   "app.skins.add-button": {
     "message": "Tambah kekulit"
   },
+  "app.skins.add-button.drag-and-drop": {
+    "message": "Seret dan lepas"
+  },
   "app.skins.apply-button": {
     "message": "Terapkan"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Semua model"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klasik"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Lalai"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Tiada skin ditemui. Cuba carian lain."
+  },
+  "app.skins.catalog.error": {
+    "message": "Penyedia skin ini tidak tersedia. Sila cuba lagi nanti."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Memuat skin…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Cari di seluruh galeri awam MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "Model"
+  },
+  "app.skins.catalog.next": {
+    "message": "Halaman seterusnya"
+  },
+  "app.skins.catalog.page": {
+    "message": "Halaman {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Popular"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Halaman sebelumnya"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Penyedia skin"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Penyedia telah mencapai had permintaannya. Sila tunggu sebelum cuba lagi."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Terkini"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Cuba lagi"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Skin disimpan ke Lalai"
+  },
+  "app.skins.catalog.search": {
+    "message": "Cari skin…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Cari"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Langsing"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Susun mengikut"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tag (pilihan)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Sedang tren"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Penyedia skin ini belum dikonfigurasi."
   },
   "app.skins.delete-button": {
     "message": "Padam kekulit"
@@ -1433,11 +3545,35 @@
   "app.skins.delete-modal.description": {
     "message": "Ini akan memadamkan kekulit yang dipilih selama-lamanya. Tindakan ini tidak boleh dibuat asal."
   },
+  "app.skins.delete-modal.title": {
+    "message": "Adakah anda pasti mahu memadam skin ini?"
+  },
+  "app.skins.demo.apply-tooltip": {
+    "message": "Log masuk untuk menggunakan skin."
+  },
+  "app.skins.demo.description": {
+    "message": "Log masuk ke akaun Minecraft anda untuk menyimpan dan menggunakan skin!"
+  },
+  "app.skins.demo.title": {
+    "message": "Menyunting dengan akaun demo"
+  },
+  "app.skins.dropped-file-error.text": {
+    "message": "Gagal membaca fail yang dilepaskan."
+  },
+  "app.skins.dropped-file-error.title": {
+    "message": "Ralat memproses fail"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "Skin ini menggunakan ciri daripada mod {ears}"
+  },
   "app.skins.edit-button": {
     "message": "Sunting kekulit"
   },
   "app.skins.modal.add-skin-button": {
     "message": "Tambah kekulit"
+  },
+  "app.skins.modal.add-title": {
+    "message": "Menambah skin"
   },
   "app.skins.modal.arm-style-section": {
     "message": "Gaya lengan"
@@ -1454,14 +3590,23 @@
   "app.skins.modal.cape-section": {
     "message": "Mantel"
   },
+  "app.skins.modal.demo-save-tooltip": {
+    "message": "Log masuk untuk menyimpan skin."
+  },
   "app.skins.modal.edit-title": {
     "message": "Menyunting kekulit"
+  },
+  "app.skins.modal.make-edit-first-tooltip": {
+    "message": "Buat suntingan pada skin dahulu!"
   },
   "app.skins.modal.no-cape-tooltip": {
     "message": "Tiada mantel"
   },
   "app.skins.modal.none-cape-option": {
     "message": "Tiada"
+  },
+  "app.skins.modal.replace-texture-button": {
+    "message": "Gantikan tekstur"
   },
   "app.skins.modal.save-skin-button": {
     "message": "Simpan kekulit"
@@ -1471,6 +3616,9 @@
   },
   "app.skins.modal.texture-section": {
     "message": "Tekstur"
+  },
+  "app.skins.modal.upload-skin-first-tooltip": {
+    "message": "Muat naik skin dahulu!"
   },
   "app.skins.preview.edit-button": {
     "message": "Sunting kekulit"
@@ -1483,6 +3631,27 @@
   },
   "app.skins.rate-limit.title": {
     "message": "Perlahanlah sikit!"
+  },
+  "app.skins.reorder-error.text": {
+    "message": "Susunan skin anda tidak dapat disimpan."
+  },
+  "app.skins.reorder-error.title": {
+    "message": "Gagal menyusun semula skin"
+  },
+  "app.skins.section.builders-and-biomes": {
+    "message": "Builders & Biomes"
+  },
+  "app.skins.section.chaos-cubed": {
+    "message": "Chaos Cubed"
+  },
+  "app.skins.section.chase-the-skies": {
+    "message": "Chase the Skies"
+  },
+  "app.skins.section.default-skins": {
+    "message": "Skin lalai"
+  },
+  "app.skins.section.minecon-earth-2017": {
+    "message": "MINECON Earth 2017"
   },
   "app.skins.section.mounts-of-mayhem": {
     "message": "Mounts of Mayhem"
@@ -1502,14 +3671,146 @@
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
   },
+  "app.skins.sign-in.button": {
+    "message": "Log masuk ke Microsoft"
+  },
   "app.skins.title": {
     "message": "Pemilih kekulit"
+  },
+  "app.skins.toggle-ears-features-off": {
+    "message": "Matikan"
+  },
+  "app.skins.toggle-ears-features-on": {
+    "message": "Hidupkan"
+  },
+  "app.sync-instances-update.badge": {
+    "message": "Baharu dalam kemas kini ini"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "Pilih pemasangan mana untuk menyalin tetapan permainan, pek sumber, sejarah arahan, bar panas kreatif dan pelayan multipemain. Tetapan ini hanya digunakan untuk penyelarasan awal, dan anda boleh menyuntingnya daripada mana-mana pemasangan selepas itu."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "Pilih sumber penyelarasan"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Pilih pemasangan mana untuk menyalin pek data anda. Pek ini hanya digunakan untuk penyelarasan awal, dan anda boleh menyuntingnya daripada mana-mana pemasangan selepas itu."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Pilih pemasangan mana untuk menyalin pek sumber anda. Pek ini hanya digunakan untuk penyelarasan awal, dan anda boleh menyuntingnya daripada mana-mana pemasangan selepas itu."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "Selaraskan bar panas kreatif"
+  },
+  "app.sync-instances-update.description": {
+    "message": "Anda kini boleh menyelaraskan pilihan seperti tetapan permainan, pelayan, pek sumber dan banyak lagi merentas instans anda, supaya semuanya kekal sama setiap kali anda bermain!"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "Tidak dapat memuatkan tetapan penyelarasan anda. Sila cuba lagi."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "Anda boleh menghidupkan penyelarasan sekarang dan mengurusnya kemudian dalam tetapan aplikasi."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "Kekalkan tetapan permainan, pelayan, pek sumber dan banyak lagi supaya selaras merentas instans anda."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "Ketepikan"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "Selaraskan instans anda"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "Lihat kemas kini"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "Cuba lagi"
   },
   "app.sync-instances-update.skip": {
     "message": "Langkau"
   },
+  "app.sync-instances-update.sync-all": {
+    "message": "Selaraskan semua"
+  },
+  "app.sync-instances-update.title": {
+    "message": "Selaraskan instans anda"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "Matikannya merentas semua instans yang diselaraskan, atau hanya dalam instans ini. Mematikannya hanya di sini akan menghidupkan pengatasan untuk instans ini."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "Matikan di semua tempat"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "Matikan kandungan ini merentas semua instans yang diselaraskan."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "Matikan di sini"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "Matikan kandungan?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "Hidupkannya merentas semua instans yang diselaraskan, atau hanya dalam instans ini. Menghidupkannya hanya di sini akan menghidupkan pengatasan untuk instans ini."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Hidupkan di semua tempat"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Hidupkan kandungan ini merentas semua instans yang diselaraskan."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Hidupkan di sini"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "Hidupkan kandungan?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Padam di semua tempat"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Padam di sini"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Memadam kandungan ini akan memadamkannya merentas semua instans anda"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Kandungan terpilih yang tidak diselaraskan hanya akan dipadamkan daripada instans ini."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Anda boleh membuangnya hanya daripada instans ini atau daripada semua instans yang diselaraskan. Membuangnya daripada instans ini sahaja akan mengaktifkan pengatasan, dan instans ini tidak lagi menerima perubahan yang diselaraskan untuk jenis kandungan ini."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "Anda boleh membuang {count, plural, other {mereka}} hanya daripada instans ini atau daripada semua instans yang diselaraskan. Membuang {count, plural, other {mereka}} daripada instans ini sahaja akan mengaktifkan pengatasan, dan instans ini tidak lagi menerima perubahan pek sumber yang diselaraskan."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, other {Pek sumber ini diselaraskan}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Instans ini akan menyimpan salinannya sendiri. Adakah anda mahu menyelaraskan kandungan ini dalam instans lain, atau membuangnya daripada mereka?"
+  },
   "app.synced-content.desync.keep": {
     "message": "Kekalkan"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "Buang"
+  },
+  "app.synced-content.desync.title": {
+    "message": "Nyahselaras kandungan"
+  },
+  "app.synced-content.warning.title": {
+    "message": "Kandungan ini diselaraskan"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "Pek data diselaraskan"
+  },
+  "app.synced-packs.empty": {
+    "message": "Tambah pek daripada halaman kandungan instans untuk mula menyelaraskan."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "Pek tidak dapat dimuatkan. Cuba muat semula."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Pek sumber diselaraskan"
   },
   "app.update-popup.body.download-complete": {
     "message": "{productName} v{version} sudah selesai dimuat turun! Muat semula untuk kemas kini sekarang, atau kemas kini secara automatik apabila anda menutup {productName}."
@@ -1529,6 +3830,9 @@
   "app.update-popup.download-complete": {
     "message": "Muat turun selesai"
   },
+  "app.update-popup.reload": {
+    "message": "Muat semula untuk mengemas kini"
+  },
   "app.update-popup.title": {
     "message": "Kemas kini tersedia"
   },
@@ -1537,6 +3841,90 @@
   },
   "app.update.complete-toast.title": {
     "message": "Versi {version} telah berjaya dipasang!"
+  },
+  "app.update.download-error.missing-version": {
+    "message": "Gagal memuat turun kemas kini: tiada versi tersedia"
+  },
+  "app.welcome-screen.create-instance": {
+    "message": "Cipta instans"
+  },
+  "app.welcome-screen.description": {
+    "message": "Bersedia untuk mula bermain?"
+  },
+  "app.welcome-screen.import-from-launcher": {
+    "message": "Import daripada pelancar"
+  },
+  "app.welcome-screen.import-prompt": {
+    "message": "Melarikan diri daripada pelancar lain?"
+  },
+  "app.welcome-screen.quick-create-hint": {
+    "message": "Tekan <shortcut>N</shortcut> untuk cipta instans dengan pantas"
+  },
+  "app.welcome-screen.title": {
+    "message": "Selamat datang ke {productName}"
+  },
+  "app.window-controls.close": {
+    "message": "Tutup tetingkap"
+  },
+  "app.window-controls.minimize": {
+    "message": "Kecilkan tetingkap"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Togol maksimumkan tetingkap"
+  },
+  "app.world-install.backup": {
+    "message": "Ganti menyimpan sandaran dunia sedia ada. Kekalkan dan Batal tidak memasang apa-apa. Pasang salinan lain mencipta dunia bernombor."
+  },
+  "app.world-install.backup-location": {
+    "message": "Dunia terdahulu disimpan di {path} dalam instans."
+  },
+  "app.world-install.conflict": {
+    "message": "Dunia dengan nama ini atau daripada projek ini sudah wujud."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Pasang walaupun versi berbeza"
+  },
+  "app.world-install.copy": {
+    "message": "Pasang salinan lain"
+  },
+  "app.world-install.description": {
+    "message": "Pasang dunia baharu dalam instans. Dunia sedia ada dikekalkan melainkan anda memilih untuk menggantikannya."
+  },
+  "app.world-install.incompatible": {
+    "message": "Fail ini tidak menyenaraikan Minecraft {version} sebagai serasi. Semak keperluan versi dan mod daripada pencipta sebelum meneruskan."
+  },
+  "app.world-install.installed": {
+    "message": "Dunia dipasang: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Instans destinasi"
+  },
+  "app.world-install.keep": {
+    "message": "Kekalkan yang sedia ada"
+  },
+  "app.world-install.no-instances": {
+    "message": "Cipta instans Minecraft dahulu, kemudian kembali ke sini untuk memasang dunia."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Lihat dunia"
+  },
+  "app.world-install.replace": {
+    "message": "Ganti"
+  },
+  "app.world-install.replace-target": {
+    "message": "Dunia untuk diganti"
+  },
+  "app.world-install.requirements": {
+    "message": "Mod atau pek mod yang diperlukan mesti sudah dipasang dalam instans destinasi. Semak penerangan projek."
+  },
+  "app.world-install.title": {
+    "message": "Pasang dunia"
+  },
+  "app.world-install.version": {
+    "message": "Versi dunia"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
   },
   "app.world.server-modal.select-an-option": {
     "message": "Pilih pilihan anda"
@@ -1549,6 +3937,45 @@
   },
   "app.world.world-item.offline": {
     "message": "Luar Talian"
+  },
+  "app.world.world-item.players-online": {
+    "message": "{count} dalam talian"
+  },
+  "curseforge.manual.description": {
+    "message": "Muat turun {file} daripada halaman rasmi CurseForge, kemudian pilih fail yang dimuat turun untuk meneruskan. Saiz dan SHA-1 akan disahkan."
+  },
+  "curseforge.manual.select": {
+    "message": "Pilih fail yang dimuat turun"
+  },
+  "curseforge.manual.title": {
+    "message": "Muat turun manual diperlukan"
+  },
+  "instance.action.create-shortcut": {
+    "message": "Cipta pintasan"
+  },
+  "instance.action.export-modpack": {
+    "message": "Eksport pek mod"
+  },
+  "instance.action.launch-instance": {
+    "message": "Jalankan instans"
+  },
+  "instance.action.more-actions": {
+    "message": "Tindakan lain"
+  },
+  "instance.action.open-folder": {
+    "message": "Buka folder"
+  },
+  "instance.action.repair": {
+    "message": "Baiki"
+  },
+  "instance.action.settings": {
+    "message": "Tetapan instans"
+  },
+  "instance.action.starting": {
+    "message": "Memulakan..."
+  },
+  "instance.action.stopping": {
+    "message": "Menghentikan..."
   },
   "instance.add-server.add-and-play": {
     "message": "Tambah dan main"
@@ -1589,11 +4016,23 @@
   "instance.files.adding-files": {
     "message": "Sedang menambah fail ({completed}/{total})"
   },
+  "instance.files.managed-content-read-only": {
+    "message": "Urus kandungan anda yang dipasang melalui tab Kandungan"
+  },
   "instance.files.save-as": {
     "message": "Simpan sebagai..."
   },
+  "instance.icon-editor.background": {
+    "message": "Latar belakang"
+  },
   "instance.icon-editor.background.blue": {
     "message": "Biru"
+  },
+  "instance.icon-editor.background.dark-gray": {
+    "message": "Kelabu gelap"
+  },
+  "instance.icon-editor.background.dark-green": {
+    "message": "Hijau gelap"
   },
   "instance.icon-editor.background.gray": {
     "message": "Kelabu"
@@ -1601,11 +4040,26 @@
   "instance.icon-editor.background.green": {
     "message": "Hijau"
   },
+  "instance.icon-editor.background.indigo": {
+    "message": "Indigo"
+  },
+  "instance.icon-editor.background.lavender": {
+    "message": "Lavender"
+  },
+  "instance.icon-editor.background.light-gray": {
+    "message": "Kelabu cerah"
+  },
   "instance.icon-editor.background.lime": {
     "message": "Hijau Muda"
   },
+  "instance.icon-editor.background.orange": {
+    "message": "Jingga"
+  },
   "instance.icon-editor.background.pink": {
     "message": "Merah Jambu"
+  },
+  "instance.icon-editor.background.purple": {
+    "message": "Ungu"
   },
   "instance.icon-editor.background.red": {
     "message": "Merah"
@@ -1613,32 +4067,206 @@
   "instance.icon-editor.background.rose": {
     "message": "Mawar"
   },
+  "instance.icon-editor.background.yellow": {
+    "message": "Kuning"
+  },
+  "instance.icon-editor.description": {
+    "message": "Gabung dan padankan elemen untuk mencipta ikon tersuai."
+  },
+  "instance.icon-editor.recents": {
+    "message": "Terkini"
+  },
+  "instance.icon-editor.save": {
+    "message": "Simpan ikon"
+  },
+  "instance.icon-editor.surprise-me": {
+    "message": "Rawak"
+  },
+  "instance.icon-editor.symbol": {
+    "message": "Simbol"
+  },
+  "instance.icon-editor.symbol.backpack": {
+    "message": "Beg sandang"
+  },
+  "instance.icon-editor.symbol.beacon": {
+    "message": "Suar"
+  },
+  "instance.icon-editor.symbol.blue-shark": {
+    "message": "Jerung biru"
+  },
+  "instance.icon-editor.symbol.bookshelf": {
+    "message": "Rak buku"
+  },
+  "instance.icon-editor.symbol.brown-bear": {
+    "message": "Beruang perang"
+  },
   "instance.icon-editor.symbol.cake": {
     "message": "Kek"
+  },
+  "instance.icon-editor.symbol.campfire": {
+    "message": "Unggun api"
   },
   "instance.icon-editor.symbol.chest": {
     "message": "Peti"
   },
+  "instance.icon-editor.symbol.cogwheel": {
+    "message": "Roda gear"
+  },
+  "instance.icon-editor.symbol.command-block": {
+    "message": "Blok arahan"
+  },
+  "instance.icon-editor.symbol.cooking-pot": {
+    "message": "Periuk memasak"
+  },
+  "instance.icon-editor.symbol.couch": {
+    "message": "Sofa"
+  },
+  "instance.icon-editor.symbol.crafting-table": {
+    "message": "Meja kraf"
+  },
+  "instance.icon-editor.symbol.create-wrench": {
+    "message": "Sepana"
+  },
+  "instance.icon-editor.symbol.creeper": {
+    "message": "Creeper"
+  },
+  "instance.icon-editor.symbol.enchanting-table": {
+    "message": "Meja sihir"
+  },
+  "instance.icon-editor.symbol.ender-chest": {
+    "message": "Peti Ender"
+  },
+  "instance.icon-editor.symbol.ender-dragon": {
+    "message": "Naga Ender"
+  },
+  "instance.icon-editor.symbol.engine": {
+    "message": "Enjin"
+  },
+  "instance.icon-editor.symbol.fabric": {
+    "message": "Fabric"
+  },
   "instance.icon-editor.symbol.forge": {
     "message": "Forge"
+  },
+  "instance.icon-editor.symbol.furnace": {
+    "message": "Relau"
+  },
+  "instance.icon-editor.symbol.gizmo": {
+    "message": "Gizmo"
   },
   "instance.icon-editor.symbol.globe": {
     "message": "Glob"
   },
+  "instance.icon-editor.symbol.grass-block": {
+    "message": "Blok rumput"
+  },
+  "instance.icon-editor.symbol.lantern": {
+    "message": "Tanglung"
+  },
+  "instance.icon-editor.symbol.moobloom": {
+    "message": "Moobloom"
+  },
+  "instance.icon-editor.symbol.neoforge": {
+    "message": "NeoForge"
+  },
   "instance.icon-editor.symbol.orb": {
     "message": "Orb"
+  },
+  "instance.icon-editor.symbol.oxygen-distributor": {
+    "message": "Pengedar oksigen"
+  },
+  "instance.icon-editor.symbol.pancakes": {
+    "message": "Penkek"
+  },
+  "instance.icon-editor.symbol.pickaxe": {
+    "message": "Belantan"
+  },
+  "instance.icon-editor.symbol.poke-ball": {
+    "message": "Poke Ball"
   },
   "instance.icon-editor.symbol.quilt": {
     "message": "Quilt"
   },
+  "instance.icon-editor.symbol.redstone-block": {
+    "message": "Blok Redstone"
+  },
+  "instance.icon-editor.symbol.sculk-sensor": {
+    "message": "Sensor Sculk"
+  },
+  "instance.icon-editor.symbol.skeleton": {
+    "message": "Rangka"
+  },
+  "instance.icon-editor.symbol.skillet": {
+    "message": "Kuali"
+  },
+  "instance.icon-editor.symbol.slime-block": {
+    "message": "Blok lendir"
+  },
+  "instance.icon-editor.symbol.space-helmet": {
+    "message": "Helmet angkasa"
+  },
+  "instance.icon-editor.symbol.sticky-piston": {
+    "message": "Piston melekit"
+  },
   "instance.icon-editor.symbol.sword": {
     "message": "Pedang"
+  },
+  "instance.icon-editor.symbol.terminal": {
+    "message": "Terminal"
+  },
+  "instance.icon-editor.symbol.tiny-potato": {
+    "message": "Kentang kecil"
   },
   "instance.icon-editor.symbol.tire": {
     "message": "Tayar"
   },
   "instance.icon-editor.symbol.tnt": {
     "message": "TNT"
+  },
+  "instance.icon-editor.symbol.zombie": {
+    "message": "Zombie"
+  },
+  "instance.icon-editor.title": {
+    "message": "Penyunting ikon"
+  },
+  "instance.last-played": {
+    "message": "Kali terakhir dimainkan"
+  },
+  "instance.locked.badge": {
+    "message": "Dikunci"
+  },
+  "instance.locked.delete-button": {
+    "message": "Padam instans"
+  },
+  "instance.locked.info-label": {
+    "message": "Maklumat instans berkunci"
+  },
+  "instance.locked.play-tooltip": {
+    "message": "Instans ini telah dikunci"
+  },
+  "instance.locked.text": {
+    "message": "Instans ini dikunci dan tidak boleh dimainkan atau diubah. Anda boleh memadamkannya."
+  },
+  "instance.locked.title": {
+    "message": "Instans dikunci"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Pemuat mod dan versi Minecraft"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, other {# jam}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, other {# minit}}"
+  },
+  "instance.playtime.never-played": {
+    "message": "Belum pernah dimainkan"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, other {# saat}}"
+  },
+  "instance.playtime.total": {
+    "message": "Jumlah masa bermain"
   },
   "instance.server-modal.address": {
     "message": "Alamat"
@@ -1652,8 +4280,32 @@
   "instance.server-modal.resource-pack": {
     "message": "Pek sumber"
   },
-  "instance.settings.sharing.active-invites.uses": {
-    "message": "Penggunaan"
+  "instance.settings.synced-options.data-override": {
+    "message": "Matikan pengatasan ini untuk menyunting data yang diselaraskan."
+  },
+  "instance.settings.synced-options.data-packs": {
+    "message": "Nyahselaras pek data"
+  },
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Kekalkan pek data pemasangan ini berasingan daripada pek yang diselaraskan."
+  },
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "Penyelarasan pek data dimatikan dalam tetapan aplikasi."
+  },
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Sunting pek yang diselaraskan"
+  },
+  "instance.settings.synced-options.packs-override": {
+    "message": "Matikan pengatasan ini untuk menyunting pek yang diselaraskan. Pek bebas boleh diurus dalam tab kandungan."
+  },
+  "instance.settings.synced-options.resource-packs": {
+    "message": "Nyahselaras pek sumber"
+  },
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Kekalkan pek sumber pemasangan ini berasingan daripada pek yang diselaraskan."
+  },
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "Penyelarasan pek sumber dimatikan dalam tetapan aplikasi."
   },
   "instance.settings.tabs.general": {
     "message": "Umum"
@@ -1685,6 +4337,12 @@
   "instance.settings.tabs.general.edit-icon": {
     "message": "Sunting ikon"
   },
+  "instance.settings.tabs.general.edit-icon.create": {
+    "message": "Cipta ikon"
+  },
+  "instance.settings.tabs.general.edit-icon.edit-created": {
+    "message": "Sunting ikon"
+  },
   "instance.settings.tabs.general.edit-icon.remove": {
     "message": "Alih keluar ikon"
   },
@@ -1700,14 +4358,32 @@
   "instance.settings.tabs.general.name": {
     "message": "Nama"
   },
+  "instance.settings.tabs.general.update-channel": {
+    "message": "Saluran kemas kini"
+  },
   "instance.settings.tabs.general.update-channel.alpha": {
     "message": "Alfa"
+  },
+  "instance.settings.tabs.general.update-channel.alpha.description": {
+    "message": "Versi keluaran, beta dan alfa akan dipaparkan sebagai kemas kini tersedia."
   },
   "instance.settings.tabs.general.update-channel.beta": {
     "message": "Beta"
   },
+  "instance.settings.tabs.general.update-channel.beta.description": {
+    "message": "Versi keluaran dan beta akan dipaparkan sebagai kemas kini tersedia."
+  },
   "instance.settings.tabs.general.update-channel.release": {
     "message": "Terbitan"
+  },
+  "instance.settings.tabs.general.update-channel.release.description": {
+    "message": "Hanya versi keluaran akan dipaparkan sebagai kemas kini tersedia."
+  },
+  "instance.settings.tabs.general.update-channel.select": {
+    "message": "Pilih saluran kemas kini"
+  },
+  "instance.settings.tabs.hooks.description": {
+    "message": "Jalankan arahan sistem khusus instans sebelum dan selepas melancarkan permainan."
   },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "Selepas keluar"
@@ -1727,6 +4403,30 @@
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "Masukkan perintah yang akan dijalankan sebelum pemasangan dilancarkan..."
   },
+  "instance.settings.tabs.hooks.title": {
+    "message": "Cangkuk pelancaran permainan tersuai"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "Cangkuk berjalan dalam direktori kerja instans, dengan pemboleh ubah berikut:"
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR: Laluan mutlak ke folder instans"
+  },
+  "instance.settings.tabs.hooks.variables.inst-id.description": {
+    "message": "$INST_ID: Nama folder instans"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS: Argumen JVM yang diberikan kepada permainan"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA: Laluan mutlak ke binari java"
+  },
+  "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
+    "message": "$INST_MC_DIR: Alias untuk $INST_DIR"
+  },
+  "instance.settings.tabs.hooks.variables.inst-name.description": {
+    "message": "$INST_NAME: Nama instans"
+  },
   "instance.settings.tabs.hooks.wrapper": {
     "message": "Pembalut"
   },
@@ -1742,17 +4442,110 @@
   "instance.settings.tabs.installation.loader-version": {
     "message": "Versi {loader}"
   },
+  "instance.settings.tabs.installation.locked": {
+    "message": "Tetapan pemasangan tidak tersedia semasa instans ini dikunci."
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "Tetapkan pemboleh ubah persekitaran secara berasingan untuk instans ini."
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "Tetapkan argumen Java secara berasingan untuk instans ini."
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "Pilih pemasangan Java yang berbeza untuk instans ini."
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "Tetapkan peruntukan memori secara berasingan untuk instans ini."
+  },
   "instance.settings.tabs.java.enter-environment-variables": {
     "message": "Masukkan pembolehubah persekitaran..."
   },
   "instance.settings.tabs.java.enter-java-arguments": {
     "message": "Masukkan argumen Java..."
   },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "Pemboleh ubah persekitaran tersuai"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "Cangkuk"
   },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "Argumen Java tersuai"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "Pemasangan Java tersuai"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "Peruntukan memori tersuai"
+  },
   "instance.settings.tabs.java.java-path-placeholder": {
     "message": "/laluan/ke/java"
+  },
+  "instance.settings.tabs.settings-overrides": {
+    "message": "Pengatasan penyelarasan"
+  },
+  "instance.settings.tabs.synced-options.command-history": {
+    "message": "Nyahselaras sejarah arahan"
+  },
+  "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
+    "message": "Penyelarasan sejarah arahan dimatikan dalam tetapan aplikasi."
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "Kekalkan sejarah arahan pemasangan ini berasingan daripada sejarah arahan yang diselaraskan."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "Nyahselaras bar panas kreatif yang disimpan"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "Penyelarasan bar panas kreatif yang disimpan dimatikan dalam tetapan aplikasi."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "Kekalkan bar panas kreatif yang disimpan dalam pemasangan ini berasingan daripada bar panas yang diselaraskan."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "Nyahselaras tetapan permainan"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Kekalkan options.txt pemasangan ini berasingan daripada salinan yang diselaraskan."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "Penyelarasan tetapan permainan dimatikan dalam tetapan aplikasi."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "Versi yang digantikan akan disandarkan sebelum apa-apa berubah."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "{instance} dan versi yang diselaraskan anda mempunyai bar panas kreatif yang berbeza. Pilih yang mana untuk digunakan merentas instans anda."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "Pilih bar panas kreatif"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "Timpa yang lain"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "Guna yang diselaraskan"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "Nyahselaras pelayan multipemain"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "Penyelarasan pelayan multipemain dimatikan dalam tetapan aplikasi."
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "Kekalkan pelayan multipemain pemasangan ini berasingan daripada pelayan yang diselaraskan."
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "Urus tetapan yang diselaraskan"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "Hidupkan pengatasan untuk mengekalkan tetapan yang diselaraskan berasingan bagi instans ini."
+  },
+  "instance.settings.tabs.window": {
+    "message": "Tetapan tetingkap tersuai"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "Konfigurasikan skrin penuh dan resolusi pelancaran secara berasingan untuk instans ini."
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "Skrin penuh"
@@ -1778,11 +4571,11 @@
   "instance.settings.tabs.window.width.enter": {
     "message": "Masukkan lebar..."
   },
-  "instance.shared-instance.publish-review.added-label": {
-    "message": "Ditambah"
-  },
   "instance.worlds.a_minecraft_server": {
     "message": "Pelayan Minecraft"
+  },
+  "instance.worlds.actions.label": {
+    "message": "Tindakan dunia"
   },
   "instance.worlds.cant_connect": {
     "message": "Tidak dapat menyambung ke pelayan"
@@ -1790,8 +4583,23 @@
   "instance.worlds.copy_address": {
     "message": "Salin alamat"
   },
+  "instance.worlds.create_shortcut": {
+    "message": "Cipta pintasan"
+  },
+  "instance.worlds.desync-server.description": {
+    "message": "Adakah anda mahu mengekalkan pelayan ini dalam instans lain yang diselaraskan, atau membuangnya daripada mereka?"
+  },
   "instance.worlds.desync-server.keep": {
     "message": "Kekalkan"
+  },
+  "instance.worlds.desync-server.remove": {
+    "message": "Buang"
+  },
+  "instance.worlds.desync-server.title": {
+    "message": "Nyahselaras pelayan"
+  },
+  "instance.worlds.desync_server": {
+    "message": "Nyahselaras"
   },
   "instance.worlds.dont_show_on_home": {
     "message": "Jangan tunjukkan pada Laman Utama"
@@ -1805,8 +4613,14 @@
   "instance.worlds.incompatible_server": {
     "message": "Pelayan tidak serasi"
   },
+  "instance.worlds.instance-locked": {
+    "message": "Instans ini telah dikunci"
+  },
   "instance.worlds.linked_server": {
     "message": "Diurus oleh projek pelayan"
+  },
+  "instance.worlds.more-options": {
+    "message": "Pilihan lain"
   },
   "instance.worlds.no_contact": {
     "message": "Pelayan tidak dapat dihubungi"
@@ -1820,17 +4634,32 @@
   "instance.worlds.play_instance": {
     "message": "Mainkan pemasangan"
   },
+  "instance.worlds.play_world": {
+    "message": "Main dunia"
+  },
+  "instance.worlds.shortcut-created": {
+    "message": "Pintasan dicipta"
+  },
+  "instance.worlds.shortcut-creation-failed": {
+    "message": "Gagal mencipta pintasan"
+  },
+  "instance.worlds.synced_server": {
+    "message": "Diselaraskan merentas instans"
+  },
   "instance.worlds.view_instance": {
     "message": "Lihat pemasangan"
   },
   "instance.worlds.world_in_use": {
     "message": "Dunia sedang digunakan"
   },
+  "minecraft-account.accounts": {
+    "message": "Akaun Minecraft"
+  },
   "minecraft-account.add-account": {
     "message": "Tambah akaun"
   },
-  "minecraft-account.label": {
-    "message": "Akaun Minecraft"
+  "minecraft-account.getting-started": {
+    "message": "Bermula"
   },
   "minecraft-account.not-signed-in": {
     "message": "Tidak didaftar masuk"
@@ -1838,11 +4667,77 @@
   "minecraft-account.remove-account": {
     "message": "Alih keluar akaun"
   },
-  "minecraft-account.select-account": {
-    "message": "Pilih akaun"
-  },
   "minecraft-account.sign-in": {
     "message": "Daftar masuk ke dalam Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Log masuk"
+  },
+  "minecraft-required.description": {
+    "message": "Anda memerlukan akaun Microsoft yang memiliki Minecraft sebelum boleh melancarkan dan bermain."
+  },
+  "minecraft-required.description-header": {
+    "message": "Log masuk ke akaun Microsoft"
+  },
+  "minecraft-required.dont-have-account": {
+    "message": "Tiada akaun?"
+  },
+  "minecraft-required.get-minecraft": {
+    "message": "Dapatkan Minecraft"
+  },
+  "minecraft-required.get-support": {
+    "message": "Dapatkan sokongan"
+  },
+  "minecraft-required.header": {
+    "message": "Minecraft diperlukan"
+  },
+  "minecraft-required.sign-in": {
+    "message": "Log masuk ke Microsoft"
+  },
+  "onboarding-checklist.create-instance": {
+    "message": "Cipta pemasangan pertama"
+  },
+  "onboarding-checklist.login-minecraft": {
+    "message": "Log masuk ke Minecraft"
+  },
+  "onboarding-checklist.title": {
+    "message": "Bermula"
+  },
+  "optifine.add-component": {
+    "message": "Pasang OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Pilih JAR dan teruskan"
+  },
+  "optifine.download-official": {
+    "message": "Muat turun rasmi"
+  },
+  "optifine.export-notice": {
+    "message": "Binari OptiFine dikecualikan. Orbpack mengekalkan versi yang diperlukan; pek Modrinth dan CurseForge memerlukan OptiFine dipasang secara berasingan."
+  },
+  "optifine.import-canceled": {
+    "message": "Pemilihan OptiFine dibatalkan. Pek tidak dipasang."
+  },
+  "optifine.import-description": {
+    "message": "Pek ini memerlukan OptiFine {version} untuk Minecraft {gameVersion}. Muat turun JAR rasminya dan pilihnya untuk meneruskan. OptiFine tidak disertakan dalam pek."
+  },
+  "optifine.import-title": {
+    "message": "Pek ini memerlukan OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Pilih pemasang OptiFine rasmi untuk Minecraft {gameVersion}. Untuk pek yang diimport, versi dan cincang failnya juga mesti sepadan."
+  },
+  "optifine.remove-component": {
+    "message": "Buang OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Pilih JAR OptiFine rasmi"
+  },
+  "project-type.world.category": {
+    "message": "Dunia"
   },
   "search.filter.locked.instance": {
     "message": "Disediakan oleh pemasangan ini"
@@ -1856,7 +4751,10 @@
   "search.filter.locked.instance.sync": {
     "message": "Selaraskan dengan pemasangan"
   },
-  "search.filter.locked.server-environment.title": {
-    "message": "Hanya mod bahagian pelanggan sahaja yang boleh ditambah pada pemasangan pelayan"
+  "settings.sidebar.label.account": {
+    "message": "Akaun"
+  },
+  "settings.sidebar.label.display": {
+    "message": "Paparan"
   }
 }

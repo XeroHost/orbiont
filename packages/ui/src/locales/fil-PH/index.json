@@ -1,4 +1,13 @@
 {
+  "action.no-permission": {
+    "defaultMessage": "Wala kang pahintulot."
+  },
+  "app.appearance-settings.native-decorations.description": {
+    "defaultMessage": "Gamitin ang title bar at mga kontrol ng window ng iyong operating system. Nangangailangan ng pag-restart ng app."
+  },
+  "app.appearance-settings.native-decorations.title": {
+    "defaultMessage": "Frame ng window ng sistema"
+  },
   "badge.alpha": {
     "defaultMessage": "Alpha"
   },
@@ -11,11 +20,65 @@
   "badge.new": {
     "defaultMessage": "Bago"
   },
+  "badge.release": {
+    "defaultMessage": "Release"
+  },
+  "browse.advanced-filters.apply-saved-preferences": {
+    "defaultMessage": "Ilapat ang mga nakasave na kagustuhan"
+  },
+  "browse.advanced-filters.link-overriding-preferences": {
+    "defaultMessage": "Naiiba ang mga filter ng link na ito mula sa iyong mga nakasave na advanced na exclusion"
+  },
+  "browse.advanced-filters.persistence-note": {
+    "defaultMessage": "Nakasave ang mga advanced na exclusion sa mga sesyon. Ang pagbubukas ng ibinahaging link na may mga filter ay mag-o-override sa mga ito."
+  },
+  "browse.display-mode.change": {
+    "defaultMessage": "Palitan ang display mode"
+  },
+  "browse.filter-results": {
+    "defaultMessage": "I-filter ang mga resulta..."
+  },
+  "browse.no-results": {
+    "defaultMessage": "Walang nahanap na resulta para sa iyong query!"
+  },
+  "browse.offline-content": {
+    "defaultMessage": "Kasalukuyan kang offline. Kumonekta sa internet upang mag-browse ng content."
+  },
+  "browse.search.placeholder": {
+    "defaultMessage": "Maghanap ng {projectType}..."
+  },
+  "browse.selected-projects-floating-bar.aria-label": {
+    "defaultMessage": "Mga napiling proyekto"
+  },
+  "browse.selected-projects-floating-bar.install": {
+    "defaultMessage": "I-install ang {count, plural, one {# proyekto} other {# proyekto}}"
+  },
+  "browse.selected-projects-floating-bar.selected-count": {
+    "defaultMessage": "{count, plural, one {# proyektong napili} other {# proyektong napili}}"
+  },
+  "browse.selected-projects-leave-modal.admonition-body": {
+    "defaultMessage": "Napili mo ang {count, plural, one {# proyekto} other {# proyekto}} upang i-install. I-install ang mga ito ngayon o bumalik nang hindi ini-install ang mga ito."
+  },
+  "browse.selected-projects-leave-modal.admonition-header": {
+    "defaultMessage": "Hindi pa nai-install ang mga napiling proyekto"
+  },
+  "browse.selected-projects-leave-modal.discard": {
+    "defaultMessage": "Balewalain"
+  },
+  "browse.selected-projects-leave-modal.header": {
+    "defaultMessage": "Hindi pa nai-install ang mga napiling proyekto"
+  },
   "browse.view-prefix": {
     "defaultMessage": "Tingnan:"
   },
   "button.accept": {
     "defaultMessage": "Tanggapin"
+  },
+  "button.add-another": {
+    "defaultMessage": "Magdagdag ng isa pa"
+  },
+  "button.add-server-to-instance": {
+    "defaultMessage": "Magdagdag ng server sa instansiya"
   },
   "button.affiliate-links": {
     "defaultMessage": "Mga affiliate link"
@@ -29,6 +92,9 @@
   "button.cancel": {
     "defaultMessage": "Kanselahin"
   },
+  "button.change-version": {
+    "defaultMessage": "Palitan ang bersyon"
+  },
   "button.clear": {
     "defaultMessage": "Linisin"
   },
@@ -37,6 +103,12 @@
   },
   "button.continue": {
     "defaultMessage": "Magpatuloy"
+  },
+  "button.copy-filename": {
+    "defaultMessage": "Kopyahin ang pangalan ng file"
+  },
+  "button.copy-full-path": {
+    "defaultMessage": "Kopyahin ang buong path"
   },
   "button.copy-id": {
     "defaultMessage": "Kopyahin ang ID"
@@ -59,6 +131,9 @@
   "button.download": {
     "defaultMessage": "I-download"
   },
+  "button.download-files": {
+    "defaultMessage": "I-download ang mga file"
+  },
   "button.downloading": {
     "defaultMessage": "Nagda-download"
   },
@@ -73,6 +148,15 @@
   },
   "button.follow": {
     "defaultMessage": "Sundan"
+  },
+  "button.hide-snapshots": {
+    "defaultMessage": "Itago ang mga snapshot"
+  },
+  "button.i-understand": {
+    "defaultMessage": "Naiintindihan ko"
+  },
+  "button.install": {
+    "defaultMessage": "I-install"
   },
   "button.max": {
     "defaultMessage": "Max"
@@ -89,11 +173,26 @@
   "button.open-folder": {
     "defaultMessage": "Buksan ang folder"
   },
+  "button.open-in-browser": {
+    "defaultMessage": "Buksan sa browser"
+  },
+  "button.open-in-folder": {
+    "defaultMessage": "Buksan sa folder"
+  },
+  "button.open-in-modrinth": {
+    "defaultMessage": "Buksan sa Modrinth"
+  },
   "button.play": {
     "defaultMessage": "Maglaro"
   },
   "button.refresh": {
     "defaultMessage": "I-refresh"
+  },
+  "button.reinstall-modpack": {
+    "defaultMessage": "Muling i-install ang modpack"
+  },
+  "button.remove": {
+    "defaultMessage": "Alisin"
   },
   "button.remove-image": {
     "defaultMessage": "Tanggalin ang imahe"
@@ -104,11 +203,17 @@
   "button.repair": {
     "defaultMessage": "Ayusin"
   },
+  "button.repairing": {
+    "defaultMessage": "Kinukumpuni..."
+  },
   "button.report": {
     "defaultMessage": "Isumbong"
   },
   "button.reset": {
     "defaultMessage": "I-reset"
+  },
+  "button.reset-server": {
+    "defaultMessage": "I-reset ang server"
   },
   "button.retry": {
     "defaultMessage": "Subukan muli"
@@ -121,6 +226,9 @@
   },
   "button.saving": {
     "defaultMessage": "Sine-save"
+  },
+  "button.show-all-versions": {
+    "defaultMessage": "Ipakita ang lahat ng bersyon"
   },
   "button.show-file": {
     "defaultMessage": "Ipakita ang talaksan"
@@ -137,6 +245,12 @@
   "button.stop": {
     "defaultMessage": "Maghinto"
   },
+  "button.switch-to-version": {
+    "defaultMessage": "Lumipat sa bersyon"
+  },
+  "button.switch-version": {
+    "defaultMessage": "Palitan ang bersyon"
+  },
   "button.unfollow": {
     "defaultMessage": "Mag-unfollow"
   },
@@ -149,14 +263,119 @@
   "button.upload-image": {
     "defaultMessage": "I-upload ang imahe"
   },
+  "card.toggle-details": {
+    "defaultMessage": "I-toggle ang mga detalye"
+  },
   "collections.label.private": {
     "defaultMessage": "Pribado"
+  },
+  "console.actions.collapse": {
+    "defaultMessage": "Itiklop"
+  },
+  "console.actions.expand": {
+    "defaultMessage": "Palawakin"
+  },
+  "console.actions.share": {
+    "defaultMessage": "Ibahagi"
+  },
+  "console.command-input-disabled": {
+    "defaultMessage": "Patay ang input ng command"
+  },
+  "console.crash.problems-detected": {
+    "defaultMessage": "{count, plural, one {# problemang natukoy} other {# problemang natukoy}}"
+  },
+  "console.delete-log-confirm-body": {
+    "defaultMessage": "Hindi na mababawi ang pagbura sa log file na ito. Sigurado ka bang nais mong magpatuloy?"
+  },
+  "console.delete-log-failed-title": {
+    "defaultMessage": "Nabigong burahin ang log file"
+  },
+  "console.delete-log-file-header": {
+    "defaultMessage": "Burahin ang log file"
+  },
+  "console.delete-log-irreversible-header": {
+    "defaultMessage": "Hindi na ito mababawi"
+  },
+  "console.search-logs-placeholder": {
+    "defaultMessage": "Maghanap sa mga log"
+  },
+  "console.server-not-running": {
+    "defaultMessage": "Hindi tumatakbo ang server"
+  },
+  "console.share-logs-failed-title": {
+    "defaultMessage": "Nabigong ibahagi ang mga log"
+  },
+  "console.share-logs-header": {
+    "defaultMessage": "Ibahagi ang mga Log"
+  },
+  "console.unknown-error": {
+    "defaultMessage": "Hindi kilalang error."
+  },
+  "content-type.content.lowercase": {
+    "defaultMessage": "content"
+  },
+  "content-type.item.lowercase": {
+    "defaultMessage": "{count, plural, one {item} other {mga item}}"
+  },
+  "content.card.frozen": {
+    "defaultMessage": "Naka-lock ang proyektong ito sa kasalukuyan nitong bersyon hanggang sa i-unfreeze."
+  },
+  "content.card.select-project": {
+    "defaultMessage": "Piliin ang {project}"
+  },
+  "content.card.sync-update-pending": {
+    "defaultMessage": "May ilang naka-sync na kopya na naghihintay ng mga pagbabago. Maaaring tumatakbo ang isang instansiya, may naka-freeze o hindi tugmang bersyon, o may sarili nang kopya."
+  },
+  "content.card.synced": {
+    "defaultMessage": "Naka-sync sa mga instansiya"
+  },
+  "content.card.uploaded": {
+    "defaultMessage": "Na-upload"
   },
   "content.confirm-bulk-update.admonition-body": {
     "defaultMessage": "Sigurado ka bang gusto mong i-update ang {count, plural, one {# proyekto} other {# proyekto}} sa pinakabago nilang bersiyon? Iminumungkahi namin na gawin ito nang paisa-isahan."
   },
+  "content.confirm-bulk-update.admonition-header": {
+    "defaultMessage": "Babala sa pag-update"
+  },
+  "content.confirm-bulk-update.header": {
+    "defaultMessage": "I-update ang mga proyekto"
+  },
+  "content.confirm-bulk-update.shift-click-hint": {
+    "defaultMessage": "I-hold ang Shift habang kini-click ang \"Update all\" upang laktawan ang kumpirmasyong ito sa susunod."
+  },
+  "content.confirm-bulk-update.update-button": {
+    "defaultMessage": "I-update ang {count, plural, one {# proyekto} other {# proyekto}}"
+  },
+  "content.confirm-deletion.admonition-body": {
+    "defaultMessage": "Ang pagbura ng mod ay maaaring permanente nang makaapekto sa iyong mundo at maaaring magdulot ng nawawalang content o hindi inaasahang mga isyu kapag nag-load itong muli."
+  },
+  "content.confirm-deletion.admonition-header": {
+    "defaultMessage": "Babala sa pagbura"
+  },
+  "content.confirm-deletion.delete-button": {
+    "defaultMessage": "Burahin ang {count, number} {itemType}"
+  },
+  "content.confirm-deletion.header": {
+    "defaultMessage": "Burahin ang {itemType}"
+  },
+  "content.confirm-disable.header": {
+    "defaultMessage": "Patayin ang {itemType}"
+  },
   "content.confirm-modpack-update.admonition-body": {
     "defaultMessage": "Ang {action, select, downgrade {pagda-downgrade} other {pag-uupdate}} ay maaaring magdulot ng mga isyu sa pagkakatugma. Ang mga mod o kontentong dinagdag mo sa modpack ay mananatili, ngunit maaaring di-magkatutugma sa panibagong bersiyon."
+  },
+  "content.confirm-modpack-update.admonition-header": {
+    "defaultMessage": "Babala sa {action, select, downgrade {pag-downgrade} other {pag-update}}"
+  },
+  "content.confirm-modpack-update.confirm-button": {
+    "defaultMessage": "{action, select, downgrade {I-downgrade} other {I-update}} ang modpack"
+  },
+  "content.confirm-modpack-update.header": {
+    "defaultMessage": "{action, select, downgrade {I-downgrade} other {I-update}} ang modpack"
+  },
+  "content.confirm-unlink.admonition-body": {
+    "defaultMessage": "Isasama ang mga mod at content sa idinagdag mo sa ibabaw ng modpack, at titigil ito sa pagtanggap ng mga update."
   },
   "content.confirm-unlink.admonition-header": {
     "defaultMessage": "Ina-unlink ang modpack"
@@ -167,8 +386,53 @@
   "content.confirm-unlink.unlink-button": {
     "defaultMessage": "I-unlink"
   },
+  "content.dependency-warning.admonition-header": {
+    "defaultMessage": "Kinakailangan ang content na ito ng ibang content"
+  },
+  "content.dependency-warning.affected-dependents-label": {
+    "defaultMessage": "Apektadong {count, plural, one {proyekto} other {mga proyekto}}"
+  },
+  "content.dependency-warning.bulk-admonition-body": {
+    "defaultMessage": "Naka-install bilang mga dependency ang ilan sa mga napiling proyekto. Ang pagbura sa mga ito ay maaaring makasira sa iyong {context} o makapigil sa tamang pag-load ng nakadependeng content."
+  },
+  "content.dependency-warning.context.instance": {
+    "defaultMessage": "instansiya"
+  },
   "content.dependency-warning.context.server": {
     "defaultMessage": "server"
+  },
+  "content.dependency-warning.delete-anyway-button": {
+    "defaultMessage": "Burahin pa rin"
+  },
+  "content.dependency-warning.delete-many-anyway-button": {
+    "defaultMessage": "Burahin pa rin ang {count, number} {itemType}"
+  },
+  "content.dependency-warning.deleting-label": {
+    "defaultMessage": "Binubura"
+  },
+  "content.dependency-warning.disable-dependents-label": {
+    "defaultMessage": "Patayin ang mga nakadepende pagkatapos burahin"
+  },
+  "content.dependency-warning.effect-dependent-content": {
+    "defaultMessage": "Maaaring mabigong mag-load o magpatay nang kusa ang nakadependeng content"
+  },
+  "content.dependency-warning.effect-instance": {
+    "defaultMessage": "Maaaring mag-crash, tumangging magsimula, o kumilos nang hindi inaasahan ang iyong {context}"
+  },
+  "content.dependency-warning.header": {
+    "defaultMessage": "Babala sa dependency"
+  },
+  "content.dependency-warning.single-admonition-body": {
+    "defaultMessage": "Naka-install bilang dependency ang {project}. Ang pagbura nito ay maaaring makasira sa iyong {context} o makapigil sa tamang pag-load ng nakadependeng content."
+  },
+  "content.dependency-warning.what-happens-label": {
+    "defaultMessage": "Ano ang mangyayari?"
+  },
+  "content.diff-modal.added-count": {
+    "defaultMessage": "{count} idinagdag"
+  },
+  "content.diff-modal.config-files-updated": {
+    "defaultMessage": "Mga binagong config file"
   },
   "content.diff-modal.diff-type.added": {
     "defaultMessage": "Dinagdag (dependency)"
@@ -176,32 +440,230 @@
   "content.diff-modal.diff-type.removed": {
     "defaultMessage": "Nakapatay"
   },
+  "content.diff-modal.diff-type.removed-disabled": {
+    "defaultMessage": "Inalis (pinatay)"
+  },
   "content.diff-modal.diff-type.updated": {
     "defaultMessage": "Na-update"
+  },
+  "content.diff-modal.dont-install": {
+    "defaultMessage": "Huwag i-install"
+  },
+  "content.diff-modal.external-diff-type.added": {
+    "defaultMessage": "Idinagdag"
+  },
+  "content.diff-modal.external-diff-type.removed": {
+    "defaultMessage": "Inalis"
+  },
+  "content.diff-modal.external-diff-type.updated": {
+    "defaultMessage": "Na-update"
+  },
+  "content.diff-modal.file-count": {
+    "defaultMessage": "{count, plural, one {# file} other {# file}}"
+  },
+  "content.diff-modal.game-version-updated": {
+    "defaultMessage": "Bersyon ng laro"
+  },
+  "content.diff-modal.install-anyway": {
+    "defaultMessage": "I-install pa rin"
+  },
+  "content.diff-modal.loader-updated": {
+    "defaultMessage": "Loader"
+  },
+  "content.diff-modal.modpack-linked": {
+    "defaultMessage": "Naka-link na modpack"
+  },
+  "content.diff-modal.modpack-unlinked": {
+    "defaultMessage": "Na-unlink na modpack"
+  },
+  "content.diff-modal.modpack-updated": {
+    "defaultMessage": "Na-update na modpack"
+  },
+  "content.diff-modal.no-content-changes": {
+    "defaultMessage": "Walang pagbabago sa content"
+  },
+  "content.diff-modal.removed-count": {
+    "defaultMessage": "{count} inalis"
+  },
+  "content.diff-modal.removed-disabled-count": {
+    "defaultMessage": "{count} inalis (pinatay)"
+  },
+  "content.diff-modal.reviewed-files": {
+    "defaultMessage": "Hindi nire-review ang mga file na hindi naka-publish sa Modrinth."
+  },
+  "content.diff-modal.unknown-content-body": {
+    "defaultMessage": "Hindi masuri ang ilang content sa iyong server at maaaring maapektuhan ito ng pagbabagong ito."
+  },
+  "content.diff-modal.unknown-files-description": {
+    "defaultMessage": "Naglalaman ang update na ito ng mga file na hindi naka-publish sa Modrinth. Lubos naming inirerekomenda na mag-install lang ng mga file mula sa mga pinagkakatiwalaang pinagmulan."
+  },
+  "content.diff-modal.unknown-files-warning": {
+    "defaultMessage": "Babala sa hindi kilalang mga file"
+  },
+  "content.diff-modal.unknown-project": {
+    "defaultMessage": "Hindi kilala"
+  },
+  "content.diff-modal.updated-count": {
+    "defaultMessage": "{count} na-update"
+  },
+  "content.filter.disabled": {
+    "defaultMessage": "Pinatay"
+  },
+  "content.filter.enabled": {
+    "defaultMessage": "Binuksan"
+  },
+  "content.filter.updates": {
+    "defaultMessage": "Mga Update"
+  },
+  "content.filter.warnings": {
+    "defaultMessage": "Mga Babala"
+  },
+  "content.inline-backup.backing-up": {
+    "defaultMessage": "Lumilikha ng backup..."
   },
   "content.inline-backup.backup-complete": {
     "defaultMessage": "Matagumpay na nilikha ang backup"
   },
-  "content.inline-backup.backup-in-progress": {
-    "defaultMessage": "Kasalukuyang nagba-backup, inimumungkahi na maghintay upang matapos ito bago magawa ang aksiyong ito."
+  "content.inline-backup.backup-failed": {
+    "defaultMessage": "Nabigo ang paglikha ng backup. Maaari ka pa ring magpatuloy."
   },
   "content.inline-backup.create-backup": {
     "defaultMessage": "Lumikha ng backup"
   },
+  "content.inline-backup.instance-label": {
+    "defaultMessage": "instansiya"
+  },
   "content.inline-backup.shift-click-hint": {
     "defaultMessage": "Idiin ang Shift habang pumipindot upang laktawan ang kumpirmasyon."
   },
-  "content.inline-backup.world-label": {
-    "defaultMessage": "mundo"
+  "content.inline-backup.warning-body": {
+    "defaultMessage": "Inirerekomenda naming lumikha ng backup bago magpatuloy upang maibalik mo ang iyong {type} kung may masira."
+  },
+  "content.managed-card.modpack-content": {
+    "defaultMessage": "Content ng modpack"
+  },
+  "content.managed-card.provided-by": {
+    "defaultMessage": "Ibinigay ng"
+  },
+  "content.managed-card.server-suffix": {
+    "defaultMessage": "server"
+  },
+  "content.managed-card.settings": {
+    "defaultMessage": "Mga setting ng pag-install"
+  },
+  "content.managed-card.shared-content": {
+    "defaultMessage": "Ibinahaging content"
+  },
+  "content.managed-card.summary.installing": {
+    "defaultMessage": "Ini-install ang content..."
+  },
+  "content.managed-card.summary.loading": {
+    "defaultMessage": "Naglo-load ng buod ng pinamamahalaang content"
+  },
+  "content.managed-card.summary.no-provided-content": {
+    "defaultMessage": "Walang ibinigay na content"
+  },
+  "content.managed-card.switch-version": {
+    "defaultMessage": "Palitan ang bersyon"
+  },
+  "content.managed-card.synced": {
+    "defaultMessage": "Naka-sync {time}"
+  },
+  "content.managed-card.update-available": {
+    "defaultMessage": "May available na update"
+  },
+  "content.managed-card.updated": {
+    "defaultMessage": "Na-update {time}"
+  },
+  "content.managed-card.updating": {
+    "defaultMessage": "Nag-a-update..."
+  },
+  "content.managed-card.view-content": {
+    "defaultMessage": "Tingnan ang content"
+  },
+  "content.metadata-filter.author": {
+    "defaultMessage": "May-akda"
+  },
+  "content.metadata-filter.environment": {
+    "defaultMessage": "Kapaligiran"
+  },
+  "content.metadata-filter.open-source": {
+    "defaultMessage": "Open source"
+  },
+  "content.metadata-filter.shared-content": {
+    "defaultMessage": "Ibinahaging content"
+  },
+  "content.metadata-filter.source.external": {
+    "defaultMessage": "Panlabas"
+  },
+  "content.metadata-filter.state": {
+    "defaultMessage": "Katayuan"
+  },
+  "content.metadata-filter.state.disabled": {
+    "defaultMessage": "Pinatay"
+  },
+  "content.metadata-filter.state.enabled": {
+    "defaultMessage": "Binuksan"
+  },
+  "content.metadata-filter.update.available": {
+    "defaultMessage": "May available na update"
+  },
+  "content.metadata-filter.warning.client-depends": {
+    "defaultMessage": "Nakadepende ang client sa file"
+  },
+  "content.metadata-filter.warning.client-only": {
+    "defaultMessage": "Content na pang-client lang"
+  },
+  "content.metadata-filter.warning.client-retained": {
+    "defaultMessage": "Napanatili ang file ng client"
+  },
+  "content.metadata-filter.warning.none": {
+    "defaultMessage": "Walang mga babala"
+  },
+  "content.metadata-filter.warnings": {
+    "defaultMessage": "Mga Babala"
   },
   "content.page-layout.additional-content": {
     "defaultMessage": "Karagdagang kontento"
   },
+  "content.page-layout.browse-content": {
+    "defaultMessage": "Mag-browse ng content"
+  },
+  "content.page-layout.empty.hint": {
+    "defaultMessage": "Mag-browse o mag-upload ng {contentType} upang magsimula"
+  },
   "content.page-layout.empty.modpack-hint": {
     "defaultMessage": "Dargdagan ng karagdagang kontento sa itaas ng modpack na ito"
   },
+  "content.page-layout.empty.no-content-installed": {
+    "defaultMessage": "Walang naka-install na content"
+  },
+  "content.page-layout.empty.no-extra-content-installed": {
+    "defaultMessage": "Walang naka-install na karagdagang content"
+  },
+  "content.page-layout.failed-to-load": {
+    "defaultMessage": "Nabigong mag-load ng content"
+  },
+  "content.page-layout.filter.add": {
+    "defaultMessage": "Filter"
+  },
+  "content.page-layout.filter.author-count": {
+    "defaultMessage": "{count, plural, one {# may-akda} other {# may-akda}}"
+  },
+  "content.page-layout.loading": {
+    "defaultMessage": "Naglo-load ng content..."
+  },
+  "content.page-layout.no-content-found": {
+    "defaultMessage": "Walang nahanap na content."
+  },
   "content.page-layout.please-wait": {
     "defaultMessage": "Mangyaring maghintay"
+  },
+  "content.page-layout.search-placeholder": {
+    "defaultMessage": "Maghanap ng {count, number} {contentType}..."
+  },
+  "content.page-layout.share.file-names": {
+    "defaultMessage": "Mga pangalan ng file"
   },
   "content.page-layout.share.label": {
     "defaultMessage": "Ibahagi"
@@ -212,11 +674,29 @@
   "content.page-layout.share.project-links": {
     "defaultMessage": "Mga link ng proyekto"
   },
+  "content.page-layout.share.project-names": {
+    "defaultMessage": "Mga pangalan ng proyekto"
+  },
+  "content.page-layout.sort.alphabetical-ascending": {
+    "defaultMessage": "Pangalan (A-Z)"
+  },
+  "content.page-layout.sort.alphabetical-descending": {
+    "defaultMessage": "Pangalan (Z-A)"
+  },
   "content.page-layout.sort.date-added-newest": {
     "defaultMessage": "Pinakabago ang mauuna"
   },
   "content.page-layout.sort.date-added-oldest": {
     "defaultMessage": "Pinakaluma ang mauuna"
+  },
+  "content.page-layout.sort.label": {
+    "defaultMessage": "Ayusin ayon sa {mode}"
+  },
+  "content.page-layout.update-all": {
+    "defaultMessage": "I-update lahat"
+  },
+  "content.page-layout.upload-files": {
+    "defaultMessage": "Mag-upload ng mga file"
   },
   "content.selection-bar.all-already-disabled": {
     "defaultMessage": "Nakapatay na ang lahat ng piniling konento"
@@ -224,11 +704,71 @@
   "content.selection-bar.all-already-enabled": {
     "defaultMessage": "Nakabukas na ang lahat ng piniling kontento"
   },
-  "creation-flow.button.finish": {
-    "defaultMessage": "Tapusin"
+  "content.selection-bar.bulk.deleting": {
+    "defaultMessage": "Binubura ang {progress}/{total} {contentType}..."
+  },
+  "content.selection-bar.bulk.deleting-count": {
+    "defaultMessage": "Binubura ang {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.deleting-waiting": {
+    "defaultMessage": "Binubura ang {contentType}..."
+  },
+  "content.selection-bar.bulk.disabling": {
+    "defaultMessage": "Pinapatay ang {progress}/{total} {contentType}..."
+  },
+  "content.selection-bar.bulk.disabling-count": {
+    "defaultMessage": "Pinapatay ang {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.disabling-waiting": {
+    "defaultMessage": "Pinapatay ang {contentType}..."
+  },
+  "content.selection-bar.bulk.enabling": {
+    "defaultMessage": "Binubuksan ang {progress}/{total} {contentType}..."
+  },
+  "content.selection-bar.bulk.enabling-count": {
+    "defaultMessage": "Binubuksan ang {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.enabling-waiting": {
+    "defaultMessage": "Binubuksan ang {contentType}..."
+  },
+  "content.selection-bar.bulk.updating": {
+    "defaultMessage": "Nag-a-update ng {progress}/{total} {contentType}..."
+  },
+  "content.selection-bar.bulk.updating-count": {
+    "defaultMessage": "Nag-a-update ng {count, number} {contentType}"
+  },
+  "content.selection-bar.bulk.updating-waiting": {
+    "defaultMessage": "Nag-a-update ng {contentType}..."
+  },
+  "content.selection-bar.selected-count": {
+    "defaultMessage": "{count, number} {contentType} napili"
+  },
+  "content.selection-bar.selected-count-simple": {
+    "defaultMessage": "{count, number} napili"
+  },
+  "creation-flow.button.create-instance": {
+    "defaultMessage": "Lumikha ng instansiya"
   },
   "creation-flow.button.import": {
     "defaultMessage": "I-angkat"
+  },
+  "creation-flow.button.import-instances": {
+    "defaultMessage": "Mag-angkat ng {count, plural, one {# instansiya} other {# instansiya}}"
+  },
+  "creation-flow.modal.custom-setup.game-version.placeholder": {
+    "defaultMessage": "Pumili ng bersyon ng laro"
+  },
+  "creation-flow.modal.custom-setup.game-version.search-placeholder": {
+    "defaultMessage": "Maghanap ng bersyon ng laro..."
+  },
+  "creation-flow.modal.custom-setup.icon.customize": {
+    "defaultMessage": "Ipasadya"
+  },
+  "creation-flow.modal.custom-setup.icon.randomize": {
+    "defaultMessage": "Random"
+  },
+  "creation-flow.modal.custom-setup.icon.select": {
+    "defaultMessage": "Mag-upload"
   },
   "creation-flow.modal.custom-setup.loader-version-type.latest": {
     "defaultMessage": "Bago"
@@ -239,44 +779,251 @@
   "creation-flow.modal.custom-setup.loader-version-type.stable": {
     "defaultMessage": "Matatag"
   },
+  "creation-flow.modal.custom-setup.loader-version.label": {
+    "defaultMessage": "Bersyon ng loader"
+  },
+  "creation-flow.modal.custom-setup.loader-version.placeholder": {
+    "defaultMessage": "Pumili ng bersyon ng loader"
+  },
+  "creation-flow.modal.custom-setup.loader-version.search-placeholder": {
+    "defaultMessage": "Maghanap ng bersyon ng loader..."
+  },
   "creation-flow.modal.custom-setup.loader.label": {
     "defaultMessage": "Loader"
   },
   "creation-flow.modal.custom-setup.name.label": {
     "defaultMessage": "Pangalan"
   },
-  "creation-flow.modal.final-config.additional-settings.title": {
-    "defaultMessage": "Karagdagang settings"
+  "creation-flow.modal.custom-setup.name.placeholder": {
+    "defaultMessage": "Ilagay ang pangalan ng instansiya"
   },
-  "creation-flow.modal.final-config.difficulty.easy": {
-    "defaultMessage": "Madali"
-  },
-  "creation-flow.modal.final-config.difficulty.hard": {
-    "defaultMessage": "Mahirap"
-  },
-  "creation-flow.modal.final-config.difficulty.label": {
-    "defaultMessage": "Kahirapan"
-  },
-  "creation-flow.modal.final-config.difficulty.normal": {
-    "defaultMessage": "Katamtaman"
-  },
-  "creation-flow.modal.final-config.difficulty.peaceful": {
-    "defaultMessage": "Mapayapa"
-  },
-  "creation-flow.modal.final-config.generator-settings.flat": {
-    "defaultMessage": "Patag"
+  "creation-flow.modal.custom-setup.options.no-versions-available": {
+    "defaultMessage": "Walang available na bersyon"
   },
   "creation-flow.modal.import-instance.action.add": {
     "defaultMessage": "Magdagdag"
   },
+  "creation-flow.modal.import-instance.custom-launcher.name": {
+    "defaultMessage": "Pasadya ({pathName})"
+  },
+  "creation-flow.modal.import-instance.detecting-launcher-instances": {
+    "defaultMessage": "Nadidetect ang mga instansiya ng launcher..."
+  },
+  "creation-flow.modal.import-instance.launcher-instances.title": {
+    "defaultMessage": "Mga instansiya ng launcher"
+  },
   "creation-flow.modal.import-instance.launcher-path.add": {
     "defaultMessage": "Magdagdag ng launcher path"
+  },
+  "creation-flow.modal.import-instance.launcher-path.browse": {
+    "defaultMessage": "Mag-browse ng path ng launcher"
+  },
+  "creation-flow.modal.import-instance.launcher-path.placeholder": {
+    "defaultMessage": "Path sa launcher..."
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.text": {
+    "defaultMessage": "Walang nahanap na maaangkat na instansiya sa tinukoy na path."
+  },
+  "creation-flow.modal.import-instance.notification.no-instances-found.title": {
+    "defaultMessage": "Walang nahanap na instansiya"
+  },
+  "creation-flow.modal.import-instance.search.placeholder": {
+    "defaultMessage": "Maghanap ng pangalan ng instansiya"
+  },
+  "creation-flow.modal.import-instance.selection.clear-all": {
+    "defaultMessage": "Linisin lahat"
+  },
+  "creation-flow.modal.project.known-project.prompt": {
+    "defaultMessage": "Alam mo na ba kung ano ang nais mong laruin?"
+  },
+  "creation-flow.modal.project.search.create-instance": {
+    "defaultMessage": "Lumikha ng instansiya"
+  },
+  "creation-flow.modal.project.search.install-modpack": {
+    "defaultMessage": "I-install ang modpack"
+  },
+  "creation-flow.modal.project.search.no-results": {
+    "defaultMessage": "Walang nahanap na resulta"
+  },
+  "creation-flow.modal.project.search.placeholder": {
+    "defaultMessage": "Maghanap ng mga mod, modpack, at iba pa..."
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.description": {
+    "defaultMessage": "Magsimula sa simula sa pamamagitan ng pagpili ng loader at bersyon ng laro."
+  },
+  "creation-flow.modal.setup-type.option.custom-setup.title": {
+    "defaultMessage": "Pasadyang pag-setup"
+  },
+  "creation-flow.modal.setup-type.option.import-instance.description": {
+    "defaultMessage": "Mag-angkat ng instansiya mula sa Prism, CurseForge, o katulad."
+  },
+  "creation-flow.modal.setup-type.option.import-instance.title": {
+    "defaultMessage": "Mag-angkat ng instansiya"
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.description": {
+    "defaultMessage": "Pumili ng proyekto at gagamitin namin ang pinakabago nitong bersyon."
+  },
+  "creation-flow.modal.setup-type.option.modpack-base.title": {
+    "defaultMessage": "Magsimula mula sa isang mod o modpack"
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.supported-formats-description": {
+    "defaultMessage": "Mag-angkat ng .orbpack, Modrinth .mrpack, o CurseForge .zip file mula sa iyong device."
+  },
+  "creation-flow.modal.setup-type.option.upload-modpack.title": {
+    "defaultMessage": "Mag-upload ng modpack"
+  },
+  "creation-flow.modal.setup-type.title.instance": {
+    "defaultMessage": "Piliin ang uri ng instansiya"
+  },
+  "creation-flow.optifine.description": {
+    "defaultMessage": "Opsyonal. Piliin ang opisyal na installer at iko-configure ito ng launcher sa instansiyang ito."
+  },
+  "creation-flow.optifine.download": {
+    "defaultMessage": "Opisyal na pag-download"
+  },
+  "creation-flow.optifine.name": {
+    "defaultMessage": "OptiFine"
+  },
+  "creation-flow.optifine.none": {
+    "defaultMessage": "Wala"
+  },
+  "creation-flow.optifine.optimization": {
+    "defaultMessage": "Pag-optimize"
+  },
+  "creation-flow.optifine.required": {
+    "defaultMessage": "Piliin ang opisyal na OptiFine JAR para sa Minecraft {gameVersion} upang magpatuloy."
+  },
+  "creation-flow.optifine.select": {
+    "defaultMessage": "Piliin ang JAR"
+  },
+  "creation-flow.optifine.selected": {
+    "defaultMessage": "OptiFine {version} · Minecraft {gameVersion}"
+  },
+  "creation-flow.optifine.validating": {
+    "defaultMessage": "Sinusuri ang installer…"
+  },
+  "creation-flow.optifine.vanilla-only": {
+    "defaultMessage": "Kasalukuyang available ang pag-install ng OptiFine para sa mga Vanilla instansiya."
+  },
+  "creation-flow.title.create-instance": {
+    "defaultMessage": "Lumikha ng instansiya"
+  },
+  "creation-flow.title.import-instance": {
+    "defaultMessage": "Mag-angkat ng instansiya"
+  },
+  "empty-state.upload-versions.description": {
+    "defaultMessage": "Bumalik kapag na-upload mo na ang iyong mga bersyon."
   },
   "external-project-license-status.no": {
     "defaultMessage": "Hindi"
   },
+  "external-project-license-status.permanent-no": {
+    "defaultMessage": "Permanenteng hindi"
+  },
+  "external-project-license-status.unidentified": {
+    "defaultMessage": "Hindi natukoy"
+  },
+  "external-project-license-status.with-attribution": {
+    "defaultMessage": "May atribusyon"
+  },
+  "external-project-license-status.with-attribution-and-source": {
+    "defaultMessage": "May atribusyon at pinagmulan"
+  },
   "external-project-license-status.yes": {
     "defaultMessage": "Oo"
+  },
+  "file-button.file-too-large.description": {
+    "defaultMessage": "Masyadong malaki ang file na {filename}. Ang pinakamadaming laki ng file ay {maxSize}."
+  },
+  "file-button.file-too-large.title": {
+    "defaultMessage": "Masyadong malaki ang file"
+  },
+  "files.conflict-modal.header": {
+    "defaultMessage": "Buod ng pagbunot"
+  },
+  "files.conflict-modal.overwrite-button": {
+    "defaultMessage": "I-overwrite"
+  },
+  "files.conflict-modal.overwrite-file-label": {
+    "defaultMessage": "I-o-overwrite ang <file-path>{path}</file-path>"
+  },
+  "files.conflict-modal.overwrite-many-warning": {
+    "defaultMessage": "Mahigit 100 file ang mai-o-overwrite kung magpapatuloy ka sa pagbunot; narito ang ilan sa mga ito."
+  },
+  "files.conflict-modal.overwrite-warning": {
+    "defaultMessage": "Umiiral na sa iyong server ang sumusunod na {count} file, at mai-o-overwrite ang mga ito kung magpapatuloy ka sa pagbunot."
+  },
+  "files.conflict-modal.overwritten-count": {
+    "defaultMessage": "{count} na-overwrite"
+  },
+  "files.conflict-modal.warning-header": {
+    "defaultMessage": "Mai-o-overwrite ang mga file"
+  },
+  "files.create-modal.create-button": {
+    "defaultMessage": "Lumikha ng {type}"
+  },
+  "files.create-modal.header": {
+    "defaultMessage": "Lumikha ng {type}"
+  },
+  "files.create-modal.placeholder-directory": {
+    "defaultMessage": "hal. aking-folder"
+  },
+  "files.create-modal.placeholder-file": {
+    "defaultMessage": "hal. config.yml"
+  },
+  "files.create-zip-modal.already-exists": {
+    "defaultMessage": "Umiiral na ang file na may ganitong pangalan."
+  },
+  "files.create-zip-modal.check-failed": {
+    "defaultMessage": "Hindi masuri kung umiiral na ang file na ito."
+  },
+  "files.create-zip-modal.create-button": {
+    "defaultMessage": "Lumikha ng ZIP"
+  },
+  "files.create-zip-modal.header": {
+    "defaultMessage": "Lumikha ng ZIP"
+  },
+  "files.create-zip-modal.invalid": {
+    "defaultMessage": "Kailangang iisang pangalan ng file lang ang pangalan ng archive."
+  },
+  "files.create-zip-modal.name-label": {
+    "defaultMessage": "Pangalan ng archive"
+  },
+  "files.create-zip-modal.name-placeholder": {
+    "defaultMessage": "arkibo.zip"
+  },
+  "files.create-zip-modal.required": {
+    "defaultMessage": "Maglagay ng pangalan ng archive."
+  },
+  "files.delete-modal.deleting-name": {
+    "defaultMessage": "Binubura ang \"{name}\""
+  },
+  "files.delete-modal.header": {
+    "defaultMessage": "Burahin ang file"
+  },
+  "files.delete-modal.warning.file": {
+    "defaultMessage": "Permanente nang buburahin ang file na ito. Hindi na ito mababawi."
+  },
+  "files.delete-modal.warning.folder": {
+    "defaultMessage": "Permanente nang buburahin ang folder na ito at lahat ng nilalaman nito. Hindi na ito mababawi."
+  },
+  "files.editor.failed-to-open-text": {
+    "defaultMessage": "Hindi ma-load ang mga nilalaman ng file."
+  },
+  "files.editor.failed-to-open-title": {
+    "defaultMessage": "Nabigong buksan ang file"
+  },
+  "files.editor.failed-to-share-text": {
+    "defaultMessage": "Hindi ma-upload sa mclo.gs."
+  },
+  "files.editor.failed-to-share-title": {
+    "defaultMessage": "Nabigong ibahagi ang file"
+  },
+  "files.editor.file-saved-text": {
+    "defaultMessage": "Nasave na ang iyong file."
+  },
+  "files.editor.file-saved-title": {
+    "defaultMessage": "Nasave ang file"
   },
   "files.editor.find-in-file": {
     "defaultMessage": "Hahanapin"
@@ -296,6 +1043,12 @@
   "files.editor.find-toggle-replace": {
     "defaultMessage": "I-toggle ang pagpapalit"
   },
+  "files.editor.log-url-copied-text": {
+    "defaultMessage": "Nakopya na sa iyong clipboard ang URL ng iyong log file."
+  },
+  "files.editor.log-url-copied-title": {
+    "defaultMessage": "Nakopya ang URL ng log"
+  },
   "files.editor.replace": {
     "defaultMessage": "Palitan"
   },
@@ -305,11 +1058,32 @@
   "files.editor.replace-in-file": {
     "defaultMessage": "Pampalit"
   },
+  "files.editor.save-failed-text": {
+    "defaultMessage": "Hindi masave ang file."
+  },
+  "files.editor.save-failed-title": {
+    "defaultMessage": "Nabigo ang pag-save"
+  },
   "files.error.go-to-home": {
     "defaultMessage": "Pumunta sa folder ng tahanan"
   },
   "files.error.try-again": {
     "defaultMessage": "Subukan muli"
+  },
+  "files.image_viewer.image_too_large": {
+    "defaultMessage": "Masyadong malaki ang larawan upang tingnan (max {maxDimension}x{maxDimension} pixel)"
+  },
+  "files.image_viewer.invalid_image": {
+    "defaultMessage": "Hindi wasto o walang lamang file ng larawan."
+  },
+  "files.image_viewer.load_failed": {
+    "defaultMessage": "Nabigong mag-load ng larawan"
+  },
+  "files.image_viewer.reset_zoom": {
+    "defaultMessage": "I-reset ang zoom"
+  },
+  "files.image_viewer.viewed_image_alt": {
+    "defaultMessage": "Tinitingnang larawan"
   },
   "files.image_viewer.zoom_in": {
     "defaultMessage": "Palakihin"
@@ -320,11 +1094,68 @@
   "files.item-type.file": {
     "defaultMessage": "talaksan"
   },
+  "files.item-type.files": {
+    "defaultMessage": "mga file"
+  },
+  "files.item-type.folder": {
+    "defaultMessage": "folder"
+  },
+  "files.item-type.folders": {
+    "defaultMessage": "mga folder"
+  },
+  "files.layout.create-zip": {
+    "defaultMessage": "Lumikha ng ZIP"
+  },
   "files.layout.dry-run-failed-text": {
     "defaultMessage": "Error sa pagpatakbo ng dry run"
   },
+  "files.layout.dry-run-failed-title": {
+    "defaultMessage": "Nabigo ang dry run"
+  },
+  "files.layout.empty-folder-description": {
+    "defaultMessage": "Walang mga file o folder."
+  },
+  "files.layout.empty-folder-title": {
+    "defaultMessage": "Walang laman ang folder na ito"
+  },
+  "files.layout.error-message": {
+    "defaultMessage": "Maaaring hindi umiral ang folder."
+  },
+  "files.layout.error-title": {
+    "defaultMessage": "Hindi ma-load ang mga file"
+  },
+  "files.layout.extraction-started-title": {
+    "defaultMessage": "Sinimulan ang pagbunot"
+  },
+  "files.layout.selected-count": {
+    "defaultMessage": "{count} napili"
+  },
+  "files.layout.unsaved-changes": {
+    "defaultMessage": "Mayroon kang mga hindi pa nasasave na pagbabago."
+  },
+  "files.move-modal.current-location": {
+    "defaultMessage": "Kasalukuyang lokasyon"
+  },
+  "files.move-modal.destination-path": {
+    "defaultMessage": "Path ng patutunguhan"
+  },
+  "files.move-modal.destination-placeholder": {
+    "defaultMessage": "hal. /aking-folder"
+  },
+  "files.move-modal.header": {
+    "defaultMessage": "Ilipat ang {type}"
+  },
   "files.navbar.back-to-home": {
     "defaultMessage": "Bumalik sa tahanan"
+  },
+  "files.navbar.breadcrumb-navigation": {
+    "defaultMessage": "Nabigasyon ng breadcrumb"
+  },
+  "files.navbar.create-new": {
+    "defaultMessage": "Lumikha ng bago..."
+  },
+  "files.navbar.file-navigation": {
+    "defaultMessage": "Nabigasyon ng file"
   },
   "files.navbar.find-in-file": {
     "defaultMessage": "Hanapin sa Talaksan"
@@ -335,8 +1166,35 @@
   "files.navbar.new-file": {
     "defaultMessage": "Bagong talaksan"
   },
+  "files.navbar.new-folder": {
+    "defaultMessage": "Bagong folder"
+  },
+  "files.navbar.search-files": {
+    "defaultMessage": "Maghanap ng mga file"
+  },
+  "files.navbar.share-to-mclogs": {
+    "defaultMessage": "Ibahagi sa mclo.gs"
+  },
+  "files.navbar.upload-file": {
+    "defaultMessage": "Mag-upload ng file"
+  },
+  "files.navbar.upload-from-zip": {
+    "defaultMessage": "Mag-upload mula sa .zip file"
+  },
+  "files.rename-modal.header": {
+    "defaultMessage": "Palitan ang pangalan ng {name}"
+  },
   "files.rename-modal.new-name-label": {
     "defaultMessage": "Bagong pangalan"
+  },
+  "files.row.create-zip": {
+    "defaultMessage": "Lumikha ng ZIP"
+  },
+  "files.row.item-count": {
+    "defaultMessage": "{count, plural, one {# item} other {# item}}"
+  },
+  "files.row.parent-folder": {
+    "defaultMessage": "Magulang na folder"
   },
   "files.table-header.created": {
     "defaultMessage": "Linikha"
@@ -350,17 +1208,53 @@
   "files.table-header.size": {
     "defaultMessage": "Sukat"
   },
+  "files.unsaved-changes-modal.body": {
+    "defaultMessage": "Mayroon kang mga hindi pa nasasave na pagbabago na mawawala kung aalis ka. Nais mo bang mag-save bago umalis?"
+  },
   "files.unsaved-changes-modal.discard": {
     "defaultMessage": "Iwaksi"
+  },
+  "files.unsaved-changes-modal.header": {
+    "defaultMessage": "Mga hindi pa nasasave na pagbabago"
+  },
+  "files.upload.drag-and-drop.drop-to-upload": {
+    "defaultMessage": "I-drop ang {type} dito upang mag-upload"
+  },
+  "files.validation.name-invalid-directory": {
+    "defaultMessage": "Dapat maglaman lang ang pangalan ng mga letrang alphanumeric, gitling, underscore, o espasyo."
+  },
+  "files.validation.name-invalid-file": {
+    "defaultMessage": "Dapat maglaman lang ang pangalan ng mga letrang alphanumeric, gitling, underscore, tuldok, o espasyo."
   },
   "files.validation.name-label": {
     "defaultMessage": "Pangalan"
   },
-  "files.zip-url-modal.install-button": {
-    "defaultMessage": "I-install"
+  "files.validation.name-required": {
+    "defaultMessage": "Kailangan ang pangalan."
   },
-  "files.zip-url-modal.unknown-error": {
-    "defaultMessage": "Isang di-kilalang error na naganap"
+  "filter-bar.add": {
+    "defaultMessage": "Idagdag"
+  },
+  "filter-bar.clear": {
+    "defaultMessage": "Linisin"
+  },
+  "filter-bar.clear-named-filter": {
+    "defaultMessage": "Linisin ang {name} filter"
+  },
+  "filter-bar.filtered-by": {
+    "defaultMessage": "Naka-filter ayon sa"
+  },
+  "filter-bar.no-options": {
+    "defaultMessage": "Walang available na opsyon."
+  },
+  "filter-bar.no-search-results": {
+    "defaultMessage": "Walang nahanap na opsyon."
+  },
+  "filter-bar.search-placeholder": {
+    "defaultMessage": "Maghanap..."
+  },
+  "filter-bar.select-all": {
+    "defaultMessage": "Piliin lahat"
   },
   "form.label.address-line": {
     "defaultMessage": "Address line"
@@ -440,6 +1334,21 @@
   "form.placeholder.state": {
     "defaultMessage": "Ilagay ang estado/probinsiya"
   },
+  "format.bytes.0": {
+    "defaultMessage": "{count, plural, one {# byte} other {# byte}}"
+  },
+  "format.bytes.1": {
+    "defaultMessage": "{count, number} KiB"
+  },
+  "format.bytes.2": {
+    "defaultMessage": "{count, number} MiB"
+  },
+  "format.bytes.3": {
+    "defaultMessage": "{count, number} GiB"
+  },
+  "format.bytes.4": {
+    "defaultMessage": "{count, number} TiB"
+  },
   "header.category.category": {
     "defaultMessage": "Kategorya"
   },
@@ -464,8 +1373,116 @@
   "header.category.resolutions": {
     "defaultMessage": "Resolusyon"
   },
+  "image-viewer.close": {
+    "defaultMessage": "Isara"
+  },
+  "image-viewer.edit": {
+    "defaultMessage": "Baguhin"
+  },
+  "image-viewer.editor.colour": {
+    "defaultMessage": "Kulay"
+  },
+  "image-viewer.editor.crop.dimensions": {
+    "defaultMessage": "{width} × {height} px"
+  },
+  "image-viewer.editor.crop.reset": {
+    "defaultMessage": "I-reset ang crop"
+  },
+  "image-viewer.editor.delete-selection": {
+    "defaultMessage": "Burahin ang napiling anotasyon"
+  },
+  "image-viewer.editor.eraser.area": {
+    "defaultMessage": "Lugar"
+  },
+  "image-viewer.editor.eraser.element": {
+    "defaultMessage": "Elemento"
+  },
+  "image-viewer.editor.eraser.mode": {
+    "defaultMessage": "Eraser mode"
+  },
+  "image-viewer.editor.image-editing-tools": {
+    "defaultMessage": "Mga kagamitan sa pag-edit ng larawan"
+  },
+  "image-viewer.editor.more-save-options": {
+    "defaultMessage": "Higit pang mga opsyon sa pag-save"
+  },
+  "image-viewer.editor.overwrite": {
+    "defaultMessage": "I-overwrite"
+  },
+  "image-viewer.editor.redo": {
+    "defaultMessage": "Gawin muli"
+  },
+  "image-viewer.editor.save-as-new": {
+    "defaultMessage": "Mag-save ng kopya"
+  },
+  "image-viewer.editor.save-image": {
+    "defaultMessage": "I-save ang larawan"
+  },
+  "image-viewer.editor.size": {
+    "defaultMessage": "Sukat"
+  },
+  "image-viewer.editor.tool.arrow": {
+    "defaultMessage": "Arrow"
+  },
+  "image-viewer.editor.tool.censor": {
+    "defaultMessage": "Censor"
+  },
+  "image-viewer.editor.tool.crop": {
+    "defaultMessage": "Crop"
+  },
+  "image-viewer.editor.tool.ellipse": {
+    "defaultMessage": "Ellipse"
+  },
+  "image-viewer.editor.tool.eraser": {
+    "defaultMessage": "Pambura"
+  },
+  "image-viewer.editor.tool.highlight": {
+    "defaultMessage": "Highlight"
+  },
+  "image-viewer.editor.tool.pen": {
+    "defaultMessage": "Panulat"
+  },
+  "image-viewer.editor.tool.rectangle": {
+    "defaultMessage": "Parihaba"
+  },
+  "image-viewer.editor.tool.select": {
+    "defaultMessage": "Piliin"
+  },
+  "image-viewer.editor.tool.text": {
+    "defaultMessage": "Teksto"
+  },
+  "image-viewer.editor.undo": {
+    "defaultMessage": "I-undo"
+  },
+  "image-viewer.editor.width": {
+    "defaultMessage": "Lapad"
+  },
+  "image-viewer.editor.zoom-fit": {
+    "defaultMessage": "Pagkasya"
+  },
+  "image-viewer.editor.zoom-fit-workspace": {
+    "defaultMessage": "Pagkasyahin sa workspace"
+  },
+  "image-viewer.editor.zoom-in": {
+    "defaultMessage": "Mag-zoom in"
+  },
+  "image-viewer.editor.zoom-out": {
+    "defaultMessage": "Mag-zoom out"
+  },
+  "image-viewer.next": {
+    "defaultMessage": "Susunod na larawan"
+  },
+  "image-viewer.previous": {
+    "defaultMessage": "Nakaraang larawan"
+  },
+  "input.search-version.placeholder": {
+    "defaultMessage": "Maghanap ng bersyon..."
+  },
   "input.search.placeholder": {
     "defaultMessage": "Maghanap..."
+  },
+  "input.select-version.placeholder": {
+    "defaultMessage": "Pumili ng bersyon"
   },
   "input.view.gallery": {
     "defaultMessage": "Tanaw ng galeriya"
@@ -476,8 +1493,29 @@
   "input.view.list": {
     "defaultMessage": "Tanawing row"
   },
+  "installation-settings.aria.select-game-version": {
+    "defaultMessage": "Pumili ng bersyon ng laro"
+  },
+  "installation-settings.aria.select-loader-version": {
+    "defaultMessage": "Piliin ang bersyon ng {loader}"
+  },
+  "installation-settings.aria.select-platform": {
+    "defaultMessage": "Pumili ng platform"
+  },
   "installation-settings.confirm-version-change": {
     "defaultMessage": "Kumpirmahin"
+  },
+  "installation-settings.confirm-version-change-description": {
+    "defaultMessage": "Ang paglipat sa {gameVersion} ay magbabago sa sumusunod na content sa iyong server."
+  },
+  "installation-settings.confirm-version-change-header": {
+    "defaultMessage": "Suriin ang mga pagbabago sa content"
+  },
+  "installation-settings.edit-installation.title": {
+    "defaultMessage": "Baguhin ang pag-install"
+  },
+  "installation-settings.edit.warning-instance": {
+    "defaultMessage": "Hindi namin inirerekomenda ang pag-edit ng iyong mga setting ng pag-install pagkatapos mag-install ng content. Kung nais mong baguhin ang mga ito, mag-ingat dahil maaaring magdulot ito ng mga isyu."
   },
   "installation-settings.incompatible-content.auto-fix-button": {
     "defaultMessage": "Kusang-ayusin"
@@ -500,17 +1538,86 @@
   "installation-settings.incompatible-content.loader-change-body": {
     "defaultMessage": "Sa pagpapalit ng loader, ang lahat ng na-install na kontento ay mapapatay. Sa halip, inimumungkahi namin na i-reset ang iyong server."
   },
+  "installation-settings.incompatible-content.loader-change-title": {
+    "defaultMessage": "Mapanira ang pagpapalit ng mga loader"
+  },
+  "installation-settings.linked-instance.title": {
+    "defaultMessage": "Naka-link na {projectType}"
+  },
+  "installation-settings.linked.modpack": {
+    "defaultMessage": "modpack"
+  },
+  "installation-settings.linked.server-project": {
+    "defaultMessage": "proyekto ng server"
+  },
+  "installation-settings.loader-version": {
+    "defaultMessage": "Bersyon ng {loader}"
+  },
+  "installation-settings.platform-lock-tooltip": {
+    "defaultMessage": "Kakailanganin mong i-reset ang iyong server upang magpalit ng loader."
+  },
+  "installation-settings.reinstall-modpack.description": {
+    "defaultMessage": "Ibinabalik ng muling pag-install ng modpack ang {type} content sa orihinal nitong estado, na nag-aalis ng anumang mod o content na idinagdag mo."
+  },
+  "installation-settings.reinstall-modpack.title": {
+    "defaultMessage": "Muling i-install ang modpack"
+  },
+  "installation-settings.reinstalling-modpack": {
+    "defaultMessage": "Muling ini-install ang modpack"
+  },
   "installation-settings.removed-incompatible": {
     "defaultMessage": "Tinanggal (di-magkatugma)"
   },
   "installation-settings.repair.instance-description": {
     "defaultMessage": "Ire-reinstall ang mga dependency ng Minecraft at susuriin para sa pagkasira. Maaari nitong malutas ang mga isyu kung ang laro ay hindi lumulunsad dahil sa mga error na magkaugnay sa launcher."
   },
+  "installation-settings.repair.instance-title": {
+    "defaultMessage": "Kumpunihin ang instansiya"
+  },
   "installation-settings.saving": {
     "defaultMessage": "Sine-save..."
   },
+  "installation-settings.search-game-version": {
+    "defaultMessage": "Maghanap ng bersyon ng laro..."
+  },
+  "installation-settings.type.instance": {
+    "defaultMessage": "instansiya"
+  },
+  "installation-settings.type.instance-possessive": {
+    "defaultMessage": "ng instansiya"
+  },
+  "installation-settings.type.server": {
+    "defaultMessage": "server"
+  },
   "installation-settings.unlink": {
     "defaultMessage": "Mag-unlink"
+  },
+  "installation-settings.unlink.description": {
+    "defaultMessage": "Permanente nang dinidiskonekta ng pag-unlink ang {type} na ito mula sa proyektong {projectType}, na nagpapahintulot sa iyong palitan ang loader at bersyon ng Minecraft, ngunit hindi ka na makatatanggap"
+  },
+  "installation-settings.verifying": {
+    "defaultMessage": "Bineberipika..."
+  },
+  "instance.confirm-reinstall.admonition-body": {
+    "defaultMessage": "Ibabalik ng muling pag-install ang lahat ng naka-install o binagong content sa ibinibigay ng modpack, na nag-aalis ng anumang mod o content na idinagdag mo sa ibabaw nito"
+  },
+  "instance.confirm-reinstall.admonition-header": {
+    "defaultMessage": "Babala sa muling pag-install"
+  },
+  "instance.confirm-reinstall.header": {
+    "defaultMessage": "Muling i-install ang modpack"
+  },
+  "instance.confirm-reinstall.reinstall-button": {
+    "defaultMessage": "Muling i-install ang modpack"
+  },
+  "instance.confirm-repair.body.instance": {
+    "defaultMessage": "Muling ini-install ng pagkukumpuni ang loader at mga dependency ng Minecraft nang hindi binubura ang iyong content. Maaari nitong lutasin ang mga isyu kung hindi naglulunsad ang iyong laro dahil sa"
+  },
+  "instance.confirm-repair.header": {
+    "defaultMessage": "Kumpunihin ang {type}"
+  },
+  "instance.confirm-repair.instance-label": {
+    "defaultMessage": "instansiya"
   },
   "instance.confirm-repair.repair-button": {
     "defaultMessage": "Ayusin"
@@ -533,8 +1640,29 @@
   "instances.content-install.compatible-count": {
     "defaultMessage": "{count} magkatugmang {count, plural, one {instansiya} other {instansiya}}"
   },
+  "instances.content-install.existing-tab": {
+    "defaultMessage": "Umiiral na instansiya"
+  },
+  "instances.content-install.game-version-placeholder": {
+    "defaultMessage": "Pumili ng bersyon ng laro"
+  },
+  "instances.content-install.header": {
+    "defaultMessage": "I-install ang proyekto"
+  },
+  "instances.content-install.hide-unavailable": {
+    "defaultMessage": "Itago ang hindi available"
+  },
+  "instances.content-install.incompatible-tooltip": {
+    "defaultMessage": "Gumagamit ang instansiyang ito ng ibang loader o bersyon ng laro kaysa sa sinusuportahan ng proyektong ito."
+  },
   "instances.content-install.install-button": {
     "defaultMessage": "I-install"
+  },
+  "instances.content-install.installed-badge": {
+    "defaultMessage": "Naka-install"
+  },
+  "instances.content-install.instance-type": {
+    "defaultMessage": "Uri ng instansiya"
   },
   "instances.content-install.loader-label": {
     "defaultMessage": "Loader"
@@ -542,8 +1670,59 @@
   "instances.content-install.name-label": {
     "defaultMessage": "Pangalan"
   },
+  "instances.content-install.name-placeholder": {
+    "defaultMessage": "Ilagay ang pangalan ng instansiya"
+  },
+  "instances.content-install.new-tab": {
+    "defaultMessage": "Bagong instansiya"
+  },
   "instances.content-install.no-instances": {
     "defaultMessage": "Walang mahanap na magkatugmang instansiya"
+  },
+  "instances.content-install.search-placeholder": {
+    "defaultMessage": "Maghanap ng instansiya"
+  },
+  "instances.content-install.show-unavailable": {
+    "defaultMessage": "Ipakita ang hindi available"
+  },
+  "instances.managed-content-modal.disabled": {
+    "defaultMessage": "Pinatay"
+  },
+  "instances.managed-content-modal.download-file": {
+    "defaultMessage": "I-download ang File"
+  },
+  "instances.managed-content-modal.empty-description": {
+    "defaultMessage": "Walang kasamang pinamamahalaang content ang pinagmulang ito."
+  },
+  "instances.managed-content-modal.empty-title": {
+    "defaultMessage": "Walang nahanap na content"
+  },
+  "instances.managed-content-modal.enabled": {
+    "defaultMessage": "Binuksan"
+  },
+  "instances.managed-content-modal.external-content": {
+    "defaultMessage": "Panlabas"
+  },
+  "instances.managed-content-modal.external-content-description": {
+    "defaultMessage": "Hindi naka-publish ang file na ito sa Modrinth."
+  },
+  "instances.managed-content-modal.header": {
+    "defaultMessage": "Pinamamahalaang content"
+  },
+  "instances.managed-content-modal.loading": {
+    "defaultMessage": "Naglo-load ng content..."
+  },
+  "instances.managed-content-modal.no-results": {
+    "defaultMessage": "Walang proyektong tumutugma sa iyong paghahanap."
+  },
+  "instances.managed-content-modal.open-in-slicer": {
+    "defaultMessage": "Buksan sa Slicer"
+  },
+  "instances.managed-content-modal.search-placeholder": {
+    "defaultMessage": "Maghanap ng {count, number} {count, plural, one {proyekto} other {mga proyekto}}"
+  },
+  "instances.managed-content-modal.warnings": {
+    "defaultMessage": "Mga Babala"
   },
   "instances.updater-modal.badge.current": {
     "defaultMessage": "Kasalukuyan"
@@ -551,8 +1730,14 @@
   "instances.updater-modal.badge.incompatible": {
     "defaultMessage": "Di-magkatugma"
   },
+  "instances.updater-modal.downgrade-to": {
+    "defaultMessage": "I-downgrade sa {version}"
+  },
   "instances.updater-modal.header": {
     "defaultMessage": "I-update ang bersiyon"
+  },
+  "instances.updater-modal.header-modpack": {
+    "defaultMessage": "Palitan ang bersyon ng modpack"
   },
   "instances.updater-modal.header-switch": {
     "defaultMessage": "Palitan ng bersiyon"
@@ -560,11 +1745,29 @@
   "instances.updater-modal.hide-incompatible": {
     "defaultMessage": "Taguin ang di-magkakatugma"
   },
+  "instances.updater-modal.incompatibility-warning": {
+    "defaultMessage": "Hindi minarkahan ang bersyong ito bilang tugma sa instansiyang ito. Hindi awtomatikong mai-install ang mga dependency."
+  },
+  "instances.updater-modal.incompatibility-warning-header": {
+    "defaultMessage": "Pumili ng bersyon"
+  },
+  "instances.updater-modal.incompatible-update.description": {
+    "defaultMessage": "Hindi minarkahan ang {version} bilang tugma sa pag-install na ito. Maaaring mabigo itong maglunsad o kumilos nang hindi inaasahan."
+  },
   "instances.updater-modal.incompatible-update.header": {
     "defaultMessage": "I-update sa di-magkatugmang bersiyon?"
   },
   "instances.updater-modal.incompatible-update.proceed": {
     "defaultMessage": "I-update pa rin"
+  },
+  "instances.updater-modal.install-anyway": {
+    "defaultMessage": "I-install pa rin"
+  },
+  "instances.updater-modal.loading-changelog": {
+    "defaultMessage": "Naglo-load ng changelog..."
+  },
+  "instances.updater-modal.loading-versions": {
+    "defaultMessage": "Naglo-load ng mga bersyon..."
   },
   "instances.updater-modal.no-changelog": {
     "defaultMessage": "Walang changelog para bersiyong ito."
@@ -584,6 +1787,15 @@
   "instances.updater-modal.switch-to": {
     "defaultMessage": "Papalitan ng {version}"
   },
+  "instances.updater-modal.update-to": {
+    "defaultMessage": "I-update sa {version}"
+  },
+  "instances.updater-modal.warning-app": {
+    "defaultMessage": "Maaaring makasira sa iyong instansiya ang pag-update. Suriin ang mga changelog ng bersyon at mag-backup muna."
+  },
+  "instances.updater-modal.warning-web": {
+    "defaultMessage": "Maaaring makasira sa iyong mundo ang pag-update. Suriin ang mga changelog ng bersyon at mag-backup muna."
+  },
   "label.actions": {
     "defaultMessage": "Mga Aksiyon"
   },
@@ -596,6 +1808,15 @@
   "label.changes-saved": {
     "defaultMessage": "Na-save ang mga pagbabago"
   },
+  "label.client-depends-warning": {
+    "defaultMessage": "Nakadepende ang mod na ito sa isang pang-client na mod at maaaring magdulot ng mga isyu kapag sinisimulan ang iyong server"
+  },
+  "label.client-only-warning": {
+    "defaultMessage": "Pang-client na mod ito at maaaring magdulot ng mga isyu kapag sinisimulan ang iyong server"
+  },
+  "label.client-retained-warning": {
+    "defaultMessage": "Pang-client na mod ito na na-install bilang dependency at maaaring magdulot ng mga isyu kapag sinisimulan ang iyong server"
+  },
   "label.collections": {
     "defaultMessage": "Mga koleksiyon"
   },
@@ -604,6 +1825,15 @@
   },
   "label.content": {
     "defaultMessage": "Kontento"
+  },
+  "label.copied-filename": {
+    "defaultMessage": "Nakopyang pangalan ng file"
+  },
+  "label.copied-path": {
+    "defaultMessage": "Nakopyang path"
+  },
+  "label.create-failed": {
+    "defaultMessage": "Nabigo ang paglikha"
   },
   "label.created-ago": {
     "defaultMessage": "Linikha {ago}"
@@ -614,6 +1844,9 @@
   "label.delete": {
     "defaultMessage": "Tanggalin"
   },
+  "label.delete-failed": {
+    "defaultMessage": "Nabigo ang pagbura"
+  },
   "label.delete-immediately": {
     "defaultMessage": "Tanggalin kaagad"
   },
@@ -623,8 +1856,14 @@
   "label.details": {
     "defaultMessage": "Detalye"
   },
+  "label.discover-content": {
+    "defaultMessage": "Tuklasin ang content"
+  },
   "label.done": {
     "defaultMessage": "Tapos"
+  },
+  "label.download-failed": {
+    "defaultMessage": "Nabigo ang pag-download"
   },
   "label.email": {
     "defaultMessage": "Email"
@@ -635,11 +1874,44 @@
   "label.error": {
     "defaultMessage": "Error"
   },
+  "label.explanation": {
+    "defaultMessage": "Paliwanag"
+  },
+  "label.extract-failed": {
+    "defaultMessage": "Nabigo ang pagbunot"
+  },
   "label.filter-by": {
     "defaultMessage": "Salain ayon sa"
   },
+  "label.filters": {
+    "defaultMessage": "Mga Filter"
+  },
   "label.followed-projects": {
     "defaultMessage": "Mga sinusundang proyekto"
+  },
+  "label.game-version": {
+    "defaultMessage": "Bersyon ng laro"
+  },
+  "label.hide-installed-content": {
+    "defaultMessage": "Itago ang naka-install nang content"
+  },
+  "label.hide-selected-content": {
+    "defaultMessage": "Itago ang napiling content"
+  },
+  "label.installation-info": {
+    "defaultMessage": "Impormasyon sa pag-install"
+  },
+  "label.installed": {
+    "defaultMessage": "Naka-install"
+  },
+  "label.installed-modpack": {
+    "defaultMessage": "Naka-install na modpack"
+  },
+  "label.installing": {
+    "defaultMessage": "Ini-install..."
+  },
+  "label.installing-content": {
+    "defaultMessage": "Ini-install ang content"
   },
   "label.loading": {
     "defaultMessage": "Naglo-load..."
@@ -649,6 +1921,9 @@
   },
   "label.modpack": {
     "defaultMessage": "Modpack"
+  },
+  "label.move-failed": {
+    "defaultMessage": "Nabigo ang paglipat"
   },
   "label.no": {
     "defaultMessage": "Hindi"
@@ -664,6 +1939,9 @@
   },
   "label.password": {
     "defaultMessage": "Password"
+  },
+  "label.permissions": {
+    "defaultMessage": "Mga Pahintulot"
   },
   "label.plan-custom": {
     "defaultMessage": "Custom"
@@ -695,6 +1973,9 @@
   "label.rejected": {
     "defaultMessage": "Tinanggihan"
   },
+  "label.rename-failed": {
+    "defaultMessage": "Nabigo ang pagpapalit ng pangalan"
+  },
   "label.rewards-program-terms-agreement": {
     "defaultMessage": "Sumasang-ayon ako sa <terms-link>Mga Tuntunin sa Programa ng Gantimpala</terms-link>"
   },
@@ -706,6 +1987,15 @@
   },
   "label.search": {
     "defaultMessage": "Maghanap"
+  },
+  "label.select-all": {
+    "defaultMessage": "Piliin lahat"
+  },
+  "label.selected": {
+    "defaultMessage": "Napili"
+  },
+  "label.selection-actions": {
+    "defaultMessage": "Mga aksyon sa pagpili"
   },
   "label.server": {
     "defaultMessage": "Server"
@@ -737,8 +2027,17 @@
   "label.update-available": {
     "defaultMessage": "May bagong update"
   },
+  "label.updating": {
+    "defaultMessage": "Nag-a-update..."
+  },
+  "label.upload-failed": {
+    "defaultMessage": "Nabigo ang pag-upload"
+  },
   "label.username": {
     "defaultMessage": "Username"
+  },
+  "label.validating": {
+    "defaultMessage": "Bineberipika"
   },
   "label.version": {
     "defaultMessage": "Bersiyon"
@@ -851,65 +2150,92 @@
   "locale.zh-TW": {
     "defaultMessage": "Tsino (Tradisyonal)"
   },
-  "markdown-editor.error-label": {
-    "defaultMessage": "Error"
+  "modal.confirm.type-here-placeholder": {
+    "defaultMessage": "Mag-type dito..."
   },
-  "markdown-editor.image-modal.upload-mode.link": {
-    "defaultMessage": "Link"
+  "modal.confirm.type-to-confirm": {
+    "defaultMessage": "Upang kumpirmahin na nais mong magpatuloy, i-type ang <confirmation-text></confirmation-text> sa ibaba:"
   },
-  "markdown-editor.link-modal.label-field.title": {
-    "defaultMessage": "Label"
+  "modal.share.copy-failed-title": {
+    "defaultMessage": "Nabigong kopyahin ang teksto"
   },
-  "markdown-editor.toolbar.bold": {
-    "defaultMessage": "Bold"
+  "modal.share.copy-link": {
+    "defaultMessage": "Kopyahin ang Link"
   },
-  "markdown-editor.toolbar.bulleted-list": {
-    "defaultMessage": "Naka-bullet na listahan"
+  "modal.share.copy-qr-code": {
+    "defaultMessage": "Kopyahin ang QR code"
   },
-  "markdown-editor.toolbar.code": {
-    "defaultMessage": "Kodigo"
+  "modal.share.copy-text": {
+    "defaultMessage": "Kopyahin ang Teksto"
   },
-  "markdown-editor.toolbar.heading-1": {
-    "defaultMessage": "Heading 1"
+  "modal.share.link-copied-text": {
+    "defaultMessage": "Nakopya na sa iyong clipboard ang link."
   },
-  "markdown-editor.toolbar.heading-2": {
-    "defaultMessage": "Heading 2"
+  "modal.share.link-copied-title": {
+    "defaultMessage": "Nakopya ang link"
   },
-  "markdown-editor.toolbar.heading-3": {
-    "defaultMessage": "Heading 3"
+  "modal.share.open-in-new-tab": {
+    "defaultMessage": "Buksan sa bagong tab"
   },
-  "markdown-editor.toolbar.image": {
-    "defaultMessage": "Larawan"
+  "modal.share.open-link-in-browser": {
+    "defaultMessage": "Buksan ang link sa browser"
   },
-  "markdown-editor.toolbar.italic": {
-    "defaultMessage": "Italic"
+  "modal.share.send-email": {
+    "defaultMessage": "Ipadala bilang email"
   },
-  "markdown-editor.toolbar.link": {
-    "defaultMessage": "Link"
+  "modal.share.share": {
+    "defaultMessage": "Ibahagi"
   },
-  "markdown-editor.toolbar.ordered-list": {
-    "defaultMessage": "Pagkasunod-sunod na listahan"
+  "modal.share.share-on-reddit": {
+    "defaultMessage": "Ibahagi sa Reddit"
   },
-  "markdown-editor.toolbar.quote": {
-    "defaultMessage": "Sipi"
+  "modal.share.toot-about-it": {
+    "defaultMessage": "I-toot ito"
   },
-  "markdown-editor.toolbar.spoiler": {
-    "defaultMessage": "Spoiler"
+  "modal.share.tweet-about-it": {
+    "defaultMessage": "I-tweet ito"
   },
-  "markdown-editor.toolbar.strikethrough": {
-    "defaultMessage": "Strikethrough"
+  "multi-select.clear-all": {
+    "defaultMessage": "Linisin lahat"
   },
-  "markdown-editor.toolbar.video": {
-    "defaultMessage": "Video"
-  },
-  "markdown-editor.url-label": {
-    "defaultMessage": "URL"
+  "multi-select.selection-count": {
+    "defaultMessage": "{count, plural, one {# napili} other {# napili}}"
   },
   "notification.error.title": {
     "defaultMessage": "Isang error na naganap"
   },
-  "omorphia.component.copy.action.copy": {
-    "defaultMessage": "Kopyahin ang code sa clipboard"
+  "notifications.actor.unknown": {
+    "defaultMessage": "Isang tao"
+  },
+  "notifications.close": {
+    "defaultMessage": "Isara"
+  },
+  "notifications.dismiss": {
+    "defaultMessage": "Balewalain ang notipikasyon"
+  },
+  "notifications.friend-request.body": {
+    "defaultMessage": "Nagpadala sa iyo ng friend request si <actor>{actor}</actor>."
+  },
+  "notifications.instance-invite.body": {
+    "defaultMessage": "Inanyayahan ka ni <actor>{actor}</actor> sa instansiyang <entity>{entity}</entity>."
+  },
+  "notifications.instance-ready.launch-game": {
+    "defaultMessage": "Ilunsad ang laro"
+  },
+  "notifications.instance-ready.open-instance": {
+    "defaultMessage": "Instansiya"
+  },
+  "notifications.instance-ready.status": {
+    "defaultMessage": "Naka-install at handa nang laruin."
+  },
+  "notifications.invite.accept": {
+    "defaultMessage": "Tanggapin"
+  },
+  "notifications.invite.decline": {
+    "defaultMessage": "Tanggihan"
+  },
+  "notifications.server-invite.body": {
+    "defaultMessage": "Inanyayahan ka ni <actor>{actor}</actor> na pamahalaan ang server na <entity>{entity}</entity>."
   },
   "payment-method.amazon_pay": {
     "defaultMessage": "Amazon Pay"
@@ -946,6 +2272,9 @@
   },
   "payment-method.jcb": {
     "defaultMessage": "JCB"
+  },
+  "payment-method.mastercard": {
+    "defaultMessage": "Mastercard"
   },
   "payment-method.paypal": {
     "defaultMessage": "PayPal"
@@ -986,8 +2315,14 @@
   "project-card.environment.client-or-server": {
     "defaultMessage": "Client o server"
   },
+  "project-card.environment.dedicated-server": {
+    "defaultMessage": "Dedikadong server"
+  },
   "project-card.environment.server": {
     "defaultMessage": "Server"
+  },
+  "project-card.environment.singleplayer": {
+    "defaultMessage": "Nag-iisa"
   },
   "project-type.all": {
     "defaultMessage": "Lahat"
@@ -1064,6 +2399,15 @@
   "project-type.shader.lowercase": {
     "defaultMessage": "{count, plural, one {shader} other {na shader}}"
   },
+  "project-type.world.capital": {
+    "defaultMessage": "{count, plural, one {Mundo} other {Mga mundo}}"
+  },
+  "project-type.world.category": {
+    "defaultMessage": "Mga mundo"
+  },
+  "project-type.world.lowercase": {
+    "defaultMessage": "{count, plural, one {mundo} other {mga mundo}}"
+  },
   "project.about.compatibility.environments": {
     "defaultMessage": "Mga sinusuportahang environment"
   },
@@ -1091,8 +2435,17 @@
   "project.about.compatibility.platforms": {
     "defaultMessage": "Mga plataporma"
   },
+  "project.about.compatibility.platforms-plural": {
+    "defaultMessage": "{count, plural, one {Platform} other {Mga Platform}}"
+  },
   "project.about.compatibility.title": {
     "defaultMessage": "Pagkakatugma"
+  },
+  "project.about.creators.no-members-error": {
+    "defaultMessage": "Error: Walang miyembro ang proyekto. Hindi ito dapat mangyari."
+  },
+  "project.about.creators.organization": {
+    "defaultMessage": "Organisasyon"
   },
   "project.about.creators.owner": {
     "defaultMessage": "May-ari ng proyekto"
@@ -1154,23 +2507,62 @@
   "project.about.links.wiki": {
     "defaultMessage": "Bisitahin ang wiki"
   },
-  "project.about.server.copied": {
-    "defaultMessage": "Nakopya na!"
-  },
-  "project.about.server.languages": {
-    "defaultMessage": "Mga wika"
-  },
-  "project.about.server.recommendedVersion": {
-    "defaultMessage": "(Iminumungkahi)"
-  },
-  "project.about.server.region": {
-    "defaultMessage": "Rehiyon"
-  },
-  "project.about.server.title": {
-    "defaultMessage": "Detalye ng server"
-  },
   "project.about.tags.title": {
     "defaultMessage": "Mga tag"
+  },
+  "project.compatibility.client-and-server": {
+    "defaultMessage": "Client at server"
+  },
+  "project.compatibility.client-side": {
+    "defaultMessage": "Pang-client"
+  },
+  "project.compatibility.no-mod-loader": {
+    "defaultMessage": "Walang mod loader"
+  },
+  "project.compatibility.server-side": {
+    "defaultMessage": "Pang-server"
+  },
+  "project.disclosure.advertising.title": {
+    "defaultMessage": "Naglalaman ng advertising"
+  },
+  "project.disclosure.ai-functionality.title": {
+    "defaultMessage": "Generative AI na pag-andar"
+  },
+  "project.disclosure.ai-generated-content.title": {
+    "defaultMessage": "Naglalaman ng {types} na likha ng AI"
+  },
+  "project.disclosure.ai-generated-content.use.assets": {
+    "defaultMessage": "mga asset"
+  },
+  "project.disclosure.ai-generated-content.use.code": {
+    "defaultMessage": "code"
+  },
+  "project.disclosure.ai-generated-content.use.content": {
+    "defaultMessage": "content"
+  },
+  "project.disclosure.ai-generated-content.use.text": {
+    "defaultMessage": "teksto"
+  },
+  "project.disclosure.derivative-work.show-fewer": {
+    "defaultMessage": "Magpakita ng mas kaunti"
+  },
+  "project.disclosure.derivative-work.show-more": {
+    "defaultMessage": "Magpakita ng {count} pa"
+  },
+  "project.disclosure.derivative-work.title": {
+    "defaultMessage": "Hinango ito mula sa:"
+  },
+  "project.disclosure.paid-features.title": {
+    "defaultMessage": "Naglalaman ng mga bayad na tampok"
+  },
+  "project.disclosure.photosensitivity.title": {
+    "defaultMessage": "Babala sa photosensitivity"
+  },
+  "project.disclosure.system-interactions.title": {
+    "defaultMessage": "Naglalaman ng mga panlabas na interaksyon ng sistema"
+  },
+  "project.disclosure.telemetry.title": {
+    "defaultMessage": "Naglalaman ng {consent, select, opt_in {opt-in na telemetry} opt_out {opt-out na telemetry} always_active {laging aktibong telemetry} other {telemetry}}"
   },
   "project.download-count-tooltip": {
     "defaultMessage": "{count, number} {count, plural, one {download} other {na download}}"
@@ -1244,6 +2636,15 @@
   "project.follower-count-tooltip": {
     "defaultMessage": "{count, number} {count, plural, one {follower} other {na follower}}"
   },
+  "project.license.error": {
+    "defaultMessage": "Hindi makuha ang teksto ng Lisensya."
+  },
+  "project.license.loading": {
+    "defaultMessage": "Naglo-load ng teksto ng lisensya..."
+  },
+  "project.license.title": {
+    "defaultMessage": "Lisensya"
+  },
   "project.online-player-count": {
     "defaultMessage": "{count, number} online"
   },
@@ -1256,224 +2657,8 @@
   "project.recent-plays.tooltip": {
     "defaultMessage": "{count} {countPlural, plural, one {kamakailang paglaro} other {na kamakailang paglaro}} galing sa Modrinth sa nakalipas na 2 linggo"
   },
-  "project.server.language.af": {
-    "defaultMessage": "Afrikaans"
-  },
-  "project.server.language.am": {
-    "defaultMessage": "Amhariko"
-  },
-  "project.server.language.ar": {
-    "defaultMessage": "Arabo"
-  },
-  "project.server.language.az": {
-    "defaultMessage": "Azeri"
-  },
-  "project.server.language.be": {
-    "defaultMessage": "Biyeloruso"
-  },
-  "project.server.language.bg": {
-    "defaultMessage": "Bulgaro"
-  },
-  "project.server.language.bn": {
-    "defaultMessage": "Benggali"
-  },
-  "project.server.language.bs": {
-    "defaultMessage": "Bosniyo"
-  },
-  "project.server.language.ca": {
-    "defaultMessage": "Katalan"
-  },
-  "project.server.language.cs": {
-    "defaultMessage": "Tseko"
-  },
-  "project.server.language.da": {
-    "defaultMessage": "Danes"
-  },
-  "project.server.language.de": {
-    "defaultMessage": "Jerman"
-  },
-  "project.server.language.el": {
-    "defaultMessage": "Griyego"
-  },
-  "project.server.language.en": {
-    "defaultMessage": "Ingles"
-  },
-  "project.server.language.eo": {
-    "defaultMessage": "Esperanto"
-  },
-  "project.server.language.es": {
-    "defaultMessage": "Espanyol"
-  },
-  "project.server.language.et": {
-    "defaultMessage": "Estonyo"
-  },
-  "project.server.language.eu": {
-    "defaultMessage": "Euskarya"
-  },
-  "project.server.language.fa": {
-    "defaultMessage": "Persa"
-  },
-  "project.server.language.fi": {
-    "defaultMessage": "Finlandes"
-  },
-  "project.server.language.fr": {
-    "defaultMessage": "Pranses"
-  },
-  "project.server.language.ga": {
-    "defaultMessage": "Irlandes"
-  },
-  "project.server.language.gl": {
-    "defaultMessage": "Galyego"
-  },
-  "project.server.language.he": {
-    "defaultMessage": "Hebreo"
-  },
-  "project.server.language.hi": {
-    "defaultMessage": "Hindi"
-  },
-  "project.server.language.hr": {
-    "defaultMessage": "Kroato"
-  },
-  "project.server.language.hu": {
-    "defaultMessage": "Ungaro"
-  },
-  "project.server.language.hy": {
-    "defaultMessage": "Armenyo"
-  },
-  "project.server.language.id": {
-    "defaultMessage": "Indones"
-  },
-  "project.server.language.is": {
-    "defaultMessage": "Islandes"
-  },
-  "project.server.language.it": {
-    "defaultMessage": "Italyano"
-  },
-  "project.server.language.ja": {
-    "defaultMessage": "Hapon"
-  },
-  "project.server.language.ka": {
-    "defaultMessage": "Heorhiyano"
-  },
-  "project.server.language.kk": {
-    "defaultMessage": "Kasaho"
-  },
-  "project.server.language.km": {
-    "defaultMessage": "Kamboyano"
-  },
-  "project.server.language.kn": {
-    "defaultMessage": "Kannada"
-  },
-  "project.server.language.ko": {
-    "defaultMessage": "Koreano"
-  },
-  "project.server.language.lo": {
-    "defaultMessage": "Laosyano"
-  },
-  "project.server.language.lt": {
-    "defaultMessage": "Litwano"
-  },
-  "project.server.language.lv": {
-    "defaultMessage": "Latbiyano"
-  },
-  "project.server.language.mk": {
-    "defaultMessage": "Macedonio"
-  },
-  "project.server.language.ml": {
-    "defaultMessage": "Malayalam"
-  },
-  "project.server.language.mn": {
-    "defaultMessage": "Monggol"
-  },
-  "project.server.language.mr": {
-    "defaultMessage": "Marathi"
-  },
-  "project.server.language.ms": {
-    "defaultMessage": "Malayo"
-  },
-  "project.server.language.my": {
-    "defaultMessage": "Birmano"
-  },
-  "project.server.language.ne": {
-    "defaultMessage": "Nepales"
-  },
-  "project.server.language.nl": {
-    "defaultMessage": "Olandes"
-  },
-  "project.server.language.no": {
-    "defaultMessage": "Norwego"
-  },
-  "project.server.language.pa": {
-    "defaultMessage": "Punjabi"
-  },
-  "project.server.language.pl": {
-    "defaultMessage": "Polako"
-  },
-  "project.server.language.pt": {
-    "defaultMessage": "Portuges"
-  },
-  "project.server.language.ro": {
-    "defaultMessage": "Rumano"
-  },
-  "project.server.language.ru": {
-    "defaultMessage": "Ruso"
-  },
-  "project.server.language.si": {
-    "defaultMessage": "Singgales"
-  },
-  "project.server.language.sk": {
-    "defaultMessage": "Eslobako"
-  },
-  "project.server.language.sl": {
-    "defaultMessage": "Eslobeno"
-  },
-  "project.server.language.sq": {
-    "defaultMessage": "Albanes"
-  },
-  "project.server.language.sr": {
-    "defaultMessage": "Serbiyo"
-  },
-  "project.server.language.sv": {
-    "defaultMessage": "Suweko"
-  },
-  "project.server.language.sw": {
-    "defaultMessage": "Swahili"
-  },
-  "project.server.language.ta": {
-    "defaultMessage": "Tamil"
-  },
-  "project.server.language.te": {
-    "defaultMessage": "Telugu"
-  },
-  "project.server.language.th": {
-    "defaultMessage": "Taylandes"
-  },
-  "project.server.language.tl": {
-    "defaultMessage": "Filipino"
-  },
-  "project.server.language.tr": {
-    "defaultMessage": "Turko"
-  },
-  "project.server.language.uk": {
-    "defaultMessage": "Ukranyo"
-  },
-  "project.server.language.ur": {
-    "defaultMessage": "Urdu"
-  },
-  "project.server.language.uz": {
-    "defaultMessage": "Usbeko"
-  },
-  "project.server.language.vi": {
-    "defaultMessage": "Biyetnamita"
-  },
-  "project.server.language.yo": {
-    "defaultMessage": "Yoruba"
-  },
-  "project.server.language.zh": {
-    "defaultMessage": "Tsino"
-  },
-  "project.server.language.zu": {
-    "defaultMessage": "Zulu"
+  "project.server.customModpackTooltip": {
+    "defaultMessage": "Gumagamit ang proyektong ito ng pasadyang modpack"
   },
   "project.server.ping.ms": {
     "defaultMessage": "{ping, number} ms"
@@ -1508,6 +2693,9 @@
   "project.server.status.offline": {
     "defaultMessage": "Offline"
   },
+  "project.server.status.offline.tooltip": {
+    "defaultMessage": "Offline ang server"
+  },
   "project.server.status.online": {
     "defaultMessage": "Online"
   },
@@ -1519,6 +2707,27 @@
   },
   "project.settings.description.title": {
     "defaultMessage": "Paglalarawan"
+  },
+  "project.settings.disclosures.ai.types-assets": {
+    "defaultMessage": "Mga Asset"
+  },
+  "project.settings.disclosures.ai.types-code": {
+    "defaultMessage": "Code"
+  },
+  "project.settings.disclosures.ai.types-text": {
+    "defaultMessage": "Teksto"
+  },
+  "project.settings.disclosures.telemetry.consent-always-active": {
+    "defaultMessage": "Laging aktibo"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-in": {
+    "defaultMessage": "Opt-in"
+  },
+  "project.settings.disclosures.telemetry.consent-opt-out": {
+    "defaultMessage": "Opt-out"
+  },
+  "project.settings.disclosures.title": {
+    "defaultMessage": "Mga Pagsisiwalat"
   },
   "project.settings.environment.client_and_server.title": {
     "defaultMessage": "Client at server"
@@ -1565,11 +2774,20 @@
   "project.settings.upload.title": {
     "defaultMessage": "Upload"
   },
+  "project.settings.versions.permissions": {
+    "defaultMessage": "Mga Pahintulot"
+  },
   "project.settings.versions.title": {
     "defaultMessage": "Mga bersiyon"
   },
   "project.settings.view.title": {
     "defaultMessage": "Tingnan"
+  },
+  "project.stats.downloads-label": {
+    "defaultMessage": "{count, plural, one {download} other {mga download}}"
+  },
+  "project.stats.followers-label": {
+    "defaultMessage": "{count, plural, one {tagasunod} other {mga tagasunod}}"
   },
   "project.versions.channel.alpha.symbol": {
     "defaultMessage": "A"
@@ -1579,6 +2797,36 @@
   },
   "project.versions.channel.release.symbol": {
     "defaultMessage": "R"
+  },
+  "project.versions.create-version": {
+    "defaultMessage": "Lumikha ng bersyon"
+  },
+  "project.versions.downloads-tooltip": {
+    "defaultMessage": "{count, plural, one {# download} other {# download}}"
+  },
+  "project.versions.filter.channel": {
+    "defaultMessage": "Channel"
+  },
+  "project.versions.filter.selected-count": {
+    "defaultMessage": "{count, number} napili"
+  },
+  "project.versions.filter.toggle-tooltip": {
+    "defaultMessage": "I-toggle ang filter para sa {filter}"
+  },
+  "project.versions.no-mod-loader": {
+    "defaultMessage": "Walang mod loader"
+  },
+  "project.versions.platform.modloader.short": {
+    "defaultMessage": "ModLoader"
+  },
+  "project.versions.version.withheld": {
+    "defaultMessage": "Pinigilan"
+  },
+  "project.versions.version.withheld.tooltip": {
+    "defaultMessage": "Pinigilan ang bersyon dahil sa nawawalang mga pahintulot"
+  },
+  "project.versions.withheld-versions-warning.resolve-button": {
+    "defaultMessage": "Lutasin"
   },
   "project.visibility.archived": {
     "defaultMessage": "Inarkibo"
@@ -1610,8 +2858,95 @@
   "project.visibility.unlisted-by-staff": {
     "defaultMessage": "Pina-unlisted ng staff"
   },
+  "report.item-type.content": {
+    "defaultMessage": "content"
+  },
+  "report.item-type.project": {
+    "defaultMessage": "proyekto"
+  },
   "report.item-type.user": {
     "defaultMessage": "tagagamit"
+  },
+  "report.item-type.version": {
+    "defaultMessage": "bersyon"
+  },
+  "report.type.ai-images": {
+    "defaultMessage": "Mga larawang likha ng AI sa icon, gallery, o paglalarawan"
+  },
+  "report.type.copyright": {
+    "defaultMessage": "Muling na-upload na gawa"
+  },
+  "report.type.fully-ai-generated": {
+    "defaultMessage": "Proyektong ganap na likha ng AI"
+  },
+  "report.type.inappropriate": {
+    "defaultMessage": "Hindi angkop"
+  },
+  "report.type.malicious": {
+    "defaultMessage": "Mapanira"
+  },
+  "report.type.missing-disclosure": {
+    "defaultMessage": "Nawawala o maling pagsisiwalat"
+  },
+  "report.type.name-squatting": {
+    "defaultMessage": "Pang-aagaw ng pangalan"
+  },
+  "report.type.spam": {
+    "defaultMessage": "Spam"
+  },
+  "search.filter.clear-all-filters": {
+    "defaultMessage": "Linisin ang lahat ng filter"
+  },
+  "search.filter.dependency_type.any": {
+    "defaultMessage": "Anumang uri ng dependency"
+  },
+  "search.filter.dependency_type.embedded": {
+    "defaultMessage": "Naka-embed"
+  },
+  "search.filter.dependency_type.optional": {
+    "defaultMessage": "Opsyonal"
+  },
+  "search.filter.dependency_type.optional_or_embedded": {
+    "defaultMessage": "Opsyonal o naka-embed"
+  },
+  "search.filter.dependency_type.required": {
+    "defaultMessage": "Kinakailangan"
+  },
+  "search.filter.dependency_type.required_or_embedded": {
+    "defaultMessage": "Kinakailangan o naka-embed"
+  },
+  "search.filter.dependency_type.required_or_optional": {
+    "defaultMessage": "Kinakailangan o opsyonal"
+  },
+  "search.filter.dependent_project": {
+    "defaultMessage": "Nakadepende sa: {project}"
+  },
+  "search.filter.dependent_project.clear": {
+    "defaultMessage": "Linisin ang filter ng dependency"
+  },
+  "search.filter.dependent_project.search_placeholder": {
+    "defaultMessage": "Maghanap ng proyekto..."
+  },
+  "search.filter.excluded_projects": {
+    "defaultMessage": "Hindi kasama: {projects}"
+  },
+  "search.filter.included_content.exclude": {
+    "defaultMessage": "I-exclude"
+  },
+  "search.filter.included_content.excluded": {
+    "defaultMessage": "Na-exclude"
+  },
+  "search.filter.included_content.remove_project": {
+    "defaultMessage": "Alisin ang {project}"
+  },
+  "search.filter.included_content.remove_project.tooltip": {
+    "defaultMessage": "Alisin ang proyekto"
+  },
+  "search.filter.included_content.search_placeholder": {
+    "defaultMessage": "Maghanap ng content..."
+  },
+  "search.filter.included_projects": {
+    "defaultMessage": "Kasama: {projects}"
   },
   "search.filter.locked.default": {
     "defaultMessage": "Kinandadong pansala"
@@ -1643,6 +2978,48 @@
   "search.filter.option.show_more": {
     "defaultMessage": "Magpakita nang higit pa"
   },
+  "search.filter.option.sub_options.collapse.tooltip": {
+    "defaultMessage": "Itago ang higit pang mga opsyon"
+  },
+  "search.filter.option.sub_options.expand.tooltip": {
+    "defaultMessage": "Ipakita ang higit pang mga opsyon"
+  },
+  "search.filter_type.advanced": {
+    "defaultMessage": "Mga advanced na exclusion"
+  },
+  "search.filter_type.advanced.disclosure.advertisements": {
+    "defaultMessage": "Mga Advertisement"
+  },
+  "search.filter_type.advanced.disclosure.ai_content": {
+    "defaultMessage": "Content na likha ng AI"
+  },
+  "search.filter_type.advanced.disclosure.ai_content.usage": {
+    "defaultMessage": "AI {usage}"
+  },
+  "search.filter_type.advanced.disclosure.ai_functionality": {
+    "defaultMessage": "Generative AI na pag-andar"
+  },
+  "search.filter_type.advanced.disclosure.archived": {
+    "defaultMessage": "Naka-archive"
+  },
+  "search.filter_type.advanced.disclosure.derivative_work": {
+    "defaultMessage": "Hinangong content"
+  },
+  "search.filter_type.advanced.disclosure.epilepsy_triggers": {
+    "defaultMessage": "Mga nagti-trigger ng photosensitivity"
+  },
+  "search.filter_type.advanced.disclosure.paid_features": {
+    "defaultMessage": "Mga bayad na tampok"
+  },
+  "search.filter_type.advanced.disclosure.system_interactions": {
+    "defaultMessage": "Mga panlabas na interaksyon ng sistema"
+  },
+  "search.filter_type.advanced.disclosure.telemetry": {
+    "defaultMessage": "Telemetry"
+  },
+  "search.filter_type.compatible_dependency_project_ids": {
+    "defaultMessage": "Nakadepende sa"
+  },
   "search.filter_type.environment": {
     "defaultMessage": "Environment"
   },
@@ -1657,6 +3034,9 @@
   },
   "search.filter_type.game_version.all_versions": {
     "defaultMessage": "Ipakita ang lahat ng bersiyon"
+  },
+  "search.filter_type.included_content": {
+    "defaultMessage": "Kasamang content"
   },
   "search.filter_type.license": {
     "defaultMessage": "Lisensiya"
@@ -1679,26 +3059,23 @@
   "search.filter_type.project_id": {
     "defaultMessage": "ID ng proyekto"
   },
-  "search.filter_type.server_content_type": {
-    "defaultMessage": "Uri"
-  },
-  "search.filter_type.server_language": {
-    "defaultMessage": "Wika"
-  },
-  "search.filter_type.server_region": {
-    "defaultMessage": "Rehiyon"
-  },
-  "search.filter_type.server_status": {
-    "defaultMessage": "Estado"
-  },
   "search.filter_type.shader_loader": {
     "defaultMessage": "Loader"
   },
-  "search.server_content_type.modpack": {
-    "defaultMessage": "Modded"
+  "search.photosensitivity-warning-modal.body.1": {
+    "defaultMessage": "Hindi namin magagarantiya na lahat ng content sa Modrinth ay namarkahan nang naaangkop."
   },
-  "search.server_content_type.vanilla": {
-    "defaultMessage": "Vanilla"
+  "search.photosensitivity-warning-modal.body.2": {
+    "defaultMessage": "Sariling itinalaga ng mga creator na nag-a-upload ng kanilang content sa Modrinth ang mga label ng content para sa mga nagti-trigger ng photosensitivity. Hindi pa dumaan sa"
+  },
+  "search.photosensitivity-warning-modal.body.3": {
+    "defaultMessage": "Nasa sarili mong peligro ang paggamit ng anumang content sa Modrinth. Pakimag-ingat! 💚"
+  },
+  "search.photosensitivity-warning-modal.dont-show-again": {
+    "defaultMessage": "Huwag nang ipakita itong muli"
+  },
+  "search.photosensitivity-warning-modal.title": {
+    "defaultMessage": "Hindi garantisadong ligtas ang mga resulta"
   },
   "settings.account.title": {
     "defaultMessage": "Account at seguridad"
@@ -1715,6 +3092,66 @@
   "settings.billing.title": {
     "defaultMessage": "Billing at mga subscription"
   },
+  "settings.display.project-list-layouts.datapack": {
+    "defaultMessage": "Pahina ng Data Packs"
+  },
+  "settings.display.project-list-layouts.description": {
+    "defaultMessage": "Piliin ang iyong gustong layout para sa bawat pahinang nagpapakita ng mga listahan ng proyekto."
+  },
+  "settings.display.project-list-layouts.mod": {
+    "defaultMessage": "Pahina ng Mods"
+  },
+  "settings.display.project-list-layouts.mode.grid": {
+    "defaultMessage": "Grid"
+  },
+  "settings.display.project-list-layouts.mode.rows": {
+    "defaultMessage": "Mga Hilera"
+  },
+  "settings.display.project-list-layouts.modpack": {
+    "defaultMessage": "Pahina ng Modpacks"
+  },
+  "settings.display.project-list-layouts.plugin": {
+    "defaultMessage": "Pahina ng Plugins"
+  },
+  "settings.display.project-list-layouts.resourcepack": {
+    "defaultMessage": "Pahina ng Resource Packs"
+  },
+  "settings.display.project-list-layouts.server": {
+    "defaultMessage": "Pahina ng Servers"
+  },
+  "settings.display.project-list-layouts.shader": {
+    "defaultMessage": "Pahina ng Shaders"
+  },
+  "settings.display.project-list-layouts.title": {
+    "defaultMessage": "Mga layout ng listahan ng proyekto"
+  },
+  "settings.display.project-list-layouts.user": {
+    "defaultMessage": "Mga pahina ng profile ng user"
+  },
+  "settings.display.sidebar.advanced-rendering.description": {
+    "defaultMessage": "Binubuksan ang advanced na rendering tulad ng mga blur effect na maaaring magdulot ng mga isyu sa pagganap nang walang hardware-accelerated na rendering."
+  },
+  "settings.display.sidebar.advanced-rendering.title": {
+    "defaultMessage": "Advanced na rendering"
+  },
+  "settings.display.sidebar.external-links-new-tab.description": {
+    "defaultMessage": "Gawing magbukas sa bagong tab ang mga link na papalabas ng Modrinth. Anuman ang setting na ito, magbubukas sa"
+  },
+  "settings.display.sidebar.external-links-new-tab.title": {
+    "defaultMessage": "Buksan ang mga panlabas na link sa bagong tab"
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.description": {
+    "defaultMessage": "Inihanay ang sidebar sa kaliwa ng content ng pahina."
+  },
+  "settings.display.sidebar.left-aligned-content-sidebar.title": {
+    "defaultMessage": "Sidebar na nakahanay sa kaliwa sa mga pahina ng content"
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.description": {
+    "defaultMessage": "Inihanay ang sidebar ng mga filter sa kanan ng mga resulta ng paghahanap."
+  },
+  "settings.display.sidebar.right-aligned-filters-sidebar.title": {
+    "defaultMessage": "Sidebar ng mga filter na nakahanay sa kanan sa mga pahina ng paghahanap"
+  },
   "settings.display.theme.dark": {
     "defaultMessage": "madilim"
   },
@@ -1723,6 +3160,9 @@
   },
   "settings.display.theme.oled": {
     "defaultMessage": "OLED"
+  },
+  "settings.display.theme.orbiont-description": {
+    "defaultMessage": "Piliin ang iyong gustong tema ng kulay para sa {productName}."
   },
   "settings.display.theme.preferred-dark-theme": {
     "defaultMessage": "Ninais na dark theme"
@@ -1739,14 +3179,23 @@
   "settings.display.theme.title": {
     "defaultMessage": "Paksang kulay"
   },
+  "settings.feature-flags.title": {
+    "defaultMessage": "Mga feature flag"
+  },
   "settings.language.categories.default": {
     "defaultMessage": "Mga karaniwang wika"
   },
   "settings.language.categories.search-result": {
     "defaultMessage": "Mga resulta ng paghanap"
   },
-  "settings.language.description": {
-    "defaultMessage": "Piliin ang iyong ninanais na wiki para sa {platform}. Ambag ng mga boluntaryo <crowdin-link>galing sa Crowdin</crowdin-link> ang mga pagsasalin."
+  "settings.language.coverage.app-tooltip": {
+    "defaultMessage": "Humigit-kumulang {percentage}% ng {productName} ay available sa wikang ito."
+  },
+  "settings.language.coverage.label": {
+    "defaultMessage": "{percentage}% suportado"
+  },
+  "settings.language.description.orbiont": {
+    "defaultMessage": "Piliin ang iyong gustong wika para sa {platform}. Ibinibigay ng Orbiont ang mga salin ng komunidad kung ano ang mga ito; nag-iiba ang saklaw ayon sa wika at hindi naisasalin ang teksto ay nananatili"
   },
   "settings.language.languages.search-field.placeholder": {
     "defaultMessage": "Maghanap ng wika..."
@@ -1760,9 +3209,6 @@
   "settings.language.platform.app": {
     "defaultMessage": "app"
   },
-  "settings.language.platform.site": {
-    "defaultMessage": "site"
-  },
   "settings.language.title": {
     "defaultMessage": "Wika"
   },
@@ -1772,8 +3218,26 @@
   "settings.pats.title": {
     "defaultMessage": "Mga personal na access token"
   },
+  "settings.profile.navigation-title": {
+    "defaultMessage": "Profile"
+  },
   "settings.sessions.title": {
     "defaultMessage": "Mga sesyon"
+  },
+  "settings.social.title": {
+    "defaultMessage": "Panlipunan"
+  },
+  "skin.preview.drag-to-rotate": {
+    "defaultMessage": "I-drag upang paikutin"
+  },
+  "skins.select": {
+    "defaultMessage": "Piliin ang skin"
+  },
+  "skins.select-named": {
+    "defaultMessage": "Piliin ang {name}"
+  },
+  "table.empty-state.no-data": {
+    "defaultMessage": "Walang available na datos."
   },
   "tag.category.128x": {
     "defaultMessage": "128x"
@@ -1786,6 +3250,9 @@
   },
   "tag.category.32x": {
     "defaultMessage": "32x"
+  },
+  "tag.category.3d-packs": {
+    "message": "Mga 3D Pack"
   },
   "tag.category.48x": {
     "defaultMessage": "48x"
@@ -1807,6 +3274,9 @@
   },
   "tag.category.anarchy": {
     "defaultMessage": "Anarkiya"
+  },
+  "tag.category.armor-tools-weapons": {
+    "message": "Armor, Tools, at Armas"
   },
   "tag.category.atmosphere": {
     "defaultMessage": "Kapaligiran"
@@ -1850,6 +3320,12 @@
   "tag.category.core-shaders": {
     "defaultMessage": "Core Shaders"
   },
+  "tag.category.cosmetics": {
+    "message": "Mga pampaganda"
+  },
+  "tag.category.creation": {
+    "defaultMessage": "Paglikha"
+  },
   "tag.category.creative-mode": {
     "defaultMessage": "Modong Kalikhaan"
   },
@@ -1859,11 +3335,17 @@
   "tag.category.crossplay": {
     "defaultMessage": "Crossplay"
   },
+  "tag.category.ctm": {
+    "message": "Kumpletuhin ang Monumento"
+  },
   "tag.category.cursed": {
     "defaultMessage": "Nakababagabag"
   },
   "tag.category.custom-content": {
     "defaultMessage": "Pasadyang Kontento"
+  },
+  "tag.category.custom-terrain": {
+    "message": "Custom na Lupain"
   },
   "tag.category.decoration": {
     "defaultMessage": "Palamuti"
@@ -1873,6 +3355,9 @@
   },
   "tag.category.economy": {
     "defaultMessage": "Ekonomiya"
+  },
+  "tag.category.enhanced-visuals": {
+    "message": "Pinahusay na Visual"
   },
   "tag.category.entities": {
     "defaultMessage": "Nilalang"
@@ -1897,6 +3382,9 @@
   },
   "tag.category.food": {
     "defaultMessage": "Pagkain"
+  },
+  "tag.category.game-map": {
+    "defaultMessage": "Mapa ng Laro"
   },
   "tag.category.game-mechanics": {
     "defaultMessage": "Mekaniks ng Laro"
@@ -1946,6 +3434,9 @@
   "tag.category.management": {
     "defaultMessage": "Pamamahala"
   },
+  "tag.category.maps": {
+    "message": "Mga mapa"
+  },
   "tag.category.media": {
     "defaultMessage": "Media"
   },
@@ -1954,6 +3445,9 @@
   },
   "tag.category.microgames": {
     "defaultMessage": "Microgames"
+  },
+  "tag.category.minecraft-addon-maker": {
+    "message": "Minecraft Addon Maker"
   },
   "tag.category.minigame": {
     "defaultMessage": "Minigame"
@@ -1969,6 +3463,9 @@
   },
   "tag.category.modded": {
     "defaultMessage": "Modded"
+  },
+  "tag.category.modded-world": {
+    "defaultMessage": "Mundong may mga Mod"
   },
   "tag.category.models": {
     "defaultMessage": "Modelo"
@@ -2003,6 +3500,9 @@
   "tag.category.personal-worlds": {
     "defaultMessage": "Mga Personal na Mundo"
   },
+  "tag.category.players": {
+    "message": "Mga Player"
+  },
   "tag.category.plots": {
     "defaultMessage": "Plots"
   },
@@ -2014,6 +3514,9 @@
   },
   "tag.category.prison": {
     "defaultMessage": "Bilanggo"
+  },
+  "tag.category.puzzle": {
+    "defaultMessage": "Palaisipan"
   },
   "tag.category.pve": {
     "defaultMessage": "PvE"
@@ -2042,20 +3545,32 @@
   "tag.category.roleplay": {
     "defaultMessage": "Roleplay"
   },
+  "tag.category.rollercoaster": {
+    "message": "Rollercoaster"
+  },
   "tag.category.rpg": {
     "defaultMessage": "RPG"
   },
   "tag.category.screenshot": {
     "defaultMessage": "Screenshot"
   },
+  "tag.category.scripts": {
+    "message": "Mga script"
+  },
   "tag.category.semi-realistic": {
     "defaultMessage": "Malakatotohanan"
+  },
+  "tag.category.shaders": {
+    "message": "Mga Shader"
   },
   "tag.category.shadows": {
     "defaultMessage": "Anino"
   },
   "tag.category.simplistic": {
     "defaultMessage": "Simplistiko"
+  },
+  "tag.category.skins": {
+    "message": "Mga skin"
   },
   "tag.category.skyblock": {
     "defaultMessage": "Skyblock"
@@ -2069,6 +3584,9 @@
   "tag.category.storage": {
     "defaultMessage": "Imbakan"
   },
+  "tag.category.survival": {
+    "defaultMessage": "Survival"
+  },
   "tag.category.survival-mode": {
     "defaultMessage": "Modong Kaligtasan"
   },
@@ -2080,6 +3598,9 @@
   },
   "tag.category.technology": {
     "defaultMessage": "Teknolohiya"
+  },
+  "tag.category.texture-packs": {
+    "message": "Mga Texture Pack"
   },
   "tag.category.themed": {
     "defaultMessage": "May tema"
@@ -2198,28 +3719,220 @@
   "tag.loader.waterfall": {
     "defaultMessage": "Waterfall"
   },
+  "terminal.scroll-to-bottom": {
+    "defaultMessage": "Mag-scroll sa ibaba"
+  },
   "ui.component.unsaved-changes-popup.body": {
     "defaultMessage": "Mayroon kang hindi na-save na pagbabago."
   },
-  "user.profile.badge.alpha.about.1": {
-    "defaultMessage": "Ang tagagamit na ito ay nandirito simula pa sa Modrinth Alpha, na nagtapos noon Nobyembre 2020."
+  "ui.confirm-leave-modal.body": {
+    "defaultMessage": "Mayroon kang mga hindi pa nasasave na pagbabago na mawawala kung aalis ka sa pahinang ito."
   },
-  "user.profile.badge.hosting-alpha.about.1": {
-    "defaultMessage": "Ang tagagamit na ito ay nakilahok sa piniliang alpha test ng Modrinth Hosting bago pa inilunsad ang Beta ng Modrinth Hosting ng Nobyembre 2024."
+  "ui.confirm-leave-modal.header": {
+    "defaultMessage": "Mayroon kang mga hindi pa nasasave na pagbabago"
   },
-  "user.profile.badge.staff.name": {
-    "defaultMessage": "Koponan ng Modrinth"
+  "ui.confirm-leave-modal.leave": {
+    "defaultMessage": "Umalis sa pahina"
+  },
+  "ui.confirm-leave-modal.stay": {
+    "defaultMessage": "Manatili sa pahina"
+  },
+  "ui.confirm-leave-modal.title": {
+    "defaultMessage": "Umalis sa pahina?"
+  },
+  "ui.i18n-debug.close": {
+    "defaultMessage": "Isara ang inspector"
+  },
+  "ui.i18n-debug.copied": {
+    "defaultMessage": "Nakopya"
+  },
+  "ui.i18n-debug.copy": {
+    "defaultMessage": "kopyahin"
+  },
+  "ui.i18n-debug.copy-hint": {
+    "defaultMessage": "i-click upang kopyahin"
+  },
+  "ui.i18n-debug.discover-hint": {
+    "defaultMessage": "Mag-navigate sa app upang matuklasan ang mga i18n key"
+  },
+  "ui.i18n-debug.expand": {
+    "defaultMessage": "Palawakin ang panel"
+  },
+  "ui.i18n-debug.hide-keys": {
+    "defaultMessage": "Itago ang mga key nang inline"
+  },
+  "ui.i18n-debug.key-count": {
+    "defaultMessage": "{count, plural, one {# key} other {# key}}"
+  },
+  "ui.i18n-debug.minimize": {
+    "defaultMessage": "I-minimize ang panel"
+  },
+  "ui.i18n-debug.navigate": {
+    "defaultMessage": "mag-navigate"
+  },
+  "ui.i18n-debug.no-keys": {
+    "defaultMessage": "Walang nakarehistrong key"
+  },
+  "ui.i18n-debug.no-matches": {
+    "defaultMessage": "Walang nahanap na tugma"
+  },
+  "ui.i18n-debug.reveal-keys": {
+    "defaultMessage": "Ipakita ang mga key nang inline"
+  },
+  "ui.i18n-debug.search": {
+    "defaultMessage": "Maghanap ng mga key o halaga..."
+  },
+  "ui.i18n-debug.search-hint": {
+    "defaultMessage": "Sumubok ng ibang termino sa paghahanap"
+  },
+  "ui.i18n-debug.title": {
+    "defaultMessage": "i18n Inspector"
+  },
+  "ui.i18n-debug.toggle-overlay": {
+    "defaultMessage": "I-toggle ang CSS debug overlay"
+  },
+  "ui.i18n-debug.watching": {
+    "defaultMessage": "Binabantayan"
+  },
+  "ui.pagination.go-to-page": {
+    "defaultMessage": "Pumunta sa pahina"
+  },
+  "ui.pagination.next-page": {
+    "defaultMessage": "Susunod na pahina"
+  },
+  "ui.pagination.previous-page": {
+    "defaultMessage": "Nakaraang pahina"
+  },
+  "ui.stacked-admonitions.alert-count": {
+    "defaultMessage": "{count, plural, one {# alerto} other {# alerto}}"
+  },
+  "ui.stacked-admonitions.dismiss-all": {
+    "defaultMessage": "Balewalain lahat"
+  },
+  "unknown-file-warning-modal.dont-install": {
+    "defaultMessage": "Huwag i-install"
+  },
+  "unknown-file-warning-modal.dont-show-again": {
+    "defaultMessage": "Huwag nang ipakita itong muli ang babalang ito"
+  },
+  "unknown-file-warning-modal.file-unverified-body": {
+    "defaultMessage": " ay may pinagmulang hindi maberipika. Mag-install lang ng mga file mula sa mga pinagkakatiwalaang pinagmulan."
+  },
+  "unknown-file-warning-modal.header": {
+    "defaultMessage": "Kumpirmahin ang pag-install"
+  },
+  "unknown-file-warning-modal.install-anyway": {
+    "defaultMessage": "I-install pa rin"
+  },
+  "unknown-file-warning-modal.malware-warning": {
+    "defaultMessage": "Madalas na ipinamamahagi ang malware sa pamamagitan ng mga mod file sa pagbabahagi ng mga ito sa mga platform tulad ng Discord."
+  },
+  "unknown-file-warning-modal.mod-warning-title": {
+    "defaultMessage": "Babala sa hindi kilalang file"
+  },
+  "unknown-file-warning-modal.modpack-unverified-body": {
+    "defaultMessage": " ay naglalaman ng mga file na hindi maberipika ang pinagmulan. Mag-install lang ng mga file mula sa mga pinagkakatiwalaang pinagmulan."
+  },
+  "unknown-file-warning-modal.modpack-warning-title": {
+    "defaultMessage": "Babala sa hindi kilalang mga file"
+  },
+  "unknown-file-warning-modal.unrecognized-files": {
+    "defaultMessage": "Mga hindi nakikilalang file"
+  },
+  "unknown-file-warning-modal.unverified-files": {
+    "defaultMessage": "Maaaring hindi ligtas ang isang hindi nakikilalang file. Suriin ang pinagmulan nito bago ito i-install."
   },
   "version.content.name": {
     "defaultMessage": "Pangalan"
   },
+  "version.content.version": {
+    "defaultMessage": "Bersyon"
+  },
+  "version.file-type.dev-jar": {
+    "defaultMessage": "Dev jar"
+  },
+  "version.file-type.javadoc-jar": {
+    "defaultMessage": "Javadocs jar"
+  },
+  "version.file-type.optional-resource-pack": {
+    "defaultMessage": "Opsyonal na resource pack"
+  },
+  "version.file-type.primary": {
+    "defaultMessage": "Pangunahin"
+  },
+  "version.file-type.required-resource-pack": {
+    "defaultMessage": "Kinakailangang resource pack"
+  },
+  "version.file-type.signature": {
+    "defaultMessage": "File ng lagda"
+  },
+  "version.file-type.sources-jar": {
+    "defaultMessage": "Sources jar"
+  },
   "version.file-type.unknown": {
     "defaultMessage": "Iba pa"
+  },
+  "version.section.changes": {
+    "defaultMessage": "Mga Pagbabago"
+  },
+  "version.section.compatibility": {
+    "defaultMessage": "Pagkakatugma"
+  },
+  "version.section.content": {
+    "defaultMessage": "Content"
+  },
+  "version.section.content.search-placeholder": {
+    "defaultMessage": "Maghanap ng content..."
+  },
+  "version.section.dependencies.any-compatible-version": {
+    "defaultMessage": "Anumang tugmang bersyon"
+  },
+  "version.section.dependencies.any-version": {
+    "defaultMessage": "Anumang bersyon"
+  },
+  "version.section.dependencies.unavailable-version": {
+    "defaultMessage": "Hindi available na bersyon"
+  },
+  "version.section.dependencies.unavailable-version.description": {
+    "defaultMessage": "Maaaring nabura ang bersyong ito o sinusuri ito ng mga moderator."
+  },
+  "version.section.dependencies.unavailable-version.description.required": {
+    "defaultMessage": "Maaaring nabura ang kinakailangang bersyon o sinusuri ito ng mga moderator."
+  },
+  "version.section.files": {
+    "defaultMessage": "Mga File"
+  },
+  "version.section.included-content": {
+    "defaultMessage": "Kasamang content"
+  },
+  "version.section.known-incompatibilities": {
+    "defaultMessage": "Mga kilalang hindi pagkakatugma"
+  },
+  "version.section.no-changes": {
+    "defaultMessage": "Walang ibinigay na changelog."
+  },
+  "version.section.no-modpack-mod-loader": {
+    "defaultMessage": "Walang mod loader"
+  },
+  "version.section.optional-dependencies": {
+    "defaultMessage": "Mga opsyonal na dependency"
+  },
+  "version.section.required-content": {
+    "defaultMessage": "Kinakailangang content"
+  },
+  "version.section.supplementary-resources": {
+    "defaultMessage": "Mga karagdagang mapagkukunan"
   },
   "version.supplementary-resources.file": {
     "defaultMessage": "Talaksan"
   },
+  "version.supplementary-resources.size": {
+    "defaultMessage": "Sukat"
+  },
   "version.supplementary-resources.type": {
     "defaultMessage": "Uri"
+  },
+  "version.uploaded-by": {
+    "defaultMessage": "Na-upload ni"
   }
 }

@@ -113,6 +113,7 @@ const messages = defineMessages({
 })
 
 const fileContent = ref('')
+const isSaving = ref(false)
 const originalContent = ref('')
 const isEditingImage = ref(false)
 const imagePreview = ref<Blob | null>(null)
@@ -189,7 +190,7 @@ async function loadFileContent(file: { name: string; path: string }) {
 		console.error('Error fetching file content:', error)
 		addNotification({
 			title: formatMessage(messages.failedToOpenTitle),
-			text: formatMessage(messages.failedToOpenText),
+			text: ctx.formatFileError?.(error) ?? formatMessage(messages.failedToOpenText),
 			type: 'error',
 		})
 		emit('close')
@@ -242,15 +243,17 @@ function onEditorInit(editor: Ace.Editor) {
 
 async function saveFileContent(exit: boolean = false) {
 	if (!props.file) return
-	if (isEditorReadOnly.value) return
+	if (isEditorReadOnly.value || isSaving.value) return
+	isSaving.value = true
+	const contentToSave = fileContent.value
 
 	try {
 		const normalizedPath = props.file.path.startsWith('/') ? props.file.path : `/${props.file.path}`
-		await ctx.writeFile(normalizedPath, fileContent.value)
+		await ctx.writeFile(normalizedPath, contentToSave)
 
-		originalContent.value = fileContent.value
+		originalContent.value = contentToSave
 
-		if (exit) {
+		if (exit && !hasUnsavedChanges.value) {
 			emit('close')
 		}
 
@@ -263,9 +266,11 @@ async function saveFileContent(exit: boolean = false) {
 		console.error('Error saving file content:', error)
 		addNotification({
 			title: formatMessage(messages.saveFailedTitle),
-			text: formatMessage(messages.saveFailedText),
+			text: ctx.formatFileError?.(error) ?? formatMessage(messages.saveFailedText),
 			type: 'error',
 		})
+	} finally {
+		isSaving.value = false
 	}
 }
 
@@ -397,6 +402,7 @@ onUnmounted(() => {
 })
 
 defineExpose({
+	isSaving,
 	saveFileContent,
 	shareToMclogs,
 	close,

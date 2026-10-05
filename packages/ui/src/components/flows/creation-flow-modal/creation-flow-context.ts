@@ -14,6 +14,10 @@ import type { ComboboxOption } from '../../base/Combobox.vue'
 import { stageConfigs } from './stages'
 
 export type SetupType = 'modpack' | 'custom' | 'vanilla'
+export interface OptifineSelection {
+	path: string
+	reference: { minecraftVersion: string; version: string; installerSha256: string }
+}
 export type LoaderVersionType = 'stable' | 'latest' | 'other'
 export type LoaderManifest = LauncherMeta.Manifest.v0.Manifest
 export type LoaderManifestResolver = (loader: string) => Promise<LoaderManifest>
@@ -92,6 +96,7 @@ export interface ProjectInstallSelection {
 }
 
 export interface ProjectInstallCreateData {
+	optifineInstallerPath?: string | null
 	name: string
 	iconPath: string | null
 	iconPreviewUrl: string | null
@@ -105,6 +110,11 @@ export interface GeneratedInstanceIcon {
 }
 
 export interface CreationFlowContextValue {
+	optifineEnabled: Ref<boolean>
+	optifineInstaller: Ref<OptifineSelection | null>
+	optifineBusy: Ref<boolean>
+	pickOptifineInstaller: ((gameVersion: string) => Promise<OptifineSelection | null>) | null
+	openOptifineDownloads: (() => Promise<void>) | null
 	formatMessage: VIntlFormatters['formatMessage']
 
 	// Configuration
@@ -186,6 +196,8 @@ export const [injectCreationFlowContext, provideCreationFlowContext] =
 	createContext<CreationFlowContextValue>('CreationFlowModal')
 
 export interface CreationFlowOptions {
+	pickOptifineInstaller?: (gameVersion: string) => Promise<OptifineSelection | null>
+	openOptifineDownloads?: () => Promise<void>
 	availableLoaders?: string[]
 	showSnapshotToggle?: boolean
 	disableClose?: boolean
@@ -239,6 +251,9 @@ export function createCreationFlowContext(
 
 	// Instance-specific state
 	const instanceName = ref('')
+	const optifineEnabled = ref(false)
+	const optifineInstaller = ref<OptifineSelection | null>(null)
+	const optifineBusy = ref(false)
 	const existingInstanceNames = ref<string[]>([])
 	const fetchExistingInstanceNames = options.fetchExistingInstanceNames ?? null
 	const instanceIcon = ref<File | null>(null)
@@ -264,7 +279,11 @@ export function createCreationFlowContext(
 		const version = selectedGameVersion.value
 		if (!version) return ''
 
-		const loaderName = loader ? formatLoaderLabel(loader) : 'Vanilla'
+		const loaderName = optifineEnabled.value
+			? 'OptiFine'
+			: loader
+				? formatLoaderLabel(loader)
+				: 'Vanilla'
 		const baseName = `${loaderName} ${version}`
 
 		const names = new Set(existingInstanceNames.value)
@@ -351,6 +370,9 @@ export function createCreationFlowContext(
 
 		// Instance-specific
 		instanceName.value = ''
+		optifineEnabled.value = false
+		optifineInstaller.value = null
+		optifineBusy.value = false
 		instanceIconUrl.value = null
 		instanceIcon.value = null
 		instanceIconPath.value = null
@@ -443,7 +465,12 @@ export function createCreationFlowContext(
 	}
 
 	function finish() {
-		if (finishDisabled.value) return
+		if (
+			finishDisabled.value ||
+			optifineBusy.value ||
+			(optifineEnabled.value && !optifineInstaller.value)
+		)
+			return
 
 		debug('finish() called, state:', {
 			setupType: setupType.value,
@@ -462,6 +489,7 @@ export function createCreationFlowContext(
 		) {
 			modal.value?.hide()
 			void createProjectInstall({
+				optifineInstallerPath: optifineEnabled.value ? optifineInstaller.value?.path : null,
 				name: instanceName.value.trim() || projectInstall.value.title,
 				iconPath: instanceIconPath.value,
 				iconPreviewUrl: instanceIconUrl.value,
@@ -478,6 +506,11 @@ export function createCreationFlowContext(
 		: stageConfigs
 
 	const contextValue: CreationFlowContextValue = {
+		optifineEnabled,
+		optifineInstaller,
+		optifineBusy,
+		pickOptifineInstaller: options.pickOptifineInstaller ?? null,
+		openOptifineDownloads: options.openOptifineDownloads ?? null,
 		formatMessage,
 		availableLoaders,
 		showSnapshotToggle,

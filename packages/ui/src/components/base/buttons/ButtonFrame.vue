@@ -123,6 +123,7 @@ defineExpose({ element })
 		:is="as"
 		ref="element"
 		data-button
+		data-animated-icon-trigger
 		:type="props.nativeType"
 		:class="classes"
 		:style="style"

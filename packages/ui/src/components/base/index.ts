@@ -1,5 +1,6 @@
 export { default as Accordion } from './Accordion.vue'
 export { default as Admonition } from './Admonition.vue'
+export * from './animated-icons'
 export { default as AutoLink } from './AutoLink.vue'
 export { default as Avatar } from './Avatar.vue'
 export { default as BackToParentLink } from './BackToParentLink.vue'

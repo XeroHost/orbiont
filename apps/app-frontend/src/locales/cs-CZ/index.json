@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Neznámá instance"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Aktualizace sdíleného obsahu"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Nastavit jako primární instanci"
   },
@@ -149,8 +146,23 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "Skrýt jmenovku"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Animovat ikony při najetí myší a zaměření klávesnicí."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Vypnout animace"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Vždy animovat"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Podle systému"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Animace ikon"
+  },
   "app.appearance-settings.minimize-launcher.description": {
-    "message": "Minimalizovat Modrinth aplikaci při spuštění Minecraftu."
+    "message": "Minimalizovat {productName} aplikaci při spuštění Minecraftu."
   },
   "app.appearance-settings.minimize-launcher.title": {
     "message": "Minimalizovat aplikaci"
@@ -173,17 +185,533 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "Skrýt pravý postranní panel"
   },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Zobrazit bezpečnostní varování před instalací Modrinth Pack (.mrpack), který není hostován v Modrinth."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Zobrazit bezpečnostní upozornění před instalací importovaného modpacku (.mrpack nebo CurseForge .zip), jehož zdroj se nepodařilo ověřit."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Upozorni mě před instalací neznámých modpacků"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Kontaktovat podporu"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Kopírovat ladicí informace"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Ladicí informace"
+  },
+  "app.auth-error.header": {
+    "message": "Přihlášení se nezdařilo"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Jak to opravit"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Dokonči proces ověření totožnosti"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Tento účet vyžaduje ověření dospělosti podle jihokorejských předpisů."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Přihlášení do Minecraftu"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Zkontroluj, že ti funguje připojení k internetu"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Povol {product} ve své bráně firewall, antiviru, proxy, VPN a v pravidlech souboru hosts"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Zkus jinou síť, nebo dočasně vypni software pro VPN či proxy, pokud nějaký používáš"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Restartuj {product} a zkus se přihlásit znovu"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Pokud je problémem směrování nebo DNS, může někdy pomoci služba jako Cloudflare WARP"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} se nemohl připojit ke službě Microsoft, Xbox nebo Minecraft potřebné pro přihlášení. Obvykle to způsobuje místní síť, DNS, proxy, brána firewall, soubor hosts, VPN nebo antivirus."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Žádná chybová zpráva."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Který účet ho vlastní, můžeš zkontrolovat na <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Ujisti se, že se přihlašuješ účtem Microsoft, který Minecraft koupil (nebo má aktivní Game Pass s přístupem na PC)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Tento účet Microsoft nevlastní Minecraft: Java Edition a {product} funguje jen s prémiovými účty."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Spusť Minecraft: Java Edition jednou z oficiálního launcheru"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Ujisti se, že používáš účet Microsoft, který Minecraft vlastní. Který účet ho vlastní, můžeš zkontrolovat na <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Pokud byl nákup nebo nastavení profilu nedávný, počkej až hodinu"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Služby Minecraftu pro tento účet nedokázaly vrátit profil Java Edition. Nejčastěji se to stává, když byla hra nedávno zakoupena, profil Java se ještě nevytvořil, nebo se používá nesprávný účet Microsoft."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Ujisti se, že je Minecraft na tomto účtu zakoupen"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Dokonči nastavení profilu Xbox, pokud k tomu budeš vyzván"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Tento účet nemá nastavený profil Xbox, nebo nevlastní Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Po počkání restartuj {product}"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Zkus se přihlásit ještě jednou"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Před dalším pokusem počkej asi hodinu"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Pokud se zobrazí stejná zpráva, před dalším pokusem počkej déle, aby se dočasný limit zrušil"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft nebo Minecraft dočasně zablokoval žádost o přihlášení, protože bylo příliš mnoho nedávných pokusů."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Podporované regiony najdeš na <a href=\"https://www.xbox.com/en-US/regions\">Xbox Availability</a>"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Služby Xbox musí být ve tvé zemi podporovány, než se budeš moci přihlásit"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live není ve tvém regionu dostupný, takže je přihlášení zablokováno."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Požádej zákonného zástupce, aby se přihlásil do <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Aktualizuj oprávnění pro hraní online"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Tento účet je omezen a nemá oprávnění hrát online."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Pokud služba funguje a problém přetrvává, kontaktuj podporu s ladicími informacemi níže"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Zkus se přihlásit pomocí <a href=\"https://www.minecraft.net/en-us/download\">oficiálního launcheru Minecraftu</a> a zjisti, zda je přihlášení do Minecraftu ovlivněno i tam"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Aktuální problémy se službou najdeš na <a href=\"https://support.xbox.com/xbox-live-status\">Xbox Status</a>"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Počkej několik minut a zkus se přihlásit znovu"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Ověřovací služba Minecraftu vrací chybu serveru, takže tě {product} momentálně nemůže přihlásit."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Přihlásit se znovu"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Po dokončení se zkus přihlásit znovu"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Přihlas se pomocí <a href=\"https://www.minecraft.net/en-us/download\">oficiálního launcheru Minecraftu</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Zkus se znovu přihlásit do {product}"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Navštiv <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> a přihlas se"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Navštiv <a href=\"https://www.xbox.com\">Xbox</a> a přihlas se"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Pokud je k dispozici, podej odvolání"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Navštiv <a href=\"https://support.xbox.com\">Xbox Support</a> a projdi si podrobnosti opatření"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Tento účet byl pozastaven za porušení standardů komunity Xbox."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Po dokončení nového přihlášení zkus Minecraft znovu spustit"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Přihlas se znovu ke svému účtu"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Odhlásit postižený účet Minecraftu v {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Tvůj uložený přihlašovací token Microsoftu vypršel nebo byl odvolán, takže {product} nemůže obnovit tvou relaci Minecraftu."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Pokud jsi vyzván, přijmi podmínky"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Tento účet nepřijal podmínky používání Xboxu."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Zkus navštívit"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Další pomoc najdeš na <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">UK age verification on Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Přejdi na stránku <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> a přihlas se"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Po ověření se zkus přihlásit znovu"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Postupuj podle pokynů k ověření věku"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Tvůj účet Minecraft/Xbox Live vyžaduje ověření věku podle britských předpisů. Musíš ho dokončit, než se přihlásíš."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Projdi si <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">Family Setup Guide</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Podle pokynů se připoj k rodinné skupině, nebo ji vytvoř"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Tento účet je nezletilý a není propojen s rodinnou skupinou Microsoftu."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Neznámá chyba"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Tuto chybu neznáme a nedokážeme doporučit konkrétní kroky k jejímu vyřešení."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "a přihlas se, protože ti může zobrazit potřebné kroky. Můžeš také kontaktovat podporu a my se na to podíváme blíž."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Nepodařilo se tě přihlásit k účtu Microsoft. Může to být kvůli omezením účtu nebo regionálním omezením."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Co si myslíme, že se stalo"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Přijmi všechny podmínky nebo dokonči nastavení profilu, které se zobrazí"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Přihlas se jednou na <a href=\"https://www.xbox.com\">Xbox.com</a> se stejným účtem Microsoft"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live nepřijal přihlášení Microsoftu. Obvykle to znamená, že se účet Microsoft nikdy nepřihlásil do Xboxu, nebo musí přijmout aktualizované podmínky."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Pokud selže i oficiální launcher, postupuj podle chyby zobrazené tam, nebo kontaktuj podporu Xboxu"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Dokonči všechny výzvy zobrazené Microsoftem, Xboxem nebo Minecraftem"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Služby Xbox zamítly žádost o autorizaci tohoto účtu pro služby Minecraftu, ale nevrátily konkrétní omezení účtu, které {product} rozpozná."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Ověřovací Minecraft servery mohou být právě teď nedostupné. Zkontroluj si své připojení k internetu a zkus to znovu později."
   },
   "app.auth-servers.unreachable.header": {
     "message": "Nelze se připojit k ověřovacím serverům"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft a Microsoft Store zkontrolujte vaši licenci Bedrock. Přihlaste se tam pomocí účtu, který vlastní Minecraft; váš účet Java v tomto spouštěči se může lišit."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Místní balíčky chování a skripty. Nakonfigurujte je v nastavení světa uvnitř Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Doplňky"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Balíček chování"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Addons"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Procházejte doplňky, balíčky zdrojů, světy a skripty od CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Objevte obsah Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Objevte doplňky"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Objevte skripty"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Před přidáním balíčků do světa zavřete Minecraft a zkuste to znovu."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Nainstalujte do Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Otevře se Minecraft pro import tohoto obsahu. Zkontrolujte výsledek ve hře a poté balíčky aktivujte v nastavení světa. Požadované balíčky a experimentální nastavení jsou uvedeny v popisu projektu."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Tento archiv neobsahuje podporovaný obsah Bedrock."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Nelze načíst verze projektu nebo světy. Zkuste to znovu."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Tento balíček vyžaduje další balíček, který není v tomto světě aktivní. Nejprve nainstalujte závislosti uvedené autorem."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Pro tento projekt nejsou dostupné žádné podporované soubory .mcaddon, .mcpack, .mcworld nebo ZIP."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Nejprve vytvořte svět v Minecraft a poté obnovte tento seznam."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Skripty"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Verze obsahu"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Cílový svět"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Před instalací zavřete Minecraft. Tyto balíčky budou přidány a aktivovány pouze ve vybraném světě. Zkontrolujte požadované závislosti a experimentální nastavení v popisu projektu."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Balíčky přidány do {world}. Otevřete Minecraft a hrajte tento svět."
+  },
+  "app.bedrock.checking": {
+    "message": "Hledám Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Chcete-li upravit soubory, odstranit obsah nebo obnovit kopii, zavřete Minecraft."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Tento obsah se změnil nebo je původní umístění obsazeno. Kopie pro obnovení byla uchována, aby nedošlo k přepsání vašich změn."
+  },
+  "app.bedrock.content": {
+    "message": "Obsah"
+  },
+  "app.bedrock.content-help": {
+    "message": "Místní zdroje a balíčky skinů. Aktivujte je v Minecraft; nějaký obsah patří do jednotlivých světů."
+  },
+  "app.bedrock.data-error": {
+    "message": "Nelze přečíst data Minecraft. Obnovte a zkuste to znovu."
+  },
+  "app.bedrock.data-location": {
+    "message": "Umístění dat Minecraft"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Tyto položky budou odstraněny ze Minecraft. Bude uchována kopie pro obnovení, včetně ovlivněných nastavení World Pack. Světy, které jsou závislé na smazaném balíčku, mohou ztratit své bloky nebo chování; obnovit jej před otevřením těchto světů."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Smazat místní obsah"
+  },
+  "app.bedrock.description": {
+    "message": "Zahrajte si Minecraft for Windows a importujte své světy a doplňky."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Nelze zkontrolovat instalaci Minecraft. Zkuste to znovu."
+  },
+  "app.bedrock.development": {
+    "message": "Vývoj"
+  },
+  "app.bedrock.edition": {
+    "message": "Edice Minecraft"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Tato složka je prázdná."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock světy a doplňky"
+  },
+  "app.bedrock.file-size": {
+    "message": "Velikost"
+  },
+  "app.bedrock.files": {
+    "message": "Soubory"
+  },
+  "app.bedrock.folder": {
+    "message": "Složka"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Tuto složku Minecraft nelze otevřít. Obnovte data a zkuste to znovu."
+  },
+  "app.bedrock.import-button": {
+    "message": "Importovat soubor"
+  },
+  "app.bedrock.import-description": {
+    "message": "Vyberte soubor .mcworld, .mcpack nebo .mcaddon. Minecraft se otevře a zpracuje import."
+  },
+  "app.bedrock.import-error": {
+    "message": "Soubor nelze odeslat do Minecraft. Zkontrolujte, zda je nainstalován Minecraft for Windows a zkuste to znovu."
+  },
+  "app.bedrock.import-title": {
+    "message": "Světy a doplňky"
+  },
+  "app.bedrock.installation": {
+    "message": "Oficiální instalace"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows je nainstalován"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Vyberte platný místní archiv .mcworld, .mcpack nebo .mcaddon."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Tento soubor překračuje limit importu 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Nelze otevřít Minecraft. Otevřete oficiální launcher nebo Microsoft Store a zkontrolujte instalaci."
+  },
+  "app.bedrock.launcher": {
+    "message": "Otevřete oficiální launcher"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Zjištěno oficiální odpalovací zařízení. Chcete-li pokračovat, nainstalujte tam Minecraft for Windows."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Čtení dat Minecraft…"
+  },
+  "app.bedrock.location": {
+    "message": "Umístění"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Zobrazuje se poslední 1 MiB tohoto protokolu."
+  },
+  "app.bedrock.logs": {
+    "message": "Logy"
+  },
+  "app.bedrock.missing": {
+    "message": "Chcete-li začít, nainstalujte Minecraft for Windows"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Tento obsah nelze změnit. Zavřete Minecraft a obnovte. Vaše obnovovací kopie byla uložena."
+  },
+  "app.bedrock.name": {
+    "message": "Název"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Nebyly nalezeny žádné místní doplňky. Začněte importem souboru .mcpack nebo .mcaddon."
+  },
+  "app.bedrock.no-content": {
+    "message": "Nebyl nalezen žádný místní obsah."
+  },
+  "app.bedrock.no-data": {
+    "message": "Otevřete Minecraft jednou a vytvořte jeho datové složky a poté obnovte stránku zde."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Nebyly nalezeny žádné protokoly obsahu. Povolte protokolování obsahu v Nastavení Minecraft > Tvůrce a poté otevřete svůj svět."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Zatím žádné obnovovací kopie."
+  },
+  "app.bedrock.no-results": {
+    "message": "Žádné odpovídající položky."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Nebyly nalezeny žádné místní světy. Vytvořte jej v Minecraft nebo importujte soubor .mcworld."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Otevřit složku"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Nadřazená složka"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Některé složky nebylo možné přečíst nebo dosáhly limitu zobrazení. Můžete je zkontrolovat v Průzkumníku souborů."
+  },
+  "app.bedrock.play": {
+    "message": "Hrát"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Zde jsou uloženy původní soubory a smazaný obsah. Obnovte kopii při zavřeném Minecraft. Stávající obsah a pozdější úpravy nejsou nikdy přepsány."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Obnovovací kopie"
+  },
+  "app.bedrock.refresh": {
+    "message": "Zkontrolujte znovu"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Obnovit"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Před uložením tento soubor znovu načtěte."
+  },
+  "app.bedrock.repair": {
+    "message": "Opravte nebo aktualizujte svou instalaci pomocí Microsoft Store nebo oficiálního spouštěče."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Balíček textur"
+  },
+  "app.bedrock.restore": {
+    "message": "Obnovit"
+  },
+  "app.bedrock.running": {
+    "message": "Spuštěno"
+  },
+  "app.bedrock.save-error": {
+    "message": "Nelze uložit. Soubor se mohl změnit, obsahovat neplatný JSON nebo být používán. Znovu jej načtěte a zkuste to znovu."
+  },
+  "app.bedrock.search": {
+    "message": "Hledat místní obsah…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Vyberte protokol, který chcete přečíst."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Balíček skinů"
+  },
+  "app.bedrock.store": {
+    "message": "Nainstalujte nebo aktualizujte"
+  },
+  "app.bedrock.store-error": {
+    "message": "Nelze otevřít Microsoft Store. Otevřete jej z nabídky Start Windows."
+  },
+  "app.bedrock.submitted": {
+    "message": "Soubor byl odeslán do Minecraft. Zkontrolujte výsledek importu ve hře."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Integrace Bedrock vyžaduje Windows. Na tomto zařízení můžete pokračovat v přehrávání Java Edition."
+  },
+  "app.bedrock.update": {
+    "message": "Aktualizujte Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "V Microsoft Store vyhledejte aktualizace a vyberte Minecraft for Windows. Vaše nainstalovaná verze se po návratu obnoví."
+  },
+  "app.bedrock.version": {
+    "message": "Instalace Windows {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Verze"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Svět: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Světy"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "Potvrzení"
@@ -194,32 +722,8 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "Spuštění a navigace"
   },
-  "app.behavior-settings.sync-across-devices.description": {
-    "message": "Používejte toto nastavení všude, kde jste přihlášeni. Vypněte ho, pokud chcete různé nastavení na různých zařízeních."
-  },
-  "app.behavior-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Přihlašte se do vašeho Modrinth účtu aby jste si mohli synchronizovat nastavení."
-  },
-  "app.behavior-settings.sync-across-devices.title": {
-    "message": "Synchronizovat nastavení mezi různými zařízeními"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "Přidání serveru do instance"
-  },
   "app.browse.add-to-an-instance": {
     "message": "Přidat do instance"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Přidat do instance"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Přidat do {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Přidáno"
-  },
-  "app.browse.already-added": {
-    "message": "Již přidáno"
   },
   "app.browse.back-to-instance": {
     "message": "Zpět k instanci"
@@ -227,14 +731,11 @@
   "app.browse.discover-project-type": {
     "message": "Objevte {projectType}"
   },
-  "app.browse.discover-servers": {
-    "message": "Objevit servery"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "Schovat už přidané servery"
-  },
   "app.browse.hide-installed-modpacks": {
     "message": "Schovat již nainstalované"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Otevřít v CurseForge"
   },
   "app.browse.project-actions.label": {
     "message": "Akce projektu"
@@ -251,23 +752,236 @@
   "app.browse.project-type.resource-packs": {
     "message": "Resource Packy"
   },
-  "app.browse.project-type.servers": {
-    "message": "Servery"
-  },
   "app.browse.project-type.shaders": {
     "message": "Shadery"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "Přidání kontentu vás může preventovat od připojení tohoto serveru. Všechen kontent který přidáte bude odstraněn, když se kontent serveru aktualizuje."
-  },
-  "app.browse.server.installing": {
-    "message": "Instalování"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Žádné dostupné verze se neshodují s {compatibilityLabel}. Vyberte verzi, kterou chcete přesto nainstalovat. Závislosti nebudou nainstalovány automaticky."
   },
+  "app.content.desync-pack": {
+    "message": "Zrušit synchronizaci"
+  },
+  "app.content.sync-data-packs-disabled": {
+    "message": "Nejprve v nastavení aplikace zapni synchronizaci datových balíčků."
+  },
+  "app.content.sync-pack": {
+    "message": "Synchronizovat"
+  },
+  "app.content.sync-packs-override": {
+    "message": "Nejprve v nastavení této instance vypni přepis synchronizace balíčků."
+  },
+  "app.content.sync-resource-packs-disabled": {
+    "message": "Nejprve v nastavení aplikace zapni synchronizaci balíčků zdrojů."
+  },
+  "app.curseforge.rate-limit.text": {
+    "message": "Bylo dosaženo sdíleného limitu požadavků. Chvíli počkej a zkus to znovu."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge je dočasně zaneprázdněn"
+  },
+  "app.download-manager.active": {
+    "message": "Aktivní"
+  },
+  "app.download-manager.attention": {
+    "message": "Vyžaduje pozornost"
+  },
+  "app.download-manager.cancel": {
+    "message": "Zrušit instalaci"
+  },
+  "app.download-manager.canceling": {
+    "message": "Rušení instalace..."
+  },
+  "app.download-manager.clear-all": {
+    "message": "Vymazat vše"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Vymazat všechny dokončené úlohy"
+  },
+  "app.download-manager.complete": {
+    "message": "Dokončeno"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Duplikovaná instance"
+  },
+  "app.download-manager.empty": {
+    "message": "Žádné úlohy instalace"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Odhadovaná rychlost stahování"
+  },
+  "app.download-manager.eta": {
+    "message": "Odhadovaný zbývající čas tohoto stahování"
+  },
+  "app.download-manager.hide": {
+    "message": "Skrýt úlohy instalace"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Importovaná instance"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Instalace instance"
+  },
+  "app.download-manager.modpack": {
+    "message": "Modpack"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Instalace Modpacku"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Nová instance"
+  },
+  "app.download-manager.pause": {
+    "message": "Pozastavit instalaci"
+  },
+  "app.download-manager.paused": {
+    "message": "Pozastaveno"
+  },
+  "app.download-manager.remove": {
+    "message": "Odebrat z historie"
+  },
+  "app.download-manager.resume": {
+    "message": "Pokračovat v instalaci"
+  },
+  "app.download-manager.show": {
+    "message": "Zobrazit úlohy instalace"
+  },
+  "app.download-manager.tasks": {
+    "message": "Úlohy"
+  },
+  "app.download-manager.title": {
+    "message": "Správce stahování"
+  },
+  "app.download-manager.verifying": {
+    "message": "Ověřování"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Zrušit změnu adresáře"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Kopírovat ladicí informace"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Ladicí informace"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "nejprve. Až budeš hotov, vrať se sem a přihlas se!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Zkus se přihlásit pomocí"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Používáš PC Game Pass, přecházíš z Bedrocku, nebo jsi hru právě koupil?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "oficiálního launcheru Minecraftu"
+  },
+  "app.error.get-support.button": {
+    "message": "Získat podporu"
+  },
+  "app.error.help.end": {
+    "message": "a rádi ti pomůžeme! Nezapomeň přiložit následující ladicí informace:"
+  },
+  "app.error.help.start": {
+    "message": "Pokud nic nefunguje a potřebuješ pomoc, navštiv"
+  },
+  "app.error.help.support-link": {
+    "message": "naši stránku podpory"
+  },
+  "app.error.hosts.body-end": {
+    "message": "se pokusil připojit ke službám Microsoft / Xbox / Minecraft, ale vzdálený server spojení odmítl. Může to znamenat, že tyto služby blokuje soubor hosts. Více se dozvíš v"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "kde najdeš kroky k opravě problému."
+  },
+  "app.error.migrate.body-end": {
+    "message": "se nedokáže přesunout do nového zvoleného adresáře. Požádej o pomoc podporu, nebo změnu adresáře zruš."
+  },
+  "app.error.network.body-end": {
+    "message": "měl problémy s připojením k serverům Microsoftu. Často je to následek slabého připojení, proto doporučujeme zkusit to znovu. Pokud problémy přetrvávají, postupuj podle kroků v"
+  },
+  "app.error.network.body-start": {
+    "message": "Zdá se, že"
+  },
+  "app.error.network.heading": {
+    "message": "Problémy se sítí"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "pro řešení problémů."
+  },
+  "app.error.no-error-message": {
+    "message": "Žádná chybová zpráva."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "nedokázal najít verzi zavaděče pro tuto instanci."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Chceš-li to vyřešit, musíš instanci opravit. Klikni na tlačítko níže."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Zdá se, že na disku obsahujícím zvolený adresář není dost místa. Uvolni místo a zkus to znovu, nebo změnu adresáře zruš."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Nedostatek místa"
+  },
+  "app.error.read-only.body-end": {
+    "message": "nemůže zapisovat do zvoleného adresáře. Uprav oprávnění adresáře a zkus to znovu, nebo změnu adresáře zruš."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Zdá se, že"
+  },
+  "app.error.read-only.heading": {
+    "message": "Změnit oprávnění adresáře"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Opravit instanci"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Opakovat změnu adresáře"
+  },
+  "app.error.state-init.body-end": {
+    "message": "se nedokázal správně načíst. Může to být kvůli poškozenému souboru, nebo proto, že aplikaci chybí důležité soubory."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Možná to dokážeš opravit jedním z následujících způsobů:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Ujisti se, že jsi připojen k internetu, a zkus aplikaci restartovat."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Stáhni aplikaci znovu."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "Otevřít složku zaloh"
+  },
+  "app.error.support-article-link": {
+    "message": "našem článku podpory"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Adresář aplikace se nepodařilo změnit"
+  },
+  "app.error.title.generic": {
+    "message": "Došlo k chybě"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Není vybrán žádný zavaděč"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Nelze se přihlásit do Minecraftu"
+  },
+  "app.error.title.state-init": {
+    "message": "Chyba při inicializaci {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Zkus se přihlásit znovu"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Zkontroluj, že jsi přihlášen správným účtem. Minecraft možná vlastníš na jiném účtu Microsoft."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Zkusit jiný účet"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Zkus jiný účet Microsoft"
   },
   "app.export-modal.description-placeholder": {
     "message": "Zadej popis modpacku..."
@@ -280,6 +994,27 @@
   },
   "app.export-modal.export-complete-description": {
     "message": "{name} byl úspěšně vyextraktován."
+  },
+  "app.export-modal.format-label": {
+    "message": "Formát exportu"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "ZIP CurseForge s manifest.json a vybranými soubory ve složce overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Pro launchery podporující Modrinth balíčky. Obsahuje odkazy ke stažení a vybrané dodatečné soubory."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Přenosný balíček {productName} obsahující vybrané soubory. Otevři ho přímo v launcheru."
   },
   "app.export-modal.header": {
     "message": "Exportovat modpack"
@@ -295,6 +1030,48 @@
   },
   "app.export-modal.version-number-placeholder": {
     "message": "1.0.0"
+  },
+  "app.features-settings.instance-pages.title": {
+    "message": "Instance"
+  },
+  "app.features-settings.play-page.title": {
+    "message": "Stránka Hrát"
+  },
+  "app.features-settings.quick-instances.description": {
+    "message": "Zvol maximální počet nedávných instancí zobrazených v levém postranním panelu. Počet můžeš upravit i tažením oddělovače."
+  },
+  "app.features-settings.quick-instances.title": {
+    "message": "Rychlé instance v postranním panelu"
+  },
+  "app.features-settings.show-all-screenshots.description": {
+    "message": "Zobrazit tlačítko v levém postranním panelu pro zobrazení snímků obrazovky ze všech tvých instancí."
+  },
+  "app.features-settings.show-all-screenshots.title": {
+    "message": "Zobrazit všechny snímky obrazovky v postranním panelu"
+  },
+  "app.features-settings.show-files-tab.title": {
+    "message": "Zobrazit kartu Soubory v instancích"
+  },
+  "app.features-settings.show-jump-in.description": {
+    "message": "Zobrazit nedávno hrané světy a instance v horní části stránky Hrát."
+  },
+  "app.features-settings.show-jump-in.title": {
+    "message": "Zobrazit sekci Pustit se do hry"
+  },
+  "app.features-settings.show-screenshots-tab.title": {
+    "message": "Zobrazit kartu Snímky obrazovky v instancích"
+  },
+  "app.features-settings.show-skin-selector.description": {
+    "message": "Zobrazit tlačítko v levém postranním panelu pro otevření výběru skinu."
+  },
+  "app.features-settings.show-skin-selector.title": {
+    "message": "Zobrazit výběr skinu v postranním panelu"
+  },
+  "app.features-settings.show-worlds-tab.title": {
+    "message": "Zobrazit kartu Světy v instancích"
+  },
+  "app.features-settings.sidebar.title": {
+    "message": "Postranní panel"
   },
   "app.home.jump-back-in.actions.label": {
     "message": "Akce instance"
@@ -398,62 +1175,14 @@
   "app.instance.actions.label": {
     "message": "Akce instance"
   },
-  "app.instance.add-server.add": {
-    "message": "Přidat"
-  },
-  "app.instance.add-server.added": {
-    "message": "Přidáno"
-  },
-  "app.instance.add-server.adding": {
-    "message": "Přidávání..."
-  },
-  "app.instance.add-server.cancel": {
-    "message": "Zrušit"
-  },
-  "app.instance.add-server.compatibility-warning": {
-    "message": "Tento server nemusí být kompatibilní se všemi instanci."
-  },
-  "app.instance.add-server.search-placeholder": {
-    "message": "Hledat instanci"
-  },
-  "app.instance.add-server.title": {
-    "message": "Přidat server do instance"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Přidáno"
-  },
-  "app.instance.admonitions.shared-instance.changes-body": {
-    "message": "Vaše lokální instance je napřed před uživateli se kterými jste ji sdíleli."
-  },
-  "app.instance.admonitions.shared-instance.changes-header": {
-    "message": "Vaše změny ještě nebyly sdíleny"
-  },
-  "app.instance.admonitions.shared-instance.publish-button": {
-    "message": "Publikovat aktualizaci"
-  },
-  "app.instance.admonitions.shared-instance.publishing-button": {
-    "message": "Publikování..."
-  },
-  "app.instance.admonitions.shared-instance.removed-label": {
-    "message": "Odstraněno"
-  },
-  "app.instance.admonitions.shared-instance.review-admonition-header": {
-    "message": "Publikovat aktualizaci"
-  },
-  "app.instance.admonitions.shared-instance.review-description": {
-    "message": "Zkontrolujte změny v obsahu které budete sdílet se všemi, kdo používají tuto instanci."
-  },
-  "app.instance.admonitions.shared-instance.review-header": {
-    "message": "Zkontrolovat změny"
-  },
-  "app.instance.admonitions.shared-instance.reviewing-button": {
-    "message": "Kontrolování..."
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Všechna data tvé instance budou trvale smazána, včetně světů, konfigurací a veškerého nainstalovaného obsahu."
   },
   "app.instance.confirm-delete.admonition-header": {
     "message": "Tato akce nemůže být vrácena"
+  },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "Všechna data těchto {count} instancí budou trvale smazána, včetně jejich světů, konfigurací a veškerého nainstalovaného obsahu."
   },
   "app.instance.confirm-delete.bulk-delete-button": {
     "message": "Smazat {count} instancí"
@@ -473,8 +1202,8 @@
   "app.instance.content.managed-content.modpack-header": {
     "message": "Obsah modpacku"
   },
-  "app.instance.content.managed-content.shared-header": {
-    "message": "Sdílený obsah"
+  "app.instance.content.managed-content.server-header": {
+    "message": "Obsah serveru"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Tento modpack je již nainstalovaný v instanci <bold>{instanceName}</bold>. Opravdu ho chceš duplikovat?"
@@ -527,36 +1256,6 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Zpět k instanci"
   },
-  "app.instance.shared-instance-already-installed.body": {
-    "message": "Tato sdílená instance je již nainstalovaná jako <bold>{instanceName}</bold>. Jste si jistý, že chcete nainstalovat další kopii?"
-  },
-  "app.instance.shared-instance-already-installed.header": {
-    "message": "Sdílená instance je již nainstalována"
-  },
-  "app.instance.shared-instance-already-installed.install-anyway": {
-    "message": "Přesto nainstalovat"
-  },
-  "app.instance.shared-instance-already-installed.instance": {
-    "message": "Instance"
-  },
-  "app.instance.shared-instance-wrong-account.fallback-username": {
-    "message": "připojený účet"
-  },
-  "app.instance.shared-instance-wrong-account.owner-admonition-body-v2": {
-    "message": "pro spravování této sdílené instance. Nebudete moci publikovat aktualizace uživatelům."
-  },
-  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
-    "message": "Přihlásit se jako"
-  },
-  "app.instance.shared-instance-wrong-account.signed-out-header": {
-    "message": "Musíte se přihlásit do Modrinthu"
-  },
-  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
-    "message": "dostávat aktualizace pro tuto sdílenou instanci."
-  },
-  "app.instance.shared-instance-wrong-account.warning-header": {
-    "message": "Používate nesprávný Modrinth účet"
-  },
   "app.instance.shortcut.created": {
     "message": "Zkratka vytvořena"
   },
@@ -575,17 +1274,14 @@
   "app.instance.tab.screenshots": {
     "message": "Snímky obrazovky"
   },
-  "app.instance.tab.share": {
-    "message": "Sdílet"
-  },
   "app.instance.tab.worlds": {
     "message": "Světy"
   },
   "app.instance.worlds.add-server": {
     "message": "Přidat server"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Procházet servery"
+  "app.instance.worlds.browse": {
+    "message": "Procházet světy"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Smazat svět"
@@ -622,6 +1318,18 @@
   },
   "app.instance.worlds.remove-server-modal.remove-button": {
     "message": "Odebrat server"
+  },
+  "app.instance.worlds.remove-server-modal.remove-everywhere": {
+    "message": "Odstranit všude"
+  },
+  "app.instance.worlds.remove-server-modal.remove-here": {
+    "message": "Odstranit zde"
+  },
+  "app.instance.worlds.remove-server-modal.synced-description": {
+    "message": "Můžeš ho odebrat jen z této instance, nebo ze všech synchronizovaných instancí. Odebráním pouze z této instance se zapnou přepisy a tato instance už nebude dostávat synchronizované změny serveru."
+  },
+  "app.instance.worlds.remove-server-modal.synced-header": {
+    "message": "Tento server je synchronizován"
   },
   "app.instance.worlds.remove-server-modal.title": {
     "message": "Odebrat server"
@@ -679,6 +1387,21 @@
   },
   "app.java-selector.test-installation": {
     "message": "Otestovat instalaci Javy"
+  },
+  "app.launch-link.instance": {
+    "message": "Odkaz chce spustit {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Spustit"
+  },
+  "app.launch-link.server": {
+    "message": "Odkaz chce spustit {instance} a připojit se k serveru {target}. Pokračuj jen tehdy, pokud důvěřuješ zdroji tohoto odkazu."
+  },
+  "app.launch-link.title": {
+    "message": "Otevřít Minecraft z odkazu?"
+  },
+  "app.launch-link.world": {
+    "message": "Odkaz chce spustit {instance} a otevřít svět {target}."
   },
   "app.library.actions.label": {
     "message": "Akce knihovny"
@@ -749,8 +1472,14 @@
   "app.library.group.delete": {
     "message": "Smazat skupinu"
   },
+  "app.library.group.delete-description": {
+    "message": "Instance v této skupině budou odebrány ze skupiny."
+  },
   "app.library.group.edit-name": {
     "message": "Upravit název skupiny"
+  },
+  "app.library.group.empty": {
+    "message": "Přetažením přidej instance."
   },
   "app.library.group.expand": {
     "message": "Rozbalit skupinu"
@@ -887,6 +1616,9 @@
   "app.library.instance.stop": {
     "message": "Ukončit"
   },
+  "app.library.search.no-results.title": {
+    "message": "Tvému hledání neodpovídají žádné instance."
+  },
   "app.library.search.placeholder": {
     "message": "Vyhledat"
   },
@@ -932,89 +1664,14 @@
   "app.library.title": {
     "message": "Knihovna"
   },
-  "app.modal.install-to-play.additional-context": {
-    "message": "Dodatečný kontext"
-  },
-  "app.modal.install-to-play.block-user": {
-    "message": "Zablokovat uživatele"
-  },
-  "app.modal.install-to-play.content-you-are-reporting": {
-    "message": "Nahlašovaná instance"
-  },
-  "app.modal.install-to-play.delete-instance": {
-    "message": "Smazat instanci"
-  },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "Neinstalovat"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "Nainstaluj pro hraní"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Přesto nainstalovat"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "Instalovat"
-  },
-  "app.modal.install-to-play.managed-content.modpack-header": {
-    "message": "Obsah modpacku"
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {# mód} few {# módy} other {# módů}}"
-  },
-  "app.modal.install-to-play.report-image-too-large": {
-    "message": "Soubor přesahuje limit 1 MiB"
-  },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Sdílená instance"
-  },
-  "app.modal.install-to-play.shared-instance-content": {
-    "message": "Společný obsah instance"
-  },
-  "app.modal.install-to-play.shared-instance-unknown-files-description": {
-    "message": "Tato sdílená instance obsahuje soubory, které nejsou publikované na Modrinthu. Silně doporučujeme instalovat pouze soubory ze zdroje, kterému důveřujete."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "Tento serverový modpack obsahuje soubory, které nejsou publikované na Modrinthu. Silně doporučujeme instalovat pouze soubory ze zdroje, kterému důveřujete."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Upozornění na neznámý soubor"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Neznámé soubory"
-  },
-  "app.modal.install-to-play.user-blocked": {
-    "message": "Uživatel zablokován"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Zobrazit obsah"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Aktualizuj pro hraní"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "Odstraněno"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "Tato aktualizace serverového modpacku obsahuje soubory, které nejsou publikované na Modrinthu. Silně doporučujeme instalovat pouze soubory ze zdroje, kterému důveřujete."
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "Přidáno"
-  },
-  "app.modal.update-to-play.shared-instance-removed-label": {
-    "message": "Odstraněno"
-  },
-  "app.modal.update-to-play.shared-instance-unknown-files-description": {
-    "message": "Tato aktualizace sdílené instance obsahuje soubory, které nejsou publikované na Modrinthu. Silně doporučujeme instalovat pouze soubory ze zdroje, kterému důveřujete."
-  },
-  "app.modal.update-to-play.update-required": {
-    "message": "Je vyžadována aktualizace"
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "Je vyžadována aktualizace pro hraní {name}. Prosím aktualizujte na nejnovější verzy pro spuštění hry."
+  "app.nav.collapse-sidebar": {
+    "message": "Sbalit postranní panel"
   },
   "app.nav.create-new-instance": {
     "message": "Vytvořit novou instanci"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Rozbalit postranní panel"
   },
   "app.nav.home": {
     "message": "Domov"
@@ -1043,6 +1700,12 @@
   "app.project.coming-soon": {
     "message": "Již brzy"
   },
+  "app.project.gallery.image-fallback": {
+    "message": "Obrázek galerie"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Otevřít obrázek na nové kartě"
+  },
   "app.project.install-button.already-installed": {
     "message": "Tento projekt je již nainstalován"
   },
@@ -1060,6 +1723,9 @@
   },
   "app.project.more-options": {
     "message": "Více možností"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Otevřít v CurseForge"
   },
   "app.project.tab.description": {
     "message": "Popisek"
@@ -1094,6 +1760,9 @@
   "app.quick-instance-switcher.instance-locked": {
     "message": "Instance byla uzamčena"
   },
+  "app.quick-instance-switcher.title": {
+    "message": "Nedávné instance"
+  },
   "app.quick-instance-switcher.view-instance": {
     "message": "Zobrazit instanci"
   },
@@ -1105,6 +1774,9 @@
   },
   "app.screenshots.copy": {
     "message": "Kopírovat obrázek"
+  },
+  "app.screenshots.delete-description": {
+    "message": "Trvale smazat {name}? Tuto akci nelze vrátit zpět."
   },
   "app.screenshots.delete-success": {
     "message": "Snímek obrazovky odstraněn"
@@ -1127,6 +1799,9 @@
   "app.screenshots.error-heading": {
     "message": "Snímky obrazovky se nepodařilo načíst"
   },
+  "app.screenshots.go-to-instance": {
+    "message": "Přejít na instanci"
+  },
   "app.screenshots.group-by": {
     "message": "Seskupit podle"
   },
@@ -1144,6 +1819,9 @@
   },
   "app.screenshots.group.delete": {
     "message": "Odstranit skupinu"
+  },
+  "app.screenshots.group.delete-description": {
+    "message": "Snímky obrazovky v této skupině budou odebrány ze skupiny."
   },
   "app.screenshots.group.edit": {
     "message": "Upravit název skupiny"
@@ -1201,6 +1879,9 @@
   },
   "app.screenshots.selection.aria-label": {
     "message": "Vybrané snímky obrazovky"
+  },
+  "app.screenshots.selection.delete-description": {
+    "message": "Smazat {count, plural, one {# snímek obrazovky} few {# snímky obrazovky} other {# snímků obrazovky}}? Tuto akci nelze vrátit zpět."
   },
   "app.screenshots.selection.delete-success": {
     "message": "{count, plural, one {# snímek obrazovky smazán} few {# snímky obrazovky smazány} other {# snímků obrazovky smazáno}}"
@@ -1280,8 +1961,38 @@
   "app.settings.default-instance-options.java-arguments.title": {
     "message": "Argumenty Javy"
   },
+  "app.settings.default-instance-options.launch-hooks.title": {
+    "message": "Háčky spuštění"
+  },
+  "app.settings.default-instance-options.memory-allocation.description": {
+    "message": "Maximální paměť dostupná každé instanci."
+  },
+  "app.settings.default-instance-options.memory-allocation.title": {
+    "message": "Přidělení paměti"
+  },
+  "app.settings.default-instance-options.post-exit-hook.description": {
+    "message": "Spustí se po zavření hry."
+  },
+  "app.settings.default-instance-options.post-exit-hook.placeholder": {
+    "message": "Zadej příkaz po ukončení hry..."
+  },
+  "app.settings.default-instance-options.post-exit-hook.title": {
+    "message": "Háček po ukončení"
+  },
   "app.settings.default-instance-options.pre-launch-hook.description": {
     "message": "Spustí se před spuštěním instance."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.placeholder": {
+    "message": "Zadej příkaz před spuštěním..."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "Háček před spuštěním"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "Šířka okna hry při spuštění."
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "Zadej šířku..."
   },
   "app.settings.default-instance-options.width.title": {
     "message": "Šířka"
@@ -1289,17 +2000,1055 @@
   "app.settings.default-instance-options.window.title": {
     "message": "Okno"
   },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "Příkaz použitý k obalení procesu spuštění Minecraftu."
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "Zadej příkaz obalovače..."
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "Háček obalovače"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "Přepnout režim pro vývojáře"
+  },
   "app.settings.developer-mode-enabled": {
     "message": "Vývojářský režim povolen."
   },
   "app.settings.downloading": {
     "message": "Stahování v{version}"
   },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Nenalezeny žádné příznaky odpovídající „{query}“"
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Obnovit výchozí"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Hledat příznaky…"
+  },
+  "app.settings.game-options.category.accessibility.description": {
+    "message": "Předvolby přístupnosti"
+  },
+  "app.settings.game-options.category.accessibility.label": {
+    "message": "Přístupnost"
+  },
+  "app.settings.game-options.category.chat.description": {
+    "message": "Viditelnost a vzhled chatu"
+  },
+  "app.settings.game-options.category.chat.label": {
+    "message": "Chat"
+  },
+  "app.settings.game-options.category.controls.description": {
+    "message": "Myš, pohyb a přiřazení kláves"
+  },
+  "app.settings.game-options.category.controls.label": {
+    "message": "Ovládání"
+  },
+  "app.settings.game-options.category.custom.description": {
+    "message": "Nastavení přidaná mody"
+  },
+  "app.settings.game-options.category.custom.label": {
+    "message": "Vlastní nastavení"
+  },
+  "app.settings.game-options.category.language.description": {
+    "message": "Jazyk hry"
+  },
+  "app.settings.game-options.category.language.label": {
+    "message": "Jazyk"
+  },
+  "app.settings.game-options.category.music-and-sound.description": {
+    "message": "Nastavení hlasitosti a zvuku"
+  },
+  "app.settings.game-options.category.music-and-sound.label": {
+    "message": "Hudba a zvuk"
+  },
+  "app.settings.game-options.category.online.description": {
+    "message": "Předvolby Online a Realms"
+  },
+  "app.settings.game-options.category.online.label": {
+    "message": "Online"
+  },
+  "app.settings.game-options.category.skin-customization.description": {
+    "message": "Vrstvy skinu a hlavní ruka"
+  },
+  "app.settings.game-options.category.skin-customization.label": {
+    "message": "Přizpůsobení skinu"
+  },
+  "app.settings.game-options.category.video.description": {
+    "message": "Nastavení kamery a zobrazení"
+  },
+  "app.settings.game-options.category.video.label": {
+    "message": "Obraz"
+  },
+  "app.settings.game-options.choice.all": {
+    "message": "Vše"
+  },
+  "app.settings.game-options.choice.balanced": {
+    "message": "Vyvážené"
+  },
+  "app.settings.game-options.choice.by-player": {
+    "message": "Podle hráče"
+  },
+  "app.settings.game-options.choice.chat": {
+    "message": "Chat"
+  },
+  "app.settings.game-options.choice.commands-only": {
+    "message": "Pouze příkazy"
+  },
+  "app.settings.game-options.choice.constant": {
+    "message": "Trvalé"
+  },
+  "app.settings.game-options.choice.crosshair": {
+    "message": "Zaměřovač"
+  },
+  "app.settings.game-options.choice.custom": {
+    "message": "Vlastní"
+  },
+  "app.settings.game-options.choice.decreased": {
+    "message": "Snížené"
+  },
+  "app.settings.game-options.choice.default": {
+    "message": "Výchozí"
+  },
+  "app.settings.game-options.choice.fabulous": {
+    "message": "Skvělé"
+  },
+  "app.settings.game-options.choice.fancy": {
+    "message": "Krásné"
+  },
+  "app.settings.game-options.choice.far": {
+    "message": "Daleko"
+  },
+  "app.settings.game-options.choice.fast": {
+    "message": "Rychlé"
+  },
+  "app.settings.game-options.choice.frequent": {
+    "message": "Časté"
+  },
+  "app.settings.game-options.choice.hidden": {
+    "message": "Skryté"
+  },
+  "app.settings.game-options.choice.hotbar": {
+    "message": "Panel rychlé volby"
+  },
+  "app.settings.game-options.choice.left": {
+    "message": "Vlevo"
+  },
+  "app.settings.game-options.choice.limited": {
+    "message": "Omezené"
+  },
+  "app.settings.game-options.choice.max-fps": {
+    "message": "Max. FPS"
+  },
+  "app.settings.game-options.choice.maximum": {
+    "message": "Maximum"
+  },
+  "app.settings.game-options.choice.minimal": {
+    "message": "Minimální"
+  },
+  "app.settings.game-options.choice.minimum": {
+    "message": "Minimum"
+  },
+  "app.settings.game-options.choice.nearby": {
+    "message": "Blízko"
+  },
+  "app.settings.game-options.choice.never": {
+    "message": "Nikdy"
+  },
+  "app.settings.game-options.choice.none": {
+    "message": "Žádné"
+  },
+  "app.settings.game-options.choice.normal": {
+    "message": "Normální"
+  },
+  "app.settings.game-options.choice.off": {
+    "message": "Vypnuto"
+  },
+  "app.settings.game-options.choice.on": {
+    "message": "Zapnuto"
+  },
+  "app.settings.game-options.choice.opengl": {
+    "message": "OpenGL"
+  },
+  "app.settings.game-options.choice.pause": {
+    "message": "Nabídka pozastavení"
+  },
+  "app.settings.game-options.choice.pause-and-toast": {
+    "message": "Nabídka pozastavení a oznámení"
+  },
+  "app.settings.game-options.choice.power-saver": {
+    "message": "Šetření energie"
+  },
+  "app.settings.game-options.choice.right": {
+    "message": "Vpravo"
+  },
+  "app.settings.game-options.choice.short": {
+    "message": "Krátké"
+  },
+  "app.settings.game-options.choice.shown": {
+    "message": "Zobrazené"
+  },
+  "app.settings.game-options.choice.system": {
+    "message": "Systém"
+  },
+  "app.settings.game-options.choice.tiny": {
+    "message": "Drobné"
+  },
+  "app.settings.game-options.choice.vulkan": {
+    "message": "Vulkan"
+  },
+  "app.settings.game-options.choice.when-minimized": {
+    "message": "Při minimalizaci"
+  },
+  "app.settings.game-options.choice.while-afk": {
+    "message": "Při nečinnosti"
+  },
+  "app.settings.game-options.compatibility.none": {
+    "message": "Některé tvé instance nemohou toto nastavení použít"
+  },
+  "app.settings.game-options.compatibility.reason.launcher-controlled": {
+    "message": "Toto nastavení je spravováno nastavením spuštění v {productName}."
+  },
+  "app.settings.game-options.custom-value.placeholder": {
+    "message": "Zadej hodnotu"
+  },
+  "app.settings.game-options.keybind.assigned-status": {
+    "message": "{setting} je nyní přiřazeno klávese {binding}."
+  },
+  "app.settings.game-options.keybind.cancelled-status": {
+    "message": "Změna přiřazení klávesy zrušena."
+  },
+  "app.settings.game-options.keybind.change": {
+    "message": "{setting}: {binding}. Aktivuj pro změnu přiřazení."
+  },
+  "app.settings.game-options.keybind.choose": {
+    "message": "Zvol klávesu"
+  },
+  "app.settings.game-options.keybind.conflict-description": {
+    "message": "Tuto už používá {settings}."
+  },
+  "app.settings.game-options.keybind.key.arrow-down": {
+    "message": "Šipka dolů"
+  },
+  "app.settings.game-options.keybind.key.arrow-left": {
+    "message": "Šipka vlevo"
+  },
+  "app.settings.game-options.keybind.key.arrow-right": {
+    "message": "Šipka vpravo"
+  },
+  "app.settings.game-options.keybind.key.arrow-up": {
+    "message": "Šipka nahoru"
+  },
+  "app.settings.game-options.keybind.key.backspace": {
+    "message": "Backspace"
+  },
+  "app.settings.game-options.keybind.key.caps-lock": {
+    "message": "Caps Lock"
+  },
+  "app.settings.game-options.keybind.key.delete": {
+    "message": "Delete"
+  },
+  "app.settings.game-options.keybind.key.end": {
+    "message": "End"
+  },
+  "app.settings.game-options.keybind.key.enter": {
+    "message": "Enter"
+  },
+  "app.settings.game-options.keybind.key.escape": {
+    "message": "Escape"
+  },
+  "app.settings.game-options.keybind.key.home": {
+    "message": "Home"
+  },
+  "app.settings.game-options.keybind.key.insert": {
+    "message": "Insert"
+  },
+  "app.settings.game-options.keybind.key.keypad-key": {
+    "message": "Num {key}"
+  },
+  "app.settings.game-options.keybind.key.left-alt": {
+    "message": "Levý Alt"
+  },
+  "app.settings.game-options.keybind.key.left-command": {
+    "message": "Levý Command"
+  },
+  "app.settings.game-options.keybind.key.left-control": {
+    "message": "Levý Ctrl"
+  },
+  "app.settings.game-options.keybind.key.left-shift": {
+    "message": "Levý Shift"
+  },
+  "app.settings.game-options.keybind.key.left-super": {
+    "message": "Levý Super"
+  },
+  "app.settings.game-options.keybind.key.menu": {
+    "message": "Menu"
+  },
+  "app.settings.game-options.keybind.key.num-lock": {
+    "message": "Num Lock"
+  },
+  "app.settings.game-options.keybind.key.page-down": {
+    "message": "Page Down"
+  },
+  "app.settings.game-options.keybind.key.page-up": {
+    "message": "Page Up"
+  },
+  "app.settings.game-options.keybind.key.pause": {
+    "message": "Pause"
+  },
+  "app.settings.game-options.keybind.key.print-screen": {
+    "message": "Print Screen"
+  },
+  "app.settings.game-options.keybind.key.right-alt": {
+    "message": "Pravý Alt"
+  },
+  "app.settings.game-options.keybind.key.right-command": {
+    "message": "Pravý Command"
+  },
+  "app.settings.game-options.keybind.key.right-control": {
+    "message": "Pravý Ctrl"
+  },
+  "app.settings.game-options.keybind.key.right-shift": {
+    "message": "Pravý Shift"
+  },
+  "app.settings.game-options.keybind.key.right-super": {
+    "message": "Pravý Super"
+  },
+  "app.settings.game-options.keybind.key.scroll-lock": {
+    "message": "Scroll Lock"
+  },
+  "app.settings.game-options.keybind.key.space": {
+    "message": "Mezerník"
+  },
+  "app.settings.game-options.keybind.key.tab": {
+    "message": "Tab"
+  },
+  "app.settings.game-options.keybind.key.unbound": {
+    "message": "Nepřiřazeno"
+  },
+  "app.settings.game-options.keybind.key.unknown": {
+    "message": "Neznámá klávesa"
+  },
+  "app.settings.game-options.keybind.listen": {
+    "message": "Stiskni klávesu…"
+  },
+  "app.settings.game-options.keybind.listening-status": {
+    "message": "Čeká se na klávesu nebo tlačítko myši. Stisknutím Escape toto přiřazení zrušíš."
+  },
+  "app.settings.game-options.keybind.mixed": {
+    "message": "V různých instancích různé"
+  },
+  "app.settings.game-options.keybind.modifier.alt": {
+    "message": "Alt"
+  },
+  "app.settings.game-options.keybind.modifier.command": {
+    "message": "Command"
+  },
+  "app.settings.game-options.keybind.modifier.control": {
+    "message": "Ctrl"
+  },
+  "app.settings.game-options.keybind.modifier.shift": {
+    "message": "Shift"
+  },
+  "app.settings.game-options.keybind.modifier.super": {
+    "message": "Super"
+  },
+  "app.settings.game-options.keybind.mouse.button": {
+    "message": "Myš {button}"
+  },
+  "app.settings.game-options.keybind.mouse.left": {
+    "message": "Levé tlačítko myši"
+  },
+  "app.settings.game-options.keybind.mouse.middle": {
+    "message": "Prostřední tlačítko myši"
+  },
+  "app.settings.game-options.keybind.mouse.right": {
+    "message": "Pravé tlačítko myši"
+  },
+  "app.settings.game-options.keybind.recording-label": {
+    "message": "{setting}: čeká se na klávesu nebo tlačítko myši. Stisknutím Escape toto přiřazení zrušíš."
+  },
+  "app.settings.game-options.keybind.scancode": {
+    "message": "Kód klávesy {code}"
+  },
+  "app.settings.game-options.keybind.unsupported-status": {
+    "message": "Tento vstup nemůže Minecraft použít. Stiskni jinou klávesu."
+  },
+  "app.settings.game-options.setting.advanced-opengl.label": {
+    "message": "Pokročilé OpenGL"
+  },
+  "app.settings.game-options.setting.allow-cursor-changes.label": {
+    "message": "Povolit změny kurzoru"
+  },
+  "app.settings.game-options.setting.allow-server-listing.description": {
+    "message": "Povolit zobrazení jména hráče v seznamech serverů."
+  },
+  "app.settings.game-options.setting.allow-server-listing.label": {
+    "message": "Seznamy serverů"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "Alternativní bloky"
+  },
+  "app.settings.game-options.setting.ambient-occlusion.label": {
+    "message": "Plynulé osvětlení"
+  },
+  "app.settings.game-options.setting.ambient-volume.label": {
+    "message": "Okolí/prostředí"
+  },
+  "app.settings.game-options.setting.anaglyph-3d.label": {
+    "message": "3D anaglyf"
+  },
+  "app.settings.game-options.setting.anisotropic-filtering.label": {
+    "message": "Anizotropní filtrování"
+  },
+  "app.settings.game-options.setting.anisotropy.label": {
+    "message": "Anizotropie"
+  },
+  "app.settings.game-options.setting.attack-indicator.label": {
+    "message": "Indikátor útoku"
+  },
+  "app.settings.game-options.setting.auto-jump.description": {
+    "message": "Automaticky přeskočí překážky vysoké jeden blok."
+  },
+  "app.settings.game-options.setting.auto-jump.label": {
+    "message": "Automatické skákání"
+  },
+  "app.settings.game-options.setting.auto-suggestions.label": {
+    "message": "Návrhy příkazů"
+  },
+  "app.settings.game-options.setting.autosave-indicator.label": {
+    "message": "Indikátor automatického ukládání"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.description": {
+    "message": "Vzdálenost, přes kterou barvy biomů přecházejí."
+  },
+  "app.settings.game-options.setting.biome-blend-radius.label": {
+    "message": "Přechod biomů"
+  },
+  "app.settings.game-options.setting.blocks-volume.label": {
+    "message": "Bloky"
+  },
+  "app.settings.game-options.setting.brightness.label": {
+    "message": "Jas"
+  },
+  "app.settings.game-options.setting.cape.description": {
+    "message": "Zobrazit plášť hráče včetně textury elytry."
+  },
+  "app.settings.game-options.setting.cape.label": {
+    "message": "Plášť"
+  },
+  "app.settings.game-options.setting.chat-background-only.label": {
+    "message": "Jen pozadí chatu"
+  },
+  "app.settings.game-options.setting.chat-colors.label": {
+    "message": "Barvy chatu"
+  },
+  "app.settings.game-options.setting.chat-delay.label": {
+    "message": "Zpoždění chatu"
+  },
+  "app.settings.game-options.setting.chat-line-spacing.label": {
+    "message": "Řádkování chatu"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.description": {
+    "message": "Zeptat se před otevřením odkazů z chatu."
+  },
+  "app.settings.game-options.setting.chat-links-prompt.label": {
+    "message": "Potvrzovat odkazy"
+  },
+  "app.settings.game-options.setting.chat-links.description": {
+    "message": "Povolit otevírání webových odkazů v chatu."
+  },
+  "app.settings.game-options.setting.chat-links.label": {
+    "message": "Webové odkazy"
+  },
+  "app.settings.game-options.setting.chat-opacity.description": {
+    "message": "Průhlednost textu chatu."
+  },
+  "app.settings.game-options.setting.chat-opacity.label": {
+    "message": "Průhlednost chatu"
+  },
+  "app.settings.game-options.setting.chat-preview.label": {
+    "message": "Náhled chatu"
+  },
+  "app.settings.game-options.setting.chat-scale.label": {
+    "message": "Měřítko chatu"
+  },
+  "app.settings.game-options.setting.chat-visibility.label": {
+    "message": "Viditelnost chatu"
+  },
+  "app.settings.game-options.setting.chat-width.label": {
+    "message": "Šířka chatu"
+  },
+  "app.settings.game-options.setting.chunk-fade-time.label": {
+    "message": "Doba prolínání chunků"
+  },
+  "app.settings.game-options.setting.cloud-range.label": {
+    "message": "Vzdálenost oblaků"
+  },
+  "app.settings.game-options.setting.clouds.label": {
+    "message": "Oblaka"
+  },
+  "app.settings.game-options.setting.ctrl-click-right-click.label": {
+    "message": "Ctrl-klik jako pravé tlačítko"
+  },
+  "app.settings.game-options.setting.cutout-leaves.label": {
+    "message": "Prořezané listí"
+  },
+  "app.settings.game-options.setting.damage-tilt.label": {
+    "message": "Náklon při zranění"
+  },
+  "app.settings.game-options.setting.dark-splash.description": {
+    "message": "Změní načítací obrazovku Mojang Studios z červené na černou."
+  },
+  "app.settings.game-options.setting.dark-splash.label": {
+    "message": "Monochromatické logo"
+  },
+  "app.settings.game-options.setting.darkness-pulsing.label": {
+    "message": "Pulzování temnoty"
+  },
+  "app.settings.game-options.setting.debug-gui-scale.label": {
+    "message": "Měřítko ladicího GUI"
+  },
+  "app.settings.game-options.setting.directional-audio.label": {
+    "message": "Prostorový zvuk"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.description": {
+    "message": "Považovat každý vstup kolečka myši za jeden krok posunu."
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.label": {
+    "message": "Diskrétní posun"
+  },
+  "app.settings.game-options.setting.entity-distance.label": {
+    "message": "Vzdálenost entit"
+  },
+  "app.settings.game-options.setting.entity-shadows.label": {
+    "message": "Stíny entit"
+  },
+  "app.settings.game-options.setting.exclusive-fullscreen.label": {
+    "message": "Exkluzivní celá obrazovka"
+  },
+  "app.settings.game-options.setting.extra-telemetry.label": {
+    "message": "Volitelná telemetrie"
+  },
+  "app.settings.game-options.setting.focused-chat-height.label": {
+    "message": "Výška chatu (otevřený)"
+  },
+  "app.settings.game-options.setting.force-unicode-font.label": {
+    "message": "Vynutit písmo Unicode"
+  },
+  "app.settings.game-options.setting.fov-effects.label": {
+    "message": "Efekty zorného pole"
+  },
+  "app.settings.game-options.setting.fov.label": {
+    "message": "Zorné pole"
+  },
+  "app.settings.game-options.setting.fullscreen.label": {
+    "message": "Celá obrazovka"
+  },
+  "app.settings.game-options.setting.glint-speed.label": {
+    "message": "Rychlost třpytu"
+  },
+  "app.settings.game-options.setting.glint-strength.label": {
+    "message": "Síla třpytu"
+  },
+  "app.settings.game-options.setting.graphics-backend.label": {
+    "message": "Grafické rozhraní"
+  },
+  "app.settings.game-options.setting.graphics.description": {
+    "message": "Řídí vizuální kvalitu a výkon."
+  },
+  "app.settings.game-options.setting.graphics.label": {
+    "message": "Grafika"
+  },
+  "app.settings.game-options.setting.gui-scale.description": {
+    "message": "Velikost herního rozhraní a HUD."
+  },
+  "app.settings.game-options.setting.gui-scale.label": {
+    "message": "Měřítko GUI"
+  },
+  "app.settings.game-options.setting.hat.description": {
+    "message": "Zobrazit vrstvu skinu s kloboukem."
+  },
+  "app.settings.game-options.setting.hat.label": {
+    "message": "Klobouk"
+  },
+  "app.settings.game-options.setting.held-item-tooltips.label": {
+    "message": "Popisky drženého předmětu"
+  },
+  "app.settings.game-options.setting.hide-lightning-flashes.label": {
+    "message": "Skrýt záblesky blesků"
+  },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "Skrýt odpovídající jména"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "Skrýt adresu serveru"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "Skrýt texty na úvodní obrazovce"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "Vysokokontrastní obrys bloků"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "Zvýšit kontrast prvků rozhraní."
+  },
+  "app.settings.game-options.setting.high-contrast.label": {
+    "message": "Vysoký kontrast"
+  },
+  "app.settings.game-options.setting.hostile-volume.label": {
+    "message": "Nepřátelská stvoření"
+  },
+  "app.settings.game-options.setting.improved-transparency.label": {
+    "message": "Vylepšená průhlednost"
+  },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "Oznámení ve hře"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "Snížená snímková frekvence"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "Invertovat horizontální pohyb myši"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "Invertovat vertikální pohyb myši."
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "Invertovat myš"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "Zobrazit vrstvu skinu s bundou."
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "Bunda"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "Japonské varianty znaků"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "Pokroky"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "Útok"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "Pohyb vzad"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "Otevřít chat"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "Příkaz"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "Zobrazit pokročilé popisky"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "Zobrazit hranice chunků"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "Vymazat chat"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "Kopírovat polohu"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "Kopírovat příkaz pro obnovení"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "Vyvolat ladicí pád"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "Vysypat dynamické textury"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "Vysypat verzi"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "Pozastavit při ztrátě zaměření"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "Grafy FPS"
+  },
+  "app.settings.game-options.setting.key-debug-hitboxes.label": {
+    "message": "Zobrazit kolizní boxy"
+  },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "Ladicí náhled vylepšené průhlednosti"
+  },
+  "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
+    "message": "Textura lightmapy"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "Ladicí modifikátor"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "Síťové grafy"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "Ladicí možnosti"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "Ladicí překryv"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "Graf profilování"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "Spustit profilování"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "Znovu načíst chunky"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "Znovu načíst balíčky zdrojů"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "Sledovat entitu"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "Přepnout herní režim"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "Upustit předmět"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "Pohyb vpřed"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "Přátelé"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "Přepnout celou obrazovku"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "Panel rychlé volby 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "Panel rychlé volby 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "Panel rychlé volby 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "Panel rychlé volby 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "Panel rychlé volby 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "Panel rychlé volby 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "Panel rychlé volby 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "Panel rychlé volby 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "Panel rychlé volby 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "Inventář"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "Skok"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "Úkrok vlevo"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "Načíst panel nástrojů"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "Změnit perspektivu"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "Vybrat blok"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "Seznam hráčů"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "Rychlé akce"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "Úkrok vpravo"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "Uložit panel nástrojů"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "Snímek obrazovky"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "Přepnout filmovou kameru"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "Plížení"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "Sociální interakce"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "Panel rychlé volby diváka"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "Zvýraznit diváky"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "Sprint"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "Prohodit druhou ruku"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "Přepnout HUD"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "Přepnout shader diváka"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "Použít předmět"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "Jazyk"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "Levá nohavice"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "Levý rukáv"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "Limit snímkové frekvence"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "Vzdálenost vykreslování"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "Zobrazit nabídku macOS v celé obrazovce"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "Zvol, zda je hlavní ruka levá, nebo pravá."
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "Hlavní ruka"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "Celková hlasitost"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "Maximální snímková frekvence"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "Rozostření pozadí nabídky"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "Vyhlazování textur na dálku."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "Úrovně mipmap"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "Citlivost kolečka myši"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "Frekvence hudby"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "Zvol, zda se názvy skladeb zobrazují v nabídce pozastavení a jako oznámení."
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "Oznámení hudby"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "Hudba"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "Klávesová zkratka vypravěče"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "Zvol, co vypravěč předčítá."
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "Vypravěč"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "Přátelská stvoření"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "Jak dlouho zůstávají oznámení viditelná."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "Doba oznámení"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "Karta předmětů operátora"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "Rychlost panoramatu"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "Částice"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "Hráči"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "Upřednostnit aktualizace chunků"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "Zkratky pro ukončení"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "Surový vstup myši"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "Oznámení Realms"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "Hudební bloky"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "Omezené ladicí informace"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "Vzdálenost vykreslování"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "Pravá nohavice"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "Pravý rukáv"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "Otáčet s vozíkem"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "Ukládat koncepty chatu"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "Obrazovkové efekty"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "Zobrazit jen zabezpečený chat"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "Citlivost myši"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "Textury serveru"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "Sdílet stav"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "Jak daleko se aktualizují entity a tickují bloky a kapaliny."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "Vzdálenost simulace"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Snooper"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "Okno sprintu"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "Zobrazit titulky pro zvuky přehrávané ve hře."
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "Titulky"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "Průhlednost pozadí textu"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "Filtrování textur"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "Přepínat útok"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "Stiskni jednou pro trvalé skrčení."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "Přepínat plížení"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "Stiskni jednou pro trvalý sprint."
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "Přepínat sprint"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "Přepínat používání"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "Režim dotykové obrazovky"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "Uživatelské rozhraní"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "Výška chatu (zavřený)"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "Použít VBO"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "Přidá kameře při chůzi houpavý pohyb."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "Houpání kamery"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "Vinětace"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "Hlas a řeč"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "Omezí snímkovou frekvenci na obnovovací frekvenci displeje, aby se zabránilo trhání obrazu."
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "Poloměr počasí"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "Počasí"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "Toto nastavení bylo změněno jinde. Zkontroluj ho a zkus to znovu."
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "Zvol platnou hodnotu."
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "Nejprve zvol hodnotu."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "Některé tvé instance nemohou toto nastavení použít"
+  },
   "app.settings.java-installations.location.title": {
     "message": "Umístění Javy {version, number}"
   },
   "app.settings.operating-system.macos": {
     "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Zobrazovat {productName} jako tvou aktuální aktivitu na Discordu. Neovlivní to Rich Presence, kterou instancím přidávají mody."
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord Rich Presence"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "Zobrazit akci Kopírovat podrobnosti, když je instalace ve frontě nebo probíhá. U neúspěšných nebo přerušených instalací je vždy dostupná."
   },
   "app.settings.resource-management.always-show-copy-details.title": {
     "message": "Vždy zobrazazovat podrobnosti kopie"
@@ -1310,11 +3059,17 @@
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "Vymazat mezipaměť aplikace?"
   },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Vymaž data v mezipaměti a stáhni je znovu. Aplikace se může do obnovení mezipaměti načítat pomaleji."
+  },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Vymazat mezipaměť"
   },
   "app.settings.resource-management.app-cache.title": {
     "message": "Mezipaměť aplikace"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "Zde se ukládají zálohy důležitých dat aplikace pro případ, že je budeš potřebovat později obnovit."
   },
   "app.settings.resource-management.app-database-backups.open-folder": {
     "message": "Otevřít složku zaloh"
@@ -1325,11 +3080,143 @@
   "app.settings.resource-management.app-directory.browse": {
     "message": "Procházet pro adresář aplikace"
   },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "Kam {productName} ukládá instance a další soubory. Změny se projeví po restartu aplikace."
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "Vybrat nový adresář aplikace"
+  },
   "app.settings.resource-management.app-directory.title": {
     "message": "Složka aplikace"
   },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "Počet souborů, které aplikace může stahovat najednou. Sniž to, pokud jsou stahování na tvém připojení nespolehlivá. Vyžaduje restart aplikace."
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "Maximální počet souběžných stahování"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "Počet souborů, které aplikace může najednou zapisovat na disk. Sniž to, pokud často narážíš na chyby I/O. Vyžaduje restart aplikace."
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "Maximální počet souběžných zápisů"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Některé soubory stále vyžadují pozornost"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Uchovávat až tolik nepoužitého obsahu pro budoucí instalace. Uchování více může ušetřit čas stahování."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Uchovávat nevyužitá stahování"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Počítá se"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Vymazat nevyužité"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Smazat stažený nevyužitý obsah"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "Uvolněno {size} místa na disku."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Vymazávání…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Šetři místo opětovným využitím instalací hry, modů a balíčků napříč instancemi."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Nainstaluj mody nebo balíčky a uvidíš zde své využití úložiště."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Zobrazit {count, plural, one {# problém} few {# problémy} other {# problémů}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Žádný nevyužitý obsah k vymazání."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Ověřit a opravit"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Tím se zavřou všechny běžící instance."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Zkontroluj chybějící nebo poškozené soubory a oprav je."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Ověřování a oprava…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Sdílené"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Úložiště obsahu"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} uloženo"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Unikátní"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Osiřelé"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "Zkontrolováno {checked, plural, one {# soubor} few {# soubory} other {# souborů}} a provedeno {repaired, plural, one {# oprava} few {# opravy} other {# oprav}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Ověření dokončeno"
+  },
   "app.settings.sidebar.label.instances": {
     "message": "Instance"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Zvol, z které instance zkopírovat historii příkazů. Tato historie se použije jen pro úvodní synchronizaci a poté ji můžeš upravovat z jakékoli instance."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Zvolit zdroj historie příkazů"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Zvol, z které instance zkopírovat uložené panely rychlé volby v kreativním režimu. Tyto panely se použijí jen pro úvodní synchronizaci a poté je můžeš upravovat z jakékoli instance."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Zvolit zdroj kreativních panelů rychlé volby"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Zvolit zdroj datových balíčků"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Zvol, z které instance zkopírovat nastavení hry. Tato nastavení se použijí jen pro úvodní synchronizaci a poté je můžeš upravovat z jakékoli instance."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Zvolit zdroj nastavení hry"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Tuto instanci nelze zvolit jako zdroj synchronizace"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Nepodařilo se načíst zdroje synchronizace. Zkus to prosím znovu."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Zvol, z které instance zkopírovat servery pro více hráčů. Tyto servery se použijí jen pro úvodní synchronizaci a poté je můžeš upravovat z jakékoli instance."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Zvolit zdroj serverů pro více hráčů"
+  },
+  "app.settings.synced-options.choose-sync-source.no-instances-found": {
+    "message": "Nenalezeny žádné instance"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Zvolit zdroj balíčků zdrojů"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Zkusit znovu"
   },
   "app.settings.synced-options.choose-sync-source.search-placeholder": {
     "message": "Prohledat instanci"
@@ -1346,17 +3233,179 @@
   "app.settings.synced-options.command-history.editor-title": {
     "message": "Upravit historii příkazů"
   },
+  "app.settings.synced-options.creative-hotbars": {
+    "message": "Synchronizovat uložené kreativní panely rychlé volby"
+  },
+  "app.settings.synced-options.creative-hotbars.description": {
+    "message": "Používat stejné uložené kreativní panely rychlé volby ve všech instancích."
+  },
+  "app.settings.synced-options.data-packs": {
+    "message": "Synchronizovat datové balíčky"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Používat stejné datové balíčky ve všech instancích"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Zatím jsi nesynchronizoval žádné datové balíčky"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Před úpravou synchronizovaných dat přidej instanci."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Před úpravou tohoto nastavení zvol zdroj synchronizace."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "Synchronizovat nastavení hry"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Upravit nastavení hry"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "Načetli jsme nejnovější nastavení. Zkontroluj své změny a znovu je ulož."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Tato nastavení byla změněna jinde"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Nastavení přidaná mody se objeví zde, jakmile je {productName} najde v některé z tvých instancí."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Používat stejné možnosti hry ve všech instancích."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "Zrušit synchronizaci všeho"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Než zvolíš jednotlivá nastavení, zapni synchronizaci nastavení hry."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Tvému hledání nebo filtru neodpovídají žádná nastavení."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "Synchronizovat vše"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "Tvá nastavení hry se nepodařilo načíst."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Načítání nastavení..."
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Zatím nemáš žádné možnosti k úpravě"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Nesynchronizuje se"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "Zkusit znovu"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "Uložit nastavení"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Hledat nastavení..."
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Synchronizované možnosti se použijí na každou instanci a přepíší hodnoty obsažené v modpacku."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "Synchronizovat {setting} mezi instancemi"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "Synchronizovat nastavení hry"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Synchronizováno mezi instancemi"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Nastavení hry"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Máš neuložené změny."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "Zastavit synchronizaci {setting} mezi instancemi"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "V různých instancích různé"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "Vypnuto"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "Zapnuto"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Zvol hodnotu"
+  },
+  "app.settings.synced-options.multiplayer-servers": {
+    "message": "Synchronizovat servery pro více hráčů"
+  },
   "app.settings.synced-options.multiplayer-servers.address": {
     "message": "Adresa serveru"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Kopírovat adresu"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {# server} few {# servery} other {# serverů}}"
+  },
+  "app.settings.synced-options.multiplayer-servers.description": {
+    "message": "Používat stejné servery pro více hráčů ve všech instancích."
   },
   "app.settings.synced-options.multiplayer-servers.editor-title": {
     "message": "Upravit synchronizované servery"
   },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "Momentálně nejsou synchronizovány žádné uživatelem přidané servery."
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "Offline"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "Online"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "Další možnosti serveru"
+  },
   "app.settings.synced-options.multiplayer-servers.name": {
     "message": "Název serveru"
   },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Tvému hledání nebo filtrům neodpovídají žádné synchronizované servery."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Zatím jsi nesynchronizoval žádné servery"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} online"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "Hledat {count, number} {count, plural, one {synchronizovaný server} few {synchronizované servery} other {synchronizovaných serverů}}..."
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Stav"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Než upravíš sdílené balíčky, zapni synchronizaci."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "Synchronizovat balíčky zdrojů"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Používat stejné balíčky zdrojů ve všech instancích."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "Zatím jsi nesynchronizoval žádné balíčky zdrojů"
+  },
   "app.settings.tabs.appearance": {
     "message": "Vzhled"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "Chování"
+  },
+  "app.settings.tabs.features": {
+    "message": "Funkce"
   },
   "app.settings.tabs.java-installations": {
     "message": "Instalace Javy"
@@ -1370,6 +3419,45 @@
   "app.settings.tabs.resource-management": {
     "message": "Správa zdrojů"
   },
+  "app.settings.tabs.synced-options": {
+    "message": "Synchronizovaná nastavení"
+  },
+  "app.sidebar.advertising.label": {
+    "message": "Reklama"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Náhled · umístění {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Další modpack"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Pozastavit střídání"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} z {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Předchozí modpack"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Obnovit střídání"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Doporučené modpacky"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Doporučené modpacky momentálně nejsou dostupné."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Zobrazit projekt"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Prozkoumat hosting"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Váš příští server Minecraft"
+  },
   "app.skins.add-button": {
     "message": "Přidat skin"
   },
@@ -1378,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Použít"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Všechny modely"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klasický"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Výchozí"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Žádné skiny nenalezeny. Zkuste jiné vyhledávání."
+  },
+  "app.skins.catalog.error": {
+    "message": "Tento poskytovatel skinů není k dispozici. Zkuste to později znovu."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Načítání skinů…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Prohledat celou veřejnou galerii MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "Model"
+  },
+  "app.skins.catalog.next": {
+    "message": "Další stránka"
+  },
+  "app.skins.catalog.page": {
+    "message": "Stránka {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Oblíbené"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Předchozí stránka"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Poskytovatelé skinů"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Poskytovatel dosáhl limitu požadavků. Před opakovaným pokusem počkejte."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Nedávné"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Zkusit znovu"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Skin uložen do Výchozí"
+  },
+  "app.skins.catalog.search": {
+    "message": "Hledat skiny…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Vyhledat"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Štíhlý"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Třídit podle"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tag (volitelný)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Trendující"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Tento poskytovatel zatím není nakonfigurován."
   },
   "app.skins.delete-button": {
     "message": "Smazat skin"
@@ -1388,11 +3548,23 @@
   "app.skins.delete-modal.title": {
     "message": "Opravdu chceš smazat tenhle skin?"
   },
+  "app.skins.demo.apply-tooltip": {
+    "message": "Pro použití skinů se přihlas."
+  },
+  "app.skins.demo.description": {
+    "message": "Přihlas se ke svému účtu Minecraftu, abys mohl ukládat a používat skiny!"
+  },
+  "app.skins.demo.title": {
+    "message": "Úprava s demem účtem"
+  },
   "app.skins.dropped-file-error.text": {
     "message": "Nepodařilo se načíst přetažený soubor."
   },
   "app.skins.dropped-file-error.title": {
     "message": "Chyba při načítání souboru"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "Tento skin používá funkce z modu {ears}"
   },
   "app.skins.edit-button": {
     "message": "Upravit skin"
@@ -1505,6 +3677,141 @@
   "app.skins.title": {
     "message": "Výběr skinu"
   },
+  "app.skins.toggle-ears-features-off": {
+    "message": "Vypnout"
+  },
+  "app.skins.toggle-ears-features-on": {
+    "message": "Zapnout"
+  },
+  "app.sync-instances-update.badge": {
+    "message": "Novinka v této aktualizaci"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "Zvol, z které instance zkopírovat nastavení hry, balíčky zdrojů, historii příkazů, kreativní panely rychlé volby a servery pro více hráčů. Tato nastavení se použijí jen pro úvodní synchronizaci a poté je můžeš upravovat z jakékoli instance."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "Zvolit zdroj synchronizace"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Zvol, z které instance zkopírovat datové balíčky. Tyto balíčky se použijí jen pro úvodní synchronizaci a poté je můžeš upravovat z jakékoli instance."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Zvol, z které instance zkopírovat balíčky zdrojů. Tyto balíčky se použijí jen pro úvodní synchronizaci a poté je můžeš upravovat z jakékoli instance."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "Synchronizovat kreativní panely rychlé volby"
+  },
+  "app.sync-instances-update.description": {
+    "message": "Nyní můžeš synchronizovat možnosti jako nastavení hry, servery, balíčky zdrojů a další mezi svými instancemi, takže vše zůstane stejné při každém hraní!"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "Tvá nastavení synchronizace se nepodařilo načíst. Zkus to prosím znovu."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "Synchronizaci můžeš zapnout nyní a spravovat ji později v nastavení aplikace."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "Udržuj nastavení hry, servery, balíčky zdrojů a další synchronizované napříč svými instancemi."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "Zavřít"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "Synchronizuj své instance"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "Zobrazit aktualizaci"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "Zkusit znovu"
+  },
+  "app.sync-instances-update.skip": {
+    "message": "Přeskočit"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "Synchronizovat vše"
+  },
+  "app.sync-instances-update.title": {
+    "message": "Synchronizuj své instance"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "Vypni to ve všech synchronizovaných instancích, nebo jen v této. Vypnutím jen zde zapneš přepisy pro tuto instanci."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "Vypnout všude"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "Vypnout tento obsah ve všech synchronizovaných instancích."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "Vypnout zde"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "Vypnout obsah?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "Zapni to ve všech synchronizovaných instancích, nebo jen v této. Zapnutím jen zde zapneš přepisy pro tuto instanci."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Zapnout všude"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Zapnout tento obsah ve všech synchronizovaných instancích."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Zapnout zde"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "Zapnout obsah?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Smazat všude"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Smazat zde"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Smazáním tohoto obsahu ho smažeš ve všech svých instancích"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Vybraný obsah, který není synchronizovaný, bude smazán jen z této instance."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Můžeš ho odebrat jen z této instance, nebo ze všech synchronizovaných instancí. Odebráním pouze z této instance se zapnou přepisy a tato instance už nebude dostávat synchronizované změny těchto typů obsahu."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "Můžeš {count, plural, one {ho} few {je} other {je}} odebrat jen z této instance, nebo ze všech synchronizovaných instancí. Odebráním {count, plural, one {ho} few {je} other {je}} pouze z této instance se zapnou přepisy a tato instance už nebude dostávat synchronizované změny balíčků zdrojů."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {Tento balíček zdrojů je synchronizován} few {Tyto balíčky zdrojů jsou synchronizovány} other {Tyto balíčky zdrojů jsou synchronizovány}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Tato instance si ponechá vlastní kopii. Chceš tento obsah ponechat synchronizovaný v ostatních instancích, nebo ho z nich odebrat?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "Ponechat"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "Odebrat"
+  },
+  "app.synced-content.desync.title": {
+    "message": "Zrušit synchronizaci obsahu"
+  },
+  "app.synced-content.warning.title": {
+    "message": "Tento obsah je synchronizován"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "Synchronizované datové balíčky"
+  },
+  "app.synced-packs.empty": {
+    "message": "Začni synchronizovat přidáním balíčků ze stránky obsahu instance."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "Balíčky se nepodařilo načíst. Zkus aktualizovat."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Synchronizované balíčky zdrojů"
+  },
   "app.update-popup.body.download-complete": {
     "message": "Stahování {productName} v{version} bylo dokončeno. Aktualizujte ji znovunačtením nebo se automaticky aktualizuje po zavření."
   },
@@ -1538,9 +3845,6 @@
   "app.update.download-error.missing-version": {
     "message": "Nepodařilo se stáhnout aktualizaci: není k dispozici žádná verze"
   },
-  "app.user.project.install-to-instance": {
-    "message": "Instalovat do instance"
-  },
   "app.welcome-screen.create-instance": {
     "message": "Vytvořit instanci"
   },
@@ -1557,7 +3861,70 @@
     "message": "Stiskněte <shortcut>N</shortcut> pro rychlé vytvoření instance"
   },
   "app.welcome-screen.title": {
-    "message": "Vítejte v Modrinthu"
+    "message": "Vítejte v {productName}u"
+  },
+  "app.window-controls.close": {
+    "message": "Zavřít okno"
+  },
+  "app.window-controls.minimize": {
+    "message": "Minimalizovat okno"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Přepnout maximalizaci okna"
+  },
+  "app.world-install.backup": {
+    "message": "Nahrazení uchová zálohu stávajícího světa. Ponechat a Zrušit nic nenainstalují. Instalace další kopie vytvoří očíslovaný svět."
+  },
+  "app.world-install.backup-location": {
+    "message": "Předchozí svět byl uložen do {path} v instanci."
+  },
+  "app.world-install.conflict": {
+    "message": "Svět s tímto názvem nebo z tohoto projektu již existuje."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Instalovat i přes rozdílnou verzi"
+  },
+  "app.world-install.copy": {
+    "message": "Instalovat další kopii"
+  },
+  "app.world-install.description": {
+    "message": "Nainstalujte nový svět do instance. Stávající světy zůstanou zachovány, pokud se nerozhodnete některý nahradit."
+  },
+  "app.world-install.incompatible": {
+    "message": "Tento soubor neuvádí kompatibilitu s Minecraftem {version}. Před pokračováním zkontrolujte verzi a požadované mody uvedené autorem."
+  },
+  "app.world-install.installed": {
+    "message": "Svět nainstalován: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Cílová instance"
+  },
+  "app.world-install.keep": {
+    "message": "Ponechat stávající"
+  },
+  "app.world-install.no-instances": {
+    "message": "Nejprve vytvořte instanci Minecraftu a poté se sem vraťte a nainstalujte svět."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Zobrazit světy"
+  },
+  "app.world-install.replace": {
+    "message": "Nahradit"
+  },
+  "app.world-install.replace-target": {
+    "message": "Svět k nahrazení"
+  },
+  "app.world-install.requirements": {
+    "message": "Požadované mody nebo modpacky již musí být nainstalovány v cílové instanci. Přečtěte si popis projektu."
+  },
+  "app.world-install.title": {
+    "message": "Instalovat svět"
+  },
+  "app.world-install.version": {
+    "message": "Verze světa"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
   },
   "app.world.server-modal.select-an-option": {
     "message": "Vybrat možnost"
@@ -1574,14 +3941,14 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
-  "content.shared-instance.disable-button": {
-    "message": "Přesto zakázat"
+  "curseforge.manual.description": {
+    "message": "Stáhni {file} z jeho oficiální stránky CurseForge a vyber stažený soubor pro pokračování. Jeho velikost a SHA-1 budou ověřeny."
   },
-  "content.shared-instance.disable-many-button": {
-    "message": "Přesto zakázat {count, number} projekty"
+  "curseforge.manual.select": {
+    "message": "Vybrat stažený soubor"
   },
-  "installation-settings.shared-instance.unlinking-button": {
-    "message": "Odpojování..."
+  "curseforge.manual.title": {
+    "message": "Je nutné ruční stažení"
   },
   "instance.action.create-shortcut": {
     "message": "Vytvořit zkratku"
@@ -1648,6 +4015,9 @@
   },
   "instance.files.adding-files": {
     "message": "Přidávání souborů ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "Spravuj svůj nainstalovaný obsah na kartě Obsah"
   },
   "instance.files.save-as": {
     "message": "Uložit jako..."
@@ -1796,9 +4166,6 @@
   "instance.icon-editor.symbol.moobloom": {
     "message": "Moobloom"
   },
-  "instance.icon-editor.symbol.mr-pack": {
-    "message": "Mr Pack"
-  },
   "instance.icon-editor.symbol.neoforge": {
     "message": "NeoForge"
   },
@@ -1823,8 +4190,14 @@
   "instance.icon-editor.symbol.redstone-block": {
     "message": "Redstone Blok"
   },
+  "instance.icon-editor.symbol.sculk-sensor": {
+    "message": "Sculk senzor"
+  },
   "instance.icon-editor.symbol.skeleton": {
     "message": "Kostlivec"
+  },
+  "instance.icon-editor.symbol.skillet": {
+    "message": "Pánev"
   },
   "instance.icon-editor.symbol.slime-block": {
     "message": "Slimový blok"
@@ -1859,14 +4232,41 @@
   "instance.last-played": {
     "message": "Naposledy hráno"
   },
+  "instance.locked.badge": {
+    "message": "Uzamčeno"
+  },
   "instance.locked.delete-button": {
     "message": "Smazat instanci"
+  },
+  "instance.locked.info-label": {
+    "message": "Informace o uzamčené instanci"
   },
   "instance.locked.play-tooltip": {
     "message": "Tato instance byla uzamčena"
   },
+  "instance.locked.text": {
+    "message": "Tato instance je uzamčena a nelze ji hrát ani měnit. Můžeš ji smazat."
+  },
+  "instance.locked.title": {
+    "message": "Instance uzamčena"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Zavaděč modů a verze Minecraftu"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# hodina} few {# hodiny} other {# hodin}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# minuta} few {# minuty} other {# minut}}"
+  },
   "instance.playtime.never-played": {
     "message": "Nikdy nehráno"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# sekunda} few {# sekundy} other {# sekund}}"
+  },
+  "instance.playtime.total": {
+    "message": "Celková doba hraní"
   },
   "instance.server-modal.address": {
     "message": "Adresa"
@@ -1880,32 +4280,32 @@
   "instance.server-modal.resource-pack": {
     "message": "Balíček textur"
   },
-  "instance.settings.sharing.active-invites.actions": {
-    "message": "Akce"
+  "instance.settings.synced-options.data-override": {
+    "message": "Vypni tento přepis, abys mohl upravovat synchronizovaná data."
   },
-  "instance.settings.sharing.active-invites.code": {
-    "message": "Odkaz s pozvánkou"
+  "instance.settings.synced-options.data-packs": {
+    "message": "Zrušit synchronizaci datových balíčků"
   },
-  "instance.settings.sharing.active-invites.expires": {
-    "message": "Vyprší"
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Udržovat datové balíčky této instance oddělené od synchronizovaných balíčků."
   },
-  "instance.settings.sharing.active-invites.revoke": {
-    "message": "Zrušit pozvánku"
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "Synchronizace datových balíčků je v nastavení aplikace vypnutá."
   },
-  "instance.settings.sharing.active-invites.revoke-with-code": {
-    "message": "Zrušit pozvánku pro {code}"
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Upravit synchronizované balíčky"
   },
-  "instance.settings.sharing.active-invites.title": {
-    "message": "Aktivní pozvánky"
+  "instance.settings.synced-options.packs-override": {
+    "message": "Vypni tento přepis, abys mohl upravovat synchronizované balíčky. Nezávislé balíčky lze spravovat na kartě obsahu."
   },
-  "instance.settings.sharing.active-invites.uses": {
-    "message": "Využití"
+  "instance.settings.synced-options.resource-packs": {
+    "message": "Zrušit synchronizaci balíčků zdrojů"
   },
-  "instance.settings.sharing.revoke-invite.confirm": {
-    "message": "Zrušit pozvánku"
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Udržovat balíčky zdrojů této instance oddělené od synchronizovaných balíčků."
   },
-  "instance.settings.sharing.revoke-invite.header": {
-    "message": "Zrušit pozvánku"
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "Synchronizace balíčků zdrojů je v nastavení aplikace vypnutá."
   },
   "instance.settings.tabs.general": {
     "message": "Obecné"
@@ -1982,6 +4382,9 @@
   "instance.settings.tabs.general.update-channel.select": {
     "message": "Vyber aktualizační kanál"
   },
+  "instance.settings.tabs.hooks.description": {
+    "message": "Spouštět systémové příkazy specifické pro instanci před spuštěním hry a po něm."
+  },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "Po ukončení"
   },
@@ -2000,8 +4403,23 @@
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "Zadej příkaz k provedení před spuštěním..."
   },
+  "instance.settings.tabs.hooks.title": {
+    "message": "Vlastní háčky spuštění hry"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "Háčky se spouštějí v pracovním adresáři instance s následujícími proměnnými:"
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR: Absolutní cesta ke složce instance"
+  },
   "instance.settings.tabs.hooks.variables.inst-id.description": {
     "message": "$INST_ID: Název složky instance"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS: Argumenty JVM poskytnuté hře"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA: Absolutní cesta ke spustitelnému souboru Javy"
   },
   "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
     "message": "$INST_MC_DIR: Alias pro $INST_DIR"
@@ -2024,17 +4442,110 @@
   "instance.settings.tabs.installation.loader-version": {
     "message": "{loader} verze"
   },
+  "instance.settings.tabs.installation.locked": {
+    "message": "Nastavení instalace nejsou dostupná, dokud je tato instance uzamčena."
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "Nastavit proměnné prostředí zvlášť pro tuto instanci."
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "Nastavit argumenty Javy zvlášť pro tuto instanci."
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "Zvolit jinou instalaci Javy pro tuto instanci."
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "Nastavit přidělení paměti zvlášť pro tuto instanci."
+  },
   "instance.settings.tabs.java.enter-environment-variables": {
     "message": "Zadej proměnná prostředí..."
   },
   "instance.settings.tabs.java.enter-java-arguments": {
     "message": "Zadej argumenty Javy..."
   },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "Vlastní proměnné prostředí"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "Hooky"
   },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "Vlastní argumenty Javy"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "Vlastní instalace Javy"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "Vlastní přidělení paměti"
+  },
   "instance.settings.tabs.java.java-path-placeholder": {
     "message": "/path/to/java"
+  },
+  "instance.settings.tabs.settings-overrides": {
+    "message": "Přepisy synchronizace"
+  },
+  "instance.settings.tabs.synced-options.command-history": {
+    "message": "Zrušit synchronizaci historie příkazů"
+  },
+  "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
+    "message": "Synchronizace historie příkazů je v nastavení aplikace vypnutá."
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "Udržovat historii příkazů této instance oddělenou od synchronizované historie příkazů."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "Zrušit synchronizaci uložených kreativních panelů rychlé volby"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "Synchronizace uložených kreativních panelů rychlé volby je v nastavení aplikace vypnutá."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "Udržovat kreativní panely rychlé volby uložené v této instanci oddělené od synchronizovaných panelů."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "Zrušit synchronizaci nastavení hry"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Udržovat soubor options.txt této instance oddělený od synchronizované kopie."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "Synchronizace nastavení hry je v nastavení aplikace vypnutá."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "Než se cokoli změní, vytvoří se záloha nahrazované verze."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "{instance} a tvá synchronizovaná verze mají různé kreativní panely rychlé volby. Zvol, který použít ve všech svých instancích."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "Zvolit kreativní panely rychlé volby"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "Přepsat ostatní"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "Použít synchronizované"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "Zrušit synchronizaci serverů pro více hráčů"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "Synchronizace serverů pro více hráčů je v nastavení aplikace vypnutá."
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "Udržovat servery pro více hráčů této instance oddělené od synchronizovaných serverů."
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "Spravovat synchronizovaná nastavení"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "Zapni přepis, aby synchronizované nastavení zůstalo pro tuto instanci oddělené."
+  },
+  "instance.settings.tabs.window": {
+    "message": "Vlastní nastavení okna"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "Nakonfiguruj celou obrazovku a rozlišení spuštění zvlášť pro tuto instanci."
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "Režim celé obrazovky"
@@ -2060,15 +4571,6 @@
   "instance.settings.tabs.window.width.enter": {
     "message": "Zadej šířku..."
   },
-  "instance.shared-instance.network-error.title": {
-    "message": "Chyba sítě"
-  },
-  "instance.shared-instance.publish-review.added-label": {
-    "message": "Přidáno"
-  },
-  "instance.shared-instance.publish-review.removed-label": {
-    "message": "Odstraněno"
-  },
   "instance.worlds.a_minecraft_server": {
     "message": "Minecraft server"
   },
@@ -2084,11 +4586,20 @@
   "instance.worlds.create_shortcut": {
     "message": "Vytvořit záložku"
   },
+  "instance.worlds.desync-server.description": {
+    "message": "Chceš tento server ponechat v ostatních synchronizovaných instancích, nebo ho z nich odebrat?"
+  },
   "instance.worlds.desync-server.keep": {
     "message": "Ponechat"
   },
   "instance.worlds.desync-server.remove": {
     "message": "Odstranit"
+  },
+  "instance.worlds.desync-server.title": {
+    "message": "Zrušit synchronizaci serveru"
+  },
+  "instance.worlds.desync_server": {
+    "message": "Zrušit synchronizaci"
   },
   "instance.worlds.dont_show_on_home": {
     "message": "Nezobrazovat na domovské stránce"
@@ -2102,8 +4613,14 @@
   "instance.worlds.incompatible_server": {
     "message": "Server je nekompatibilní"
   },
+  "instance.worlds.instance-locked": {
+    "message": "Tato instance byla uzamčena"
+  },
   "instance.worlds.linked_server": {
     "message": "Spravováno projektem serveru"
+  },
+  "instance.worlds.more-options": {
+    "message": "Další možnosti"
   },
   "instance.worlds.no_contact": {
     "message": "Se serverem se nepodařilo spojit"
@@ -2117,11 +4634,17 @@
   "instance.worlds.play_instance": {
     "message": "Hrát instanci"
   },
+  "instance.worlds.play_world": {
+    "message": "Hrát svět"
+  },
   "instance.worlds.shortcut-created": {
     "message": "Zkratka vytvořena"
   },
   "instance.worlds.shortcut-creation-failed": {
     "message": "Nepodařilo se vytvořit zkratku"
+  },
+  "instance.worlds.synced_server": {
+    "message": "Synchronizováno mezi instancemi"
   },
   "instance.worlds.view_instance": {
     "message": "Zobrazit instanci"
@@ -2129,11 +4652,14 @@
   "instance.worlds.world_in_use": {
     "message": "Svět je používán"
   },
+  "minecraft-account.accounts": {
+    "message": "Účty Minecraftu"
+  },
   "minecraft-account.add-account": {
     "message": "Přidat účet"
   },
-  "minecraft-account.label": {
-    "message": "Minecraft účet"
+  "minecraft-account.getting-started": {
+    "message": "Začínáme"
   },
   "minecraft-account.not-signed-in": {
     "message": "Nejste přihlášeni"
@@ -2141,11 +4667,14 @@
   "minecraft-account.remove-account": {
     "message": "Odebrat účet"
   },
-  "minecraft-account.select-account": {
-    "message": "Zvolte účet"
-  },
   "minecraft-account.sign-in": {
     "message": "Přihlásit se do Minecraftu"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Přihlásit se"
+  },
+  "minecraft-required.description": {
+    "message": "Před spuštěním a hraním potřebuješ účet Microsoft, který vlastní Minecraft."
   },
   "minecraft-required.description-header": {
     "message": "Přihlaste se k účtu Microsoft"
@@ -2162,23 +4691,53 @@
   "minecraft-required.header": {
     "message": "Je vyžadován Minecraft"
   },
-  "modal.modrinth-account-required.continue-in-browser-heading": {
-    "message": "Pokračovat v prohlížeči"
+  "minecraft-required.sign-in": {
+    "message": "Přihlásit se k Microsoftu"
   },
-  "modal.modrinth-account-required.create-account-button": {
-    "message": "Vytvořit účet"
+  "onboarding-checklist.create-instance": {
+    "message": "Vytvořit první instanci"
   },
-  "modal.modrinth-account-required.open-browser-again-button": {
-    "message": "Znovu otevřít prohlížeč"
+  "onboarding-checklist.login-minecraft": {
+    "message": "Přihlásit se do Minecraftu"
   },
-  "modal.modrinth-account-required.sign-in-button": {
-    "message": "Přihlásit se do Modrinth"
+  "onboarding-checklist.title": {
+    "message": "Začínáme"
   },
-  "modal.modrinth-account-required.sign-in-heading": {
-    "message": "Přihlaste se k Modrinth účtu"
+  "optifine.add-component": {
+    "message": "Nainstalovat OptiFine"
   },
-  "modal.modrinth-account-required.signing-in-header": {
-    "message": "Přihlášení"
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Vybrat JAR a pokračovat"
+  },
+  "optifine.download-official": {
+    "message": "Oficiální stažení"
+  },
+  "optifine.export-notice": {
+    "message": "Binární soubory OptiFine jsou vyloučeny. Orbpack zachovává požadovanou verzi; balíčky Modrinth a CurseForge vyžadují samostatnou instalaci OptiFine."
+  },
+  "optifine.import-canceled": {
+    "message": "Výběr OptiFine zrušen. Balíček nebyl nainstalován."
+  },
+  "optifine.import-description": {
+    "message": "Tento balíček vyžaduje OptiFine {version} pro Minecraft {gameVersion}. Stáhni jeho oficiální JAR a vyber ho pro pokračování. OptiFine není součástí balíčku."
+  },
+  "optifine.import-title": {
+    "message": "Tento balíček vyžaduje OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Vyber oficiální instalátor OptiFine pro Minecraft {gameVersion}. U importovaného balíčku se musí shodovat i jeho verze a hash souboru."
+  },
+  "optifine.remove-component": {
+    "message": "Odstranit OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Vybrat oficiální JAR OptiFine"
+  },
+  "project-type.world.category": {
+    "message": "Světy"
   },
   "search.filter.locked.instance": {
     "message": "Poskytováno instancí"
@@ -2191,9 +4750,6 @@
   },
   "search.filter.locked.instance.sync": {
     "message": "Synchronizováno s instancí"
-  },
-  "search.filter.locked.server-environment.title": {
-    "message": "Pouze módy ze strany klientu mohou být přidány na server"
   },
   "settings.sidebar.label.account": {
     "message": "Účet"

@@ -28,6 +28,7 @@ bytemuck = { workspace = true, features = ["extern_crate_alloc"] }
 bytes = { workspace = true, features = ["serde"] }
 chardetng = { workspace = true }
 chrono = { workspace = true, features = ["serde"] }
+content-management = { workspace = true }
 daedalus = { workspace = true }
 dashmap = { workspace = true, features = ["serde"] }
 data-url = { workspace = true }
@@ -51,7 +52,6 @@ image = { workspace = true, features = ["gif", "jpeg", "png", "webp"] }
 indicatif = { workspace = true, optional = true }
 itertools = { workspace = true }
 json5 = { workspace = true }
-content-management = { workspace = true }
 notify = { workspace = true }
 notify-debouncer-mini = { workspace = true }
 parking_lot = { workspace = true }
@@ -66,7 +66,6 @@ quartz_nbt = { workspace = true, features = ["serde"] }
 quick-xml = { workspace = true, features = ["async-tokio"] }
 rand = { workspace = true }
 regex = { workspace = true }
-ring = { workspace = true }
 reqwest = { workspace = true, features = [
   "brotli",
   "charset",
@@ -80,6 +79,7 @@ reqwest = { workspace = true, features = [
   "stream",
 ] }
 rgb = { workspace = true }
+ring = { workspace = true }
 same-file = { workspace = true }
 serde = { workspace = true, features = ["derive", "rc"] }
 serde-binhum = { workspace = true }
@@ -131,18 +131,18 @@ zip = { workspace = true }
 dotenvy = { workspace = true }
 dunce = { workspace = true }
 
+[target.'cfg(target_os = "linux")'.dependencies]
+keyring = { workspace = true, features = ["crypto-rust", "sync-secret-service"] }
+
 [target.'cfg(target_os = "macos")'.dependencies]
 cidre = { workspace = true, features = ["blocks", "nw"] }
 keyring = { workspace = true, features = ["apple-native"] }
 
-[target.'cfg(target_os = "linux")'.dependencies]
-keyring = { workspace = true, features = ["crypto-rust", "sync-secret-service"] }
-
 [target."cfg(windows)".dependencies]
-windows = { workspace = true, features = ["Networking_Connectivity", "Win32_Storage_FileSystem"] }
+keyring = { workspace = true, features = ["windows-native"] }
+windows = { workspace = true, features = ["Networking_Connectivity", "Win32_Storage_FileSystem", "ApplicationModel_Core", "Management_Deployment", "Storage_Streams", "System", "Win32_System_WinRT"] }
 windows-core = { workspace = true }
 winreg = { workspace = true }
-keyring = { workspace = true, features = ["windows-native"] }
 
 [features]
 cli = ["dep:indicatif"]

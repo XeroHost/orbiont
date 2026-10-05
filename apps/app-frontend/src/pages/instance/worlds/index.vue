@@ -36,13 +36,12 @@
 					"
 				/>
 				<div class="flex gap-2">
+					<Button type="outlined" size="lg" @click="browseWorlds">
+						<WorldIcon />{{ formatMessage(messages.browseWorlds) }}
+					</Button>
 					<Button type="outlined" size="lg" @click="addServerModal?.show()">
 						<PlusIcon class="size-5" />
 						{{ formatMessage(messages.addServer) }}
-					</Button>
-					<Button type="colored" color="brand" size="lg" @click="instancePage.browseServers">
-						<CompassIcon class="size-5" />
-						<span>{{ formatMessage(messages.browseServers) }}</span>
 					</Button>
 				</div>
 			</div>
@@ -73,7 +72,7 @@
 					v-for="world in filteredWorlds"
 					:key="`world-${world.type}-${world.type == 'singleplayer' ? world.path : `${world.address}-${world.index}`}`"
 					:world="world"
-					:managed="world.type === 'server' ? isManagedServerWorld(world) : false"
+					:managed="false"
 					:highlighted="highlightedWorld === getWorldIdentifier(world)"
 					:supports-server-quick-play="supportsServerQuickPlay"
 					:supports-world-quick-play="supportsWorldQuickPlay"
@@ -96,11 +95,9 @@
 						() =>
 							world.type === 'singleplayer'
 								? editWorldModal?.show(world)
-								: isManagedServerWorld(world)
-									? undefined
-									: editServerModal?.show(world)
+								: editServerModal?.show(world)
 					"
-					@delete="() => !isManagedServerWorld(world) && promptToRemoveWorld(world)"
+					@delete="() => promptToRemoveWorld(world)"
 					@desync="() => world.type === 'server' && desyncServerModal?.show(world as ServerWorld)"
 					@open-folder="(world: SingleplayerWorld) => showWorldInFolder(instance.id, world.path)"
 				/>
@@ -113,20 +110,19 @@
 			:description="formatMessage(messages.noWorldsDescription)"
 		>
 			<template #actions>
+				<Button type="colored" color="green" @click="browseWorlds">
+					<WorldIcon />{{ formatMessage(messages.browseWorlds) }}
+				</Button>
 				<Button type="outlined" size="lg" @click="addServerModal?.show()">
 					<PlusIcon class="size-5" />
 					{{ formatMessage(messages.addServer) }}
-				</Button>
-				<Button type="colored" color="brand" size="lg" @click="instancePage.browseServers">
-					<CompassIcon class="size-5" />
-					<span>{{ formatMessage(messages.browseServers) }}</span>
 				</Button>
 			</template>
 		</EmptyState>
 	</ReadyTransition>
 </template>
 <script setup lang="ts">
-import { CompassIcon, PlusIcon, RefreshCwIcon, SearchIcon } from '@orbiont/assets'
+import { PlusIcon, RefreshCwIcon, SearchIcon, WorldIcon } from '@orbiont/assets'
 import { Button } from '@orbiont/ui'
 import {
 	commonMessages,
@@ -144,7 +140,7 @@ import {
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { platform } from '@tauri-apps/plugin-os'
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 
 import AddServerModal from '@/components/ui/world/modal/AddServerModal.vue'
 import ConfirmRemoveWorldModal from '@/components/ui/world/modal/ConfirmRemoveWorldModal.vue'
@@ -154,16 +150,13 @@ import EditWorldModal from '@/components/ui/world/modal/EditSingleplayerWorldMod
 import WorldItem from '@/components/ui/world/WorldItem.vue'
 import { useAppEvent } from '@/composables/use-app-event'
 import { handleSevereError } from '@/composables/use-error.js'
-import { get_project, get_project_v3 } from '@/helpers/cache.js'
 import { set_synced_option } from '@/helpers/instance'
 import { get_game_versions } from '@/helpers/tags'
 import {
 	delete_world,
 	desync_server,
 	type DesyncServerMode,
-	ensureManagedServerWorldExists,
 	get_instance_protocol_version,
-	getServerAddress,
 	getWorldIdentifier,
 	handleDefaultInstanceUpdateEvent,
 	hasServerQuickPlaySupport,
@@ -174,7 +167,6 @@ import {
 	refreshServers,
 	refreshWorld,
 	remove_server_from_instance,
-	resolveManagedServerWorld,
 	type ServerData,
 	type ServerWorld,
 	showWorldInFolder,
@@ -185,12 +177,12 @@ import {
 	type World,
 	worldNameMatchesQuery,
 } from '@/helpers/worlds.ts'
-import { injectServerInstall } from '@/providers/server-install'
 
 import { injectInstancePage } from '../instance-context'
 import { instanceKeys, instanceWorldsQueryOptions } from '../query-options'
 
 const messages = defineMessages({
+	browseWorlds: { id: 'app.instance.worlds.browse', defaultMessage: 'Browse worlds' },
 	searchWorldsPlaceholder: {
 		id: 'app.instance.worlds.search-worlds-placeholder',
 		defaultMessage: 'Search {count} worlds...',
@@ -198,10 +190,6 @@ const messages = defineMessages({
 	addServer: {
 		id: 'app.instance.worlds.add-server',
 		defaultMessage: 'Add server',
-	},
-	browseServers: {
-		id: 'app.instance.worlds.browse-servers',
-		defaultMessage: 'Browse servers',
 	},
 	noWorldsHeading: {
 		id: 'app.instance.worlds.no-worlds-heading',
@@ -235,9 +223,15 @@ const messages = defineMessages({
 
 const { formatMessage } = useVIntl()
 const { handleError } = injectNotificationManager()
-const { playServerProject } = injectServerInstall()
 const route = useRoute()
 const instancePage = injectInstancePage()
+const router = useRouter()
+function browseWorlds() {
+	void router.push({
+		path: '/browse/world',
+		query: { i: instancePage.instanceId.value, src: 'curseforge' },
+	})
+}
 
 const addServerModal = ref<InstanceType<typeof AddServerModal>>()
 const editServerModal = ref<InstanceType<typeof EditServerModal>>()
@@ -321,68 +315,7 @@ watch(
 	},
 	{ immediate: true },
 )
-const managedServerName = ref<string | null>(null)
-const managedServerAddress = ref<string | null>(null)
-
-const managedServerWorld = computed(() =>
-	resolveManagedServerWorld(worlds.value, managedServerName.value, managedServerAddress.value),
-)
-
-function isManagedServerWorld(world: World): world is ServerWorld {
-	return world.type === 'server' && managedServerWorld.value?.index === world.index
-}
-
-async function refreshManagedServerMetadata() {
-	const instanceId = instance.value.id
-	const projectId = instance.value.link?.project_id
-	if (!projectId) {
-		managedServerName.value = null
-		managedServerAddress.value = null
-		return
-	}
-
-	try {
-		const [project, projectV3] = await Promise.all([
-			get_project(projectId),
-			get_project_v3(projectId),
-		])
-		if (instance.value.id !== instanceId || instance.value.link?.project_id !== projectId) return
-
-		if (projectV3?.minecraft_server == null) {
-			managedServerName.value = null
-			managedServerAddress.value = null
-			return
-		}
-
-		const serverAddress = getServerAddress(projectV3.minecraft_java_server)
-		if (!serverAddress) {
-			managedServerName.value = null
-			managedServerAddress.value = null
-			return
-		}
-
-		managedServerName.value = project.title
-		managedServerAddress.value = serverAddress
-		await ensureManagedServerWorldExists(instanceId, project.title, serverAddress)
-		await queryClient.invalidateQueries({ queryKey: instanceKeys.worlds(instanceId) })
-	} catch (err) {
-		console.error(
-			`Failed to resolve managed server metadata for instance: ${instance.value.id}`,
-			err,
-		)
-		managedServerName.value = null
-		managedServerAddress.value = null
-	}
-}
-
-watch(
-	() => [instance.value.id, instance.value.link?.project_id],
-	async () => {
-		await refreshManagedServerMetadata()
-	},
-	{ immediate: true },
-)
-
+// The server list contains manually added or locally synchronized entries.
 let worldsTabAlive = true
 
 useAppEvent('instance', async (event) => {
@@ -537,12 +470,6 @@ async function joinWorld(world: World) {
 	startingInstance.value = true
 	worldPlaying.value = world
 	if (world.type === 'server') {
-		const managedProjectId = instance.value.link?.project_id
-		if (managedProjectId && isManagedServerWorld(world)) {
-			await playServerProject(managedProjectId).catch(handleJoinError)
-			startingInstance.value = false
-			return
-		}
 		await start_join_server(instance.value.id, world.address).catch(handleJoinError)
 	} else if (world.type === 'singleplayer') {
 		await start_join_singleplayer_world(instance.value.id, world.path).catch(handleJoinError)
@@ -593,17 +520,6 @@ const dedupedWorlds = computed(() => {
 		if (existingIndex == null) {
 			serverIndexByAddress.set(addressKey, visibleWorlds.length)
 			visibleWorlds.push(world)
-			continue
-		}
-
-		// replace world with managed world if applicable
-		const existingWorld = visibleWorlds[existingIndex]
-		if (
-			existingWorld?.type === 'server' &&
-			!isManagedServerWorld(existingWorld) &&
-			isManagedServerWorld(world)
-		) {
-			visibleWorlds[existingIndex] = world
 		}
 	}
 

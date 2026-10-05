@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Instance inconnue"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Mise à jour du contenu partagé"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Définir en tant qu'instance principale"
   },
@@ -149,6 +146,21 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "Cacher le pseudo"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Animer les icônes au survol et lors du focus au clavier."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Désactiver les animations"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Toujours animer"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Suivre le système"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Animations des icônes"
+  },
   "app.appearance-settings.minimize-launcher.description": {
     "message": "Minimiser {productName} quand Minecraft se lance."
   },
@@ -173,17 +185,533 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "Cache la barre latérale droite"
   },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Montre un avertissement de sécurité avant d'installer un Modrinth Pack (.mrpack) qui n'est pas sur Modrinth."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Afficher un avertissement de sécurité avant d'installer un modpack importé (.mrpack ou .zip CurseForge) dont la source n'a pas pu être vérifiée."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "M'avertir avant d'installer des modpacks inconnus"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Contacter le support"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Copier les informations de débogage"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Informations de débogage"
+  },
+  "app.auth-error.header": {
+    "message": "Échec de la connexion"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Comment y remédier"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Terminez le processus de vérification d'identité"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Ce compte nécessite une vérification d'âge adulte selon la réglementation sud-coréenne."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Connexion à Minecraft"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Vérifiez que votre connexion internet fonctionne"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Autorisez {product} dans votre pare-feu, antivirus, proxy, VPN et les règles du fichier hosts"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Essayez un autre réseau ou désactivez temporairement votre VPN/proxy si vous en utilisez un"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Redémarrez {product} et réessayez de vous connecter"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Si le problème vient du routage ou du DNS, un service comme Cloudflare WARP peut parfois aider"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} n'a pas pu se connecter à un service Microsoft, Xbox ou Minecraft nécessaire à la connexion. Cela vient généralement d'un problème de réseau local, de DNS, de proxy, de pare-feu, de fichier hosts, de VPN ou d'antivirus."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Aucun message d'erreur."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Vous pouvez vérifier quel compte le possède sur <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Assurez-vous de vous connecter avec le compte Microsoft qui a acheté Minecraft (ou qui dispose d'un Game Pass actif avec accès PC)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Ce compte Microsoft ne possède pas Minecraft : Java Edition, et {product} ne fonctionne qu'avec des comptes premium."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Lancez Minecraft : Java Edition une fois depuis le launcher officiel"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Assurez-vous d'utiliser le compte Microsoft qui possède Minecraft. Vous pouvez vérifier quel compte le possède sur <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Attendez jusqu'à une heure si l'achat ou la configuration du profil est récent"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Les services Minecraft n'ont pas pu renvoyer de profil Java Edition pour ce compte. Cela arrive le plus souvent lorsque le jeu a été acheté récemment, que le profil Java n'a pas fini d'être créé ou que le mauvais compte Microsoft est utilisé."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Assurez-vous que Minecraft est acheté sur ce compte"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Terminez la configuration du profil Xbox si demandé"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Ce compte n'a pas de profil Xbox configuré ou ne possède pas Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Redémarrez {product} après avoir attendu"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Essayez de vous connecter une fois de plus"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Attendez environ une heure avant de réessayer"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Si le même message apparaît, attendez plus longtemps avant de réessayer afin que la limite temporaire se libère"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft ou Minecraft a temporairement bloqué la demande de connexion en raison d'un trop grand nombre de tentatives récentes."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Consultez <a href=\"https://www.xbox.com/en-US/regions\">Xbox Availability</a> pour les régions prises en charge"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Les services Xbox doivent être disponibles dans votre pays pour pouvoir vous connecter"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live n'est pas disponible dans votre région, la connexion est donc bloquée."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Demandez à un tuteur de se connecter à <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Mettez à jour les autorisations de jeu en ligne"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Ce compte est restreint et n'a pas l'autorisation de jouer en ligne."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Si le service fonctionne correctement et que cela se reproduit, contactez le support en incluant les informations de débogage ci-dessous"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Essayez de vous connecter avec le <a href=\"https://www.minecraft.net/en-us/download\">launcher officiel de Minecraft</a> pour vérifier si la connexion à Minecraft y échoue aussi"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Consultez <a href=\"https://support.xbox.com/xbox-live-status\">Xbox Status</a> pour les problèmes de service en cours"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Attendez quelques minutes et réessayez de vous connecter"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Le service d'authentification de Minecraft renvoie une erreur serveur, {product} ne peut donc pas terminer votre connexion pour le moment."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Se connecter de nouveau"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Une fois terminé, réessayez de vous connecter"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Connectez-vous avec le <a href=\"https://www.minecraft.net/en-us/download\">launcher officiel de Minecraft</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Essayez de vous connecter à {product} de nouveau"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Rendez-vous sur <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> et connectez-vous"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Rendez-vous sur <a href=\"https://www.xbox.com\">Xbox</a> et connectez-vous"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Soumettez un recours s'il est disponible"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Consultez <a href=\"https://support.xbox.com\">Xbox Support</a> et examinez les détails de la sanction"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Ce compte a été suspendu pour violation des normes de la communauté Xbox."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Une fois la nouvelle connexion terminée, essayez de lancer Minecraft de nouveau"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Reconnectez-vous au compte"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Déconnectez le compte Minecraft concerné dans {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Votre jeton de connexion Microsoft enregistré a expiré ou a été révoqué, {product} ne peut donc pas renouveler votre session Minecraft."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Acceptez les conditions si demandé"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Ce compte n'a pas accepté les conditions d'utilisation de Xbox."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Essayez de consulter"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Pour plus d'aide, consultez <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">la vérification d'âge du Royaume-Uni sur Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Rendez-vous sur la page <a href=\"https://www.minecraft.net/en-us/login\">Minecraft Login</a> et connectez-vous"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Une fois vérifié, réessayez de vous connecter"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Suivez les instructions pour vérifier votre âge"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Votre compte Minecraft/Xbox Live nécessite une vérification d'âge pour respecter la réglementation britannique. Vous devez la compléter avant de vous connecter."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Consultez le <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">Family Setup Guide</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Rejoignez ou créez un groupe familial comme indiqué"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Ce compte est celui d'un mineur et n'est pas lié à un groupe familial Microsoft."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Erreur inconnue"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Nous ne reconnaissons pas cette erreur et ne pouvons pas recommander d'étapes précises pour la résoudre."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "et de vous connecter, car cela pourrait afficher les étapes nécessaires. Vous pouvez aussi contacter le support et nous nous pencherons sur la question."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Nous n'avons pas pu vous connecter à votre compte Microsoft. Cela peut être dû à des restrictions du compte ou à des limitations régionales."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Ce que nous pensons qu'il s'est passé"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Acceptez les conditions ou terminez la configuration de profil affichée"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Connectez-vous une fois sur <a href=\"https://www.xbox.com\">Xbox.com</a> avec le même compte Microsoft"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live n'a pas accepté la connexion Microsoft. Cela signifie généralement que le compte Microsoft ne s'est jamais connecté à Xbox ou doit accepter des conditions mises à jour."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Si le launcher officiel échoue aussi, suivez l'erreur affichée ou contactez le support Xbox"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Complétez les invites affichées par Microsoft, Xbox ou Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Les services Xbox ont rejeté la demande d'autorisation de ce compte pour les services Minecraft, mais n'ont pas renvoyé de restriction de compte spécifique que {product} reconnaisse."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Les serveurs d'authentification de Minecraft sont peut-être actuellement hors ligne. Vérifiez votre connexion Internet et essayez à nouveau dans quelques instants."
   },
   "app.auth-servers.unreachable.header": {
     "message": "Impossible de contacter les serveurs d'authentification"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft et Microsoft Store vérifient votre licence Bedrock. Connectez-vous avec le compte propriétaire de Minecraft ; votre compte Java dans ce lanceur peut être différent."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Packs de comportement et scripts locaux. Configurez-les dans les paramètres mondiaux dans Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Modules complémentaires"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Pack de comportements"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Modules complémentaires"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Parcourez les modules complémentaires, les packs de ressources, les mondes et les scripts de CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Découvrez le contenu Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Découvrez les modules complémentaires"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Découvrez les scripts"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Fermez Minecraft avant d’ajouter des packs à un monde, puis réessayez."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Installer dans Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft s’ouvrira pour importer ce contenu. Vérifiez le résultat dans le jeu, puis activez les packs dans vos paramètres mondiaux. Les packs requis et les paramètres expérimentaux sont répertoriés dans la description du projet."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Cette archive ne contient pas de contenu Bedrock pris en charge."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Impossible de charger les versions ou les mondes du projet. Essayer à nouveau."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Ce pack nécessite un autre pack qui n’est pas actif dans ce monde. Installez d’abord les dépendances répertoriées par l’auteur."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Aucun fichier .mcaddon, .mcpack, .mcworld ou ZIP pris en charge n’est disponible pour ce projet."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Créez d’abord un monde dans Minecraft, puis actualisez cette liste."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Scripts"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Version du contenu"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Monde de destination"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Fermez Minecraft avant l’installation. Ces packs seront ajoutés et activés uniquement dans le monde sélectionné. Vérifiez les dépendances requises et les paramètres expérimentaux dans la description du projet."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Packs ajoutés à {world}. Ouvrez Minecraft pour jouer à ce monde."
+  },
+  "app.bedrock.checking": {
+    "message": "À la recherche de Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Fermez Minecraft pour modifier des fichiers, supprimer du contenu ou restaurer une copie."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Ce contenu a changé ou l’emplacement d’origine est occupé. La copie de récupération a été conservée pour éviter d’écraser vos modifications."
+  },
+  "app.bedrock.content": {
+    "message": "Contenu"
+  },
+  "app.bedrock.content-help": {
+    "message": "Packs de ressources et de skins locaux. Activez-les dans Minecraft ; certains contenus appartiennent à des mondes individuels."
+  },
+  "app.bedrock.data-error": {
+    "message": "Impossible de lire les données Minecraft. Actualisez pour réessayer."
+  },
+  "app.bedrock.data-location": {
+    "message": "Emplacement des données Minecraft"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Ces éléments seront supprimés de Minecraft. Une copie de récupération sera conservée, y compris les paramètres des packs des mondes concernés. Les mondes qui dépendent d’un pack supprimé peuvent perdre ses blocs ou ses comportements ; restaurez ce pack avant d’ouvrir ces mondes."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Supprimer le contenu local"
+  },
+  "app.bedrock.description": {
+    "message": "Jouez à Minecraft for Windows et importez vos mondes et modules complémentaires."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Impossible de vérifier l’installation de Minecraft. Essayer à nouveau."
+  },
+  "app.bedrock.development": {
+    "message": "Développement"
+  },
+  "app.bedrock.edition": {
+    "message": "Édition Minecraft"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Ce dossier est vide."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Mondes et modules complémentaires Bedrock"
+  },
+  "app.bedrock.file-size": {
+    "message": "Taille"
+  },
+  "app.bedrock.files": {
+    "message": "Fichiers"
+  },
+  "app.bedrock.folder": {
+    "message": "Dossier"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Impossible d’ouvrir ce dossier Minecraft. Actualisez vos données et réessayez."
+  },
+  "app.bedrock.import-button": {
+    "message": "Importer le fichier"
+  },
+  "app.bedrock.import-description": {
+    "message": "Choisissez un fichier .mcworld, .mcpack ou .mcaddon. Minecraft ouvrira et gérera l’importation."
+  },
+  "app.bedrock.import-error": {
+    "message": "Impossible d’envoyer le fichier à Minecraft. Vérifiez que Minecraft for Windows est installé et réessayez."
+  },
+  "app.bedrock.import-title": {
+    "message": "Mondes et extensions"
+  },
+  "app.bedrock.installation": {
+    "message": "Installation officielle"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows est installé"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Choisissez une archive locale valide .mcworld, .mcpack ou .mcaddon."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Ce fichier dépasse la limite d’importation 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Impossible d’ouvrir Minecraft. Ouvrez le lanceur officiel ou Microsoft Store pour vérifier l’installation."
+  },
+  "app.bedrock.launcher": {
+    "message": "Ouvrir le lanceur officiel"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Lanceur officiel détecté. Installez-y Minecraft for Windows pour continuer."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Lecture des données Minecraft…"
+  },
+  "app.bedrock.location": {
+    "message": "Emplacement"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Affichage du dernier 1 MiB de ce journal."
+  },
+  "app.bedrock.logs": {
+    "message": "Journaux"
+  },
+  "app.bedrock.missing": {
+    "message": "Installez Minecraft for Windows pour commencer"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Impossible de modifier ce contenu. Fermez Minecraft et actualisez. Votre copie de récupération a été conservée."
+  },
+  "app.bedrock.name": {
+    "message": "Nom"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Aucun module complémentaire local trouvé. Importez un fichier .mcpack ou .mcaddon pour commencer."
+  },
+  "app.bedrock.no-content": {
+    "message": "Aucun contenu local trouvé."
+  },
+  "app.bedrock.no-data": {
+    "message": "Ouvrez Minecraft une fois pour créer ses dossiers de données, puis actualisez ici."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Aucun journal de contenu trouvé. Activez la journalisation du contenu dans Paramètres Minecraft > Créateur, puis ouvrez votre monde."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Aucune copie de récupération pour l’instant."
+  },
+  "app.bedrock.no-results": {
+    "message": "Aucun élément correspondant."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Aucun monde local trouvé. Créez-en un dans Minecraft ou importez un fichier .mcworld."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Ouvrir le dossier"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Dossier parent"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Certains dossiers n’ont pas pu être lus ou ont atteint la limite d’affichage. Vous pouvez les inspecter dans l’Explorateur de fichiers."
+  },
+  "app.bedrock.play": {
+    "message": "Jouer"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Les fichiers originaux et le contenu supprimé sont conservés ici. Restaurez une copie pendant que Minecraft est fermé. Le contenu existant et les modifications ultérieures ne sont jamais écrasés."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Copies de récupération"
+  },
+  "app.bedrock.refresh": {
+    "message": "Revérifier"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Actualiser"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Rechargez ce fichier avant de l’enregistrer."
+  },
+  "app.bedrock.repair": {
+    "message": "Réparez ou mettez à jour votre installation à l’aide de Microsoft Store ou du lanceur officiel."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Pack de ressources"
+  },
+  "app.bedrock.restore": {
+    "message": "Restaurer"
+  },
+  "app.bedrock.running": {
+    "message": "En cours d’exécution"
+  },
+  "app.bedrock.save-error": {
+    "message": "Impossible d’enregistrer. Le fichier peut avoir changé, contenir un JSON non valide ou être en cours d’utilisation. Rechargez-le et réessayez."
+  },
+  "app.bedrock.search": {
+    "message": "Rechercher du contenu local…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Sélectionnez un journal pour le lire."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Pack de skins"
+  },
+  "app.bedrock.store": {
+    "message": "Installer ou mettre à jour"
+  },
+  "app.bedrock.store-error": {
+    "message": "Impossible d’ouvrir Microsoft Store. Ouvrez-le à partir du menu Démarrer de Windows."
+  },
+  "app.bedrock.submitted": {
+    "message": "Fichier envoyé à Minecraft. Vérifiez le résultat de l’importation dans le jeu."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "L’intégration de Bedrock nécessite Windows. Vous pouvez continuer à jouer à Java Edition sur cet appareil."
+  },
+  "app.bedrock.update": {
+    "message": "Mettre à jour Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "Dans Microsoft Store, recherchez les mises à jour et sélectionnez Minecraft for Windows. Votre version installée sera actualisée à votre retour."
+  },
+  "app.bedrock.version": {
+    "message": "Installation de Windows {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Version"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Monde : {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Mondes"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "Confirmations"
@@ -194,32 +722,8 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "Démarrage et navigation"
   },
-  "app.behavior-settings.sync-across-devices.description": {
-    "message": "Utilisez ces paramètres de comportement partout où vous êtes connecté. Désactivez cette option pour conserver des paramètres séparés sur cet appareil."
-  },
-  "app.behavior-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Connectez-vous à un compte Modrinth pour synchroniser vos paramètres."
-  },
-  "app.behavior-settings.sync-across-devices.title": {
-    "message": "Synchroniser le comportement entre les appareils"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "Ajouter le serveur à l'instance"
-  },
   "app.browse.add-to-an-instance": {
     "message": "Ajouter à une instance"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Ajouter à l'instance"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Ajouter à {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Ajouté"
-  },
-  "app.browse.already-added": {
-    "message": "Déjà ajouté"
   },
   "app.browse.back-to-instance": {
     "message": "Retour à l'instance"
@@ -227,14 +731,11 @@
   "app.browse.discover-project-type": {
     "message": "Découvrir des {projectType}"
   },
-  "app.browse.discover-servers": {
-    "message": "Découvrir des serveurs"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "Masquer les serveurs déjà installés"
-  },
   "app.browse.hide-installed-modpacks": {
     "message": "Cacher ce qui est déjà installé"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Ouvrir dans CurseForge"
   },
   "app.browse.project-actions.label": {
     "message": "Actions du projet"
@@ -251,17 +752,8 @@
   "app.browse.project-type.resource-packs": {
     "message": "Packs de ressources"
   },
-  "app.browse.project-type.servers": {
-    "message": "Serveurs"
-  },
   "app.browse.project-type.shaders": {
     "message": "Shaders"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "Ajouter du contenu peut vous empêcher de rejoindre le serveur. Tout contenu que vous ajoutez sera retiré quand le contenu géré du serveur sera mis à jour."
-  },
-  "app.browse.server.installing": {
-    "message": "Installation en cours"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Aucune version disponible ne correspond à {compatibilityLabel}. Sélectionnez une version pour l'installer malgré tout. Les dépendances ne seront pas installées automatiquement."
@@ -281,8 +773,215 @@
   "app.content.sync-resource-packs-disabled": {
     "message": "Activez d'abord la synchronisation des packs de ressource dans les paramètres de l'application."
   },
+  "app.curseforge.rate-limit.text": {
+    "message": "La limite de requêtes partagée a été atteinte. Patientez un moment, puis réessayez."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge est temporairement occupé"
+  },
+  "app.download-manager.active": {
+    "message": "Actif"
+  },
+  "app.download-manager.attention": {
+    "message": "Nécessite votre attention"
+  },
+  "app.download-manager.cancel": {
+    "message": "Annuler l'installation"
+  },
+  "app.download-manager.canceling": {
+    "message": "Annulation de l'installation"
+  },
+  "app.download-manager.clear-all": {
+    "message": "Tout effacer"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Effacer toutes les tâches terminées"
+  },
+  "app.download-manager.complete": {
+    "message": "Terminé"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Instance dupliquée"
+  },
+  "app.download-manager.empty": {
+    "message": "Aucune tâche d'installation"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Vitesse de téléchargement estimée"
+  },
+  "app.download-manager.eta": {
+    "message": "Temps restant estimé pour ce téléchargement"
+  },
+  "app.download-manager.hide": {
+    "message": "Masquer les tâches d'installation"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Instance importée"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Installation de l'instance"
+  },
+  "app.download-manager.modpack": {
+    "message": "Modpack"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Installation du Modpack"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Nouvelle instance"
+  },
+  "app.download-manager.pause": {
+    "message": "Mettre en pause l'installation"
+  },
+  "app.download-manager.paused": {
+    "message": "En pause"
+  },
+  "app.download-manager.remove": {
+    "message": "Supprimer de l'historique"
+  },
+  "app.download-manager.resume": {
+    "message": "Reprendre l'installation"
+  },
+  "app.download-manager.show": {
+    "message": "Afficher les tâches d'installation"
+  },
+  "app.download-manager.tasks": {
+    "message": "Tâches"
+  },
+  "app.download-manager.title": {
+    "message": "Gestionnaire de téléchargement"
+  },
+  "app.download-manager.verifying": {
+    "message": "Vérification en cours"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Annuler le changement de dossier"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Copier les informations de débogage"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Informations de débogage"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "d'abord. Une fois terminé, revenez ici et connectez-vous !"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Essayez de vous connecter avec le"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Vous utilisez PC Game Pass, venez de Bedrock ou venez d'acheter le jeu ?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "launcher officiel de Minecraft"
+  },
+  "app.error.get-support.button": {
+    "message": "Obtenir de l'aide"
+  },
+  "app.error.help.end": {
+    "message": "et nous serons ravis de vous aider ! Assurez-vous d'inclure les informations de débogage suivantes :"
+  },
+  "app.error.help.start": {
+    "message": "Si rien ne fonctionne et que vous avez besoin d'aide, consultez"
+  },
+  "app.error.help.support-link": {
+    "message": "notre page d'assistance"
+  },
+  "app.error.hosts.body-end": {
+    "message": "a tenté de se connecter aux services Microsoft / Xbox / Minecraft, mais le serveur distant a refusé la connexion. Cela peut indiquer que ces services sont bloqués par le fichier hosts. Consultez"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "pour savoir comment résoudre le problème."
+  },
+  "app.error.migrate.body-end": {
+    "message": "ne peut pas migrer vers le nouveau dossier que vous avez choisi. Contactez le support pour obtenir de l'aide ou annulez le changement de dossier."
+  },
+  "app.error.network.body-end": {
+    "message": "de connexion aux serveurs de Microsoft. Cela vient souvent d'une mauvaise connexion, nous vous recommandons donc de réessayer pour voir si cela fonctionne. Si les problèmes persistent, suivez les étapes de"
+  },
+  "app.error.network.body-start": {
+    "message": "Il semble qu'il y ait eu des problèmes de"
+  },
+  "app.error.network.heading": {
+    "message": "Problèmes de réseau"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "pour résoudre le problème."
+  },
+  "app.error.no-error-message": {
+    "message": "Aucun message d'erreur."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "n'a pas trouvé la version du loader pour cette instance."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Pour résoudre ce problème, vous devez réparer l'instance. Cliquez sur le bouton ci-dessous pour le faire."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Il semble qu'il n'y ait pas assez d'espace sur le disque contenant le dossier que vous avez choisi. Libérez de l'espace et réessayez, ou annulez le changement de dossier."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Espace insuffisant"
+  },
+  "app.error.read-only.body-end": {
+    "message": "ne peut pas écrire dans le dossier que vous avez choisi. Ajustez les autorisations du dossier et réessayez, ou annulez le changement de dossier."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Il semble que"
+  },
+  "app.error.read-only.heading": {
+    "message": "Modifier les autorisations du dossier"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Réparer l'instance"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Réessayer le changement de dossier"
+  },
+  "app.error.state-init.body-end": {
+    "message": "ne s'est pas chargé correctement. Cela peut être dû à un fichier corrompu ou à des fichiers essentiels manquants dans l'application."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Vous pouvez peut-être le corriger de l'une des façons suivantes :"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Vérifiez que vous êtes connecté à internet, puis essayez de redémarrer l'application."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Télécharger de nouveau l'application."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "Ouvrir le dossier de sauvegardes"
+  },
+  "app.error.support-article-link": {
+    "message": "notre article d'assistance"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Impossible de changer le dossier de l'application"
+  },
+  "app.error.title.generic": {
+    "message": "Une erreur s'est produite"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Aucun loader sélectionné"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Impossible de se connecter à Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Erreur lors de l'initialisation de {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Essayer de se connecter de nouveau"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Vérifiez que vous vous êtes connecté avec le bon compte. Vous possédez peut-être Minecraft sur un autre compte Microsoft."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Essayer un autre compte"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Essayer un autre compte Microsoft"
   },
   "app.export-modal.description-placeholder": {
     "message": "Saisir la description du modpack..."
@@ -295,6 +994,27 @@
   },
   "app.export-modal.export-complete-description": {
     "message": "{name} a été exporté avec succès."
+  },
+  "app.export-modal.format-label": {
+    "message": "Format d'exportation"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "Inclut les fichiers sélectionnés dans le ZIP. Il peut être plus volumineux qu'une exportation .mrpack."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Pour les launchers compatibles avec les packs Modrinth. Inclut les références de téléchargement et les fichiers supplémentaires sélectionnés."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Un pack {productName} portable contenant les fichiers sélectionnés. Ouvrez-le directement dans le launcher."
   },
   "app.export-modal.header": {
     "message": "Exporter le modpack"
@@ -352,15 +1072,6 @@
   },
   "app.features-settings.sidebar.title": {
     "message": "Barre latérale"
-  },
-  "app.features-settings.sync-across-devices.description": {
-    "message": "Appliquer ces paramètres partout où vous êtes connecté. Désactivez cette option pour conserver des paramètres distincts sur cet appareil."
-  },
-  "app.features-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Connectez-vous à un compte Modrinth pour synchroniser les paramètres."
-  },
-  "app.features-settings.sync-across-devices.title": {
-    "message": "Synchroniser les fonctionnalités entre les appareils"
   },
   "app.home.jump-back-in.actions.label": {
     "message": "Actions de l'instance"
@@ -464,57 +1175,6 @@
   "app.instance.actions.label": {
     "message": "Actions de l'instance"
   },
-  "app.instance.add-server.add": {
-    "message": "Ajouter"
-  },
-  "app.instance.add-server.added": {
-    "message": "Ajouté"
-  },
-  "app.instance.add-server.adding": {
-    "message": "Ajout..."
-  },
-  "app.instance.add-server.cancel": {
-    "message": "Annuler"
-  },
-  "app.instance.add-server.compatibility-warning": {
-    "message": "Ce serveur peut ne pas être compatible avec toutes les instances."
-  },
-  "app.instance.add-server.search-placeholder": {
-    "message": "Rechercher une instance"
-  },
-  "app.instance.add-server.title": {
-    "message": "Ajouter le serveur à l'instance"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Ajouté"
-  },
-  "app.instance.admonitions.shared-instance.changes-body": {
-    "message": "Votre instance locale est en avance sur celles des utilisateurs avec lesquels vous l’avez partagée."
-  },
-  "app.instance.admonitions.shared-instance.changes-header": {
-    "message": "Vos modifications n’ont pas encore été partagées"
-  },
-  "app.instance.admonitions.shared-instance.publish-button": {
-    "message": "Publier la mise à jour"
-  },
-  "app.instance.admonitions.shared-instance.publishing-button": {
-    "message": "Publication..."
-  },
-  "app.instance.admonitions.shared-instance.removed-label": {
-    "message": "Supprimé"
-  },
-  "app.instance.admonitions.shared-instance.review-admonition-header": {
-    "message": "Publier la mise à jour"
-  },
-  "app.instance.admonitions.shared-instance.review-description": {
-    "message": "Examiner les modifications de contenu qui seront partagées avec tous les utilisateurs de cette instance."
-  },
-  "app.instance.admonitions.shared-instance.review-header": {
-    "message": "Examiner les modifications"
-  },
-  "app.instance.admonitions.shared-instance.reviewing-button": {
-    "message": "Examination..."
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Toutes les données pour votre instance seront supprimées à jamais, y compris vos mondes, vos configurations, et le contenu installé."
   },
@@ -542,8 +1202,8 @@
   "app.instance.content.managed-content.modpack-header": {
     "message": "Contenu du modpack"
   },
-  "app.instance.content.managed-content.shared-header": {
-    "message": "Contenu partagé"
+  "app.instance.content.managed-content.server-header": {
+    "message": "Contenu du serveur"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Ce modpack est déjà installé sur l'instance <bold>{instanceName}</bold>. Êtes-vous sûr·e de vouloir le dupliquer ?"
@@ -596,36 +1256,6 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Retour à l'instance"
   },
-  "app.instance.shared-instance-already-installed.body": {
-    "message": "Cette instance partagée est déjà installée en tant que <bold>{instanceName}</bold>. Êtes-vous sûr de vouloir installer une autre copie ?"
-  },
-  "app.instance.shared-instance-already-installed.header": {
-    "message": "L'instance partagée est déjà installée"
-  },
-  "app.instance.shared-instance-already-installed.install-anyway": {
-    "message": "Installer quand même"
-  },
-  "app.instance.shared-instance-already-installed.instance": {
-    "message": "Instance"
-  },
-  "app.instance.shared-instance-wrong-account.fallback-username": {
-    "message": "le compte lié"
-  },
-  "app.instance.shared-instance-wrong-account.owner-admonition-body-v2": {
-    "message": "pour gérer cette instance partagée. Vous ne pourrez pas déployer des mises à jour aux utilisateurs."
-  },
-  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
-    "message": "Se connecter en tant que"
-  },
-  "app.instance.shared-instance-wrong-account.signed-out-header": {
-    "message": "Vous devez vous connecter à Modrinth"
-  },
-  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
-    "message": "pour recevoir des mises à jour pour cette instance partagée."
-  },
-  "app.instance.shared-instance-wrong-account.warning-header": {
-    "message": "Vous utilisez le mauvais compte Modrinth"
-  },
   "app.instance.shortcut.created": {
     "message": "Raccourci créé"
   },
@@ -644,17 +1274,14 @@
   "app.instance.tab.screenshots": {
     "message": "Captures d'écran"
   },
-  "app.instance.tab.share": {
-    "message": "Partager"
-  },
   "app.instance.tab.worlds": {
     "message": "Mondes"
   },
   "app.instance.worlds.add-server": {
     "message": "Ajouter un serveur"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Parcourir des serveurs"
+  "app.instance.worlds.browse": {
+    "message": "Parcourir les mondes"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Supprimer le monde"
@@ -760,6 +1387,21 @@
   },
   "app.java-selector.test-installation": {
     "message": "Tester l'installation Java"
+  },
+  "app.launch-link.instance": {
+    "message": "Un lien souhaite démarrer {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Démarrer"
+  },
+  "app.launch-link.server": {
+    "message": "Un lien souhaite démarrer {instance} et rejoindre le serveur {target}. Ne continuez que si vous faites confiance à l'origine de ce lien."
+  },
+  "app.launch-link.title": {
+    "message": "Ouvrir Minecraft depuis un lien ?"
+  },
+  "app.launch-link.world": {
+    "message": "Un lien souhaite démarrer {instance} et ouvrir le monde {target}."
   },
   "app.library.actions.label": {
     "message": "Actions de la bibliothèque"
@@ -992,6 +1634,9 @@
   "app.library.selection.remove-from-group": {
     "message": "Retiré du groupe"
   },
+  "app.library.selection.selected-count": {
+    "message": "{count} sélectionnés"
+  },
   "app.library.sort.date-created": {
     "message": "Date de création"
   },
@@ -1019,122 +1664,14 @@
   "app.library.title": {
     "message": "Bibliothèque"
   },
-  "app.modal.install-to-play.additional-context": {
-    "message": "Contexte additionnel"
-  },
-  "app.modal.install-to-play.additional-context-placeholder": {
-    "message": "Si possible, incluez des liens et des images pertinentes"
-  },
-  "app.modal.install-to-play.block-user": {
-    "message": "Bloquer l'utilisateur"
-  },
-  "app.modal.install-to-play.content-you-are-reporting": {
-    "message": "L'instance que vous signalez"
-  },
-  "app.modal.install-to-play.delete-instance": {
-    "message": "Supprimer l'instance"
-  },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "Ne pas installer"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "Installer pour jouer"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Installer quand même"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "Installer"
-  },
-  "app.modal.install-to-play.invite-warning": {
-    "message": "Cette invitation a été crée par un autre utilisateur Modrinth, pas par Modrinth. N'acceptez seulement les invitations de personnes en qui vous avez confiance."
-  },
-  "app.modal.install-to-play.invite-warning-with-creator": {
-    "message": "Cette invitation a été crée par <creator>{username}</creator>, pas par Modrinth. N'acceptez seulement les invitations de personnes en qui vous avez confiance."
-  },
-  "app.modal.install-to-play.managed-content.modpack-header": {
-    "message": "Contenu du modpack"
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {# mod} other {# mods}}"
-  },
-  "app.modal.install-to-play.report-description": {
-    "message": "Utilisez ce formulaire pour signaler les instances qui peuvent enfreindre nos <rules-link>Règles</rules-link> ou <terms-link>les Conditions d'Utilisation</terms-link>."
-  },
-  "app.modal.install-to-play.report-image-invalid-type": {
-    "message": "Le fichier n'est pas un type d'image accepté"
-  },
-  "app.modal.install-to-play.report-image-too-large": {
-    "message": "Le fichier dépasse la limite de 1 MiB"
-  },
-  "app.modal.install-to-play.report-legal-claims": {
-    "message": "Pour les notifications DMCA ou autres réclamations juridiques, veuillez consulter notre <copyright-link>Politique relative aux droits d'auteur</copyright-link>."
-  },
-  "app.modal.install-to-play.report-reason": {
-    "message": "Quelle règle cette instance enfreint-elle ?"
-  },
-  "app.modal.install-to-play.report-shared-instance-header": {
-    "message": "Signaler une instance partagée"
-  },
-  "app.modal.install-to-play.report-submitted": {
-    "message": "Signalement soumis"
-  },
-  "app.modal.install-to-play.report-support-and-bugs": {
-    "message": "Pour des demandes de support, contactez notre <support-link>équipe de support</support-link>. Pour signaler des bugs, ouvrez <github-link>une issue Github</github-link>."
-  },
-  "app.modal.install-to-play.reviewed-files": {
-    "message": "Les fichiers qui ne sont pas publiés sur Modrinth ne sont pas examinés."
-  },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Instance partagée"
-  },
-  "app.modal.install-to-play.shared-instance-content": {
-    "message": "Contenu de l'instance partagée"
-  },
-  "app.modal.install-to-play.shared-instance-unknown-files-description": {
-    "message": "Cette instance partagée contient des fichiers qui ne sont pas publiés sur Modrinth. Nous recommandons fortement de seulement installer des fichiers de sources en qui vous avez confiance."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "Ce modpack de serveur contient des fichiers qui ne sont pas publiés sur Modrinth. Nous recommandons fortement de seulement installer des fichiers de sources en qui vous avez confiance."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Avertissement de fichiers inconnus"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Fichiers non reconnus"
-  },
-  "app.modal.install-to-play.user-blocked": {
-    "message": "Utilisateur bloqué"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Voir le contenu"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Mettre à jour pour jouer"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "Supprimé"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "Cette mise à jour du modpack de ce serveur contient des fichiers qui ne sont pas publiés sur Modrinth. Nous recommandons fortement de seulement installer des fichiers de sources en qui vous avez confiance."
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "Ajouté"
-  },
-  "app.modal.update-to-play.shared-instance-removed-label": {
-    "message": "Supprimé"
-  },
-  "app.modal.update-to-play.shared-instance-unknown-files-description": {
-    "message": "Cette mise à jour d'instance partagée contient des fichiers qui ne sont pas publiés sur Modrinth. Nous recommandons fortement de seulement installer des fichiers de sources en qui vous avez confiance."
-  },
-  "app.modal.update-to-play.update-required": {
-    "message": "Mise à jour requise"
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "Une mise à jour est requise pour jouer à {name}. Veuillez mettre à jour vers la dernière version pour lancer le jeu."
+  "app.nav.collapse-sidebar": {
+    "message": "Réduire la barre latérale"
   },
   "app.nav.create-new-instance": {
     "message": "Créer une nouvelle instance"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Développer la barre latérale"
   },
   "app.nav.home": {
     "message": "Accueil"
@@ -1163,6 +1700,12 @@
   "app.project.coming-soon": {
     "message": "Arrive bientôt"
   },
+  "app.project.gallery.image-fallback": {
+    "message": "Image de la galerie"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Ouvrir l'image dans un nouvel onglet"
+  },
   "app.project.install-button.already-installed": {
     "message": "Ce projet a déjà été installé"
   },
@@ -1180,6 +1723,9 @@
   },
   "app.project.more-options": {
     "message": "Plus d'options"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Ouvrir dans CurseForge"
   },
   "app.project.tab.description": {
     "message": "Description"
@@ -1213,6 +1759,9 @@
   },
   "app.quick-instance-switcher.instance-locked": {
     "message": "Cette instance a été verrouillée"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Instances récentes"
   },
   "app.quick-instance-switcher.view-instance": {
     "message": "Voir l'instance"
@@ -1468,6 +2017,15 @@
   },
   "app.settings.downloading": {
     "message": "Téléchargement de la version {version}"
+  },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Aucun flag ne correspond à « {query} »"
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Réinitialiser"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Rechercher des flags..."
   },
   "app.settings.game-options.category.accessibility.description": {
     "message": "Préférences d'accessibilité"
@@ -2021,6 +2579,21 @@
   "app.settings.game-options.setting.hide-lightning-flashes.label": {
     "message": "Masquer les éclairs"
   },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "Masquer les noms correspondants"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "Cacher l'adresse du serveur"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "Masquer les textes d'accueil"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "Contraste élevé du contour du bloc"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "Améliore le contraste des éléments de l'interface."
+  },
   "app.settings.game-options.setting.high-contrast.label": {
     "message": "Contraste élevé"
   },
@@ -2030,17 +2603,446 @@
   "app.settings.game-options.setting.improved-transparency.label": {
     "message": "Transparence améliorée"
   },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "Notifications en jeu"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "Réduire les FPS"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "Inverser la souris horizontale"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "Inverser le mouvement vertical de la souris."
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "Inverser la souris"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "Afficher la couche de peau de la veste."
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "Veste"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "Variantes de glyphes japonaises"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "Progrès"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "Attaquer"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "Reculer"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "Ouvrir le chat"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "Commande"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "Afficher les infobulles avancées"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "Afficher les bordures des chunks"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "Effacer l'historique du chat"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "Copier l'emplacement"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "Copier la commande de recréation"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "Provoquer un plantage de débogage"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "Exporter les textures dynamiques"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "Exporter les informations de version"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "Mettre en pause en cas de perte de focus"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "Graphiques de FPS"
+  },
   "app.settings.game-options.setting.key-debug-hitboxes.label": {
     "message": "Afficher les hitboxes"
   },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "Vue de débogage de la transparence améliorée"
+  },
   "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
     "message": "Texture de la carte lumineuse"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "Touche de modification du débogage"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "Graphiques réseau"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "Options de débogage"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "Superposition de débogage"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "Graphique de profilage"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "Démarrer le profilage"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "Recharger les chunks"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "Recharger les packs de ressource"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "Observer l'entité"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "Changer de mode de jeu"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "Jeter un objet"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "Avancer"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "Amis"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "Basculer en plein écran"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "Barre d'accès rapide 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "Barre d'accès rapide 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "Barre d'accès rapide 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "Barre d'accès rapide 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "Barre d'accès rapide 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "Barre d'accès rapide 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "Barre d'accès rapide 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "Barre d'accès rapide 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "Barre d'accès rapide 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "Inventaire"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "Sauter"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "Se déplacer vers la gauche"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "Charger une barre d'outils"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "Changer la perspective"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "Choisir un bloc"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "Liste des joueurs"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "Actions rapides"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "Se déplacer vers la droite"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "Enregistrer une barre d'outils"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "Capture d'écran"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "Basculer en caméra cinématique"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "S'accroupir"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "Interactions socials"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "Barre d'accès rapide du mode spectateur"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "Mettre en évidence les spectateurs"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "Courir"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "Échanger la main secondaire"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "Afficher/masquer l'ATH"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "Afficher/masquer le shader du mode spectateur"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "Utiliser l'objet"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "Langue"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "Jambe gauche du pantalon"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "Manche gauche"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "Limite des FPS"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "Distance d'affichage"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "Afficher le menu macOS en plein écran"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "Choisissez si la main principale est la gauche ou la droite."
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "Main principale"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "Volume principal"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "FPS maximum"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "Flou de l'arrière-plan du menu"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "Lissage des textures à distance."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "Niveaux de mipmap"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "Sensibilité de la molette de la souris"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "Fréquence de la musique"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "Choisissez si les titres de musique apparaissent dans le menu de pause et sous forme de notifications."
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "Notification de musique"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "Musique"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "Raccourci du narrateur"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "Choisissez ce que lit le narrateur."
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "Narrateur"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "Créatures amicales"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "Durée pendant laquelle les notifications restent visibles."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "Durée des notifications"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "Onglet des objets d'opérateur"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "Vitesse du panorama"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "Particules"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "Joueurs"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "Prioriser les mises à jour de chunk"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "Raccourcis pour quitter"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "Entrée brute de la souris"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "Notifications Realms"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "Jukebox/blocs musicaux"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "Informations de débogage réduites"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "Distance de rendu"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "Jambe droite du pantalon"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "Manche droite"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "Tourner avec le wagonnet"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "Enregistrer les brouillons de chat"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "Effets d'écran"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "Afficher uniquement le chat sécurisé"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "Sensitivité de la souris"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "Textures du serveur"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "Partager la présence"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "Distance à laquelle les entités sont mises à jour et où les blocs et les fluides sont calculés."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "Distance de simulation"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Télémétrie"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "Fenêtre de sprint"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "Afficher les sous-titres pour les sons joués dans le jeu."
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "Sous-titres"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "Opacité de l'arrière-plan du texte"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "Filtrage des textures"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "Basculer l'attaque"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "Appuyez une fois pour rester accroupi."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "Basculer l'accroupissement"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "Appuyez une fois pour continuer à sprinter."
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "Basculer le sprint"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "Basculer l'utilisation"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "Mode tactile"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "Interface"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "Hauteur du chat non ciblé"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "Utiliser les VBO"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "Ajoute un mouvement de balancement à la caméra en marchant."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "Balancement de la vue"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "Vignette"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "Voix et parole"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "Limite le taux de rafraîchissement à celui de l'écran pour éviter le déchirement de l'image."
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "Synchronisation Verticale"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "Rayon météo"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "Météo"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "Ce paramètre a été modifié ailleurs. Vérifiez-le et réessayez."
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "Choisissez une valeur valide."
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "Choisissez d'abord une valeur."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "Certaines de vos instances ne peuvent pas utiliser ce paramètre"
   },
   "app.settings.java-installations.location.title": {
     "message": "Emplacement de Java {version, number}"
   },
   "app.settings.operating-system.macos": {
     "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Afficher {productName} comme votre activité actuelle sur Discord. Cela n'affecte pas la Rich Presence ajoutée aux instances par les mods."
   },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
@@ -2056,6 +3058,9 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "Purger le cache de l'application ?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Efface les données en cache et les télécharge de nouveau. L'application peut se charger plus lentement jusqu'à ce que le cache soit reconstruit."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Purger le cache"
@@ -2096,11 +3101,122 @@
   "app.settings.resource-management.maximum-concurrent-writes.title": {
     "message": "Nombre maximal d'écritures simultanées"
   },
+  "app.settings.resource-management.store.attention": {
+    "message": "Certains fichiers nécessitent encore votre attention"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Conserver jusqu'à cette quantité de contenu inutilisé pour les installations futures. En conserver davantage peut faire gagner du temps de téléchargement."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Conserver les téléchargements inutilisés"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Calcul en cours"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Effacer les éléments inutilisés"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Supprimer le contenu téléchargé inutilisé"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "{size} d'espace disque libérés."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Nettoyage..."
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Économisez de l'espace en réutilisant les installations de jeu, les mods et les packs entre vos instances."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Installez des mods ou des packs pour voir votre utilisation du stockage ici."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Voir {count, plural, one {# problème} other {# problèmes}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Aucun contenu inutilisé à effacer."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Vérifier et réparer"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Cela fermera toutes les instances en cours d'exécution."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Rechercher les fichiers manquants ou endommagés et les réparer."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Vérification et réparation…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Partagé"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Stockage du contenu"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} stockés"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Unique"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Orphelin"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "{checked, plural, one {# fichier} other {# fichiers}} vérifiés et {repaired, plural, one {# réparation} other {# réparations}} effectuées."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Vérification terminée"
+  },
   "app.settings.sidebar.label.instances": {
     "message": "Instance"
   },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Choisissez l'instance depuis laquelle copier votre historique de commandes. Cet historique ne sert qu'à la synchronisation initiale et vous pourrez le modifier depuis n'importe quelle instance par la suite."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Choisir la source de l'historique de commandes"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Choisissez l'instance depuis laquelle copier vos barres d'accès rapide créatives enregistrées. Ces barres ne servent qu'à la synchronisation initiale et vous pourrez les modifier depuis n'importe quelle instance par la suite."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Choisir la source des barres d'accès rapide créatives"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Choisir la source des packs de données"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Choisissez l'instance depuis laquelle copier vos paramètres de jeu. Ces paramètres ne servent qu'à la synchronisation initiale et vous pourrez les modifier depuis n'importe quelle instance par la suite."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Choisir la source des paramètres de jeu"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Vous ne pouvez pas choisir cette instance comme source de synchronisation"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Impossible de charger les sources de synchronisation. Veuillez réessayer."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Choisissez l'instance depuis laquelle copier vos serveurs multijoueur. Ces serveurs ne servent qu'à la synchronisation initiale et vous pourrez les modifier depuis n'importe quelle instance par la suite."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Choisir la source des serveurs multijoueur"
+  },
   "app.settings.synced-options.choose-sync-source.no-instances-found": {
     "message": "Aucune instance trouvée"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Choisir la source des packs de ressources"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Réessayer"
   },
   "app.settings.synced-options.choose-sync-source.search-placeholder": {
     "message": "Rechercher une instance"
@@ -2123,11 +3239,116 @@
   "app.settings.synced-options.creative-hotbars.description": {
     "message": "Utiliser la même barre d'inventaire créatif à travers vos instances."
   },
+  "app.settings.synced-options.data-packs": {
+    "message": "Synchroniser les packs de données"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Utiliser les mêmes packs de données dans toutes vos instances"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Vous n'avez encore synchronisé aucun pack de données"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Ajoutez une instance avant de modifier les données synchronisées."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Choisissez une source de synchronisation avant de modifier ce paramètre."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "Synchroniser les options de jeu"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Modifier les paramètres de jeu"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "Nous chargeons les derniers paramètres. Vérifiez vos changements, puis sauvegardez de nouveau."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Ces paramètres ont été modifiés ailleurs"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Les paramètres ajoutés par les mods apparaîtront ici après que {productName} les aura trouvés dans l'une de vos instances."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Utiliser les mêmes options de jeu dans toutes vos instances."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "Tout désynchroniser"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Activez la synchronisation des paramètres de jeu avant de choisir des paramètres individuels."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Aucun paramètre ne correspond à votre recherche ou à votre filtre."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "Tout synchroniser"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "Nous n'avons pas pu charger vos paramètres de jeu."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Chargement des paramètres..."
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Vous n'avez encore aucune option à modifier"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Non synchronisé"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "Réessayer"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "Enregistrer les paramètres"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Rechercher des paramètres..."
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Les options synchronisées sont appliquées à chaque instance et remplacent les valeurs incluses dans un modpack."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "Synchroniser {setting} entre les instances"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "Synchroniser les paramètres de jeu"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Synchronisé entre les instances"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Options de jeu"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Vous avez des modifications non enregistrées."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "Arrêter de synchroniser {setting} entre les instances"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "Différent selon les instances"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "Non"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "Oui"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Choisir une valeur"
+  },
   "app.settings.synced-options.multiplayer-servers": {
     "message": "Synchroniser les serveurs multijoueurs"
   },
   "app.settings.synced-options.multiplayer-servers.address": {
     "message": "Adresse du serveur"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Copier l'adresse"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {# serveur} other {# serveurs}}"
   },
   "app.settings.synced-options.multiplayer-servers.description": {
     "message": "Utiliser les mêmes serveurs multijoueurs à travers vos instances."
@@ -2135,14 +3356,56 @@
   "app.settings.synced-options.multiplayer-servers.editor-title": {
     "message": "Modifier les serveurs synchronisés"
   },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "Aucun serveur ajouté par l'utilisateur n'est actuellement synchronisé."
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "Hors ligne"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "En ligne"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "Plus d'options de serveur"
+  },
   "app.settings.synced-options.multiplayer-servers.name": {
     "message": "Nom du serveur"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Aucun serveur synchronisé ne correspond à votre recherche ou à vos filtres."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Vous n'avez encore synchronisé aucun serveur"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} en ligne"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "Rechercher dans {count, number} {count, plural, one {serveur synchronisé} other {serveurs synchronisés}}..."
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Statut"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Activez la synchronisation avant de modifier les packs partagés."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "Synchroniser les packs de ressources"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Utiliser les mêmes packs de ressources dans toutes vos instances."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "Vous n'avez encore synchronisé aucun pack de ressources"
   },
   "app.settings.tabs.appearance": {
     "message": "Apparence"
   },
   "app.settings.tabs.behavior": {
     "message": "Comportement"
+  },
+  "app.settings.tabs.features": {
+    "message": "Fonctionnalités"
   },
   "app.settings.tabs.java-installations": {
     "message": "Installations de Java"
@@ -2159,8 +3422,41 @@
   "app.settings.tabs.synced-options": {
     "message": "Paramètres synchronisés"
   },
-  "app.sidebar.playing-as": {
-    "message": "Joue en tant que"
+  "app.sidebar.advertising.label": {
+    "message": "Publicité"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Aperçu · emplacement {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Modpack suivant"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Suspendre le défilement"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} sur {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Modpack précédent"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Reprendre le défilement"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Modpacks à découvrir"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Les modpacks à découvrir sont indisponibles pour le moment."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Voir le projet"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Découvrir l’hébergement"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Votre prochain serveur Minecraft"
   },
   "app.skins.add-button": {
     "message": "Ajouter un skin"
@@ -2170,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Appliquer"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Tous les modèles"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Classique"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Par défaut"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Aucun skin trouvé. Essayez une autre recherche."
+  },
+  "app.skins.catalog.error": {
+    "message": "Ce fournisseur de skins est indisponible. Veuillez réessayer ultérieurement."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Chargement des skins…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Recherchez dans toute la galerie publique de MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "Modèle"
+  },
+  "app.skins.catalog.next": {
+    "message": "Page suivante"
+  },
+  "app.skins.catalog.page": {
+    "message": "Page {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Populaire"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Page précédente"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Fournisseurs de skins"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Le fournisseur a atteint sa limite de requêtes. Veuillez patienter avant de réessayer."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Récents"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Réessayer"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Skin enregistré dans Par défaut"
+  },
+  "app.skins.catalog.search": {
+    "message": "Rechercher des skins…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Rechercher"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Mince"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Trier par"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tag (optionnel)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Tendance"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Ce fournisseur de skins n'est pas encore configuré."
   },
   "app.skins.delete-button": {
     "message": "Supprimer le skin"
@@ -2185,6 +3553,9 @@
   },
   "app.skins.demo.description": {
     "message": "Connectez-vous à votre compte Minecraft pour sauvegarder et appliquer des skins !"
+  },
+  "app.skins.demo.title": {
+    "message": "Modification avec un compte démo"
   },
   "app.skins.dropped-file-error.text": {
     "message": "Impossible de lire le fichier déposé."
@@ -2312,6 +3683,135 @@
   "app.skins.toggle-ears-features-on": {
     "message": "Activer"
   },
+  "app.sync-instances-update.badge": {
+    "message": "Nouveau dans cette mise à jour"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "Choisissez l'instance depuis laquelle copier les paramètres de jeu, les packs de ressources, l'historique de commandes, les barres d'accès rapide créatives et les serveurs multijoueur. Ces paramètres ne servent qu'à la synchronisation initiale et vous pourrez les modifier depuis n'importe quelle instance par la suite."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "Choisir la source de synchronisation"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Choisissez l'instance depuis laquelle copier vos packs de données. Ces packs ne servent qu'à la synchronisation initiale et vous pourrez les modifier depuis n'importe quelle instance par la suite."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Choisissez l'instance depuis laquelle copier vos packs de ressources. Ces packs ne servent qu'à la synchronisation initiale et vous pourrez les modifier depuis n'importe quelle instance par la suite."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "Synchroniser les barres d'accès rapide créatives"
+  },
+  "app.sync-instances-update.description": {
+    "message": "Vous pouvez désormais synchroniser des options comme les paramètres de jeu, les serveurs, les packs de ressources et plus encore entre vos instances, pour que tout reste identique à chaque partie !"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "Impossible de charger vos paramètres de synchronisation. Veuillez réessayer."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "Vous pouvez activer la synchronisation maintenant et la gérer plus tard dans les paramètres de l'application."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "Gardez les paramètres de jeu, les serveurs, les packs de ressources et plus encore synchronisés entre vos instances."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "Ignorer"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "Synchroniser vos instances"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "Voir la mise à jour"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "Réessayer"
+  },
+  "app.sync-instances-update.skip": {
+    "message": "Passer"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "Tout synchroniser"
+  },
+  "app.sync-instances-update.title": {
+    "message": "Synchroniser vos instances"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "Désactivez-le dans toutes les instances synchronisées, ou uniquement dans celle-ci. Le désactiver uniquement ici activera les remplacements pour cette instance."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "Désactiver partout"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "Désactiver ce contenu dans toutes les instances synchronisées."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "Désactiver ici"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "Désactiver le contenu ?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "Activez-le dans toutes les instances synchronisées, ou uniquement dans celle-ci. L'activer uniquement ici activera les remplacements pour cette instance."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Activer partout"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Activer ce contenu entre toutes les instances synchronisées."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Activer ici"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "Activer le contenu ?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Supprimer partout"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Supprimer ici"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Supprimer ce contenu va le supprimer de toutes vos instances"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Le contenu sélectionné qui n'est pas synchronisé va seulement être supprimé de cette instance."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Vous pouvez le supprimer uniquement de cette instance ou de toutes les instances synchronisées. Le supprimer uniquement de cette instance activera les remplacements, et cette instance ne recevra plus les modifications synchronisées pour ces types de contenu."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "Vous pouvez {count, plural, one {le} other {les}} supprimer uniquement de cette instance ou de toutes les instances synchronisées. {count, plural, one {Le} other {Les}} supprimer uniquement de cette instance activera les remplacements, et cette instance ne recevra plus les modifications synchronisées des packs de ressources."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {Ce pack de ressources est synchronisé} other {Ces packs de ressources sont synchronisés}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Cette instance conservera sa propre copie. Voulez-vous garder ce contenu synchronisé dans les autres instances ou le supprimer de celles-ci ?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "Garder"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "Retirer"
+  },
+  "app.synced-content.desync.title": {
+    "message": "Désynchroniser le contenu"
+  },
+  "app.synced-content.warning.title": {
+    "message": "Ce contenu est synchronisé"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "Packs de donnés synchronisés"
+  },
+  "app.synced-packs.empty": {
+    "message": "Ajoutez des packs depuis la page de contenu d'une instance pour commencer la synchronisation."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "Les packs n'ont pas pu être chargés. Essayez de rafraîchir."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Packs de ressources synchronisés"
+  },
   "app.update-popup.body.download-complete": {
     "message": "{productName} v{version} a finie d'être téléchargée. Rechargez pour mettre à jour maintenant, ou automatiquement quand vous fermez {productName}."
   },
@@ -2342,8 +3842,8 @@
   "app.update.complete-toast.title": {
     "message": "La version {version} a été téléchargée avec succès !"
   },
-  "app.user.project.install-to-instance": {
-    "message": "Installer dans l'instance"
+  "app.update.download-error.missing-version": {
+    "message": "Impossible de télécharger la mise à jour : aucune version disponible"
   },
   "app.welcome-screen.create-instance": {
     "message": "Créer une nouvelle instance"
@@ -2354,11 +3854,77 @@
   "app.welcome-screen.import-from-launcher": {
     "message": "Importer à partir d'un launcher"
   },
+  "app.welcome-screen.import-prompt": {
+    "message": "Vous quittez un autre launcher ?"
+  },
   "app.welcome-screen.quick-create-hint": {
     "message": "Appuyez sur <shortcut>N</shortcut> pour rapidement créer une instance"
   },
   "app.welcome-screen.title": {
     "message": "Bienvenue sur {productName}"
+  },
+  "app.window-controls.close": {
+    "message": "Fermer la fenêtre"
+  },
+  "app.window-controls.minimize": {
+    "message": "Réduire la fenêtre"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Basculer l'agrandissement de la fenêtre"
+  },
+  "app.world-install.backup": {
+    "message": "Remplacer conserve une sauvegarde du monde existant. Conserver et Annuler n’installent rien. Installer une autre copie crée un monde numéroté."
+  },
+  "app.world-install.backup-location": {
+    "message": "Le monde précédent a été enregistré dans {path} au sein de l’instance."
+  },
+  "app.world-install.conflict": {
+    "message": "Un monde portant ce nom ou provenant de ce projet existe déjà."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Installer malgré la différence de version"
+  },
+  "app.world-install.copy": {
+    "message": "Installer une autre copie"
+  },
+  "app.world-install.description": {
+    "message": "Installez un nouveau monde dans une instance. Les mondes existants sont conservés, sauf si vous choisissez d’en remplacer un."
+  },
+  "app.world-install.incompatible": {
+    "message": "Ce fichier n’indique pas de compatibilité avec Minecraft {version}. Vérifiez la version et les mods requis par l’auteur avant de continuer."
+  },
+  "app.world-install.installed": {
+    "message": "Monde installé : {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Instance de destination"
+  },
+  "app.world-install.keep": {
+    "message": "Conserver l’existant"
+  },
+  "app.world-install.no-instances": {
+    "message": "Créez d’abord une instance Minecraft, puis revenez ici pour installer le monde."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Voir les mondes"
+  },
+  "app.world-install.replace": {
+    "message": "Remplacer"
+  },
+  "app.world-install.replace-target": {
+    "message": "Monde à remplacer"
+  },
+  "app.world-install.requirements": {
+    "message": "Les mods ou modpacks requis doivent déjà être installés dans l’instance de destination. Consultez la description du projet."
+  },
+  "app.world-install.title": {
+    "message": "Installer un monde"
+  },
+  "app.world-install.version": {
+    "message": "Version du monde"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
   },
   "app.world.server-modal.select-an-option": {
     "message": "Sélectionner une option"
@@ -2375,80 +3941,14 @@
   "app.world.world-item.players-online": {
     "message": "{count} en ligne"
   },
-  "content.shared-instance.change-version-body": {
-    "message": "Changer la version change seulement votre copie locale. Des futures mises à jour d'instance partagées peuvent restaurer ou changer la version."
+  "curseforge.manual.description": {
+    "message": "Téléchargez {file} depuis sa page officielle CurseForge, puis sélectionnez le fichier téléchargé pour continuer. Sa taille et son SHA-1 seront vérifiés."
   },
-  "content.shared-instance.delete-bulk-body": {
-    "message": "Certains projets sélectionnés font partie de l'instance partagée. Les supprimer changerait seulement votre copie locale, et de futures mises à jour d'instance partagées peuvent restaurer ou les changer de nouveau."
+  "curseforge.manual.select": {
+    "message": "Sélectionner le fichier téléchargé"
   },
-  "content.shared-instance.delete-button": {
-    "message": "Supprimer quand même"
-  },
-  "content.shared-instance.delete-many-button": {
-    "message": "Supprimer {count, number} projets quand même"
-  },
-  "content.shared-instance.delete-single-body": {
-    "message": "Le supprimer change seulement votre copie locale. De futures mises à jour d'instance partagées peuvent restaurer ou changer la version."
-  },
-  "content.shared-instance.disable-bulk-body": {
-    "message": "Certains projets sélectionnés font partie de l'instance partagée. Les désactiver changerait seulement votre copie locale, et de futures mises à jour d'instance partagées peuvent restaurer ou les changer de nouveau."
-  },
-  "content.shared-instance.disable-button": {
-    "message": "Désactiver quand même"
-  },
-  "content.shared-instance.disable-many-button": {
-    "message": "Désactiver {count, number} projets quand même"
-  },
-  "content.shared-instance.disable-single-body": {
-    "message": "Le désactiver change seulement votre copie locale. De futures mises à jour d'instance partagées peuvent restaurer ou changer la version."
-  },
-  "content.shared-instance.unlink-body": {
-    "message": "Le délier change seulement votre copie locale. De futures mises à jour d'instance partagées peuvent restaurer ou changer la version."
-  },
-  "content.shared-instance.warning-header": {
-    "message": "Ceci fait partie de l'instance partagée"
-  },
-  "installation-settings.shared-instance.linked-title": {
-    "message": "Instance partagée liée"
-  },
-  "installation-settings.shared-instance.title": {
-    "message": "Dépublier l'instance"
-  },
-  "installation-settings.shared-instance.unlink-button": {
-    "message": "Dissocier l'instance partagée"
-  },
-  "installation-settings.shared-instance.unlink-description": {
-    "message": "Déconnecter cette instance locale de futures mises à jour partagées."
-  },
-  "installation-settings.shared-instance.unlinking-button": {
-    "message": "Dissociation..."
-  },
-  "installation-settings.shared-instance.unpublish-button": {
-    "message": "Dépublier l'instance partagée"
-  },
-  "installation-settings.shared-instance.unpublish-description": {
-    "message": "Supprime cette instance partagée de Modrinth et arrête d'envoyer des mises à jour à toute personne l'utilisant. Votre copie locale ne sera pas affectée."
-  },
-  "installation-settings.shared-instance.unpublishing-button": {
-    "message": "Dépublication..."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-body": {
-    "message": "Cela affecte seulement votre instance locale. Votre contenu installé restera sur cet appareil, et l'instance partagée et les autres personnes l'utilisant ne seront pas affectés."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-header": {
-    "message": "Dissociation de l'instance partagée"
-  },
-  "installation-settings.unlink-shared-instance.modal.header": {
-    "message": "Dissocier l'instance partagée"
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-body": {
-    "message": "Cela supprime l'instance partagée des serveurs de Modrinth. Les personnes l'utilisant dans {productName} vont cesser de recevoir des mises à jour, mais votre instance locale et son contenu resteront sur cet appareil."
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-header": {
-    "message": "Dépublication de l'instance partagée"
-  },
-  "installation-settings.unpublish-shared-instance.modal.header": {
-    "message": "Dépublier l'instance partagée"
+  "curseforge.manual.title": {
+    "message": "Téléchargement manuel requis"
   },
   "instance.action.create-shortcut": {
     "message": "Créer un raccourci"
@@ -2515,6 +4015,9 @@
   },
   "instance.files.adding-files": {
     "message": "Ajout de fichiers ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "Gérez votre contenu installé depuis l'onglet Contenu"
   },
   "instance.files.save-as": {
     "message": "Sauvegarder en tant que..."
@@ -2618,6 +4121,9 @@
   "instance.icon-editor.symbol.couch": {
     "message": "Canapé"
   },
+  "instance.icon-editor.symbol.crafting-table": {
+    "message": "Établi"
+  },
   "instance.icon-editor.symbol.create-wrench": {
     "message": "Clé à Molette"
   },
@@ -2659,9 +4165,6 @@
   },
   "instance.icon-editor.symbol.moobloom": {
     "message": "Vache Champignon"
-  },
-  "instance.icon-editor.symbol.mr-pack": {
-    "message": "Mr Pack"
   },
   "instance.icon-editor.symbol.neoforge": {
     "message": "NeoForge"
@@ -2729,14 +4232,41 @@
   "instance.last-played": {
     "message": "Dernière fois joué :"
   },
+  "instance.locked.badge": {
+    "message": "Verrouillée"
+  },
   "instance.locked.delete-button": {
     "message": "Supprimer l'instance"
+  },
+  "instance.locked.info-label": {
+    "message": "Informations sur l'instance verrouillée"
   },
   "instance.locked.play-tooltip": {
     "message": "Cette instance a été verrouillée"
   },
+  "instance.locked.text": {
+    "message": "Cette instance est verrouillée et ne peut pas être lancée ni modifiée. Vous pouvez la supprimer."
+  },
+  "instance.locked.title": {
+    "message": "Instance verrouillée"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Mod loader et version de Minecraft"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# heure} other {# heures}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# minute} other {# minutes}}"
+  },
   "instance.playtime.never-played": {
     "message": "Jamais joué"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# seconde} other {# secondes}}"
+  },
+  "instance.playtime.total": {
+    "message": "Temps de jeu total"
   },
   "instance.server-modal.address": {
     "message": "Adresse"
@@ -2750,44 +4280,32 @@
   "instance.server-modal.resource-pack": {
     "message": "Pack de ressources"
   },
-  "instance.settings.sharing.active-invites.actions": {
-    "message": "Actions"
+  "instance.settings.synced-options.data-override": {
+    "message": "Désactivez ce remplacement pour modifier les données synchronisées."
   },
-  "instance.settings.sharing.active-invites.code": {
-    "message": "Lien d'invitation"
+  "instance.settings.synced-options.data-packs": {
+    "message": "Désynchroniser les packs de données"
   },
-  "instance.settings.sharing.active-invites.description": {
-    "message": "N'importe qui avec l'un de ces liens d'invitation peut rejoindre pendant qu'il reste actif."
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Garder les packs de données de cette instance séparés des packs synchronisés."
   },
-  "instance.settings.sharing.active-invites.empty": {
-    "message": "Il n'y a aucune invitation active."
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "La synchronisation des packs de données est désactivée dans les paramètres de l'application."
   },
-  "instance.settings.sharing.active-invites.expires": {
-    "message": "Expire"
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Modifier les packs synchronisés"
   },
-  "instance.settings.sharing.active-invites.revoke": {
-    "message": "Révoquer l'invitation"
+  "instance.settings.synced-options.packs-override": {
+    "message": "Désactivez ce remplacement pour modifier les packs synchronisés. Les packs indépendants peuvent être gérés dans l'onglet Contenu."
   },
-  "instance.settings.sharing.active-invites.revoke-with-code": {
-    "message": "Révoquer l'invitation {code}"
+  "instance.settings.synced-options.resource-packs": {
+    "message": "Désynchroniser les packs de ressources"
   },
-  "instance.settings.sharing.active-invites.title": {
-    "message": "Invitations actives"
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Gardez les packs de ressources de cette instance séparés des packs synchronisés."
   },
-  "instance.settings.sharing.active-invites.uses": {
-    "message": "Utilisations"
-  },
-  "instance.settings.sharing.revoke-invite.admonition-body": {
-    "message": "Le lien d'invitation <monospace>{code}</monospace> cessera de fonctionner immédiatement. Les personnes qui ont déjà rejoint conserveront leur accès."
-  },
-  "instance.settings.sharing.revoke-invite.admonition-header": {
-    "message": "Cette action ne peut pas être annulée"
-  },
-  "instance.settings.sharing.revoke-invite.confirm": {
-    "message": "Révoquer l'invitation"
-  },
-  "instance.settings.sharing.revoke-invite.header": {
-    "message": "Révoquer l'invitation"
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "La synchronisation des packs de ressources est désactivée dans les paramètres de l'application."
   },
   "instance.settings.tabs.general": {
     "message": "Général"
@@ -2864,6 +4382,9 @@
   "instance.settings.tabs.general.update-channel.select": {
     "message": "Sélectionner le canal de mise à jour"
   },
+  "instance.settings.tabs.hooks.description": {
+    "message": "Exécuter des commandes système propres à l'instance avant et après le lancement du jeu."
+  },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "Post-fermeture"
   },
@@ -2881,6 +4402,9 @@
   },
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "Entrez la commande de pré-lancement..."
+  },
+  "instance.settings.tabs.hooks.title": {
+    "message": "Hooks de lancement personnalisés"
   },
   "instance.settings.tabs.hooks.variables.description": {
     "message": "Les hooks s’exécutent dans le répertoire de travail de l’instance et disposent des variables suivantes :"
@@ -2921,26 +4445,107 @@
   "instance.settings.tabs.installation.locked": {
     "message": "Les paramètres d'installation ne sont pas disponible pendant que cette instance est verrouillée."
   },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "Paramétrer les variables d'environnement séparément pour cette instance."
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "Paramétrer les arguments Java séparément pour cette instance."
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "Sélectionner une installation Java différente pour cette instance."
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "Définir l'allocation de mémoire séparément pour cette instance."
+  },
   "instance.settings.tabs.java.enter-environment-variables": {
     "message": "Entrer une variable d'environnement..."
   },
   "instance.settings.tabs.java.enter-java-arguments": {
     "message": "Entrer un argument Java..."
   },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "Variables d'environnement personnalisées"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "Hooks"
+  },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "Paramètres Java personnalisés"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "Installation Java personnalisée"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "Allocation de mémoire personnalisée"
   },
   "instance.settings.tabs.java.java-path-placeholder": {
     "message": "/chemin/vers/java"
   },
-  "instance.settings.tabs.sharing": {
-    "message": "Partage"
+  "instance.settings.tabs.settings-overrides": {
+    "message": "Remplacements"
   },
   "instance.settings.tabs.synced-options.command-history": {
     "message": "Désynchroniser l'historique des commandes"
   },
   "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
     "message": "La synchronisation de l'historique des commandes est désactivée dans les paramètres de l'application."
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "Garder l'historique de commandes de cette instance séparé de l'historique de commandes synchronisé."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "Désynchroniser les barres d'accès rapide créatives enregistrées"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "La synchronisation des barres d'accès rapide créatives enregistrées est désactivée dans les paramètres de l'application."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "Gardez les barres d'accès rapide créatives enregistrées de cette instance séparées des barres synchronisées."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "Désynchroniser les paramètres de jeu"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Gardez le fichier options.txt de cette instance séparé de la copie synchronisée."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "La synchronisation des paramètres de jeu est désactivée dans les paramètres de l'application."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "La version remplacée sera sauvegardée avant toute modification."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "{instance} et votre version synchronisée ont des barres d'accès rapide créatives différentes. Choisissez celle à utiliser dans toutes vos instances."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "Choisir les barres d'accès rapide créatives"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "Remplacer les autres"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "Utiliser les synchronisées"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "Désynchroniser les serveurs multijoueurs"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "La synchronisation des serveurs multijoueur est désactivée dans les paramètres de l'application."
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "Gardez les serveurs multijoueur de cette instance séparés des serveurs synchronisés."
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "Gérer les paramètres synchronisés"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "Activez un remplacement pour garder un paramètre synchronisé séparé pour cette instance."
+  },
+  "instance.settings.tabs.window": {
+    "message": "Paramètres de fenêtre personnalisée"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "Configurer le plein écran et la résolution de lancement séparément pour cette instance."
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "Plein écran"
@@ -2966,65 +4571,11 @@
   "instance.settings.tabs.window.width.enter": {
     "message": "Entrer la largeur..."
   },
-  "instance.shared-instance.error.title": {
-    "message": "Quelque chose s'est mal passé"
-  },
-  "instance.shared-instance.network-error.text": {
-    "message": "Impossible de se connecter à l'API des instances partagées"
-  },
-  "instance.shared-instance.network-error.title": {
-    "message": "Erreur de réseau"
-  },
-  "instance.shared-instance.owner-tooltip": {
-    "message": "Le contenu de cette instance est partagé à d'autres utilisateurs."
-  },
-  "instance.shared-instance.publish-review.added-label": {
-    "message": "Ajouté"
-  },
-  "instance.shared-instance.publish-review.admonition-header": {
-    "message": "Déployer la mise à jour aux joueurs"
-  },
-  "instance.shared-instance.publish-review.config-title-v2": {
-    "message": "Sélectionner les fichiers de configuration"
-  },
-  "instance.shared-instance.publish-review.description": {
-    "message": "Examiner les changements de contenu et choisir n'importe quel fichier de configuration à inclure dans cette mise à jour."
-  },
-  "instance.shared-instance.publish-review.header": {
-    "message": "Examiner les changements"
-  },
-  "instance.shared-instance.publish-review.publish-button": {
-    "message": "Déployer la mise à jour"
-  },
-  "instance.shared-instance.publish-review.removed-label": {
-    "message": "Supprimé"
-  },
-  "instance.shared-instance.tooltip": {
-    "message": "Le contenu de cette instance est gérée par quelqu'un d'autre."
-  },
-  "instance.shared-instance.unavailable.access-revoked-text": {
-    "message": "Votre accès à l'instance partagée a été révoqué. Cette instance reste disponible, mais n'est plus liée et ne recevra plus de mises à jour."
-  },
-  "instance.shared-instance.unavailable.deleted-text": {
-    "message": "L'instance principale a été supprimée. Cette instance est encore disponible, mais n'est plus liée et va cesser de recevoir des mises à jour."
-  },
-  "instance.shared-instance.unavailable.locked-text": {
-    "message": "Cette instance partagée a été verrouillée par la Team de Modération de Contenu. Elle ne recevra plus de mises à jour de l'instance primaire et ne peut plus être jouée."
-  },
-  "instance.shared-instance.unavailable.locked-title": {
-    "message": "Instance verrouillée"
-  },
-  "instance.shared-instance.unavailable.manager-fallback": {
-    "message": "le gestionnaire d'instance"
-  },
-  "instance.shared-instance.unavailable.text": {
-    "message": "L'instance principale a été supprimée. Cette instance est encore disponible, mais n'est plus liée et ne va plus recevoir de mises à jour."
-  },
-  "instance.shared-instance.unavailable.title": {
-    "message": "Instance partagée n'est plus disponible"
-  },
   "instance.worlds.a_minecraft_server": {
     "message": "Un Serveur Minecraft"
+  },
+  "instance.worlds.actions.label": {
+    "message": "Actions du monde"
   },
   "instance.worlds.cant_connect": {
     "message": "Impossible de se connecter au serveur"
@@ -3034,6 +4585,9 @@
   },
   "instance.worlds.create_shortcut": {
     "message": "Créer un raccourci"
+  },
+  "instance.worlds.desync-server.description": {
+    "message": "Voulez-vous garder ce serveur dans d'autres instances synchronisées ou le supprimer de celles-ci ?"
   },
   "instance.worlds.desync-server.keep": {
     "message": "Garder"
@@ -3089,17 +4643,23 @@
   "instance.worlds.shortcut-creation-failed": {
     "message": "Échec de la création du raccourci"
   },
+  "instance.worlds.synced_server": {
+    "message": "Synchronisé entre les instances"
+  },
   "instance.worlds.view_instance": {
     "message": "Voir l'instance"
   },
   "instance.worlds.world_in_use": {
     "message": "Le monde en cours d'utilisation"
   },
+  "minecraft-account.accounts": {
+    "message": "Comptes Minecraft"
+  },
   "minecraft-account.add-account": {
     "message": "Ajouter un compte"
   },
-  "minecraft-account.label": {
-    "message": "Compte Minecraft"
+  "minecraft-account.getting-started": {
+    "message": "Pour commencer"
   },
   "minecraft-account.not-signed-in": {
     "message": "Pas connecté"
@@ -3107,11 +4667,11 @@
   "minecraft-account.remove-account": {
     "message": "Retirer le compte"
   },
-  "minecraft-account.select-account": {
-    "message": "Sélectionner un compte"
-  },
   "minecraft-account.sign-in": {
     "message": "Se connecter à Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Se connecter"
   },
   "minecraft-required.description": {
     "message": "Vous avez besoin d'un compte Microsoft qui possède Minecraft avant de jouer."
@@ -3134,39 +4694,6 @@
   "minecraft-required.sign-in": {
     "message": "Se connecter à Microsoft"
   },
-  "modal.modrinth-account-required.browser-description": {
-    "message": "A nouvel onglet a été ouvert pour vous connecter. Finissez la connexion, puis retournez dans l'application."
-  },
-  "modal.modrinth-account-required.continue-in-browser-heading": {
-    "message": "Continuer dans votre navigateur"
-  },
-  "modal.modrinth-account-required.create-account-button": {
-    "message": "Créer un compte"
-  },
-  "modal.modrinth-account-required.description": {
-    "message": "Vous aurez besoin de vous connecter à votre compte Modrinth avant de pouvoir utiliser cette fonctionnalité."
-  },
-  "modal.modrinth-account-required.header": {
-    "message": "Compte requis"
-  },
-  "modal.modrinth-account-required.open-browser-again-button": {
-    "message": "Ouvrir de nouveau le navigateur"
-  },
-  "modal.modrinth-account-required.sign-in-button": {
-    "message": "Se connecter à Modrinth"
-  },
-  "modal.modrinth-account-required.sign-in-heading": {
-    "message": "Se connecter à un compte Modrinth"
-  },
-  "modal.modrinth-account-required.signing-in-header": {
-    "message": "Connexion"
-  },
-  "modal.modrinth-account-required.support-prompt": {
-    "message": "Vous avez des problèmes à vous connecter ? <support>Obtenez de l'aide</support>"
-  },
-  "modal.modrinth-account-required.waiting-for-browser": {
-    "message": "En attente de la confirmation du navigateur..."
-  },
   "onboarding-checklist.create-instance": {
     "message": "Créer votre première instance"
   },
@@ -3175,6 +4702,42 @@
   },
   "onboarding-checklist.title": {
     "message": "Premiers pas"
+  },
+  "optifine.add-component": {
+    "message": "Installer OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Sélectionner le JAR et continuer"
+  },
+  "optifine.download-official": {
+    "message": "Téléchargement officiel"
+  },
+  "optifine.export-notice": {
+    "message": "Les binaires OptiFine sont exclus. Orbpack conserve la version requise ; les packs Modrinth et CurseForge nécessitent d'installer OptiFine séparément."
+  },
+  "optifine.import-canceled": {
+    "message": "Sélection d'OptiFine annulée. Le pack n'a pas été installé."
+  },
+  "optifine.import-description": {
+    "message": "Ce pack nécessite OptiFine {version} pour Minecraft {gameVersion}. Téléchargez son JAR officiel et sélectionnez-le pour continuer. OptiFine n'est pas inclus dans le pack."
+  },
+  "optifine.import-title": {
+    "message": "Ce pack nécessite OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Sélectionnez l'installeur officiel d'OptiFine pour Minecraft {gameVersion}. Pour un pack importé, sa version et son hash de fichier doivent également correspondre."
+  },
+  "optifine.remove-component": {
+    "message": "Retirer OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Sélectionner le JAR officiel d'OptiFine"
+  },
+  "project-type.world.category": {
+    "message": "Mondes"
   },
   "search.filter.locked.instance": {
     "message": "Procuré par l'instance"
@@ -3187,9 +4750,6 @@
   },
   "search.filter.locked.instance.sync": {
     "message": "Synchroniser avec l'instance"
-  },
-  "search.filter.locked.server-environment.title": {
-    "message": "Seuls les mods client peuvent être ajoutés à l'instance du serveur"
   },
   "settings.sidebar.label.account": {
     "message": "Compte"

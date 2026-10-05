@@ -8,8 +8,89 @@
   "app.action-bar.downloads": {
     "message": "Unduhan"
   },
+  "app.action-bar.hide-downloads": {
+    "message": "Sembunyikan unduhan aktif"
+  },
   "app.action-bar.hide-more-running-instances": {
     "message": "Sembunyikan lebih banyak instans yang sedang berjalan"
+  },
+  "app.action-bar.install.copied-details": {
+    "message": "Disalin"
+  },
+  "app.action-bar.install.copy-details": {
+    "message": "Salin detail"
+  },
+  "app.action-bar.install.dismiss": {
+    "message": "Abaikan"
+  },
+  "app.action-bar.install.open-instance": {
+    "message": "Buka instans"
+  },
+  "app.action-bar.install.retry": {
+    "message": "Coba lagi"
+  },
+  "app.action-bar.install.summary.app-closing": {
+    "message": "Dibatalkan karena aplikasi ditutup"
+  },
+  "app.action-bar.install.summary.bad-modpack-file": {
+    "message": "Paket mod tidak dapat dibaca"
+  },
+  "app.action-bar.install.summary.canceled": {
+    "message": "Dibatalkan"
+  },
+  "app.action-bar.install.summary.cleanup-incomplete": {
+    "message": "Pembersihan tidak selesai"
+  },
+  "app.action-bar.install.summary.content-download-failed": {
+    "message": "Berkas tidak dapat diunduh"
+  },
+  "app.action-bar.install.summary.corrupt-download": {
+    "message": "Berkas yang diunduh rusak"
+  },
+  "app.action-bar.install.summary.could-not-save-files": {
+    "message": "Berkas tidak dapat disimpan"
+  },
+  "app.action-bar.install.summary.download-failed": {
+    "message": "Pengunduhan tidak dapat diselesaikan"
+  },
+  "app.action-bar.install.summary.instance-not-found": {
+    "message": "Instans tidak ditemukan"
+  },
+  "app.action-bar.install.summary.invalid-file-path": {
+    "message": "Jalur berkas tidak valid"
+  },
+  "app.action-bar.install.summary.invalid-modpack": {
+    "message": "Data paket mod tidak valid"
+  },
+  "app.action-bar.install.summary.invalid-modpack-files": {
+    "message": "Berkas paket mod memiliki metadata tidak valid"
+  },
+  "app.action-bar.install.summary.java-setup-failed": {
+    "message": "Persiapan Java tidak dapat diselesaikan"
+  },
+  "app.action-bar.install.summary.loader-setup-failed": {
+    "message": "Persiapan loader gagal"
+  },
+  "app.action-bar.install.summary.local-data-error": {
+    "message": "Data lokal tidak dapat diperbarui"
+  },
+  "app.action-bar.install.summary.minecraft-setup-failed": {
+    "message": "Persiapan Minecraft gagal"
+  },
+  "app.action-bar.install.summary.modrinth-unreachable": {
+    "message": "Modrinth tidak dapat dijangkau"
+  },
+  "app.action-bar.install.summary.no-write-permission": {
+    "message": "Tidak ada izin untuk menulis"
+  },
+  "app.action-bar.install.summary.pack-download-failed": {
+    "message": "Paket tidak dapat diunduh"
+  },
+  "app.action-bar.install.summary.unexpected-error": {
+    "message": "Terjadi kesalahan"
+  },
+  "app.action-bar.install.unknown-instance": {
+    "message": "Instans tidak dikenal"
   },
   "app.action-bar.make-primary-instance": {
     "message": "Jadikan sebagai instans utama"
@@ -25,6 +106,9 @@
   },
   "app.action-bar.reload-to-update": {
     "message": "Muat ulang untuk memperbarui"
+  },
+  "app.action-bar.show-downloads": {
+    "message": "Tampilkan unduhan aktif"
   },
   "app.action-bar.show-more-running-instances": {
     "message": "Tampilkan lebih banyak instans yang sedang berjalan"
@@ -44,20 +128,296 @@
   "app.action-bar.view-logs": {
     "message": "Lihat catatan"
   },
+  "app.appearance-settings.compact-mode.description": {
+    "message": "Tampilkan instans pustaka dalam susunan baris padat."
+  },
+  "app.appearance-settings.compact-mode.title": {
+    "message": "Mode padat"
+  },
   "app.appearance-settings.default-landing-page.home": {
     "message": "Beranda"
   },
   "app.appearance-settings.default-landing-page.library": {
     "message": "Pustaka"
   },
+  "app.appearance-settings.hide-nametag.description": {
+    "message": "Sembunyikan nama pengguna Anda di atas pratinjau pemain di halaman pemilih skin."
+  },
   "app.appearance-settings.hide-nametag.title": {
     "message": "Sembunyikan label nama"
+  },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Animasikan ikon saat kursor diarahkan dan saat mendapat fokus keyboard."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Nonaktifkan animasi"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Selalu animasikan"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Ikuti sistem"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Animasi ikon"
+  },
+  "app.appearance-settings.minimize-launcher.description": {
+    "message": "Kecilkan {productName} saat Minecraft dimulai."
+  },
+  "app.appearance-settings.minimize-launcher.title": {
+    "message": "Kecilkan aplikasi"
+  },
+  "app.appearance-settings.show-play-time.description": {
+    "message": "Tampilkan berapa lama Anda telah bermain di setiap instans."
   },
   "app.appearance-settings.show-play-time.title": {
     "message": "Tampilkan waktu bermain"
   },
+  "app.appearance-settings.skip-non-essential-warnings.description": {
+    "message": "Lewati konfirmasi untuk tindakan berisiko rendah seperti instalasi ganda, penghapusan konten biasa, pembaruan massal, pelepasan tautan, dan perbaikan. Peringatan untuk tindakan berbahaya selalu ditampilkan."
+  },
+  "app.appearance-settings.skip-non-essential-warnings.title": {
+    "message": "Lewati peringatan non-esensial"
+  },
+  "app.appearance-settings.toggle-sidebar.description": {
+    "message": "Sembunyikan bilah sisi kanan secara bawaan dan tambahkan tombol untuk menampilkan atau menyembunyikannya."
+  },
+  "app.appearance-settings.toggle-sidebar.title": {
+    "message": "Sembunyikan bilah sisi kanan"
+  },
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Tampilkan peringatan keamanan sebelum memasang paket mod yang diimpor (.mrpack atau .zip CurseForge) yang sumbernya tidak dapat diverifikasi."
+  },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Peringatkan saya sebelum memasang paket mod tidak dikenal"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Hubungi dukungan"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Salin info debug"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Informasi debug"
+  },
+  "app.auth-error.header": {
+    "message": "Gagal Masuk"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Cara memperbaikinya"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Selesaikan proses verifikasi identitas"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Akun ini memerlukan verifikasi dewasa sesuai peraturan Korea Selatan."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Masuk Minecraft"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Periksa apakah koneksi internet Anda berfungsi"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Izinkan {product} melewati aturan firewall, antivirus, proksi, VPN, dan berkas hosts Anda"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Coba jaringan lain atau nonaktifkan sementara perangkat lunak VPN/proksi jika Anda menggunakannya"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Mulai ulang {product} dan coba masuk lagi"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Jika masalahnya terkait routing atau DNS, layanan seperti Cloudflare WARP kadang dapat membantu"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} tidak dapat terhubung ke layanan Microsoft, Xbox, atau Minecraft yang diperlukan untuk masuk. Biasanya ini disebabkan masalah jaringan lokal, DNS, proksi, firewall, berkas hosts, VPN, atau antivirus."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Tidak ada pesan kesalahan."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Anda dapat memeriksa akun mana yang memilikinya di <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Pastikan Anda masuk dengan akun Microsoft yang membeli Minecraft (atau memiliki Game Pass aktif dengan akses PC)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Akun Microsoft ini tidak memiliki Minecraft: Java Edition, dan {product} hanya berfungsi dengan akun premium."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Jalankan Minecraft: Java Edition sekali dari peluncur resmi"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Pastikan Anda menggunakan akun Microsoft yang memiliki Minecraft. Anda dapat memeriksa akun mana yang memilikinya di <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Tunggu hingga satu jam jika pembelian atau penyiapan profil baru saja dilakukan"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Layanan Minecraft tidak dapat mengembalikan profil Java Edition untuk akun ini. Ini paling sering terjadi saat permainan baru dibeli, profil Java belum selesai dibuat, atau akun Microsoft yang salah digunakan."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Pastikan Minecraft telah dibeli di akun ini"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Selesaikan penyiapan profil Xbox jika diminta"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Akun ini belum menyiapkan profil Xbox atau tidak memiliki Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Mulai ulang {product} setelah menunggu"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Coba masuk sekali lagi"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Tunggu sekitar satu jam sebelum mencoba lagi"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Jika pesan yang sama muncul, tunggu lebih lama sebelum mencoba lagi agar batas sementara hilang"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft atau Minecraft memblokir permintaan masuk sementara karena terlalu banyak percobaan baru-baru ini."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Periksa <a href=\"https://www.xbox.com/en-US/regions\">Ketersediaan Xbox</a> untuk wilayah yang didukung"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Layanan Xbox harus didukung di negara Anda sebelum Anda dapat masuk"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live tidak tersedia di wilayah Anda, jadi masuk diblokir."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Minta wali masuk ke <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Perbarui izin bermain daring"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Akun ini dibatasi dan tidak memiliki izin untuk bermain daring."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Jika layanan berfungsi normal dan ini terus terjadi, hubungi dukungan dengan informasi debug di bawah"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Coba masuk dengan <a href=\"https://www.minecraft.net/en-us/download\">Peluncur Minecraft resmi</a> untuk memastikan apakah masuk Minecraft juga terpengaruh di sana"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Periksa <a href=\"https://support.xbox.com/xbox-live-status\">Status Xbox</a> untuk masalah layanan saat ini"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Tunggu beberapa menit dan coba masuk lagi"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Layanan autentikasi Minecraft mengembalikan kesalahan server, jadi {product} tidak dapat menyelesaikan masuk Anda sekarang."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Masuk lagi"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Setelah selesai, coba masuk lagi"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Masuk dengan <a href=\"https://www.minecraft.net/en-us/download\">Peluncur Minecraft resmi</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Coba masuk ke {product} lagi"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Kunjungi <a href=\"https://www.minecraft.net/en-us/login\">Masuk Minecraft</a> dan masuk"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Kunjungi <a href=\"https://www.xbox.com\">Xbox</a> dan masuk"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Kirim banding jika tersedia"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Kunjungi <a href=\"https://support.xbox.com\">Dukungan Xbox</a> dan tinjau detail penegakan"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Akun ini ditangguhkan karena melanggar Standar Komunitas Xbox."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Setelah masuk baru selesai, coba luncurkan Minecraft lagi"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Masuk ke akun lagi"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Keluar dari akun Minecraft yang terpengaruh di {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Token masuk Microsoft yang disimpan telah kedaluwarsa atau dicabut, jadi {product} tidak dapat memperbarui sesi Minecraft Anda."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Terima Ketentuan jika diminta"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Akun ini belum menerima Ketentuan Layanan Xbox."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Coba kunjungi"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Untuk bantuan lebih lanjut, kunjungi <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">verifikasi usia UK di Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Buka halaman <a href=\"https://www.minecraft.net/en-us/login\">Masuk Minecraft</a> dan masuk"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Setelah diverifikasi, coba masuk lagi"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Ikuti petunjuk untuk memverifikasi umur Anda"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Akun Minecraft/Xbox Live Anda memerlukan verifikasi umur untuk mematuhi peraturan UK. Anda harus menyelesaikannya sebelum masuk."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Tinjau <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">Panduan Penyiapan Keluarga</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Gabung atau buat grup keluarga seperti yang diarahkan"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Akun ini di bawah umur dan tidak ditautkan ke grup keluarga Microsoft."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Kesalahan tidak diketahui"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Kami tidak mengenali kesalahan ini dan tidak dapat menyarankan langkah khusus untuk menyelesaikannya."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "dan masuk, karena hal itu mungkin menampilkan langkah yang diperlukan. Anda juga dapat menghubungi dukungan dan kami dapat menyelidikinya lebih lanjut."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Kami tidak dapat memasukkan Anda ke akun Microsoft Anda. Ini mungkin disebabkan batasan akun atau batasan wilayah."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Apa yang kami perkirakan terjadi"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Terima ketentuan apa pun atau selesaikan penyiapan profil yang ditampilkan"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Masuk sekali di <a href=\"https://www.xbox.com\">Xbox.com</a> dengan akun Microsoft yang sama"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live tidak menerima masuk Microsoft. Biasanya ini berarti akun Microsoft belum pernah masuk ke Xbox atau perlu menerima ketentuan yang diperbarui."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Jika peluncur resmi juga gagal, ikuti kesalahan yang ditampilkan di sana atau hubungi Dukungan Xbox"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Selesaikan permintaan apa pun yang ditampilkan oleh Microsoft, Xbox, atau Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Layanan Xbox menolak permintaan untuk mengizinkan akun ini untuk layanan Minecraft, tetapi tidak mengembalikan batasan akun khusus yang dikenali oleh {product}."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Server autentikasi Minecraft mungkin sedang tidak tersedia saat ini. Periksa koneksi internet Anda dan coba lagi nanti."
@@ -65,38 +425,563 @@
   "app.auth-servers.unreachable.header": {
     "message": "Tidak dapat terhubung ke server autentikasi"
   },
-  "app.browse.add-servers-to-instance": {
-    "message": "Menambah server ke instans"
+  "app.bedrock.account": {
+    "message": "Minecraft dan Microsoft Store periksa lisensi Bedrock Anda. Masuk di sana dengan akun pemilik Minecraft; akun Java Anda di peluncur ini mungkin berbeda."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Paket dan skrip perilaku lokal. Konfigurasikan mereka di pengaturan dunia di dalam Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Pengaya"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Paket perilaku"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "tambahan"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Jelajahi add-on, paket sumber daya, dunia, dan skrip dari CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Temukan konten Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Temukan add-on"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Temukan skrip"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Tutup Minecraft sebelum menambahkan paket ke dunia, lalu coba lagi."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Instal di Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Minecraft akan terbuka untuk mengimpor konten ini. Periksa hasilnya di dalam game, lalu aktifkan paket di pengaturan dunia Anda. Paket yang diperlukan dan pengaturan eksperimental tercantum dalam deskripsi proyek."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Arsip ini tidak berisi konten Bedrock yang didukung."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Tidak dapat memuat versi proyek atau dunia. Coba lagi."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Paket ini memerlukan paket lain yang tidak aktif di dunia ini. Instal dependensi yang dicantumkan oleh penulis terlebih dahulu."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Tidak ada file .mcaddon, .mcpack, .mcworld, atau ZIP yang didukung tersedia untuk proyek ini."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Buat dunia di Minecraft terlebih dahulu, lalu segarkan daftar ini."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Skrip"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Versi konten"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Dunia tujuan"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Tutup Minecraft sebelum menginstal. Paket ini hanya akan ditambahkan dan diaktifkan di dunia yang dipilih. Periksa dependensi yang diperlukan dan pengaturan eksperimental dalam deskripsi proyek."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Paket ditambahkan ke {world}. Buka Minecraft untuk memainkan dunia ini."
+  },
+  "app.bedrock.checking": {
+    "message": "Mencari Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Tutup Minecraft untuk mengedit file, menghapus konten, atau memulihkan salinan."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Konten ini telah diubah atau lokasi aslinya telah ditempati. Salinan pemulihan telah disimpan untuk menghindari penimpaan perubahan Anda."
+  },
+  "app.bedrock.content": {
+    "message": "Konten"
+  },
+  "app.bedrock.content-help": {
+    "message": "Sumber daya lokal dan paket kulit. Aktifkan di Minecraft; beberapa konten milik dunia individu."
+  },
+  "app.bedrock.data-error": {
+    "message": "Tidak dapat membaca data Minecraft. Segarkan untuk mencoba lagi."
+  },
+  "app.bedrock.data-location": {
+    "message": "Lokasi data Minecraft"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Item ini akan dihapus dari Minecraft. Salinan pemulihan akan disimpan, termasuk pengaturan paket dunia yang terpengaruh. Dunia yang bergantung pada paket yang dihapus mungkin kehilangan blok atau perilakunya; pulihkan sebelum membuka dunia itu."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Hapus konten lokal"
+  },
+  "app.bedrock.description": {
+    "message": "Mainkan Minecraft for Windows dan impor dunia dan add-on Anda."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Tidak dapat memeriksa instalasi Minecraft. Coba lagi."
+  },
+  "app.bedrock.development": {
+    "message": "Perkembangan"
+  },
+  "app.bedrock.edition": {
+    "message": "Edisi Minecraft"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Folder ini kosong."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Dunia dan add-on Bedrock"
+  },
+  "app.bedrock.file-size": {
+    "message": "Ukuran"
+  },
+  "app.bedrock.files": {
+    "message": "Berkas"
+  },
+  "app.bedrock.folder": {
+    "message": "Map"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Tidak dapat membuka folder Minecraft ini. Segarkan data Anda dan coba lagi."
+  },
+  "app.bedrock.import-button": {
+    "message": "Impor berkas"
+  },
+  "app.bedrock.import-description": {
+    "message": "Pilih file .mcworld, .mcpack atau .mcaddon. Minecraft akan membuka dan menangani impor."
+  },
+  "app.bedrock.import-error": {
+    "message": "Tidak dapat mengirim file ke Minecraft. Periksa apakah Minecraft for Windows telah diinstal dan coba lagi."
+  },
+  "app.bedrock.import-title": {
+    "message": "Dunia dan tambahan"
+  },
+  "app.bedrock.installation": {
+    "message": "Instalasi resmi"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows diinstal"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Pilih arsip .mcworld, .mcpack, atau .mcaddon lokal yang valid."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "File ini melebihi batas impor 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Tidak dapat membuka Minecraft. Buka peluncur resmi atau Microsoft Store untuk memeriksa instalasi."
+  },
+  "app.bedrock.launcher": {
+    "message": "Buka peluncur resmi"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Peluncur resmi terdeteksi. Instal Minecraft for Windows di sana untuk melanjutkan."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Membaca data Minecraft…"
+  },
+  "app.bedrock.location": {
+    "message": "Lokasi"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Menampilkan 1 MiB terakhir dari log ini."
+  },
+  "app.bedrock.logs": {
+    "message": "Log"
+  },
+  "app.bedrock.missing": {
+    "message": "Instal Minecraft for Windows untuk memulai"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Tidak dapat mengubah konten ini. Tutup Minecraft dan segarkan. Salinan pemulihan Anda telah disimpan."
+  },
+  "app.bedrock.name": {
+    "message": "Nama"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Tidak ditemukan add-on lokal. Impor file .mcpack atau .mcaddon untuk memulai."
+  },
+  "app.bedrock.no-content": {
+    "message": "Tidak ada konten lokal yang ditemukan."
+  },
+  "app.bedrock.no-data": {
+    "message": "Buka Minecraft sekali untuk membuat folder datanya, lalu segarkan di sini."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Tidak ada log konten yang ditemukan. Aktifkan pencatatan konten di Minecraft Pengaturan > Pencipta, lalu buka dunia Anda."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Belum ada salinan pemulihan."
+  },
+  "app.bedrock.no-results": {
+    "message": "Tidak ada item yang cocok."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Tidak ada dunia lokal yang ditemukan. Buat satu di Minecraft atau impor file .mcworld."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Buka folder"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Folder induk"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Beberapa folder tidak dapat dibaca atau mencapai batas tampilan. Anda dapat memeriksanya di File Explorer."
+  },
+  "app.bedrock.play": {
+    "message": "Mainkan"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "File asli dan konten yang dihapus disimpan di sini. Pulihkan salinan saat Minecraft ditutup. Konten yang ada dan pengeditan selanjutnya tidak pernah ditimpa."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Salinan pemulihan"
+  },
+  "app.bedrock.refresh": {
+    "message": "Periksa lagi"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Segarkan"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Muat ulang file ini sebelum menyimpan."
+  },
+  "app.bedrock.repair": {
+    "message": "Perbaiki atau perbarui instalasi Anda menggunakan Microsoft Store atau peluncur resmi."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Paket sumber daya"
+  },
+  "app.bedrock.restore": {
+    "message": "Pulihkan"
+  },
+  "app.bedrock.running": {
+    "message": "Sedang berjalan"
+  },
+  "app.bedrock.save-error": {
+    "message": "Tidak dapat menyimpan. File mungkin telah berubah, berisi JSON yang tidak valid, atau sedang digunakan. Muat ulang dan coba lagi."
+  },
+  "app.bedrock.search": {
+    "message": "Telusuri konten lokal…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Pilih log untuk membacanya."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Paket skin"
+  },
+  "app.bedrock.store": {
+    "message": "Instal atau perbarui"
+  },
+  "app.bedrock.store-error": {
+    "message": "Tidak dapat membuka Microsoft Store. Buka dari menu Mulai Windows."
+  },
+  "app.bedrock.submitted": {
+    "message": "File dikirim ke Minecraft. Periksa hasil impor di dalam game."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Integrasi Bedrock memerlukan Windows. Anda dapat terus memainkan Java Edition di perangkat ini."
+  },
+  "app.bedrock.update": {
+    "message": "Perbarui Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "Di Microsoft Store, periksa pembaruan dan pilih Minecraft for Windows. Versi terinstal Anda akan disegarkan saat Anda kembali."
+  },
+  "app.bedrock.version": {
+    "message": "Instalasi Windows {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Versi"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Dunia: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Dunia"
+  },
+  "app.behavior-settings.confirmations.title": {
+    "message": "Konfirmasi"
+  },
+  "app.behavior-settings.content.title": {
+    "message": "Beranda dan konten"
+  },
+  "app.behavior-settings.startup-and-navigation.title": {
+    "message": "Pemuatan awal dan navigasi"
   },
   "app.browse.add-to-an-instance": {
     "message": "Tambah ke instans"
   },
-  "app.browse.add-to-instance": {
-    "message": "Tambah ke instans"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Tambah ke {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Ditambahkan"
-  },
-  "app.browse.already-added": {
-    "message": "Telah ditambahkan"
-  },
   "app.browse.back-to-instance": {
     "message": "Kembali ke instans"
   },
-  "app.browse.discover-servers": {
-    "message": "Temukan server"
+  "app.browse.discover-project-type": {
+    "message": "Temukan {projectType}"
+  },
+  "app.browse.hide-installed-modpacks": {
+    "message": "Sembunyikan yang sudah terpasang"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Buka di CurseForge"
+  },
+  "app.browse.project-actions.label": {
+    "message": "Tindakan proyek"
+  },
+  "app.browse.project-type.data-packs": {
+    "message": "Paket Data"
   },
   "app.browse.project-type.modpacks": {
     "message": "Paket Mod"
   },
-  "app.browse.server.installing": {
-    "message": "Memasang"
+  "app.browse.project-type.mods": {
+    "message": "Mod"
+  },
+  "app.browse.project-type.resource-packs": {
+    "message": "Paket Sumber"
+  },
+  "app.browse.project-type.shaders": {
+    "message": "Shader"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Tidak ada versi tersedia yang cocok untuk {compatibilityLabel}. Anda tetap dapat memilih versi yang akan dipasang. Dependensi tidak akan dipasang secara otomatis."
+  },
+  "app.content.desync-pack": {
+    "message": "Desinkron"
+  },
+  "app.content.sync-data-packs-disabled": {
+    "message": "Aktifkan sinkronisasi paket data di pengaturan aplikasi terlebih dahulu."
+  },
+  "app.content.sync-pack": {
+    "message": "Sinkronkan"
+  },
+  "app.content.sync-packs-override": {
+    "message": "Matikan penggantian sinkronisasi paket di pengaturan instans ini terlebih dahulu."
+  },
+  "app.content.sync-resource-packs-disabled": {
+    "message": "Aktifkan sinkronisasi paket sumber di pengaturan aplikasi terlebih dahulu."
+  },
+  "app.curseforge.rate-limit.text": {
+    "message": "Batas permintaan bersama telah tercapai. Tunggu sebentar, lalu coba lagi."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge sedang sibuk sementara waktu"
+  },
+  "app.download-manager.active": {
+    "message": "Aktif"
+  },
+  "app.download-manager.attention": {
+    "message": "Perlu perhatian"
+  },
+  "app.download-manager.cancel": {
+    "message": "Batalkan instalasi"
+  },
+  "app.download-manager.canceling": {
+    "message": "Membatalkan instalasi…"
+  },
+  "app.download-manager.clear-all": {
+    "message": "Hapus semua"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Hapus semua tugas yang selesai"
+  },
+  "app.download-manager.complete": {
+    "message": "Selesai"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Instans duplikat"
+  },
+  "app.download-manager.empty": {
+    "message": "Tidak ada tugas instalasi"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Kecepatan unduhan diperkirakan"
+  },
+  "app.download-manager.eta": {
+    "message": "Perkiraan waktu tersisa untuk unduhan ini"
+  },
+  "app.download-manager.hide": {
+    "message": "Sembunyikan tugas instalasi"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Instans yang diimpor"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Instalasi instans"
+  },
+  "app.download-manager.modpack": {
+    "message": "Paket mod"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Instalasi paket mod"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Instans baru"
+  },
+  "app.download-manager.pause": {
+    "message": "Jeda instalasi"
+  },
+  "app.download-manager.paused": {
+    "message": "Dijeda"
+  },
+  "app.download-manager.remove": {
+    "message": "Hapus dari riwayat"
+  },
+  "app.download-manager.resume": {
+    "message": "Lanjutkan instalasi"
+  },
+  "app.download-manager.show": {
+    "message": "Tampilkan tugas instalasi"
+  },
+  "app.download-manager.tasks": {
+    "message": "Tugas"
+  },
+  "app.download-manager.title": {
+    "message": "Pengelola unduhan"
+  },
+  "app.download-manager.verifying": {
+    "message": "Memverifikasi"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Batalkan perubahan direktori"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Salin info debug"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Informasi debug"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "pertama. Setelah selesai, kembali ke sini dan masuk!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Coba masuk dengan"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Menggunakan PC Game Pass, datang dari Bedrock, atau baru membeli permainan?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "peluncur Minecraft resmi"
+  },
+  "app.error.get-support.button": {
+    "message": "Dapatkan dukungan"
+  },
+  "app.error.help.end": {
+    "message": "dan kami dengan senang hati akan membantu! Pastikan menyertakan informasi debug berikut:"
+  },
+  "app.error.help.start": {
+    "message": "Jika tidak ada yang berfungsi dan Anda membutuhkan bantuan, kunjungi"
+  },
+  "app.error.help.support-link": {
+    "message": "halaman dukungan kami"
+  },
+  "app.error.hosts.body-end": {
+    "message": "mencoba terhubung ke layanan Microsoft / Xbox / Minecraft, tetapi server jarak jauh menolak koneksi. Ini mungkin menunjukkan layanan ini diblokir oleh berkas hosts. Silakan kunjungi"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "untuk langkah memperbaiki masalah ini."
+  },
+  "app.error.migrate.body-end": {
+    "message": "tidak dapat berpindah ke direktori baru yang Anda pilih. Silakan hubungi dukungan untuk bantuan atau batalkan perubahan direktori."
+  },
+  "app.error.network.body-end": {
+    "message": "menyambung ke server Microsoft. Ini sering kali akibat koneksi lemah, jadi kami sarankan mencoba lagi untuk melihat apakah berfungsi. Jika masalah terus berlanjut, ikuti langkah dalam"
+  },
+  "app.error.network.body-start": {
+    "message": "Sepertinya ada masalah dengan"
+  },
+  "app.error.network.heading": {
+    "message": "Masalah jaringan"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "untuk mengatasi masalah."
+  },
+  "app.error.no-error-message": {
+    "message": "Tidak ada pesan kesalahan."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "gagal menemukan versi loader untuk instans ini."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Untuk mengatasinya, Anda perlu memperbaiki instans. Klik tombol di bawah untuk melakukannya."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Sepertinya ruang pada disk yang berisi direktori yang Anda pilih tidak mencukupi. Silakan kosongkan sedikit ruang dan coba lagi atau batalkan perubahan direktori."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Ruang tidak mencukupi"
+  },
+  "app.error.read-only.body-end": {
+    "message": "tidak dapat menulis ke direktori yang Anda pilih. Silakan sesuaikan izin direktori dan coba lagi atau batalkan perubahan direktori."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Sepertinya"
+  },
+  "app.error.read-only.heading": {
+    "message": "Ubah izin direktori"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Perbaiki instans"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Coba lagi perubahan direktori"
+  },
+  "app.error.state-init.body-end": {
+    "message": "gagal dimuat dengan benar. Ini mungkin disebabkan berkas yang rusak, atau karena aplikasi kehilangan berkas penting."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Anda mungkin dapat memperbaikinya melalui salah satu cara berikut:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Pastikan Anda terhubung ke internet, lalu coba mulai ulang aplikasi."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Unduh aplikasi ulang."
+  },
+  "app.error.state-init.open-backups-folder": {
+    "message": "Buka folder cadangan"
+  },
+  "app.error.support-article-link": {
+    "message": "artikel dukungan kami"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Direktori aplikasi tidak dapat diubah"
+  },
+  "app.error.title.generic": {
+    "message": "Terjadi kesalahan"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Tidak ada loader dipilih"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Tidak dapat masuk ke Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Kesalahan menginisialisasi {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Coba masuk lagi"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Periksa kembali bahwa Anda telah masuk dengan akun yang benar. Anda mungkin memiliki Minecraft di akun Microsoft lain."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Coba akun lain"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Coba akun Microsoft lain"
   },
   "app.export-modal.description-placeholder": {
     "message": "Masukkan deskripsi paket mod..."
@@ -104,8 +989,38 @@
   "app.export-modal.export-button": {
     "message": "Ekspor"
   },
+  "app.export-modal.export-complete": {
+    "message": "Ekspor selesai"
+  },
+  "app.export-modal.export-complete-description": {
+    "message": "{name} berhasil diekspor."
+  },
+  "app.export-modal.format-label": {
+    "message": "Format ekspor"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "ZIP CurseForge dengan manifest.json dan berkas terpilih di dalam overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Untuk peluncur yang mendukung paket Modrinth. Termasuk referensi unduhan dan berkas tambahan terpilih."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Paket {productName} portabel yang berisi berkas terpilih. Buka langsung di peluncur."
+  },
   "app.export-modal.header": {
     "message": "Ekspor paket mod"
+  },
+  "app.export-modal.modpack-name-label": {
+    "message": "Nama paket mod"
   },
   "app.export-modal.modpack-name-placeholder": {
     "message": "Nama paket mod"
@@ -116,17 +1031,179 @@
   "app.export-modal.version-number-placeholder": {
     "message": "1.0.0"
   },
+  "app.features-settings.instance-pages.title": {
+    "message": "Instans"
+  },
+  "app.features-settings.play-page.title": {
+    "message": "Halaman Main"
+  },
+  "app.features-settings.quick-instances.description": {
+    "message": "Pilih jumlah maksimum instans terbaru yang ditampilkan di bilah sisi kiri. Anda juga dapat menyesuaikannya dengan menyeret pemisah."
+  },
+  "app.features-settings.quick-instances.title": {
+    "message": "Instans cepat di bilah sisi"
+  },
+  "app.features-settings.show-all-screenshots.description": {
+    "message": "Tampilkan tombol di bilah sisi kiri untuk melihat tangkapan layar dari semua instans Anda."
+  },
+  "app.features-settings.show-all-screenshots.title": {
+    "message": "Tampilkan semua tangkapan layar di bilah sisi"
+  },
+  "app.features-settings.show-files-tab.title": {
+    "message": "Tampilkan tab Berkas di instans"
+  },
+  "app.features-settings.show-jump-in.description": {
+    "message": "Tampilkan dunia dan instans yang baru dimainkan di bagian atas halaman Main."
+  },
+  "app.features-settings.show-jump-in.title": {
+    "message": "Tampilkan bagian Lompat masuk"
+  },
+  "app.features-settings.show-screenshots-tab.title": {
+    "message": "Tampilkan tab Tangkapan layar di instans"
+  },
+  "app.features-settings.show-skin-selector.description": {
+    "message": "Tampilkan tombol di bilah sisi kiri untuk membuka pemilih skin."
+  },
+  "app.features-settings.show-skin-selector.title": {
+    "message": "Tampilkan pemilih skin di bilah sisi"
+  },
+  "app.features-settings.show-worlds-tab.title": {
+    "message": "Tampilkan tab Dunia di instans"
+  },
+  "app.features-settings.sidebar.title": {
+    "message": "Bilah sisi"
+  },
+  "app.home.jump-back-in.actions.label": {
+    "message": "Tindakan instans"
+  },
+  "app.home.jump-back-in.instance-locked": {
+    "message": "Instans ini telah dikunci"
+  },
+  "app.home.jump-back-in.instance-open": {
+    "message": "Instans sudah dibuka"
+  },
+  "app.home.jump-back-in.more-options": {
+    "message": "Opsi lain"
+  },
+  "app.home.jump-back-in.never-played": {
+    "message": "Belum pernah dimainkan"
+  },
+  "app.home.jump-back-in.new-instance": {
+    "message": "Instans baru"
+  },
+  "app.home.jump-back-in.resize": {
+    "message": "Seret untuk mengubah ukuran"
+  },
+  "app.home.jump-back-in.title": {
+    "message": "Lompat masuk"
+  },
+  "app.home.jump-back-in.view-instance": {
+    "message": "Lihat instans"
+  },
+  "app.install.phase.downloading_content": {
+    "message": "Mengunduh konten"
+  },
+  "app.install.phase.downloading_minecraft": {
+    "message": "Mengunduh Minecraft"
+  },
+  "app.install.phase.downloading_pack_file": {
+    "message": "Mengunduh berkas paket"
+  },
+  "app.install.phase.extracting_overrides": {
+    "message": "Mengekstrak overrides"
+  },
+  "app.install.phase.finalizing": {
+    "message": "Menyelesaikan"
+  },
+  "app.install.phase.preparing_instance": {
+    "message": "Dalam antrean untuk dipasang"
+  },
+  "app.install.phase.preparing_java": {
+    "message": "Menyiapkan Java"
+  },
+  "app.install.phase.preparing_java.downloading": {
+    "message": "Mengunduh Java {version}"
+  },
+  "app.install.phase.preparing_java.extracting": {
+    "message": "Mengekstrak Java {version}"
+  },
+  "app.install.phase.preparing_java.fetching-metadata": {
+    "message": "Mengambil Java {version}"
+  },
+  "app.install.phase.preparing_java.resolving": {
+    "message": "Menyiapkan Java {version}"
+  },
+  "app.install.phase.preparing_java.validating": {
+    "message": "Memvalidasi Java {version}"
+  },
+  "app.install.phase.reading_pack_manifest": {
+    "message": "Membaca manifest paket"
+  },
+  "app.install.phase.resolving_loader": {
+    "message": "Menyelesaikan loader"
+  },
+  "app.install.phase.resolving_minecraft": {
+    "message": "Menyelesaikan Minecraft"
+  },
+  "app.install.phase.resolving_pack": {
+    "message": "Menyelesaikan konten"
+  },
+  "app.install.phase.rolling_back": {
+    "message": "Memulihkan"
+  },
+  "app.install.phase.running_loader_processors": {
+    "message": "Menjalankan pemroses loader"
+  },
+  "app.instance.action.add-content": {
+    "message": "Tambah konten"
+  },
+  "app.instance.action.copy-path": {
+    "message": "Salin jalur"
+  },
+  "app.instance.action.edit": {
+    "message": "Sunting"
+  },
+  "app.instance.action.open-folder": {
+    "message": "Buka folder"
+  },
+  "app.instance.action.play": {
+    "message": "Main"
+  },
+  "app.instance.action.stop": {
+    "message": "Hentikan"
+  },
+  "app.instance.actions.label": {
+    "message": "Tindakan instans"
+  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Semua data dari instans Anda akan dihapus secara permanen, termasuk dunia, konfigurasi, dan konten terpasang Anda."
   },
   "app.instance.confirm-delete.admonition-header": {
     "message": "Tindakan ini tidak dapat dibatalkan"
   },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "Semua data untuk {count} instans ini akan dihapus secara permanen, termasuk dunia, konfigurasi, dan semua konten yang terpasang."
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "Hapus {count} instans"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "Hapus {count} instans"
+  },
   "app.instance.confirm-delete.delete-button": {
     "message": "Hapus instans"
   },
   "app.instance.confirm-delete.header": {
     "message": "Hapus instans"
+  },
+  "app.instance.confirm-delete.instances-label": {
+    "message": "{count, plural, other {Instans ({count})}}"
+  },
+  "app.instance.content.managed-content.modpack-header": {
+    "message": "Konten paket mod"
+  },
+  "app.instance.content.managed-content.server-header": {
+    "message": "Konten server"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Paket mod ini telah terpasang di instans <bold>{instanceName}</bold>. Apakah Anda yakin ingin menggandakannya?"
@@ -140,8 +1217,23 @@
   "app.instance.modpack-already-installed.instance": {
     "message": "Instans"
   },
+  "app.instance.mods.bulk-update.downloading-projects": {
+    "message": "Mengunduh {current, number}/{total, number} proyek..."
+  },
+  "app.instance.mods.bulk-update.finishing": {
+    "message": "Menyelesaikan pembaruan..."
+  },
+  "app.instance.mods.bulk-update.resolving-versions": {
+    "message": "Menyelesaikan versi..."
+  },
   "app.instance.mods.content-type-project": {
     "message": "proyek"
+  },
+  "app.instance.mods.freeze-content": {
+    "message": "Kunci versi"
+  },
+  "app.instance.mods.locked-content": {
+    "message": "Konten dalam instans terkunci tidak dapat diubah."
   },
   "app.instance.mods.project-was-added": {
     "message": "\"{name}\" telah ditambahkan"
@@ -158,11 +1250,50 @@
   "app.instance.mods.successfully-uploaded": {
     "message": "Berhasil diunggah"
   },
+  "app.instance.mods.unfreeze-content": {
+    "message": "Buka kunci versi"
+  },
+  "app.instance.navigation.back-to-instance": {
+    "message": "Kembali ke instans"
+  },
+  "app.instance.shortcut.created": {
+    "message": "Pintasan dibuat"
+  },
+  "app.instance.shortcut.creation-error": {
+    "message": "Kesalahan membuat pintasan"
+  },
+  "app.instance.tab.content": {
+    "message": "Konten"
+  },
+  "app.instance.tab.files": {
+    "message": "Berkas"
+  },
+  "app.instance.tab.logs": {
+    "message": "Log"
+  },
+  "app.instance.tab.screenshots": {
+    "message": "Tangkapan layar"
+  },
+  "app.instance.tab.worlds": {
+    "message": "Dunia"
+  },
   "app.instance.worlds.add-server": {
     "message": "Tambah server"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Telusuri server"
+  "app.instance.worlds.browse": {
+    "message": "Jelajahi dunia"
+  },
+  "app.instance.worlds.delete-world-modal.delete-button": {
+    "message": "Hapus dunia"
+  },
+  "app.instance.worlds.delete-world-modal.title": {
+    "message": "Hapus dunia"
+  },
+  "app.instance.worlds.delete-world-modal.warning-body": {
+    "message": "Dunia ini akan dihapus secara permanen dari instans ini. Tindakan ini tidak dapat dibatalkan."
+  },
+  "app.instance.worlds.delete-world-modal.warning-header": {
+    "message": "Menghapus {name}"
   },
   "app.instance.worlds.filter-modded": {
     "message": "Dimodifikasi"
@@ -182,32 +1313,704 @@
   "app.instance.worlds.no-worlds-heading": {
     "message": "Tidak ada server atau dunia yang ditambahkan"
   },
+  "app.instance.worlds.refreshing": {
+    "message": "Menyegarkan..."
+  },
+  "app.instance.worlds.remove-server-modal.remove-button": {
+    "message": "Hapus server"
+  },
+  "app.instance.worlds.remove-server-modal.remove-everywhere": {
+    "message": "Hapus di semua tempat"
+  },
+  "app.instance.worlds.remove-server-modal.remove-here": {
+    "message": "Hapus di sini"
+  },
+  "app.instance.worlds.remove-server-modal.synced-description": {
+    "message": "Anda dapat menghapusnya hanya dari instans ini atau dari semua instans yang disinkronkan. Menghapusnya hanya dari instans ini akan mengaktifkan penggantian, dan instans ini tidak lagi menerima perubahan server yang disinkronkan."
+  },
+  "app.instance.worlds.remove-server-modal.synced-header": {
+    "message": "Server ini disinkronkan"
+  },
+  "app.instance.worlds.remove-server-modal.title": {
+    "message": "Hapus server"
+  },
+  "app.instance.worlds.remove-server-modal.warning-body": {
+    "message": "Server ini akan dihapus dari daftar server Anda dan dari daftar server dalam permainan. Anda dapat menambahkannya lagi nanti jika Anda tahu alamatnya."
+  },
+  "app.instance.worlds.remove-server-modal.warning-header": {
+    "message": "Menghapus {name}"
+  },
   "app.instance.worlds.search-worlds-placeholder": {
     "message": "Cari {count} dunia..."
   },
-  "app.modal.install-to-play.header": {
-    "message": "Pasang untuk memainkan"
+  "app.java-detection.cancel": {
+    "message": "Batal"
   },
-  "app.modal.install-to-play.install-button": {
-    "message": "Pasang"
+  "app.java-detection.columns.actions": {
+    "message": "Tindakan"
   },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, other {# mod}}"
+  "app.java-detection.columns.path": {
+    "message": "Jalur"
   },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Instans terbagi"
+  "app.java-detection.columns.version": {
+    "message": "Versi"
   },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Lihat konten"
+  "app.java-detection.no-installations-found": {
+    "message": "Instalasi Java tidak ditemukan."
   },
-  "app.modal.update-to-play.header": {
-    "message": "Perbarui untuk memainkan"
+  "app.java-detection.select": {
+    "message": "Pilih"
+  },
+  "app.java-detection.selected": {
+    "message": "Dipilih"
+  },
+  "app.java-detection.title": {
+    "message": "Pilih instalasi Java"
+  },
+  "app.java-selector.already-installed": {
+    "message": "Sudah terpasang"
+  },
+  "app.java-selector.browse": {
+    "message": "Jelajah"
+  },
+  "app.java-selector.detect": {
+    "message": "Deteksi"
+  },
+  "app.java-selector.install-recommended": {
+    "message": "Instal yang disarankan"
+  },
+  "app.java-selector.installing": {
+    "message": "Menginstal..."
+  },
+  "app.java-selector.path.placeholder": {
+    "message": "/path/to/java"
+  },
+  "app.java-selector.test-installation": {
+    "message": "Uji instalasi Java"
+  },
+  "app.launch-link.instance": {
+    "message": "Sebuah tautan ingin memulai {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Mulai"
+  },
+  "app.launch-link.server": {
+    "message": "Sebuah tautan ingin memulai {instance} dan bergabung dengan server {target}. Lanjutkan hanya jika Anda mempercayai asal tautan ini."
+  },
+  "app.launch-link.title": {
+    "message": "Buka Minecraft dari tautan?"
+  },
+  "app.launch-link.world": {
+    "message": "Sebuah tautan ingin memulai {instance} dan membuka dunia {target}."
+  },
+  "app.library.actions.label": {
+    "message": "Tindakan pustaka"
+  },
+  "app.library.context-menu.create-instance": {
+    "message": "Instans baru"
+  },
+  "app.library.filter.add": {
+    "message": "Tambah filter"
+  },
+  "app.library.filter.clear": {
+    "message": "Hapus filter"
+  },
+  "app.library.filter.game-version": {
+    "message": "Versi permainan"
+  },
+  "app.library.filter.instance-type": {
+    "message": "Jenis instans"
+  },
+  "app.library.filter.instance-type.custom": {
+    "message": "Kustom"
+  },
+  "app.library.filter.instance-type.modpack": {
+    "message": "Paket mod"
+  },
+  "app.library.filter.instance-type.server": {
+    "message": "Server"
+  },
+  "app.library.filter.label": {
+    "message": "Filter berdasarkan"
+  },
+  "app.library.filter.loader": {
+    "message": "Pemuat"
+  },
+  "app.library.group-by.custom-group": {
+    "message": "Grup kustom"
+  },
+  "app.library.group-by.game-version": {
+    "message": "Versi permainan"
+  },
+  "app.library.group-by.instance-type": {
+    "message": "Jenis instans"
+  },
+  "app.library.group-by.label": {
+    "message": "Kelompokkan berdasarkan"
+  },
+  "app.library.group-by.loader": {
+    "message": "Pemuat"
+  },
+  "app.library.group-by.none": {
+    "message": "Tanpa pengelompokan"
+  },
+  "app.library.group.actions.label": {
+    "message": "Tindakan grup"
+  },
+  "app.library.group.collapse": {
+    "message": "Ciutkan grup"
+  },
+  "app.library.group.context-menu.add-to-group": {
+    "message": "Tambahkan ke grup"
+  },
+  "app.library.group.create": {
+    "message": "Buat grup"
+  },
+  "app.library.group.create.cancel": {
+    "message": "Batal"
+  },
+  "app.library.group.delete": {
+    "message": "Hapus grup"
+  },
+  "app.library.group.delete-description": {
+    "message": "Instans dalam grup ini tidak akan dikelompokkan lagi."
+  },
+  "app.library.group.edit-name": {
+    "message": "Sunting nama grup"
+  },
+  "app.library.group.empty": {
+    "message": "Seret dan lepas untuk menambahkan instans."
+  },
+  "app.library.group.expand": {
+    "message": "Kembangkan grup"
+  },
+  "app.library.group.favorites": {
+    "message": "Favorit"
+  },
+  "app.library.group.instance.add": {
+    "message": "Tambahkan"
+  },
+  "app.library.group.instance.added": {
+    "message": "Ditambahkan"
+  },
+  "app.library.group.instances-modal.add": {
+    "message": "Tambahkan"
+  },
+  "app.library.group.instances-modal.added": {
+    "message": "Ditambahkan"
+  },
+  "app.library.group.instances-modal.no-instances-found": {
+    "message": "Tidak ada instans ditemukan"
+  },
+  "app.library.group.instances-modal.search-placeholder": {
+    "message": "Cari instans"
+  },
+  "app.library.group.instances-modal.title": {
+    "message": "Tambahkan instans ke \"{groupName}\""
+  },
+  "app.library.group.move-down": {
+    "message": "Pindahkan grup ke bawah"
+  },
+  "app.library.group.move-up": {
+    "message": "Pindahkan grup ke atas"
+  },
+  "app.library.group.name": {
+    "message": "Nama grup"
+  },
+  "app.library.group.name-empty": {
+    "message": "Nama grup tidak boleh kosong."
+  },
+  "app.library.group.name-placeholder": {
+    "message": "Masukkan nama grup"
+  },
+  "app.library.group.name-reserved": {
+    "message": "\"None\" dipesan dan tidak dapat digunakan sebagai nama grup."
+  },
+  "app.library.group.name-too-long": {
+    "message": "Nama grup tidak dapat lebih panjang dari {maxLength} karakter."
+  },
+  "app.library.group.new": {
+    "message": "Grup baru"
+  },
+  "app.library.group.no-instances-found": {
+    "message": "Tidak ada instans ditemukan"
+  },
+  "app.library.group.rename-failed": {
+    "message": "Tidak dapat mengubah nama grup"
+  },
+  "app.library.group.search-instance": {
+    "message": "Cari instans"
+  },
+  "app.library.group.ungrouped": {
+    "message": "Tidak dikelompokkan"
+  },
+  "app.library.group.unknown": {
+    "message": "Grup tidak diketahui"
+  },
+  "app.library.instance.action.add-content": {
+    "message": "Tambahkan konten"
+  },
+  "app.library.instance.action.add-to-favorites": {
+    "message": "Tambahkan ke favorit"
+  },
+  "app.library.instance.action.copy-path": {
+    "message": "Salin jalur"
+  },
+  "app.library.instance.action.delete": {
+    "message": "Hapus"
+  },
+  "app.library.instance.action.duplicate": {
+    "message": "Duplikasi instans"
+  },
+  "app.library.instance.action.open-folder": {
+    "message": "Buka folder"
+  },
+  "app.library.instance.action.play": {
+    "message": "Main"
+  },
+  "app.library.instance.action.remove-from-favorites": {
+    "message": "Hapus dari favorit"
+  },
+  "app.library.instance.action.remove-from-group": {
+    "message": "Hapus dari grup"
+  },
+  "app.library.instance.action.stop": {
+    "message": "Hentikan"
+  },
+  "app.library.instance.action.view-instance": {
+    "message": "Lihat instans"
+  },
+  "app.library.instance.actions.label": {
+    "message": "Tindakan instans"
+  },
+  "app.library.instance.deselect": {
+    "message": "Batalkan pilihan instans"
+  },
+  "app.library.instance.deselect-with-name": {
+    "message": "Batalkan pilihan {name}"
+  },
+  "app.library.instance.installing": {
+    "message": "Menginstal..."
+  },
+  "app.library.instance.loading": {
+    "message": "Instans sedang dimuat..."
+  },
+  "app.library.instance.new": {
+    "message": "Instans baru"
+  },
+  "app.library.instance.open-with-name": {
+    "message": "Buka {name}"
+  },
+  "app.library.instance.play": {
+    "message": "Main"
+  },
+  "app.library.instance.repair": {
+    "message": "Perbaiki"
+  },
+  "app.library.instance.select": {
+    "message": "Pilih instans"
+  },
+  "app.library.instance.select-with-name": {
+    "message": "Pilih {name}"
+  },
+  "app.library.instance.stop": {
+    "message": "Hentikan"
+  },
+  "app.library.search.no-results.title": {
+    "message": "Tidak ada instans yang cocok dengan pencarian Anda."
+  },
+  "app.library.search.placeholder": {
+    "message": "Cari"
+  },
+  "app.library.selection.aria-label": {
+    "message": "Instans yang dipilih"
+  },
+  "app.library.selection.deleting": {
+    "message": "Menghapus instans yang dipilih"
+  },
+  "app.library.selection.new-group": {
+    "message": "Grup baru"
+  },
+  "app.library.selection.remove-from-group": {
+    "message": "Hapus dari grup"
+  },
+  "app.library.selection.selected-count": {
+    "message": "{count} dipilih"
+  },
+  "app.library.sort.date-created": {
+    "message": "Tanggal dibuat"
+  },
+  "app.library.sort.date-modified": {
+    "message": "Tanggal diubah"
+  },
+  "app.library.sort.game-version": {
+    "message": "Versi permainan"
+  },
+  "app.library.sort.hours-played": {
+    "message": "Jam dimainkan"
+  },
+  "app.library.sort.label": {
+    "message": "Urutkan berdasarkan"
+  },
+  "app.library.sort.last-played": {
+    "message": "Terakhir dimainkan"
+  },
+  "app.library.sort.loader": {
+    "message": "Pemuat"
+  },
+  "app.library.sort.name": {
+    "message": "Nama"
+  },
+  "app.library.title": {
+    "message": "Pustaka"
+  },
+  "app.nav.collapse-sidebar": {
+    "message": "Ciutkan bilah sisi"
+  },
+  "app.nav.create-new-instance": {
+    "message": "Buat instans baru"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Kembangkan bilah sisi"
+  },
+  "app.nav.home": {
+    "message": "Beranda"
+  },
+  "app.nav.screenshots": {
+    "message": "Tangkapan skrin"
+  },
+  "app.navigation.go-back": {
+    "message": "Kembali"
+  },
+  "app.navigation.go-forward": {
+    "message": "Maju"
+  },
+  "app.navigation.home": {
+    "message": "Beranda"
+  },
+  "app.navigation.next-image": {
+    "message": "Gambar berikutnya"
+  },
+  "app.notification.warning": {
+    "message": "Peringatan"
+  },
+  "app.project.actions.label": {
+    "message": "Tindakan proyek"
+  },
+  "app.project.coming-soon": {
+    "message": "Segera hadir"
+  },
+  "app.project.gallery.image-fallback": {
+    "message": "Gambar galeri"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Buka gambar di tab baru"
   },
   "app.project.install-button.already-installed": {
     "message": "Proyek ini sudah terpasang"
   },
+  "app.project.install-button.switch-version": {
+    "message": "Ganti versi"
+  },
   "app.project.install-context.back-to-browse": {
     "message": "Kembali ke halaman pencarian"
+  },
+  "app.project.install-context.back-to-instance": {
+    "message": "Kembali ke instans"
+  },
+  "app.project.load-error": {
+    "message": "Data proyek tidak dapat dimuat."
+  },
+  "app.project.more-options": {
+    "message": "Opsi lainnya"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Buka di CurseForge"
+  },
+  "app.project.tab.description": {
+    "message": "Deskripsi"
+  },
+  "app.project.tab.gallery": {
+    "message": "Galeri"
+  },
+  "app.project.tab.versions": {
+    "message": "Versi"
+  },
+  "app.project.version.all-versions": {
+    "message": "Semua versi"
+  },
+  "app.project.version.download-in-browser": {
+    "message": "Unduh di peramban"
+  },
+  "app.project.version.installing": {
+    "message": "Menginstal"
+  },
+  "app.project.versions.already-installed": {
+    "message": "Sudah terinstal"
+  },
+  "app.quick-instance-switcher.actions.label": {
+    "message": "Tindakan instans"
+  },
+  "app.quick-instance-switcher.drag-show-tooltip": {
+    "message": "Seret untuk menampilkan instans terbaru"
+  },
+  "app.quick-instance-switcher.drag-tooltip": {
+    "message": "Seret untuk mengubah ukuran"
+  },
+  "app.quick-instance-switcher.instance-locked": {
+    "message": "Instans ini telah dikunci"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Instans terbaru"
+  },
+  "app.quick-instance-switcher.view-instance": {
+    "message": "Lihat instans"
+  },
+  "app.restarting": {
+    "message": "Memulai ulang..."
+  },
+  "app.screenshots.copied": {
+    "message": "Disalin"
+  },
+  "app.screenshots.copy": {
+    "message": "Salin gambar"
+  },
+  "app.screenshots.delete-description": {
+    "message": "Hapus {name} secara permanen? Tindakan ini tidak dapat dibatalkan."
+  },
+  "app.screenshots.delete-success": {
+    "message": "Tangkapan skrin dihapus"
+  },
+  "app.screenshots.delete-title": {
+    "message": "Hapus tangkapan skrin"
+  },
+  "app.screenshots.deselect": {
+    "message": "Batalkan pilihan {name}"
+  },
+  "app.screenshots.edit": {
+    "message": "Sunting tangkapan skrin"
+  },
+  "app.screenshots.empty-description": {
+    "message": "Tangkapan skrin yang Anda ambil dalam permainan akan muncul di sini."
+  },
+  "app.screenshots.empty-heading": {
+    "message": "Belum ada tangkapan skrin"
+  },
+  "app.screenshots.error-heading": {
+    "message": "Gagal memuat tangkapan skrin"
+  },
+  "app.screenshots.go-to-instance": {
+    "message": "Buka instans"
+  },
+  "app.screenshots.group-by": {
+    "message": "Kelompokkan berdasarkan"
+  },
+  "app.screenshots.group.all-screenshots": {
+    "message": "Semua tangkapan skrin"
+  },
+  "app.screenshots.group.collapse": {
+    "message": "Ciutkan grup"
+  },
+  "app.screenshots.group.custom": {
+    "message": "Grup kustom"
+  },
+  "app.screenshots.group.date": {
+    "message": "Tanggal"
+  },
+  "app.screenshots.group.delete": {
+    "message": "Hapus grup"
+  },
+  "app.screenshots.group.delete-description": {
+    "message": "Tangkapan skrin dalam grup ini tidak akan dikelompokkan lagi."
+  },
+  "app.screenshots.group.edit": {
+    "message": "Sunting nama grup"
+  },
+  "app.screenshots.group.empty": {
+    "message": "Seret dan lepas untuk menambahkan tangkapan skrin."
+  },
+  "app.screenshots.group.expand": {
+    "message": "Kembangkan grup"
+  },
+  "app.screenshots.group.instance": {
+    "message": "Instans"
+  },
+  "app.screenshots.group.new": {
+    "message": "Grup baru"
+  },
+  "app.screenshots.group.none": {
+    "message": "Tanpa pengelompokan"
+  },
+  "app.screenshots.group.this-month": {
+    "message": "Bulan ini"
+  },
+  "app.screenshots.group.this-week": {
+    "message": "Minggu ini"
+  },
+  "app.screenshots.group.today": {
+    "message": "Hari ini"
+  },
+  "app.screenshots.group.ungrouped": {
+    "message": "Tidak dikelompokkan"
+  },
+  "app.screenshots.group.yesterday": {
+    "message": "Kemarin"
+  },
+  "app.screenshots.heading": {
+    "message": "Tangkapan skrin"
+  },
+  "app.screenshots.more-actions": {
+    "message": "Tindakan lainnya"
+  },
+  "app.screenshots.no-results-description": {
+    "message": "Coba pencarian atau filter lain."
+  },
+  "app.screenshots.no-results-heading": {
+    "message": "Tidak ada tangkapan skrin yang cocok"
+  },
+  "app.screenshots.preview.instance-and-date": {
+    "message": "{instance} · {date}"
+  },
+  "app.screenshots.search": {
+    "message": "Cari"
+  },
+  "app.screenshots.select": {
+    "message": "Pilih {name}"
+  },
+  "app.screenshots.selection.aria-label": {
+    "message": "Tangkapan skrin yang dipilih"
+  },
+  "app.screenshots.selection.delete-description": {
+    "message": "Hapus {count, plural, other {# tangkapan skrin}}? Tindakan ini tidak dapat dibatalkan."
+  },
+  "app.screenshots.selection.delete-success": {
+    "message": "{count, plural, other {# tangkapan skrin dihapus}}"
+  },
+  "app.screenshots.selection.delete-title": {
+    "message": "Hapus tangkapan skrin yang dipilih"
+  },
+  "app.screenshots.selection.export-zip": {
+    "message": "Ekspor ZIP"
+  },
+  "app.screenshots.selection.global-export-filename": {
+    "message": "Tangkapan skrin {productName}.zip"
+  },
+  "app.screenshots.selection.instance-export-filename": {
+    "message": "Tangkapan skrin {instance}.zip"
+  },
+  "app.screenshots.selection.remove-from-group": {
+    "message": "Hapus dari grup"
+  },
+  "app.screenshots.selection.selected-count": {
+    "message": "{count} dipilih"
+  },
+  "app.screenshots.selection.zip-archive": {
+    "message": "Arsip ZIP"
+  },
+  "app.screenshots.show-in-folder": {
+    "message": "Tampilkan di folder"
+  },
+  "app.screenshots.sort-by": {
+    "message": "Urutkan berdasarkan"
+  },
+  "app.screenshots.sort.name": {
+    "message": "Nama"
+  },
+  "app.screenshots.sort.newest": {
+    "message": "Terbaru"
+  },
+  "app.screenshots.sort.oldest": {
+    "message": "Terlama"
+  },
+  "app.settings.app-version": {
+    "message": "{productName} {version}"
+  },
+  "app.settings.default-instance-options.environment-variables.description": {
+    "message": "Variabel lingkungan yang ditetapkan saat memulai instans."
+  },
+  "app.settings.default-instance-options.environment-variables.placeholder": {
+    "message": "Masukkan variabel lingkungan..."
+  },
+  "app.settings.default-instance-options.environment-variables.title": {
+    "message": "Variabel lingkungan"
+  },
+  "app.settings.default-instance-options.fullscreen.description": {
+    "message": "Mulai instans dalam layar penuh dengan memperbarui berkas options.txt mereka."
+  },
+  "app.settings.default-instance-options.fullscreen.title": {
+    "message": "Layar penuh"
+  },
+  "app.settings.default-instance-options.height.description": {
+    "message": "Tinggi jendela permainan saat diluncurkan."
+  },
+  "app.settings.default-instance-options.height.placeholder": {
+    "message": "Masukkan tinggi..."
+  },
+  "app.settings.default-instance-options.height.title": {
+    "message": "Tinggi"
+  },
+  "app.settings.default-instance-options.java-and-memory.title": {
+    "message": "Java dan memori"
+  },
+  "app.settings.default-instance-options.java-arguments.description": {
+    "message": "Argumen yang diteruskan ke Java saat memulai instans."
+  },
+  "app.settings.default-instance-options.java-arguments.placeholder": {
+    "message": "Masukkan argumen Java..."
+  },
+  "app.settings.default-instance-options.java-arguments.title": {
+    "message": "Argumen Java"
+  },
+  "app.settings.default-instance-options.launch-hooks.title": {
+    "message": "Hook peluncuran"
+  },
+  "app.settings.default-instance-options.memory-allocation.description": {
+    "message": "Memori maksimum yang tersedia untuk setiap instans."
+  },
+  "app.settings.default-instance-options.memory-allocation.title": {
+    "message": "Alokasi memori"
+  },
+  "app.settings.default-instance-options.post-exit-hook.description": {
+    "message": "Dijalankan setelah permainan ditutup."
+  },
+  "app.settings.default-instance-options.post-exit-hook.placeholder": {
+    "message": "Masukkan perintah pasca-keluar..."
+  },
+  "app.settings.default-instance-options.post-exit-hook.title": {
+    "message": "Hook pasca-keluar"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.description": {
+    "message": "Dijalankan sebelum instans dimulai."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.placeholder": {
+    "message": "Masukkan perintah pra-peluncuran..."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "Hook pra-peluncuran"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "Lebar jendela permainan saat diluncurkan."
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "Masukkan lebar..."
+  },
+  "app.settings.default-instance-options.width.title": {
+    "message": "Lebar"
+  },
+  "app.settings.default-instance-options.window.title": {
+    "message": "Jendela"
+  },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "Perintah yang digunakan untuk membungkus proses peluncuran Minecraft."
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "Masukkan perintah pembungkus..."
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "Hook pembungkus"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "Alihkan mode pengembang"
   },
   "app.settings.developer-mode-enabled": {
     "message": "Mode pengembang dihidupkan."
@@ -215,8 +2018,1394 @@
   "app.settings.downloading": {
     "message": "Mengunduh v{version}"
   },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Tidak ada bendera yang cocok dengan \"{query}\""
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Atur ulang ke bawaan"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Cari bendera..."
+  },
+  "app.settings.game-options.category.accessibility.description": {
+    "message": "Preferensi aksesibilitas"
+  },
+  "app.settings.game-options.category.accessibility.label": {
+    "message": "Aksesibilitas"
+  },
+  "app.settings.game-options.category.chat.description": {
+    "message": "Visibilitas dan tampilan obrolan"
+  },
+  "app.settings.game-options.category.chat.label": {
+    "message": "Obrolan"
+  },
+  "app.settings.game-options.category.controls.description": {
+    "message": "Mouse, pergerakan, dan ikatan tombol"
+  },
+  "app.settings.game-options.category.controls.label": {
+    "message": "Kontrol"
+  },
+  "app.settings.game-options.category.custom.description": {
+    "message": "Pengaturan yang ditambahkan oleh mod"
+  },
+  "app.settings.game-options.category.custom.label": {
+    "message": "Pengaturan kustom"
+  },
+  "app.settings.game-options.category.language.description": {
+    "message": "Bahasa permainan"
+  },
+  "app.settings.game-options.category.language.label": {
+    "message": "Bahasa"
+  },
+  "app.settings.game-options.category.music-and-sound.description": {
+    "message": "Preferensi volume dan audio"
+  },
+  "app.settings.game-options.category.music-and-sound.label": {
+    "message": "Musik dan suara"
+  },
+  "app.settings.game-options.category.online.description": {
+    "message": "Preferensi daring dan Realms"
+  },
+  "app.settings.game-options.category.online.label": {
+    "message": "Daring"
+  },
+  "app.settings.game-options.category.skin-customization.description": {
+    "message": "Lapisan skin dan tangan utama"
+  },
+  "app.settings.game-options.category.skin-customization.label": {
+    "message": "Penyesuaian skin"
+  },
+  "app.settings.game-options.category.video.description": {
+    "message": "Pengaturan kamera dan layar"
+  },
+  "app.settings.game-options.category.video.label": {
+    "message": "Video"
+  },
+  "app.settings.game-options.choice.all": {
+    "message": "Semua"
+  },
+  "app.settings.game-options.choice.balanced": {
+    "message": "Seimbang"
+  },
+  "app.settings.game-options.choice.by-player": {
+    "message": "Berdasarkan pemain"
+  },
+  "app.settings.game-options.choice.chat": {
+    "message": "Obrolan"
+  },
+  "app.settings.game-options.choice.commands-only": {
+    "message": "Hanya perintah"
+  },
+  "app.settings.game-options.choice.constant": {
+    "message": "Konstan"
+  },
+  "app.settings.game-options.choice.crosshair": {
+    "message": "Reticle"
+  },
+  "app.settings.game-options.choice.custom": {
+    "message": "Kustom"
+  },
+  "app.settings.game-options.choice.decreased": {
+    "message": "Dikurangi"
+  },
+  "app.settings.game-options.choice.default": {
+    "message": "Bawaan"
+  },
+  "app.settings.game-options.choice.fabulous": {
+    "message": "Memukau"
+  },
+  "app.settings.game-options.choice.fancy": {
+    "message": "Mewah"
+  },
+  "app.settings.game-options.choice.far": {
+    "message": "Jauh"
+  },
+  "app.settings.game-options.choice.fast": {
+    "message": "Cepat"
+  },
+  "app.settings.game-options.choice.frequent": {
+    "message": "Sering"
+  },
+  "app.settings.game-options.choice.hidden": {
+    "message": "Tersembunyi"
+  },
+  "app.settings.game-options.choice.hotbar": {
+    "message": "Hotbar"
+  },
+  "app.settings.game-options.choice.left": {
+    "message": "Kiri"
+  },
+  "app.settings.game-options.choice.limited": {
+    "message": "Terbatas"
+  },
+  "app.settings.game-options.choice.max-fps": {
+    "message": "FPS Maksimum"
+  },
+  "app.settings.game-options.choice.maximum": {
+    "message": "Maksimum"
+  },
+  "app.settings.game-options.choice.minimal": {
+    "message": "Minimal"
+  },
+  "app.settings.game-options.choice.minimum": {
+    "message": "Minimum"
+  },
+  "app.settings.game-options.choice.nearby": {
+    "message": "Dekat"
+  },
+  "app.settings.game-options.choice.never": {
+    "message": "Tidak pernah"
+  },
+  "app.settings.game-options.choice.none": {
+    "message": "Tidak ada"
+  },
+  "app.settings.game-options.choice.normal": {
+    "message": "Normal"
+  },
+  "app.settings.game-options.choice.off": {
+    "message": "Mati"
+  },
+  "app.settings.game-options.choice.on": {
+    "message": "Hidup"
+  },
+  "app.settings.game-options.choice.opengl": {
+    "message": "OpenGL"
+  },
+  "app.settings.game-options.choice.pause": {
+    "message": "Menu jeda"
+  },
+  "app.settings.game-options.choice.pause-and-toast": {
+    "message": "Menu jeda dan notifikasi"
+  },
+  "app.settings.game-options.choice.power-saver": {
+    "message": "Penghemat daya"
+  },
+  "app.settings.game-options.choice.right": {
+    "message": "Kanan"
+  },
+  "app.settings.game-options.choice.short": {
+    "message": "Pendek"
+  },
+  "app.settings.game-options.choice.shown": {
+    "message": "Ditampilkan"
+  },
+  "app.settings.game-options.choice.system": {
+    "message": "Sistem"
+  },
+  "app.settings.game-options.choice.tiny": {
+    "message": "Kecil"
+  },
+  "app.settings.game-options.choice.vulkan": {
+    "message": "Vulkan"
+  },
+  "app.settings.game-options.choice.when-minimized": {
+    "message": "Saat diminimalkan"
+  },
+  "app.settings.game-options.choice.while-afk": {
+    "message": "Saat AFK"
+  },
+  "app.settings.game-options.compatibility.none": {
+    "message": "Beberapa instans Anda tidak dapat menggunakan pengaturan ini"
+  },
+  "app.settings.game-options.compatibility.reason.launcher-controlled": {
+    "message": "Pengaturan ini dikelola oleh pengaturan peluncuran {productName}."
+  },
+  "app.settings.game-options.custom-value.placeholder": {
+    "message": "Masukkan nilai"
+  },
+  "app.settings.game-options.keybind.assigned-status": {
+    "message": "{setting} kini diikat ke {binding}."
+  },
+  "app.settings.game-options.keybind.cancelled-status": {
+    "message": "Perubahan ikatan tombol dibatalkan."
+  },
+  "app.settings.game-options.keybind.change": {
+    "message": "{setting}: {binding}. Aktifkan untuk mengubah ikatan."
+  },
+  "app.settings.game-options.keybind.choose": {
+    "message": "Pilih tombol"
+  },
+  "app.settings.game-options.keybind.conflict-description": {
+    "message": "Ini sudah digunakan oleh {settings}."
+  },
+  "app.settings.game-options.keybind.key.arrow-down": {
+    "message": "Panah Bawah"
+  },
+  "app.settings.game-options.keybind.key.arrow-left": {
+    "message": "Panah Kiri"
+  },
+  "app.settings.game-options.keybind.key.arrow-right": {
+    "message": "Panah Kanan"
+  },
+  "app.settings.game-options.keybind.key.arrow-up": {
+    "message": "Panah Atas"
+  },
+  "app.settings.game-options.keybind.key.backspace": {
+    "message": "Backspace"
+  },
+  "app.settings.game-options.keybind.key.caps-lock": {
+    "message": "Caps Lock"
+  },
+  "app.settings.game-options.keybind.key.delete": {
+    "message": "Delete"
+  },
+  "app.settings.game-options.keybind.key.end": {
+    "message": "End"
+  },
+  "app.settings.game-options.keybind.key.enter": {
+    "message": "Enter"
+  },
+  "app.settings.game-options.keybind.key.escape": {
+    "message": "Escape"
+  },
+  "app.settings.game-options.keybind.key.home": {
+    "message": "Home"
+  },
+  "app.settings.game-options.keybind.key.insert": {
+    "message": "Insert"
+  },
+  "app.settings.game-options.keybind.key.keypad-key": {
+    "message": "Numpad {key}"
+  },
+  "app.settings.game-options.keybind.key.left-alt": {
+    "message": "Alt Kiri"
+  },
+  "app.settings.game-options.keybind.key.left-command": {
+    "message": "Command Kiri"
+  },
+  "app.settings.game-options.keybind.key.left-control": {
+    "message": "Ctrl Kiri"
+  },
+  "app.settings.game-options.keybind.key.left-shift": {
+    "message": "Shift Kiri"
+  },
+  "app.settings.game-options.keybind.key.left-super": {
+    "message": "Super Kiri"
+  },
+  "app.settings.game-options.keybind.key.menu": {
+    "message": "Menu"
+  },
+  "app.settings.game-options.keybind.key.num-lock": {
+    "message": "Num Lock"
+  },
+  "app.settings.game-options.keybind.key.page-down": {
+    "message": "Page Down"
+  },
+  "app.settings.game-options.keybind.key.page-up": {
+    "message": "Page Up"
+  },
+  "app.settings.game-options.keybind.key.pause": {
+    "message": "Pause"
+  },
+  "app.settings.game-options.keybind.key.print-screen": {
+    "message": "Print Screen"
+  },
+  "app.settings.game-options.keybind.key.right-alt": {
+    "message": "Alt Kanan"
+  },
+  "app.settings.game-options.keybind.key.right-command": {
+    "message": "Command Kanan"
+  },
+  "app.settings.game-options.keybind.key.right-control": {
+    "message": "Ctrl Kanan"
+  },
+  "app.settings.game-options.keybind.key.right-shift": {
+    "message": "Shift Kanan"
+  },
+  "app.settings.game-options.keybind.key.right-super": {
+    "message": "Super Kanan"
+  },
+  "app.settings.game-options.keybind.key.scroll-lock": {
+    "message": "Scroll Lock"
+  },
+  "app.settings.game-options.keybind.key.space": {
+    "message": "Spasi"
+  },
+  "app.settings.game-options.keybind.key.tab": {
+    "message": "Tab"
+  },
+  "app.settings.game-options.keybind.key.unbound": {
+    "message": "Tidak terikat"
+  },
+  "app.settings.game-options.keybind.key.unknown": {
+    "message": "Tombol tidak diketahui"
+  },
+  "app.settings.game-options.keybind.listen": {
+    "message": "Tekan tombol…"
+  },
+  "app.settings.game-options.keybind.listening-status": {
+    "message": "Mendengarkan tombol atau tombol mouse. Tekan Escape untuk menghapus ikatan ini."
+  },
+  "app.settings.game-options.keybind.mixed": {
+    "message": "Berbeda di setiap instans"
+  },
+  "app.settings.game-options.keybind.modifier.alt": {
+    "message": "Alt"
+  },
+  "app.settings.game-options.keybind.modifier.command": {
+    "message": "Command"
+  },
+  "app.settings.game-options.keybind.modifier.control": {
+    "message": "Ctrl"
+  },
+  "app.settings.game-options.keybind.modifier.shift": {
+    "message": "Shift"
+  },
+  "app.settings.game-options.keybind.modifier.super": {
+    "message": "Super"
+  },
+  "app.settings.game-options.keybind.mouse.button": {
+    "message": "Mouse {button}"
+  },
+  "app.settings.game-options.keybind.mouse.left": {
+    "message": "Mouse Kiri"
+  },
+  "app.settings.game-options.keybind.mouse.middle": {
+    "message": "Mouse Tengah"
+  },
+  "app.settings.game-options.keybind.mouse.right": {
+    "message": "Mouse Kanan"
+  },
+  "app.settings.game-options.keybind.recording-label": {
+    "message": "{setting}: mendengarkan tombol atau tombol mouse. Tekan Escape untuk menghapus ikatan ini."
+  },
+  "app.settings.game-options.keybind.scancode": {
+    "message": "Scancode {code}"
+  },
+  "app.settings.game-options.keybind.unsupported-status": {
+    "message": "Input tersebut tidak dapat digunakan oleh Minecraft. Tekan tombol lain."
+  },
+  "app.settings.game-options.setting.advanced-opengl.label": {
+    "message": "OpenGL lanjutan"
+  },
+  "app.settings.game-options.setting.allow-cursor-changes.label": {
+    "message": "Izinkan perubahan kursor"
+  },
+  "app.settings.game-options.setting.allow-server-listing.description": {
+    "message": "Izinkan nama pemain muncul di daftar server."
+  },
+  "app.settings.game-options.setting.allow-server-listing.label": {
+    "message": "Daftar server"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "Blok alternatif"
+  },
+  "app.settings.game-options.setting.ambient-occlusion.label": {
+    "message": "Pencahayaan halus"
+  },
+  "app.settings.game-options.setting.ambient-volume.label": {
+    "message": "Ambient/Lingkungan"
+  },
+  "app.settings.game-options.setting.anaglyph-3d.label": {
+    "message": "Anaglif 3D"
+  },
+  "app.settings.game-options.setting.anisotropic-filtering.label": {
+    "message": "Penyaringan anisotropik"
+  },
+  "app.settings.game-options.setting.anisotropy.label": {
+    "message": "Anisotropi"
+  },
+  "app.settings.game-options.setting.attack-indicator.label": {
+    "message": "Penunjuk serangan"
+  },
+  "app.settings.game-options.setting.auto-jump.description": {
+    "message": "Otomatis melompati rintangan setinggi satu blok."
+  },
+  "app.settings.game-options.setting.auto-jump.label": {
+    "message": "Lompat otomatis"
+  },
+  "app.settings.game-options.setting.auto-suggestions.label": {
+    "message": "Saran perintah"
+  },
+  "app.settings.game-options.setting.autosave-indicator.label": {
+    "message": "Penunjuk simpan otomatis"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.description": {
+    "message": "Jarak peralihan warna biom."
+  },
+  "app.settings.game-options.setting.biome-blend-radius.label": {
+    "message": "Pencampuran biom"
+  },
+  "app.settings.game-options.setting.blocks-volume.label": {
+    "message": "Blok"
+  },
+  "app.settings.game-options.setting.brightness.label": {
+    "message": "Kecerahan"
+  },
+  "app.settings.game-options.setting.cape.description": {
+    "message": "Tampilkan jubah pemain, termasuk tekstur elytra-nya."
+  },
+  "app.settings.game-options.setting.cape.label": {
+    "message": "Jubah"
+  },
+  "app.settings.game-options.setting.chat-background-only.label": {
+    "message": "Hanya latar belakang obrolan"
+  },
+  "app.settings.game-options.setting.chat-colors.label": {
+    "message": "Warna obrolan"
+  },
+  "app.settings.game-options.setting.chat-delay.label": {
+    "message": "Jeda obrolan"
+  },
+  "app.settings.game-options.setting.chat-line-spacing.label": {
+    "message": "Jarak baris obrolan"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.description": {
+    "message": "Tanya sebelum membuka tautan dari obrolan."
+  },
+  "app.settings.game-options.setting.chat-links-prompt.label": {
+    "message": "Konfirmasi tautan"
+  },
+  "app.settings.game-options.setting.chat-links.description": {
+    "message": "Izinkan tautan web di obrolan dibuka."
+  },
+  "app.settings.game-options.setting.chat-links.label": {
+    "message": "Tautan web"
+  },
+  "app.settings.game-options.setting.chat-opacity.description": {
+    "message": "Opasitas teks obrolan."
+  },
+  "app.settings.game-options.setting.chat-opacity.label": {
+    "message": "Opasitas obrolan"
+  },
+  "app.settings.game-options.setting.chat-preview.label": {
+    "message": "Pratinjau obrolan"
+  },
+  "app.settings.game-options.setting.chat-scale.label": {
+    "message": "Skala obrolan"
+  },
+  "app.settings.game-options.setting.chat-visibility.label": {
+    "message": "Visibilitas obrolan"
+  },
+  "app.settings.game-options.setting.chat-width.label": {
+    "message": "Lebar obrolan"
+  },
+  "app.settings.game-options.setting.chunk-fade-time.label": {
+    "message": "Waktu memudar chunk"
+  },
+  "app.settings.game-options.setting.cloud-range.label": {
+    "message": "Jarak awan"
+  },
+  "app.settings.game-options.setting.clouds.label": {
+    "message": "Awan"
+  },
+  "app.settings.game-options.setting.ctrl-click-right-click.label": {
+    "message": "Klik Ctrl sebagai klik kanan"
+  },
+  "app.settings.game-options.setting.cutout-leaves.label": {
+    "message": "Daun tembus pandang"
+  },
+  "app.settings.game-options.setting.damage-tilt.label": {
+    "message": "Miring saat terluka"
+  },
+  "app.settings.game-options.setting.dark-splash.description": {
+    "message": "Ubah layar pemuatan Mojang Studios dari merah menjadi hitam."
+  },
+  "app.settings.game-options.setting.dark-splash.label": {
+    "message": "Logo monokrom"
+  },
+  "app.settings.game-options.setting.darkness-pulsing.label": {
+    "message": "Denyut kegelapan"
+  },
+  "app.settings.game-options.setting.debug-gui-scale.label": {
+    "message": "Skala GUI debug"
+  },
+  "app.settings.game-options.setting.directional-audio.label": {
+    "message": "Audio berarah"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.description": {
+    "message": "Anggap setiap input roda mouse sebagai satu langkah gulir."
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.label": {
+    "message": "Gulir diskrit"
+  },
+  "app.settings.game-options.setting.entity-distance.label": {
+    "message": "Jarak entitas"
+  },
+  "app.settings.game-options.setting.entity-shadows.label": {
+    "message": "Bayangan entitas"
+  },
+  "app.settings.game-options.setting.exclusive-fullscreen.label": {
+    "message": "Layar penuh eksklusif"
+  },
+  "app.settings.game-options.setting.extra-telemetry.label": {
+    "message": "Telemetri opsional"
+  },
+  "app.settings.game-options.setting.focused-chat-height.label": {
+    "message": "Tinggi obrolan terfokus"
+  },
+  "app.settings.game-options.setting.force-unicode-font.label": {
+    "message": "Paksa font Unicode"
+  },
+  "app.settings.game-options.setting.fov-effects.label": {
+    "message": "Efek FOV"
+  },
+  "app.settings.game-options.setting.fov.label": {
+    "message": "Medan pandang"
+  },
+  "app.settings.game-options.setting.fullscreen.label": {
+    "message": "Layar penuh"
+  },
+  "app.settings.game-options.setting.glint-speed.label": {
+    "message": "Kecepatan kilau"
+  },
+  "app.settings.game-options.setting.glint-strength.label": {
+    "message": "Kekuatan kilau"
+  },
+  "app.settings.game-options.setting.graphics-backend.label": {
+    "message": "API grafik"
+  },
+  "app.settings.game-options.setting.graphics.description": {
+    "message": "Mengatur kualitas visual dan performa."
+  },
+  "app.settings.game-options.setting.graphics.label": {
+    "message": "Grafik"
+  },
+  "app.settings.game-options.setting.gui-scale.description": {
+    "message": "Ukuran antarmuka dan HUD permainan."
+  },
+  "app.settings.game-options.setting.gui-scale.label": {
+    "message": "Skala GUI"
+  },
+  "app.settings.game-options.setting.hat.description": {
+    "message": "Tampilkan lapisan topi pada skin."
+  },
+  "app.settings.game-options.setting.hat.label": {
+    "message": "Topi"
+  },
+  "app.settings.game-options.setting.held-item-tooltips.label": {
+    "message": "Tooltip item yang dipegang"
+  },
+  "app.settings.game-options.setting.hide-lightning-flashes.label": {
+    "message": "Sembunyikan kilatan petir"
+  },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "Sembunyikan nama yang cocok"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "Sembunyikan alamat server"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "Sembunyikan teks splash"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "Garis luar blok kontras tinggi"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "Tingkatkan kontras elemen antarmuka."
+  },
+  "app.settings.game-options.setting.high-contrast.label": {
+    "message": "Kontras tinggi"
+  },
+  "app.settings.game-options.setting.hostile-volume.label": {
+    "message": "Makhluk musuh"
+  },
+  "app.settings.game-options.setting.improved-transparency.label": {
+    "message": "Transparansi lebih baik"
+  },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "Notifikasi dalam permainan"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "FPS dikurangi"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "Balikkan mouse horizontal"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "Balikkan pergerakan mouse vertikal."
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "Balikkan mouse"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "Tampilkan lapisan jaket pada skin."
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "Jaket"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "Varian glif Jepang"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "Kemajuan"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "Serang"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "Gerak Mundur"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "Buka obrolan"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "Perintah"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "Tampilkan tooltip lanjutan"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "Tampilkan batas chunk"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "Bersihkan obrolan"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "Salin lokasi"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "Salin perintah buat ulang"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "Picu crash debug"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "Dump tekstur dinamis"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "Dump versi"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "Jeda saat kehilangan fokus"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "Grafik FPS"
+  },
+  "app.settings.game-options.setting.key-debug-hitboxes.label": {
+    "message": "Tampilkan hitbox"
+  },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "Tampilan debug transparansi lebih baik"
+  },
+  "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
+    "message": "Tekstur peta cahaya"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "Pengubah debug"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "Grafik jaringan"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "Opsi debug"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "Overlay debug"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "Grafik profil"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "Mulai profil"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "Muat ulang chunk"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "Muat ulang paket sumber"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "Amati entitas"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "Ganti mode permainan"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "Jatuhkan item"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "Gerak Maju"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "Teman"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "Alihkan layar penuh"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "Hotbar 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "Hotbar 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "Hotbar 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "Hotbar 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "Hotbar 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "Hotbar 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "Hotbar 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "Hotbar 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "Hotbar 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "Inventaris"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "Lompat"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "Geser Kiri"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "Muat toolbar"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "Ubah perspektif"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "Ambil blok"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "Daftar pemain"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "Tindakan cepat"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "Geser Kanan"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "Simpan toolbar"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "Tangkapan layar"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "Alihkan kamera sinematik"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "Selinap"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "Interaksi sosial"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "Hotbar penonton"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "Sorot penonton"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "Lari"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "Tukar ke tangan kedua"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "Alihkan HUD"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "Alihkan shader penonton"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "Gunakan item"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "Bahasa"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "Kaki celana kiri"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "Lengan kiri"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "Batas frame rate"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "Jarak pandang"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "Tampilkan menu macOS dalam layar penuh"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "Pilih apakah tangan utama kiri atau kanan."
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "Tangan utama"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "Volume utama"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "Frame rate maksimum"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "Buram latar belakang menu"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "Penghalusan tekstur pada jarak jauh."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "Level mipmap"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "Sensitivitas roda mouse"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "Frekuensi musik"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "Pilih apakah judul musik ditampilkan di menu jeda dan sebagai notifikasi toast."
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "Notifikasi musik"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "Musik"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "Pintasan narator"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "Pilih apa yang dibaca oleh narator."
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "Narator"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "Makhluk ramah"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "Berapa lama notifikasi toast tetap terlihat."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "Waktu notifikasi"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "Tab item operator"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "Kecepatan panorama"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "Partikel"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "Pemain"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "Utamakan pembaruan chunk"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "Pintasan keluar"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "Input mouse mentah"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "Notifikasi Realms"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "Jukebox/Blok Not"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "Informasi debug dikurangi"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "Jarak render"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "Kaki celana kanan"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "Lengan kanan"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "Putar mengikuti kereta tambang"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "Simpan draf obrolan"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "Efek layar"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "Hanya tampilkan obrolan aman"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "Sensitivitas mouse"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "Tekstur server"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "Bagikan kehadiran"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "Jarak pembaruan entitas dan tick blok serta cairan."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "Jarak simulasi"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Snooper"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "Jendela lari"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "Tampilkan keterangan untuk suara yang diputar dalam permainan."
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "Subjudul"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "Opasitas latar belakang teks"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "Penyaringan tekstur"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "Alihkan serangan"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "Tekan sekali untuk tetap merunduk."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "Alihkan merunduk"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "Tekan sekali untuk tetap berlari."
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "Alihkan lari"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "Alihkan penggunaan item"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "Mode layar sentuh"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "Antarmuka"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "Tinggi obrolan tidak terfokus"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "Gunakan VBO"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "Tambahkan gerakan goyang pada kamera saat berjalan."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "Goyang pandangan"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "Vignet"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "Suara dan ucapan"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "Batasi frame rate ke refresh rate layar untuk mencegah screen tearing."
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "Radius cuaca"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "Cuaca"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "Pengaturan ini berubah di tempat lain. Periksa dan coba lagi."
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "Pilih nilai yang valid."
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "Pilih nilai terlebih dahulu."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "Beberapa instans Anda tidak dapat menggunakan pengaturan ini"
+  },
+  "app.settings.java-installations.location.title": {
+    "message": "Lokasi Java {version, number}"
+  },
+  "app.settings.operating-system.macos": {
+    "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Tampilkan {productName} sebagai aktivitas Anda saat ini di Discord. Ini tidak memengaruhi Rich Presence yang ditambahkan ke instans oleh mod."
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord Rich Presence"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "Tampilkan tindakan Salin detail saat instalasi dalam antrean atau berjalan. Tindakan ini selalu tersedia untuk instalasi yang gagal atau terputus."
+  },
+  "app.settings.resource-management.always-show-copy-details.title": {
+    "message": "Selalu tampilkan detail salinan"
+  },
+  "app.settings.resource-management.app-cache.confirm.description": {
+    "message": "Aplikasi mungkin dimuat lebih lambat hingga cache dibangun ulang."
+  },
+  "app.settings.resource-management.app-cache.confirm.title": {
+    "message": "Hapus cache aplikasi?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Hapus data cache dan unduh lagi. Aplikasi mungkin dimuat lebih lambat hingga cache dibangun ulang."
+  },
+  "app.settings.resource-management.app-cache.purge": {
+    "message": "Hapus cache"
+  },
+  "app.settings.resource-management.app-cache.title": {
+    "message": "Cache aplikasi"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "Cadangan data aplikasi penting disimpan di sini jika Anda perlu memulihkannya nanti."
+  },
+  "app.settings.resource-management.app-database-backups.open-folder": {
+    "message": "Buka folder cadangan"
+  },
+  "app.settings.resource-management.app-database-backups.title": {
+    "message": "Cadangan basis data aplikasi"
+  },
+  "app.settings.resource-management.app-directory.browse": {
+    "message": "Jelajah direktori aplikasi"
+  },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "Tempat {productName} menyimpan instans dan berkas lain. Perubahan berlaku setelah aplikasi dimulai ulang."
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "Pilih direktori aplikasi baru"
+  },
+  "app.settings.resource-management.app-directory.title": {
+    "message": "Direktori aplikasi"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "Jumlah berkas yang dapat diunduh aplikasi sekaligus. Kurangi jika unduhan tidak andal pada koneksi Anda. Memerlukan mulai ulang aplikasi."
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "Unduhan bersamaan maksimum"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "Jumlah berkas yang dapat ditulis aplikasi ke disk sekaligus. Kurangi jika Anda sering mengalami galat I/O. Memerlukan mulai ulang aplikasi."
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "Penulisan bersamaan maksimum"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Beberapa berkas masih perlu perhatian"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Simpan konten yang tidak digunakan hingga jumlah ini untuk instalasi mendatang. Menyimpan lebih banyak dapat menghemat waktu unduhan."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Simpan unduhan yang tidak digunakan"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Menghitung"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Hapus yang tidak digunakan"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Hapus konten unduhan yang tidak digunakan"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "Membebaskan {size} ruang disk."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Menghapus…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Hemat ruang dengan menggunakan ulang instalasi permainan, mod, dan paket di antara instans Anda."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Instal mod atau paket untuk melihat penggunaan penyimpanan Anda di sini."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Lihat {count, plural, other {# masalah}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Tidak ada konten yang tidak digunakan untuk dihapus."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Verifikasi dan perbaiki"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Ini akan menutup instans yang sedang berjalan."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Periksa berkas yang hilang atau rusak dan perbaiki."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Memverifikasi dan memperbaiki…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Bersama"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Penyimpanan konten"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} tersimpan"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Unik"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Tanpa rujukan"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "Memeriksa {checked, plural, other {# berkas}} dan melakukan {repaired, plural, other {# perbaikan}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Verifikasi selesai"
+  },
+  "app.settings.sidebar.label.instances": {
+    "message": "Instans"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Pilih instans untuk menyalin riwayat perintah Anda. Riwayat ini hanya digunakan untuk sinkronisasi awal, dan Anda dapat mengeditnya dari instans mana pun setelahnya."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Pilih sumber riwayat perintah"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Pilih instans untuk menyalin hotbar kreatif tersimpan Anda. Hotbar ini hanya digunakan untuk sinkronisasi awal, dan Anda dapat mengeditnya dari instans mana pun setelahnya."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Pilih sumber hotbar kreatif"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Pilih sumber paket data"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Pilih instans untuk menyalin pengaturan permainan Anda. Pengaturan ini hanya digunakan untuk sinkronisasi awal, dan Anda dapat mengeditnya dari instans mana pun setelahnya."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Pilih sumber pengaturan permainan"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Anda tidak dapat memilih instans ini sebagai sumber sinkronisasi"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Gagal memuat sumber sinkronisasi. Silakan coba lagi."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Pilih instans untuk menyalin server multipemain Anda. Server ini hanya digunakan untuk sinkronisasi awal, dan Anda dapat mengeditnya dari instans mana pun setelahnya."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Pilih sumber server multipemain"
+  },
+  "app.settings.synced-options.choose-sync-source.no-instances-found": {
+    "message": "Tidak ada instans yang ditemukan"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Pilih sumber paket sumber"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Coba lagi"
+  },
+  "app.settings.synced-options.choose-sync-source.search-placeholder": {
+    "message": "Cari instans"
+  },
+  "app.settings.synced-options.choose-sync-source.sync": {
+    "message": "Sinkronkan"
+  },
+  "app.settings.synced-options.command-history": {
+    "message": "Sinkronkan riwayat perintah"
+  },
+  "app.settings.synced-options.command-history.description": {
+    "message": "Gunakan riwayat perintah yang sama di seluruh instans Anda."
+  },
+  "app.settings.synced-options.command-history.editor-title": {
+    "message": "Sunting riwayat perintah"
+  },
+  "app.settings.synced-options.creative-hotbars": {
+    "message": "Sinkronkan hotbar kreatif yang tersimpan"
+  },
+  "app.settings.synced-options.creative-hotbars.description": {
+    "message": "Gunakan hotbar kreatif tersimpan yang sama di seluruh instans Anda."
+  },
+  "app.settings.synced-options.data-packs": {
+    "message": "Sinkronkan paket data"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Gunakan paket data yang sama di seluruh instans Anda"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Anda belum menyinkronkan paket data apa pun"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Tambahkan instans sebelum menyunting data yang disinkronkan."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Pilih sumber sinkronisasi sebelum menyunting pengaturan ini."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "Sinkronkan opsi permainan"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Sunting pengaturan permainan"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "Kami memuat pengaturan terbaru. Periksa perubahan Anda, lalu simpan lagi."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Pengaturan ini berubah di tempat lain"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Pengaturan yang ditambahkan oleh mod akan muncul di sini setelah {productName} menemukannya di salah satu instans Anda."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Gunakan opsi permainan yang sama di seluruh instans Anda."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "Desinkronkan semua"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Aktifkan sinkronisasi pengaturan permainan sebelum memilih pengaturan individual."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Tidak ada pengaturan yang cocok dengan pencarian atau penyaringan Anda."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "Sinkronkan semua"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "Kami tidak dapat memuat pengaturan permainan Anda."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Memuat pengaturan..."
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Anda belum memiliki opsi untuk disunting"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Tidak disinkronkan"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "Coba lagi"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "Simpan pengaturan"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Cari pengaturan..."
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Opsi yang disinkronkan diterapkan ke setiap instans dan menggantikan nilai yang disertakan dalam paket mod."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "Sinkronkan {setting} di seluruh instans"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "Sinkronkan pengaturan permainan"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Disinkronkan di seluruh instans"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Pengaturan permainan"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Anda memiliki perubahan yang belum disimpan."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "Hentikan sinkronisasi {setting} di seluruh instans"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "Berbeda di seluruh instans"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "Mati"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "Hidup"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Pilih nilai"
+  },
+  "app.settings.synced-options.multiplayer-servers": {
+    "message": "Sinkronkan server multipemain"
+  },
+  "app.settings.synced-options.multiplayer-servers.address": {
+    "message": "Alamat server"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Salin alamat"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, other {# server}}"
+  },
+  "app.settings.synced-options.multiplayer-servers.description": {
+    "message": "Gunakan server multipemain yang sama di seluruh instans Anda."
+  },
+  "app.settings.synced-options.multiplayer-servers.editor-title": {
+    "message": "Sunting server yang disinkronkan"
+  },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "Tidak ada server yang ditambahkan pengguna yang sedang disinkronkan."
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "Luring"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "Daring"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "Opsi server lainnya"
+  },
+  "app.settings.synced-options.multiplayer-servers.name": {
+    "message": "Nama server"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Tidak ada server yang disinkronkan yang cocok dengan pencarian atau penyaringan Anda."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Anda belum menyinkronkan server apa pun"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} daring"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "Cari {count, number} {count, plural, other {server yang disinkronkan}}..."
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Status"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Aktifkan sinkronisasi sebelum menyunting paket yang dibagikan."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "Sinkronkan paket sumber"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Gunakan paket sumber yang sama di seluruh instans Anda."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "Anda belum menyinkronkan paket sumber apa pun"
+  },
   "app.settings.tabs.appearance": {
     "message": "Tampilan"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "Perilaku"
+  },
+  "app.settings.tabs.features": {
+    "message": "Fitur"
   },
   "app.settings.tabs.java-installations": {
     "message": "Pemasangan Java"
@@ -230,6 +3419,45 @@
   "app.settings.tabs.resource-management": {
     "message": "Manajemen sumber"
   },
+  "app.settings.tabs.synced-options": {
+    "message": "Pengaturan tersinkronkan"
+  },
+  "app.sidebar.advertising.label": {
+    "message": "Iklan"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Pratinjau · penempatan {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Paket mod berikutnya"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Jeda pergantian"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} dari {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Paket mod sebelumnya"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Lanjutkan pergantian"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Paket mod unggulan"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Paket mod unggulan sedang tidak tersedia."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Lihat proyek"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Jelajahi hosting"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Server Minecraft Anda berikutnya"
+  },
   "app.skins.add-button": {
     "message": "Tambah rupa"
   },
@@ -238,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Terapkan"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Semua model"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klasik"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Bawaan"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Tidak ada skin ditemukan. Coba pencarian lain."
+  },
+  "app.skins.catalog.error": {
+    "message": "Penyedia skin ini tidak tersedia. Silakan coba lagi nanti."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Memuat skin…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Cari di seluruh galeri publik MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "Model"
+  },
+  "app.skins.catalog.next": {
+    "message": "Halaman berikutnya"
+  },
+  "app.skins.catalog.page": {
+    "message": "Halaman {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Populer"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Halaman sebelumnya"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Penyedia skin"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Penyedia telah mencapai batas permintaannya. Tunggu sebelum mencoba lagi."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Terbaru"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Coba lagi"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Skin tersimpan ke Bawaan"
+  },
+  "app.skins.catalog.search": {
+    "message": "Cari skin…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Cari"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Ramping"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Urutkan berdasarkan"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tag (opsional)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "Sedang tren"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Penyedia skin ini belum dikonfigurasi."
   },
   "app.skins.delete-button": {
     "message": "Hapus rupa"
@@ -248,11 +3548,23 @@
   "app.skins.delete-modal.title": {
     "message": "Apakah Anda yakin ingin menghapus rupa ini?"
   },
+  "app.skins.demo.apply-tooltip": {
+    "message": "Masuk untuk menerapkan skin."
+  },
+  "app.skins.demo.description": {
+    "message": "Masuk ke akun Minecraft Anda untuk menyimpan dan menerapkan skin!"
+  },
+  "app.skins.demo.title": {
+    "message": "Menyunting dengan akun demo"
+  },
   "app.skins.dropped-file-error.text": {
     "message": "Gagal membaca berkas yang diletakkan."
   },
   "app.skins.dropped-file-error.title": {
     "message": "Kesalahan dalam memroses berkas"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "Skin ini menggunakan fitur dari mod {ears}"
   },
   "app.skins.edit-button": {
     "message": "Sunting rupa"
@@ -277,6 +3589,9 @@
   },
   "app.skins.modal.cape-section": {
     "message": "Jubah"
+  },
+  "app.skins.modal.demo-save-tooltip": {
+    "message": "Masuk untuk menyimpan skin."
   },
   "app.skins.modal.edit-title": {
     "message": "Menyunting rupa"
@@ -326,6 +3641,9 @@
   "app.skins.section.builders-and-biomes": {
     "message": "Builders & Biomes"
   },
+  "app.skins.section.chaos-cubed": {
+    "message": "Chaos Cubed"
+  },
   "app.skins.section.chase-the-skies": {
     "message": "Chase the Skies"
   },
@@ -353,8 +3671,146 @@
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
   },
+  "app.skins.sign-in.button": {
+    "message": "Masuk ke Microsoft"
+  },
   "app.skins.title": {
     "message": "Pemilih rupa"
+  },
+  "app.skins.toggle-ears-features-off": {
+    "message": "Matikan"
+  },
+  "app.skins.toggle-ears-features-on": {
+    "message": "Hidupkan"
+  },
+  "app.sync-instances-update.badge": {
+    "message": "Baru di pembaruan ini"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "Pilih instans untuk menyalin pengaturan permainan, paket sumber, riwayat perintah, hotbar kreatif dan server multipemain. Pengaturan ini hanya digunakan untuk sinkronisasi awal, dan Anda dapat mengeditnya dari instans mana pun setelahnya."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "Pilih sumber sinkronisasi"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Pilih instans untuk menyalin paket data Anda. Paket ini hanya digunakan untuk sinkronisasi awal, dan Anda dapat mengeditnya dari instans mana pun setelahnya."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Pilih instans untuk menyalin paket sumber Anda. Paket ini hanya digunakan untuk sinkronisasi awal, dan Anda dapat mengeditnya dari instans mana pun setelahnya."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "Sinkronkan hotbar kreatif"
+  },
+  "app.sync-instances-update.description": {
+    "message": "Kini Anda dapat menyinkronkan opsi seperti pengaturan permainan, server, paket sumber, dan lainnya di seluruh instans Anda, sehingga semuanya tetap sama setiap kali Anda bermain!"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "Gagal memuat pengaturan sinkronisasi Anda. Silakan coba lagi."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "Anda dapat mengaktifkan sinkronisasi sekarang dan mengaturnya nanti di pengaturan aplikasi."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "Jaga pengaturan permainan, server, paket sumber, dan lainnya tetap sinkron di seluruh instans Anda."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "Abaikan"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "Sinkronkan instans Anda"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "Lihat pembaruan"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "Coba lagi"
+  },
+  "app.sync-instances-update.skip": {
+    "message": "Lewati"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "Sinkronkan semua"
+  },
+  "app.sync-instances-update.title": {
+    "message": "Sinkronkan instans Anda"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "Nonaktifkan di semua instans yang disinkronkan, atau hanya di instans ini. Menonaktifkannya hanya di sini akan mengaktifkan penggantian untuk instans ini."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "Nonaktifkan di semua tempat"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "Nonaktifkan konten ini di semua instans yang disinkronkan."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "Nonaktifkan di sini"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "Nonaktifkan konten?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "Aktifkan di semua instans yang disinkronkan, atau hanya di instans ini. Mengaktifkannya hanya di sini akan mengaktifkan penggantian untuk instans ini."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Aktifkan di semua tempat"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Aktifkan konten ini di semua instans yang disinkronkan."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Aktifkan di sini"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "Aktifkan konten?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Hapus di semua tempat"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Hapus di sini"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Menghapus konten ini akan menghapusnya di semua instans Anda"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Konten terpilih yang tidak disinkronkan hanya akan dihapus dari instans ini."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Anda dapat menghapusnya hanya dari instans ini atau dari semua instans yang disinkronkan. Menghapusnya hanya dari instans ini akan mengaktifkan penggantian, dan instans ini tidak lagi menerima perubahan yang disinkronkan untuk jenis konten ini."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "Anda dapat menghapus {count, plural, other {mereka}} hanya dari instans ini atau dari semua instans yang disinkronkan. Menghapus {count, plural, other {mereka}} hanya dari instans ini akan mengaktifkan penggantian, dan instans ini tidak lagi menerima perubahan paket sumber yang disinkronkan."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, other {Paket sumber ini disinkronkan}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Instans ini akan menyimpan salinannya sendiri. Apakah Anda ingin tetap menyinkronkan konten ini di instans lain, atau menghapusnya dari instans tersebut?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "Pertahankan"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "Hapus"
+  },
+  "app.synced-content.desync.title": {
+    "message": "Desinkronkan konten"
+  },
+  "app.synced-content.warning.title": {
+    "message": "Konten ini disinkronkan"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "Paket data yang disinkronkan"
+  },
+  "app.synced-packs.empty": {
+    "message": "Tambahkan paket dari halaman konten instans untuk mulai menyinkronkan."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "Paket tidak dapat dimuat. Coba muat ulang."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Paket sumber yang disinkronkan"
   },
   "app.update-popup.body.download-complete": {
     "message": "{productName} v{version} telah selesai mengunduh. Muat ulang untuk memperbarui sekarang, atau secara otomatis saat Anda menutup {productName}."
@@ -386,6 +3842,90 @@
   "app.update.complete-toast.title": {
     "message": "Versi {version} berhasil dipasang!"
   },
+  "app.update.download-error.missing-version": {
+    "message": "Gagal mengunduh pembaruan: tidak ada versi tersedia"
+  },
+  "app.welcome-screen.create-instance": {
+    "message": "Buat instans"
+  },
+  "app.welcome-screen.description": {
+    "message": "Siap untuk mulai bermain?"
+  },
+  "app.welcome-screen.import-from-launcher": {
+    "message": "Impor dari peluncur"
+  },
+  "app.welcome-screen.import-prompt": {
+    "message": "Kabur dari peluncur lain?"
+  },
+  "app.welcome-screen.quick-create-hint": {
+    "message": "Tekan <shortcut>N</shortcut> untuk membuat instans dengan cepat"
+  },
+  "app.welcome-screen.title": {
+    "message": "Selamat datang di {productName}"
+  },
+  "app.window-controls.close": {
+    "message": "Tutup jendela"
+  },
+  "app.window-controls.minimize": {
+    "message": "Perkecil jendela"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Alihkan maksimalkan jendela"
+  },
+  "app.world-install.backup": {
+    "message": "Ganti menyimpan cadangan dunia yang sudah ada. Pertahankan dan Batal tidak menginstal apa pun. Instal salinan lain membuat dunia bernomor."
+  },
+  "app.world-install.backup-location": {
+    "message": "Dunia sebelumnya disimpan di {path} di dalam instans."
+  },
+  "app.world-install.conflict": {
+    "message": "Dunia dengan nama ini atau dari proyek ini sudah ada."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Instal meskipun versinya berbeda"
+  },
+  "app.world-install.copy": {
+    "message": "Instal salinan lain"
+  },
+  "app.world-install.description": {
+    "message": "Instal dunia baru dalam instans. Dunia yang sudah ada dipertahankan kecuali Anda memilih untuk menggantinya."
+  },
+  "app.world-install.incompatible": {
+    "message": "File ini tidak mencantumkan Minecraft {version} sebagai versi yang kompatibel. Periksa persyaratan versi dan mod dari pembuat sebelum melanjutkan."
+  },
+  "app.world-install.installed": {
+    "message": "Dunia terinstal: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Instans tujuan"
+  },
+  "app.world-install.keep": {
+    "message": "Pertahankan yang ada"
+  },
+  "app.world-install.no-instances": {
+    "message": "Buat instans Minecraft terlebih dahulu, lalu kembali ke sini untuk menginstal dunia."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Lihat dunia"
+  },
+  "app.world-install.replace": {
+    "message": "Ganti"
+  },
+  "app.world-install.replace-target": {
+    "message": "Dunia yang akan diganti"
+  },
+  "app.world-install.requirements": {
+    "message": "Mod atau paket mod yang diperlukan harus sudah terinstal di instans tujuan. Periksa deskripsi proyek."
+  },
+  "app.world-install.title": {
+    "message": "Instal dunia"
+  },
+  "app.world-install.version": {
+    "message": "Versi dunia"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
+  },
   "app.world.server-modal.select-an-option": {
     "message": "Pilih opsi"
   },
@@ -397,6 +3937,45 @@
   },
   "app.world.world-item.offline": {
     "message": "Luring"
+  },
+  "app.world.world-item.players-online": {
+    "message": "{count} daring"
+  },
+  "curseforge.manual.description": {
+    "message": "Unduh {file} dari halaman resmi CurseForge, lalu pilih file yang diunduh untuk melanjutkan. Ukuran dan SHA-1 akan diverifikasi."
+  },
+  "curseforge.manual.select": {
+    "message": "Pilih file yang diunduh"
+  },
+  "curseforge.manual.title": {
+    "message": "Unduhan manual diperlukan"
+  },
+  "instance.action.create-shortcut": {
+    "message": "Buat pintasan"
+  },
+  "instance.action.export-modpack": {
+    "message": "Ekspor paket mod"
+  },
+  "instance.action.launch-instance": {
+    "message": "Jalankan instans"
+  },
+  "instance.action.more-actions": {
+    "message": "Tindakan lainnya"
+  },
+  "instance.action.open-folder": {
+    "message": "Buka folder"
+  },
+  "instance.action.repair": {
+    "message": "Perbaiki"
+  },
+  "instance.action.settings": {
+    "message": "Pengaturan instans"
+  },
+  "instance.action.starting": {
+    "message": "Memulai..."
+  },
+  "instance.action.stopping": {
+    "message": "Menghentikan..."
   },
   "instance.add-server.add-and-play": {
     "message": "Tambah dan mainkan"
@@ -437,8 +4016,257 @@
   "instance.files.adding-files": {
     "message": "Menambahkan berkas ({completed}/{total})"
   },
+  "instance.files.managed-content-read-only": {
+    "message": "Kelola konten terpasang Anda melalui tab Konten"
+  },
   "instance.files.save-as": {
     "message": "Simpan sebagai..."
+  },
+  "instance.icon-editor.background": {
+    "message": "Latar belakang"
+  },
+  "instance.icon-editor.background.blue": {
+    "message": "Biru"
+  },
+  "instance.icon-editor.background.dark-gray": {
+    "message": "Abu-abu gelap"
+  },
+  "instance.icon-editor.background.dark-green": {
+    "message": "Hijau gelap"
+  },
+  "instance.icon-editor.background.gray": {
+    "message": "Abu-abu"
+  },
+  "instance.icon-editor.background.green": {
+    "message": "Hijau"
+  },
+  "instance.icon-editor.background.indigo": {
+    "message": "Indigo"
+  },
+  "instance.icon-editor.background.lavender": {
+    "message": "Lavender"
+  },
+  "instance.icon-editor.background.light-gray": {
+    "message": "Abu-abu terang"
+  },
+  "instance.icon-editor.background.lime": {
+    "message": "Hijau limau"
+  },
+  "instance.icon-editor.background.orange": {
+    "message": "Jingga"
+  },
+  "instance.icon-editor.background.pink": {
+    "message": "Merah jambu"
+  },
+  "instance.icon-editor.background.purple": {
+    "message": "Ungu"
+  },
+  "instance.icon-editor.background.red": {
+    "message": "Merah"
+  },
+  "instance.icon-editor.background.rose": {
+    "message": "Mawar"
+  },
+  "instance.icon-editor.background.yellow": {
+    "message": "Kuning"
+  },
+  "instance.icon-editor.description": {
+    "message": "Gabung dan cocokkan elemen untuk membuat ikon kustom."
+  },
+  "instance.icon-editor.recents": {
+    "message": "Terbaru"
+  },
+  "instance.icon-editor.save": {
+    "message": "Simpan ikon"
+  },
+  "instance.icon-editor.surprise-me": {
+    "message": "Acak"
+  },
+  "instance.icon-editor.symbol": {
+    "message": "Simbol"
+  },
+  "instance.icon-editor.symbol.backpack": {
+    "message": "Ransel"
+  },
+  "instance.icon-editor.symbol.beacon": {
+    "message": "Suar"
+  },
+  "instance.icon-editor.symbol.blue-shark": {
+    "message": "Hiu biru"
+  },
+  "instance.icon-editor.symbol.bookshelf": {
+    "message": "Rak buku"
+  },
+  "instance.icon-editor.symbol.brown-bear": {
+    "message": "Beruang cokelat"
+  },
+  "instance.icon-editor.symbol.cake": {
+    "message": "Kue"
+  },
+  "instance.icon-editor.symbol.campfire": {
+    "message": "Unggun api"
+  },
+  "instance.icon-editor.symbol.chest": {
+    "message": "Peti"
+  },
+  "instance.icon-editor.symbol.cogwheel": {
+    "message": "Roda gigi"
+  },
+  "instance.icon-editor.symbol.command-block": {
+    "message": "Blok perintah"
+  },
+  "instance.icon-editor.symbol.cooking-pot": {
+    "message": "Panci memasak"
+  },
+  "instance.icon-editor.symbol.couch": {
+    "message": "Sofa"
+  },
+  "instance.icon-editor.symbol.crafting-table": {
+    "message": "Meja kerajinan"
+  },
+  "instance.icon-editor.symbol.create-wrench": {
+    "message": "Kunci pas"
+  },
+  "instance.icon-editor.symbol.creeper": {
+    "message": "Creeper"
+  },
+  "instance.icon-editor.symbol.enchanting-table": {
+    "message": "Meja pesona"
+  },
+  "instance.icon-editor.symbol.ender-chest": {
+    "message": "Peti Ender"
+  },
+  "instance.icon-editor.symbol.ender-dragon": {
+    "message": "Naga Ender"
+  },
+  "instance.icon-editor.symbol.engine": {
+    "message": "Mesin"
+  },
+  "instance.icon-editor.symbol.fabric": {
+    "message": "Fabric"
+  },
+  "instance.icon-editor.symbol.forge": {
+    "message": "Forge"
+  },
+  "instance.icon-editor.symbol.furnace": {
+    "message": "Tungku"
+  },
+  "instance.icon-editor.symbol.gizmo": {
+    "message": "Gizmo"
+  },
+  "instance.icon-editor.symbol.globe": {
+    "message": "Glob"
+  },
+  "instance.icon-editor.symbol.grass-block": {
+    "message": "Blok rumput"
+  },
+  "instance.icon-editor.symbol.lantern": {
+    "message": "Lentera"
+  },
+  "instance.icon-editor.symbol.moobloom": {
+    "message": "Moobloom"
+  },
+  "instance.icon-editor.symbol.neoforge": {
+    "message": "NeoForge"
+  },
+  "instance.icon-editor.symbol.orb": {
+    "message": "Orb"
+  },
+  "instance.icon-editor.symbol.oxygen-distributor": {
+    "message": "Pendistribusi oksigen"
+  },
+  "instance.icon-editor.symbol.pancakes": {
+    "message": "Panekuk"
+  },
+  "instance.icon-editor.symbol.pickaxe": {
+    "message": "Belanjut"
+  },
+  "instance.icon-editor.symbol.poke-ball": {
+    "message": "Poke Ball"
+  },
+  "instance.icon-editor.symbol.quilt": {
+    "message": "Quilt"
+  },
+  "instance.icon-editor.symbol.redstone-block": {
+    "message": "Blok Redstone"
+  },
+  "instance.icon-editor.symbol.sculk-sensor": {
+    "message": "Sensor Sculk"
+  },
+  "instance.icon-editor.symbol.skeleton": {
+    "message": "Rangka"
+  },
+  "instance.icon-editor.symbol.skillet": {
+    "message": "Wajan"
+  },
+  "instance.icon-editor.symbol.slime-block": {
+    "message": "Blok lendir"
+  },
+  "instance.icon-editor.symbol.space-helmet": {
+    "message": "Helm luar angkasa"
+  },
+  "instance.icon-editor.symbol.sticky-piston": {
+    "message": "Piston lengket"
+  },
+  "instance.icon-editor.symbol.sword": {
+    "message": "Pedang"
+  },
+  "instance.icon-editor.symbol.terminal": {
+    "message": "Terminal"
+  },
+  "instance.icon-editor.symbol.tiny-potato": {
+    "message": "Kentang kecil"
+  },
+  "instance.icon-editor.symbol.tire": {
+    "message": "Ban"
+  },
+  "instance.icon-editor.symbol.tnt": {
+    "message": "TNT"
+  },
+  "instance.icon-editor.symbol.zombie": {
+    "message": "Zombie"
+  },
+  "instance.icon-editor.title": {
+    "message": "Penyunting ikon"
+  },
+  "instance.last-played": {
+    "message": "Terakhir dimainkan"
+  },
+  "instance.locked.badge": {
+    "message": "Terkunci"
+  },
+  "instance.locked.delete-button": {
+    "message": "Hapus instans"
+  },
+  "instance.locked.info-label": {
+    "message": "Informasi instans terkunci"
+  },
+  "instance.locked.play-tooltip": {
+    "message": "Instans ini telah dikunci"
+  },
+  "instance.locked.text": {
+    "message": "Instans ini dikunci dan tidak dapat dimainkan atau diubah. Anda dapat menghapusnya."
+  },
+  "instance.locked.title": {
+    "message": "Instans dikunci"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Pemuat mod dan versi Minecraft"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, other {# jam}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, other {# menit}}"
+  },
+  "instance.playtime.never-played": {
+    "message": "Belum pernah dimainkan"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, other {# detik}}"
+  },
+  "instance.playtime.total": {
+    "message": "Total waktu bermain"
   },
   "instance.server-modal.address": {
     "message": "Alamat"
@@ -451,6 +4279,33 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "Paket sumber"
+  },
+  "instance.settings.synced-options.data-override": {
+    "message": "Matikan penggantian ini untuk menyunting data yang disinkronkan."
+  },
+  "instance.settings.synced-options.data-packs": {
+    "message": "Desinkronkan paket data"
+  },
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Pisahkan paket data instans ini dari paket yang disinkronkan."
+  },
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "Sinkronisasi paket data dimatikan di pengaturan aplikasi."
+  },
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Sunting paket yang disinkronkan"
+  },
+  "instance.settings.synced-options.packs-override": {
+    "message": "Matikan penggantian ini untuk menyunting paket yang disinkronkan. Paket independen dapat dikelola di tab konten."
+  },
+  "instance.settings.synced-options.resource-packs": {
+    "message": "Desinkronkan paket sumber"
+  },
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Pisahkan paket sumber instans ini dari paket yang disinkronkan."
+  },
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "Sinkronisasi paket sumber dimatikan di pengaturan aplikasi."
   },
   "instance.settings.tabs.general": {
     "message": "Umum"
@@ -482,6 +4337,12 @@
   "instance.settings.tabs.general.edit-icon": {
     "message": "Sunting ikon"
   },
+  "instance.settings.tabs.general.edit-icon.create": {
+    "message": "Buat ikon"
+  },
+  "instance.settings.tabs.general.edit-icon.edit-created": {
+    "message": "Sunting ikon"
+  },
   "instance.settings.tabs.general.edit-icon.remove": {
     "message": "Hapus ikon"
   },
@@ -490,6 +4351,9 @@
   },
   "instance.settings.tabs.general.edit-icon.select": {
     "message": "Pilih ikon"
+  },
+  "instance.settings.tabs.general.icon": {
+    "message": "Ikon"
   },
   "instance.settings.tabs.general.name": {
     "message": "Nama"
@@ -518,6 +4382,9 @@
   "instance.settings.tabs.general.update-channel.select": {
     "message": "Pilih kanal pembaruan"
   },
+  "instance.settings.tabs.hooks.description": {
+    "message": "Jalankan perintah sistem khusus instans sebelum dan setelah meluncurkan permainan."
+  },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "Pascakeluar"
   },
@@ -536,6 +4403,30 @@
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "Masukkan perintah praluncur..."
   },
+  "instance.settings.tabs.hooks.title": {
+    "message": "Kait peluncuran permainan kustom"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "Kait berjalan di direktori kerja instans, dengan variabel berikut:"
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR: Jalur absolut ke folder instans"
+  },
+  "instance.settings.tabs.hooks.variables.inst-id.description": {
+    "message": "$INST_ID: Nama folder instans"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS: Argumen JVM yang diberikan ke permainan"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA: Jalur absolut ke biner java"
+  },
+  "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
+    "message": "$INST_MC_DIR: Alias untuk $INST_DIR"
+  },
+  "instance.settings.tabs.hooks.variables.inst-name.description": {
+    "message": "$INST_NAME: Nama instans"
+  },
   "instance.settings.tabs.hooks.wrapper": {
     "message": "Pembungkus"
   },
@@ -551,17 +4442,110 @@
   "instance.settings.tabs.installation.loader-version": {
     "message": "Versi {loader}"
   },
+  "instance.settings.tabs.installation.locked": {
+    "message": "Pengaturan instalasi tidak tersedia saat instans ini dikunci."
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "Atur variabel lingkungan secara terpisah untuk instans ini."
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "Atur argumen Java secara terpisah untuk instans ini."
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "Pilih instalasi Java yang berbeda untuk instans ini."
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "Atur alokasi memori secara terpisah untuk instans ini."
+  },
   "instance.settings.tabs.java.enter-environment-variables": {
     "message": "Masukkan variabel lingkungan..."
   },
   "instance.settings.tabs.java.enter-java-arguments": {
     "message": "Masukkan argumen Java..."
   },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "Variabel lingkungan kustom"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "Kait"
   },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "Argumen Java kustom"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "Instalasi Java kustom"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "Alokasi memori kustom"
+  },
   "instance.settings.tabs.java.java-path-placeholder": {
     "message": "/jalur/ke/java"
+  },
+  "instance.settings.tabs.settings-overrides": {
+    "message": "Penggantian sinkronisasi"
+  },
+  "instance.settings.tabs.synced-options.command-history": {
+    "message": "Desinkronkan riwayat perintah"
+  },
+  "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
+    "message": "Sinkronisasi riwayat perintah dimatikan di pengaturan aplikasi."
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "Pisahkan riwayat perintah instans ini dari riwayat perintah yang disinkronkan."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "Desinkronkan hotbar kreatif yang tersimpan"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "Sinkronisasi hotbar kreatif tersimpan dimatikan di pengaturan aplikasi."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "Pisahkan hotbar kreatif tersimpan instans ini dari hotbar yang disinkronkan."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "Desinkronkan pengaturan permainan"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Pisahkan options.txt instans ini dari salinan yang disinkronkan."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "Sinkronisasi pengaturan permainan dimatikan di pengaturan aplikasi."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "Versi yang diganti akan dicadangkan sebelum ada perubahan."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "{instance} dan versi tersinkronkan Anda memiliki hotbar kreatif yang berbeda. Pilih yang ingin digunakan di seluruh instans Anda."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "Pilih hotbar kreatif"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "Timpa yang lain"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "Gunakan yang disinkronkan"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "Desinkronkan server multipemain"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "Sinkronisasi server multipemain dimatikan di pengaturan aplikasi."
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "Pisahkan server multipemain instans ini dari server yang disinkronkan."
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "Kelola pengaturan yang disinkronkan"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "Aktifkan penggantian untuk memisahkan pengaturan yang disinkronkan pada instans ini."
+  },
+  "instance.settings.tabs.window": {
+    "message": "Pengaturan jendela kustom"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "Atur layar penuh dan resolusi peluncuran secara terpisah untuk instans ini."
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "Layar penuh"
@@ -590,11 +4574,32 @@
   "instance.worlds.a_minecraft_server": {
     "message": "Server Minecraft"
   },
+  "instance.worlds.actions.label": {
+    "message": "Tindakan dunia"
+  },
   "instance.worlds.cant_connect": {
     "message": "Tidak dapat menghubungkan ke server"
   },
   "instance.worlds.copy_address": {
     "message": "Salin alamat"
+  },
+  "instance.worlds.create_shortcut": {
+    "message": "Buat pintasan"
+  },
+  "instance.worlds.desync-server.description": {
+    "message": "Apakah Anda ingin mempertahankan server ini di instans lain yang disinkronkan, atau menghapusnya dari instans tersebut?"
+  },
+  "instance.worlds.desync-server.keep": {
+    "message": "Pertahankan"
+  },
+  "instance.worlds.desync-server.remove": {
+    "message": "Hapus"
+  },
+  "instance.worlds.desync-server.title": {
+    "message": "Desinkronkan server"
+  },
+  "instance.worlds.desync_server": {
+    "message": "Desinkronkan"
   },
   "instance.worlds.dont_show_on_home": {
     "message": "Jangan tampilkan di Beranda"
@@ -608,8 +4613,14 @@
   "instance.worlds.incompatible_server": {
     "message": "Server tidak cocok"
   },
+  "instance.worlds.instance-locked": {
+    "message": "Instans ini telah dikunci"
+  },
   "instance.worlds.linked_server": {
     "message": "Dikelola oleh proyek server"
+  },
+  "instance.worlds.more-options": {
+    "message": "Opsi lainnya"
   },
   "instance.worlds.no_contact": {
     "message": "Server tidak dapat dihubungi"
@@ -623,17 +4634,32 @@
   "instance.worlds.play_instance": {
     "message": "Mainkan instans"
   },
+  "instance.worlds.play_world": {
+    "message": "Mainkan dunia"
+  },
+  "instance.worlds.shortcut-created": {
+    "message": "Pintasan dibuat"
+  },
+  "instance.worlds.shortcut-creation-failed": {
+    "message": "Gagal membuat pintasan"
+  },
+  "instance.worlds.synced_server": {
+    "message": "Disinkronkan di seluruh instans"
+  },
   "instance.worlds.view_instance": {
     "message": "Lihat instans"
   },
   "instance.worlds.world_in_use": {
     "message": "Dunia sedang dimainkan"
   },
+  "minecraft-account.accounts": {
+    "message": "Akun Minecraft"
+  },
   "minecraft-account.add-account": {
     "message": "Tambah akun"
   },
-  "minecraft-account.label": {
-    "message": "Akun Minecraft"
+  "minecraft-account.getting-started": {
+    "message": "Memulai"
   },
   "minecraft-account.not-signed-in": {
     "message": "Tidak masuk"
@@ -641,11 +4667,77 @@
   "minecraft-account.remove-account": {
     "message": "Hapus akun"
   },
-  "minecraft-account.select-account": {
-    "message": "Pilih akun"
-  },
   "minecraft-account.sign-in": {
     "message": "Masuk ke Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Masuk"
+  },
+  "minecraft-required.description": {
+    "message": "Anda memerlukan akun Microsoft yang memiliki Minecraft sebelum dapat meluncurkan dan bermain."
+  },
+  "minecraft-required.description-header": {
+    "message": "Masuk ke akun Microsoft"
+  },
+  "minecraft-required.dont-have-account": {
+    "message": "Belum punya akun?"
+  },
+  "minecraft-required.get-minecraft": {
+    "message": "Dapatkan Minecraft"
+  },
+  "minecraft-required.get-support": {
+    "message": "Dapatkan dukungan"
+  },
+  "minecraft-required.header": {
+    "message": "Minecraft diperlukan"
+  },
+  "minecraft-required.sign-in": {
+    "message": "Masuk ke Microsoft"
+  },
+  "onboarding-checklist.create-instance": {
+    "message": "Buat instans pertama"
+  },
+  "onboarding-checklist.login-minecraft": {
+    "message": "Masuk ke Minecraft"
+  },
+  "onboarding-checklist.title": {
+    "message": "Memulai"
+  },
+  "optifine.add-component": {
+    "message": "Instal OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Pilih JAR dan lanjutkan"
+  },
+  "optifine.download-official": {
+    "message": "Unduhan resmi"
+  },
+  "optifine.export-notice": {
+    "message": "Biner OptiFine tidak disertakan. Orbpack mempertahankan versi yang diperlukan; paket Modrinth dan CurseForge memerlukan instalasi OptiFine secara terpisah."
+  },
+  "optifine.import-canceled": {
+    "message": "Pemilihan OptiFine dibatalkan. Paket tidak diinstal."
+  },
+  "optifine.import-description": {
+    "message": "Paket ini memerlukan OptiFine {version} untuk Minecraft {gameVersion}. Unduh JAR resminya dan pilih untuk melanjutkan. OptiFine tidak disertakan dalam paket."
+  },
+  "optifine.import-title": {
+    "message": "Paket ini memerlukan OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Pilih pemasang OptiFine resmi untuk Minecraft {gameVersion}. Untuk paket yang diimpor, versi dan hash berkasnya juga harus cocok."
+  },
+  "optifine.remove-component": {
+    "message": "Hapus OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Pilih JAR OptiFine resmi"
+  },
+  "project-type.world.category": {
+    "message": "Dunia"
   },
   "search.filter.locked.instance": {
     "message": "Disediakan oleh instans"
@@ -659,7 +4751,10 @@
   "search.filter.locked.instance.sync": {
     "message": "Sinkronkan dengan instans"
   },
-  "search.filter.locked.server-environment.title": {
-    "message": "Anda hanya dapat menambahkan mod sisi klien pada instans server"
+  "settings.sidebar.label.account": {
+    "message": "Akun"
+  },
+  "settings.sidebar.label.display": {
+    "message": "Tampilan"
   }
 }

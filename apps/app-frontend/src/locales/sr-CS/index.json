@@ -8,6 +8,9 @@
   "app.action-bar.downloads": {
     "message": "Instalacije"
   },
+  "app.action-bar.hide-downloads": {
+    "message": "Sakrij aktivna preuzimanja"
+  },
   "app.action-bar.hide-more-running-instances": {
     "message": "Sakrij više pokrenutih instanca"
   },
@@ -89,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Nepoznata instanca"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Ažuriranje deljenog sadržaja"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Učini primarnom instancom"
   },
@@ -106,6 +106,9 @@
   },
   "app.action-bar.reload-to-update": {
     "message": "Ponovo učitaj da ažuriraš"
+  },
+  "app.action-bar.show-downloads": {
+    "message": "Prikaži aktivna preuzimanja"
   },
   "app.action-bar.show-more-running-instances": {
     "message": "Pokaži više pokrenutih instanca"
@@ -125,6 +128,12 @@
   "app.action-bar.view-logs": {
     "message": "Pregledaj dnevnike"
   },
+  "app.appearance-settings.compact-mode.description": {
+    "message": "Prikaži instance biblioteke u kompaktnom rasporedu redova."
+  },
+  "app.appearance-settings.compact-mode.title": {
+    "message": "Kompaktni režim"
+  },
   "app.appearance-settings.default-landing-page.home": {
     "message": "Početna stranica"
   },
@@ -136,6 +145,21 @@
   },
   "app.appearance-settings.hide-nametag.title": {
     "message": "Sakrij ime"
+  },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Анимирај иконе при преласку показивача и фокусу тастатуре."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Искључи анимације"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Увек анимирај"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Прати систем"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Анимације икона"
   },
   "app.appearance-settings.minimize-launcher.description": {
     "message": "Smanji {productName} kada se Minecraft pokrene."
@@ -161,8 +185,239 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "Sakrij desnu bočnu traku"
   },
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Prikaži bezbednosno upozorenje pre instaliranja uvezenog modpacka (.mrpack ili CurseForge .zip) čiji izvor nije mogao biti verifikovan."
+  },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Upozoti me prije instalacije nepoznatih modpackova"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Kontaktiraj podršku"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Kopiraj informacije za otklanjanje grešaka"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Informacije za otklanjanje grešaka"
+  },
+  "app.auth-error.header": {
+    "message": "Prijava nije uspela"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Kako to popraviti"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Završi proces verifikacije identiteta"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Ovaj nalog zahteva verifikaciju punoletstva prema južnokorejskim propisima."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Prijava na Minecraft"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Proveri da li ti internet veza radi"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Dozvoli {product} kroz svoj firewall, antivirus, proxy, VPN i pravila hosts fajla"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Probaj drugu mrežu ili privremeno isključi VPN/proxy softver ako ga koristiš"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Restartuj {product} i probaj ponovo da se prijaviš"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Ako je problem rutiranje ili DNS, usluga kao što je Cloudflare WARP ponekad može da pomogne"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} nije mogao da se poveže sa Microsoft, Xbox ili Minecraft uslugom potrebnom za prijavu. Obično je uzrok lokalna mreža, DNS, proxy, firewall, hosts fajl, VPN ili antivirus."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Nema poruke o grešci."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Možeš proveriti koji nalog ga poseduje na <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Uveri se da se prijavljuješ Microsoft nalogom koji je kupio Minecraft (ili ima aktivan Game Pass sa pristupom na PC-u)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "Ovaj Microsoft nalog ne poseduje Minecraft: Java Edition, a {product} radi samo sa premium nalozima."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Pokreni Minecraft: Java Edition jednom iz zvaničnog launcher-a"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Uveri se da koristiš Microsoft nalog koji poseduje Minecraft. Možeš proveriti koji nalog ga poseduje na <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Sačekaj do sat vremena ako su kupovina ili podešavanje profila nedavni"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Minecraft usluge nisu mogle da vrate Java Edition profil za ovaj nalog. To se najčešće dešava kada je igra nedavno kupljena, Java profil još nije kreiran ili se koristi pogrešan Microsoft nalog."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Uveri se da je Minecraft kupljen na ovom nalogu"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Završi podešavanje Xbox profila ako se to zatraži"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "Ovaj nalog nema podešen Xbox profil ili ne poseduje Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Restartuj {product} nakon čekanja"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Probaj još jednom da se prijaviš"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Sačekaj oko sat vremena pre nego što pokušaš ponovo"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Ako se pojavi ista poruka, sačekaj duže pre ponovnog pokušaja kako bi se privremeni limit opustio"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft ili Minecraft su privremeno blokirali zahtev za prijavu jer je bilo previše nedavnih pokušaja."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Proveri <a href=\"https://www.xbox.com/en-US/regions\">Xbox dostupnost</a> za podržane regione"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Xbox usluge moraju biti podržane u tvojoj zemlji pre nego što možeš da se prijaviš"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live nije dostupan u tvom regionu, pa je prijava blokirana."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Zamoli staratelja da se prijavi na <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Ažuriraj dozvole za igranje onlajn"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Ovaj nalog je ograničen i nema dozvolu za igranje onlajn."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Ako usluga radi i ovo se stalno dešava, kontaktiraj podršku sa informacijama za otklanjanje grešaka ispod"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Probaj da se prijaviš pomoću <a href=\"https://www.minecraft.net/en-us/download\">zvaničnog Minecraft launcher-a</a> da proveriš da li je prijava na Minecraft pogođena i tamo"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Proveri <a href=\"https://support.xbox.com/xbox-live-status\">Xbox status</a> za trenutne probleme sa uslugom"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Sačekaj nekoliko minuta i probaj ponovo da se prijaviš"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Minecraft servis za autentifikaciju vraća grešku servera, pa {product} trenutno ne može da završi tvoju prijavu."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Prijavi se ponovo"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Kada završiš, probaj ponovo da se prijaviš"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Prijavi se pomoću <a href=\"https://www.minecraft.net/en-us/download\">zvaničnog Minecraft launcher-a</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Probaj ponovo da se prijaviš na {product}"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Poseti <a href=\"https://www.minecraft.net/en-us/login\">Minecraft prijavu</a> i prijavi se"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Poseti <a href=\"https://www.xbox.com\">Xbox</a> i prijavi se"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Podnesi žalbu ako je dostupna"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Poseti <a href=\"https://support.xbox.com\">Xbox podršku</a> i pregledaj detalje mere"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Ovaj nalog je suspendovan zbog kršenja Xbox standarda zajednice."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Kada se nova prijava završi, probaj ponovo da pokreneš Minecraft"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Prijavi se ponovo na nalog"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Odjavi pogođeni Minecraft nalog u {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Tvoj sačuvani Microsoft token za prijavu je istekao ili je opozvan, pa {product} ne može da osveži tvoju Minecraft sesiju."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Prihvati uslove ako se to zatraži"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Ovaj nalog nije prihvatio Xbox uslove korišćenja."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Probaj da posetiš"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Za dodatnu pomoć, poseti <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">UK verifikaciju godina na Xbox-u</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Idi na stranicu <a href=\"https://www.minecraft.net/en-us/login\">Minecraft prijave</a> i prijavi se"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Kada verifikuješ, probaj ponovo da se prijaviš"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Prati uputstva za verifikaciju godina"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Tvoj Minecraft/Xbox Live nalog zahteva verifikaciju godina u skladu sa britanskim propisima. Moraš je završiti pre prijave."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Pregledaj <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">Vodič za podešavanje porodice</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Pridruži se ili kreiraj porodičnu grupu kako je navedeno"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Ovaj nalog je maloletan i nije povezan sa Microsoft porodičnom grupom."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Nepoznata greška"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Ne prepoznajemo ovu grešku i ne možemo da preporučimo konkretne korake za njeno rešavanje."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "i prijavi se, jer ti tamo mogu biti prikazani potrebni koraci. Možeš i da kontaktiraš podršku i mi ćemo to dodatno istražiti."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Nismo mogli da te prijavimo na tvoj Microsoft nalog. To može biti zbog ograničenja naloga ili regionalnih ograničenja."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Šta mislimo da se dogodilo"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Prihvati sve uslove ili završi podešavanje profila koje se prikaže"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Prijavi se jednom na <a href=\"https://www.xbox.com\">Xbox.com</a> istim Microsoft nalogom"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live nije prihvatio Microsoft prijavu. To obično znači da se Microsoft nalog nikada nije prijavio na Xbox ili treba da prihvati ažurirane uslove."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Ako i zvanični launcher ne uspe, prati grešku prikazanu tamo ili kontaktiraj Xbox podršku"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Završi sve zahteve koje prikažu Microsoft, Xbox ili Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Xbox usluge su odbile zahtev da se ovaj nalog autorizuje za Minecraft usluge, ali nisu vratile konkretno ograničenje naloga koje {product} prepoznaje."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Minecraft serveri za autentifikaciju su možda trenutno nedostupni. Molimo vas da proverite vašu internet vezu i pokušajte ponovo kasnije."
@@ -170,50 +425,596 @@
   "app.auth-servers.unreachable.header": {
     "message": "Serveri za autentifikaciju su nedostupni"
   },
+  "app.bedrock.account": {
+    "message": "ZKSKTERM0KKSZ i ZKSKTERM1KKSZ proveravaju vašu ZKSKTERM2KKSZ licencu. Prijavite se tamo sa nalogom koji poseduje ZKSKTERM3KKSZ; vaš Java nalog u ovom pokretaču može biti drugačiji."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Lokalni paketi ponašanja i skripte. Konfigurišite ih u podešavanjima sveta unutar ZKSKTERM0KKSZ."
+  },
+  "app.bedrock.addons": {
+    "message": "Dodaci"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Paket ponašanja"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Addons"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Pregledajte dodatke, pakete resursa, svetove i skripte sa ZKSKTERM0KKSZ."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Otkrijte sadržaj ZKSKTERM0KKSZ"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Otkrijte dodatke"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Otkrijte skripte"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Zatvorite ZKSKTERM0KKSZ pre nego što dodate pakete u svet, a zatim pokušajte ponovo."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Instalirajte u ZKSKTERM0KKSZ"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "ZKSKTERM0KKSZ će se otvoriti za uvoz ovog sadržaja. Proverite rezultat u igrici, a zatim aktivirajte pakete u podešavanjima sveta. Potrebni paketi i eksperimentalna podešavanja su navedeni u opisu projekta."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Ova arhiva ne sadrži podržani ZKSKTERM0KKSZ sadržaj."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Nije moguće učitati verzije projekta ili svetove. Pokušajte ponovo."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Ovaj paket zahteva još jedan paket koji nije aktivan na ovom svetu. Prvo instalirajte zavisnosti koje je naveo autor."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Za ovaj projekat nisu dostupne podržane datoteke ZKSKTERM0KKSZ, ZKSKTERM1KKSZ, ZKSKTERM2KKSZ ili ZKSKTERM3KKSZ."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Prvo napravite svet u ZKSKTERM0KKSZ, a zatim osvežite ovu listu."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Skripte"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Verzija sadržaja"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Destination vorld"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Zatvorite ZKSKTERM0KKSZ pre instaliranja. Ovi paketi će biti dodati i aktivirani samo u izabranom svetu. Proverite potrebne zavisnosti i eksperimentalna podešavanja u opisu projekta."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Paketi dodati u ZKSKTERM0KKSZ. Otvorite ZKSKTERM1KKSZ da biste igrali ovaj svet."
+  },
+  "app.bedrock.checking": {
+    "message": "Traži se ZKSKTERM0KKSZ…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Zatvorite ZKSKTERM0KKSZ da biste uređivali datoteke, izbrisali sadržaj ili vratili kopiju."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Ovaj sadržaj je promenjen ili je prvobitna lokacija zauzeta. Kopija za oporavak je sačuvana da bi se izbeglo prepisivanje vaših promena."
+  },
+  "app.bedrock.content": {
+    "message": "Sadržaji"
+  },
+  "app.bedrock.content-help": {
+    "message": "Lokalni resursi i paketi kože. Aktivirajte ih u ZKSKTERM0KKSZ; neki sadržaji pripadaju pojedinačnim svetovima."
+  },
+  "app.bedrock.data-error": {
+    "message": "Nije moguće pročitati podatke ZKSKTERM0KKSZ. Osvežite da biste pokušali ponovo."
+  },
+  "app.bedrock.data-location": {
+    "message": "ZKSKTERM0KKSZ lokacija podataka"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Ove stavke će biti uklonjene iz ZKSKTERM0KKSZ. Kopija za oporavak će biti sačuvana, uključujući podešavanja svetskog paketa na koje se to odnosi. Svetovi koji zavise od izbrisanog paketa mogu izgubiti svoje blokove ili ponašanje; obnovite ga pre otvaranja tih svetova."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Izbrišite lokalni sadržaj"
+  },
+  "app.bedrock.description": {
+    "message": "Igrajte ZKSKTERM0KKSZ i uvezite svoje svetove i dodatke."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Nije moguće proveriti instalaciju ZKSKTERM0KKSZ. Pokušajte ponovo."
+  },
+  "app.bedrock.development": {
+    "message": "Razvoj"
+  },
+  "app.bedrock.edition": {
+    "message": "ZKSKTERM0KKSZ izdanje"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Ovaj folder je prazan."
+  },
+  "app.bedrock.file-filter": {
+    "message": "ZKSKTERM0KKSZ svetovi i dodaci"
+  },
+  "app.bedrock.file-size": {
+    "message": "Veličina"
+  },
+  "app.bedrock.files": {
+    "message": "Datoteke"
+  },
+  "app.bedrock.folder": {
+    "message": "Folder"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Nije moguće otvoriti ovu fasciklu ZKSKTERM0KKSZ. Osvežite svoje podatke i pokušajte ponovo."
+  },
+  "app.bedrock.import-button": {
+    "message": "Uvezi datoteku"
+  },
+  "app.bedrock.import-description": {
+    "message": "Izaberite datoteku ZKSKTERM0KKSZ, ZKSKTERM1KKSZ ili ZKSKTERM2KKSZ. ZKSKTERM3KKSZ će otvoriti i upravljati uvozom."
+  },
+  "app.bedrock.import-error": {
+    "message": "Nije moguće poslati datoteku na ZKSKTERM0KKSZ. Proverite da li je ZKSKTERM1KKSZ instaliran i pokušajte ponovo."
+  },
+  "app.bedrock.import-title": {
+    "message": "Svetovi i dodaci"
+  },
+  "app.bedrock.installation": {
+    "message": "Zvanična instalacija"
+  },
+  "app.bedrock.installed": {
+    "message": "ZKSKTERM0KKSZ je instaliran"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Izaberite važeću lokalnu arhivu ZKSKTERM0KKSZ, ZKSKTERM1KKSZ ili ZKSKTERM2KKSZ."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Ova datoteka premašuje ZKSKTERM0KKSZ ograničenje uvoza."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Nije moguće otvoriti ZKSKTERM0KKSZ. Otvorite zvanični pokretač ili ZKSKTERM1KKSZ da biste proverili instalaciju."
+  },
+  "app.bedrock.launcher": {
+    "message": "Otvorite zvanični pokretač"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Otkriven je zvanični pokretač. Instalirajte ZKSKTERM0KKSZ tamo da biste nastavili."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Čitanje ZKSKTERM0KKSZ podataka…"
+  },
+  "app.bedrock.location": {
+    "message": "Lokacija"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Prikazuje poslednji ZKSKTERM0KKSZ ovog dnevnika."
+  },
+  "app.bedrock.logs": {
+    "message": "Logovi"
+  },
+  "app.bedrock.missing": {
+    "message": "Instalirajte ZKSKTERM0KKSZ da biste započeli"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Nije moguće promeniti ovaj sadržaj. Zatvorite ZKSKTERM0KKSZ i osvežite. Vaša kopija za oporavak je sačuvana."
+  },
+  "app.bedrock.name": {
+    "message": "Ime"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Nije pronađen nijedan lokalni dodatak. Uvezite datoteku ZKSKTERM0KKSZ ili ZKSKTERM1KKSZ da biste započeli."
+  },
+  "app.bedrock.no-content": {
+    "message": "Lokalni sadržaj nije pronađen."
+  },
+  "app.bedrock.no-data": {
+    "message": "Otvorite ZKSKTERM0KKSZ jednom da biste kreirali njegove fascikle sa podacima, a zatim osvežite ovde."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Nije pronađen nijedan dnevnik sadržaja. Omogućite prijavljivanje sadržaja u ZKSKTERM0KKSZ Podešavanja > Kreator, a zatim otvorite svoj svet."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Još nema kopija za oporavak."
+  },
+  "app.bedrock.no-results": {
+    "message": "Nema odgovarajućih stavki."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Nije pronađen nijedan lokalni svet. Napravite ga u ZKSKTERM0KKSZ ili uvezite datoteku ZKSKTERM1KKSZ."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Otvori folder"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Nadređeni folder"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Neki folderi nisu mogli da se pročitaju ili su dostigli ograničenje prikaza. Možete ih pregledati u File Ekplorer-u."
+  },
+  "app.bedrock.play": {
+    "message": "Igraj"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Ovde se čuvaju originalne datoteke i izbrisani sadržaj. Vratite kopiju dok je ZKSKTERM0KKSZ zatvoren. Postojeći sadržaj i kasnije izmene se nikada ne prepisuju."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Kopije za oporavak"
+  },
+  "app.bedrock.refresh": {
+    "message": "Proverite ponovo"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Osveži"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Ponovo učitajte ovu datoteku pre čuvanja."
+  },
+  "app.bedrock.repair": {
+    "message": "Popravite ili ažurirajte svoju instalaciju pomoću ZKSKTERM0KKSZ ili zvaničnog pokretača."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Resurs paket"
+  },
+  "app.bedrock.restore": {
+    "message": "Vrati"
+  },
+  "app.bedrock.running": {
+    "message": "Pokrenuto"
+  },
+  "app.bedrock.save-error": {
+    "message": "Nije moguće sačuvati. Datoteka je možda promenjena, sadrži nevažeći ZKSKTERM0KKSZ ili je u upotrebi. Ponovo ga učitajte i pokušajte ponovo."
+  },
+  "app.bedrock.search": {
+    "message": "Pretraži lokalni sadržaj…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Izaberite dnevnik da biste ga pročitali."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Paket skinova"
+  },
+  "app.bedrock.store": {
+    "message": "Instalirajte ili ažurirajte"
+  },
+  "app.bedrock.store-error": {
+    "message": "Nije moguće otvoriti ZKSKTERM0KKSZ. Otvorite ga iz menija Start ZKSKTERM1KKSZ."
+  },
+  "app.bedrock.submitted": {
+    "message": "Datoteka je poslata ZKSKTERM0KKSZ. Proverite rezultat uvoza u igri."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "ZKSKTERM0KKSZ integracija zahteva ZKSKTERM1KKSZ. Možete nastaviti da igrate ZKSKTERM2KKSZ na ovom uređaju."
+  },
+  "app.bedrock.update": {
+    "message": "Ažurirajte ZKSKTERM0KKSZ"
+  },
+  "app.bedrock.update-help": {
+    "message": "U ZKSKTERM0KKSZ, proverite da li postoje ažuriranja i izaberite ZKSKTERM1KKSZ. Vaša instalirana verzija će se osvežiti kada se vratite."
+  },
+  "app.bedrock.version": {
+    "message": "ZKSKTERM0KKSZ instalacija ZKSKTERM1KKSZ"
+  },
+  "app.bedrock.version-column": {
+    "message": "Verzija"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Svet: ZKSKTERM0KKSZ"
+  },
+  "app.bedrock.worlds": {
+    "message": "Svetovi"
+  },
   "app.behavior-settings.confirmations.title": {
     "message": "Potvrde"
   },
-  "app.browse.add-servers-to-instance": {
-    "message": "Dodavanje servera na instancu"
+  "app.behavior-settings.content.title": {
+    "message": "Početna i sadržaj"
+  },
+  "app.behavior-settings.startup-and-navigation.title": {
+    "message": "Pokretanje i navigacija"
   },
   "app.browse.add-to-an-instance": {
     "message": "Dodaj u instancu"
   },
-  "app.browse.add-to-instance": {
-    "message": "Dodaj na instancu"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Dodaj na {instanceName}"
-  },
-  "app.browse.added": {
-    "message": "Dodato"
-  },
-  "app.browse.already-added": {
-    "message": "Već je dodato"
-  },
   "app.browse.back-to-instance": {
     "message": "Nazad na instancu"
   },
-  "app.browse.discover-servers": {
-    "message": "Otkrij servere"
+  "app.browse.discover-project-type": {
+    "message": "Otkrij {projectType}"
   },
-  "app.browse.hide-added-servers": {
-    "message": "Sakrij već dodane servere"
+  "app.browse.hide-installed-modpacks": {
+    "message": "Sakrij već instalirano"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Otvori u CurseForge"
+  },
+  "app.browse.project-actions.label": {
+    "message": "Radnje sa projektom"
+  },
+  "app.browse.project-type.data-packs": {
+    "message": "Data paketi"
   },
   "app.browse.project-type.modpacks": {
     "message": "Modpackovi"
   },
-  "app.browse.server.installing": {
-    "message": "Instaliranje"
+  "app.browse.project-type.mods": {
+    "message": "Modovi"
+  },
+  "app.browse.project-type.resource-packs": {
+    "message": "Resurs paketi"
+  },
+  "app.browse.project-type.shaders": {
+    "message": "Šejderi"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Nijedna dostupna verzija ne odgovara {compatibilityLabel}. Izaberite verziju za instaliranje u svakom slučaju. Zavisnosti se neće instalirati automatski."
+  },
+  "app.content.desync-pack": {
+    "message": "Desinhronizuj"
+  },
+  "app.content.sync-data-packs-disabled": {
+    "message": "Prvo uključi sinhronizaciju data paketa u podešavanjima aplikacije."
+  },
+  "app.content.sync-pack": {
+    "message": "Sinhronizuj"
+  },
+  "app.content.sync-packs-override": {
+    "message": "Prvo isključi nadjačavanje sinhronizacije paketa u podešavanjima ove instance."
+  },
+  "app.content.sync-resource-packs-disabled": {
+    "message": "Prvo uključi sinhronizaciju resurs paketa u podešavanjima aplikacije."
+  },
+  "app.curseforge.rate-limit.text": {
+    "message": "Dostignuto je deljeno ograničenje zahteva. Sačekaj trenutak, pa pokušaj ponovo."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge je trenutno zauzet"
+  },
+  "app.download-manager.active": {
+    "message": "Aktivno"
+  },
+  "app.download-manager.attention": {
+    "message": "Zahteva pažnju"
+  },
+  "app.download-manager.cancel": {
+    "message": "Otkaži instalaciju"
+  },
+  "app.download-manager.canceling": {
+    "message": "Otkazivanje instalacije…"
+  },
+  "app.download-manager.clear-all": {
+    "message": "Obriši sve"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Obriši sve završene zadatke"
+  },
+  "app.download-manager.complete": {
+    "message": "Završeno"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Duplirana instanca"
+  },
+  "app.download-manager.empty": {
+    "message": "Nema zadataka instalacije"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Procenjena brzina preuzimanja"
+  },
+  "app.download-manager.eta": {
+    "message": "Procenjeno preostalo vreme za ovo preuzimanje"
+  },
+  "app.download-manager.hide": {
+    "message": "Sakrij zadatke instalacije"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Uvezena instanca"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Instalacija instance"
+  },
+  "app.download-manager.modpack": {
+    "message": "Modpack"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Instalacija modpacka"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Nova instanca"
+  },
+  "app.download-manager.pause": {
+    "message": "Pauziraj instalaciju"
+  },
+  "app.download-manager.paused": {
+    "message": "Pauzirano"
+  },
+  "app.download-manager.remove": {
+    "message": "Ukloni iz istorije"
+  },
+  "app.download-manager.resume": {
+    "message": "Nastavi instalaciju"
+  },
+  "app.download-manager.show": {
+    "message": "Prikaži zadatke instalacije"
+  },
+  "app.download-manager.tasks": {
+    "message": "Zadaci"
+  },
+  "app.download-manager.title": {
+    "message": "Menadžer preuzimanja"
+  },
+  "app.download-manager.verifying": {
+    "message": "Verifikovanje"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Otkaži promenu direktorijuma"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Kopiraj informacije za otklanjanje grešaka"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Informacije za otklanjanje grešaka"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "najpre. Kada završiš, vrati se ovamo i prijavi se!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Probaj da se prijaviš pomoću"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Koristiš PC Game Pass, dolaziš sa Bedrock-a ili si upravo kupio igru?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "zvaničnog Minecraft launcher-a"
+  },
+  "app.error.get-support.button": {
+    "message": "Zatraži podršku"
+  },
+  "app.error.help.end": {
+    "message": "i rado ćemo ti pomoći! Obavezno priloži sledeće informacije za otklanjanje grešaka:"
+  },
+  "app.error.help.start": {
+    "message": "Ako ništa ne radi i potrebna ti je pomoć, poseti"
+  },
+  "app.error.help.support-link": {
+    "message": "našu stranicu podrške"
+  },
+  "app.error.hosts.body-end": {
+    "message": "pokušao da se poveže sa Microsoft / Xbox / Minecraft uslugama, ali je udaljeni server odbio vezu. To može značiti da su te usluge blokirane hosts fajlom. Molimo poseti"
+  },
+  "app.error.hosts.fix-end": {
+    "message": "za korake o tome kako da rešiš problem."
+  },
+  "app.error.migrate.body-end": {
+    "message": "ne može da pređe u novi direktorijum koji si izabrao. Kontaktiraj podršku za pomoć ili otkaži promenu direktorijuma."
+  },
+  "app.error.network.body-end": {
+    "message": "povezivanjem na Microsoft servere. To je često rezultat loše veze, pa preporučujemo da probaš ponovo. Ako problemi potraju, prati korake u"
+  },
+  "app.error.network.body-start": {
+    "message": "Izgleda da"
+  },
+  "app.error.network.heading": {
+    "message": "Problemi sa mrežom"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "za rešavanje problema."
+  },
+  "app.error.no-error-message": {
+    "message": "Nema poruke o grešci."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "nije uspeo da pronađe verziju učitavača za ovu instancu."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Da to rešiš, potrebno je da popraviš instancu. Klikni na dugme ispod."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Izgleda da na disku koji sadrži izabrani direktorijum nema dovoljno prostora. Oslobodi malo prostora i probaj ponovo ili otkaži promenu direktorijuma."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Nedovoljno prostora"
+  },
+  "app.error.read-only.body-end": {
+    "message": "ne može da upisuje u direktorijum koji si izabrao. Podesi dozvole direktorijuma i probaj ponovo ili otkaži promenu direktorijuma."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Izgleda da"
+  },
+  "app.error.read-only.heading": {
+    "message": "Promeni dozvole direktorijuma"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Popravi instancu"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Ponovi promenu direktorijuma"
+  },
+  "app.error.state-init.body-end": {
+    "message": "nije uspeo da se ispravno učita. To može biti zbog oštećenog fajla ili zato što aplikaciji nedostaju ključni fajlovi."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Možda možeš da to popraviš na jedan od sledećih načina:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Uveri se da si povezan na internet, pa probaj da restartuješ aplikaciju."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Preuzmi aplikaciju ponovo."
+  },
+  "app.error.state-init.open-backups-folder": {
+    "message": "Otvori fasciklu sa rezervnim kopijama"
+  },
+  "app.error.support-article-link": {
+    "message": "našem članku podrške"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Nije moguće promeniti direktorijum aplikacije"
+  },
+  "app.error.title.generic": {
+    "message": "Došlo je do greške"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Nije izabran nijedan učitavač"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Nije moguće prijaviti se na Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Greška pri pokretanju {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Probaj ponovo da se prijaviš"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Proveri da li si prijavljen na pravi nalog. Minecraft možda poseduješ na drugom Microsoft nalogu."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Probaj drugi nalog"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Probaj drugi Microsoft nalog"
   },
   "app.export-modal.description-placeholder": {
     "message": "Ukucaj opis modpacka..."
   },
   "app.export-modal.export-button": {
     "message": "Izvoz"
+  },
+  "app.export-modal.export-complete": {
+    "message": "Izvoz završen"
+  },
+  "app.export-modal.export-complete-description": {
+    "message": "{name} je uspešno izvezen."
+  },
+  "app.export-modal.format-label": {
+    "message": "Format izvoza"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "CurseForge ZIP sa manifest.json i izabranim fajlovima unutar overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Za launcher-e koji podržavaju Modrinth pakete. Uključuje reference za preuzimanje i izabrane dodatne fajlove."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Prenosivi {productName} paket koji sadrži izabrane fajlove. Otvori ga direktno u launcher-u."
   },
   "app.export-modal.header": {
     "message": "Izvezi modpack"
@@ -229,6 +1030,75 @@
   },
   "app.export-modal.version-number-placeholder": {
     "message": "1.0.0"
+  },
+  "app.features-settings.instance-pages.title": {
+    "message": "Instance"
+  },
+  "app.features-settings.play-page.title": {
+    "message": "Stranica Igraj"
+  },
+  "app.features-settings.quick-instances.description": {
+    "message": "Izaberi maksimalan broj nedavnih instanci prikazanih u levoj bočnoj traci. To možeš podesiti i prevlačenjem razdelnika."
+  },
+  "app.features-settings.quick-instances.title": {
+    "message": "Brze instance u bočnoj traci"
+  },
+  "app.features-settings.show-all-screenshots.description": {
+    "message": "Prikaži dugme u levoj bočnoj traci za pregled snimaka ekrana iz svih tvojih instanci."
+  },
+  "app.features-settings.show-all-screenshots.title": {
+    "message": "Prikaži sve snimke ekrana u bočnoj traci"
+  },
+  "app.features-settings.show-files-tab.title": {
+    "message": "Prikaži karticu Fajlovi u instancama"
+  },
+  "app.features-settings.show-jump-in.description": {
+    "message": "Prikaži nedavno igrane svetove i instance na vrhu stranice Igraj."
+  },
+  "app.features-settings.show-jump-in.title": {
+    "message": "Prikaži odeljak Uskoči"
+  },
+  "app.features-settings.show-screenshots-tab.title": {
+    "message": "Prikaži karticu Snimci ekrana u instancama"
+  },
+  "app.features-settings.show-skin-selector.description": {
+    "message": "Prikaži dugme u levoj bočnoj traci za otvaranje birača skinova."
+  },
+  "app.features-settings.show-skin-selector.title": {
+    "message": "Prikaži birač skinova u bočnoj traci"
+  },
+  "app.features-settings.show-worlds-tab.title": {
+    "message": "Prikaži karticu Svetovi u instancama"
+  },
+  "app.features-settings.sidebar.title": {
+    "message": "Bočna traka"
+  },
+  "app.home.jump-back-in.actions.label": {
+    "message": "Radnje sa instancom"
+  },
+  "app.home.jump-back-in.instance-locked": {
+    "message": "Ova instanca je zaključana"
+  },
+  "app.home.jump-back-in.instance-open": {
+    "message": "Instanca je već otvorena"
+  },
+  "app.home.jump-back-in.more-options": {
+    "message": "Više opcija"
+  },
+  "app.home.jump-back-in.never-played": {
+    "message": "Nikad igrano"
+  },
+  "app.home.jump-back-in.new-instance": {
+    "message": "Nova instanca"
+  },
+  "app.home.jump-back-in.resize": {
+    "message": "Prevuci za promenu veličine"
+  },
+  "app.home.jump-back-in.title": {
+    "message": "Uskoči"
+  },
+  "app.home.jump-back-in.view-instance": {
+    "message": "Prikaži instancu"
   },
   "app.install.phase.downloading_content": {
     "message": "Instaliranje sadržaja"
@@ -284,17 +1154,56 @@
   "app.install.phase.running_loader_processors": {
     "message": "Pokret procesora za učitavanje"
   },
+  "app.instance.action.add-content": {
+    "message": "Dodaj sadržaj"
+  },
+  "app.instance.action.copy-path": {
+    "message": "Kopiraj putanju"
+  },
+  "app.instance.action.edit": {
+    "message": "Uredi"
+  },
+  "app.instance.action.open-folder": {
+    "message": "Otvori fasciklu"
+  },
+  "app.instance.action.play": {
+    "message": "Igraj"
+  },
+  "app.instance.action.stop": {
+    "message": "Zaustavi"
+  },
+  "app.instance.actions.label": {
+    "message": "Radnje sa instancom"
+  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Svi podaci za tvoju instancu će biti trajno izbrisani, uključujući tvoje svetove, konfiguracije, i sav instaliran sadržaj."
   },
   "app.instance.confirm-delete.admonition-header": {
     "message": "Ova akcija ne može biti poništena"
   },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "Svi podaci za ovih {count} instanci biće trajno izbrisani, uključujući njihove svetove, konfiguracije i sav instaliran sadržaj."
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "Izbriši {count} instanci"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "Izbriši {count} instanci"
+  },
   "app.instance.confirm-delete.delete-button": {
     "message": "Izbriši instancu"
   },
   "app.instance.confirm-delete.header": {
     "message": "Izbriši instancu"
+  },
+  "app.instance.confirm-delete.instances-label": {
+    "message": "{count, plural, one {Instanca} few {Instance ({count})} other {Instanci ({count})}}"
+  },
+  "app.instance.content.managed-content.modpack-header": {
+    "message": "Sadržaj modpacka"
+  },
+  "app.instance.content.managed-content.server-header": {
+    "message": "Sadržaj servera"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Ovaj modpack je već instaliran u <bold>{instanceName}</bold> instancu. Da li si siguran da želiš da je dupliraš?"
@@ -320,6 +1229,12 @@
   "app.instance.mods.content-type-project": {
     "message": "projekat"
   },
+  "app.instance.mods.freeze-content": {
+    "message": "Zamrzni verziju"
+  },
+  "app.instance.mods.locked-content": {
+    "message": "Sadržaj u zaključanim instancama ne može se menjati."
+  },
   "app.instance.mods.project-was-added": {
     "message": "\"{name}\" je dodato"
   },
@@ -335,11 +1250,38 @@
   "app.instance.mods.successfully-uploaded": {
     "message": "Uspešno otpremljeno"
   },
+  "app.instance.mods.unfreeze-content": {
+    "message": "Odmrzni verziju"
+  },
+  "app.instance.navigation.back-to-instance": {
+    "message": "Nazad na instancu"
+  },
+  "app.instance.shortcut.created": {
+    "message": "Prečica je kreirana"
+  },
+  "app.instance.shortcut.creation-error": {
+    "message": "Greška pri kreiranju prečice"
+  },
+  "app.instance.tab.content": {
+    "message": "Sadržaj"
+  },
+  "app.instance.tab.files": {
+    "message": "Fajlovi"
+  },
+  "app.instance.tab.logs": {
+    "message": "Logovi"
+  },
+  "app.instance.tab.screenshots": {
+    "message": "Snimci ekrana"
+  },
+  "app.instance.tab.worlds": {
+    "message": "Svetovi"
+  },
   "app.instance.worlds.add-server": {
     "message": "Dodaj server"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Pretraži servere"
+  "app.instance.worlds.browse": {
+    "message": "Pregledaj svetove"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Obriši svet"
@@ -371,8 +1313,23 @@
   "app.instance.worlds.no-worlds-heading": {
     "message": "Nema dodatih servera niti svetova"
   },
+  "app.instance.worlds.refreshing": {
+    "message": "Osvežavanje..."
+  },
   "app.instance.worlds.remove-server-modal.remove-button": {
     "message": "Ukloni server"
+  },
+  "app.instance.worlds.remove-server-modal.remove-everywhere": {
+    "message": "Ukloni svuda"
+  },
+  "app.instance.worlds.remove-server-modal.remove-here": {
+    "message": "Ukloni ovde"
+  },
+  "app.instance.worlds.remove-server-modal.synced-description": {
+    "message": "Možeš ga ukloniti samo iz ove instance ili iz svih sinhronizovanih instanci. Uklanjanjem samo iz ove instance uključićeš nadjačavanja, a ova instanca više neće primati sinhronizovane promene servera."
+  },
+  "app.instance.worlds.remove-server-modal.synced-header": {
+    "message": "Ovaj server je sinhronizovan"
   },
   "app.instance.worlds.remove-server-modal.title": {
     "message": "Ukloni server"
@@ -386,41 +1343,368 @@
   "app.instance.worlds.search-worlds-placeholder": {
     "message": "Pretraži {count} svetova..."
   },
-  "app.modal.install-to-play.header": {
-    "message": "Instaliraj da bi igrao"
+  "app.java-detection.cancel": {
+    "message": "Otkaži"
   },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Svejedno instaliraj"
+  "app.java-detection.columns.actions": {
+    "message": "Radnje"
   },
-  "app.modal.install-to-play.install-button": {
-    "message": "Instaliraj"
+  "app.java-detection.columns.path": {
+    "message": "Putanja"
   },
-  "app.modal.install-to-play.invite-warning": {
-    "message": "Ovu pozivnicu je kreirao drugi korisnik Modrintha, a ne sam Modrinth. Prihvataj pozivnice samo od osoba kojima veruješ."
+  "app.java-detection.columns.version": {
+    "message": "Verzija"
   },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {# mod} other {# modova}}"
+  "app.java-detection.no-installations-found": {
+    "message": "Nisu pronađene Java instalacije."
   },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Deljena instanca"
+  "app.java-detection.select": {
+    "message": "Izaberi"
   },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "Ovaj modpack servera sadrži datoteke koje nisu postavljene na Modrinth-u. Preporučujemo da instaliraš datoteke samo iz izvora kojima veruješ."
+  "app.java-detection.selected": {
+    "message": "Izabrano"
   },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Upozorenje nepoznatih datoteka"
+  "app.java-detection.title": {
+    "message": "Izaberi Java instalaciju"
   },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Nepoznate datoteke"
+  "app.java-selector.already-installed": {
+    "message": "Već instalirano"
   },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Pogledaj sadržaj"
+  "app.java-selector.browse": {
+    "message": "Pretraži"
   },
-  "app.modal.update-to-play.header": {
-    "message": "Ažuriraj da bi igrao"
+  "app.java-selector.detect": {
+    "message": "Otktrij"
   },
-  "app.modal.update-to-play.removed": {
-    "message": "Smaknuto"
+  "app.java-selector.install-recommended": {
+    "message": "Instaliraj preporučeno"
+  },
+  "app.java-selector.installing": {
+    "message": "Instaliranje..."
+  },
+  "app.java-selector.path.placeholder": {
+    "message": "/path/to/java"
+  },
+  "app.java-selector.test-installation": {
+    "message": "Testiraj Java instalaciju"
+  },
+  "app.launch-link.instance": {
+    "message": "Link želi da pokrene {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Pokreni"
+  },
+  "app.launch-link.server": {
+    "message": "Link želi da pokrene {instance} i pridruži se serveru {target}. Nastavi samo ako veruješ odakle ovaj link dolazi."
+  },
+  "app.launch-link.title": {
+    "message": "Otvori Minecraft iz linka?"
+  },
+  "app.launch-link.world": {
+    "message": "Link želi da pokrene {instance} i otvori svet {target}."
+  },
+  "app.library.actions.label": {
+    "message": "Radnje biblioteke"
+  },
+  "app.library.context-menu.create-instance": {
+    "message": "Nova instanca"
+  },
+  "app.library.filter.add": {
+    "message": "Dodaj filter"
+  },
+  "app.library.filter.clear": {
+    "message": "Obriši filtere"
+  },
+  "app.library.filter.game-version": {
+    "message": "Verzija igre"
+  },
+  "app.library.filter.instance-type": {
+    "message": "Tip instance"
+  },
+  "app.library.filter.instance-type.custom": {
+    "message": "Prilagođeno"
+  },
+  "app.library.filter.instance-type.modpack": {
+    "message": "Modpack"
+  },
+  "app.library.filter.instance-type.server": {
+    "message": "Server"
+  },
+  "app.library.filter.label": {
+    "message": "Filtriraj po"
+  },
+  "app.library.filter.loader": {
+    "message": "Učitavač"
+  },
+  "app.library.group-by.custom-group": {
+    "message": "Prilagođena grupa"
+  },
+  "app.library.group-by.game-version": {
+    "message": "Verzija igre"
+  },
+  "app.library.group-by.instance-type": {
+    "message": "Tip instance"
+  },
+  "app.library.group-by.label": {
+    "message": "Grupiši po"
+  },
+  "app.library.group-by.loader": {
+    "message": "Učitavač"
+  },
+  "app.library.group-by.none": {
+    "message": "Bez grupisanja"
+  },
+  "app.library.group.actions.label": {
+    "message": "Radnje sa grupom"
+  },
+  "app.library.group.collapse": {
+    "message": "Skupi grupu"
+  },
+  "app.library.group.context-menu.add-to-group": {
+    "message": "Dodaj u grupu"
+  },
+  "app.library.group.create": {
+    "message": "Kreiraj grupu"
+  },
+  "app.library.group.create.cancel": {
+    "message": "Otkaži"
+  },
+  "app.library.group.delete": {
+    "message": "Izbriši grupu"
+  },
+  "app.library.group.delete-description": {
+    "message": "Instance u ovoj grupi biće izgrupisane."
+  },
+  "app.library.group.edit-name": {
+    "message": "Uredi naziv grupe"
+  },
+  "app.library.group.empty": {
+    "message": "Prevuci i pusti da dodaš instance."
+  },
+  "app.library.group.expand": {
+    "message": "Proširi grupu"
+  },
+  "app.library.group.favorites": {
+    "message": "Omiljeno"
+  },
+  "app.library.group.instance.add": {
+    "message": "Dodaj"
+  },
+  "app.library.group.instance.added": {
+    "message": "Dodato"
+  },
+  "app.library.group.instances-modal.add": {
+    "message": "Dodaj"
+  },
+  "app.library.group.instances-modal.added": {
+    "message": "Dodato"
+  },
+  "app.library.group.instances-modal.no-instances-found": {
+    "message": "Nisu pronađene instance"
+  },
+  "app.library.group.instances-modal.search-placeholder": {
+    "message": "Pretraži instancu"
+  },
+  "app.library.group.instances-modal.title": {
+    "message": "Dodaj instance u \"{groupName}\""
+  },
+  "app.library.group.move-down": {
+    "message": "Pomeri grupu nadole"
+  },
+  "app.library.group.move-up": {
+    "message": "Pomeri grupu nagore"
+  },
+  "app.library.group.name": {
+    "message": "Naziv grupe"
+  },
+  "app.library.group.name-empty": {
+    "message": "Nazivi grupa ne mogu biti prazni."
+  },
+  "app.library.group.name-placeholder": {
+    "message": "Unesi naziv grupe"
+  },
+  "app.library.group.name-reserved": {
+    "message": "\"None\" je rezervisano i ne može se koristiti kao naziv grupe."
+  },
+  "app.library.group.name-too-long": {
+    "message": "Nazivi grupa ne mogu biti duži od {maxLength} znakova."
+  },
+  "app.library.group.new": {
+    "message": "Nova grupa"
+  },
+  "app.library.group.no-instances-found": {
+    "message": "Nisu pronađene instance"
+  },
+  "app.library.group.rename-failed": {
+    "message": "Nije moguće preimenovati grupu"
+  },
+  "app.library.group.search-instance": {
+    "message": "Pretraži instancu"
+  },
+  "app.library.group.ungrouped": {
+    "message": "Negrupisano"
+  },
+  "app.library.group.unknown": {
+    "message": "Nepoznata grupa"
+  },
+  "app.library.instance.action.add-content": {
+    "message": "Dodaj sadržaj"
+  },
+  "app.library.instance.action.add-to-favorites": {
+    "message": "Dodaj u omiljeno"
+  },
+  "app.library.instance.action.copy-path": {
+    "message": "Kopiraj putanju"
+  },
+  "app.library.instance.action.delete": {
+    "message": "Izbriši"
+  },
+  "app.library.instance.action.duplicate": {
+    "message": "Dupliraj instancu"
+  },
+  "app.library.instance.action.open-folder": {
+    "message": "Otvori fasciklu"
+  },
+  "app.library.instance.action.play": {
+    "message": "Igraj"
+  },
+  "app.library.instance.action.remove-from-favorites": {
+    "message": "Ukloni iz omiljenog"
+  },
+  "app.library.instance.action.remove-from-group": {
+    "message": "Ukloni iz grupe"
+  },
+  "app.library.instance.action.stop": {
+    "message": "Zaustavi"
+  },
+  "app.library.instance.action.view-instance": {
+    "message": "Prikaži instancu"
+  },
+  "app.library.instance.actions.label": {
+    "message": "Radnje sa instancom"
+  },
+  "app.library.instance.deselect": {
+    "message": "Odznači instancu"
+  },
+  "app.library.instance.deselect-with-name": {
+    "message": "Odznači {name}"
+  },
+  "app.library.instance.installing": {
+    "message": "Instaliranje..."
+  },
+  "app.library.instance.loading": {
+    "message": "Instanca se učitava..."
+  },
+  "app.library.instance.new": {
+    "message": "Nova instanca"
+  },
+  "app.library.instance.open-with-name": {
+    "message": "Otvori {name}"
+  },
+  "app.library.instance.play": {
+    "message": "Igraj"
+  },
+  "app.library.instance.repair": {
+    "message": "Popravi"
+  },
+  "app.library.instance.select": {
+    "message": "Izaberi instancu"
+  },
+  "app.library.instance.select-with-name": {
+    "message": "Izaberi {name}"
+  },
+  "app.library.instance.stop": {
+    "message": "Zaustavi"
+  },
+  "app.library.search.no-results.title": {
+    "message": "Nijedna instanca ne odgovara tvojoj pretrazi."
+  },
+  "app.library.search.placeholder": {
+    "message": "Pretraži"
+  },
+  "app.library.selection.aria-label": {
+    "message": "Izabrane instance"
+  },
+  "app.library.selection.deleting": {
+    "message": "Brisanje izabranih instanci"
+  },
+  "app.library.selection.new-group": {
+    "message": "Nova grupa"
+  },
+  "app.library.selection.remove-from-group": {
+    "message": "Ukloni iz grupe"
+  },
+  "app.library.selection.selected-count": {
+    "message": "{count} izabrano"
+  },
+  "app.library.sort.date-created": {
+    "message": "Datum kreiranja"
+  },
+  "app.library.sort.date-modified": {
+    "message": "Datum izmene"
+  },
+  "app.library.sort.game-version": {
+    "message": "Verzija igre"
+  },
+  "app.library.sort.hours-played": {
+    "message": "Sati igranja"
+  },
+  "app.library.sort.label": {
+    "message": "Sortiraj po"
+  },
+  "app.library.sort.last-played": {
+    "message": "Poslednje igrano"
+  },
+  "app.library.sort.loader": {
+    "message": "Učitavač"
+  },
+  "app.library.sort.name": {
+    "message": "Naziv"
+  },
+  "app.library.title": {
+    "message": "Biblioteka"
+  },
+  "app.nav.collapse-sidebar": {
+    "message": "Skupi bočnu traku"
+  },
+  "app.nav.create-new-instance": {
+    "message": "Napravi novu instancu"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Proširi bočnu traku"
+  },
+  "app.nav.home": {
+    "message": "Početna"
+  },
+  "app.nav.screenshots": {
+    "message": "Snimci ekrana"
+  },
+  "app.navigation.go-back": {
+    "message": "Nazad"
+  },
+  "app.navigation.go-forward": {
+    "message": "Napred"
+  },
+  "app.navigation.home": {
+    "message": "Početna"
+  },
+  "app.navigation.next-image": {
+    "message": "Sledeća slika"
+  },
+  "app.notification.warning": {
+    "message": "Upozorenje"
+  },
+  "app.project.actions.label": {
+    "message": "Radnje sa projektom"
+  },
+  "app.project.coming-soon": {
+    "message": "Uskoro"
+  },
+  "app.project.gallery.image-fallback": {
+    "message": "Slika galerije"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Otvori sliku u novoj kartici"
   },
   "app.project.install-button.already-installed": {
     "message": "Ovaj projekat je već instaliran"
@@ -430,6 +1714,27 @@
   },
   "app.project.install-context.back-to-browse": {
     "message": "Nazad da otkrivanje"
+  },
+  "app.project.install-context.back-to-instance": {
+    "message": "Nazad na instancu"
+  },
+  "app.project.load-error": {
+    "message": "Podaci o projektu nisu mogli biti učitani."
+  },
+  "app.project.more-options": {
+    "message": "Više opcija"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Otvori u CurseForge"
+  },
+  "app.project.tab.description": {
+    "message": "Opis"
+  },
+  "app.project.tab.gallery": {
+    "message": "Galerija"
+  },
+  "app.project.tab.versions": {
+    "message": "Verzije"
   },
   "app.project.version.all-versions": {
     "message": "Sve verzije"
@@ -443,14 +1748,1664 @@
   "app.project.versions.already-installed": {
     "message": "Već instalirano"
   },
+  "app.quick-instance-switcher.actions.label": {
+    "message": "Radnje sa instancom"
+  },
+  "app.quick-instance-switcher.drag-show-tooltip": {
+    "message": "Prevuci da prikažeš nedavne instance"
+  },
+  "app.quick-instance-switcher.drag-tooltip": {
+    "message": "Prevuci za promenu veličine"
+  },
+  "app.quick-instance-switcher.instance-locked": {
+    "message": "Ova instanca je zaključana"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Nedavne instance"
+  },
+  "app.quick-instance-switcher.view-instance": {
+    "message": "Prikaži instancu"
+  },
+  "app.restarting": {
+    "message": "Restartovanje..."
+  },
+  "app.screenshots.copied": {
+    "message": "Kopirano"
+  },
+  "app.screenshots.copy": {
+    "message": "Kopiraj sliku"
+  },
+  "app.screenshots.delete-description": {
+    "message": "Trajno izbrisati {name}? Ova radnja se ne može poništiti."
+  },
+  "app.screenshots.delete-success": {
+    "message": "Snimak ekrana izbrisan"
+  },
+  "app.screenshots.delete-title": {
+    "message": "Izbriši snimak ekrana"
+  },
+  "app.screenshots.deselect": {
+    "message": "Odznači {name}"
+  },
+  "app.screenshots.edit": {
+    "message": "Uredi snimak ekrana"
+  },
+  "app.screenshots.empty-description": {
+    "message": "Snimci ekrana koje napraviš u igri pojaviće se ovde."
+  },
+  "app.screenshots.empty-heading": {
+    "message": "Još nema snimaka ekrana"
+  },
+  "app.screenshots.error-heading": {
+    "message": "Učitavanje snimaka ekrana nije uspelo"
+  },
+  "app.screenshots.go-to-instance": {
+    "message": "Idi na instancu"
+  },
+  "app.screenshots.group-by": {
+    "message": "Grupiši po"
+  },
+  "app.screenshots.group.all-screenshots": {
+    "message": "Svi snimci ekrana"
+  },
+  "app.screenshots.group.collapse": {
+    "message": "Skupi grupu"
+  },
+  "app.screenshots.group.custom": {
+    "message": "Prilagođena grupa"
+  },
+  "app.screenshots.group.date": {
+    "message": "Datum"
+  },
+  "app.screenshots.group.delete": {
+    "message": "Izbriši grupu"
+  },
+  "app.screenshots.group.delete-description": {
+    "message": "Snimci ekrana u ovoj grupi biće izgrupisani."
+  },
+  "app.screenshots.group.edit": {
+    "message": "Uredi naziv grupe"
+  },
+  "app.screenshots.group.empty": {
+    "message": "Prevuci i pusti da dodaš snimke ekrana."
+  },
+  "app.screenshots.group.expand": {
+    "message": "Proširi grupu"
+  },
+  "app.screenshots.group.instance": {
+    "message": "Instanca"
+  },
+  "app.screenshots.group.new": {
+    "message": "Nova grupa"
+  },
+  "app.screenshots.group.none": {
+    "message": "Bez grupisanja"
+  },
+  "app.screenshots.group.this-month": {
+    "message": "Ovaj mesec"
+  },
+  "app.screenshots.group.this-week": {
+    "message": "Ove nedelje"
+  },
+  "app.screenshots.group.today": {
+    "message": "Danas"
+  },
+  "app.screenshots.group.ungrouped": {
+    "message": "Negrupisano"
+  },
+  "app.screenshots.group.yesterday": {
+    "message": "Juče"
+  },
+  "app.screenshots.heading": {
+    "message": "Snimci ekrana"
+  },
+  "app.screenshots.more-actions": {
+    "message": "Više radnji"
+  },
+  "app.screenshots.no-results-description": {
+    "message": "Probaj drugu pretragu ili filter."
+  },
+  "app.screenshots.no-results-heading": {
+    "message": "Nema odgovarajućih snimaka ekrana"
+  },
+  "app.screenshots.preview.instance-and-date": {
+    "message": "{instance} · {date}"
+  },
+  "app.screenshots.search": {
+    "message": "Pretraži"
+  },
+  "app.screenshots.select": {
+    "message": "Izaberi {name}"
+  },
+  "app.screenshots.selection.aria-label": {
+    "message": "Izabrani snimci ekrana"
+  },
+  "app.screenshots.selection.delete-description": {
+    "message": "Izbrisati {count, plural, one {# snimak ekrana} few {# snimka ekrana} other {# snimaka ekrana}}? Ova radnja se ne može poništiti."
+  },
+  "app.screenshots.selection.delete-success": {
+    "message": "{count, plural, one {# snimak ekrana izbrisan} few {# snimka ekrana izbrisana} other {# snimaka ekrana izbrisano}}"
+  },
+  "app.screenshots.selection.delete-title": {
+    "message": "Izbriši izabrane snimke ekrana"
+  },
+  "app.screenshots.selection.export-zip": {
+    "message": "Izvezi ZIP"
+  },
+  "app.screenshots.selection.global-export-filename": {
+    "message": "Snimci ekrana {productName}.zip"
+  },
+  "app.screenshots.selection.instance-export-filename": {
+    "message": "Snimci ekrana {instance}.zip"
+  },
+  "app.screenshots.selection.remove-from-group": {
+    "message": "Ukloni iz grupe"
+  },
+  "app.screenshots.selection.selected-count": {
+    "message": "{count} izabrano"
+  },
+  "app.screenshots.selection.zip-archive": {
+    "message": "ZIP arhiva"
+  },
+  "app.screenshots.show-in-folder": {
+    "message": "Prikaži u fascikli"
+  },
+  "app.screenshots.sort-by": {
+    "message": "Sortiraj po"
+  },
+  "app.screenshots.sort.name": {
+    "message": "Naziv"
+  },
+  "app.screenshots.sort.newest": {
+    "message": "Najnovije"
+  },
+  "app.screenshots.sort.oldest": {
+    "message": "Najstarije"
+  },
+  "app.settings.app-version": {
+    "message": "{productName} {version}"
+  },
+  "app.settings.default-instance-options.environment-variables.description": {
+    "message": "Promenljive okruženja koje se postavljaju pri pokretanju instance."
+  },
+  "app.settings.default-instance-options.environment-variables.placeholder": {
+    "message": "Unesi promenljive okruženja..."
+  },
+  "app.settings.default-instance-options.environment-variables.title": {
+    "message": "Promenljive okruženja"
+  },
+  "app.settings.default-instance-options.fullscreen.description": {
+    "message": "Pokreni instance u režimu celog ekrana ažuriranjem njihovog options.txt fajla."
+  },
+  "app.settings.default-instance-options.fullscreen.title": {
+    "message": "Ceo ekran"
+  },
+  "app.settings.default-instance-options.height.description": {
+    "message": "Visina prozora igre pri pokretanju."
+  },
+  "app.settings.default-instance-options.height.placeholder": {
+    "message": "Unesi visinu..."
+  },
+  "app.settings.default-instance-options.height.title": {
+    "message": "Visina"
+  },
+  "app.settings.default-instance-options.java-and-memory.title": {
+    "message": "Java i memorija"
+  },
+  "app.settings.default-instance-options.java-arguments.description": {
+    "message": "Argumenti koji se prosleđuju Javi pri pokretanju instance."
+  },
+  "app.settings.default-instance-options.java-arguments.placeholder": {
+    "message": "Unesi Java argumente..."
+  },
+  "app.settings.default-instance-options.java-arguments.title": {
+    "message": "Java argumenti"
+  },
+  "app.settings.default-instance-options.launch-hooks.title": {
+    "message": "Kuke za pokretanje"
+  },
+  "app.settings.default-instance-options.memory-allocation.description": {
+    "message": "Maksimalna memorija dostupna svakoj instanci."
+  },
+  "app.settings.default-instance-options.memory-allocation.title": {
+    "message": "Dodela memorije"
+  },
+  "app.settings.default-instance-options.post-exit-hook.description": {
+    "message": "Izvršava se nakon zatvaranja igre."
+  },
+  "app.settings.default-instance-options.post-exit-hook.placeholder": {
+    "message": "Unesi komandu nakon izlaska..."
+  },
+  "app.settings.default-instance-options.post-exit-hook.title": {
+    "message": "Kuka nakon izlaska"
+  },
+  "app.settings.default-instance-options.pre-launch-hook.description": {
+    "message": "Izvršava se pre pokretanja instance."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.placeholder": {
+    "message": "Unesi komandu pre pokretanja..."
+  },
+  "app.settings.default-instance-options.pre-launch-hook.title": {
+    "message": "Kuka pre pokretanja"
+  },
+  "app.settings.default-instance-options.width.description": {
+    "message": "Širina prozora igre pri pokretanju."
+  },
+  "app.settings.default-instance-options.width.placeholder": {
+    "message": "Unesi širinu..."
+  },
+  "app.settings.default-instance-options.width.title": {
+    "message": "Širina"
+  },
+  "app.settings.default-instance-options.window.title": {
+    "message": "Prozor"
+  },
+  "app.settings.default-instance-options.wrapper-hook.description": {
+    "message": "Komanda koja se koristi za obavijanje procesa pokretanja Minecrafta."
+  },
+  "app.settings.default-instance-options.wrapper-hook.placeholder": {
+    "message": "Unesi komandu omotača..."
+  },
+  "app.settings.default-instance-options.wrapper-hook.title": {
+    "message": "Kuka omotača"
+  },
+  "app.settings.developer-mode-button.label": {
+    "message": "Uključi/isključi režim za programere"
+  },
   "app.settings.developer-mode-enabled": {
     "message": "Režim programera je ukljućen."
   },
   "app.settings.downloading": {
     "message": "Instaliranje v{version}"
   },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Nisu pronađene zastavice koje odgovaraju \"{query}\""
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Vrati na podrazumevano"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Pretraži zastavice..."
+  },
+  "app.settings.game-options.category.accessibility.description": {
+    "message": "Podešavanja pristupačnosti"
+  },
+  "app.settings.game-options.category.accessibility.label": {
+    "message": "Pristupačnost"
+  },
+  "app.settings.game-options.category.chat.description": {
+    "message": "Vidljivost i izgled četa"
+  },
+  "app.settings.game-options.category.chat.label": {
+    "message": "Čet"
+  },
+  "app.settings.game-options.category.controls.description": {
+    "message": "Miš, kretanje i dodela tastera"
+  },
+  "app.settings.game-options.category.controls.label": {
+    "message": "Kontrole"
+  },
+  "app.settings.game-options.category.custom.description": {
+    "message": "Podešavanja koja su dodali modovi"
+  },
+  "app.settings.game-options.category.custom.label": {
+    "message": "Prilagođena podešavanja"
+  },
+  "app.settings.game-options.category.language.description": {
+    "message": "Jezik igre"
+  },
+  "app.settings.game-options.category.language.label": {
+    "message": "Jezik"
+  },
+  "app.settings.game-options.category.music-and-sound.description": {
+    "message": "Podešavanja jačine zvuka i audio"
+  },
+  "app.settings.game-options.category.music-and-sound.label": {
+    "message": "Muzika i zvuk"
+  },
+  "app.settings.game-options.category.online.description": {
+    "message": "Onlajn i Realms podešavanja"
+  },
+  "app.settings.game-options.category.online.label": {
+    "message": "Onlajn"
+  },
+  "app.settings.game-options.category.skin-customization.description": {
+    "message": "Slojevi skina i glavna ruka"
+  },
+  "app.settings.game-options.category.skin-customization.label": {
+    "message": "Prilagođavanje skina"
+  },
+  "app.settings.game-options.category.video.description": {
+    "message": "Podešavanja kamere i prikaza"
+  },
+  "app.settings.game-options.category.video.label": {
+    "message": "Grafika"
+  },
+  "app.settings.game-options.choice.all": {
+    "message": "Sve"
+  },
+  "app.settings.game-options.choice.balanced": {
+    "message": "Uravnoteženo"
+  },
+  "app.settings.game-options.choice.by-player": {
+    "message": "Po igraču"
+  },
+  "app.settings.game-options.choice.chat": {
+    "message": "Čet"
+  },
+  "app.settings.game-options.choice.commands-only": {
+    "message": "Samo komande"
+  },
+  "app.settings.game-options.choice.constant": {
+    "message": "Stalno"
+  },
+  "app.settings.game-options.choice.crosshair": {
+    "message": "Nišan"
+  },
+  "app.settings.game-options.choice.custom": {
+    "message": "Prilagođeno"
+  },
+  "app.settings.game-options.choice.decreased": {
+    "message": "Smanjeno"
+  },
+  "app.settings.game-options.choice.default": {
+    "message": "Podrazumevano"
+  },
+  "app.settings.game-options.choice.fabulous": {
+    "message": "Fabulozno"
+  },
+  "app.settings.game-options.choice.fancy": {
+    "message": "Lepo"
+  },
+  "app.settings.game-options.choice.far": {
+    "message": "Daleko"
+  },
+  "app.settings.game-options.choice.fast": {
+    "message": "Brzo"
+  },
+  "app.settings.game-options.choice.frequent": {
+    "message": "Često"
+  },
+  "app.settings.game-options.choice.hidden": {
+    "message": "Skriveno"
+  },
+  "app.settings.game-options.choice.hotbar": {
+    "message": "Traka za brzi pristup"
+  },
+  "app.settings.game-options.choice.left": {
+    "message": "Levo"
+  },
+  "app.settings.game-options.choice.limited": {
+    "message": "Ograničeno"
+  },
+  "app.settings.game-options.choice.max-fps": {
+    "message": "Maks. FPS"
+  },
+  "app.settings.game-options.choice.maximum": {
+    "message": "Maksimum"
+  },
+  "app.settings.game-options.choice.minimal": {
+    "message": "Minimalno"
+  },
+  "app.settings.game-options.choice.minimum": {
+    "message": "Minimum"
+  },
+  "app.settings.game-options.choice.nearby": {
+    "message": "U blizini"
+  },
+  "app.settings.game-options.choice.never": {
+    "message": "Nikad"
+  },
+  "app.settings.game-options.choice.none": {
+    "message": "Ništa"
+  },
+  "app.settings.game-options.choice.normal": {
+    "message": "Normalno"
+  },
+  "app.settings.game-options.choice.off": {
+    "message": "Isključeno"
+  },
+  "app.settings.game-options.choice.on": {
+    "message": "Uključeno"
+  },
+  "app.settings.game-options.choice.opengl": {
+    "message": "OpenGL"
+  },
+  "app.settings.game-options.choice.pause": {
+    "message": "Meni za pauzu"
+  },
+  "app.settings.game-options.choice.pause-and-toast": {
+    "message": "Meni za pauzu i obaveštenje"
+  },
+  "app.settings.game-options.choice.power-saver": {
+    "message": "Ušteda energije"
+  },
+  "app.settings.game-options.choice.right": {
+    "message": "Desno"
+  },
+  "app.settings.game-options.choice.short": {
+    "message": "Kratko"
+  },
+  "app.settings.game-options.choice.shown": {
+    "message": "Prikazano"
+  },
+  "app.settings.game-options.choice.system": {
+    "message": "Sistem"
+  },
+  "app.settings.game-options.choice.tiny": {
+    "message": "Sitno"
+  },
+  "app.settings.game-options.choice.vulkan": {
+    "message": "Vulkan"
+  },
+  "app.settings.game-options.choice.when-minimized": {
+    "message": "Kad je minimizirano"
+  },
+  "app.settings.game-options.choice.while-afk": {
+    "message": "Dok je odsutan"
+  },
+  "app.settings.game-options.compatibility.none": {
+    "message": "Neke tvoje instance ne mogu da koriste ovo podešavanje"
+  },
+  "app.settings.game-options.compatibility.reason.launcher-controlled": {
+    "message": "Ovim podešavanjem upravljaju opcije pokretanja u {productName}-u."
+  },
+  "app.settings.game-options.custom-value.placeholder": {
+    "message": "Unesi vrednost"
+  },
+  "app.settings.game-options.keybind.assigned-status": {
+    "message": "{setting} je sada dodeljeno tasteru {binding}."
+  },
+  "app.settings.game-options.keybind.cancelled-status": {
+    "message": "Promena dodele tastera otkazana."
+  },
+  "app.settings.game-options.keybind.change": {
+    "message": "{setting}: {binding}. Aktiviraj da promeniš dodelu."
+  },
+  "app.settings.game-options.keybind.choose": {
+    "message": "Izaberi taster"
+  },
+  "app.settings.game-options.keybind.conflict-description": {
+    "message": "Ovo već koristi {settings}."
+  },
+  "app.settings.game-options.keybind.key.arrow-down": {
+    "message": "Strelica dole"
+  },
+  "app.settings.game-options.keybind.key.arrow-left": {
+    "message": "Strelica levo"
+  },
+  "app.settings.game-options.keybind.key.arrow-right": {
+    "message": "Strelica desno"
+  },
+  "app.settings.game-options.keybind.key.arrow-up": {
+    "message": "Strelica gore"
+  },
+  "app.settings.game-options.keybind.key.backspace": {
+    "message": "Backspace"
+  },
+  "app.settings.game-options.keybind.key.caps-lock": {
+    "message": "Caps Lock"
+  },
+  "app.settings.game-options.keybind.key.delete": {
+    "message": "Delete"
+  },
+  "app.settings.game-options.keybind.key.end": {
+    "message": "End"
+  },
+  "app.settings.game-options.keybind.key.enter": {
+    "message": "Enter"
+  },
+  "app.settings.game-options.keybind.key.escape": {
+    "message": "Escape"
+  },
+  "app.settings.game-options.keybind.key.home": {
+    "message": "Home"
+  },
+  "app.settings.game-options.keybind.key.insert": {
+    "message": "Insert"
+  },
+  "app.settings.game-options.keybind.key.keypad-key": {
+    "message": "Numpad {key}"
+  },
+  "app.settings.game-options.keybind.key.left-alt": {
+    "message": "Levi Alt"
+  },
+  "app.settings.game-options.keybind.key.left-command": {
+    "message": "Levi Command"
+  },
+  "app.settings.game-options.keybind.key.left-control": {
+    "message": "Levi Ctrl"
+  },
+  "app.settings.game-options.keybind.key.left-shift": {
+    "message": "Levi Shift"
+  },
+  "app.settings.game-options.keybind.key.left-super": {
+    "message": "Levi Super"
+  },
+  "app.settings.game-options.keybind.key.menu": {
+    "message": "Meni"
+  },
+  "app.settings.game-options.keybind.key.num-lock": {
+    "message": "Num Lock"
+  },
+  "app.settings.game-options.keybind.key.page-down": {
+    "message": "Page Down"
+  },
+  "app.settings.game-options.keybind.key.page-up": {
+    "message": "Page Up"
+  },
+  "app.settings.game-options.keybind.key.pause": {
+    "message": "Pause"
+  },
+  "app.settings.game-options.keybind.key.print-screen": {
+    "message": "Print Screen"
+  },
+  "app.settings.game-options.keybind.key.right-alt": {
+    "message": "Desni Alt"
+  },
+  "app.settings.game-options.keybind.key.right-command": {
+    "message": "Desni Command"
+  },
+  "app.settings.game-options.keybind.key.right-control": {
+    "message": "Desni Ctrl"
+  },
+  "app.settings.game-options.keybind.key.right-shift": {
+    "message": "Desni Shift"
+  },
+  "app.settings.game-options.keybind.key.right-super": {
+    "message": "Desni Super"
+  },
+  "app.settings.game-options.keybind.key.scroll-lock": {
+    "message": "Scroll Lock"
+  },
+  "app.settings.game-options.keybind.key.space": {
+    "message": "Space"
+  },
+  "app.settings.game-options.keybind.key.tab": {
+    "message": "Tab"
+  },
+  "app.settings.game-options.keybind.key.unbound": {
+    "message": "Nedodeljeno"
+  },
+  "app.settings.game-options.keybind.key.unknown": {
+    "message": "Nepoznat taster"
+  },
+  "app.settings.game-options.keybind.listen": {
+    "message": "Pritisni taster…"
+  },
+  "app.settings.game-options.keybind.listening-status": {
+    "message": "Čeka se taster ili dugme miša. Pritisni Escape da obrišeš ovu dodelu."
+  },
+  "app.settings.game-options.keybind.mixed": {
+    "message": "Različito u instancama"
+  },
+  "app.settings.game-options.keybind.modifier.alt": {
+    "message": "Alt"
+  },
+  "app.settings.game-options.keybind.modifier.command": {
+    "message": "Command"
+  },
+  "app.settings.game-options.keybind.modifier.control": {
+    "message": "Ctrl"
+  },
+  "app.settings.game-options.keybind.modifier.shift": {
+    "message": "Shift"
+  },
+  "app.settings.game-options.keybind.modifier.super": {
+    "message": "Super"
+  },
+  "app.settings.game-options.keybind.mouse.button": {
+    "message": "Miš {button}"
+  },
+  "app.settings.game-options.keybind.mouse.left": {
+    "message": "Levi klik"
+  },
+  "app.settings.game-options.keybind.mouse.middle": {
+    "message": "Srednji klik"
+  },
+  "app.settings.game-options.keybind.mouse.right": {
+    "message": "Desni klik"
+  },
+  "app.settings.game-options.keybind.recording-label": {
+    "message": "{setting}: čeka se taster ili dugme miša. Pritisni Escape da obrišeš ovu dodelu."
+  },
+  "app.settings.game-options.keybind.scancode": {
+    "message": "Scan kod {code}"
+  },
+  "app.settings.game-options.keybind.unsupported-status": {
+    "message": "Minecraft ne može da koristi taj unos. Pritisni drugi taster."
+  },
+  "app.settings.game-options.setting.advanced-opengl.label": {
+    "message": "Napredni OpenGL"
+  },
+  "app.settings.game-options.setting.allow-cursor-changes.label": {
+    "message": "Dozvoli promene kursora"
+  },
+  "app.settings.game-options.setting.allow-server-listing.description": {
+    "message": "Dozvoli da se ime igrača pojavi u listama servera."
+  },
+  "app.settings.game-options.setting.allow-server-listing.label": {
+    "message": "Liste servera"
+  },
+  "app.settings.game-options.setting.alternate-blocks.label": {
+    "message": "Alternativni blokovi"
+  },
+  "app.settings.game-options.setting.ambient-occlusion.label": {
+    "message": "Meko osvetljenje"
+  },
+  "app.settings.game-options.setting.ambient-volume.label": {
+    "message": "Ambijent/okruženje"
+  },
+  "app.settings.game-options.setting.anaglyph-3d.label": {
+    "message": "3D anaglif"
+  },
+  "app.settings.game-options.setting.anisotropic-filtering.label": {
+    "message": "Anizotropno filtriranje"
+  },
+  "app.settings.game-options.setting.anisotropy.label": {
+    "message": "Anizotropija"
+  },
+  "app.settings.game-options.setting.attack-indicator.label": {
+    "message": "Indikator napada"
+  },
+  "app.settings.game-options.setting.auto-jump.description": {
+    "message": "Automatski preskače prepreke visoke jedan blok."
+  },
+  "app.settings.game-options.setting.auto-jump.label": {
+    "message": "Automatsko skakanje"
+  },
+  "app.settings.game-options.setting.auto-suggestions.label": {
+    "message": "Predlozi komandi"
+  },
+  "app.settings.game-options.setting.autosave-indicator.label": {
+    "message": "Indikator automatskog čuvanja"
+  },
+  "app.settings.game-options.setting.biome-blend-radius.description": {
+    "message": "Rastojanje preko kojeg se boje bioma postupno menjaju."
+  },
+  "app.settings.game-options.setting.biome-blend-radius.label": {
+    "message": "Stapanje bioma"
+  },
+  "app.settings.game-options.setting.blocks-volume.label": {
+    "message": "Blokovi"
+  },
+  "app.settings.game-options.setting.brightness.label": {
+    "message": "Osvetljenje"
+  },
+  "app.settings.game-options.setting.cape.description": {
+    "message": "Prikaži igračev ogrtač, uključujući teksturu elitre."
+  },
+  "app.settings.game-options.setting.cape.label": {
+    "message": "Ogrtač"
+  },
+  "app.settings.game-options.setting.chat-background-only.label": {
+    "message": "Samo pozadina četa"
+  },
+  "app.settings.game-options.setting.chat-colors.label": {
+    "message": "Boje četa"
+  },
+  "app.settings.game-options.setting.chat-delay.label": {
+    "message": "Kašnjenje četa"
+  },
+  "app.settings.game-options.setting.chat-line-spacing.label": {
+    "message": "Razmak redova četa"
+  },
+  "app.settings.game-options.setting.chat-links-prompt.description": {
+    "message": "Pitaj pre otvaranja linkova iz četa."
+  },
+  "app.settings.game-options.setting.chat-links-prompt.label": {
+    "message": "Potvrdi linkove"
+  },
+  "app.settings.game-options.setting.chat-links.description": {
+    "message": "Dozvoli otvaranje veb-linkova u četu."
+  },
+  "app.settings.game-options.setting.chat-links.label": {
+    "message": "Veb-linkovi"
+  },
+  "app.settings.game-options.setting.chat-opacity.description": {
+    "message": "Neprozirnost teksta četa."
+  },
+  "app.settings.game-options.setting.chat-opacity.label": {
+    "message": "Neprozirnost četa"
+  },
+  "app.settings.game-options.setting.chat-preview.label": {
+    "message": "Pregled četa"
+  },
+  "app.settings.game-options.setting.chat-scale.label": {
+    "message": "Veličina četa"
+  },
+  "app.settings.game-options.setting.chat-visibility.label": {
+    "message": "Vidljivost četa"
+  },
+  "app.settings.game-options.setting.chat-width.label": {
+    "message": "Širina četa"
+  },
+  "app.settings.game-options.setting.chunk-fade-time.label": {
+    "message": "Vreme postepenog prikaza čankova"
+  },
+  "app.settings.game-options.setting.cloud-range.label": {
+    "message": "Rastojanje oblaka"
+  },
+  "app.settings.game-options.setting.clouds.label": {
+    "message": "Oblaci"
+  },
+  "app.settings.game-options.setting.ctrl-click-right-click.label": {
+    "message": "Ctrl-klik kao desni klik"
+  },
+  "app.settings.game-options.setting.cutout-leaves.label": {
+    "message": "Prozirno lišće"
+  },
+  "app.settings.game-options.setting.damage-tilt.label": {
+    "message": "Nagib pri šteti"
+  },
+  "app.settings.game-options.setting.dark-splash.description": {
+    "message": "Menja uvodni ekran Mojang Studios iz crvenog u crno."
+  },
+  "app.settings.game-options.setting.dark-splash.label": {
+    "message": "Monohromatski logo"
+  },
+  "app.settings.game-options.setting.darkness-pulsing.label": {
+    "message": "Pulsiranje tame"
+  },
+  "app.settings.game-options.setting.debug-gui-scale.label": {
+    "message": "Veličina debug GUI-a"
+  },
+  "app.settings.game-options.setting.directional-audio.label": {
+    "message": "Prostorni zvuk"
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.description": {
+    "message": "Tretira svaki unos točkića miša kao jedan korak skrolovanja."
+  },
+  "app.settings.game-options.setting.discrete-mouse-scroll.label": {
+    "message": "Diskretno skrolovanje"
+  },
+  "app.settings.game-options.setting.entity-distance.label": {
+    "message": "Rastojanje entiteta"
+  },
+  "app.settings.game-options.setting.entity-shadows.label": {
+    "message": "Senke entiteta"
+  },
+  "app.settings.game-options.setting.exclusive-fullscreen.label": {
+    "message": "Ekskluzivni ceo ekran"
+  },
+  "app.settings.game-options.setting.extra-telemetry.label": {
+    "message": "Opciona telemetrija"
+  },
+  "app.settings.game-options.setting.focused-chat-height.label": {
+    "message": "Visina četa (otvoren)"
+  },
+  "app.settings.game-options.setting.force-unicode-font.label": {
+    "message": "Forsiraj Unicode font"
+  },
+  "app.settings.game-options.setting.fov-effects.label": {
+    "message": "Efekti vidnog polja"
+  },
+  "app.settings.game-options.setting.fov.label": {
+    "message": "Vidno polje"
+  },
+  "app.settings.game-options.setting.fullscreen.label": {
+    "message": "Ceo ekran"
+  },
+  "app.settings.game-options.setting.glint-speed.label": {
+    "message": "Brzina sjaja"
+  },
+  "app.settings.game-options.setting.glint-strength.label": {
+    "message": "Jačina sjaja"
+  },
+  "app.settings.game-options.setting.graphics-backend.label": {
+    "message": "Grafički backend"
+  },
+  "app.settings.game-options.setting.graphics.description": {
+    "message": "Kontroliše vizuelni kvalitet i performanse."
+  },
+  "app.settings.game-options.setting.graphics.label": {
+    "message": "Grafika"
+  },
+  "app.settings.game-options.setting.gui-scale.description": {
+    "message": "Veličina interfejsa igre i HUD-a."
+  },
+  "app.settings.game-options.setting.gui-scale.label": {
+    "message": "Veličina GUI-a"
+  },
+  "app.settings.game-options.setting.hat.description": {
+    "message": "Prikaži sloj skina za šešir."
+  },
+  "app.settings.game-options.setting.hat.label": {
+    "message": "Šešir"
+  },
+  "app.settings.game-options.setting.held-item-tooltips.label": {
+    "message": "Opisi predmeta u ruci"
+  },
+  "app.settings.game-options.setting.hide-lightning-flashes.label": {
+    "message": "Sakrij bljeske munja"
+  },
+  "app.settings.game-options.setting.hide-matched-names.label": {
+    "message": "Sakrij podudarna imena"
+  },
+  "app.settings.game-options.setting.hide-server-address.label": {
+    "message": "Sakrij adresu servera"
+  },
+  "app.settings.game-options.setting.hide-splash-texts.label": {
+    "message": "Sakrij tekstove na uvodnom ekranu"
+  },
+  "app.settings.game-options.setting.high-contrast-outline.label": {
+    "message": "Kontrastan obris blokova"
+  },
+  "app.settings.game-options.setting.high-contrast.description": {
+    "message": "Pojačaj kontrast elemenata interfejsa."
+  },
+  "app.settings.game-options.setting.high-contrast.label": {
+    "message": "Visok kontrast"
+  },
+  "app.settings.game-options.setting.hostile-volume.label": {
+    "message": "Neprijateljska stvorenja"
+  },
+  "app.settings.game-options.setting.improved-transparency.label": {
+    "message": "Poboljšana prozirnost"
+  },
+  "app.settings.game-options.setting.in-game-notifications.label": {
+    "message": "Obaveštenja u igri"
+  },
+  "app.settings.game-options.setting.inactivity-framerate-limit.label": {
+    "message": "Smanjen broj slika u sekundi"
+  },
+  "app.settings.game-options.setting.invert-horizontal-mouse.label": {
+    "message": "Invertuj horizontalno kretanje miša"
+  },
+  "app.settings.game-options.setting.invert-mouse.description": {
+    "message": "Invertuje vertikalno kretanje miša."
+  },
+  "app.settings.game-options.setting.invert-mouse.label": {
+    "message": "Invertuj miš"
+  },
+  "app.settings.game-options.setting.jacket.description": {
+    "message": "Prikaži sloj skina za jaknu."
+  },
+  "app.settings.game-options.setting.jacket.label": {
+    "message": "Jakna"
+  },
+  "app.settings.game-options.setting.japanese-glyph-variants.label": {
+    "message": "Japanske varijante glifova"
+  },
+  "app.settings.game-options.setting.key-advancements.label": {
+    "message": "Napredovanja"
+  },
+  "app.settings.game-options.setting.key-attack.label": {
+    "message": "Napad"
+  },
+  "app.settings.game-options.setting.key-back.label": {
+    "message": "Kretanje unazad"
+  },
+  "app.settings.game-options.setting.key-chat.label": {
+    "message": "Otvori čet"
+  },
+  "app.settings.game-options.setting.key-command.label": {
+    "message": "Komanda"
+  },
+  "app.settings.game-options.setting.key-debug-advanced-tooltips.label": {
+    "message": "Prikaži napredne opise"
+  },
+  "app.settings.game-options.setting.key-debug-chunk-borders.label": {
+    "message": "Prikaži granice čankova"
+  },
+  "app.settings.game-options.setting.key-debug-clear-chat.label": {
+    "message": "Obriši čet"
+  },
+  "app.settings.game-options.setting.key-debug-copy-location.label": {
+    "message": "Kopiraj lokaciju"
+  },
+  "app.settings.game-options.setting.key-debug-copy-recreate-command.label": {
+    "message": "Kopiraj komandu za ponovno kreiranje"
+  },
+  "app.settings.game-options.setting.key-debug-crash.label": {
+    "message": "Izazovi debug pad"
+  },
+  "app.settings.game-options.setting.key-debug-dump-dynamic-textures.label": {
+    "message": "Izvezi dinamične teksture"
+  },
+  "app.settings.game-options.setting.key-debug-dump-version.label": {
+    "message": "Izvezi verziju"
+  },
+  "app.settings.game-options.setting.key-debug-focus-pause.label": {
+    "message": "Pauziraj pri gubitku fokusa"
+  },
+  "app.settings.game-options.setting.key-debug-fps-charts.label": {
+    "message": "FPS grafikoni"
+  },
+  "app.settings.game-options.setting.key-debug-hitboxes.label": {
+    "message": "Prikaži hitbox-ove"
+  },
+  "app.settings.game-options.setting.key-debug-improved-transparency.label": {
+    "message": "Debug prikaz poboljšane prozirnosti"
+  },
+  "app.settings.game-options.setting.key-debug-lightmap-texture.label": {
+    "message": "Lightmap tekstura"
+  },
+  "app.settings.game-options.setting.key-debug-modifier.label": {
+    "message": "Debug modifikator"
+  },
+  "app.settings.game-options.setting.key-debug-network-charts.label": {
+    "message": "Mrežni grafikoni"
+  },
+  "app.settings.game-options.setting.key-debug-options.label": {
+    "message": "Debug opcije"
+  },
+  "app.settings.game-options.setting.key-debug-overlay.label": {
+    "message": "Debug overlay"
+  },
+  "app.settings.game-options.setting.key-debug-profiling-chart.label": {
+    "message": "Grafikon profilisanja"
+  },
+  "app.settings.game-options.setting.key-debug-profiling.label": {
+    "message": "Pokreni profilisanje"
+  },
+  "app.settings.game-options.setting.key-debug-reload-chunks.label": {
+    "message": "Ponovo učitaj čankove"
+  },
+  "app.settings.game-options.setting.key-debug-reload-resource-packs.label": {
+    "message": "Ponovo učitaj resurs pakete"
+  },
+  "app.settings.game-options.setting.key-debug-spectate.label": {
+    "message": "Posmatraj entitet"
+  },
+  "app.settings.game-options.setting.key-debug-switch-game-mode.label": {
+    "message": "Promeni režim igre"
+  },
+  "app.settings.game-options.setting.key-drop.label": {
+    "message": "Ispusti predmet"
+  },
+  "app.settings.game-options.setting.key-forward.label": {
+    "message": "Kretanje napred"
+  },
+  "app.settings.game-options.setting.key-friends.label": {
+    "message": "Prijatelji"
+  },
+  "app.settings.game-options.setting.key-fullscreen.label": {
+    "message": "Uključi/isključi ceo ekran"
+  },
+  "app.settings.game-options.setting.key-hotbar-1.label": {
+    "message": "Traka za brzi pristup 1"
+  },
+  "app.settings.game-options.setting.key-hotbar-2.label": {
+    "message": "Traka za brzi pristup 2"
+  },
+  "app.settings.game-options.setting.key-hotbar-3.label": {
+    "message": "Traka za brzi pristup 3"
+  },
+  "app.settings.game-options.setting.key-hotbar-4.label": {
+    "message": "Traka za brzi pristup 4"
+  },
+  "app.settings.game-options.setting.key-hotbar-5.label": {
+    "message": "Traka za brzi pristup 5"
+  },
+  "app.settings.game-options.setting.key-hotbar-6.label": {
+    "message": "Traka za brzi pristup 6"
+  },
+  "app.settings.game-options.setting.key-hotbar-7.label": {
+    "message": "Traka za brzi pristup 7"
+  },
+  "app.settings.game-options.setting.key-hotbar-8.label": {
+    "message": "Traka za brzi pristup 8"
+  },
+  "app.settings.game-options.setting.key-hotbar-9.label": {
+    "message": "Traka za brzi pristup 9"
+  },
+  "app.settings.game-options.setting.key-inventory.label": {
+    "message": "Inventar"
+  },
+  "app.settings.game-options.setting.key-jump.label": {
+    "message": "Skok"
+  },
+  "app.settings.game-options.setting.key-left.label": {
+    "message": "Kretanje ulevo"
+  },
+  "app.settings.game-options.setting.key-load-toolbar.label": {
+    "message": "Učitaj traku sa alatima"
+  },
+  "app.settings.game-options.setting.key-perspective.label": {
+    "message": "Promeni perspektivu"
+  },
+  "app.settings.game-options.setting.key-pick-item.label": {
+    "message": "Izaberi blok"
+  },
+  "app.settings.game-options.setting.key-player-list.label": {
+    "message": "Lista igrača"
+  },
+  "app.settings.game-options.setting.key-quick-actions.label": {
+    "message": "Brze radnje"
+  },
+  "app.settings.game-options.setting.key-right.label": {
+    "message": "Kretanje udesno"
+  },
+  "app.settings.game-options.setting.key-save-toolbar.label": {
+    "message": "Sačuvaj traku sa alatima"
+  },
+  "app.settings.game-options.setting.key-screenshot.label": {
+    "message": "Snimak ekrana"
+  },
+  "app.settings.game-options.setting.key-smooth-camera.label": {
+    "message": "Uključi/isključi filmsku kameru"
+  },
+  "app.settings.game-options.setting.key-sneak.label": {
+    "message": "Šunjanje"
+  },
+  "app.settings.game-options.setting.key-social-interactions.label": {
+    "message": "Društvene interakcije"
+  },
+  "app.settings.game-options.setting.key-spectator-hotbar.label": {
+    "message": "Traka za brzi pristup posmatrača"
+  },
+  "app.settings.game-options.setting.key-spectator-outlines.label": {
+    "message": "Istakni posmatrače"
+  },
+  "app.settings.game-options.setting.key-sprint.label": {
+    "message": "Sprint"
+  },
+  "app.settings.game-options.setting.key-swap-offhand.label": {
+    "message": "Zameni drugu ruku"
+  },
+  "app.settings.game-options.setting.key-toggle-gui.label": {
+    "message": "Uključi/isključi HUD"
+  },
+  "app.settings.game-options.setting.key-toggle-spectator-shader.label": {
+    "message": "Uključi/isključi šejder posmatrača"
+  },
+  "app.settings.game-options.setting.key-use.label": {
+    "message": "Iskoristi predmet"
+  },
+  "app.settings.game-options.setting.language.label": {
+    "message": "Jezik"
+  },
+  "app.settings.game-options.setting.left-pants-leg.label": {
+    "message": "Leva nogavica"
+  },
+  "app.settings.game-options.setting.left-sleeve.label": {
+    "message": "Levi rukav"
+  },
+  "app.settings.game-options.setting.legacy-framerate-limit.label": {
+    "message": "Ograničenje broja slika u sekundi"
+  },
+  "app.settings.game-options.setting.legacy-view-distance.label": {
+    "message": "Rastojanje prikaza"
+  },
+  "app.settings.game-options.setting.mac-fullscreen-menu.label": {
+    "message": "Prikaži macOS meni u režimu celog ekrana"
+  },
+  "app.settings.game-options.setting.main-hand.description": {
+    "message": "Izaberi da li je glavna ruka leva ili desna."
+  },
+  "app.settings.game-options.setting.main-hand.label": {
+    "message": "Glavna ruka"
+  },
+  "app.settings.game-options.setting.master-volume.label": {
+    "message": "Ukupna jačina zvuka"
+  },
+  "app.settings.game-options.setting.max-framerate.label": {
+    "message": "Maksimalan broj slika u sekundi"
+  },
+  "app.settings.game-options.setting.menu-background-blur.label": {
+    "message": "Zamućenje pozadine menija"
+  },
+  "app.settings.game-options.setting.mipmap-levels.description": {
+    "message": "Uglađivanje tekstura na daljinu."
+  },
+  "app.settings.game-options.setting.mipmap-levels.label": {
+    "message": "Mipmap nivoi"
+  },
+  "app.settings.game-options.setting.mouse-wheel-sensitivity.label": {
+    "message": "Osetljivost točkića miša"
+  },
+  "app.settings.game-options.setting.music-frequency.label": {
+    "message": "Učestalost muzike"
+  },
+  "app.settings.game-options.setting.music-toast.description": {
+    "message": "Izaberi da li se naslovi muzike prikazuju u meniju za pauzu i kao obaveštenja."
+  },
+  "app.settings.game-options.setting.music-toast.label": {
+    "message": "Obaveštenje o muzici"
+  },
+  "app.settings.game-options.setting.music-volume.label": {
+    "message": "Muzika"
+  },
+  "app.settings.game-options.setting.narrator-hotkey.label": {
+    "message": "Prečica naratora"
+  },
+  "app.settings.game-options.setting.narrator.description": {
+    "message": "Izaberi šta narator čita."
+  },
+  "app.settings.game-options.setting.narrator.label": {
+    "message": "Narator"
+  },
+  "app.settings.game-options.setting.neutral-volume.label": {
+    "message": "Prijateljska stvorenja"
+  },
+  "app.settings.game-options.setting.notification-time.description": {
+    "message": "Koliko dugo obaveštenja ostaju vidljiva."
+  },
+  "app.settings.game-options.setting.notification-time.label": {
+    "message": "Trajanje obaveštenja"
+  },
+  "app.settings.game-options.setting.operator-items-tab.label": {
+    "message": "Kartica operator predmeta"
+  },
+  "app.settings.game-options.setting.panorama-speed.label": {
+    "message": "Brzina panorame"
+  },
+  "app.settings.game-options.setting.particles.label": {
+    "message": "Čestice"
+  },
+  "app.settings.game-options.setting.players-volume.label": {
+    "message": "Igrači"
+  },
+  "app.settings.game-options.setting.prioritize-chunk-updates.label": {
+    "message": "Daj prioritet ažuriranjima čankova"
+  },
+  "app.settings.game-options.setting.quit-shortcuts.label": {
+    "message": "Prečice za izlaz"
+  },
+  "app.settings.game-options.setting.raw-mouse-input.label": {
+    "message": "Sirovi unos miša"
+  },
+  "app.settings.game-options.setting.realms-notifications.label": {
+    "message": "Realms obaveštenja"
+  },
+  "app.settings.game-options.setting.record-volume.label": {
+    "message": "Muzički blokovi"
+  },
+  "app.settings.game-options.setting.reduced-debug-info.label": {
+    "message": "Smanjene debug informacije"
+  },
+  "app.settings.game-options.setting.render-distance.label": {
+    "message": "Rastojanje prikaza"
+  },
+  "app.settings.game-options.setting.right-pants-leg.label": {
+    "message": "Desna nogavica"
+  },
+  "app.settings.game-options.setting.right-sleeve.label": {
+    "message": "Desni rukav"
+  },
+  "app.settings.game-options.setting.rotate-with-minecart.label": {
+    "message": "Rotiraj sa vagonetom"
+  },
+  "app.settings.game-options.setting.save-chat-drafts.label": {
+    "message": "Sačuvaj nacrte četa"
+  },
+  "app.settings.game-options.setting.screen-effects.label": {
+    "message": "Efekti ekrana"
+  },
+  "app.settings.game-options.setting.secure-chat-only.label": {
+    "message": "Prikaži samo bezbedan čet"
+  },
+  "app.settings.game-options.setting.sensitivity.label": {
+    "message": "Osetljivost miša"
+  },
+  "app.settings.game-options.setting.server-textures.label": {
+    "message": "Teksture servera"
+  },
+  "app.settings.game-options.setting.share-presence.label": {
+    "message": "Podeli prisustvo"
+  },
+  "app.settings.game-options.setting.simulation-distance.description": {
+    "message": "Koliko daleko se entiteti ažuriraju i blokovi i tečnosti otkucavaju."
+  },
+  "app.settings.game-options.setting.simulation-distance.label": {
+    "message": "Rastojanje simulacije"
+  },
+  "app.settings.game-options.setting.snooper.label": {
+    "message": "Snooper"
+  },
+  "app.settings.game-options.setting.sprint-window.label": {
+    "message": "Prozor za sprint"
+  },
+  "app.settings.game-options.setting.subtitles.description": {
+    "message": "Prikaži titlove za zvukove koji se puštaju u igri."
+  },
+  "app.settings.game-options.setting.subtitles.label": {
+    "message": "Titlovi"
+  },
+  "app.settings.game-options.setting.text-background-opacity.label": {
+    "message": "Neprozirnost pozadine teksta"
+  },
+  "app.settings.game-options.setting.texture-filtering.label": {
+    "message": "Filtriranje tekstura"
+  },
+  "app.settings.game-options.setting.toggle-attack.label": {
+    "message": "Uključi/isključi napad"
+  },
+  "app.settings.game-options.setting.toggle-crouch.description": {
+    "message": "Pritisni jednom da ostaneš čučeći."
+  },
+  "app.settings.game-options.setting.toggle-crouch.label": {
+    "message": "Uključi/isključi čučanje"
+  },
+  "app.settings.game-options.setting.toggle-sprint.description": {
+    "message": "Pritisni jednom da nastaviš da sprintuješ."
+  },
+  "app.settings.game-options.setting.toggle-sprint.label": {
+    "message": "Uključi/isključi sprint"
+  },
+  "app.settings.game-options.setting.toggle-use.label": {
+    "message": "Uključi/isključi korišćenje"
+  },
+  "app.settings.game-options.setting.touchscreen.label": {
+    "message": "Režim ekrana osetljivog na dodir"
+  },
+  "app.settings.game-options.setting.ui-volume.label": {
+    "message": "Korisnički interfejs"
+  },
+  "app.settings.game-options.setting.unfocused-chat-height.label": {
+    "message": "Visina četa (zatvoren)"
+  },
+  "app.settings.game-options.setting.use-vbo.label": {
+    "message": "Koristi VBO"
+  },
+  "app.settings.game-options.setting.view-bobbing.description": {
+    "message": "Dodaje kamere njihajući pokret tokom hodanja."
+  },
+  "app.settings.game-options.setting.view-bobbing.label": {
+    "message": "Njihanje prikaza"
+  },
+  "app.settings.game-options.setting.vignette.label": {
+    "message": "Vinjeta"
+  },
+  "app.settings.game-options.setting.voice-volume.label": {
+    "message": "Glas i govor"
+  },
+  "app.settings.game-options.setting.vsync.description": {
+    "message": "Ograničava broj slika u sekundi na brzinu osvežavanja ekrana da bi se sprečilo cepanje slike."
+  },
+  "app.settings.game-options.setting.vsync.label": {
+    "message": "VSync"
+  },
+  "app.settings.game-options.setting.weather-radius.label": {
+    "message": "Radijus vremenskih efekata"
+  },
+  "app.settings.game-options.setting.weather-volume.label": {
+    "message": "Vreme"
+  },
+  "app.settings.game-options.validation.changed-since-opened": {
+    "message": "Ovo podešavanje je promenjeno na drugom mestu. Proveri ga i probaj ponovo."
+  },
+  "app.settings.game-options.validation.invalid-value": {
+    "message": "Izaberi važeću vrednost."
+  },
+  "app.settings.game-options.validation.missing-value": {
+    "message": "Prvo izaberi vrednost."
+  },
+  "app.settings.game-options.validation.no-compatible-instances": {
+    "message": "Neke tvoje instance ne mogu da koriste ovo podešavanje"
+  },
+  "app.settings.java-installations.location.title": {
+    "message": "Lokacija Java {version, number}"
+  },
+  "app.settings.operating-system.macos": {
+    "message": "macOS"
+  },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Prikaži {productName} kao tvoju trenutnu aktivnost na Discord-u. To ne utiče na Rich Presence koji modovi dodaju instancama."
+  },
+  "app.settings.privacy.discord-rich-presence.title": {
+    "message": "Discord Rich Presence"
+  },
+  "app.settings.resource-management.always-show-copy-details.description": {
+    "message": "Prikaži radnju Kopiraj detalje dok je instalacija u redu čekanja ili se izvršava. Uvek je dostupna za neuspele ili prekinute instalacije."
+  },
+  "app.settings.resource-management.always-show-copy-details.title": {
+    "message": "Uvek prikaži detalje kopiranja"
+  },
+  "app.settings.resource-management.app-cache.confirm.description": {
+    "message": "Aplikacija se može sporije učitavati dok se keš ponovo ne izgradi."
+  },
+  "app.settings.resource-management.app-cache.confirm.title": {
+    "message": "Očistiti keš aplikacije?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Obriši keširane podatke i preuzmi ih ponovo. Aplikacija se može sporije učitavati dok se keš ponovo ne izgradi."
+  },
+  "app.settings.resource-management.app-cache.purge": {
+    "message": "Očisti keš"
+  },
+  "app.settings.resource-management.app-cache.title": {
+    "message": "Keš aplikacije"
+  },
+  "app.settings.resource-management.app-database-backups.description": {
+    "message": "Rezervne kopije važnih podataka aplikacije čuvaju se ovde u slučaju da ih kasnije treba da povratiš."
+  },
+  "app.settings.resource-management.app-database-backups.open-folder": {
+    "message": "Otvori fasciklu sa rezervnim kopijama"
+  },
+  "app.settings.resource-management.app-database-backups.title": {
+    "message": "Rezervne kopije baze podataka aplikacije"
+  },
+  "app.settings.resource-management.app-directory.browse": {
+    "message": "Pretraži direktorijum aplikacije"
+  },
+  "app.settings.resource-management.app-directory.description": {
+    "message": "Gde {productName} čuva instance i druge fajlove. Promene stupaju na snagu nakon restarta aplikacije."
+  },
+  "app.settings.resource-management.app-directory.select": {
+    "message": "Izaberi novi direktorijum aplikacije"
+  },
+  "app.settings.resource-management.app-directory.title": {
+    "message": "Direktorijum aplikacije"
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.description": {
+    "message": "Broj fajlova koje aplikacija može da preuzme odjednom. Smanji ovo ako su preuzimanja nepouzdana na tvojoj vezi. Zahteva restart aplikacije."
+  },
+  "app.settings.resource-management.maximum-concurrent-downloads.title": {
+    "message": "Maksimalan broj istovremenih preuzimanja"
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.description": {
+    "message": "Broj fajlova koje aplikacija može da upiše na disk odjednom. Smanji ovo ako često nailaziš na I/O greške. Zahteva restart aplikacije."
+  },
+  "app.settings.resource-management.maximum-concurrent-writes.title": {
+    "message": "Maksimalan broj istovremenih upisa"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Neki fajlovi još zahtevaju pažnju"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Zadrži do ove količine nekorišćenog sadržaja za buduće instalacije. Zadržavanje više može uštedeti vreme preuzimanja."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Zadrži nekorišćena preuzimanja"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "GiB"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Izračunavanje"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Obriši nekorišćeno"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Izbriši preuzeti nekorišćeni sadržaj"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "Oslobođeno {size} prostora na disku."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Brisanje…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Uštedi prostor ponovnim korišćenjem instalacija igre, modova i paketa kroz svoje instance."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Instaliraj modove ili pakete da ovde vidiš svoju potrošnju prostora."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Prikaži {count, plural, one {# problem} few {# problema} other {# problema}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Nema nekorišćenog sadržaja za brisanje."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Verifikuj i popravi"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Ovim će se zatvoriti sve instance koje rade."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Proveri fajlove koji nedostaju ili su oštećeni i popravi ih."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Verifikovanje i popravljanje…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Deljeno"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Skladište sadržaja"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "{size} sačuvano"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Jedinstveno"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Napušteno"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "Provereno {checked, plural, one {# fajl} few {# fajla} other {# fajlova}} i urađeno {repaired, plural, one {# popravka} few {# popravke} other {# popravki}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Verifikacija završena"
+  },
+  "app.settings.sidebar.label.instances": {
+    "message": "Instance"
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-description": {
+    "message": "Izaberi iz koje instance da kopiraš istoriju komandi. Ova istorija se koristi samo za početnu sinhronizaciju, a posle je možeš uređivati iz bilo koje instance."
+  },
+  "app.settings.synced-options.choose-sync-source.command-history-title": {
+    "message": "Izaberi izvor istorije komandi"
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-description": {
+    "message": "Izaberi iz koje instance da kopiraš sačuvane kreativne trake za brzi pristup. Ove trake se koriste samo za početnu sinhronizaciju, a posle ih možeš uređivati iz bilo koje instance."
+  },
+  "app.settings.synced-options.choose-sync-source.creative-hotbars-title": {
+    "message": "Izaberi izvor kreativnih traka za brzi pristup"
+  },
+  "app.settings.synced-options.choose-sync-source.data-packs-title": {
+    "message": "Izaberi izvor data paketa"
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-description": {
+    "message": "Izaberi iz koje instance da kopiraš podešavanja igre. Ova podešavanja se koriste samo za početnu sinhronizaciju, a posle ih možeš uređivati iz bilo koje instance."
+  },
+  "app.settings.synced-options.choose-sync-source.game-settings-title": {
+    "message": "Izaberi izvor podešavanja igre"
+  },
+  "app.settings.synced-options.choose-sync-source.ineligible": {
+    "message": "Ne možeš izabrati ovu instancu kao izvor sinhronizacije"
+  },
+  "app.settings.synced-options.choose-sync-source.load-error": {
+    "message": "Nije moguće učitati izvore sinhronizacije. Probaj ponovo."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-description": {
+    "message": "Izaberi iz koje instance da kopiraš servere za više igrača. Ovi serveri se koriste samo za početnu sinhronizaciju, a posle ih možeš uređivati iz bilo koje instance."
+  },
+  "app.settings.synced-options.choose-sync-source.multiplayer-servers-title": {
+    "message": "Izaberi izvor servera za više igrača"
+  },
+  "app.settings.synced-options.choose-sync-source.no-instances-found": {
+    "message": "Nisu pronađene instance"
+  },
+  "app.settings.synced-options.choose-sync-source.resource-packs-title": {
+    "message": "Izaberi izvor resurs paketa"
+  },
+  "app.settings.synced-options.choose-sync-source.retry": {
+    "message": "Probaj ponovo"
+  },
+  "app.settings.synced-options.choose-sync-source.search-placeholder": {
+    "message": "Pretraži instancu"
+  },
+  "app.settings.synced-options.choose-sync-source.sync": {
+    "message": "Sinhronizuj"
+  },
+  "app.settings.synced-options.command-history": {
+    "message": "Sinhronizuj istoriju komandi"
+  },
+  "app.settings.synced-options.command-history.description": {
+    "message": "Koristi istu istoriju komandi u svim svojim instancama."
+  },
+  "app.settings.synced-options.command-history.editor-title": {
+    "message": "Uredi istoriju komandi"
+  },
+  "app.settings.synced-options.creative-hotbars": {
+    "message": "Sinhronizuj sačuvane kreativne trake za brzi pristup"
+  },
+  "app.settings.synced-options.creative-hotbars.description": {
+    "message": "Koristi iste sačuvane kreativne trake za brzi pristup u svim svojim instancama."
+  },
+  "app.settings.synced-options.data-packs": {
+    "message": "Sinhronizuj data pakete"
+  },
+  "app.settings.synced-options.data-packs.description": {
+    "message": "Koristi iste data pakete u svim svojim instancama"
+  },
+  "app.settings.synced-options.data-packs.none-synced-yet": {
+    "message": "Još nisi sinhronizovao nijedan data paket"
+  },
+  "app.settings.synced-options.edit.no-instances": {
+    "message": "Dodaj instancu pre uređivanja sinhronizovanih podataka."
+  },
+  "app.settings.synced-options.edit.no-synced-data": {
+    "message": "Izaberi izvor sinhronizacije pre uređivanja ovog podešavanja."
+  },
+  "app.settings.synced-options.game-settings": {
+    "message": "Sinhronizuj opcije igre"
+  },
+  "app.settings.synced-options.game-settings.button": {
+    "message": "Uredi podešavanja igre"
+  },
+  "app.settings.synced-options.game-settings.conflict-text": {
+    "message": "Učitali smo najnovija podešavanja. Proveri svoje promene, pa sačuvaj ponovo."
+  },
+  "app.settings.synced-options.game-settings.conflict-title": {
+    "message": "Ova podešavanja su promenjena na drugom mestu"
+  },
+  "app.settings.synced-options.game-settings.custom-empty": {
+    "message": "Podešavanja koja su dodali modovi pojaviće se ovde nakon što ih {productName} pronađe u nekoj od tvojih instanci."
+  },
+  "app.settings.synced-options.game-settings.description": {
+    "message": "Koristi iste opcije igre u svim svojim instancama."
+  },
+  "app.settings.synced-options.game-settings.disable-all": {
+    "message": "Desinhronizuj sve"
+  },
+  "app.settings.synced-options.game-settings.disabled-tooltip": {
+    "message": "Uključi sinhronizaciju podešavanja igre pre izbora pojedinačnih podešavanja."
+  },
+  "app.settings.synced-options.game-settings.empty": {
+    "message": "Nijedno podešavanje ne odgovara tvojoj pretrazi ili filteru."
+  },
+  "app.settings.synced-options.game-settings.enable-all": {
+    "message": "Sinhronizuj sve"
+  },
+  "app.settings.synced-options.game-settings.load-failed": {
+    "message": "Nismo mogli da učitamo tvoja podešavanja igre."
+  },
+  "app.settings.synced-options.game-settings.loading": {
+    "message": "Učitavanje podešavanja..."
+  },
+  "app.settings.synced-options.game-settings.no-options-to-edit": {
+    "message": "Još nemaš nijednu opciju za uređivanje"
+  },
+  "app.settings.synced-options.game-settings.not-being-synced": {
+    "message": "Nije sinhronizovano"
+  },
+  "app.settings.synced-options.game-settings.retry": {
+    "message": "Probaj ponovo"
+  },
+  "app.settings.synced-options.game-settings.save": {
+    "message": "Sačuvaj podešavanja"
+  },
+  "app.settings.synced-options.game-settings.search": {
+    "message": "Pretraži podešavanja..."
+  },
+  "app.settings.synced-options.game-settings.sync-description": {
+    "message": "Sinhronizovane opcije se primenjuju na svaku instancu i nadjačavaju vrednosti koje dolaze sa modpackom."
+  },
+  "app.settings.synced-options.game-settings.sync-setting": {
+    "message": "Sinhronizuj {setting} između instanci"
+  },
+  "app.settings.synced-options.game-settings.sync-title": {
+    "message": "Sinhronizuj podešavanja igre"
+  },
+  "app.settings.synced-options.game-settings.synced-across-instances": {
+    "message": "Sinhronizovano između instanci"
+  },
+  "app.settings.synced-options.game-settings.title": {
+    "message": "Podešavanja igre"
+  },
+  "app.settings.synced-options.game-settings.unsaved-changes": {
+    "message": "Imaš nesačuvane promene."
+  },
+  "app.settings.synced-options.game-settings.unsync-setting": {
+    "message": "Zaustavi sinhronizaciju {setting} između instanci"
+  },
+  "app.settings.synced-options.game-settings.value-mixed": {
+    "message": "Različito između instanci"
+  },
+  "app.settings.synced-options.game-settings.value-off": {
+    "message": "Isključeno"
+  },
+  "app.settings.synced-options.game-settings.value-on": {
+    "message": "Uključeno"
+  },
+  "app.settings.synced-options.game-settings.value-unset": {
+    "message": "Izaberi vrednost"
+  },
+  "app.settings.synced-options.multiplayer-servers": {
+    "message": "Sinhronizuj servere za više igrača"
+  },
+  "app.settings.synced-options.multiplayer-servers.address": {
+    "message": "Adresa servera"
+  },
+  "app.settings.synced-options.multiplayer-servers.copy-address": {
+    "message": "Kopiraj adresu"
+  },
+  "app.settings.synced-options.multiplayer-servers.count": {
+    "message": "{count, plural, one {# server} few {# servera} other {# servera}}"
+  },
+  "app.settings.synced-options.multiplayer-servers.description": {
+    "message": "Koristi iste servere za više igrača u svim svojim instancama."
+  },
+  "app.settings.synced-options.multiplayer-servers.editor-title": {
+    "message": "Uredi sinhronizovane servere"
+  },
+  "app.settings.synced-options.multiplayer-servers.empty": {
+    "message": "Trenutno nije sinhronizovan nijedan server koji je dodao korisnik."
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-offline": {
+    "message": "Offline"
+  },
+  "app.settings.synced-options.multiplayer-servers.filter-online": {
+    "message": "Online"
+  },
+  "app.settings.synced-options.multiplayer-servers.more-options": {
+    "message": "Više opcija servera"
+  },
+  "app.settings.synced-options.multiplayer-servers.name": {
+    "message": "Naziv servera"
+  },
+  "app.settings.synced-options.multiplayer-servers.no-results": {
+    "message": "Nijedan sinhronizovani server ne odgovara tvojoj pretrazi ili filterima."
+  },
+  "app.settings.synced-options.multiplayer-servers.none-synced-yet": {
+    "message": "Još nisi sinhronizovao nijedan server"
+  },
+  "app.settings.synced-options.multiplayer-servers.players-online": {
+    "message": "{count, number} onlajn"
+  },
+  "app.settings.synced-options.multiplayer-servers.search": {
+    "message": "Pretraži {count, number} {count, plural, one {sinhronizovan server} few {sinhronizovana servera} other {sinhronizovanih servera}}..."
+  },
+  "app.settings.synced-options.multiplayer-servers.status": {
+    "message": "Status"
+  },
+  "app.settings.synced-options.packs.disabled": {
+    "message": "Uključi sinhronizaciju pre uređivanja deljenih paketa."
+  },
+  "app.settings.synced-options.resource-packs": {
+    "message": "Sinhronizuj resurs pakete"
+  },
+  "app.settings.synced-options.resource-packs.description": {
+    "message": "Koristi iste resurs pakete u svim svojim instancama."
+  },
+  "app.settings.synced-options.resource-packs.none-synced-yet": {
+    "message": "Još nisi sinhronizovao nijedan resurs paket"
+  },
   "app.settings.tabs.appearance": {
     "message": "Izgled"
+  },
+  "app.settings.tabs.behavior": {
+    "message": "Ponašanje"
+  },
+  "app.settings.tabs.features": {
+    "message": "Funkcije"
   },
   "app.settings.tabs.java-installations": {
     "message": "Java instalacije"
@@ -464,6 +3419,45 @@
   "app.settings.tabs.resource-management": {
     "message": "Upravljanje resursima"
   },
+  "app.settings.tabs.synced-options": {
+    "message": "Sinhronizovana podešavanja"
+  },
+  "app.sidebar.advertising.label": {
+    "message": "Оглас"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Преглед · место {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Sledeći paket modova"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Pauziraj smenjivanje"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} od {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Prethodni paket modova"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Nastavi smenjivanje"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Istaknuti paketi modova"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Istaknuti paketi modova trenutno nisu dostupni."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Pogledaj projekat"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Истражите хостинг"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Ваш следећи Minecraft сервер"
+  },
   "app.skins.add-button": {
     "message": "Dodaj skin"
   },
@@ -472,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Primeni"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Svi modeli"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Klasičan"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Podrazumevano"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Nema pronađenih skinova. Probajte drugu pretragu."
+  },
+  "app.skins.catalog.error": {
+    "message": "Ovaj pružaoc skinova nije dostupan. Probajte ponovo kasnije."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Učitavanje skinova…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Pretraži celu javnu galeriju MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "Model"
+  },
+  "app.skins.catalog.next": {
+    "message": "Sledeća stranica"
+  },
+  "app.skins.catalog.page": {
+    "message": "Stranica {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Popularno"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Prethodna stranica"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Pružaoci skinova"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Pružaoc je dostigao limit zahteva. Sačekajte pre ponovnog pokušaja."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Nedavno"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Probaj ponovo"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Skin sačuvan u Podrazumevanom"
+  },
+  "app.skins.catalog.search": {
+    "message": "Pretraži skinove…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Pretraži"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Tanko"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Sortiraj po"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Tag (opciono)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "U trendu"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Ovaj pružaoc još nije podešen."
   },
   "app.skins.delete-button": {
     "message": "Obriši skin"
@@ -482,11 +3548,23 @@
   "app.skins.delete-modal.title": {
     "message": "Da li si siguran da želiš da obrišeš ovaj skin?"
   },
+  "app.skins.demo.apply-tooltip": {
+    "message": "Prijavi se da primeniš skinove."
+  },
+  "app.skins.demo.description": {
+    "message": "Prijavi se na svoj Minecraft nalog da čuvaš i primenjuješ skinove!"
+  },
+  "app.skins.demo.title": {
+    "message": "Uređivanje sa demo nalogom"
+  },
   "app.skins.dropped-file-error.text": {
     "message": "Čitanje otpuštene datoteke nije uspelo."
   },
   "app.skins.dropped-file-error.title": {
     "message": "Greška pri obradi datoteke"
+  },
+  "app.skins.ears-feature-notice": {
+    "message": "Ovaj skin koristi funkcije iz {ears} moda"
   },
   "app.skins.edit-button": {
     "message": "Uredite skin"
@@ -511,6 +3589,9 @@
   },
   "app.skins.modal.cape-section": {
     "message": "Ogrtač"
+  },
+  "app.skins.modal.demo-save-tooltip": {
+    "message": "Prijavi se da sačuvaš skinove."
   },
   "app.skins.modal.edit-title": {
     "message": "Uređivanje skina"
@@ -590,17 +3671,155 @@
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
   },
+  "app.skins.sign-in.button": {
+    "message": "Prijavi se na Microsoft"
+  },
   "app.skins.title": {
     "message": "Selektor skina"
   },
+  "app.skins.toggle-ears-features-off": {
+    "message": "Isključi"
+  },
+  "app.skins.toggle-ears-features-on": {
+    "message": "Uključi"
+  },
+  "app.sync-instances-update.badge": {
+    "message": "Novo u ovom ažuriranju"
+  },
+  "app.sync-instances-update.choose-source.all": {
+    "message": "Izaberi iz koje instance da kopiraš podešavanja igre, resurs pakete, istoriju komandi, kreativne trake za brzi pristup i servere za više igrača. Ova podešavanja se koriste samo za početnu sinhronizaciju, a posle ih možeš uređivati iz bilo koje instance."
+  },
+  "app.sync-instances-update.choose-source.all-title": {
+    "message": "Izaberi izvor sinhronizacije"
+  },
+  "app.sync-instances-update.choose-source.data-packs": {
+    "message": "Izaberi iz koje instance da kopiraš data pakete. Ovi paketi se koriste samo za početnu sinhronizaciju, a posle ih možeš uređivati iz bilo koje instance."
+  },
+  "app.sync-instances-update.choose-source.resource-packs": {
+    "message": "Izaberi iz koje instance da kopiraš resurs pakete. Ovi paketi se koriste samo za početnu sinhronizaciju, a posle ih možeš uređivati iz bilo koje instance."
+  },
+  "app.sync-instances-update.creative-hotbars": {
+    "message": "Sinhronizuj kreativne trake za brzi pristup"
+  },
+  "app.sync-instances-update.description": {
+    "message": "Sada možeš da sinhronizuješ opcije kao što su podešavanja igre, serveri, resurs paketi i još mnogo toga kroz svoje instance, tako da sve ostaje isto svaki put kada igraš!"
+  },
+  "app.sync-instances-update.load-error": {
+    "message": "Nije moguće učitati tvoja podešavanja sinhronizacije. Probaj ponovo."
+  },
+  "app.sync-instances-update.manage-later": {
+    "message": "Možeš uključiti sinhronizaciju sada i njome upravljati kasnije u podešavanjima aplikacije."
+  },
+  "app.sync-instances-update.notification.description": {
+    "message": "Drži podešavanja igre, servere, resurs pakete i još mnogo toga sinhronizovanim kroz svoje instance."
+  },
+  "app.sync-instances-update.notification.dismiss": {
+    "message": "Odbaci"
+  },
+  "app.sync-instances-update.notification.title": {
+    "message": "Sinhronizuj svoje instance"
+  },
+  "app.sync-instances-update.notification.view-update": {
+    "message": "Prikaži ažuriranje"
+  },
+  "app.sync-instances-update.retry": {
+    "message": "Probaj ponovo"
+  },
+  "app.sync-instances-update.skip": {
+    "message": "Preskoči"
+  },
+  "app.sync-instances-update.sync-all": {
+    "message": "Sinhronizuj sve"
+  },
+  "app.sync-instances-update.title": {
+    "message": "Sinhronizuj svoje instance"
+  },
+  "app.synced-content.change.disable-description": {
+    "message": "Isključi to kroz sve sinhronizovane instance ili samo u ovoj instanci. Isključivanje samo ovde uključiće nadjačavanja za ovu instancu."
+  },
+  "app.synced-content.change.disable-everywhere": {
+    "message": "Isključi svuda"
+  },
+  "app.synced-content.change.disable-everywhere-description": {
+    "message": "Isključi ovaj sadržaj kroz sve sinhronizovane instance."
+  },
+  "app.synced-content.change.disable-here": {
+    "message": "Isključi ovde"
+  },
+  "app.synced-content.change.disable-title": {
+    "message": "Isključiti sadržaj?"
+  },
+  "app.synced-content.change.enable-description": {
+    "message": "Uključi to kroz sve sinhronizovane instance ili samo u ovoj instanci. Uključivanje samo ovde uključiće nadjačavanja za ovu instancu."
+  },
+  "app.synced-content.change.enable-everywhere": {
+    "message": "Uključi svuda"
+  },
+  "app.synced-content.change.enable-everywhere-description": {
+    "message": "Uključi ovaj sadržaj kroz sve sinhronizovane instance."
+  },
+  "app.synced-content.change.enable-here": {
+    "message": "Uključi ovde"
+  },
+  "app.synced-content.change.enable-title": {
+    "message": "Uključiti sadržaj?"
+  },
+  "app.synced-content.delete.delete-everywhere": {
+    "message": "Izbriši svuda"
+  },
+  "app.synced-content.delete.delete-here": {
+    "message": "Izbriši ovde"
+  },
+  "app.synced-content.delete.description": {
+    "message": "Brisanje ovog sadržaja izbrisaće ga u svim tvojim instancama"
+  },
+  "app.synced-content.delete.mixed": {
+    "message": "Izabrani sadržaj koji nije sinhronizovan biće izbrisan samo iz ove instance."
+  },
+  "app.synced-content.delete.override-description": {
+    "message": "Možeš ga ukloniti samo iz ove instance ili iz svih sinhronizovanih instanci. Uklanjanjem samo iz ove instance uključićeš nadjačavanja, a ova instanca više neće primati sinhronizovane promene za ove tipove sadržaja."
+  },
+  "app.synced-content.delete.resource-pack-description": {
+    "message": "Možeš {count, plural, one {ga} few {ih} other {ih}} ukloniti samo iz ove instance ili iz svih sinhronizovanih instanci. Uklanjanjem {count, plural, one {ga} few {ih} other {ih}} samo iz ove instance uključićeš nadjačavanja, a ova instanca više neće primati sinhronizovane promene resurs paketa."
+  },
+  "app.synced-content.delete.resource-pack-header": {
+    "message": "{count, plural, one {Ovaj resurs paket je sinhronizovan} few {Ovi resurs paketi su sinhronizovani} other {Ovi resurs paketi su sinhronizovani}}"
+  },
+  "app.synced-content.desync.description": {
+    "message": "Ova instanca će zadržati sopstvenu kopiju. Želiš li da ovaj sadržaj ostane sinhronizovan u drugim instancama ili da ga ukloniš iz njih?"
+  },
+  "app.synced-content.desync.keep": {
+    "message": "Zadrži"
+  },
+  "app.synced-content.desync.remove": {
+    "message": "Ukloni"
+  },
+  "app.synced-content.desync.title": {
+    "message": "Desinhronizuj sadržaj"
+  },
+  "app.synced-content.warning.title": {
+    "message": "Ovaj sadržaj je sinhronizovan"
+  },
+  "app.synced-packs.data-packs.title": {
+    "message": "Sinhronizovani data paketi"
+  },
+  "app.synced-packs.empty": {
+    "message": "Dodaj pakete sa stranice sadržaja instance da započneš sinhronizaciju."
+  },
+  "app.synced-packs.load-failed": {
+    "message": "Paketi nisu mogli biti učitani. Probaj da osvežiš."
+  },
+  "app.synced-packs.resource-packs.title": {
+    "message": "Sinhronizovani resurs paketi"
+  },
   "app.update-popup.body.download-complete": {
-    "message": "Preuzimanje Modrinth aplikacije v{version} je završeno. Ponovo učitaj da bi ažurirao sada ili automatski kada zatvoriš Modrinth aplikaciju."
+    "message": "Preuzimanje {productName} aplikacije v{version} je završeno. Ponovo učitaj da bi ažurirao sada ili automatski kada zatvoriš {productName} aplikaciju."
   },
   "app.update-popup.body.linux": {
-    "message": "Dostupna je Modrinth aplikacija v{version}. Koristi menadžer paketa da bi ažurirao za najnovije funkcije i ispravke!"
+    "message": "Dostupna je {productName} aplikacija v{version}. Koristi menadžer paketa da bi ažurirao za najnovije funkcije i ispravke!"
   },
   "app.update-popup.body.metered": {
-    "message": "Modrinth aplikacija v{version} je sada dostupna! Pošto si na mreži sa ograničenjem interneta, nismo je automatski preuzeli."
+    "message": "{productName} aplikacija v{version} je sada dostupna! Pošto si na mreži sa ograničenjem interneta, nismo je automatski preuzeli."
   },
   "app.update-popup.changelog": {
     "message": "Spisak promena"
@@ -623,6 +3842,90 @@
   "app.update.complete-toast.title": {
     "message": "Verzija {version} je uspešno instalirana!"
   },
+  "app.update.download-error.missing-version": {
+    "message": "Preuzimanje ažuriranja nije uspelo: nema dostupne verzije"
+  },
+  "app.welcome-screen.create-instance": {
+    "message": "Napravi instancu"
+  },
+  "app.welcome-screen.description": {
+    "message": "Spreman da počneš da igraš?"
+  },
+  "app.welcome-screen.import-from-launcher": {
+    "message": "Uvezi iz launcher-a"
+  },
+  "app.welcome-screen.import-prompt": {
+    "message": "Bežiš od drugog launcher-a?"
+  },
+  "app.welcome-screen.quick-create-hint": {
+    "message": "Pritisni <shortcut>N</shortcut> za brzo kreiranje instance"
+  },
+  "app.welcome-screen.title": {
+    "message": "Dobrodošao u {productName}"
+  },
+  "app.window-controls.close": {
+    "message": "Zatvori prozor"
+  },
+  "app.window-controls.minimize": {
+    "message": "Minimizuj prozor"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Uključi/isključi maksimizaciju prozora"
+  },
+  "app.world-install.backup": {
+    "message": "Zameni čuva rezervnu kopiju postojećeg sveta. Zadrži i Otkaži ne instaliraju ništa. Instaliraj još jednu kopiju pravi numerisani svet."
+  },
+  "app.world-install.backup-location": {
+    "message": "Prethodni svet je sačuvan u {path} unutar instance."
+  },
+  "app.world-install.conflict": {
+    "message": "Svet sa ovim nazivom ili iz ovog projekta već postoji."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Instaliraj uprkos razlici u verziji"
+  },
+  "app.world-install.copy": {
+    "message": "Instaliraj još jednu kopiju"
+  },
+  "app.world-install.description": {
+    "message": "Instaliraj novi svet u instancu. Postojeći svetovi ostaju sačuvani osim ako odlučiš da neki zameniš."
+  },
+  "app.world-install.incompatible": {
+    "message": "Ova datoteka ne navodi kompatibilnost sa Minecraft verzijom {version}. Pre nastavka proveri verziju i modove koje autor zahteva."
+  },
+  "app.world-install.installed": {
+    "message": "Svet je instaliran: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Odredišna instanca"
+  },
+  "app.world-install.keep": {
+    "message": "Zadrži postojeći"
+  },
+  "app.world-install.no-instances": {
+    "message": "Prvo napravi Minecraft instancu, a zatim se vrati ovde da instaliraš svet."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Prikaži svetove"
+  },
+  "app.world-install.replace": {
+    "message": "Zameni"
+  },
+  "app.world-install.replace-target": {
+    "message": "Svet za zamenu"
+  },
+  "app.world-install.requirements": {
+    "message": "Potrebni modovi ili modpaketi već moraju biti instalirani u odredišnoj instanci. Pogledaj opis projekta."
+  },
+  "app.world-install.title": {
+    "message": "Instaliraj svet"
+  },
+  "app.world-install.version": {
+    "message": "Verzija sveta"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
+  },
   "app.world.server-modal.select-an-option": {
     "message": "Izaberi opciju"
   },
@@ -634,6 +3937,45 @@
   },
   "app.world.world-item.offline": {
     "message": "Oflajn"
+  },
+  "app.world.world-item.players-online": {
+    "message": "{count} onlajn"
+  },
+  "curseforge.manual.description": {
+    "message": "Преузми {file} са званичне CurseForge странице, затим изабери преузету датотеку за наставак. Величина и SHA-1 биће проверени."
+  },
+  "curseforge.manual.select": {
+    "message": "Изабери преузету датотеку"
+  },
+  "curseforge.manual.title": {
+    "message": "Потребно је ручно преузимање"
+  },
+  "instance.action.create-shortcut": {
+    "message": "Napravi prečicu"
+  },
+  "instance.action.export-modpack": {
+    "message": "Izvezi modpack"
+  },
+  "instance.action.launch-instance": {
+    "message": "Pokreni instancu"
+  },
+  "instance.action.more-actions": {
+    "message": "Više radnji"
+  },
+  "instance.action.open-folder": {
+    "message": "Otvori fasciklu"
+  },
+  "instance.action.repair": {
+    "message": "Popravi"
+  },
+  "instance.action.settings": {
+    "message": "Podešavanja instance"
+  },
+  "instance.action.starting": {
+    "message": "Pokretanje..."
+  },
+  "instance.action.stopping": {
+    "message": "Zaustavljanje..."
   },
   "instance.add-server.add-and-play": {
     "message": "Dodaj i igraj"
@@ -674,8 +4016,257 @@
   "instance.files.adding-files": {
     "message": "Dodavanje datoteka ({completed}/{total})"
   },
+  "instance.files.managed-content-read-only": {
+    "message": "Upravljaj instaliranim sadržajem preko kartice Sadržaj"
+  },
   "instance.files.save-as": {
     "message": "Sačuvaj kao..."
+  },
+  "instance.icon-editor.background": {
+    "message": "Pozadina"
+  },
+  "instance.icon-editor.background.blue": {
+    "message": "Plava"
+  },
+  "instance.icon-editor.background.dark-gray": {
+    "message": "Tamnosiva"
+  },
+  "instance.icon-editor.background.dark-green": {
+    "message": "Tamnozelena"
+  },
+  "instance.icon-editor.background.gray": {
+    "message": "Siva"
+  },
+  "instance.icon-editor.background.green": {
+    "message": "Zelena"
+  },
+  "instance.icon-editor.background.indigo": {
+    "message": "Indigo"
+  },
+  "instance.icon-editor.background.lavender": {
+    "message": "Lavanda"
+  },
+  "instance.icon-editor.background.light-gray": {
+    "message": "Svetlosiva"
+  },
+  "instance.icon-editor.background.lime": {
+    "message": "Limeta"
+  },
+  "instance.icon-editor.background.orange": {
+    "message": "Narandžasta"
+  },
+  "instance.icon-editor.background.pink": {
+    "message": "Roze"
+  },
+  "instance.icon-editor.background.purple": {
+    "message": "Ljubičasta"
+  },
+  "instance.icon-editor.background.red": {
+    "message": "Crvena"
+  },
+  "instance.icon-editor.background.rose": {
+    "message": "Ružičasta"
+  },
+  "instance.icon-editor.background.yellow": {
+    "message": "Žuta"
+  },
+  "instance.icon-editor.description": {
+    "message": "Kombinuj i uparuj elemente da napraviš prilagođenu ikonu."
+  },
+  "instance.icon-editor.recents": {
+    "message": "Nedavno"
+  },
+  "instance.icon-editor.save": {
+    "message": "Sačuvaj ikonu"
+  },
+  "instance.icon-editor.surprise-me": {
+    "message": "Nasumično"
+  },
+  "instance.icon-editor.symbol": {
+    "message": "Simbol"
+  },
+  "instance.icon-editor.symbol.backpack": {
+    "message": "Ranac"
+  },
+  "instance.icon-editor.symbol.beacon": {
+    "message": "Svetionik"
+  },
+  "instance.icon-editor.symbol.blue-shark": {
+    "message": "Plava ajkula"
+  },
+  "instance.icon-editor.symbol.bookshelf": {
+    "message": "Polica za knjige"
+  },
+  "instance.icon-editor.symbol.brown-bear": {
+    "message": "Smeđi medved"
+  },
+  "instance.icon-editor.symbol.cake": {
+    "message": "Torta"
+  },
+  "instance.icon-editor.symbol.campfire": {
+    "message": "Logorska vatra"
+  },
+  "instance.icon-editor.symbol.chest": {
+    "message": "Kovčeg"
+  },
+  "instance.icon-editor.symbol.cogwheel": {
+    "message": "Zupčanik"
+  },
+  "instance.icon-editor.symbol.command-block": {
+    "message": "Blok komande"
+  },
+  "instance.icon-editor.symbol.cooking-pot": {
+    "message": "Šerpa"
+  },
+  "instance.icon-editor.symbol.couch": {
+    "message": "Sofa"
+  },
+  "instance.icon-editor.symbol.crafting-table": {
+    "message": "Radni sto"
+  },
+  "instance.icon-editor.symbol.create-wrench": {
+    "message": "Ključ"
+  },
+  "instance.icon-editor.symbol.creeper": {
+    "message": "Creeper"
+  },
+  "instance.icon-editor.symbol.enchanting-table": {
+    "message": "Sto za čarolije"
+  },
+  "instance.icon-editor.symbol.ender-chest": {
+    "message": "Ender kovčeg"
+  },
+  "instance.icon-editor.symbol.ender-dragon": {
+    "message": "Ender zmaj"
+  },
+  "instance.icon-editor.symbol.engine": {
+    "message": "Motor"
+  },
+  "instance.icon-editor.symbol.fabric": {
+    "message": "Fabric"
+  },
+  "instance.icon-editor.symbol.forge": {
+    "message": "Forge"
+  },
+  "instance.icon-editor.symbol.furnace": {
+    "message": "Peć"
+  },
+  "instance.icon-editor.symbol.gizmo": {
+    "message": "Gizmo"
+  },
+  "instance.icon-editor.symbol.globe": {
+    "message": "Globus"
+  },
+  "instance.icon-editor.symbol.grass-block": {
+    "message": "Blok trave"
+  },
+  "instance.icon-editor.symbol.lantern": {
+    "message": "Lanter"
+  },
+  "instance.icon-editor.symbol.moobloom": {
+    "message": "Moobloom"
+  },
+  "instance.icon-editor.symbol.neoforge": {
+    "message": "NeoForge"
+  },
+  "instance.icon-editor.symbol.orb": {
+    "message": "Orb"
+  },
+  "instance.icon-editor.symbol.oxygen-distributor": {
+    "message": "Distributer kiseonika"
+  },
+  "instance.icon-editor.symbol.pancakes": {
+    "message": "Palačinke"
+  },
+  "instance.icon-editor.symbol.pickaxe": {
+    "message": "Kramp"
+  },
+  "instance.icon-editor.symbol.poke-ball": {
+    "message": "Poke lopta"
+  },
+  "instance.icon-editor.symbol.quilt": {
+    "message": "Quilt"
+  },
+  "instance.icon-editor.symbol.redstone-block": {
+    "message": "Redstone blok"
+  },
+  "instance.icon-editor.symbol.sculk-sensor": {
+    "message": "Sculk senzor"
+  },
+  "instance.icon-editor.symbol.skeleton": {
+    "message": "Skelet"
+  },
+  "instance.icon-editor.symbol.skillet": {
+    "message": "Tiganj"
+  },
+  "instance.icon-editor.symbol.slime-block": {
+    "message": "Blok sluzi"
+  },
+  "instance.icon-editor.symbol.space-helmet": {
+    "message": "Svemirski šlem"
+  },
+  "instance.icon-editor.symbol.sticky-piston": {
+    "message": "Lepljivi klip"
+  },
+  "instance.icon-editor.symbol.sword": {
+    "message": "Mač"
+  },
+  "instance.icon-editor.symbol.terminal": {
+    "message": "Terminal"
+  },
+  "instance.icon-editor.symbol.tiny-potato": {
+    "message": "Mali krompir"
+  },
+  "instance.icon-editor.symbol.tire": {
+    "message": "Guma"
+  },
+  "instance.icon-editor.symbol.tnt": {
+    "message": "TNT"
+  },
+  "instance.icon-editor.symbol.zombie": {
+    "message": "Zombi"
+  },
+  "instance.icon-editor.title": {
+    "message": "Uređivač ikona"
+  },
+  "instance.last-played": {
+    "message": "Poslednje igrano"
+  },
+  "instance.locked.badge": {
+    "message": "Zaključano"
+  },
+  "instance.locked.delete-button": {
+    "message": "Izbriši instancu"
+  },
+  "instance.locked.info-label": {
+    "message": "Informacije o zaključanoj instanci"
+  },
+  "instance.locked.play-tooltip": {
+    "message": "Ova instanca je zaključana"
+  },
+  "instance.locked.text": {
+    "message": "Ova instanca je zaključana i ne može se igrati niti menjati. Možeš je izbrisati."
+  },
+  "instance.locked.title": {
+    "message": "Instanca zaključana"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Učitavač modova i verzija Minecrafta"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# sat} few {# sata} other {# sati}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# minut} few {# minuta} other {# minuta}}"
+  },
+  "instance.playtime.never-played": {
+    "message": "Nikad igrano"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# sekunda} few {# sekunde} other {# sekundi}}"
+  },
+  "instance.playtime.total": {
+    "message": "Ukupno vreme igranja"
   },
   "instance.server-modal.address": {
     "message": "Adresa"
@@ -688,6 +4279,33 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "Resurs paket"
+  },
+  "instance.settings.synced-options.data-override": {
+    "message": "Isključi ovo nadjačavanje da uređuješ sinhronizovane podatke."
+  },
+  "instance.settings.synced-options.data-packs": {
+    "message": "Desinhronizuj data pakete"
+  },
+  "instance.settings.synced-options.data-packs.description": {
+    "message": "Drži data pakete ove instance odvojenim od sinhronizovanih paketa."
+  },
+  "instance.settings.synced-options.data-packs.disabled": {
+    "message": "Sinhronizacija data paketa je isključena u podešavanjima aplikacije."
+  },
+  "instance.settings.synced-options.edit-packs": {
+    "message": "Uredi sinhronizovane pakete"
+  },
+  "instance.settings.synced-options.packs-override": {
+    "message": "Isključi ovo nadjačavanje da uređuješ sinhronizovane pakete. Nezavisni paketi se mogu uređivati na kartici sadržaja."
+  },
+  "instance.settings.synced-options.resource-packs": {
+    "message": "Desinhronizuj resurs pakete"
+  },
+  "instance.settings.synced-options.resource-packs.description": {
+    "message": "Drži resurs pakete ove instance odvojenim od sinhronizovanih paketa."
+  },
+  "instance.settings.synced-options.resource-packs.disabled": {
+    "message": "Sinhronizacija resurs paketa je isključena u podešavanjima aplikacije."
   },
   "instance.settings.tabs.general": {
     "message": "Generalno"
@@ -719,6 +4337,12 @@
   "instance.settings.tabs.general.edit-icon": {
     "message": "Promeni ikonu"
   },
+  "instance.settings.tabs.general.edit-icon.create": {
+    "message": "Napravi ikonu"
+  },
+  "instance.settings.tabs.general.edit-icon.edit-created": {
+    "message": "Uredi ikonu"
+  },
   "instance.settings.tabs.general.edit-icon.remove": {
     "message": "Smakni ikonu"
   },
@@ -727,6 +4351,9 @@
   },
   "instance.settings.tabs.general.edit-icon.select": {
     "message": "Izaberi ikonu"
+  },
+  "instance.settings.tabs.general.icon": {
+    "message": "Ikona"
   },
   "instance.settings.tabs.general.name": {
     "message": "Ime"
@@ -755,6 +4382,9 @@
   "instance.settings.tabs.general.update-channel.select": {
     "message": "Izaberi kanal ažuiranja"
   },
+  "instance.settings.tabs.hooks.description": {
+    "message": "Pokreni sistemske komande specifične za instancu pre i posle pokretanja igre."
+  },
   "instance.settings.tabs.hooks.post-exit": {
     "message": "Poslje izlaza"
   },
@@ -773,6 +4403,30 @@
   "instance.settings.tabs.hooks.pre-launch.enter": {
     "message": "Unesi komandu pre lansiranja..."
   },
+  "instance.settings.tabs.hooks.title": {
+    "message": "Prilagođene kuke za pokretanje igre"
+  },
+  "instance.settings.tabs.hooks.variables.description": {
+    "message": "Kuke se izvršavaju u radnom direktorijumu instance, sa sledećim promenljivama:"
+  },
+  "instance.settings.tabs.hooks.variables.inst-dir.description": {
+    "message": "$INST_DIR: Apsolutna putanja do fascikle instance"
+  },
+  "instance.settings.tabs.hooks.variables.inst-id.description": {
+    "message": "$INST_ID: Naziv fascikle instance"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java-args.description": {
+    "message": "$INST_JAVA_ARGS: JVM argumenti prosleđeni igri"
+  },
+  "instance.settings.tabs.hooks.variables.inst-java.description": {
+    "message": "$INST_JAVA: Apsolutna putanja do java binarnog fajla"
+  },
+  "instance.settings.tabs.hooks.variables.inst-mc-dir.description": {
+    "message": "$INST_MC_DIR: Alijas za $INST_DIR"
+  },
+  "instance.settings.tabs.hooks.variables.inst-name.description": {
+    "message": "$INST_NAME: Naziv instance"
+  },
   "instance.settings.tabs.hooks.wrapper": {
     "message": "Omotač"
   },
@@ -788,17 +4442,110 @@
   "instance.settings.tabs.installation.loader-version": {
     "message": "Verzija {loader}"
   },
+  "instance.settings.tabs.installation.locked": {
+    "message": "Podešavanja instalacije nisu dostupna dok je ova instanca zaključana."
+  },
+  "instance.settings.tabs.java.custom-environment-variables": {
+    "message": "Podesi promenljive okruženja odvojeno za ovu instancu."
+  },
+  "instance.settings.tabs.java.custom-java-arguments": {
+    "message": "Podesi Java argumente odvojeno za ovu instancu."
+  },
+  "instance.settings.tabs.java.custom-java-installation": {
+    "message": "Izaberi drugu Java instalaciju za ovu instancu."
+  },
+  "instance.settings.tabs.java.custom-memory-allocation": {
+    "message": "Podesi dodelu memorije odvojeno za ovu instancu."
+  },
   "instance.settings.tabs.java.enter-environment-variables": {
     "message": "Unesi promenljive sredine..."
   },
   "instance.settings.tabs.java.enter-java-arguments": {
     "message": "Prilagođeni Java argumenti..."
   },
+  "instance.settings.tabs.java.environment-variables": {
+    "message": "Prilagođene promenljive okruženja"
+  },
   "instance.settings.tabs.java.hooks": {
     "message": "Hookovi"
   },
+  "instance.settings.tabs.java.java-arguments": {
+    "message": "Prilagođeni Java argumenti"
+  },
+  "instance.settings.tabs.java.java-installation": {
+    "message": "Prilagođena Java instalacija"
+  },
+  "instance.settings.tabs.java.java-memory": {
+    "message": "Prilagođena dodela memorije"
+  },
   "instance.settings.tabs.java.java-path-placeholder": {
     "message": "/put/do/jave"
+  },
+  "instance.settings.tabs.settings-overrides": {
+    "message": "Nadjačavanja sinhronizacije"
+  },
+  "instance.settings.tabs.synced-options.command-history": {
+    "message": "Desinhronizuj istoriju komandi"
+  },
+  "instance.settings.tabs.synced-options.command-history.disabled-in-app": {
+    "message": "Sinhronizacija istorije komandi je isključena u podešavanjima aplikacije."
+  },
+  "instance.settings.tabs.synced-options.command-history.override-description": {
+    "message": "Drži istoriju komandi ove instance odvojenom od sinhronizovane istorije komandi."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars": {
+    "message": "Desinhronizuj sačuvane kreativne trake za brzi pristup"
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.disabled-in-app": {
+    "message": "Sinhronizacija sačuvanih kreativnih traka za brzi pristup je isključena u podešavanjima aplikacije."
+  },
+  "instance.settings.tabs.synced-options.creative-hotbars.override-description": {
+    "message": "Drži kreativne trake za brzi pristup sačuvane u ovoj instanci odvojenim od sinhronizovanih traka."
+  },
+  "instance.settings.tabs.synced-options.game-settings": {
+    "message": "Desinhronizuj podešavanja igre"
+  },
+  "instance.settings.tabs.synced-options.game-settings.description": {
+    "message": "Drži options.txt ove instance odvojenim od sinhronizovane kopije."
+  },
+  "instance.settings.tabs.synced-options.game-settings.disabled-in-app": {
+    "message": "Sinhronizacija podešavanja igre je isključena u podešavanjima aplikacije."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.backup-description": {
+    "message": "Verzija koja se zamenjuje biće sačuvana pre bilo kakvih promena."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.description": {
+    "message": "{instance} i tvoja sinhronizovana verzija imaju različite kreativne trake za brzi pristup. Izaberi koju da koristiš u svim svojim instancama."
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.title": {
+    "message": "Izaberi kreativne trake za brzi pristup"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-instance": {
+    "message": "Nadjačaj ostale"
+  },
+  "instance.settings.tabs.synced-options.hotbars-conflict.use-synced": {
+    "message": "Koristi sinhronizovano"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers": {
+    "message": "Desinhronizuj servere za više igrača"
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.disabled-in-app": {
+    "message": "Sinhronizacija servera za više igrača je isključena u podešavanjima aplikacije."
+  },
+  "instance.settings.tabs.synced-options.multiplayer-servers.override-description": {
+    "message": "Drži servere za više igrača ove instance odvojenim od sinhronizovanih servera."
+  },
+  "instance.settings.tabs.synced-options.open-app-settings": {
+    "message": "Upravljaj sinhronizovanim podešavanjima"
+  },
+  "instance.settings.tabs.synced-options.shared-settings.description": {
+    "message": "Uključi nadjačavanje da sinhronizovano podešavanje ostane odvojeno za ovu instancu."
+  },
+  "instance.settings.tabs.window": {
+    "message": "Prilagođena podešavanja prozora"
+  },
+  "instance.settings.tabs.window.custom-window-settings": {
+    "message": "Podesi ceo ekran i rezoluciju pokretanja odvojeno za ovu instancu."
   },
   "instance.settings.tabs.window.fullscreen": {
     "message": "Potpuni ekran"
@@ -827,6 +4574,9 @@
   "instance.worlds.a_minecraft_server": {
     "message": "Minecraft server"
   },
+  "instance.worlds.actions.label": {
+    "message": "Radnje sa svetom"
+  },
   "instance.worlds.cant_connect": {
     "message": "Ne može se povezati sa serverom"
   },
@@ -835,6 +4585,21 @@
   },
   "instance.worlds.create_shortcut": {
     "message": "Kreiraj prečicu"
+  },
+  "instance.worlds.desync-server.description": {
+    "message": "Želiš li da zadržiš ovaj server u drugim sinhronizovanim instancama ili da ga ukloniš iz njih?"
+  },
+  "instance.worlds.desync-server.keep": {
+    "message": "Zadrži"
+  },
+  "instance.worlds.desync-server.remove": {
+    "message": "Ukloni"
+  },
+  "instance.worlds.desync-server.title": {
+    "message": "Desinhronizuj server"
+  },
+  "instance.worlds.desync_server": {
+    "message": "Desinhronizuj"
   },
   "instance.worlds.dont_show_on_home": {
     "message": "Ne prikazuj na početnoj stranici"
@@ -848,8 +4613,14 @@
   "instance.worlds.incompatible_server": {
     "message": "Server je nekompatibilan"
   },
+  "instance.worlds.instance-locked": {
+    "message": "Ova instanca je zaključana"
+  },
   "instance.worlds.linked_server": {
     "message": "Upravljeno serverskim projektom"
+  },
+  "instance.worlds.more-options": {
+    "message": "Više opcija"
   },
   "instance.worlds.no_contact": {
     "message": "Server nije mogao biti kontaktiran"
@@ -863,17 +4634,32 @@
   "instance.worlds.play_instance": {
     "message": "Igraj instancu"
   },
+  "instance.worlds.play_world": {
+    "message": "Igraj svet"
+  },
+  "instance.worlds.shortcut-created": {
+    "message": "Prečica je kreirana"
+  },
+  "instance.worlds.shortcut-creation-failed": {
+    "message": "Kreiranje prečice nije uspelo"
+  },
+  "instance.worlds.synced_server": {
+    "message": "Sinhronizovano između instanci"
+  },
   "instance.worlds.view_instance": {
     "message": "Vidi instancu"
   },
   "instance.worlds.world_in_use": {
     "message": "Svetovi je korišten"
   },
+  "minecraft-account.accounts": {
+    "message": "Minecraft nalozi"
+  },
   "minecraft-account.add-account": {
     "message": "Dodaj račun"
   },
-  "minecraft-account.label": {
-    "message": "Minecraft račun"
+  "minecraft-account.getting-started": {
+    "message": "Početak"
   },
   "minecraft-account.not-signed-in": {
     "message": "Nisi prijavljen"
@@ -881,11 +4667,77 @@
   "minecraft-account.remove-account": {
     "message": "Uklonite račun"
   },
-  "minecraft-account.select-account": {
-    "message": "Izaberi račun"
-  },
   "minecraft-account.sign-in": {
     "message": "Prijavi se na Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Prijavi se"
+  },
+  "minecraft-required.description": {
+    "message": "Potreban ti je Microsoft nalog koji poseduje Minecraft pre nego što možeš da pokreneš i igraš."
+  },
+  "minecraft-required.description-header": {
+    "message": "Prijavi se na Microsoft nalog"
+  },
+  "minecraft-required.dont-have-account": {
+    "message": "Nemaš nalog?"
+  },
+  "minecraft-required.get-minecraft": {
+    "message": "Nabavi Minecraft"
+  },
+  "minecraft-required.get-support": {
+    "message": "Zatraži podršku"
+  },
+  "minecraft-required.header": {
+    "message": "Minecraft je obavezan"
+  },
+  "minecraft-required.sign-in": {
+    "message": "Prijavi se na Microsoft"
+  },
+  "onboarding-checklist.create-instance": {
+    "message": "Napravi prvu instancu"
+  },
+  "onboarding-checklist.login-minecraft": {
+    "message": "Prijavi se na Minecraft"
+  },
+  "onboarding-checklist.title": {
+    "message": "Početak"
+  },
+  "optifine.add-component": {
+    "message": "Instaliraj OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Izaberi JAR i nastavi"
+  },
+  "optifine.download-official": {
+    "message": "Zvanično preuzimanje"
+  },
+  "optifine.export-notice": {
+    "message": "OptiFine binarni fajlovi su izuzeti. Orbpack čuva njegovu potrebnu verziju; Modrinth i CurseForge paketi zahtevaju zasebnu instalaciju OptiFine-a."
+  },
+  "optifine.import-canceled": {
+    "message": "Izbor OptiFine-a otkazan. Paket nije instaliran."
+  },
+  "optifine.import-description": {
+    "message": "Ovaj paket zahteva OptiFine {version} za Minecraft {gameVersion}. Preuzmi njegov zvanični JAR i izaberi ga za nastavak. OptiFine nije uključen u paket."
+  },
+  "optifine.import-title": {
+    "message": "Ovaj paket zahteva OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Izaberi zvanični OptiFine installer za Minecraft {gameVersion}. Za uvezeni paket, verzija i hash fajla takođe moraju da se poklope."
+  },
+  "optifine.remove-component": {
+    "message": "Ukloni OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Izaberi zvanični OptiFine JAR"
+  },
+  "project-type.world.category": {
+    "message": "Svetovi"
   },
   "search.filter.locked.instance": {
     "message": "Obezbeđeno od instance"
@@ -899,7 +4751,10 @@
   "search.filter.locked.instance.sync": {
     "message": "Sinhroniziraj sa instancom"
   },
-  "search.filter.locked.server-environment.title": {
-    "message": "Samo modovi za kliente mogu biti dodani na instancu servera"
+  "settings.sidebar.label.account": {
+    "message": "Nalog"
+  },
+  "settings.sidebar.label.display": {
+    "message": "Prikaz"
   }
 }

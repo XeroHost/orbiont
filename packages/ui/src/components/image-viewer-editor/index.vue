@@ -10,6 +10,7 @@ import type {
 	ImageViewerEditorItem,
 	ImageViewerEditorSavePayload,
 } from './types'
+import YouTubeViewer from './youtube.vue'
 
 const MAX_CACHED_ITEMS = 5
 
@@ -46,6 +47,7 @@ const canEdit = computed(
 	() =>
 		props.editor === 'enabled' &&
 		Boolean(context?.loadEditorData) &&
+		!activeItem.value?.youtubeVideoId &&
 		Boolean(activeItem.value?.editorSource),
 )
 
@@ -68,6 +70,7 @@ function loadItemData(item: ImageViewerEditorItem): Promise<ImageViewerEditorDat
 
 	const promise = (async () => {
 		if (item.editorSource && context) return await context.loadEditorData(item.editorSource)
+		if (context?.loadRemoteData) return await context.loadRemoteData(item.src)
 		const response = await fetch(item.src)
 		if (!response.ok) throw new Error(`Could not load image: ${response.statusText}`)
 		return { source: await response.blob() }
@@ -115,6 +118,7 @@ function preloadItemsAround(index: number) {
 	for (const itemIndex of indexes) {
 		const item = props.items[itemIndex]
 		if (item) {
+			if (item.youtubeVideoId) continue
 			preloadItemImage(item)
 			void loadItemData(item).catch(() => undefined)
 		}
@@ -246,7 +250,22 @@ defineExpose({ show, edit, hide, next, previous, markSavedAndView })
 				</div>
 			</header>
 
+			<YouTubeViewer
+				v-if="activeItem.youtubeVideoId"
+				:key="activeItem.id"
+				:item="activeItem"
+				:index="activeIndex"
+				:count="items.length"
+				@close="hide"
+				@next="next"
+				@previous="previous"
+			>
+				<template #actions>
+					<slot name="actions" :item="activeItem" :index="activeIndex" :hide="hide" />
+				</template>
+			</YouTubeViewer>
 			<Editor
+				v-else
 				ref="editorComponent"
 				:item="activeItem"
 				:mode="mode"

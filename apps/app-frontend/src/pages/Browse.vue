@@ -13,6 +13,7 @@ import type { BrowseInstallContentType, CardAction, ProjectType, Tags } from '@o
 import {
 	BrowsePageLayout,
 	BrowseSidebar,
+	Button,
 	commonMessages,
 	ContextMenu,
 	defineMessages,
@@ -32,19 +33,23 @@ import {
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { openUrl } from '@tauri-apps/plugin-opener'
 import type { Ref } from 'vue'
-import { computed, onBeforeUnmount, ref, shallowRef, watch } from 'vue'
-import type { LocationQuery } from 'vue-router'
+import { computed, onBeforeUnmount, ref, watch } from 'vue'
+import type { LocationQuery, RouteLocationNormalizedLoaded } from 'vue-router'
 import { useRoute, useRouter } from 'vue-router'
 
-import { useAppServerBrowse } from '@/composables/browse/use-app-server-browse'
 import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
+import { useCurseforgeCategories } from '@/composables/use-curseforge-categories'
+import { config } from '@/config'
+import { bedrockFilterLayout } from '@/helpers/bedrock-catalog'
+import { bedrockCatalogMessages } from '@/helpers/bedrock-catalog-messages'
 import { get_project, get_search_results_v3, get_version_many } from '@/helpers/cache.js'
 import type { CurseforgeProjectType, CurseforgeSearchHit } from '@/helpers/curseforge'
 import {
 	CURSEFORGE_LOADERS,
 	CURSEFORGE_MAX_RESULTS_OPTIONS,
-	getCurseforgeCategoryTags,
+	getBedrockGameVersions,
+	getCurseforgeProjectVersions,
 	isCurseforgeId,
 	isCurseforgeSupportedFilterType,
 	searchCurseforge,
@@ -56,51 +61,43 @@ import {
 } from '@/helpers/instance'
 import { get as getSettings, set as setSettings } from '@/helpers/settings.ts'
 import { get_categories, get_game_versions, get_loaders } from '@/helpers/tags'
-import { get_instance_worlds } from '@/helpers/worlds'
-import {
-	instanceDetailQueryOptions,
-	instanceKeys,
-	instanceLinkedProjectQueryOptions,
-} from '@/pages/instance/query-options'
+import { instanceDetailQueryOptions, instanceKeys } from '@/pages/instance/query-options'
 import { type BreadcrumbDefinition, injectBreadcrumbManager } from '@/providers/breadcrumbs'
 import { injectContentInstall } from '@/providers/content-install'
-import { injectServerInstall } from '@/providers/server-install'
 
 const { handleError } = injectNotificationManager()
 const { formatMessage } = useVIntl()
-const { installingServerProjects, playServerProject, showAddServerToInstanceModal } =
-	injectServerInstall()
 const { install: installVersion } = injectContentInstall()
 const queryClient = useQueryClient()
 const debugLog = useDebugLogger('Browse')
 
 const router = useRouter()
 const route = useRoute()
-const displayedBrowseRoute = shallowRef(router.currentRoute.value)
-watch(
-	() => router.currentRoute.value,
-	(nextRoute) => {
-		if (nextRoute.path.startsWith('/browse/')) {
-			displayedBrowseRoute.value = nextRoute
-		}
-	},
-	{ immediate: true },
-)
+const bedrockBrowse = route.query.edition === 'bedrock'
+if (
+	bedrockBrowse &&
+	!['mod', 'resourcepack', 'world', 'datapack'].includes(String(route.params.projectType))
+) {
+	void router.replace({ path: '/browse/mod', query: { edition: 'bedrock', src: 'curseforge' } })
+}
+// Read the current category directly; retain its breadcrumb when opening a project.
+// A scheduled copy of the route can leave the header behind the selected tab.
+const displayedBrowseRoute = computed<RouteLocationNormalizedLoaded>((previous) => {
+	const current = router.currentRoute.value
+	return current.path.startsWith('/browse/') ? current : (previous ?? current)
+})
 const breadcrumbMessages = defineMessages({
 	discoverProjectType: {
 		id: 'app.browse.discover-project-type',
 		defaultMessage: 'Discover {projectType}',
 	},
-	discoverServers: {
-		id: 'app.browse.discover-servers',
-		defaultMessage: 'Discover servers',
-	},
 })
 const breadcrumbLabel = computed(() => {
 	const browseRoute = displayedBrowseRoute.value
-	if (browseRoute.query.from === 'worlds' || browseRoute.params.projectType === 'server') {
-		return formatMessage(breadcrumbMessages.discoverServers)
-	}
+	if (bedrockBrowse && browseRoute.params.projectType === 'mod')
+		return formatMessage(bedrockCatalogMessages.discoverAddons)
+	if (bedrockBrowse && browseRoute.params.projectType === 'datapack')
+		return formatMessage(bedrockCatalogMessages.discoverScripts)
 
 	return formatMessage(breadcrumbMessages.discoverProjectType, {
 		projectType: formatProjectTypeSentence(
@@ -112,10 +109,20 @@ const breadcrumbLabel = computed(() => {
 })
 const appSettings = useAppSettings()
 const browseRouteActive = computed(() => route.path.startsWith('/browse/'))
-// Browsing from an instance's worlds tab lists servers to add to it.
-const isFromWorlds = computed(() => route.query.from === 'worlds')
 
-const initialInstanceId = computed(() => String(route.query.i ?? ''))
+// Rutas antiguas del catálogo de servidores: la pestaña worlds ya no enlaza al
+// catálogo. Si se llega con ?from=worlds o /browse/server, se redirige a
+// contenido permitido limpiando esos parámetros heredados.
+if (route.params.projectType === 'server' || route.query.from === 'worlds') {
+	const nextQuery = { ...route.query }
+	delete nextQuery.from
+	router.replace({
+		path: '/browse/modpack',
+		query: nextQuery,
+	})
+}
+
+const initialInstanceId = computed(() => (bedrockBrowse ? '' : String(route.query.i ?? '')))
 const instanceQuery = useQuery(
 	computed(() => ({
 		...instanceDetailQueryOptions(initialInstanceId.value),
@@ -123,21 +130,11 @@ const instanceQuery = useQuery(
 	})),
 )
 const instance = computed(() => instanceQuery.data.value ?? null)
-const linkedInstanceProjectId = computed(() => instance.value?.link?.project_id ?? '')
-const linkedInstanceProjectQuery = useQuery(
-	computed(() => ({
-		...instanceLinkedProjectQueryOptions(linkedInstanceProjectId.value),
-		enabled: !!linkedInstanceProjectId.value,
-	})),
-)
 const installedProjectIds: Ref<string[] | null> = ref(null)
 const instanceHideInstalled = ref(route.query.ai === 'true')
 const newlyInstalled = ref<string[]>([])
 const hiddenInstanceProjectIds = ref<Set<string>>(new Set())
 const hiddenInstanceProjectIdsInitialized = ref(false)
-const isServerInstance = computed(
-	() => linkedInstanceProjectQuery.data.value?.minecraft_server != null,
-)
 
 const breadcrumbManager = injectBreadcrumbManager()
 const instanceBreadcrumbDefinition = {
@@ -151,12 +148,7 @@ const instanceBreadcrumbDefinition = {
 		tintBy: String(displayedBrowseRoute.value.query.i ?? ''),
 	}),
 	to: () => {
-		const instancePath = `/instance/${encodeURIComponent(
-			String(displayedBrowseRoute.value.query.i ?? ''),
-		)}`
-		return displayedBrowseRoute.value.query.from === 'worlds'
-			? `${instancePath}/worlds`
-			: instancePath
+		return `/instance/${encodeURIComponent(String(displayedBrowseRoute.value.query.i ?? ''))}`
 	},
 } satisfies BreadcrumbDefinition
 const breadcrumbDefinition = {
@@ -184,54 +176,56 @@ watch(displayedBrowseRoute, syncBreadcrumbs, { immediate: true, flush: 'sync' })
 
 debugLog('fetching tags (categories, loaders, gameVersions)')
 const [categories, loaders, availableGameVersions] = await Promise.all([
-	get_categories()
+	(bedrockBrowse ? Promise.resolve([]) : get_categories())
 		.catch(handleError)
 		.then(ref<Labrinth.Tags.v2.Category[]>),
-	get_loaders()
+	(bedrockBrowse ? Promise.resolve([]) : get_loaders())
 		.catch(handleError)
 		.then(ref<Labrinth.Tags.v2.Loader[]>),
-	get_game_versions()
+	(bedrockBrowse ? getBedrockGameVersions() : get_game_versions())
 		.catch(handleError)
 		.then(ref<Labrinth.Tags.v2.GameVersion[]>),
 ])
 
-const projectType = ref<ProjectType>(route.params.projectType as ProjectType)
+const projectType = ref<ProjectType>(
+	(route.params.projectType === 'server' ? 'modpack' : route.params.projectType) as ProjectType,
+)
 
-// Content source (see the build plan, Fase 4). The browse UI is the same for
+// The browse UI is the same for
 // every source; the source only decides where search results, categories and
 // project data come from (see helpers/curseforge.ts).
-const CURSEFORGE_PROJECT_TYPES: string[] = ['modpack', 'mod', 'resourcepack', 'datapack', 'shader']
+const CURSEFORGE_PROJECT_TYPES: string[] = [
+	'modpack',
+	'mod',
+	'resourcepack',
+	'datapack',
+	'shader',
+	'world',
+]
 const contentSource = ref<'modrinth' | 'curseforge'>(
-	route.query.src === 'curseforge' ? 'curseforge' : 'modrinth',
+	bedrockBrowse || route.query.src === 'curseforge' || projectType.value === 'world'
+		? 'curseforge'
+		: 'modrinth',
 )
-const curseforgeCategories = ref<Labrinth.Tags.v2.Category[]>([])
-let curseforgeCategoriesFor: string | null = null
-
-async function loadCurseforgeCategories(type: string) {
-	if (curseforgeCategoriesFor === type) return
-	curseforgeCategoriesFor = type
-	const loaded = await getCurseforgeCategoryTags(type as CurseforgeProjectType).catch(handleError)
-	if (curseforgeCategoriesFor === type) curseforgeCategories.value = loaded ?? []
-}
-
-if (
-	contentSource.value === 'curseforge' &&
-	CURSEFORGE_PROJECT_TYPES.includes(String(route.params.projectType))
-) {
-	await loadCurseforgeCategories(String(route.params.projectType))
-}
-
 const supportsCurseforge = computed(() => CURSEFORGE_PROJECT_TYPES.includes(projectType.value))
 const useCurseforge = computed(
 	() => supportsCurseforge.value && contentSource.value === 'curseforge',
 )
+const curseforgeCategoryQuery = useCurseforgeCategories(
+	projectType,
+	computed(() => useCurseforge.value && browseRouteActive.value),
+	bedrockBrowse ? 'bedrock' : 'java',
+)
+watch(curseforgeCategoryQuery.error, (error) => {
+	if (error) handleError(error)
+})
 
 const tags: Ref<Tags> = computed(() => {
 	if (useCurseforge.value) {
 		return {
 			gameVersions: availableGameVersions.value ?? [],
 			loaders: (loaders.value ?? []).filter((loader) => CURSEFORGE_LOADERS.includes(loader.name)),
-			categories: curseforgeCategories.value,
+			categories: curseforgeCategoryQuery.data.value ?? [],
 		}
 	}
 	return {
@@ -240,13 +234,6 @@ const tags: Ref<Tags> = computed(() => {
 		categories: categories.value ?? [],
 	}
 })
-
-if (isFromWorlds.value && route.params.projectType !== 'server') {
-	router.replace({
-		path: '/browse/server',
-		query: route.query,
-	})
-}
 
 const allInstalledIds = computed(
 	() => new Set([...newlyInstalled.value, ...(installedProjectIds.value ?? [])]),
@@ -274,6 +261,7 @@ watch(
 await initInstanceContext()
 
 async function refreshInstalledProjectIds() {
+	if (bedrockBrowse) return
 	if (!route.query.i) {
 		const instances = await queryClient
 			.fetchQuery({
@@ -292,25 +280,6 @@ async function refreshInstalledProjectIds() {
 		return
 	}
 
-	if (route.query.from === 'worlds') {
-		const targetInstanceId = route.query.i as string
-		const worlds = await queryClient
-			.fetchQuery({
-				queryKey: instanceKeys.installedProjectIds(targetInstanceId, 'worlds'),
-				queryFn: () => get_instance_worlds(targetInstanceId),
-				staleTime: 0,
-			})
-			.catch(handleError)
-		if (!worlds) return
-
-		const serverProjectIds = worlds
-			.filter((w) => w.type === 'server' && 'project_id' in w && w.project_id)
-			.map((w) => (w as { project_id: string }).project_id)
-		debugLog('installedServerProjectIds loaded', { count: serverProjectIds.length })
-		installedProjectIds.value = serverProjectIds
-		return
-	}
-
 	const targetInstanceId = route.query.i as string
 	const ids = await queryClient
 		.fetchQuery({
@@ -326,6 +295,7 @@ async function refreshInstalledProjectIds() {
 }
 
 async function initInstanceContext() {
+	if (bedrockBrowse) return
 	debugLog('initInstanceContext', {
 		queryI: route.query.i,
 		queryAi: route.query.ai,
@@ -342,10 +312,6 @@ async function initInstanceContext() {
 			loader: instance.value?.loader,
 			gameVersion: instance.value?.game_version,
 		})
-
-		if (instance.value?.link?.project_id) {
-			await linkedInstanceProjectQuery.suspense().catch(handleError)
-		}
 	}
 }
 
@@ -383,10 +349,6 @@ const instanceFilters = computed(() => {
 		if (isVanillaShader) {
 			filters.push({ type: 'shader_loader', option: 'vanilla' })
 		}
-
-		if (isServerInstance.value) {
-			filters.push({ type: 'environment', option: 'client' })
-		}
 	}
 
 	if (
@@ -404,24 +366,28 @@ const instanceFilters = computed(() => {
 
 const combinedProvidedFilters = instanceFilters
 
-const {
-	serverPings,
-	contextMenuRef,
-	updateServerHits,
-	getServerModpackContent,
-	getServerCardActions,
-	handleRightClick,
-} = useAppServerBrowse({
-	instance,
-	isFromWorlds,
-	allInstalledIds,
-	newlyInstalled,
-	installingServerProjects,
-	playServerProject,
-	showAddServerToInstanceModal,
-	handleError,
-	router,
-})
+// Menú contextual genérico para los resultados (abrir/copiar enlace del
+// proyecto). Antes vivía en use-app-server-browse, retirado con el catálogo.
+const contextMenuRef = ref<{ open: (event: MouseEvent, options: unknown[]) => void } | null>(null)
+
+function handleRightClick(event: MouseEvent, result: Labrinth.Search.v3.ResultSearchProject) {
+	const projectType = result.project_types?.[0] ?? 'project'
+	const url = `${config.siteUrl}/${projectType}/${result.slug ?? result.project_id}`
+	contextMenuRef.value?.open(event, [
+		{
+			id: 'open_link',
+			label: formatMessage(commonMessages.openInModrinthButton),
+			icon: GlobeIcon,
+			action: () => void openUrl(url),
+		},
+		{
+			id: 'copy_link',
+			label: formatMessage(commonMessages.copyLinkButton),
+			icon: ClipboardCopyIcon,
+			action: () => void navigator.clipboard.writeText(url),
+		},
+	])
+}
 
 const offline = ref(!navigator.onLine)
 const handleOffline = () => {
@@ -441,10 +407,6 @@ onBeforeUnmount(() => {
 })
 
 const messages = defineMessages({
-	addServersToInstance: {
-		id: 'app.browse.add-servers-to-instance',
-		defaultMessage: 'Adding server to instance',
-	},
 	projectActionsLabel: {
 		id: 'app.browse.project-actions.label',
 		defaultMessage: 'Project actions',
@@ -453,34 +415,17 @@ const messages = defineMessages({
 		id: 'app.browse.add-to-an-instance',
 		defaultMessage: 'Add to an instance',
 	},
-	environmentProvidedByServer: {
-		id: 'search.filter.locked.server-environment.title',
-		defaultMessage: 'Only client-side mods can be added to the server instance',
-	},
 	gameVersionProvidedByInstance: {
 		id: 'search.filter.locked.instance-game-version.title',
 		defaultMessage: 'Game version is provided by the instance',
-	},
-	hideAddedServers: {
-		id: 'app.browse.hide-added-servers',
-		defaultMessage: 'Hide servers already added',
 	},
 	hideInstalledModpacks: {
 		id: 'app.browse.hide-installed-modpacks',
 		defaultMessage: 'Hide already installed',
 	},
-	installingToServer: {
-		id: 'app.browse.server.installing',
-		defaultMessage: 'Installing',
-	},
 	backToInstance: {
 		id: 'app.browse.back-to-instance',
 		defaultMessage: 'Back to instance',
-	},
-	serverInstanceContentWarning: {
-		id: 'app.browse.server-instance-content-warning',
-		defaultMessage:
-			'Adding content may prevent you from joining this server. Any content you add will be removed when the managed server content is updated.',
 	},
 	modLoaderProvidedByInstance: {
 		id: 'search.filter.locked.instance-loader.title',
@@ -500,7 +445,7 @@ const messages = defineMessages({
 		defaultMessage: 'Data Packs',
 	},
 	shadersProjectType: { id: 'app.browse.project-type.shaders', defaultMessage: 'Shaders' },
-	serversProjectType: { id: 'app.browse.project-type.servers', defaultMessage: 'Servers' },
+	worldsProjectType: { id: 'project-type.world.category', defaultMessage: 'Worlds' },
 	providedByInstance: {
 		id: 'search.filter.locked.instance',
 		defaultMessage: 'Provided by the instance',
@@ -522,7 +467,6 @@ function resetInstanceContext() {
 	newlyInstalled.value = []
 	hiddenInstanceProjectIds.value = new Set()
 	hiddenInstanceProjectIdsInitialized.value = false
-	isServerInstance.value = false
 	syncBreadcrumbs()
 	void refreshInstalledProjectIds()
 }
@@ -535,6 +479,13 @@ watch(
 		}
 
 		if (!newType || newType === projectType.value) return
+
+		if (newType === 'server') {
+			const nextQuery = { ...route.query }
+			delete nextQuery.from
+			await router.replace({ path: '/browse/modpack', query: nextQuery })
+			return
+		}
 
 		debugLog('projectType route param changed', { from: projectType.value, to: newType })
 		projectType.value = newType
@@ -553,13 +504,29 @@ watch(
 		installedProjectIds.value = null
 		hiddenInstanceProjectIdsInitialized.value = false
 		await Promise.all([instanceQuery.suspense().catch(handleError), refreshInstalledProjectIds()])
-		if (instance.value?.link?.project_id) {
-			await linkedInstanceProjectQuery.suspense().catch(handleError)
-		}
 	},
 )
 
 const selectableProjectTypes = computed(() => {
+	if (bedrockBrowse)
+		return [
+			{
+				label: formatMessage(bedrockCatalogMessages.addons),
+				href: '/browse/mod?edition=bedrock&src=curseforge',
+			},
+			{
+				label: formatMessage(messages.resourcePacksProjectType),
+				href: '/browse/resourcepack?edition=bedrock&src=curseforge',
+			},
+			{
+				label: formatMessage(messages.worldsProjectType),
+				href: '/browse/world?edition=bedrock&src=curseforge',
+			},
+			{
+				label: formatMessage(bedrockCatalogMessages.scripts),
+				href: '/browse/datapack?edition=bedrock&src=curseforge',
+			},
+		]
 	let dataPacks = false,
 		mods = false,
 		modpacks = false
@@ -568,8 +535,7 @@ const selectableProjectTypes = computed(() => {
 		if (
 			availableGameVersions.value &&
 			availableGameVersions.value.findIndex((x) => x.version === instance.value?.game_version) <=
-				availableGameVersions.value.findIndex((x) => x.version === '1.13') &&
-			!isServerInstance.value
+				availableGameVersions.value.findIndex((x) => x.version === '1.13')
 		) {
 			dataPacks = true
 		}
@@ -587,14 +553,9 @@ const selectableProjectTypes = computed(() => {
 
 	if (route.query.i) params.i = route.query.i
 	if (route.query.ai) params.ai = route.query.ai
-	if (route.query.from) params.from = route.query.from
 
 	const queryString = new URLSearchParams(params as Record<string, string>).toString()
 	const suffix = queryString ? `?${queryString}` : ''
-
-	if (isFromWorlds.value) {
-		return [{ label: formatMessage(messages.serversProjectType), href: `/browse/server${suffix}` }]
-	}
 
 	return [
 		{
@@ -614,9 +575,8 @@ const selectableProjectTypes = computed(() => {
 		},
 		{ label: formatMessage(messages.shadersProjectType), href: `/browse/shader${suffix}` },
 		{
-			label: formatMessage(messages.serversProjectType),
-			href: `/browse/server${suffix}`,
-			shown: !instance.value,
+			label: formatMessage(messages.worldsProjectType),
+			href: `/browse/world${suffix ? `${suffix}&` : '?'}src=curseforge`,
 		},
 	]
 })
@@ -628,15 +588,10 @@ const installContext = computed(() => {
 			loader: instance.value.loader,
 			gameVersion: instance.value.game_version,
 			iconSrc: getInstanceIconUrl(instance.value.icon_path),
-			backUrl: `/instance/${encodeURIComponent(instance.value.id)}${isFromWorlds.value ? '/worlds' : ''}`,
+			backUrl: `/instance/${encodeURIComponent(instance.value.id)}`,
 			backLabel: formatMessage(messages.backToInstance),
-			heading: formatMessage(
-				isFromWorlds.value ? messages.addServersToInstance : commonMessages.installingContentLabel,
-			),
-			warning:
-				isServerInstance.value && instance.value.loader !== 'vanilla' && !isFromWorlds.value
-					? formatMessage(messages.serverInstanceContentWarning)
-					: undefined,
+			heading: formatMessage(commonMessages.installingContentLabel),
+			warning: undefined,
 		}
 	}
 	return null
@@ -674,6 +629,7 @@ function getInstanceInstallTargetPreferences(projectTypeValue: string) {
 }
 
 async function getInstallProjectVersions(projectId: string) {
+	if (isCurseforgeId(projectId)) return getCurseforgeProjectVersions(projectId)
 	const project = await get_project(projectId, 'must_revalidate')
 	return (await get_version_many(
 		project.versions,
@@ -733,10 +689,6 @@ function getCardActions(
 	result: Labrinth.Search.v3.ResultSearchProject,
 	currentProjectType: string,
 ): CardAction[] {
-	if (currentProjectType === 'server') {
-		return getServerCardActions(result)
-	}
-
 	const projectResult = result as Labrinth.Search.v3.ResultSearchProject & {
 		installed?: boolean
 		installing?: boolean
@@ -744,17 +696,17 @@ function getCardActions(
 	const isInstalled =
 		projectResult.installed || allInstalledIds.value.has(projectResult.project_id || '')
 	const isInstalling = installingProjectIds.value.has(projectResult.project_id)
-	const showAsInstalled = isInstalled && currentProjectType !== 'modpack'
+	const showAsInstalled = isInstalled && !['modpack', 'world'].includes(currentProjectType)
 
 	const isModpack = projectResult.project_types?.includes('modpack')
-	const shouldUseInstallIcon = !!instance.value || isModpack
+	const shouldUseInstallIcon = bedrockBrowse || !!instance.value || isModpack
 
 	return [
 		{
 			key: 'install',
 			label: formatMessage(
 				isInstalling
-					? messages.installingToServer
+					? commonMessages.installingLabel
 					: showAsInstalled
 						? commonMessages.installedLabel
 						: shouldUseInstallIcon
@@ -769,11 +721,14 @@ function getCardActions(
 			onClick: async () => {
 				setProjectInstalling(projectResult.project_id, true)
 				try {
-					const selectedInstall = instance.value
-						? await chooseInstanceInstallVersion(projectResult, currentProjectType)
-						: isModpack
-							? await chooseFilterMatchingInstallVersion(projectResult, currentProjectType)
-							: { versionId: null as string | null }
+					const selectedInstall =
+						bedrockBrowse || currentProjectType === 'world'
+							? { versionId: null as string | null }
+							: instance.value
+								? await chooseInstanceInstallVersion(projectResult, currentProjectType)
+								: isModpack
+									? await chooseFilterMatchingInstallVersion(projectResult, currentProjectType)
+									: { versionId: null as string | null }
 					if (selectedInstall === null) {
 						setProjectInstalling(projectResult.project_id, false)
 						return
@@ -786,7 +741,7 @@ function getCardActions(
 						'SearchCard',
 						(versionId, installedProjectIds) => {
 							setProjectInstalling(projectResult.project_id, false)
-							if (versionId) {
+							if (versionId && !bedrockBrowse) {
 								onSearchResultsInstalled(installedProjectIds ?? [projectResult.project_id])
 							}
 						},
@@ -833,6 +788,7 @@ async function searchCurseforgeSource() {
 		(filter) => !overridden.includes(filter.type),
 	)
 	const params = {
+		edition: bedrockBrowse ? ('bedrock' as const) : ('java' as const),
 		projectType: projectType.value as CurseforgeProjectType,
 		query: searchState.query.value,
 		sort: searchState.effectiveCurrentSortType.value.name,
@@ -845,14 +801,9 @@ async function searchCurseforgeSource() {
 			...provided,
 		],
 	}
-	const result = await queryClient.fetchQuery({
-		queryKey: ['search', 'curseforge', params],
-		queryFn: () => searchCurseforge(params),
-		staleTime: 30_000,
-	})
+	const result = await searchCurseforge(params)
 	return {
 		projectHits: result.hits.map(markInstalled),
-		serverHits: [],
 		total_hits: result.totalHits,
 		per_page: params.limit,
 	}
@@ -864,7 +815,6 @@ async function search(requestParams: string) {
 		return await searchCurseforgeSource()
 	}
 	debugLog('searching v3', requestParams)
-	const isServer = projectType.value === 'server'
 
 	const rawResults = await queryClient.fetchQuery({
 		queryKey: ['search', 'v3', requestParams],
@@ -880,7 +830,6 @@ async function search(requestParams: string) {
 	if (!rawResults) {
 		return {
 			projectHits: [],
-			serverHits: [],
 			total_hits: 0,
 			per_page: 20,
 		}
@@ -894,22 +843,10 @@ async function search(requestParams: string) {
 		}
 	}
 
-	if (isServer) {
-		const hits = rawResults.result.hits ?? []
-		updateServerHits(hits)
-		return {
-			projectHits: [],
-			serverHits: hits,
-			total_hits: rawResults.result.total_hits ?? 0,
-			per_page: rawResults.result.hits_per_page,
-		}
-	}
-
 	const hits = rawResults.result.hits.map(markInstalled)
 
 	return {
 		projectHits: hits,
-		serverHits: [],
 		total_hits: rawResults.result.total_hits,
 		per_page: rawResults.result.hits_per_page,
 	}
@@ -918,7 +855,6 @@ async function search(requestParams: string) {
 const lockedFilterMessages = computed(() => ({
 	gameVersion: formatMessage(messages.gameVersionProvidedByInstance),
 	modLoader: formatMessage(messages.modLoaderProvidedByInstance),
-	environment: formatMessage(messages.environmentProvidedByServer),
 	syncButton: formatMessage(messages.syncFilterButton),
 	providedBy: formatMessage(messages.providedByInstance),
 }))
@@ -933,9 +869,10 @@ const searchState = useBrowseSearch({
 	active: browseRouteActive,
 	providedFilters: combinedProvidedFilters,
 	search,
-	persistentQueryParams: ['i', 'ai', 'from', 'src'],
+	persistentQueryParams: ['i', 'ai', 'src', 'edition'],
 	maxResultsOptions,
 	getExtraQueryParams: () => ({
+		edition: bedrockBrowse ? 'bedrock' : undefined,
 		src: useCurseforge.value ? 'curseforge' : undefined,
 		ai: instanceHideInstalled.value ? 'true' : undefined,
 	}),
@@ -943,11 +880,19 @@ const searchState = useBrowseSearch({
 
 // The source switch is NavTabs itself (local, non-routing mode) — the exact
 // same component as the project-type tabs next to it.
-const contentSourceLinks = [
-	{ label: 'Modrinth', href: 'modrinth' },
+const contentSourceLinks = computed(() => [
+	{ label: 'Modrinth', href: 'modrinth', disabled: bedrockBrowse || projectType.value === 'world' },
 	{ label: 'CurseForge', href: 'curseforge' },
-]
+])
 const contentSourceIndex = computed(() => (contentSource.value === 'curseforge' ? 1 : 0))
+
+watch(
+	projectType,
+	(type) => {
+		if (bedrockBrowse || type === 'world') contentSource.value = 'curseforge'
+	},
+	{ flush: 'sync' },
+)
 
 function clearSourceSpecificFilters() {
 	// Category options differ per source; loaders and game versions carry over.
@@ -956,19 +901,16 @@ function clearSourceSpecificFilters() {
 	)
 }
 
-async function onContentSourceTabClick(_index: number, link: { href: string }) {
+function onContentSourceTabClick(_index: number, link: { href: string }) {
 	const next = link.href === 'curseforge' ? 'curseforge' : 'modrinth'
+	if ((bedrockBrowse || projectType.value === 'world') && next === 'modrinth') return
 	if (next === contentSource.value) return
-	if (next === 'curseforge') await loadCurseforgeCategories(projectType.value)
 	contentSource.value = next
 	clearSourceSpecificFilters()
 	searchState.currentPage.value = 1
 	void searchState.refreshSearch()
 }
 
-watch(projectType, (type) => {
-	if (useCurseforge.value) void loadCurseforgeCategories(type)
-})
 watch(supportsCurseforge, (supported) => {
 	if (!supported && contentSource.value === 'curseforge') {
 		contentSource.value = 'modrinth'
@@ -1004,14 +946,7 @@ function handleResultContextMenu(
 }
 
 watch(
-	[
-		() => searchState.query.value,
-		() =>
-			searchState.isServerType.value
-				? searchState.serverCurrentFilters.value
-				: searchState.currentFilters.value,
-		() => projectType.value,
-	],
+	[() => searchState.query.value, () => searchState.currentFilters.value, () => projectType.value],
 	() => {
 		if (instance.value || projectType.value === 'modpack') {
 			syncHiddenInstanceProjectIds()
@@ -1019,16 +954,6 @@ watch(
 	},
 	{ deep: true },
 )
-
-if (instance.value?.game_version) {
-	const gv = instance.value.game_version
-	const alreadyHasGv = searchState.serverCurrentFilters.value.some(
-		(f) => f.type === 'server_game_version' && f.option === gv,
-	)
-	if (!alreadyHasGv) {
-		searchState.serverCurrentFilters.value.push({ type: 'server_game_version', option: gv })
-	}
-}
 
 void searchState.refreshSearch()
 
@@ -1055,9 +980,10 @@ function getProjectBrowseQuery() {
 	if (!browseRouteActive.value) {
 		return undefined
 	}
-	if (!installContext.value) return undefined
+	if (!installContext.value && !bedrockBrowse) return undefined
+	const { from: _legacyFrom, ...restQuery } = route.query
 	return {
-		...route.query,
+		...restQuery,
 		b: route.fullPath,
 	}
 }
@@ -1091,7 +1017,19 @@ const dismissedPhotosensitivityFilterWarning = computed({
 provideBrowseManager({
 	tags,
 	projectType,
+	projectTypeDisplayName: computed(() =>
+		bedrockBrowse
+			? projectType.value === 'mod'
+				? formatMessage(bedrockCatalogMessages.addons)
+				: projectType.value === 'datapack'
+					? formatMessage(bedrockCatalogMessages.scripts)
+					: undefined
+			: undefined,
+	),
 	...searchState,
+	filters: computed(() =>
+		bedrockBrowse ? bedrockFilterLayout(searchState.filters.value) : searchState.filters.value,
+	),
 	advancedFiltersCollapsed,
 	dismissedPhotosensitivityFilterWarning,
 	// Orbiont doesn't use Modrinth's content-disclosure taxonomy (AI content,
@@ -1101,7 +1039,10 @@ provideBrowseManager({
 		useCurseforge.value
 			? searchState.filters.value
 					.map((filter) => filter.id)
-					.filter((id) => !isCurseforgeSupportedFilterType(id))
+					.filter(
+						(id) =>
+							!isCurseforgeSupportedFilterType(id) || (bedrockBrowse && id.includes('loader')),
+					)
 			: ['advanced'],
 	),
 	maxResultsOptions,
@@ -1110,10 +1051,6 @@ provideBrowseManager({
 	getAuthorLink: () => '',
 	getProjectLink: (result: Labrinth.Search.v3.ResultSearchProject) => ({
 		path: `/project/${result.project_id ?? result.slug}`,
-		query: getProjectBrowseQuery(),
-	}),
-	getServerProjectLink: (result: Labrinth.Search.v3.ResultSearchProject) => ({
-		path: `/project/${result.slug ?? result.project_id}`,
 		query: getProjectBrowseQuery(),
 	}),
 	selectableProjectTypes,
@@ -1140,16 +1077,12 @@ provideBrowseManager({
 	showHideInstalled: computed(() => projectType.value === 'modpack' || !!instance.value),
 	hideInstalledLabel: computed(() =>
 		formatMessage(
-			isFromWorlds.value
-				? messages.hideAddedServers
-				: projectType.value === 'modpack'
-					? messages.hideInstalledModpacks
-					: commonMessages.hideInstalledContentLabel,
+			projectType.value === 'modpack'
+				? messages.hideInstalledModpacks
+				: commonMessages.hideInstalledContentLabel,
 		),
 	),
 	onInstalled: onSearchResultInstalled,
-	serverPings,
-	getServerModpackContent,
 	onContextMenu: handleResultContextMenu,
 	offline,
 	lockedFilterMessages,
@@ -1176,7 +1109,25 @@ provideBrowseManager({
 			</template>
 		</BrowsePageLayout>
 		<Teleport v-if="browseRouteActive" to="#sidebar-teleport-target">
-			<BrowseSidebar />
+			<BrowseSidebar>
+				<template v-if="useCurseforge" #prepend>
+					<div
+						v-if="curseforgeCategoryQuery.isFetching.value"
+						class="flex items-center gap-2 p-3 text-secondary"
+						role="status"
+					>
+						<SpinnerIcon class="size-4 animate-spin" />
+						{{ formatMessage(commonMessages.loadingLabel) }}
+					</div>
+					<Button
+						v-else-if="curseforgeCategoryQuery.isError.value"
+						class="m-3"
+						@click="curseforgeCategoryQuery.refetch()"
+					>
+						{{ formatMessage(commonMessages.retryButton) }}
+					</Button>
+				</template>
+			</BrowseSidebar>
 		</Teleport>
 	</div>
 </template>

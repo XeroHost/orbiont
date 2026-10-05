@@ -92,9 +92,6 @@
   "app.action-bar.install.unknown-instance": {
     "message": "Невідомий примірник"
   },
-  "app.action-bar.install.updating-shared-content": {
-    "message": "Оновлюємо спільний вміст"
-  },
   "app.action-bar.make-primary-instance": {
     "message": "Зробити основним примірником"
   },
@@ -149,6 +146,21 @@
   "app.appearance-settings.hide-nametag.title": {
     "message": "Приховати ім'я"
   },
+  "app.appearance-settings.icon-motion.description": {
+    "message": "Анімуйте значки під час наведення та фокусування з клавіатури."
+  },
+  "app.appearance-settings.icon-motion.off": {
+    "message": "Вимкнути анімацію"
+  },
+  "app.appearance-settings.icon-motion.on": {
+    "message": "Завжди анімувати"
+  },
+  "app.appearance-settings.icon-motion.system": {
+    "message": "Як у системі"
+  },
+  "app.appearance-settings.icon-motion.title": {
+    "message": "Анімація значків"
+  },
   "app.appearance-settings.minimize-launcher.description": {
     "message": "Згортати {productName} під час запуску Minecraft."
   },
@@ -173,17 +185,533 @@
   "app.appearance-settings.toggle-sidebar.title": {
     "message": "Приховати праву бічну панель"
   },
-  "app.appearance-settings.unknown-pack-warning.description": {
-    "message": "Показувати попередження про безпеку перед встановленням Modrinth Pack (.mrpack), який не розміщено на Modrinth."
+  "app.appearance-settings.unknown-pack-warning.imported-description": {
+    "message": "Показувати попередження про безпеку перед установленням імпортованої збірки (.mrpack або .zip з CurseForge), джерело якої не вдалося перевірити."
   },
   "app.appearance-settings.unknown-pack-warning.title": {
     "message": "Попереджати перед установленням невідомих збірок"
+  },
+  "app.auth-error.contact-support": {
+    "message": "Зв'язатися з підтримкою"
+  },
+  "app.auth-error.copy-debug-info": {
+    "message": "Скопіювати налагоджувальну інформацію"
+  },
+  "app.auth-error.debug-info": {
+    "message": "Налагоджувальна інформація"
+  },
+  "app.auth-error.header": {
+    "message": "Не вдалося увійти"
+  },
+  "app.auth-error.how-to-fix": {
+    "message": "Як це виправити"
+  },
+  "app.auth-error.kr-age.step-verify": {
+    "message": "Пройдіть процес підтвердження особи"
+  },
+  "app.auth-error.kr-age.what": {
+    "message": "Цей обліковий запис потребує підтвердження повноліття відповідно до законодавства Південної Кореї."
+  },
+  "app.auth-error.minecraft-login-link": {
+    "message": "Вхід у Minecraft"
+  },
+  "app.auth-error.network.step-connection": {
+    "message": "Перевірте, чи працює підключення до інтернету"
+  },
+  "app.auth-error.network.step-firewall": {
+    "message": "Дозвольте {product} у брандмауері, антивірусі, проксі, VPN і правилах файлу hosts"
+  },
+  "app.auth-error.network.step-other-network": {
+    "message": "Спробуйте іншу мережу або тимчасово вимкніть VPN/проксі, якщо користуєтеся ними"
+  },
+  "app.auth-error.network.step-restart": {
+    "message": "Перезапустіть {product} і спробуйте увійти знову"
+  },
+  "app.auth-error.network.step-warp": {
+    "message": "Якщо проблема в маршрутизації чи DNS, іноді може допомогти сервіс на кшталт Cloudflare WARP"
+  },
+  "app.auth-error.network.what": {
+    "message": "{product} не вдалося підключитися до служби Microsoft, Xbox або Minecraft, потрібної для входу. Зазвичай це спричинено проблемами з локальною мережею, DNS, проксі, брандмауером, файлом hosts, VPN або антивірусом."
+  },
+  "app.auth-error.no-error-message": {
+    "message": "Немає повідомлення про помилку."
+  },
+  "app.auth-error.no-license.step-check-owner": {
+    "message": "Перевірити, якому обліковому запису належить гра, можна на <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-license.step-right-account": {
+    "message": "Переконайтеся, що входите через обліковий запис Microsoft, на якому придбано Minecraft (або є активна підписка Game Pass із доступом на ПК)"
+  },
+  "app.auth-error.no-license.what": {
+    "message": "На цьому обліковому записі Microsoft немає Minecraft: Java Edition, а {product} працює лише з ліцензійними обліковими записами."
+  },
+  "app.auth-error.no-profile.step-launch-once": {
+    "message": "Запустіть Minecraft: Java Edition один раз через офіційний запускач"
+  },
+  "app.auth-error.no-profile.step-right-account": {
+    "message": "Переконайтеся, що використовуєте обліковий запис Microsoft, якому належить Minecraft. Перевірити, якому обліковому запису належить гра, можна на <a href=\"https://www.minecraft.net/en-us/login\">minecraft.net</a>"
+  },
+  "app.auth-error.no-profile.step-wait": {
+    "message": "Зачекайте до години, якщо покупка або налаштування профілю були нещодавно"
+  },
+  "app.auth-error.no-profile.what": {
+    "message": "Служби Minecraft не змогли отримати профіль Java Edition для цього облікового запису. Найчастіше це трапляється, якщо гру придбано нещодавно, профіль Java ще не створено або використовується не той обліковий запис Microsoft."
+  },
+  "app.auth-error.no-xbox-profile.step-purchased": {
+    "message": "Переконайтеся, що на цьому обліковому записі придбано Minecraft"
+  },
+  "app.auth-error.no-xbox-profile.step-setup": {
+    "message": "Завершіть налаштування профілю Xbox, якщо з'явиться запит"
+  },
+  "app.auth-error.no-xbox-profile.what": {
+    "message": "У цього облікового запису не налаштовано профіль Xbox або на ньому немає Minecraft."
+  },
+  "app.auth-error.rate-limited.step-restart": {
+    "message": "Після очікування перезапустіть {product}"
+  },
+  "app.auth-error.rate-limited.step-retry": {
+    "message": "Спробуйте увійти ще раз"
+  },
+  "app.auth-error.rate-limited.step-wait": {
+    "message": "Зачекайте близько години, перш ніж повторити спробу"
+  },
+  "app.auth-error.rate-limited.step-wait-longer": {
+    "message": "Якщо з'явиться те саме повідомлення, зачекайте довше перед повторною спробою, щоб тимчасове обмеження зникло"
+  },
+  "app.auth-error.rate-limited.what": {
+    "message": "Microsoft або Minecraft тимчасово заблокували запит на вхід через надто багато нещодавніх спроб."
+  },
+  "app.auth-error.region-blocked.step-availability": {
+    "message": "Перевірте <a href=\"https://www.xbox.com/en-US/regions\">доступність Xbox</a> щодо підтримуваних регіонів"
+  },
+  "app.auth-error.region-blocked.step-supported": {
+    "message": "Служби Xbox мають підтримуватися у вашій країні, перш ніж ви зможете увійти"
+  },
+  "app.auth-error.region-blocked.what": {
+    "message": "Xbox Live недоступний у вашому регіоні, тому вхід заблоковано."
+  },
+  "app.auth-error.restricted.step-family": {
+    "message": "Попросіть опікуна увійти в <a href=\"https://account.microsoft.com/family/\">Microsoft Family</a>"
+  },
+  "app.auth-error.restricted.step-permissions": {
+    "message": "Оновіть дозволи на гру в мережі"
+  },
+  "app.auth-error.restricted.what": {
+    "message": "Цей обліковий запис обмежено, і він не має дозволу грати в мережі."
+  },
+  "app.auth-error.service-error.step-contact": {
+    "message": "Якщо служба працює, а помилка повторюється, зверніться до підтримки, додавши налагоджувальну інформацію нижче"
+  },
+  "app.auth-error.service-error.step-official-launcher": {
+    "message": "Спробуйте увійти через <a href=\"https://www.minecraft.net/en-us/download\">офіційний запускач Minecraft</a>, щоб з'ясувати, чи виникає та сама проблема й там"
+  },
+  "app.auth-error.service-error.step-status": {
+    "message": "Перевірте <a href=\"https://support.xbox.com/xbox-live-status\">стан Xbox</a> на наявність поточних збоїв"
+  },
+  "app.auth-error.service-error.step-wait": {
+    "message": "Зачекайте кілька хвилин і спробуйте увійти знову"
+  },
+  "app.auth-error.service-error.what": {
+    "message": "Служба автентифікації Minecraft повертає помилку сервера, тому {product} зараз не може завершити вхід."
+  },
+  "app.auth-error.sign-in-again": {
+    "message": "Увійти знову"
+  },
+  "app.auth-error.step.once-finished-try-again": {
+    "message": "Після завершення спробуйте увійти знову"
+  },
+  "app.auth-error.step.sign-in-official-launcher": {
+    "message": "Увійдіть через <a href=\"https://www.minecraft.net/en-us/download\">офіційний запускач Minecraft</a>"
+  },
+  "app.auth-error.step.try-product-again": {
+    "message": "Спробуйте знову увійти в {product}"
+  },
+  "app.auth-error.step.visit-minecraft-login": {
+    "message": "Відкрийте <a href=\"https://www.minecraft.net/en-us/login\">вхід у Minecraft</a> і увійдіть"
+  },
+  "app.auth-error.step.visit-xbox-sign-in": {
+    "message": "Відкрийте <a href=\"https://www.xbox.com\">Xbox</a> і увійдіть"
+  },
+  "app.auth-error.suspended.step-appeal": {
+    "message": "Подайте апеляцію, якщо вона доступна"
+  },
+  "app.auth-error.suspended.step-support": {
+    "message": "Відкрийте <a href=\"https://support.xbox.com\">підтримку Xbox</a> й ознайомтеся з деталями санкції"
+  },
+  "app.auth-error.suspended.what": {
+    "message": "Цей обліковий запис заблоковано за порушення стандартів спільноти Xbox."
+  },
+  "app.auth-error.token-expired.step-retry": {
+    "message": "Після завершення нового входу спробуйте знову запустити Minecraft"
+  },
+  "app.auth-error.token-expired.step-sign-in": {
+    "message": "Увійдіть в обліковий запис знову"
+  },
+  "app.auth-error.token-expired.step-sign-out": {
+    "message": "Вийдіть із проблемного облікового запису Minecraft у {product}"
+  },
+  "app.auth-error.token-expired.what": {
+    "message": "Збережений маркер входу Microsoft минув або був відкликаний, тому {product} не може оновити сеанс Minecraft."
+  },
+  "app.auth-error.tos.step-accept": {
+    "message": "Прийміть умови, якщо з'явиться запит"
+  },
+  "app.auth-error.tos.what": {
+    "message": "Цей обліковий запис не прийняв умови користування Xbox."
+  },
+  "app.auth-error.try-visiting": {
+    "message": "Спробуйте відкрити"
+  },
+  "app.auth-error.uk-age.step-help": {
+    "message": "Додаткова допомога: <a href=\"https://support.xbox.com/en-GB/help/family-online-safety/online-safety/UK-age-verification\">перевірка віку для Великої Британії на Xbox</a>"
+  },
+  "app.auth-error.uk-age.step-login": {
+    "message": "Перейдіть на сторінку <a href=\"https://www.minecraft.net/en-us/login\">входу в Minecraft</a> і увійдіть"
+  },
+  "app.auth-error.uk-age.step-retry": {
+    "message": "Після перевірки спробуйте увійти знову"
+  },
+  "app.auth-error.uk-age.step-verify": {
+    "message": "Дотримуйтеся інструкцій для підтвердження віку"
+  },
+  "app.auth-error.uk-age.what": {
+    "message": "Ваш обліковий запис Minecraft/Xbox Live потребує підтвердження віку відповідно до законодавства Великої Британії. Це потрібно зробити до входу."
+  },
+  "app.auth-error.underage.step-guide": {
+    "message": "Ознайомтеся з <a href=\"https://help.minecraft.net/hc/en-us/articles/4408968616077\">посібником із налаштування сім'ї</a>"
+  },
+  "app.auth-error.underage.step-join": {
+    "message": "Приєднайтеся до сімейної групи або створіть її, як зазначено"
+  },
+  "app.auth-error.underage.what": {
+    "message": "Цей обліковий запис належить неповнолітньому й не прив'язаний до сімейної групи Microsoft."
+  },
+  "app.auth-error.unknown-error": {
+    "message": "Невідома помилка"
+  },
+  "app.auth-error.unknown-error-body": {
+    "message": "Ми не розпізнали цю помилку й не можемо запропонувати конкретних кроків для її вирішення."
+  },
+  "app.auth-error.unknown-error-body-end": {
+    "message": "і вході, оскільки це може показати потрібні кроки. Також можна звернутися до підтримки, і ми розглянемо це докладніше."
+  },
+  "app.auth-error.warning-body": {
+    "message": "Не вдалося увійти у ваш обліковий запис Microsoft. Це може бути спричинено обмеженнями облікового запису або регіону."
+  },
+  "app.auth-error.what-happened": {
+    "message": "Що, на нашу думку, сталося"
+  },
+  "app.auth-error.xbox-rejected.step-terms": {
+    "message": "Прийміть будь-які умови або завершіть налаштування профілю, якщо з'явиться запит"
+  },
+  "app.auth-error.xbox-rejected.step-xbox-com": {
+    "message": "Увійдіть один раз на <a href=\"https://www.xbox.com\">Xbox.com</a> з тим самим обліковим записом Microsoft"
+  },
+  "app.auth-error.xbox-rejected.what": {
+    "message": "Xbox Live не прийняв вхід Microsoft. Зазвичай це означає, що обліковий запис Microsoft жодного разу не входив у Xbox або має прийняти оновлені умови."
+  },
+  "app.auth-error.xsts.step-official-fails": {
+    "message": "Якщо офіційний запускач теж не працює, дотримуйтеся показаної там помилки або зверніться до підтримки Xbox"
+  },
+  "app.auth-error.xsts.step-prompts": {
+    "message": "Виконайте всі запити, показані Microsoft, Xbox або Minecraft"
+  },
+  "app.auth-error.xsts.what": {
+    "message": "Служби Xbox відхилили запит на авторизацію цього облікового запису для служб Minecraft, але не повернули конкретного обмеження, яке розпізнає {product}."
   },
   "app.auth-servers.unreachable.body": {
     "message": "Сервери автентифікації Minecraft можуть зараз не працювати. Перевірте з’єднання з інтернетом та спробуйте пізніше."
   },
   "app.auth-servers.unreachable.header": {
     "message": "Не вдається зв’язатися із серверами автентифікації"
+  },
+  "app.bedrock.account": {
+    "message": "Minecraft і Microsoft Store перевірте свою ліцензію Bedrock. Увійдіть там за допомогою облікового запису, якому належить Minecraft; ваш обліковий запис Java у цій панелі запуску може відрізнятися."
+  },
+  "app.bedrock.addon-help": {
+    "message": "Локальні пакети поведінки та сценарії. Налаштуйте їх у світових налаштуваннях у Minecraft."
+  },
+  "app.bedrock.addons": {
+    "message": "Додатки"
+  },
+  "app.bedrock.bedrock": {
+    "message": "Bedrock Edition"
+  },
+  "app.bedrock.behavior-pack": {
+    "message": "Пакет поведінки"
+  },
+  "app.bedrock.catalog.addons": {
+    "message": "Аддони"
+  },
+  "app.bedrock.catalog.description": {
+    "message": "Переглядайте додатки, пакети ресурсів, світи та сценарії від CurseForge."
+  },
+  "app.bedrock.catalog.discover": {
+    "message": "Відкрийте для себе вміст Bedrock"
+  },
+  "app.bedrock.catalog.discover-addons": {
+    "message": "Відкрийте для себе доповнення"
+  },
+  "app.bedrock.catalog.discover-scripts": {
+    "message": "Відкрийте для себе сценарії"
+  },
+  "app.bedrock.catalog.game-running": {
+    "message": "Закрийте Minecraft, перш ніж додавати пакети до світу, а потім повторіть спробу."
+  },
+  "app.bedrock.catalog.install-title": {
+    "message": "Встановити в Minecraft Bedrock"
+  },
+  "app.bedrock.catalog.instructions": {
+    "message": "Відкриється Minecraft, щоб імпортувати цей вміст. Перевірте результат у грі, потім активуйте пакети у налаштуваннях свого світу. Необхідні пакети та експериментальні налаштування вказані в описі проекту."
+  },
+  "app.bedrock.catalog.invalid-archive": {
+    "message": "Цей архів не містить підтримуваного вмісту Bedrock."
+  },
+  "app.bedrock.catalog.load-error": {
+    "message": "Не вдалося завантажити версії або світи проекту. Спробуйте знову."
+  },
+  "app.bedrock.catalog.missing-dependency": {
+    "message": "Для цього набору потрібен інший набір, який не активний у цьому світі. Спочатку встановіть залежності, перелічені автором."
+  },
+  "app.bedrock.catalog.no-versions": {
+    "message": "Для цього проекту немає підтримуваних файлів .mcaddon, .mcpack, .mcworld або ZIP."
+  },
+  "app.bedrock.catalog.no-worlds": {
+    "message": "Спочатку створіть світ у Minecraft, а потім оновіть цей список."
+  },
+  "app.bedrock.catalog.scripts": {
+    "message": "Сценарії"
+  },
+  "app.bedrock.catalog.version": {
+    "message": "Контентна версія"
+  },
+  "app.bedrock.catalog.world": {
+    "message": "Світ призначення"
+  },
+  "app.bedrock.catalog.world-instructions": {
+    "message": "Закрийте Minecraft перед встановленням. Ці пакети будуть додані та активовані лише у вибраному світі. Перевірте необхідні залежності та експериментальні налаштування в описі проекту."
+  },
+  "app.bedrock.catalog.world-success": {
+    "message": "Пакети додані до {world}. Відкрийте Minecraft, щоб грати в цей світ."
+  },
+  "app.bedrock.checking": {
+    "message": "Шукаю Minecraft for Windows…"
+  },
+  "app.bedrock.close-to-manage": {
+    "message": "Закрийте Minecraft, щоб редагувати файли, видалити вміст або відновити копію."
+  },
+  "app.bedrock.conflict-error": {
+    "message": "Цей вміст змінено або вихідне розташування зайнято. Копію для відновлення збережено, щоб уникнути перезапису ваших змін."
+  },
+  "app.bedrock.content": {
+    "message": "Уміст"
+  },
+  "app.bedrock.content-help": {
+    "message": "Місцеві ресурси та скін-паки. Активуйте їх у Minecraft; деякий вміст належить до окремих світів."
+  },
+  "app.bedrock.data-error": {
+    "message": "Не вдалося прочитати дані Minecraft. Оновіть, щоб повторити спробу."
+  },
+  "app.bedrock.data-location": {
+    "message": "Розташування даних Minecraft"
+  },
+  "app.bedrock.delete-help": {
+    "message": "Ці елементи буде видалено з Minecraft. Буде збережено копію для відновлення, включно з ураженими налаштуваннями світового пакету. Світи, які залежать від видаленого пакета, можуть втратити свої блоки або поведінку; відновіть його, перш ніж відкривати ці світи."
+  },
+  "app.bedrock.delete-title": {
+    "message": "Видалити локальний вміст"
+  },
+  "app.bedrock.description": {
+    "message": "Грайте в Minecraft for Windows і імпортуйте свої світи та доповнення."
+  },
+  "app.bedrock.detection-error": {
+    "message": "Не вдалося перевірити встановлення Minecraft. Спробуйте знову."
+  },
+  "app.bedrock.development": {
+    "message": "розвиток"
+  },
+  "app.bedrock.edition": {
+    "message": "Видання Minecraft"
+  },
+  "app.bedrock.empty-folder": {
+    "message": "Ця папка порожня."
+  },
+  "app.bedrock.file-filter": {
+    "message": "Bedrock світи та доповнення"
+  },
+  "app.bedrock.file-size": {
+    "message": "Розмір"
+  },
+  "app.bedrock.files": {
+    "message": "Файли"
+  },
+  "app.bedrock.folder": {
+    "message": "Папка"
+  },
+  "app.bedrock.folder-error": {
+    "message": "Не вдалося відкрити цю папку Minecraft. Оновіть дані та повторіть спробу."
+  },
+  "app.bedrock.import-button": {
+    "message": "Імпорт файлу"
+  },
+  "app.bedrock.import-description": {
+    "message": "Виберіть файл .mcworld, .mcpack або .mcaddon. Minecraft відкриє та обробить імпорт."
+  },
+  "app.bedrock.import-error": {
+    "message": "Не вдалося надіслати файл до Minecraft. Перевірте, чи встановлено Minecraft for Windows, і повторіть спробу."
+  },
+  "app.bedrock.import-title": {
+    "message": "Світи та доповнення"
+  },
+  "app.bedrock.installation": {
+    "message": "Офіційна установка"
+  },
+  "app.bedrock.installed": {
+    "message": "Minecraft for Windows встановлено"
+  },
+  "app.bedrock.invalid-file": {
+    "message": "Виберіть дійсний локальний архів .mcworld, .mcpack або .mcaddon."
+  },
+  "app.bedrock.java": {
+    "message": "Java Edition"
+  },
+  "app.bedrock.large-file": {
+    "message": "Цей файл перевищує ліміт імпорту 8 GiB."
+  },
+  "app.bedrock.launch-error": {
+    "message": "Не вдалося відкрити Minecraft. Відкрийте офіційну програму запуску або Microsoft Store, щоб перевірити встановлення."
+  },
+  "app.bedrock.launcher": {
+    "message": "Відкрийте офіційну програму запуску"
+  },
+  "app.bedrock.launcher-detected": {
+    "message": "Виявлено офіційну програму запуску. Встановіть там Minecraft for Windows, щоб продовжити."
+  },
+  "app.bedrock.loading-data": {
+    "message": "Читання даних Minecraft…"
+  },
+  "app.bedrock.location": {
+    "message": "Розташування"
+  },
+  "app.bedrock.log-truncated": {
+    "message": "Показано останній 1 MiB цього журналу."
+  },
+  "app.bedrock.logs": {
+    "message": "Журнали"
+  },
+  "app.bedrock.missing": {
+    "message": "Щоб почати, встановіть Minecraft for Windows"
+  },
+  "app.bedrock.mutation-error": {
+    "message": "Не вдалося змінити цей вміст. Закрийте Minecraft і оновіть. Вашу копію для відновлення збережено."
+  },
+  "app.bedrock.name": {
+    "message": "Назва"
+  },
+  "app.bedrock.no-addons": {
+    "message": "Локальних доповнень не знайдено. Щоб розпочати, імпортуйте файл .mcpack або .mcaddon."
+  },
+  "app.bedrock.no-content": {
+    "message": "Місцевий вміст не знайдено."
+  },
+  "app.bedrock.no-data": {
+    "message": "Відкрийте Minecraft один раз, щоб створити його папки даних, а потім оновіть тут."
+  },
+  "app.bedrock.no-logs": {
+    "message": "Журнали вмісту не знайдено. Увімкніть реєстрацію вмісту в Minecraft Налаштування > Творець, а потім відкрийте свій світ."
+  },
+  "app.bedrock.no-recoveries": {
+    "message": "Копій для відновлення ще немає."
+  },
+  "app.bedrock.no-results": {
+    "message": "Немає відповідних елементів."
+  },
+  "app.bedrock.no-worlds": {
+    "message": "Локальних світів не знайдено. Створіть його в Minecraft або імпортуйте файл .mcworld."
+  },
+  "app.bedrock.open-folder": {
+    "message": "Відкрити теку"
+  },
+  "app.bedrock.parent-folder": {
+    "message": "Батьківська тека"
+  },
+  "app.bedrock.partial-data": {
+    "message": "Деякі папки не вдалося прочитати або досягнуто ліміту відображення. Ви можете перевірити їх у Провіднику файлів."
+  },
+  "app.bedrock.play": {
+    "message": "Грати"
+  },
+  "app.bedrock.recovery-help": {
+    "message": "Тут зберігаються оригінальні файли та видалений вміст. Відновіть копію, поки Minecraft закрито. Існуючий вміст і пізніші зміни ніколи не перезаписуються."
+  },
+  "app.bedrock.recovery-title": {
+    "message": "Копії для відновлення"
+  },
+  "app.bedrock.refresh": {
+    "message": "Перевірте ще раз"
+  },
+  "app.bedrock.refresh-data": {
+    "message": "Перезавантажити"
+  },
+  "app.bedrock.reload-before-save": {
+    "message": "Перезавантажте цей файл перед збереженням."
+  },
+  "app.bedrock.repair": {
+    "message": "Відремонтуйте або оновіть установку за допомогою Microsoft Store або офіційної програми запуску."
+  },
+  "app.bedrock.resource-pack": {
+    "message": "Пакет ресурсів"
+  },
+  "app.bedrock.restore": {
+    "message": "Відновити"
+  },
+  "app.bedrock.running": {
+    "message": "Запущено"
+  },
+  "app.bedrock.save-error": {
+    "message": "Не вдалося зберегти. Можливо, файл змінився, містить недійсний JSON або вже використовується. Перезавантажте його та повторіть спробу."
+  },
+  "app.bedrock.search": {
+    "message": "Пошук місцевого вмісту…"
+  },
+  "app.bedrock.select-log": {
+    "message": "Виберіть журнал, щоб прочитати його."
+  },
+  "app.bedrock.skin-pack": {
+    "message": "Пакет скінів"
+  },
+  "app.bedrock.store": {
+    "message": "Встановити або оновити"
+  },
+  "app.bedrock.store-error": {
+    "message": "Не вдалося відкрити Microsoft Store. Відкрийте його з меню «Пуск» Windows."
+  },
+  "app.bedrock.submitted": {
+    "message": "Файл надіслано на Minecraft. Перевірте результат імпорту в грі."
+  },
+  "app.bedrock.title": {
+    "message": "Minecraft Bedrock"
+  },
+  "app.bedrock.unsupported": {
+    "message": "Інтеграція Bedrock вимагає Windows. Ви можете продовжувати грати в Java Edition на цьому пристрої."
+  },
+  "app.bedrock.update": {
+    "message": "Оновити Minecraft"
+  },
+  "app.bedrock.update-help": {
+    "message": "У Microsoft Store перевірте наявність оновлень і виберіть Minecraft for Windows. Установлена ​​версія оновиться, коли ви повернетеся."
+  },
+  "app.bedrock.version": {
+    "message": "Установка Windows {version}"
+  },
+  "app.bedrock.version-column": {
+    "message": "Версія"
+  },
+  "app.bedrock.world-scope": {
+    "message": "Світ: {name}"
+  },
+  "app.bedrock.worlds": {
+    "message": "Світи"
   },
   "app.behavior-settings.confirmations.title": {
     "message": "Підтвердження"
@@ -194,32 +722,8 @@
   "app.behavior-settings.startup-and-navigation.title": {
     "message": "Запуск і навігація"
   },
-  "app.behavior-settings.sync-across-devices.description": {
-    "message": "Використовуватиме цю поведінку всюди, де ви ввійшли. Вимкніть це, щоб зберегти окремі налаштування на цьому пристрої."
-  },
-  "app.behavior-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Увійдіть в обліковий запис Modrint, щоб синхронізувати налаштування."
-  },
-  "app.behavior-settings.sync-across-devices.title": {
-    "message": "Синхронізувати поведінку між пристроями"
-  },
-  "app.browse.add-servers-to-instance": {
-    "message": "Додавання сервера до примірника"
-  },
   "app.browse.add-to-an-instance": {
     "message": "Додати до примірника"
-  },
-  "app.browse.add-to-instance": {
-    "message": "Додати до примірника"
-  },
-  "app.browse.add-to-instance-name": {
-    "message": "Додати до «{instanceName}»"
-  },
-  "app.browse.added": {
-    "message": "Додано"
-  },
-  "app.browse.already-added": {
-    "message": "Уже додано"
   },
   "app.browse.back-to-instance": {
     "message": "Назад до примірника"
@@ -227,14 +731,11 @@
   "app.browse.discover-project-type": {
     "message": "Огляд — {projectType}"
   },
-  "app.browse.discover-servers": {
-    "message": "Огляд — сервери"
-  },
-  "app.browse.hide-added-servers": {
-    "message": "Приховати вже додані сервери"
-  },
   "app.browse.hide-installed-modpacks": {
     "message": "Приховати вже встановлені"
+  },
+  "app.browse.open-in-curseforge": {
+    "message": "Відкрити в CurseForge"
   },
   "app.browse.project-actions.label": {
     "message": "Дії з проєктом"
@@ -251,17 +752,8 @@
   "app.browse.project-type.resource-packs": {
     "message": "Пакети ресурсів"
   },
-  "app.browse.project-type.servers": {
-    "message": "Сервери"
-  },
   "app.browse.project-type.shaders": {
     "message": "Шейдери"
-  },
-  "app.browse.server-instance-content-warning": {
-    "message": "Додавання вмісту може завадити вам приєднатися до цього сервера. Будь-який доданий вміст буде видалено під час оновлення керованого вмісту сервера."
-  },
-  "app.browse.server.installing": {
-    "message": "Установлення"
   },
   "app.content-install.no-compatible-versions": {
     "message": "Жодна доступна версія не сумісна з {compatibilityLabel}. Виберіть версію, щоб усе одно її встановити. Залежності не встановлюватимуться автоматично."
@@ -281,8 +773,215 @@
   "app.content.sync-resource-packs-disabled": {
     "message": "Спочатку ввімкніть синхронізацію пакетів ресурсів у налаштуваннях застосунку."
   },
+  "app.curseforge.rate-limit.text": {
+    "message": "Досягнуто спільного ліміту запитів. Зачекайте трохи й спробуйте знову."
+  },
+  "app.curseforge.rate-limit.title": {
+    "message": "CurseForge тимчасово перевантажений"
+  },
+  "app.download-manager.active": {
+    "message": "Активно"
+  },
+  "app.download-manager.attention": {
+    "message": "Потребує уваги"
+  },
+  "app.download-manager.cancel": {
+    "message": "Скасувати встановлення"
+  },
+  "app.download-manager.canceling": {
+    "message": "Скасування встановлення…"
+  },
+  "app.download-manager.clear-all": {
+    "message": "Очистити все"
+  },
+  "app.download-manager.clear-completed": {
+    "message": "Очистити всі завершені завдання"
+  },
+  "app.download-manager.complete": {
+    "message": "Завершено"
+  },
+  "app.download-manager.duplicated-instance": {
+    "message": "Дубльований примірник"
+  },
+  "app.download-manager.empty": {
+    "message": "Немає завдань установлення"
+  },
+  "app.download-manager.estimated-rate": {
+    "message": "Приблизна швидкість завантаження"
+  },
+  "app.download-manager.eta": {
+    "message": "Приблизний час, що залишився для цього завантаження"
+  },
+  "app.download-manager.hide": {
+    "message": "Приховати завдання встановлення"
+  },
+  "app.download-manager.imported-instance": {
+    "message": "Імпортований примірник"
+  },
+  "app.download-manager.instance-installation": {
+    "message": "Установлення примірника"
+  },
+  "app.download-manager.modpack": {
+    "message": "Збірка"
+  },
+  "app.download-manager.modpack-installation": {
+    "message": "Установлення збірки"
+  },
+  "app.download-manager.new-instance": {
+    "message": "Новий примірник"
+  },
+  "app.download-manager.pause": {
+    "message": "Призупинити встановлення"
+  },
+  "app.download-manager.paused": {
+    "message": "Призупинено"
+  },
+  "app.download-manager.remove": {
+    "message": "Вилучити з історії"
+  },
+  "app.download-manager.resume": {
+    "message": "Відновити встановлення"
+  },
+  "app.download-manager.show": {
+    "message": "Показати завдання встановлення"
+  },
+  "app.download-manager.tasks": {
+    "message": "Завдання"
+  },
+  "app.download-manager.title": {
+    "message": "Менеджер завантажень"
+  },
+  "app.download-manager.verifying": {
+    "message": "Перевірка"
+  },
+  "app.error.cancel-dir.button": {
+    "message": "Скасувати зміну каталогу"
+  },
+  "app.error.copy-debug-info": {
+    "message": "Скопіювати налагоджувальну інформацію"
+  },
+  "app.error.debug-info.heading": {
+    "message": "Налагоджувальна інформація"
+  },
+  "app.error.game-pass.body-end": {
+    "message": "спочатку. Коли закінчите, поверніться сюди й увійдіть!"
+  },
+  "app.error.game-pass.body-start": {
+    "message": "Спробуйте увійти через"
+  },
+  "app.error.game-pass.heading": {
+    "message": "Користуєтеся PC Game Pass, перейшли з Bedrock чи щойно придбали гру?"
+  },
+  "app.error.game-pass.launcher-link": {
+    "message": "офіційний запускач Minecraft"
+  },
+  "app.error.get-support.button": {
+    "message": "Отримати підтримку"
+  },
+  "app.error.help.end": {
+    "message": "і ми будемо раді допомогти! Обов'язково додайте таку налагоджувальну інформацію:"
+  },
+  "app.error.help.start": {
+    "message": "Якщо нічого не працює й потрібна допомога, відвідайте"
+  },
+  "app.error.help.support-link": {
+    "message": "нашу сторінку підтримки"
+  },
+  "app.error.hosts.body-end": {
+    "message": "намагався підключитися до служб Microsoft / Xbox / Minecraft, але віддалений сервер відхилив з'єднання. Це може означати, що ці служби заблоковано у файлі hosts. Відвідайте"
+  },
+  "app.error.hosts.fix-end": {
+    "message": ", щоб дізнатися, як виправити проблему."
+  },
+  "app.error.migrate.body-end": {
+    "message": "не може перейти до вибраного нового каталогу. Зверніться до підтримки по допомогу або скасуйте зміну каталогу."
+  },
+  "app.error.network.body-end": {
+    "message": "під час підключення до серверів Microsoft. Часто це наслідок поганого з'єднання, тому радимо спробувати ще раз. Якщо проблеми не зникають, виконайте кроки в"
+  },
+  "app.error.network.body-start": {
+    "message": "Схоже, виникли проблеми з"
+  },
+  "app.error.network.heading": {
+    "message": "Проблеми з мережею"
+  },
+  "app.error.network.troubleshoot-end": {
+    "message": "для усунення неполадок."
+  },
+  "app.error.no-error-message": {
+    "message": "Немає повідомлення про помилку."
+  },
+  "app.error.no-loader.body-end": {
+    "message": "не вдалося знайти версію завантажувача для цього примірника."
+  },
+  "app.error.no-loader.fix": {
+    "message": "Щоб виправити це, потрібно відновити примірник. Натисніть кнопку нижче."
+  },
+  "app.error.not-enough-space.body": {
+    "message": "Схоже, на диску з вибраним каталогом недостатньо місця. Звільніть трохи місця й спробуйте знову або скасуйте зміну каталогу."
+  },
+  "app.error.not-enough-space.heading": {
+    "message": "Недостатньо місця"
+  },
+  "app.error.read-only.body-end": {
+    "message": "не може записувати у вибраний каталог. Змініть права доступу до каталогу й спробуйте знову або скасуйте зміну каталогу."
+  },
+  "app.error.read-only.body-start": {
+    "message": "Схоже, що"
+  },
+  "app.error.read-only.heading": {
+    "message": "Змініть права доступу до каталогу"
+  },
+  "app.error.repair-instance.button": {
+    "message": "Відновити примірник"
+  },
+  "app.error.retry-dir.button": {
+    "message": "Повторити зміну каталогу"
+  },
+  "app.error.state-init.body-end": {
+    "message": "не вдалося завантажити правильно. Можливо, файл пошкоджено або в застосунку бракує важливих файлів."
+  },
+  "app.error.state-init.fix-intro": {
+    "message": "Можливо, це вдасться виправити одним із таких способів:"
+  },
+  "app.error.state-init.fix-online": {
+    "message": "Переконайтеся, що маєте підключення до інтернету, потім спробуйте перезапустити застосунок."
+  },
+  "app.error.state-init.fix-redownload": {
+    "message": "Завантажте застосунок заново."
+  },
   "app.error.state-init.open-backups-folder": {
     "message": "Відкрити теку резервних копій"
+  },
+  "app.error.support-article-link": {
+    "message": "нашу статтю підтримки"
+  },
+  "app.error.title.change-dir-failed": {
+    "message": "Не вдалося змінити каталог застосунку"
+  },
+  "app.error.title.generic": {
+    "message": "Сталася помилка"
+  },
+  "app.error.title.no-loader-selected": {
+    "message": "Завантажувач не вибрано"
+  },
+  "app.error.title.sign-in-failed": {
+    "message": "Не вдалося увійти в Minecraft"
+  },
+  "app.error.title.state-init": {
+    "message": "Помилка ініціалізації {product}"
+  },
+  "app.error.try-again.button": {
+    "message": "Спробувати увійти знову"
+  },
+  "app.error.try-another-account.body": {
+    "message": "Перевірте, що увійшли в правильний обліковий запис. Можливо, Minecraft придбано на іншому обліковому записі Microsoft."
+  },
+  "app.error.try-another-account.button": {
+    "message": "Спробувати інший обліковий запис"
+  },
+  "app.error.try-another-account.heading": {
+    "message": "Спробуйте інший обліковий запис Microsoft"
   },
   "app.export-modal.description-placeholder": {
     "message": "Уведіть опис збірки…"
@@ -295,6 +994,27 @@
   },
   "app.export-modal.export-complete-description": {
     "message": "{name} успішно експортовано."
+  },
+  "app.export-modal.format-label": {
+    "message": "Формат експорту"
+  },
+  "app.export-modal.format.curseforge": {
+    "message": "CurseForge"
+  },
+  "app.export-modal.format.curseforge-description": {
+    "message": "ZIP CurseForge з manifest.json і вибраними файлами в папці overrides."
+  },
+  "app.export-modal.format.mrpack": {
+    "message": "Modrinth"
+  },
+  "app.export-modal.format.mrpack-description": {
+    "message": "Для лаунчерів із підтримкою збірок Modrinth. Містить посилання на завантаження та вибрані додаткові файли."
+  },
+  "app.export-modal.format.orbpack": {
+    "message": "{productName}"
+  },
+  "app.export-modal.format.orbpack-description": {
+    "message": "Переносна збірка {productName} з вибраними файлами. Відкрийте її безпосередньо в лаунчері."
   },
   "app.export-modal.header": {
     "message": "Експортувати збірку"
@@ -352,15 +1072,6 @@
   },
   "app.features-settings.sidebar.title": {
     "message": "Бічна панель"
-  },
-  "app.features-settings.sync-across-devices.description": {
-    "message": "Використовуватиме ці особливості всюди, де ви ввійшли. Вимкніть це, щоб зберегти окремі налаштування на цьому пристрої."
-  },
-  "app.features-settings.sync-across-devices.signed-out-tooltip": {
-    "message": "Увійдіть в обліковий запис Modrint, щоб синхронізувати налаштування."
-  },
-  "app.features-settings.sync-across-devices.title": {
-    "message": "Синхронізувати особливості між пристроями"
   },
   "app.home.jump-back-in.actions.label": {
     "message": "Дії з примірником"
@@ -464,62 +1175,20 @@
   "app.instance.actions.label": {
     "message": "Дії з примірником"
   },
-  "app.instance.add-server.add": {
-    "message": "Додати"
-  },
-  "app.instance.add-server.added": {
-    "message": "Додано"
-  },
-  "app.instance.add-server.adding": {
-    "message": "Додаємо..."
-  },
-  "app.instance.add-server.cancel": {
-    "message": "Скасувати"
-  },
-  "app.instance.add-server.compatibility-warning": {
-    "message": "Цей сервер може не бути сумісним з усіма примірниками."
-  },
-  "app.instance.add-server.search-placeholder": {
-    "message": "Шукати примірник"
-  },
-  "app.instance.add-server.title": {
-    "message": "Додати сервер до примірника"
-  },
-  "app.instance.admonitions.shared-instance.added-label": {
-    "message": "Додано"
-  },
-  "app.instance.admonitions.shared-instance.changes-body": {
-    "message": "Локальний примірник містить зміни, якими ви ще не поділилися з іншими користувачами."
-  },
-  "app.instance.admonitions.shared-instance.changes-header": {
-    "message": "Ви ще не поділилися своїми змінами"
-  },
-  "app.instance.admonitions.shared-instance.publish-button": {
-    "message": "Опублікувати оновлення"
-  },
-  "app.instance.admonitions.shared-instance.publishing-button": {
-    "message": "Публікуємо..."
-  },
-  "app.instance.admonitions.shared-instance.removed-label": {
-    "message": "Видалено"
-  },
-  "app.instance.admonitions.shared-instance.review-admonition-header": {
-    "message": "Публікація оновлення"
-  },
-  "app.instance.admonitions.shared-instance.review-description": {
-    "message": "Переглянути зміни вмісту, які застосуються для всіх, хто використовує цей примірник."
-  },
-  "app.instance.admonitions.shared-instance.review-header": {
-    "message": "Огляд змін"
-  },
-  "app.instance.admonitions.shared-instance.reviewing-button": {
-    "message": "Оглядаємо..."
-  },
   "app.instance.confirm-delete.admonition-body": {
     "message": "Усі дані вашого примірника будуть видалені назавжди, включно з вашими світами, налаштуваннями та всім установленим умістом."
   },
   "app.instance.confirm-delete.admonition-header": {
     "message": "Ця дія є незворотною"
+  },
+  "app.instance.confirm-delete.bulk-admonition-body": {
+    "message": "Усі дані цих примірників ({count}) буде видалено назавжди, включно з їхніми світами, налаштуваннями та всім установленим умістом."
+  },
+  "app.instance.confirm-delete.bulk-delete-button": {
+    "message": "Видалити {count} примірників"
+  },
+  "app.instance.confirm-delete.bulk-header": {
+    "message": "Видалити {count} примірників"
   },
   "app.instance.confirm-delete.delete-button": {
     "message": "Видалити примірник"
@@ -533,8 +1202,8 @@
   "app.instance.content.managed-content.modpack-header": {
     "message": "Уміст збірки"
   },
-  "app.instance.content.managed-content.shared-header": {
-    "message": "Спільний уміст"
+  "app.instance.content.managed-content.server-header": {
+    "message": "Уміст сервера"
   },
   "app.instance.modpack-already-installed.body": {
     "message": "Ця збірка вже встановлена в примірнику <bold>«{instanceName}»</bold>. Справді бажаєте її дублювати?"
@@ -587,36 +1256,6 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Назад до примірника"
   },
-  "app.instance.shared-instance-already-installed.body": {
-    "message": "Цей спільний примірник уже встановлено як <bold>«{instanceName}»</bold>. Справді бажаєте встановити ще одну копію?"
-  },
-  "app.instance.shared-instance-already-installed.header": {
-    "message": "Спільний примірник уже встановлено"
-  },
-  "app.instance.shared-instance-already-installed.install-anyway": {
-    "message": "Усе одно встановити"
-  },
-  "app.instance.shared-instance-already-installed.instance": {
-    "message": "Примірник"
-  },
-  "app.instance.shared-instance-wrong-account.fallback-username": {
-    "message": "пов'язаний обліковий запис"
-  },
-  "app.instance.shared-instance-wrong-account.owner-admonition-body-v2": {
-    "message": "для керування цим спільним примірником. Ви не зможете надсилати оновлення користувачам."
-  },
-  "app.instance.shared-instance-wrong-account.sign-in-as-label": {
-    "message": "Увійти як"
-  },
-  "app.instance.shared-instance-wrong-account.signed-out-header": {
-    "message": "Ви повинні ввійти в Modrinth"
-  },
-  "app.instance.shared-instance-wrong-account.user-admonition-body-v2": {
-    "message": "щоб отримувати оновлення для цього спільного примірника."
-  },
-  "app.instance.shared-instance-wrong-account.warning-header": {
-    "message": "Ви використовуєте не той обліковий запис Modrinth"
-  },
   "app.instance.shortcut.created": {
     "message": "Ярлик створено"
   },
@@ -635,17 +1274,14 @@
   "app.instance.tab.screenshots": {
     "message": "Знімки екрана"
   },
-  "app.instance.tab.share": {
-    "message": "Поділитись"
-  },
   "app.instance.tab.worlds": {
     "message": "Світи"
   },
   "app.instance.worlds.add-server": {
     "message": "Додати сервер"
   },
-  "app.instance.worlds.browse-servers": {
-    "message": "Переглянути сервери"
+  "app.instance.worlds.browse": {
+    "message": "Переглянути світи"
   },
   "app.instance.worlds.delete-world-modal.delete-button": {
     "message": "Видалити світ"
@@ -751,6 +1387,21 @@
   },
   "app.java-selector.test-installation": {
     "message": "Протестувати інсталяцію Java"
+  },
+  "app.launch-link.instance": {
+    "message": "Посилання хоче запустити {instance}."
+  },
+  "app.launch-link.proceed": {
+    "message": "Запустити"
+  },
+  "app.launch-link.server": {
+    "message": "Посилання хоче запустити {instance} і приєднатися до сервера {target}. Продовжуйте, лише якщо довіряєте джерелу цього посилання."
+  },
+  "app.launch-link.title": {
+    "message": "Відкрити Minecraft за посиланням?"
+  },
+  "app.launch-link.world": {
+    "message": "Посилання хоче запустити {instance} і відкрити світ {target}."
   },
   "app.library.actions.label": {
     "message": "Дії з бібліотекою"
@@ -1013,122 +1664,14 @@
   "app.library.title": {
     "message": "Бібліотека"
   },
-  "app.modal.install-to-play.additional-context": {
-    "message": "Додатковий контекст"
-  },
-  "app.modal.install-to-play.additional-context-placeholder": {
-    "message": "Надайте посилання та зображення, які стосуються скарги"
-  },
-  "app.modal.install-to-play.block-user": {
-    "message": "Заблокувати користувача"
-  },
-  "app.modal.install-to-play.content-you-are-reporting": {
-    "message": "Примірник, на який скаржитеся"
-  },
-  "app.modal.install-to-play.delete-instance": {
-    "message": "Видалити примірник"
-  },
-  "app.modal.install-to-play.external-files-dont-install": {
-    "message": "Не встановлювати"
-  },
-  "app.modal.install-to-play.header": {
-    "message": "Установлення для гри"
-  },
-  "app.modal.install-to-play.install-anyway": {
-    "message": "Усе одно встановити"
-  },
-  "app.modal.install-to-play.install-button": {
-    "message": "Установити"
-  },
-  "app.modal.install-to-play.invite-warning": {
-    "message": "Це запрошення створив інший користувач Modrinth, не сам Modrinth. Приймайте запрошення лише від тих людей, яким довіряєте."
-  },
-  "app.modal.install-to-play.invite-warning-with-creator": {
-    "message": "Це запрошення створив користувач <creator>{username}</creator>, не Modrinth. Приймайте запрошення лише від людей, яким довіряєте."
-  },
-  "app.modal.install-to-play.managed-content.modpack-header": {
-    "message": "Уміст збірки"
-  },
-  "app.modal.install-to-play.mod-count": {
-    "message": "{count, plural, one {# мод} few {# мода} other {# модів}}"
-  },
-  "app.modal.install-to-play.report-description": {
-    "message": "Використайте цю форму, щоб поскаржитися на примірники, які можуть порушувати наші <rules-link>Правила</rules-link> чи <terms-link>Умови використання</terms-link>."
-  },
-  "app.modal.install-to-play.report-image-invalid-type": {
-    "message": "Тип файлу зображення не підтримується"
-  },
-  "app.modal.install-to-play.report-image-too-large": {
-    "message": "Файл перевищує обмеження розміру в 1 МіБ"
-  },
-  "app.modal.install-to-play.report-legal-claims": {
-    "message": "Для повідомлень щодо DMCA або інших юридичних претензій ознайомтеся з <copyright-link>«Політикою щодо авторських прав»</copyright-link>."
-  },
-  "app.modal.install-to-play.report-reason": {
-    "message": "Яке правило порушує цей примірник?"
-  },
-  "app.modal.install-to-play.report-shared-instance-header": {
-    "message": "Скарга на спільний примірник"
-  },
-  "app.modal.install-to-play.report-submitted": {
-    "message": "Скаргу відправлено"
-  },
-  "app.modal.install-to-play.report-support-and-bugs": {
-    "message": "Для отримання допомоги зв'яжіться з нашою <support-link>командою підтримки</support-link>. Для створення звіту про помилки відкрийте <github-link>issue в GitHub</github-link>."
-  },
-  "app.modal.install-to-play.reviewed-files": {
-    "message": "Файли, які не опубліковані на Modrinth, не перевіряються."
-  },
-  "app.modal.install-to-play.shared-instance": {
-    "message": "Спільний примірник"
-  },
-  "app.modal.install-to-play.shared-instance-content": {
-    "message": "Уміст спільного примірника"
-  },
-  "app.modal.install-to-play.shared-instance-unknown-files-description": {
-    "message": "Цей спільний примірник містить файли, які не опубліковані на Modrinth. Наполегливо радимо встановлювати вміст лише з тих джерел, яким ви довіряєте."
-  },
-  "app.modal.install-to-play.unknown-files-description": {
-    "message": "Ця збірка сервера містить файли, які не опубліковані на Modrinth. Наполегливо радимо встановлювати вміст лише з тих джерел, яким ви довіряєте."
-  },
-  "app.modal.install-to-play.unknown-files-warning": {
-    "message": "Попередження про невідомі файли"
-  },
-  "app.modal.install-to-play.unrecognized-files": {
-    "message": "Нерозпізнані файли"
-  },
-  "app.modal.install-to-play.user-blocked": {
-    "message": "Користувача заблоковано"
-  },
-  "app.modal.install-to-play.view-contents": {
-    "message": "Дивитися вміст"
-  },
-  "app.modal.update-to-play.header": {
-    "message": "Оновлення для гри"
-  },
-  "app.modal.update-to-play.removed": {
-    "message": "Видалено"
-  },
-  "app.modal.update-to-play.server-modpack-unknown-files-description": {
-    "message": "Це оновлення збірки сервера містить файли, які не опубліковані на Modrinth. Наполегливо радимо встановлювати вміст лише з тих джерел, яким ви довіряєте."
-  },
-  "app.modal.update-to-play.shared-instance-added-label": {
-    "message": "Додано"
-  },
-  "app.modal.update-to-play.shared-instance-removed-label": {
-    "message": "Видалено"
-  },
-  "app.modal.update-to-play.shared-instance-unknown-files-description": {
-    "message": "Це оновлення спільного примірника містить файли, які не опубліковані на Modrinth. Наполегливо радимо встановлювати вміст лише з тих джерел, яким ви довіряєте."
-  },
-  "app.modal.update-to-play.update-required": {
-    "message": "Необхідне оновлення"
-  },
-  "app.modal.update-to-play.update-required-description": {
-    "message": "Щоб запустити гру, вам необхідно встановити оновлення «{name}»."
+  "app.nav.collapse-sidebar": {
+    "message": "Згорнути бічну панель"
   },
   "app.nav.create-new-instance": {
     "message": "Створити новий примірник"
+  },
+  "app.nav.expand-sidebar": {
+    "message": "Розгорнути бічну панель"
   },
   "app.nav.home": {
     "message": "Головна"
@@ -1157,6 +1700,12 @@
   "app.project.coming-soon": {
     "message": "Незабаром"
   },
+  "app.project.gallery.image-fallback": {
+    "message": "Зображення галереї"
+  },
+  "app.project.gallery.open-image-new-tab": {
+    "message": "Відкрити зображення в новій вкладці"
+  },
   "app.project.install-button.already-installed": {
     "message": "Проєкт уже встановлено"
   },
@@ -1174,6 +1723,9 @@
   },
   "app.project.more-options": {
     "message": "Інші опції"
+  },
+  "app.project.open-in-curseforge": {
+    "message": "Відкрити в CurseForge"
   },
   "app.project.tab.description": {
     "message": "Опис"
@@ -1207,6 +1759,9 @@
   },
   "app.quick-instance-switcher.instance-locked": {
     "message": "Цей примірник заблоковано"
+  },
+  "app.quick-instance-switcher.title": {
+    "message": "Останні примірники"
   },
   "app.quick-instance-switcher.view-instance": {
     "message": "Переглянути примірник"
@@ -1462,6 +2017,15 @@
   },
   "app.settings.downloading": {
     "message": "Завантаження v{version}"
+  },
+  "app.settings.feature-flags.no-flags-found": {
+    "message": "Не знайдено спеціальних функцій за запитом «{query}»"
+  },
+  "app.settings.feature-flags.reset-to-default": {
+    "message": "Скинути до стандартного"
+  },
+  "app.settings.feature-flags.search-placeholder": {
+    "message": "Пошук спеціальних функцій..."
   },
   "app.settings.game-options.category.accessibility.description": {
     "message": "Налаштування доступности"
@@ -2477,6 +3041,9 @@
   "app.settings.operating-system.macos": {
     "message": "macOS"
   },
+  "app.settings.privacy.discord-rich-presence.description": {
+    "message": "Показувати {productName} як поточну активність у Discord. Це не впливає на Rich Presence, який додають моди до примірників."
+  },
   "app.settings.privacy.discord-rich-presence.title": {
     "message": "Discord Rich Presence"
   },
@@ -2491,6 +3058,9 @@
   },
   "app.settings.resource-management.app-cache.confirm.title": {
     "message": "Очистити кеш?"
+  },
+  "app.settings.resource-management.app-cache.description": {
+    "message": "Очистити кешовані дані та завантажити їх знову. Застосунок може завантажуватися повільніше, поки кеш не відновиться."
   },
   "app.settings.resource-management.app-cache.purge": {
     "message": "Очистити кеш"
@@ -2530,6 +3100,78 @@
   },
   "app.settings.resource-management.maximum-concurrent-writes.title": {
     "message": "Максимум одночасних записів"
+  },
+  "app.settings.resource-management.store.attention": {
+    "message": "Деякі файли потребують уваги"
+  },
+  "app.settings.resource-management.store.cache-limit.description": {
+    "message": "Зберігати такий обсяг невикористовуваного вмісту для майбутніх установлень. Зберігання більшого обсягу може заощадити час на завантаження."
+  },
+  "app.settings.resource-management.store.cache-limit.label": {
+    "message": "Зберігати невикористовувані завантаження"
+  },
+  "app.settings.resource-management.store.cache-limit.unit": {
+    "message": "Гіб"
+  },
+  "app.settings.resource-management.store.calculating": {
+    "message": "Обчислення"
+  },
+  "app.settings.resource-management.store.clear": {
+    "message": "Очистити невикористане"
+  },
+  "app.settings.resource-management.store.clear.description": {
+    "message": "Видалити невикористаний завантажений уміст"
+  },
+  "app.settings.resource-management.store.cleared": {
+    "message": "Звільнено {size} дискового простору."
+  },
+  "app.settings.resource-management.store.clearing": {
+    "message": "Очищення…"
+  },
+  "app.settings.resource-management.store.description": {
+    "message": "Заощаджуйте місце, повторно використовуючи наявні інсталяції ігор, модів та пакетів між вашими примірниками."
+  },
+  "app.settings.resource-management.store.empty": {
+    "message": "Установіть моди чи пакети, щоби побачити тут використання вашого сховища."
+  },
+  "app.settings.resource-management.store.issues": {
+    "message": "Переглянути {count, plural, one {# проблему} few {# проблеми} many {# проблем} other {# проблем}}"
+  },
+  "app.settings.resource-management.store.nothing-to-clear": {
+    "message": "Немає невикористаного вмісту для очищення."
+  },
+  "app.settings.resource-management.store.repair": {
+    "message": "Перевірити й виправити"
+  },
+  "app.settings.resource-management.store.repair.running-description": {
+    "message": "Це закриє всі запущені примірники."
+  },
+  "app.settings.resource-management.store.repair.verify-description": {
+    "message": "Перевірити наявність відсутніх або пошкоджених файлів та відновити їх."
+  },
+  "app.settings.resource-management.store.repairing": {
+    "message": "Перевірка та виправлення…"
+  },
+  "app.settings.resource-management.store.shared.label": {
+    "message": "Спільні"
+  },
+  "app.settings.resource-management.store.title": {
+    "message": "Сховище вмісту"
+  },
+  "app.settings.resource-management.store.total": {
+    "message": "Використано {size}"
+  },
+  "app.settings.resource-management.store.unique.label": {
+    "message": "Унікальний"
+  },
+  "app.settings.resource-management.store.unused.label": {
+    "message": "Залишений"
+  },
+  "app.settings.resource-management.store.verification-result": {
+    "message": "Перевірено {checked, plural, one {# файл} few {# файли} many {# файлів} other {# файлу}} та виконано {repaired, plural, one {# виправлення} few {# виправленя} many {# виправлень} other {# виправлення}}."
+  },
+  "app.settings.resource-management.store.verified": {
+    "message": "Перевірку завершено"
   },
   "app.settings.sidebar.label.instances": {
     "message": "Примірники"
@@ -2780,8 +3422,41 @@
   "app.settings.tabs.synced-options": {
     "message": "Спільні налаштування"
   },
-  "app.sidebar.playing-as": {
-    "message": "Ігровий профіль"
+  "app.sidebar.advertising.label": {
+    "message": "Реклама"
+  },
+  "app.sidebar.advertising.preview": {
+    "message": "Попередній перегляд · місце {number}"
+  },
+  "app.sidebar.featured.next": {
+    "message": "Наступна збірка"
+  },
+  "app.sidebar.featured.pause": {
+    "message": "Призупинити зміну"
+  },
+  "app.sidebar.featured.position": {
+    "message": "{position} із {total}"
+  },
+  "app.sidebar.featured.previous": {
+    "message": "Попередня збірка"
+  },
+  "app.sidebar.featured.resume": {
+    "message": "Відновити зміну"
+  },
+  "app.sidebar.featured.title": {
+    "message": "Рекомендовані збірки"
+  },
+  "app.sidebar.featured.unavailable": {
+    "message": "Рекомендовані збірки зараз недоступні."
+  },
+  "app.sidebar.featured.view": {
+    "message": "Відкрити проєкт"
+  },
+  "app.sidebar.hosting.action": {
+    "message": "Переглянути хостинг"
+  },
+  "app.sidebar.hosting.headline": {
+    "message": "Ваш наступний сервер Minecraft"
   },
   "app.skins.add-button": {
     "message": "Додати скін"
@@ -2791,6 +3466,78 @@
   },
   "app.skins.apply-button": {
     "message": "Застосувати"
+  },
+  "app.skins.catalog.all-models": {
+    "message": "Усі моделі"
+  },
+  "app.skins.catalog.classic": {
+    "message": "Класика"
+  },
+  "app.skins.catalog.default-provider": {
+    "message": "Стандартний"
+  },
+  "app.skins.catalog.empty": {
+    "message": "Скіни не знайдено. Спробуйте інший пошук."
+  },
+  "app.skins.catalog.error": {
+    "message": "Цього постачальника скінів недоступно. Спробуйте пізніше."
+  },
+  "app.skins.catalog.loading": {
+    "message": "Завантаження скінів…"
+  },
+  "app.skins.catalog.mineskin-search-note": {
+    "message": "Шукайте в усій публічній галереї MineSkin."
+  },
+  "app.skins.catalog.model": {
+    "message": "Модель"
+  },
+  "app.skins.catalog.next": {
+    "message": "Наступна сторінка"
+  },
+  "app.skins.catalog.page": {
+    "message": "Сторінка {page}"
+  },
+  "app.skins.catalog.popular": {
+    "message": "Популярні"
+  },
+  "app.skins.catalog.previous": {
+    "message": "Попередня сторінка"
+  },
+  "app.skins.catalog.providers": {
+    "message": "Постачальники скінів"
+  },
+  "app.skins.catalog.rate-limit": {
+    "message": "Постачальник досяг ліміту запитів. Зачекайте перед повторною спробою."
+  },
+  "app.skins.catalog.recent": {
+    "message": "Недавні"
+  },
+  "app.skins.catalog.retry": {
+    "message": "Спробувати знову"
+  },
+  "app.skins.catalog.saved": {
+    "message": "Скін збережено в Стандартний"
+  },
+  "app.skins.catalog.search": {
+    "message": "Пошук скінів…"
+  },
+  "app.skins.catalog.search-button": {
+    "message": "Пошук"
+  },
+  "app.skins.catalog.slim": {
+    "message": "Тонкі"
+  },
+  "app.skins.catalog.sort": {
+    "message": "Сортування"
+  },
+  "app.skins.catalog.tag": {
+    "message": "Тег (необов'язковий)"
+  },
+  "app.skins.catalog.trending": {
+    "message": "У тренді"
+  },
+  "app.skins.catalog.unconfigured": {
+    "message": "Цього постачальника ще не налаштовано."
   },
   "app.skins.delete-button": {
     "message": "Видалити скін"
@@ -3098,9 +3845,6 @@
   "app.update.download-error.missing-version": {
     "message": "Не вдалося завантажити оновлення: немає доступної версії"
   },
-  "app.user.project.install-to-instance": {
-    "message": "Установити в примірник"
-  },
   "app.welcome-screen.create-instance": {
     "message": "Створити примірник"
   },
@@ -3119,6 +3863,69 @@
   "app.welcome-screen.title": {
     "message": "Вітаємо в {productName}"
   },
+  "app.window-controls.close": {
+    "message": "Закрити вікно"
+  },
+  "app.window-controls.minimize": {
+    "message": "Згорнути вікно"
+  },
+  "app.window-controls.toggle-maximize": {
+    "message": "Розгорнути/відновити вікно"
+  },
+  "app.world-install.backup": {
+    "message": "Заміна зберігає резервну копію наявного світу. Зберегти та Скасувати нічого не встановлюють. Встановлення ще однієї копії створює світ із номером."
+  },
+  "app.world-install.backup-location": {
+    "message": "Попередній світ збережено в {path} усередині збірки."
+  },
+  "app.world-install.conflict": {
+    "message": "Світ із такою назвою або з цього проєкту вже існує."
+  },
+  "app.world-install.continue-anyway": {
+    "message": "Встановити попри різницю версій"
+  },
+  "app.world-install.copy": {
+    "message": "Встановити ще одну копію"
+  },
+  "app.world-install.description": {
+    "message": "Встановіть новий світ у збірку. Наявні світи буде збережено, якщо ви не вирішите замінити один із них."
+  },
+  "app.world-install.incompatible": {
+    "message": "Цей файл не вказує сумісність із Minecraft {version}. Перш ніж продовжити, перевірте версію гри та моди, які вимагає автор."
+  },
+  "app.world-install.installed": {
+    "message": "Світ встановлено: {name}"
+  },
+  "app.world-install.instance": {
+    "message": "Цільова збірка"
+  },
+  "app.world-install.keep": {
+    "message": "Зберегти наявний"
+  },
+  "app.world-install.no-instances": {
+    "message": "Спочатку створіть збірку Minecraft, а потім поверніться сюди, щоб встановити світ."
+  },
+  "app.world-install.open-worlds": {
+    "message": "Показати світи"
+  },
+  "app.world-install.replace": {
+    "message": "Замінити"
+  },
+  "app.world-install.replace-target": {
+    "message": "Світ для заміни"
+  },
+  "app.world-install.requirements": {
+    "message": "Потрібні моди або модпаки вже мають бути встановлені в цільовій збірці. Перегляньте опис проєкту."
+  },
+  "app.world-install.title": {
+    "message": "Встановити світ"
+  },
+  "app.world-install.version": {
+    "message": "Версія світу"
+  },
+  "app.world.server-modal.placeholder-address": {
+    "message": "play.example.com"
+  },
   "app.world.server-modal.select-an-option": {
     "message": "Виберіть опцію"
   },
@@ -3134,80 +3941,14 @@
   "app.world.world-item.players-online": {
     "message": "{count} онлайн"
   },
-  "content.shared-instance.change-version-body": {
-    "message": "Зміна версії впливає лише на вашу локальну копію. Майбутні оновлення спільного примірника можуть відновити або знову змінити її."
+  "curseforge.manual.description": {
+    "message": "Завантажте {file} з офіційної сторінки CurseForge, а потім виберіть завантажений файл, щоб продовжити. Розмір і SHA-1 буде перевірено."
   },
-  "content.shared-instance.delete-bulk-body": {
-    "message": "Деякі вибрані проєкти є частиною спільного примірника. Видалення вплине лише на вашу локальну копію, а майбутні оновлення спільного примірника можуть відновити або знову змінити їх."
+  "curseforge.manual.select": {
+    "message": "Вибрати завантажений файл"
   },
-  "content.shared-instance.delete-button": {
-    "message": "Усе одно видалити"
-  },
-  "content.shared-instance.delete-many-button": {
-    "message": "Усе одно видалити {count, plural, one {# проєкт} few {# проєкти} many {# проєктів} other {# проєкту}}"
-  },
-  "content.shared-instance.delete-single-body": {
-    "message": "Видалення вплине лише на вашу локальну копію. Майбутні оновлення спільного примірника можуть відновити або знову змінити його."
-  },
-  "content.shared-instance.disable-bulk-body": {
-    "message": "Деякі вибрані проєкти є частиною спільного примірника. Вимкнення вплине лише на вашу локальну копію, а майбутні оновлення спільного примірника можуть знову ввімкнути, відновити або змінити його."
-  },
-  "content.shared-instance.disable-button": {
-    "message": "Усе одно вимкнути"
-  },
-  "content.shared-instance.disable-many-button": {
-    "message": "Усе одно вимкнути {count, plural, one {# проєкт} few {# проєкти} many {# проєктів} other {# проєкту}}"
-  },
-  "content.shared-instance.disable-single-body": {
-    "message": "Вимкнення вплине лише на вашу локальну копію. Майбутні оновлення спільного примірника можуть знову ввімкнути, відновити або змінити його."
-  },
-  "content.shared-instance.unlink-body": {
-    "message": "Відв'язування вплине лише на вашу локальну копію. Майбутні оновлення спільного примірника можуть відновити або знову змінити його."
-  },
-  "content.shared-instance.warning-header": {
-    "message": "Це частина спільного примірника"
-  },
-  "installation-settings.shared-instance.linked-title": {
-    "message": "Пов'язаний спільний примірник"
-  },
-  "installation-settings.shared-instance.title": {
-    "message": "Скасувати публікацію примірника"
-  },
-  "installation-settings.shared-instance.unlink-button": {
-    "message": "Відв'язати спільний примірник"
-  },
-  "installation-settings.shared-instance.unlink-description": {
-    "message": "Від'єднати цей локальний примірник від майбутніх спільних оновлень."
-  },
-  "installation-settings.shared-instance.unlinking-button": {
-    "message": "Відв'язування..."
-  },
-  "installation-settings.shared-instance.unpublish-button": {
-    "message": "Скасувати публікацію спільного примірника"
-  },
-  "installation-settings.shared-instance.unpublish-description": {
-    "message": "Видалити цей спільний примірник із Modrinth і припинити надсилати оновлення всім, хто ним користується. Це не вплине на ваш локальний примірник."
-  },
-  "installation-settings.shared-instance.unpublishing-button": {
-    "message": "Скасування публікації..."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-body": {
-    "message": "Це вплине лише на ваш локальний примірник. Установлений уміст залишиться на цьому пристрої, а спільний примірник й інші користувачі не зазнають змін."
-  },
-  "installation-settings.unlink-shared-instance.modal.admonition-header": {
-    "message": "Відв'язування спільного примірника"
-  },
-  "installation-settings.unlink-shared-instance.modal.header": {
-    "message": "Відв'язати спільний примірник"
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-body": {
-    "message": "Це видалить спільний примірник із серверів Modrinth. Користувачі {productName} припинять отримувати оновлення, але ваш локальний примірник і його вміст залишаться на цьому пристрої."
-  },
-  "installation-settings.unpublish-shared-instance.modal.admonition-header": {
-    "message": "Скасування публікації спільного примірника"
-  },
-  "installation-settings.unpublish-shared-instance.modal.header": {
-    "message": "Скасувати публікацію спільного примірника"
+  "curseforge.manual.title": {
+    "message": "Потрібне ручне завантаження"
   },
   "instance.action.create-shortcut": {
     "message": "Створити ярлик"
@@ -3274,6 +4015,9 @@
   },
   "instance.files.adding-files": {
     "message": "Додавання файлів ({completed}/{total})"
+  },
+  "instance.files.managed-content-read-only": {
+    "message": "Керуйте встановленим вмістом через сторінку вмісту"
   },
   "instance.files.save-as": {
     "message": "Зберегти як..."
@@ -3422,9 +4166,6 @@
   "instance.icon-editor.symbol.moobloom": {
     "message": "Квіткорова"
   },
-  "instance.icon-editor.symbol.mr-pack": {
-    "message": "Пан Пакет"
-  },
   "instance.icon-editor.symbol.neoforge": {
     "message": "NeoForge"
   },
@@ -3491,14 +4232,41 @@
   "instance.last-played": {
     "message": "Востаннє зіграно:"
   },
+  "instance.locked.badge": {
+    "message": "Заблоковано"
+  },
   "instance.locked.delete-button": {
     "message": "Видалити примірник"
+  },
+  "instance.locked.info-label": {
+    "message": "Інформація про заблокований примірник"
   },
   "instance.locked.play-tooltip": {
     "message": "Цей примірник заблоковано"
   },
+  "instance.locked.text": {
+    "message": "Цей примірник заблоковано, його не можна запустити чи змінити. Його можна видалити."
+  },
+  "instance.locked.title": {
+    "message": "Примірник заблоковано"
+  },
+  "instance.metadata.loader-version-tooltip": {
+    "message": "Завантажувач модів і версія Minecraft"
+  },
+  "instance.playtime.hours": {
+    "message": "{count, plural, one {# година} few {# години} many {# годин} other {# години}}"
+  },
+  "instance.playtime.minutes": {
+    "message": "{count, plural, one {# хвилина} few {# хвилини} many {# хвилин} other {# хвилини}}"
+  },
   "instance.playtime.never-played": {
     "message": "Не запускалось"
+  },
+  "instance.playtime.seconds": {
+    "message": "{count, plural, one {# секунда} few {# секунди} many {# секунд} other {# секунди}}"
+  },
+  "instance.playtime.total": {
+    "message": "Загальний час гри"
   },
   "instance.server-modal.address": {
     "message": "Адреса"
@@ -3511,45 +4279,6 @@
   },
   "instance.server-modal.resource-pack": {
     "message": "Пакет ресурсів"
-  },
-  "instance.settings.sharing.active-invites.actions": {
-    "message": "Дії"
-  },
-  "instance.settings.sharing.active-invites.code": {
-    "message": "Посилання"
-  },
-  "instance.settings.sharing.active-invites.description": {
-    "message": "Будь-хто з цим посиланням-запрошенням може приєднатися, поки воно залишається активним."
-  },
-  "instance.settings.sharing.active-invites.empty": {
-    "message": "Немає активних запрошень."
-  },
-  "instance.settings.sharing.active-invites.expires": {
-    "message": "Чинний до"
-  },
-  "instance.settings.sharing.active-invites.revoke": {
-    "message": "Відкликати запрошення"
-  },
-  "instance.settings.sharing.active-invites.revoke-with-code": {
-    "message": "Відкликати запрошення {code}"
-  },
-  "instance.settings.sharing.active-invites.title": {
-    "message": "Активні запрошення"
-  },
-  "instance.settings.sharing.active-invites.uses": {
-    "message": "Використання"
-  },
-  "instance.settings.sharing.revoke-invite.admonition-body": {
-    "message": "Посилання для запрошення <monospace>{code}</monospace> негайно припинить діяти. Люди, які вже приєдналися, збережуть доступ."
-  },
-  "instance.settings.sharing.revoke-invite.admonition-header": {
-    "message": "Цю дію неможливо скасувати"
-  },
-  "instance.settings.sharing.revoke-invite.confirm": {
-    "message": "Відкликати запрошення"
-  },
-  "instance.settings.sharing.revoke-invite.header": {
-    "message": "Відкликати запрошення"
   },
   "instance.settings.synced-options.data-override": {
     "message": "Вимкніть це перевизначення для зміни синхронізованих даних."
@@ -3755,9 +4484,6 @@
   "instance.settings.tabs.settings-overrides": {
     "message": "Перевизначення синхронізації"
   },
-  "instance.settings.tabs.sharing": {
-    "message": "Спільний доступ"
-  },
   "instance.settings.tabs.synced-options.command-history": {
     "message": "Розсинхронізувати історію команд"
   },
@@ -3845,63 +4571,6 @@
   "instance.settings.tabs.window.width.enter": {
     "message": "Уведіть ширину…"
   },
-  "instance.shared-instance.error.title": {
-    "message": "Щось пішло не так"
-  },
-  "instance.shared-instance.network-error.text": {
-    "message": "Не вдалося під'єднатися до API спільних примірників"
-  },
-  "instance.shared-instance.network-error.title": {
-    "message": "Помилка мережі"
-  },
-  "instance.shared-instance.owner-tooltip": {
-    "message": "Уміст цього примірника надається іншим користувачам."
-  },
-  "instance.shared-instance.publish-review.added-label": {
-    "message": "Додано"
-  },
-  "instance.shared-instance.publish-review.admonition-header": {
-    "message": "Публікація оновлення"
-  },
-  "instance.shared-instance.publish-review.config-title-v2": {
-    "message": "Оберіть файли конфігурації"
-  },
-  "instance.shared-instance.publish-review.description": {
-    "message": "Перегляньте зміни вмісту та оберіть файли конфігурації, які варто включити в цьому оновленні."
-  },
-  "instance.shared-instance.publish-review.header": {
-    "message": "Огляд змін"
-  },
-  "instance.shared-instance.publish-review.publish-button": {
-    "message": "Опублікувати оновлення"
-  },
-  "instance.shared-instance.publish-review.removed-label": {
-    "message": "Видалено"
-  },
-  "instance.shared-instance.tooltip": {
-    "message": "Уміст цього примірника керується іншим користувачем."
-  },
-  "instance.shared-instance.unavailable.access-revoked-text": {
-    "message": "Ваш доступ до цього спільного примірника відкликано. Примірник досі доступний, але вже не прив'язаний та не отримуватиме оновлення."
-  },
-  "instance.shared-instance.unavailable.deleted-text": {
-    "message": "Основний примірник видалено. Цей примірник досі доступний, але вже не прив'язаний та не отримуватиме оновлення."
-  },
-  "instance.shared-instance.unavailable.locked-text": {
-    "message": "Цей спільний примірник заблокували модератори вмісту. Він більше не отримуватиме оновлень від основного примірника і не може бути запущений."
-  },
-  "instance.shared-instance.unavailable.locked-title": {
-    "message": "Примірник заблоковано"
-  },
-  "instance.shared-instance.unavailable.manager-fallback": {
-    "message": "менеджер примірника"
-  },
-  "instance.shared-instance.unavailable.text": {
-    "message": "Ваш локальний примірник досі доступний, але вже не прив'язаний та не отримуватиме оновлення."
-  },
-  "instance.shared-instance.unavailable.title": {
-    "message": "Спільний примірник уже не доступний"
-  },
   "instance.worlds.a_minecraft_server": {
     "message": "Сервер Minecraft"
   },
@@ -3983,11 +4652,14 @@
   "instance.worlds.world_in_use": {
     "message": "Світ наразі використовується"
   },
+  "minecraft-account.accounts": {
+    "message": "Облікові записи Minecraft"
+  },
   "minecraft-account.add-account": {
     "message": "Додати обліковий запис"
   },
-  "minecraft-account.label": {
-    "message": "Обліковий запис Minecraft"
+  "minecraft-account.getting-started": {
+    "message": "Початок роботи"
   },
   "minecraft-account.not-signed-in": {
     "message": "Не авторизовано"
@@ -3995,11 +4667,11 @@
   "minecraft-account.remove-account": {
     "message": "Видалити обліковий запис"
   },
-  "minecraft-account.select-account": {
-    "message": "Вибрати обліковий запис"
-  },
   "minecraft-account.sign-in": {
     "message": "Увійти в Minecraft"
+  },
+  "minecraft-account.sign-in-short": {
+    "message": "Увійти"
   },
   "minecraft-required.description": {
     "message": "Ви повинні мати обліковий запис Microsoft із придбаним Minecraft, перш ніж запускати ігри."
@@ -4022,39 +4694,6 @@
   "minecraft-required.sign-in": {
     "message": "Увійти в Microsoft"
   },
-  "modal.modrinth-account-required.browser-description": {
-    "message": "Відкрилася нова вкладка, де ви зможете ввійти. Увійдіть, тоді поверніться до застосунку."
-  },
-  "modal.modrinth-account-required.continue-in-browser-heading": {
-    "message": "Продовжити в переглядачі"
-  },
-  "modal.modrinth-account-required.create-account-button": {
-    "message": "Створити обліковий запис"
-  },
-  "modal.modrinth-account-required.description": {
-    "message": "Ви повинні ввійти у свій обліковий запис Modrinth, перш ніж використовувати цей функціонал."
-  },
-  "modal.modrinth-account-required.header": {
-    "message": "Необхідний обліковий запис"
-  },
-  "modal.modrinth-account-required.open-browser-again-button": {
-    "message": "Знову відкрити переглядач"
-  },
-  "modal.modrinth-account-required.sign-in-button": {
-    "message": "Увійти в Modrinth"
-  },
-  "modal.modrinth-account-required.sign-in-heading": {
-    "message": "Вхід в обліковий запис Modrinth"
-  },
-  "modal.modrinth-account-required.signing-in-header": {
-    "message": "Вхід"
-  },
-  "modal.modrinth-account-required.support-prompt": {
-    "message": "Не можете ввійти? <support>Отримати допомогу</support>"
-  },
-  "modal.modrinth-account-required.waiting-for-browser": {
-    "message": "Ждемо підтвердження від переглядача..."
-  },
   "onboarding-checklist.create-instance": {
     "message": "Створити перший примірник"
   },
@@ -4063,6 +4702,42 @@
   },
   "onboarding-checklist.title": {
     "message": "Почнімо"
+  },
+  "optifine.add-component": {
+    "message": "Встановити OptiFine"
+  },
+  "optifine.component-version": {
+    "message": "{version} · Minecraft {gameVersion}"
+  },
+  "optifine.continue-import": {
+    "message": "Виберіть JAR і продовжіть"
+  },
+  "optifine.download-official": {
+    "message": "Офіційне завантаження"
+  },
+  "optifine.export-notice": {
+    "message": "Бінарні файли OptiFine виключено. Orbpack зберігає потрібну версію; для пакетів Modrinth і CurseForge потрібно встановити OptiFine окремо."
+  },
+  "optifine.import-canceled": {
+    "message": "Вибір OptiFine скасовано. Пакет не встановлено."
+  },
+  "optifine.import-description": {
+    "message": "Цей пакет потребує OptiFine {version} для Minecraft {gameVersion}. Завантажте офіційний JAR і виберіть його, щоб продовжити. OptiFine не входить до складу пакета."
+  },
+  "optifine.import-title": {
+    "message": "Цей пакет потребує OptiFine"
+  },
+  "optifine.incompatible-installer": {
+    "message": "Виберіть офіційний інсталятор OptiFine для Minecraft {gameVersion}. Для імпортованого пакета версія та хеш файлу також мають збігатися."
+  },
+  "optifine.remove-component": {
+    "message": "Видалити OptiFine"
+  },
+  "optifine.select-installer": {
+    "message": "Виберіть офіційний JAR OptiFine"
+  },
+  "project-type.world.category": {
+    "message": "Світи"
   },
   "search.filter.locked.instance": {
     "message": "Надано примірником"
@@ -4075,9 +4750,6 @@
   },
   "search.filter.locked.instance.sync": {
     "message": "Синхронізувати з примірником"
-  },
-  "search.filter.locked.server-environment.title": {
-    "message": "До примірника сервера можна додавати лише клієнтські моди"
   },
   "settings.sidebar.label.account": {
     "message": "Обліковий запис"
