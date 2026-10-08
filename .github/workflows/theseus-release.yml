@@ -93,9 +93,12 @@ jobs:
 
       - name: Write release notes
         run: |
-          # Release notes are the tag's annotation message.
-          git tag -l --format='%(contents)' "${VERSION_TAG}" | sed '/-----BEGIN PGP SIGNATURE-----/,$d' > release-notes.md
-          if [ ! -s release-notes.md ]; then
+          # Publish the English release document, preserving Markdown headings.
+          # Git's default tag cleanup can remove headings from annotations.
+          notes_path="docs/releases/${VERSION_TAG#v}.md"
+          if [ -s "$notes_path" ]; then
+            cat "$notes_path" > release-notes.md
+          else
             echo "Orbiont ${VERSION_TAG#v}" > release-notes.md
           fi
           printf '\n## Source code and license\n\n' >> release-notes.md
