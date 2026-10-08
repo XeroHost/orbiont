@@ -8,13 +8,18 @@ import {
 	commonProjectTypeCategoryMessages,
 	useVIntl,
 } from '@orbiont/ui'
-import { useQuery } from '@tanstack/vue-query'
+import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
+import BedrockDiagnostics from '@/components/ui/bedrock/BedrockDiagnostics.vue'
 import BedrockInstalled from '@/components/ui/bedrock/BedrockInstalled.vue'
+import BedrockStopConfirm from '@/components/ui/bedrock/BedrockStopConfirm.vue'
 import {
 	bedrockStatusQueryOptions,
+	getBedrockProcessStatus,
+	getBedrockStatus,
+	isBedrockLaunchPending,
 	launchBedrock,
 	launchOfficialMinecraftLauncher,
 	openBedrockStore,
@@ -38,15 +43,51 @@ useRootBreadcrumb({
 
 const status = useQuery(bedrockStatusQueryOptions())
 const installation = status.data
+const queryClient = useQueryClient()
+const processStatus = useQuery({
+	queryKey: ['bedrock', 'process'],
+	queryFn: getBedrockProcessStatus,
+	enabled: computed(() => !!installation.value?.supported),
+	refetchInterval: 2000,
+	refetchOnWindowFocus: 'always',
+	retry: false,
+})
+const running = computed(
+	() => processStatus.data.value?.game_running ?? installation.value?.game_running ?? false,
+)
+const launchPending = computed(() =>
+	isBedrockLaunchPending(processStatus.data.value?.launch ?? installation.value?.launch),
+)
+const diagnosticStatus = computed(() =>
+	installation.value ? { ...installation.value, ...processStatus.data.value } : null,
+)
+const refreshing = ref(false)
+async function refreshStatus() {
+	if (refreshing.value || busy.value) return
+	refreshing.value = true
+	try {
+		await Promise.allSettled([
+			queryClient.fetchQuery({
+				queryKey: ['bedrock', 'status'],
+				queryFn: () => getBedrockStatus(true),
+				staleTime: 0,
+			}),
+			processStatus.refetch({ cancelRefetch: false }),
+		])
+	} finally {
+		refreshing.value = false
+	}
+}
 const busy = ref(false)
+const stopConfirm = ref<InstanceType<typeof BedrockStopConfirm>>()
+function stopMinecraft() {
+	return stopBedrock(() => stopConfirm.value?.ask() ?? Promise.resolve(false))
+}
 const actionError = ref('')
 const submitted = ref(false)
 const updateRequested = ref(false)
 const canPlay = computed(
-	() =>
-		!!installation.value?.supported &&
-		!!installation.value.game?.can_launch &&
-		!status.isError.value,
+	() => !!installation.value?.supported && !!installation.value.game?.can_launch,
 )
 const canOpenLauncher = computed(
 	() => !!installation.value?.launcher?.can_launch && !status.isError.value,
@@ -62,19 +103,25 @@ async function action(
 	submitted.value = false
 	try {
 		await operation()
+		await processStatus.refetch()
 		await status.refetch()
+		await queryClient.invalidateQueries({ queryKey: ['bedrock', 'workspace'] })
 	} catch (error) {
 		const code = (error as { code?: string })?.code
 		const message =
-			code === 'invalid_file'
-				? messages.invalidFile
-				: code === 'file_too_large'
-					? messages.largeFile
-					: code === 'not_installed'
-						? messages.missing
-						: code === 'needs_repair'
-							? messages.repair
-							: fallback
+			code === 'insufficient_space'
+				? messages.insufficientSpace
+				: code === 'game_running'
+					? messages.closeToManage
+					: code === 'invalid_file'
+						? messages.invalidFile
+						: code === 'file_too_large'
+							? messages.largeFile
+							: code === 'not_installed'
+								? messages.missing
+								: code === 'needs_repair'
+									? messages.repair
+									: fallback
 		actionError.value = formatMessage(message)
 		void status.refetch()
 	} finally {
@@ -82,6 +129,7 @@ async function action(
 	}
 }
 async function importFile() {
+	if (running.value || launchPending.value) return
 	await action(async () => {
 		submitted.value = await pickAndImportBedrockFile(formatMessage(messages.fileFilter))
 	}, messages.importError)
@@ -103,12 +151,13 @@ async function updateMinecraft() {
 			:game="installation.game"
 			:launcher-available="canOpenLauncher"
 			:busy="busy"
-			:running="installation.game_running ?? false"
+			:running="running"
+			:launch-pending="launchPending"
 			@play="action(launchBedrock, messages.launchError)"
-			@stop="action(stopBedrock, commonMessages.errorNotificationTitle)"
+			@stop="action(stopMinecraft, commonMessages.errorNotificationTitle)"
 			@update="updateMinecraft"
 			@launcher="action(launchOfficialMinecraftLauncher, messages.launchError)"
-			@refresh="status.refetch()"
+			@refresh="refreshStatus"
 			@import="importFile"
 		/>
 		<template v-else>
@@ -137,8 +186,9 @@ async function updateMinecraft() {
 					<div class="flex flex-wrap gap-3">
 						<Button
 							type="colored"
-							color="green"
-							:disabled="busy || !canPlay"
+							color="brand"
+							size="xl"
+							:disabled="busy || running || launchPending || !canPlay"
 							@click="action(launchBedrock, messages.launchError)"
 						>
 							<AnimatedIcon name="play" />{{ formatMessage(messages.play) }}
@@ -157,11 +207,7 @@ async function updateMinecraft() {
 						>
 							<DownloadIcon />{{ formatMessage(messages.store) }}
 						</Button>
-						<Button
-							type="outlined"
-							:disabled="busy || status.isFetching.value"
-							@click="status.refetch()"
-						>
+						<Button type="outlined" :disabled="busy" :loading="refreshing" @click="refreshStatus">
 							<AnimatedIcon name="refresh" />{{ formatMessage(messages.refresh) }}
 						</Button>
 					</div>
@@ -172,7 +218,11 @@ async function updateMinecraft() {
 						{{ formatMessage(messages.importTitle) }}
 					</h2>
 					<p class="m-0 text-secondary">{{ formatMessage(messages.importDescription) }}</p>
-					<Button type="outlined" :disabled="busy || !canPlay" @click="importFile">
+					<Button
+						type="outlined"
+						:disabled="busy || running || launchPending || !canPlay"
+						@click="importFile"
+					>
 						<UploadIcon />{{ formatMessage(messages.importButton) }}
 					</Button>
 				</section>
@@ -185,7 +235,7 @@ async function updateMinecraft() {
 			<p class="m-0 text-secondary">{{ formatMessage(bedrockCatalogMessages.description) }}</p>
 			<div class="flex flex-wrap gap-3">
 				<Button type="outlined" @click="router.push('/browse/mod?edition=bedrock&src=curseforge')"
-					><AnimatedIcon name="puzzle" />{{ formatMessage(bedrockCatalogMessages.addons) }}</Button
+					><AnimatedIcon name="cube" />{{ formatMessage(bedrockCatalogMessages.addons) }}</Button
 				>
 				<Button
 					type="outlined"
@@ -208,6 +258,16 @@ async function updateMinecraft() {
 				>
 			</div>
 		</section>
+		<BedrockDiagnostics
+			v-if="diagnosticStatus"
+			:status="diagnosticStatus"
+			:busy="busy"
+			:refreshing="refreshing"
+			:failed="processStatus.isError.value || status.isError.value"
+			@launcher="action(launchOfficialMinecraftLauncher, messages.launchError)"
+			@store="action(openBedrockStore, messages.storeError)"
+			@refresh="refreshStatus"
+		/>
 		<Admonition v-if="updateRequested" type="info">{{
 			formatMessage(messages.updateHelp)
 		}}</Admonition>
@@ -215,5 +275,6 @@ async function updateMinecraft() {
 			formatMessage(messages.submitted)
 		}}</Admonition>
 		<Admonition v-if="actionError" type="warning" role="alert">{{ actionError }}</Admonition>
+		<BedrockStopConfirm ref="stopConfirm" />
 	</main>
 </template>

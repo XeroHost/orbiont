@@ -28,13 +28,7 @@ import type { ComboboxOption, ComboboxSearchInputVariant } from '../base/Combobo
 import Combobox from '../base/Combobox.vue'
 
 export type ProjectType =
-	| 'mod'
-	| 'modpack'
-	| 'resourcepack'
-	| 'shader'
-	| 'datapack'
-	| 'plugin'
-	| 'server'
+	'mod' | 'modpack' | 'resourcepack' | 'shader' | 'datapack' | 'plugin' | 'server'
 
 export interface SearchHit {
 	project_id: string

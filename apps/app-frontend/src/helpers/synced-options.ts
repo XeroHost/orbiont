@@ -1,5 +1,3 @@
-import { queryOptions } from '@tanstack/vue-query'
-
 import { list_game_options_sync_sources } from './game-options'
 import {
 	get_command_history,
@@ -19,39 +17,39 @@ export const syncedOptionsKeys = {
 }
 
 export function globalSyncedOptionsQueryOptions() {
-	return queryOptions({
+	return {
 		queryKey: syncedOptionsKeys.global,
 		queryFn: get_global_synced_options,
-	})
+	}
 }
 
 export function initializedSyncedOptionsQueryOptions() {
-	return queryOptions({
+	return {
 		queryKey: syncedOptionsKeys.initialized,
 		queryFn: get_initialized_synced_options,
-	})
+	}
 }
 
 export function gameOptionsSyncSourcesQueryOptions() {
-	return queryOptions({
+	return {
 		queryKey: syncedOptionsKeys.gameSources,
 		queryFn: list_game_options_sync_sources,
 		staleTime: 0,
-	})
+	}
 }
 
 export function syncedServersQueryOptions() {
-	return queryOptions({
+	return {
 		queryKey: syncedOptionsKeys.servers,
 		queryFn: list_synced_servers,
-	})
+	}
 }
 
 export function commandHistoryQueryOptions() {
-	return queryOptions({
+	return {
 		queryKey: syncedOptionsKeys.commandHistory,
 		queryFn: get_command_history,
-	})
+	}
 }
 
 export function canSourceMultiplayerServers(instance: GameInstance): boolean {

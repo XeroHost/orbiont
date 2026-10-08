@@ -9,10 +9,22 @@ pub(super) fn prepare_archive(
     path: &Path,
     destination: &Path,
 ) -> Result<Vec<PathBuf>> {
+    prepare_archive_bounded(path, destination, 0, &mut 0)
+}
+fn prepare_archive_bounded(
+    path: &Path,
+    destination: &Path,
+    depth: usize,
+    expanded: &mut u64,
+) -> Result<Vec<PathBuf>> {
     use std::{fs::File, io::Read};
+    if depth > 4 {
+        return Err(invalid("Too many nested Bedrock archives"));
+    }
+    crate::util::archive::preflight_file(path).map_err(invalid)?;
     let mut archive = zip::ZipArchive::new(File::open(path).map_err(invalid)?)
         .map_err(invalid)?;
-    if archive.len() > 100_000 {
+    if archive.len() > crate::util::archive::MAX_ARCHIVE_ENTRIES {
         return Err(invalid("Too many archive entries"));
     }
     let mut names = Vec::new();
@@ -21,8 +33,11 @@ pub(super) fn prepare_archive(
     for index in 0..archive.len() {
         let entry = archive.by_index(index).map_err(invalid)?;
         let name = entry.name().to_owned();
+        crate::util::archive::validate_entry(&name, entry.size(), &mut total)
+            .map_err(invalid)?;
         if entry.enclosed_name().is_none()
             || name.contains(['\\', ':'])
+            || name.chars().any(char::is_control)
             || name.split('/').any(|part| matches!(part, "." | ".."))
             || entry
                 .unix_mode()
@@ -31,9 +46,6 @@ pub(super) fn prepare_archive(
         {
             return Err(invalid("Unsafe Bedrock archive path"));
         }
-        total = total
-            .checked_add(entry.size())
-            .ok_or_else(|| invalid("Archive too large"))?;
         if total > 8 * 1024 * 1024 * 1024 {
             return Err(BedrockError::new(
                 ErrorCode::FileTooLarge,
@@ -47,14 +59,23 @@ pub(super) fn prepare_archive(
     if names.is_empty() {
         return Err(invalid("Empty archive"));
     }
+    require_space(destination, total.saturating_mul(2))?;
     let extension = path
         .extension()
         .and_then(|s| s.to_str())
         .unwrap_or_default()
         .to_ascii_lowercase();
     if ["mcpack", "mcaddon", "mcworld"].contains(&extension.as_str()) {
+        if expanded.saturating_add(total)
+            > crate::util::archive::MAX_EXPANDED_BYTES
+        {
+            return Err(invalid(
+                "Archive exceeds streaming decompression limit",
+            ));
+        }
         super::validation::validate_import(path)
             .map_err(|_| invalid("Invalid Bedrock archive"))?;
+        *expanded += total;
         return Ok(vec![path.to_owned()]);
     }
     if extension != "zip" {
@@ -81,15 +102,21 @@ pub(super) fn prepare_archive(
             let mut entry = archive.by_index(*index).map_err(invalid)?;
             let size = entry.size();
             let written = std::io::copy(
-                &mut (&mut entry).take(size + 1),
+                &mut (&mut entry).take(
+                    size.min(
+                        crate::util::archive::MAX_EXPANDED_BYTES
+                            .saturating_sub(*expanded),
+                    ) + 1,
+                ),
                 &mut File::create(&output).map_err(invalid)?,
             )
             .map_err(invalid)?;
+            charge_expanded(expanded, written)?;
             if written != size {
                 return Err(invalid("Invalid embedded file size"));
             }
             // Validate all embedded archives before handing any of them to the game.
-            prepare_archive(&output, destination)?;
+            prepare_archive_bounded(&output, destination, depth + 1, expanded)?;
             paths.push(output);
         }
         return Ok(paths);
@@ -137,8 +164,22 @@ pub(super) fn prepare_archive(
                     .filter(|(_, name)| name.starts_with(root))
                     .cloned()
                     .collect();
-                write_archive(&mut archive, &entries, root, &package)?;
-                paths.extend(prepare_archive(&package, &directory)?);
+                write_archive(
+                    &mut archive,
+                    &entries,
+                    root,
+                    &package,
+                    expanded,
+                )?;
+                paths.extend(prepare_archive_bounded(
+                    &package,
+                    &directory,
+                    depth + 1,
+                    expanded,
+                )?);
+                if paths.len() > 16 {
+                    return Err(invalid("Too many Bedrock packs"));
+                }
             }
             return Ok(paths);
         }
@@ -155,7 +196,7 @@ pub(super) fn prepare_archive(
         return Err(invalid("No Bedrock world or pack in archive"));
     };
     let output = destination.join(format!("content.{kind}"));
-    write_archive(&mut archive, &names, &prefix, &output)?;
+    write_archive(&mut archive, &names, &prefix, &output, expanded)?;
     Ok(vec![output])
 }
 
@@ -164,6 +205,7 @@ fn write_archive(
     names: &[(usize, String)],
     prefix: &str,
     output: &Path,
+    expanded: &mut u64,
 ) -> Result<()> {
     use std::{
         fs::File,
@@ -189,6 +231,7 @@ fn write_archive(
                 break;
             }
             read += count as u64;
+            charge_expanded(expanded, count as u64)?;
             if read > size {
                 return Err(invalid("Invalid archive entry size"));
             }
@@ -199,6 +242,15 @@ fn write_archive(
         }
     }
     writer.finish().map_err(invalid)?;
+    Ok(())
+}
+fn charge_expanded(expanded: &mut u64, count: u64) -> Result<()> {
+    *expanded = expanded
+        .checked_add(count)
+        .ok_or_else(|| invalid("Archive size overflow"))?;
+    if *expanded > crate::util::archive::MAX_EXPANDED_BYTES {
+        return Err(invalid("Archive exceeds streaming decompression limit"));
+    }
     Ok(())
 }
 
@@ -262,7 +314,7 @@ pub async fn import_catalog_file(
     let size = file["fileLength"]
         .as_u64()
         .ok_or_else(|| invalid("Missing file size"))?;
-    if size > 8 * 1024 * 1024 * 1024 {
+    if size > crate::util::archive::MAX_ARCHIVE_BYTES {
         return Err(BedrockError::new(
             ErrorCode::FileTooLarge,
             "Archive too large",
@@ -271,6 +323,7 @@ pub async fn import_catalog_file(
     let state = crate::State::get().await.map_err(invalid)?;
     let root = state.directories.caches_dir().join("bedrock-imports");
     tokio::fs::create_dir_all(&root).await.map_err(invalid)?;
+    require_space(&root, size.saturating_mul(2))?;
     let stage = tempfile::tempdir_in(root).map_err(invalid)?;
     let verified = crate::util::fetch::stage_curseforge_file(
         &path,
@@ -308,9 +361,6 @@ pub async fn import_catalog_file(
     if let Some(target) = target {
         #[cfg(windows)]
         {
-            static WORLD_INSTALL: tokio::sync::Mutex<()> =
-                tokio::sync::Mutex::const_new(());
-            let _guard = WORLD_INSTALL.lock().await;
             return super::on_windows(move || {
                 let world = super::world_packs::target_path(
                     &super::data_root(&target.root_id)?,
@@ -337,10 +387,57 @@ pub async fn import_catalog_file(
     Ok(count)
 }
 
+/// A conservative preflight for the next known writes, not a reservation or
+/// a guarantee against concurrent disk usage, compression overhead or quotas.
+pub(super) fn require_space(path: &Path, bytes: u64) -> Result<()> {
+    let available = fs4::available_space(path).map_err(invalid)?;
+    if available < bytes.saturating_add(64 * 1024 * 1024) {
+        return Err(BedrockError::new(
+            ErrorCode::InsufficientSpace,
+            "Insufficient free space for Bedrock staging and recovery copies",
+        ));
+    }
+    Ok(())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
     use std::io::Write;
+    #[test]
+    fn rejects_large_central_directory_before_any_staging_output() {
+        let fixture = tempfile::tempdir().unwrap();
+        let out = tempfile::tempdir().unwrap();
+        let path =
+            archive(fixture.path(), "bad.zip", &[("manifest.json", b"{}")]);
+        let mut bytes = std::fs::read(&path).unwrap();
+        let end = bytes.len() - 22;
+        bytes[end + 8..end + 10].copy_from_slice(&20_001u16.to_le_bytes());
+        bytes[end + 10..end + 12].copy_from_slice(&20_001u16.to_le_bytes());
+        std::fs::write(&path, bytes).unwrap();
+        assert!(prepare_archive(&path, out.path()).is_err());
+        assert_eq!(std::fs::read_dir(out.path()).unwrap().count(), 0);
+    }
+    #[test]
+    fn expanded_stream_budget_and_disk_preflight_fail_before_oversized_writes()
+    {
+        let mut expanded = crate::util::archive::MAX_EXPANDED_BYTES - 1;
+        assert!(charge_expanded(&mut expanded, 2).is_err());
+        let fixture = tempfile::tempdir().unwrap();
+        assert_eq!(
+            require_space(fixture.path(), u64::MAX).unwrap_err().code,
+            ErrorCode::InsufficientSpace
+        );
+        assert!(
+            prepare_archive_bounded(
+                &fixture.path().join("unused.zip"),
+                fixture.path(),
+                5,
+                &mut 0
+            )
+            .is_err()
+        );
+    }
     fn archive(dir: &Path, name: &str, entries: &[(&str, &[u8])]) -> PathBuf {
         let path = dir.join(name);
         let mut zip =

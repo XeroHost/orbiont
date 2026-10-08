@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Minecraft for Windows を探しています…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft はまだ実行中です"
+  },
   "app.bedrock.close-to-manage": {
     "message": "ファイルの編集、コンテンツの削除、またはコピーの復元を行うには、Minecraft を閉じます。"
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "この Minecraft フォルダーを開けませんでした。データを更新して再試行してください。"
   },
+  "app.bedrock.force-stop": {
+    "message": "強制終了"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "通常の終了要求後も Minecraft が終了しませんでした。このゲームのプロセスを強制終了しますか？保存していない進行状況が失われる場合があります。キャンセルして、Minecraft 内で保存して終了することもできます。"
+  },
   "app.bedrock.import-button": {
     "message": "インポートファイル"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windowsがインストールされています"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "このコンテンツの準備と復元用コピーの保持に必要な空きディスク容量がありません。保存先ドライブの空き容量を増やして、再試行してください。"
+  },
   "app.bedrock.invalid-file": {
     "message": "有効なローカルの .mcworld、.mcpack、または .mcaddon アーカイブを選択します。"
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "このファイルは 8 GiB インポート制限を超えています。"
+    "message": "このファイルはインポートの上限である 2 GiB を超えています。"
   },
   "app.bedrock.launch-error": {
     "message": "Minecraftを開けませんでした。公式ランチャーまたはMicrosoft Storeを開いてインストールを確認してください。"
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count}人がオンライン"
   },
+  "bedrock.diagnostics.export": {
+    "message": "診断レポートをエクスポート"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "公式ランチャーを開いてログイン状態を確認するか、Microsoft Store を開いて更新のインストールや Minecraft の修復を行ってください。完了したら検出結果を更新してください。"
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {準備完了} requested {起動を要求済み} starting {Minecraft を待機中} running {Minecraft は実行中です} timeout {制限時間内に Minecraft が起動しませんでした} failed {起動失敗} other {起動を確認中}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "経過時間：{seconds, number} 秒"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "起動診断"
+  },
+  "bedrock.packs.activations": {
+    "message": "ワールドでの有効化"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "依存関係"
+  },
+  "bedrock.packs.details": {
+    "message": "バージョンと依存関係"
+  },
+  "bedrock.packs.none": {
+    "message": "報告なし"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {有効なバージョン} other {保持されたバージョン}}"
+  },
   "curseforge.manual.description": {
     "message": "公式のCurseForgeページから{file}をダウンロードし、ダウンロードしたファイルを選択して続行してください。サイズとSHA-1を検証します。"
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "ファイルを追加中 ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "エディターの外部でファイルが変更されました。下書きは保持されています。最新のバージョンを確認するためにファイルを開き直す前に、下書きをコピーしてください。"
+  },
+  "instance.files.editor-save-error": {
+    "message": "ファイルを保存できませんでした。下書きは保持されています。"
+  },
   "instance.files.managed-content-read-only": {
     "message": "インストール済みのコンテンツは「コンテンツ」タブで管理してください"
+  },
+  "instance.files.reload-before-save": {
+    "message": "保存する前にファイルを開き直してください。"
   },
   "instance.files.save-as": {
     "message": "名前をつけて保存…"
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "ワールドは使用中"
+  },
+  "local-management.category.cache": {
+    "message": "ランチャーの共有キャッシュ"
+  },
+  "local-management.category.data": {
+    "message": "ゲームデータ"
+  },
+  "local-management.category.import": {
+    "message": "保持されたインポート"
+  },
+  "local-management.category.recovery": {
+    "message": "復元可能なコピー"
+  },
+  "local-management.category.retained-version": {
+    "message": "保持されたパックのバージョン"
+  },
+  "local-management.confirm-removal": {
+    "message": "完全削除を確認"
+  },
+  "local-management.empty": {
+    "message": "復元可能なコピーが見つかりませんでした。"
+  },
+  "local-management.error": {
+    "message": "操作に失敗しました。選択内容は保持されています。更新して再試行してください。"
+  },
+  "local-management.load-more": {
+    "message": "さらにコピーを読み込む"
+  },
+  "local-management.loading": {
+    "message": "ローカルデータを読み込み中…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {ワールドへのパックのインストール} java_editor {Java エディター} other {Bedrock のローカル管理}}"
+  },
+  "local-management.partial": {
+    "message": "この一覧またはサイズの推定は不完全です。"
+  },
+  "local-management.preview": {
+    "message": "プレビュー"
+  },
+  "local-management.recovery": {
+    "message": "復元可能なコピー"
+  },
+  "local-management.remove": {
+    "message": "選択した項目を削除"
+  },
+  "local-management.remove-help": {
+    "message": "選択した復元可能なコピーと保持されたインポートのみを削除できます。完全に削除すると復元できなくなります。"
+  },
+  "local-management.restore": {
+    "message": "復元を確認"
+  },
+  "local-management.restore-help": {
+    "message": "復元前に、以下の保存先とコピーを確認してください。その後の変更や、保存先に既存のデータがある場合は復元ができないことがあります。"
+  },
+  "local-management.retention.days": {
+    "message": "経過日数（日）"
+  },
+  "local-management.retention.help": {
+    "message": "古い復元可能なコピーを選択して確認してください。自動的に削除されるものはありません。不完全なコピーとインストール済みのコンテンツは保持されます。"
+  },
+  "local-management.retention.keep": {
+    "message": "ファイルまたはワールドごとに最新のコピーを保持"
+  },
+  "local-management.retention.select": {
+    "message": "古いコピーを選択"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# 件を選択中} other {# 件を選択中}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} バイト"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {準備済み} applied {適用済み} rollback_failed {変更の取り消しに失敗} restored {復元済み} partial {不完全} legacy {旧形式のコピー} other {利用可能}}"
+  },
+  "local-management.storage": {
+    "message": "ストレージ"
+  },
+  "local-management.title": {
+    "message": "復元とストレージ"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft アカウント"

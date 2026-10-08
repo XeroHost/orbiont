@@ -21,6 +21,7 @@ export interface BrowseInstallContext {
 	name: string
 	loader: string
 	gameVersion: string
+	loaderVersion?: string
 	iconSrc?: string | null
 	backUrl: string | RouteLocationRaw
 	backLabel: string

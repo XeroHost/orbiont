@@ -35,7 +35,7 @@ pub struct InstalledModpack {
 // Check if folder has a minecraftinstance.json that parses
 pub async fn is_valid_curseforge(instance_folder: PathBuf) -> bool {
     let minecraft_instance = serde_json::from_str::<MinecraftInstance>(
-        &io::read_any_encoding_to_string(
+        &io::read_manifest_any_encoding_to_string(
             &instance_folder.join("minecraftinstance.json"),
         )
         .await
@@ -53,7 +53,7 @@ pub async fn import_curseforge(
 ) -> crate::Result<()> {
     // Load minecraftinstance.json
     let minecraft_instance = serde_json::from_str::<MinecraftInstance>(
-        &io::read_any_encoding_to_string(
+        &io::read_manifest_any_encoding_to_string(
             &curseforge_instance_folder.join("minecraftinstance.json"),
         )
         .await

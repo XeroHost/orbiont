@@ -1,5 +1,4 @@
 import type { ContentItem } from '@orbiont/ui'
-import { queryOptions } from '@tanstack/vue-query'
 import { invoke } from '@tauri-apps/api/core'
 
 import { adaptContentItems, isSyncedOptionAvailable } from './instance'
@@ -32,11 +31,11 @@ export const syncedPackKeys = {
 }
 
 export function syncedPackQueryOptions(type: SyncedPackType) {
-	return queryOptions({
+	return {
 		queryKey: syncedPackKeys.list(type),
 		queryFn: () => list_synced_packs(type),
 		enabled: isSyncedPackTypeAvailable(type),
-	})
+	}
 }
 
 export async function list_synced_packs(projectType: SyncedPackType): Promise<ContentItem[]> {

@@ -1,5 +1,5 @@
 import type { Ref } from 'vue'
-import { computed, ref, watch, watchEffect } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 export interface ScrollViewportOptions {
 	onScroll?: () => void
@@ -44,25 +44,28 @@ export function useScrollViewport(options: ScrollViewportOptions = {}) {
 	const viewportHeight = ref(0)
 	const containerOffset = ref(0)
 	const relativeScrollTop = computed(() => Math.max(0, scrollTop.value - containerOffset.value))
+	let frame: number | null = null
+	let scrollPending = false
+	let resizePending = false
+	let active = false
 
 	function updateContainerOffset() {
 		const listEl = listContainer.value
 		const container = scrollContainer.value
 		if (!listEl || !container) return
-
-		if (container instanceof Window) {
-			containerOffset.value = listEl.getBoundingClientRect().top + window.scrollY
-		} else {
-			const listRect = listEl.getBoundingClientRect()
-			const containerRect = container.getBoundingClientRect()
-			containerOffset.value = listRect.top - containerRect.top + container.scrollTop
-		}
+		const listTop = listEl.getBoundingClientRect().top
+		containerOffset.value =
+			container instanceof Window
+				? listTop + window.scrollY
+				: listTop -
+					container.getBoundingClientRect().top -
+					container.clientTop +
+					container.scrollTop
 	}
 
 	function syncScrollState() {
 		const listEl = listContainer.value
-		if (!listEl) return
-
+		if (!listEl || typeof window === 'undefined') return
 		const container = findScrollableAncestor(listEl)
 		scrollContainer.value = container
 		scrollTop.value = getScrollTop(container)
@@ -76,47 +79,95 @@ export function useScrollViewport(options: ScrollViewportOptions = {}) {
 		containerOffset.value = 0
 	}
 
-	function handleScroll() {
-		if (scrollContainer.value) {
-			scrollTop.value = getScrollTop(scrollContainer.value)
-			updateContainerOffset()
-		}
-
-		options.onScroll?.()
-	}
-
-	function handleResize() {
-		syncScrollState()
-		options.onResize?.()
-	}
-
-	watchEffect((onCleanup) => {
-		if (typeof window === 'undefined') return
-
-		const listEl = listContainer.value
-		if (!listEl) return
-
-		const container = findScrollableAncestor(listEl)
-		scrollContainer.value = container
-		syncScrollState()
-
-		container.addEventListener('scroll', handleScroll, { passive: true })
-		window.addEventListener('resize', handleResize, { passive: true })
-
-		let resizeObserver: ResizeObserver | undefined
-		if (!(container instanceof Window)) {
-			resizeObserver = new ResizeObserver(() => {
-				syncScrollState()
-			})
-			resizeObserver.observe(container)
-		}
-
-		onCleanup(() => {
-			container.removeEventListener('scroll', handleScroll)
-			window.removeEventListener('resize', handleResize)
-			resizeObserver?.disconnect()
+	function scheduleUpdate(kind: 'scroll' | 'resize') {
+		if (!active) return
+		if (kind === 'scroll') scrollPending = true
+		else resizePending = true
+		frame ??= window.requestAnimationFrame(() => {
+			frame = null
+			const didScroll = scrollPending
+			const didResize = resizePending
+			scrollPending = resizePending = false
+			syncScrollState()
+			if (didScroll) options.onScroll?.()
+			if (didResize) options.onResize?.()
 		})
-	})
+	}
+
+	const handleScroll = () => scheduleUpdate('scroll')
+	const handleResize = () => scheduleUpdate('resize')
+
+	// Explicit watches avoid tracking geometry reads and repeatedly rebinding on scroll.
+	watch(
+		scrollContainer,
+		(container, _, onCleanup) => {
+			if (!container) return
+			container.addEventListener('scroll', handleScroll, { passive: true })
+			onCleanup(() => container.removeEventListener('scroll', handleScroll))
+		},
+		{ flush: 'sync' },
+	)
+
+	watch(
+		listContainer,
+		(listEl, _, onCleanup) => {
+			if (!listEl || typeof window === 'undefined') return
+			active = true
+			syncScrollState()
+			window.addEventListener('resize', handleResize, { passive: true })
+
+			// Siblings can shift a list without changing its own size (headers, banners).
+			let attached = true
+			const observer =
+				typeof ResizeObserver === 'undefined'
+					? undefined
+					: new ResizeObserver(() => {
+							if (attached) handleResize()
+						})
+			const layoutObserver =
+				typeof MutationObserver === 'undefined'
+					? undefined
+					: new MutationObserver(() => {
+							if (!attached) return
+							observeLayout()
+							handleResize()
+						})
+			const observedList = listEl
+			function observeLayout() {
+				const elements = new Set<Element>([observedList])
+				let ancestor = observedList.parentElement
+				while (ancestor) {
+					elements.add(ancestor)
+					for (const child of ancestor.children) elements.add(child)
+					ancestor = ancestor.parentElement
+				}
+				observer?.disconnect()
+				layoutObserver?.disconnect()
+				for (const element of elements) {
+					observer?.observe(element)
+					layoutObserver?.observe(element, {
+						childList: element !== observedList,
+						attributes: true,
+						attributeFilter: ['style', 'class', 'hidden'],
+					})
+				}
+			}
+			observeLayout()
+
+			onCleanup(() => {
+				attached = false
+				active = false
+				if (frame !== null) window.cancelAnimationFrame(frame)
+				frame = null
+				scrollPending = resizePending = false
+				window.removeEventListener('resize', handleResize)
+				observer?.disconnect()
+				layoutObserver?.disconnect()
+				scrollContainer.value = null
+			})
+		},
+		{ flush: 'post' },
+	)
 
 	return {
 		resetScrollState,
@@ -130,8 +181,10 @@ export function useScrollViewport(options: ScrollViewportOptions = {}) {
 		viewportHeight,
 	}
 }
-
-export function useVirtualScroll<T>(items: Ref<T[]>, options: VirtualScrollOptions) {
+export function useVirtualScroll<T>(
+	items: Readonly<Ref<readonly T[]>>,
+	options: VirtualScrollOptions,
+) {
 	const {
 		itemHeight,
 		bufferSize = 5,
@@ -147,6 +200,7 @@ export function useVirtualScroll<T>(items: Ref<T[]>, options: VirtualScrollOptio
 		relativeScrollTop,
 		resetScrollState,
 		scrollContainer,
+		scrollTop,
 		syncScrollState,
 		viewportHeight,
 	} = useScrollViewport({
@@ -200,8 +254,8 @@ export function useVirtualScroll<T>(items: Ref<T[]>, options: VirtualScrollOptio
 	function checkNearEnd() {
 		if (!onNearEnd || !listContainer.value || !viewportHeight.value) return
 
-		const containerBottom = listContainer.value.getBoundingClientRect().bottom
-		const remainingScroll = containerBottom - viewportHeight.value
+		const remainingScroll =
+			containerOffset.value + totalHeight.value - scrollTop.value - viewportHeight.value
 
 		if (remainingScroll < viewportHeight.value * nearEndThreshold) {
 			onNearEnd()

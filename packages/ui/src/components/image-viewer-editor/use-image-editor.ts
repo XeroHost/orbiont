@@ -31,11 +31,7 @@ type EditorFabricObject = FabricObject & {
 	censorColor?: string
 }
 
-type FabricPointerEvent = {
-	e: MouseEvent | TouchEvent | PointerEvent
-	target?: FabricObject
-	transform?: { corner?: string }
-}
+type FabricPointerEvent = import('fabric').TPointerEventInfo<import('fabric').TPointerEvent>
 
 const MIN_ZOOM = 0.25
 const MAX_ZOOM = 4
@@ -216,6 +212,7 @@ export function useImageEditor() {
 			keepCropUiOnTop()
 		})
 		editorCanvas.on('path:created', ({ path }) => {
+			if (!fabric || !(path instanceof fabric.Path)) return
 			if (tool.value === 'eraser' && eraserMode.value === 'area') {
 				void eraseAreaWithPath(path).catch((error) => {
 					debugEraser('area:error', error)
@@ -475,8 +472,7 @@ export function useImageEditor() {
 		const editorCanvas = canvas.value
 		if (!editorCanvas || !fabric) return
 		const activeObject = editorCanvas.getActiveObject() as
-			| (EditorFabricObject & { isEditing?: boolean; exitEditing?: () => void })
-			| undefined
+			(EditorFabricObject & { isEditing?: boolean; exitEditing?: () => void }) | undefined
 		if (activeObject?.isEditing && nextTool !== 'text') activeObject.exitEditing?.()
 
 		editorCanvas.isDrawingMode =
@@ -748,7 +744,7 @@ export function useImageEditor() {
 					const clipPath = await eraserMask.clone()
 					fabricModule.util.sendObjectToPlane(clipPath, undefined, object.calcTransformMatrix())
 					const nextClipPath = object.clipPath
-						? fabricModule.util.mergeClipPaths(object.clipPath, clipPath)
+						? fabricModule.util.mergeClipPaths(object.clipPath as FabricObject, clipPath)
 						: clipPath
 					object.set('clipPath', nextClipPath)
 				}),
@@ -1426,8 +1422,7 @@ export function useImageEditor() {
 
 	function handleKeyboardShortcut(event: KeyboardEvent) {
 		const activeObject = canvas.value?.getActiveObject() as
-			| (EditorFabricObject & { isEditing?: boolean; exitEditing?: () => void })
-			| undefined
+			(EditorFabricObject & { isEditing?: boolean; exitEditing?: () => void }) | undefined
 		if (activeObject?.isEditing && event.key === 'Escape') {
 			event.preventDefault()
 			activeObject.exitEditing?.()

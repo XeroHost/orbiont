@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { EditingFile, FileItem, UploadState } from '@orbiont/ui'
 import {
+	Button,
 	commonMessages,
 	defineMessages,
 	FilePageLayout,
@@ -14,8 +15,13 @@ import { useQuery } from '@tanstack/vue-query'
 import { invoke } from '@tauri-apps/api/core'
 import { computed, ref, watch } from 'vue'
 
+import LocalManagementCenter from '@/components/ui/management/LocalManagementCenter.vue'
 import { useAppEvent } from '@/composables/use-app-event'
+import { useEditorExit } from '@/composables/use-editor-exit'
 import { get_full_path } from '@/helpers/instance'
+import { createJavaDocuments } from '@/helpers/java-documents'
+import { createJavaManagementAdapter } from '@/helpers/local-management'
+import { managementMessages } from '@/helpers/management-messages'
 import { highlightInFolder } from '@/helpers/utils'
 
 import { injectInstancePage } from '../instance-context'
@@ -59,6 +65,17 @@ const loading = ref(true)
 const error = ref<Error | null>(null)
 const currentPath = ref('')
 const editingFile = ref<EditingFile | null>(null)
+const layout = ref<InstanceType<typeof FilePageLayout>>()
+useEditorExit(
+	() => !!(layout.value?.hasUnsavedChanges || layout.value?.isSaving),
+	() => layout.value?.confirmDiscardChanges() ?? Promise.resolve(false),
+)
+const managementCenter = ref<InstanceType<typeof LocalManagementCenter>>()
+const managementAdapter = computed(() => {
+	const id = instanceId.value
+	return createJavaManagementAdapter(() => id, refresh)
+})
+const documents = createJavaDocuments(() => instanceId.value)
 
 debug('setup: start, instance.id =', instanceId.value)
 
@@ -199,11 +216,7 @@ async function handleDeleteItem(path: string, recursive: boolean) {
 }
 
 async function handleReadFile(path: string): Promise<string> {
-	const bytes = await invoke<number[]>('plugin:files|file_read', {
-		instanceId: instanceId.value,
-		path,
-	})
-	return new TextDecoder().decode(new Uint8Array(bytes))
+	return documents.read(path)
 }
 
 async function handleReadFileAsBlob(path: string): Promise<Blob> {
@@ -215,7 +228,22 @@ async function handleReadFileAsBlob(path: string): Promise<Blob> {
 }
 
 async function handleWriteFile(path: string, content: string) {
-	await writeBytes(path, new TextEncoder().encode(content))
+	try {
+		await documents.write(path, content)
+	} catch (error) {
+		const detail =
+			typeof error === 'string' ? error : ((error as { message?: string })?.message ?? '')
+		throw new Error(
+			formatMessage(
+				detail.includes('Document changed externally')
+					? managementMessages.editorConflict
+					: detail === 'Document has not been read'
+						? managementMessages.reloadBeforeSave
+						: managementMessages.saveError,
+			),
+			{ cause: error },
+		)
+	}
 }
 
 async function handleDownloadFile(path: string, _fileName: string) {
@@ -271,12 +299,15 @@ async function handleUploadFiles(files: File[]) {
 
 async function handleExtractFile(path: string, override: boolean, dry: boolean) {
 	try {
-		return await invoke('plugin:files|file_extract_zip', {
-			instanceId: instanceId.value,
-			filePath: path,
-			overrideConflicts: override,
-			dryRun: dry,
-		})
+		return await invoke<import('@orbiont/ui').ExtractDryRunResult | void>(
+			'plugin:files|file_extract_zip',
+			{
+				instanceId: instanceId.value,
+				filePath: path,
+				overrideConflicts: override,
+				dryRun: dry,
+			},
+		)
 	} catch (e) {
 		addNotification({
 			title: formatMessage(commonMessages.extractFailedLabel),
@@ -297,12 +328,16 @@ useAppEvent('instance', async (event) => {
 watch(instanceId, async () => {
 	debug('watch instance.id: changed to', instanceId.value)
 	firstPaintPending.value = true
+	editingFile.value = null
+	documents.clear()
 	currentPath.value = ''
 	await instanceRootQuery.refetch()
 	await refresh()
 })
 
 provideFileManager({
+	formatFileError: (error) =>
+		error instanceof Error ? error.message : formatMessage(managementMessages.saveError),
 	isReadOnly,
 	readOnlyReason: computed(() => formatMessage(messages.readOnly)),
 	items,
@@ -336,7 +371,14 @@ provideFileManager({
 <template>
 	<ReadyTransition :pending="firstPaintPending">
 		<div>
-			<FilePageLayout :show-refresh-button="true" />
+			<LocalManagementCenter ref="managementCenter" :adapter="managementAdapter" />
+			<FilePageLayout ref="layout" :show-refresh-button="true">
+				<template #location
+					><Button type="outlined" :disabled="!!editingFile" @click="managementCenter?.show()">{{
+						formatMessage(managementMessages.title)
+					}}</Button></template
+				>
+			</FilePageLayout>
 		</div>
 	</ReadyTransition>
 </template>

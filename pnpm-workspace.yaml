@@ -2,3 +2,6 @@ packages:
   - 'apps/*'
   - 'packages/*'
 minimumReleaseAge: 10080 # 7 days
+# Reviewed security patch for GHSA-68fv-2mgg-jv7q; keep the age gate for all other packages.
+minimumReleaseAgeExclude:
+  - source-map-js@1.2.2

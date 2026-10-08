@@ -14,8 +14,7 @@ export type LegacyProjectEnvironment = {
 }
 
 export type ProjectCardEnvironmentValue =
-	| Labrinth.Projects.v3.Environment
-	| LegacyProjectEnvironment
+	Labrinth.Projects.v3.Environment | LegacyProjectEnvironment
 
 export type ProjectCardEnvironmentProps = {
 	environment?: ProjectCardEnvironmentValue

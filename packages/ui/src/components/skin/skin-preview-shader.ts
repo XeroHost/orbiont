@@ -2,7 +2,7 @@ import * as THREE from 'three'
 
 type DamageFlashMaterial = THREE.MeshStandardMaterial & {
 	userData: THREE.MeshStandardMaterial['userData'] & {
-		damageFlashShader?: THREE.Shader
+		damageFlashShader?: Parameters<THREE.MeshStandardMaterial['onBeforeCompile']>[0]
 		damageFlashShaderInstalled?: boolean
 	}
 }

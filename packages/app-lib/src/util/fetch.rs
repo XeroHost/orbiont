@@ -641,6 +641,13 @@ async fn read_file_response_checked(
     });
     let (mut file, path) = temporary_file(staging.as_deref()).await?;
     let total = response.content_length().unwrap_or(0);
+    const MAX_FILE_RESPONSE: u64 = 2 * 1024 * 1024 * 1024;
+    if total > MAX_FILE_RESPONSE {
+        return Err(ErrorKind::InputError(
+            "Download exceeds size limit".into(),
+        )
+        .into());
+    }
     let mut stream = response.bytes_stream();
     let mut hasher = ContentHasher::default();
     let mut sha1 = sha1_smol::Sha1::new();
@@ -649,6 +656,12 @@ async fn read_file_response_checked(
         crate::install::control::download_step(stream.next()).await?
     {
         let chunk = chunk?;
+        if size.saturating_add(chunk.len() as u64) > MAX_FILE_RESPONSE {
+            return Err(ErrorKind::InputError(
+                "Download exceeds size limit".into(),
+            )
+            .into());
+        }
         if let Some((_, expected_size)) = expected
             && size.saturating_add(chunk.len() as u64) > expected_size
         {
@@ -780,16 +793,12 @@ async fn read_memory_response(
     mut progress: Option<&mut FetchProgressFn<'_>>,
 ) -> crate::Result<Bytes> {
     let total_size = response.content_length();
-    if ((loading_bar.is_none() && progress.is_none()) || total_size.is_none())
-        && crate::install::control::CURRENT_INSTALL
-            .try_with(|_| ())
-            .is_err()
-    {
-        return response
-            .bytes()
-            .await
-            .wrap_err_with(|| eyre!("failed to read response body from {url}"))
-            .map_err(Into::into);
+    const MAX_MEMORY_RESPONSE: u64 = 64 * 1024 * 1024;
+    if total_size.is_some_and(|size| size > MAX_MEMORY_RESPONSE) {
+        return Err(ErrorKind::InputError(
+            "Response exceeds in-memory size limit".into(),
+        )
+        .into());
     }
     use futures::StreamExt;
     let total_size = total_size.unwrap_or(0);
@@ -801,6 +810,12 @@ async fn read_memory_response(
         let chunk = chunk.wrap_err_with(|| {
             eyre!("failed to read response body from {url}")
         })?;
+        if bytes.len() as u64 + chunk.len() as u64 > MAX_MEMORY_RESPONSE {
+            return Err(ErrorKind::InputError(
+                "Response exceeds in-memory size limit".into(),
+            )
+            .into());
+        }
         bytes.extend_from_slice(&chunk);
         if let Some((bar, total)) = loading_bar
             && total_size > 0
@@ -818,7 +833,7 @@ async fn read_memory_response(
     Ok(Bytes::from(bytes))
 }
 
-#[tracing::instrument(skip(semaphore))]
+#[tracing::instrument(skip_all)]
 pub async fn fetch(
     url: &str,
     sha1: Option<&str>,
@@ -842,7 +857,7 @@ pub async fn fetch(
     .await
 }
 
-#[tracing::instrument(skip(semaphore))]
+#[tracing::instrument(skip_all)]
 pub async fn fetch_with_client(
     url: &str,
     sha1: Option<&str>,
@@ -868,7 +883,7 @@ pub async fn fetch_with_client(
     .await
 }
 
-#[tracing::instrument(skip(json_body, semaphore))]
+#[tracing::instrument(skip_all)]
 pub async fn fetch_json<T>(
     method: Method,
     url: &str,
@@ -892,7 +907,7 @@ where
 
 /// Downloads a file with retry and checksum functionality, and a specific
 /// [`reqwest::Client`].
-#[tracing::instrument(skip(json_body, semaphore))]
+#[tracing::instrument(skip_all)]
 #[allow(clippy::too_many_arguments)]
 pub async fn fetch_advanced(
     method: Method,
@@ -922,7 +937,7 @@ pub async fn fetch_advanced(
     .await
 }
 
-#[tracing::instrument(skip(json_body, semaphore, progress))]
+#[tracing::instrument(skip_all)]
 #[allow(clippy::too_many_arguments)]
 pub async fn fetch_advanced_with_progress(
     method: Method,
@@ -956,7 +971,7 @@ pub async fn fetch_advanced_with_progress(
 }
 
 /// Downloads a file with retry and checksum functionality
-#[tracing::instrument(skip(json_body, semaphore))]
+#[tracing::instrument(skip_all)]
 #[allow(clippy::too_many_arguments)]
 pub async fn fetch_advanced_with_client(
     method: Method,
@@ -989,9 +1004,7 @@ pub async fn fetch_advanced_with_client(
     .await
 }
 
-#[tracing::instrument(skip(
-    json_body, bytes_body, semaphore, client, progress
-))]
+#[tracing::instrument(skip_all)]
 #[allow(clippy::too_many_arguments)]
 async fn fetch_advanced_with_client_and_progress(
     method: Method,
@@ -1086,7 +1099,7 @@ async fn fetch_advanced_with_target(
         }
 
         if let Some((name, value)) = &download_meta_header {
-            tracing::debug!("Sending download analytics: {value}");
+            tracing::debug!("Applying download metadata");
             req = req.header(name.as_str(), value.as_str());
         }
 
@@ -1115,7 +1128,11 @@ async fn fetch_advanced_with_target(
                 {
                     let status = resp.status();
                     let backup_error = resp.error_for_status_ref().unwrap_err();
-                    if let Ok(mut error) = resp.json::<LabrinthError>().await {
+                    if let Ok(body) =
+                        read_memory_response(resp, url, None, None).await
+                        && let Ok(mut error) =
+                            serde_json::from_slice::<LabrinthError>(&body)
+                    {
                         error.status = Some(status.as_u16());
                         error.method = Some(method.as_str().to_string());
                         error.url = Some(url.to_string());
@@ -1167,7 +1184,7 @@ async fn fetch_advanced_with_target(
                         }
                     }
 
-                    tracing::trace!("Done downloading URL {url}");
+                    tracing::trace!("Download completed");
 
                     if let Some(fence_key) = fence_key {
                         GLOBAL_FETCH_FENCE.record_ok(fence_key);
@@ -1191,7 +1208,7 @@ async fn fetch_advanced_with_target(
 }
 
 /// Downloads a file from specified mirrors
-#[tracing::instrument(skip(semaphore))]
+#[tracing::instrument(skip_all)]
 pub async fn fetch_mirrors(
     mirrors: &[&str],
     sha1: Option<&str>,
@@ -1241,7 +1258,7 @@ where
     Ok(json)
 }
 
-#[tracing::instrument(skip(bytes, semaphore))]
+#[tracing::instrument(skip_all)]
 pub async fn write(
     path: &Path,
     bytes: &[u8],
@@ -1253,12 +1270,21 @@ pub async fn write(
         io::create_dir_all(parent).await?;
     }
 
-    let mut file = File::create(path)
+    let parent = path.parent().ok_or_else(|| {
+        ErrorKind::InputError("Invalid write destination".into())
+    })?;
+    let temporary = tempfile::NamedTempFile::new_in(parent)?.into_temp_path();
+    let mut file = File::create(&temporary)
         .await
         .map_err(|e| IOError::with_path(e, path))?;
     file.write_all(bytes)
         .await
         .map_err(|e| IOError::with_path(e, path))?;
+    file.sync_all().await?;
+    drop(file);
+    temporary
+        .persist(path)
+        .map_err(|error| IOError::with_path(error.error, path))?;
     tracing::trace!("Done writing file {}", path.display());
     Ok(())
 }
@@ -1277,7 +1303,20 @@ pub async fn copy(
         io::create_dir_all(parent).await?;
     }
 
-    io::copy(src, dest).await?;
+    let parent = dest.parent().ok_or_else(|| {
+        ErrorKind::InputError("Invalid copy destination".into())
+    })?;
+    let temporary = tempfile::NamedTempFile::new_in(parent)?.into_temp_path();
+    io::copy(src, &temporary).await?;
+    File::options()
+        .write(true)
+        .open(&temporary)
+        .await?
+        .sync_all()
+        .await?;
+    temporary
+        .persist(dest)
+        .map_err(|error| IOError::with_path(error.error, dest))?;
     tracing::trace!(
         "Done copying file {} to {}",
         src.display(),
@@ -1340,6 +1379,165 @@ pub async fn sha1_file_async_with_progress(
 mod tests {
     use super::*;
     use chrono::{TimeDelta, Utc};
+
+    async fn read_request_headers(
+        socket: &mut (impl tokio::io::AsyncRead + Unpin),
+    ) -> std::io::Result<()> {
+        use tokio::io::AsyncReadExt;
+        let mut request = Vec::new();
+        let mut chunk = [0; 1024];
+        loop {
+            let amount = socket.read(&mut chunk).await?;
+            if amount == 0 {
+                return Err(std::io::Error::new(
+                    std::io::ErrorKind::UnexpectedEof,
+                    "Request ended before its headers were complete",
+                ));
+            }
+            if request.len() + amount > 64 * 1024 {
+                return Err(std::io::Error::new(
+                    std::io::ErrorKind::InvalidData,
+                    "Fixture request headers exceed their size limit",
+                ));
+            }
+            request.extend_from_slice(&chunk[..amount]);
+            if request.windows(4).any(|window| window == b"\r\n\r\n") {
+                return Ok(());
+            }
+        }
+    }
+
+    #[tokio::test]
+    async fn fixture_headers_wait_for_fragmented_terminator_and_reject_eof() {
+        use tokio::io::AsyncWriteExt;
+        // Capacity two forces the four-byte terminator to span multiple reads.
+        let (mut client, mut server) = tokio::io::duplex(2);
+        let sender = tokio::spawn(async move {
+            client
+                .write_all(b"GET / HTTP/1.1\r\nHost: fixture\r\n\r\n")
+                .await
+                .unwrap();
+        });
+        read_request_headers(&mut server).await.unwrap();
+        sender.await.unwrap();
+
+        let (mut client, mut server) = tokio::io::duplex(2);
+        client.write_all(b"G").await.unwrap();
+        drop(client);
+        assert_eq!(
+            read_request_headers(&mut server).await.unwrap_err().kind(),
+            std::io::ErrorKind::UnexpectedEof
+        );
+    }
+
+    async fn header_only_response(length: u64) -> reqwest::Response {
+        use tokio::io::AsyncWriteExt;
+        let listener =
+            tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let url = format!("http://{}/fixture", listener.local_addr().unwrap());
+        tokio::spawn(async move {
+            let (mut socket, _) = listener.accept().await.unwrap();
+            read_request_headers(&mut socket).await.unwrap();
+            socket.write_all(format!("HTTP/1.1 200 OK\r\nContent-Length: {length}\r\nConnection: close\r\n\r\n").as_bytes()).await.unwrap();
+        });
+        reqwest::Client::new().get(url).send().await.unwrap()
+    }
+    #[tokio::test]
+    async fn oversized_download_headers_rejected_without_consuming_body_or_touching_files()
+     {
+        let response = header_only_response(64 * 1024 * 1024 + 1).await;
+        assert!(
+            read_memory_response(response, "fixture", None, None)
+                .await
+                .unwrap_err()
+                .to_string()
+                .contains("limit")
+        );
+        let staging = tempfile::tempdir().unwrap();
+        let original = staging.path().join("original");
+        tokio::fs::write(&original, b"original").await.unwrap();
+        let response = header_only_response(2 * 1024 * 1024 * 1024 + 1).await;
+        assert!(
+            read_file_response(response, None, Some(staging.path()))
+                .await
+                .unwrap_err()
+                .to_string()
+                .contains("limit")
+        );
+        assert_eq!(tokio::fs::read(&original).await.unwrap(), b"original");
+        assert_eq!(std::fs::read_dir(staging.path()).unwrap().count(), 1);
+    }
+
+    #[tokio::test]
+    async fn oversized_http_error_body_uses_the_same_memory_budget() {
+        use tokio::io::AsyncWriteExt;
+        let listener =
+            tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let url = format!("http://{}/fixture", listener.local_addr().unwrap());
+        let server = tokio::spawn(async move {
+            for attempt in 0..=FETCH_ATTEMPTS {
+                let (mut socket, _) = listener.accept().await.unwrap();
+                read_request_headers(&mut socket).await.unwrap();
+                socket.write_all(b"HTTP/1.1 500 Internal Server Error\r\nContent-Length: 67108865\r\nConnection: close\r\n\r\n").await.unwrap();
+                if attempt == FETCH_ATTEMPTS {
+                    tokio::time::sleep(std::time::Duration::from_secs(2)).await;
+                }
+            }
+        });
+        let pool = sqlx::SqlitePool::connect_lazy("sqlite::memory:").unwrap();
+        let semaphore = FetchSemaphore(tokio::sync::Semaphore::new(1));
+        let error = tokio::time::timeout(
+            std::time::Duration::from_secs(1),
+            fetch_with_client(
+                &url,
+                None,
+                None,
+                None,
+                &semaphore,
+                &pool,
+                &reqwest::Client::new(),
+            ),
+        )
+        .await
+        .expect("oversized error body must be rejected before reading")
+        .unwrap_err();
+        assert!(error.to_string().contains("500"));
+        server.await.unwrap();
+        let source = include_str!("fetch.rs")
+            .split("#[cfg(test)]")
+            .next()
+            .unwrap();
+        assert!(!source.contains("resp.json::<LabrinthError>().await"));
+    }
+
+    #[tokio::test]
+    async fn chunked_response_exceeds_expected_budget_before_write() {
+        use tokio::io::AsyncWriteExt;
+        let listener =
+            tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
+        let url = format!("http://{}/fixture", listener.local_addr().unwrap());
+        tokio::spawn(async move {
+            let (mut socket, _) = listener.accept().await.unwrap();
+            read_request_headers(&mut socket).await.unwrap();
+            socket.write_all(b"HTTP/1.1 200 OK\r\nTransfer-Encoding: chunked\r\nConnection: close\r\n\r\n5\r\n12345\r\n0\r\n\r\n").await.unwrap();
+        });
+        let response = reqwest::Client::new().get(url).send().await.unwrap();
+        let staging = tempfile::tempdir().unwrap();
+        let hash = sha1_smol::Sha1::from(b"1234").digest().to_string();
+        assert!(
+            read_file_response_checked(
+                response,
+                None,
+                Some(staging.path()),
+                Some((&hash, 4))
+            )
+            .await
+            .unwrap_err()
+            .to_string()
+            .contains("exceeds")
+        );
+        assert_eq!(std::fs::read_dir(staging.path()).unwrap().count(), 0);
+    }
 
     #[test]
     fn test_fence_block_after_4_fails() {

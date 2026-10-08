@@ -24,7 +24,12 @@ pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
             write_file,
             delete_item,
             list_recoveries,
-            restore_item
+            restore_item,
+            get_process_status,
+            list_recoveries_page,
+            preview_recovery,
+            get_storage,
+            remove_storage
         ])
         .build()
 }
@@ -58,8 +63,11 @@ pub async fn restore_item(root_id: String, id: String) -> Result<()> {
 #[tauri::command]
 pub async fn get_workspace<R: tauri::Runtime>(
     app: tauri::AppHandle<R>,
+    refresh: Option<bool>,
 ) -> Result<Workspace> {
-    let workspace = theseus::bedrock::get_workspace().await?;
+    let workspace =
+        theseus::bedrock::get_workspace_cached(refresh.unwrap_or(false))
+            .await?;
     for icon in workspace
         .items
         .iter()
@@ -105,8 +113,8 @@ pub async fn open_updates() -> Result<()> {
 }
 
 #[tauri::command]
-pub async fn get_status() -> Result<BedrockStatus> {
-    theseus::bedrock::get_status().await
+pub async fn get_status(refresh: Option<bool>) -> Result<BedrockStatus> {
+    theseus::bedrock::get_status_cached(refresh.unwrap_or(false)).await
 }
 
 #[tauri::command]
@@ -115,8 +123,10 @@ pub async fn launch_game() -> Result<()> {
 }
 
 #[tauri::command]
-pub async fn stop_game() -> Result<()> {
-    theseus::bedrock::stop_game().await
+pub async fn stop_game(
+    force_token: Option<String>,
+) -> Result<theseus::bedrock::StopOutcome> {
+    theseus::bedrock::stop_game(force_token).await
 }
 
 #[tauri::command]
@@ -143,4 +153,31 @@ pub async fn import_catalog_file(
 ) -> Result<usize> {
     theseus::bedrock::import_catalog_file(project_id, file_id, path, target)
         .await
+}
+
+#[tauri::command]
+pub async fn get_process_status() -> Result<theseus::bedrock::ProcessStatus> {
+    theseus::bedrock::get_process_status().await
+}
+#[tauri::command]
+pub async fn list_recoveries_page(
+    offset: usize,
+    limit: usize,
+) -> Result<theseus::bedrock::RecoveryPage> {
+    theseus::bedrock::list_recoveries_page(offset, limit).await
+}
+#[tauri::command]
+pub async fn preview_recovery(
+    root_id: String,
+    id: String,
+) -> Result<theseus::bedrock::RecoveryPreview> {
+    theseus::bedrock::preview_recovery(root_id, id).await
+}
+#[tauri::command]
+pub async fn get_storage() -> Result<theseus::bedrock::StorageSummary> {
+    theseus::bedrock::get_storage().await
+}
+#[tauri::command]
+pub async fn remove_storage(root_id: String, id: String) -> Result<()> {
+    theseus::bedrock::remove_storage(root_id, id).await
 }

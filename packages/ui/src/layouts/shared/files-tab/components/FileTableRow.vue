@@ -139,15 +139,7 @@ const props = defineProps<
 const emit = defineEmits<{
 	(
 		e:
-			| 'rename'
-			| 'move'
-			| 'download'
-			| 'zip'
-			| 'delete'
-			| 'edit'
-			| 'extract'
-			| 'hover'
-			| 'navigate',
+			'rename' | 'move' | 'download' | 'zip' | 'delete' | 'edit' | 'extract' | 'hover' | 'navigate',
 		item: Pick<FileItem, 'name' | 'type' | 'path'>,
 	): void
 	(

@@ -41,16 +41,15 @@ pub enum MinecraftAuthStep {
     MinecraftProfile,
 }
 
-#[derive(thiserror::Error, Debug)]
+#[derive(thiserror::Error)]
 pub enum MinecraftAuthenticationError {
     #[error(
-        "Failed to deserialize response to JSON during step {step:?}: {source}. Status Code: {status_code} Body: {raw}"
+        "Failed to deserialize response to JSON during step {step:?}. Status Code: {status_code}"
     )]
     DeserializeResponse {
         step: MinecraftAuthStep,
         raw: String,
-        #[source]
-        source: serde_json::Error,
+        parse_error: serde_json::Error,
         status_code: StatusCode,
     },
     #[error("Request failed during step {step:?}: {source}")]
@@ -63,6 +62,13 @@ pub enum MinecraftAuthenticationError {
     NoUserHash,
     #[error("This Microsoft account does not own Minecraft: Java Edition")]
     NoMinecraftLicense,
+}
+
+impl std::fmt::Debug for MinecraftAuthenticationError {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        // Never include server bodies: error responses may echo tokens/codes.
+        std::fmt::Display::fmt(self, f)
+    }
 }
 
 #[derive(Deserialize)]
@@ -88,13 +94,19 @@ impl MinecraftAuthenticationError {
     }
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize)]
 pub struct MinecraftLoginFlow {
     pub verifier: String,
     pub state: String,
     pub auth_request_uri: String,
     /// Where Microsoft sends the browser back with `?code=` (or `?error=`).
     pub redirect_uri: String,
+}
+
+impl std::fmt::Debug for MinecraftLoginFlow {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.write_str("MinecraftLoginFlow { [REDACTED] }")
+    }
 }
 
 /// Builds the Microsoft sign-in URL (authorization code flow with PKCE, for a
@@ -132,7 +144,7 @@ pub async fn login_begin() -> crate::Result<MinecraftLoginFlow> {
     })
 }
 
-#[tracing::instrument]
+#[tracing::instrument(skip(code, flow, exec))]
 pub async fn login_finish(
     code: &str,
     flow: MinecraftLoginFlow,
@@ -173,7 +185,7 @@ pub async fn login_finish(
     Ok(credentials)
 }
 
-#[derive(Deserialize, Debug)]
+#[derive(Deserialize)]
 pub struct Credentials {
     /// The offline profile of the user these credentials are for.
     ///
@@ -186,6 +198,16 @@ pub struct Credentials {
     pub refresh_token: String,
     pub expires: DateTime<Utc>,
     pub active: bool,
+}
+
+impl std::fmt::Debug for Credentials {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("Credentials")
+            .field("offline_profile", &self.offline_profile)
+            .field("expires", &self.expires)
+            .field("active", &self.active)
+            .finish_non_exhaustive()
+    }
 }
 
 /// An entry in the player profile cache, keyed by player UUID.
@@ -563,9 +585,8 @@ impl Credentials {
     }
 
     /// Builds credentials from a stored row, decrypting its tokens. A session
-    /// saved before encryption is re-saved encrypted; one that can't be
-    /// decrypted (another device's key) is dropped, so that account just has
-    /// to sign in again.
+    /// saved before encryption is re-saved encrypted. Failed decryption leaves
+    /// the saved account intact so a temporarily unavailable key can recover.
     #[allow(clippy::too_many_arguments)]
     async fn from_stored(
         uuid: &str,
@@ -583,11 +604,7 @@ impl Credentials {
         ) {
             (Ok(access), Ok(refresh)) => (access, refresh),
             (Err(err), _) | (_, Err(err)) => {
-                tracing::warn!(
-                    "Dropping the saved session of {username}: {err}"
-                );
-                Self::remove(id, exec).await?;
-                return Ok(None);
+                return Err(err);
             }
         };
 
@@ -605,8 +622,12 @@ impl Credentials {
                 .unwrap_or_else(Utc::now),
             active,
         };
-        if access.was_plaintext || refresh.was_plaintext {
-            credentials.store(exec).await?;
+        if (access.was_plaintext || refresh.was_plaintext)
+            && let Err(err) = credentials.store(exec).await
+        {
+            // The original row remains usable; retry migration on a later
+            // read rather than losing legacy sessions during a key outage.
+            tracing::warn!("Session encryption migration deferred: {err}");
         }
         Ok(Some(credentials))
     }
@@ -615,6 +636,10 @@ impl Credentials {
         &self,
         exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
     ) -> crate::Result<()> {
+        // Key availability must be established before changing account selection.
+        let access_token = session_crypto::encrypt(&self.access_token).await?;
+        let refresh_token =
+            session_crypto::encrypt(&self.refresh_token).await?;
         if self.active {
             sqlx::query!(
                 "
@@ -626,7 +651,8 @@ impl Credentials {
             .await?;
         }
 
-        self.store(exec).await
+        self.store_encrypted(access_token, refresh_token, exec)
+            .await
     }
 
     /// Writes this row with its tokens encrypted (see `session_crypto`).
@@ -634,12 +660,22 @@ impl Credentials {
         &self,
         exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
     ) -> crate::Result<()> {
-        let profile = self.maybe_online_profile().await;
-        let expires = self.expires.timestamp();
-        let uuid = profile.id.as_hyphenated().to_string();
         let access_token = session_crypto::encrypt(&self.access_token).await?;
         let refresh_token =
             session_crypto::encrypt(&self.refresh_token).await?;
+        self.store_encrypted(access_token, refresh_token, exec)
+            .await
+    }
+
+    async fn store_encrypted(
+        &self,
+        access_token: String,
+        refresh_token: String,
+        exec: impl sqlx::Executor<'_, Database = sqlx::Sqlite> + Copy,
+    ) -> crate::Result<()> {
+        let profile = self.maybe_online_profile().await;
+        let expires = self.expires.timestamp();
+        let uuid = profile.id.as_hyphenated().to_string();
 
         sqlx::query!(
             "
@@ -767,7 +803,7 @@ struct OAuthToken {
     // pub foci: String,
 }
 
-#[tracing::instrument]
+#[tracing::instrument(skip(code, verifier))]
 async fn oauth_token(
     code: &str,
     verifier: &str,
@@ -804,7 +840,7 @@ async fn oauth_token(
 
     let body = serde_json::from_str(&text).map_err(|source| {
         MinecraftAuthenticationError::DeserializeResponse {
-            source,
+            parse_error: source,
             raw: text,
             step: MinecraftAuthStep::GetOAuthToken,
             status_code: status,
@@ -817,7 +853,7 @@ async fn oauth_token(
     })
 }
 
-#[tracing::instrument]
+#[tracing::instrument(skip(refresh_token))]
 async fn oauth_refresh(
     refresh_token: &str,
 ) -> Result<RequestWithDate<OAuthToken>, MinecraftAuthenticationError> {
@@ -851,7 +887,7 @@ async fn oauth_refresh(
 
     let body = serde_json::from_str(&text).map_err(|source| {
         MinecraftAuthenticationError::DeserializeResponse {
-            source,
+            parse_error: source,
             raw: text,
             step: MinecraftAuthStep::RefreshOAuthToken,
             status_code: status,
@@ -1170,7 +1206,7 @@ async fn minecraft_profile(
     let mut profile =
         serde_json::from_str::<MinecraftProfile>(&text).map_err(|source| {
             MinecraftAuthenticationError::DeserializeResponse {
-                source,
+                parse_error: source,
                 raw: text,
                 step: MinecraftAuthStep::MinecraftProfile,
                 status_code: status,
@@ -1202,7 +1238,7 @@ struct MinecraftEntitlement {
     name: String,
 }
 
-#[tracing::instrument]
+#[tracing::instrument(skip(token))]
 async fn minecraft_entitlements(
     token: &str,
 ) -> Result<MinecraftEntitlements, MinecraftAuthenticationError> {
@@ -1227,7 +1263,7 @@ async fn minecraft_entitlements(
     let entitlements: MinecraftEntitlements = serde_json::from_str(&text)
         .map_err(|source| {
             MinecraftAuthenticationError::DeserializeResponse {
-                source,
+                parse_error: source,
                 raw: text,
                 step: MinecraftAuthStep::MinecraftEntitlements,
                 status_code: status,
@@ -1308,7 +1344,7 @@ async fn post_json<T: DeserializeOwned>(
 
     let value = serde_json::from_str(&text).map_err(|source| {
         MinecraftAuthenticationError::DeserializeResponse {
-            source,
+            parse_error: source,
             raw: text,
             step,
             status_code: status,
@@ -1321,7 +1357,7 @@ async fn post_json<T: DeserializeOwned>(
     })
 }
 
-#[tracing::instrument]
+#[tracing::instrument(skip(headers))]
 fn get_date_header(headers: &HeaderMap) -> DateTime<Utc> {
     headers
         .get(reqwest::header::DATE)
@@ -1336,4 +1372,76 @@ fn generate_oauth_challenge() -> String {
 
     let bytes: Vec<u8> = (0..64).map(|_| rng.r#gen::<u8>()).collect();
     bytes.iter().map(|byte| format!("{byte:02x}")).collect()
+}
+
+#[cfg(test)]
+mod authentication_security_tests {
+    use super::*;
+
+    #[tokio::test]
+    async fn undecryptable_session_keeps_account_tokens_and_selection() {
+        use sqlx::Row;
+        let pool = sqlx::SqlitePool::connect("sqlite::memory:").await.unwrap();
+        sqlx::query("CREATE TABLE minecraft_users(uuid TEXT PRIMARY KEY, active INTEGER NOT NULL, username TEXT NOT NULL, access_token TEXT NOT NULL, refresh_token TEXT NOT NULL, expires INTEGER NOT NULL)")
+            .execute(&pool).await.unwrap();
+        let uuid = Uuid::from_u128(1).to_string();
+        for (access, refresh) in [
+            ("enc:v1:malformed!", "legacy-refresh-fixture"),
+            ("legacy-access-fixture", "enc:v2:unsupported-fixture"),
+        ] {
+            sqlx::query("INSERT OR REPLACE INTO minecraft_users VALUES (?, 1, 'fixture-account', ?, ?, 0)")
+                .bind(&uuid).bind(access).bind(refresh).execute(&pool).await.unwrap();
+            assert!(Credentials::get_active(&pool).await.is_err());
+            assert!(Credentials::get_all(&pool).await.is_err());
+            let row = sqlx::query("SELECT active, access_token, refresh_token FROM minecraft_users WHERE uuid = ?")
+                .bind(&uuid).fetch_one(&pool).await.unwrap();
+            assert_eq!(row.get::<i64, _>("active"), 1);
+            assert_eq!(row.get::<String, _>("access_token"), access);
+            assert_eq!(row.get::<String, _>("refresh_token"), refresh);
+            assert_eq!(
+                sqlx::query_scalar::<_, i64>(
+                    "SELECT COUNT(*) FROM minecraft_users"
+                )
+                .fetch_one(&pool)
+                .await
+                .unwrap(),
+                1
+            );
+        }
+    }
+
+    #[test]
+    fn secret_arguments_are_excluded_and_response_body_never_formats() {
+        let source = include_str!("minecraft_auth.rs");
+        for (function, expected) in [
+            ("login_finish", "skip(code, flow, exec)"),
+            ("oauth_token", "skip(code, verifier)"),
+            ("oauth_refresh", "skip(refresh_token)"),
+            ("minecraft_entitlements", "skip(token)"),
+            ("get_date_header", "skip(headers)"),
+        ] {
+            let declaration = source.find(&format!("fn {function}(")).unwrap();
+            let prefix = &source[..declaration];
+            assert!(
+                prefix[prefix.rfind("#[tracing::instrument").unwrap()..]
+                    .contains(expected)
+            );
+        }
+        let error = MinecraftAuthenticationError::DeserializeResponse {
+            step: MinecraftAuthStep::GetOAuthToken,
+            raw: "secret-response-body".into(),
+            parse_error: serde_json::from_str::<serde_json::Value>("invalid")
+                .unwrap_err(),
+            status_code: StatusCode::BAD_REQUEST,
+        };
+        assert!(!format!("{error} {error:?}").contains("secret-response-body"));
+        assert!(std::error::Error::source(&error).is_none());
+        let flow = MinecraftLoginFlow {
+            verifier: "secret-verifier".into(),
+            state: "secret-state".into(),
+            auth_request_uri: "secret-uri".into(),
+            redirect_uri: "uri".into(),
+        };
+        assert!(!format!("{flow:?}").contains("secret-"));
+    }
 }

@@ -48,8 +48,8 @@
 					name="preview-top"
 					:category="preview.category"
 					:selected-values="getPreviewSelectedValues(preview.key)"
-					:set-selected-values="(values) => setPreviewSelectedValues(preview.key, values)"
-					:close-menu="(event) => closePreviewFilterMenu(preview.key, event)"
+					:set-selected-values="(values: string[]) => setPreviewSelectedValues(preview.key, values)"
+					:close-menu="(event?: Event) => closePreviewFilterMenu(preview.key, event)"
 				></slot>
 			</template>
 			<template v-if="$slots['search-actions']" #search-actions>
@@ -57,8 +57,8 @@
 					name="search-actions"
 					:category="preview.category"
 					:selected-values="getPreviewSelectedValues(preview.key)"
-					:set-selected-values="(values) => setPreviewSelectedValues(preview.key, values)"
-					:close-menu="(event) => closePreviewFilterMenu(preview.key, event)"
+					:set-selected-values="(values: string[]) => setPreviewSelectedValues(preview.key, values)"
+					:close-menu="(event?: Event) => closePreviewFilterMenu(preview.key, event)"
 				></slot>
 			</template>
 			<template #input-content="{ isOpen, openDirection }">
@@ -104,8 +104,8 @@
 					name="preview-footer"
 					:category="preview.category"
 					:selected-values="getPreviewSelectedValues(preview.key)"
-					:set-selected-values="(values) => setPreviewSelectedValues(preview.key, values)"
-					:close-menu="(event) => closePreviewFilterMenu(preview.key, event)"
+					:set-selected-values="(values: string[]) => setPreviewSelectedValues(preview.key, values)"
+					:close-menu="(event?: Event) => closePreviewFilterMenu(preview.key, event)"
 				></slot>
 			</template>
 			<template v-if="$slots.option" #option="{ item, selected, index }">
@@ -478,8 +478,7 @@ type RenderedDropdownFilterBarOption = DropdownFilterBarOption & {
 }
 
 type RenderedDropdownFilterBarItem =
-	| RenderedDropdownFilterBarOption
-	| DropdownFilterBarSectionHeader
+	RenderedDropdownFilterBarOption | DropdownFilterBarSectionHeader
 
 type VisibleDropdownFilterBarOption = {
 	item: RenderedDropdownFilterBarItem

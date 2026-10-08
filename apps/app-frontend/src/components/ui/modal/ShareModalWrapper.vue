@@ -26,14 +26,14 @@ defineProps({
 	},
 })
 
-const modal = ref(null)
+const modal = ref<InstanceType<typeof ShareModal> | null>(null)
 
 defineExpose({
-	show: (passedContent) => {
-		modal.value.show(passedContent)
+	show: (passedContent: string) => {
+		modal.value?.show(passedContent)
 	},
 	hide: () => {
-		modal.value.hide()
+		modal.value?.hide()
 	},
 })
 </script>

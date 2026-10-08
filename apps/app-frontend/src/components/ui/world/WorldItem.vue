@@ -39,7 +39,6 @@ import {
 	useVIntl,
 } from '@orbiont/ui'
 import { getPingLevel } from '@orbiont/utils/utils'
-import { autoToHTML } from '@sfirew/minecraft-motd-parser'
 import dayjs from 'dayjs'
 import type { Component } from 'vue'
 import { computed, useTemplateRef } from 'vue'
@@ -286,12 +285,9 @@ const messages = defineMessages({
 })
 
 const incompatibleVersionTooltip = computed(() => ({
-	content: `<span class="font-minecraft font-normal leading-5">${autoToHTML(
-		formatMessage(messages.incompatibleVersion, {
-			version: props.serverStatus?.version?.name ?? '',
-		}),
-	)}</span>`,
-	html: true,
+	text: formatMessage(messages.incompatibleVersion, {
+		version: props.serverStatus?.version?.name ?? '',
+	}),
 }))
 
 const cardOptions = useTemplateRef('cardOptions')

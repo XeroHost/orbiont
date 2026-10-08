@@ -98,13 +98,7 @@
 									v-for="(button, buttonIndex) in item.buttons"
 									:key="buttonIndex"
 									:type="button.color && button.color !== 'standard' ? 'colored' : 'base'"
-									:color="
-										button.color && button.color !== 'standard'
-											? button.color === 'medal-promo'
-												? 'medal_promotion'
-												: button.color
-											: undefined
-									"
+									:color="button.color && button.color !== 'standard' ? button.color : undefined"
 									@click="handleButtonClick(item, button)"
 								>
 									<component :is="button.icon" v-if="button.icon" />

@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Traži se ZKSKTERM0KKSZ…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft je i dalje pokrenut"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Zatvorite ZKSKTERM0KKSZ da biste uređivali datoteke, izbrisali sadržaj ili vratili kopiju."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Nije moguće otvoriti ovu fasciklu ZKSKTERM0KKSZ. Osvežite svoje podatke i pokušajte ponovo."
   },
+  "app.bedrock.force-stop": {
+    "message": "Prinudno zatvori"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft se nije zatvorio nakon uobičajenog zahteva. Prinudno zatvoriti ovaj proces igre? Nesačuvani napredak može biti izgubljen. Možeš otkazati, pa sačuvati igru i izaći iz Minecrafta."
+  },
   "app.bedrock.import-button": {
     "message": "Uvezi datoteku"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "ZKSKTERM0KKSZ je instaliran"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Nema dovoljno slobodnog prostora na disku za pripremu ovog sadržaja i čuvanje kopija za oporavak. Oslobodi prostor na odredišnom disku i pokušaj ponovo."
+  },
   "app.bedrock.invalid-file": {
     "message": "Izaberite važeću lokalnu arhivu ZKSKTERM0KKSZ, ZKSKTERM1KKSZ ili ZKSKTERM2KKSZ."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Ova datoteka premašuje ZKSKTERM0KKSZ ograničenje uvoza."
+    "message": "Ova datoteka premašuje ograničenje uvoza od 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Nije moguće otvoriti ZKSKTERM0KKSZ. Otvorite zvanični pokretač ili ZKSKTERM1KKSZ da biste proverili instalaciju."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} onlajn"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Izvezi dijagnostički izveštaj"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Otvori zvanični pokretač da proveriš sesiju ili otvori Microsoft Store da instaliraš ažuriranja ili popraviš Minecraft. Osveži otkrivanje kada završiš."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Spremno} requested {Pokretanje zatraženo} starting {Čekanje na Minecraft} running {Minecraft je pokrenut} timeout {Minecraft se nije pokrenuo u predviđenom roku} failed {Pokretanje nije uspelo} other {Provera pokretanja}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Proteklo: {seconds, number} s"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Dijagnostika pokretanja"
+  },
+  "bedrock.packs.activations": {
+    "message": "Aktivacije u svetovima"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Zavisnosti"
+  },
+  "bedrock.packs.details": {
+    "message": "Verzije i zavisnosti"
+  },
+  "bedrock.packs.none": {
+    "message": "Nijedna nije prijavljena"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Aktivna verzija} other {Sačuvana verzija}}"
+  },
   "curseforge.manual.description": {
     "message": "Преузми {file} са званичне CurseForge странице, затим изабери преузету датотеку за наставак. Величина и SHA-1 биће проверени."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Dodavanje datoteka ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Datoteka je izmenjena van uređivača. Tvoj nacrt je sačuvan. Kopiraj ga pre ponovnog otvaranja datoteke da pregledaš najnoviju verziju."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Datoteka nije mogla da se sačuva. Tvoj nacrt je sačuvan."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Upravljaj instaliranim sadržajem preko kartice Sadržaj"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Ponovo otvori datoteku pre čuvanja."
   },
   "instance.files.save-as": {
     "message": "Sačuvaj kao..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Svetovi je korišten"
+  },
+  "local-management.category.cache": {
+    "message": "Zajednička keš memorija pokretača"
+  },
+  "local-management.category.data": {
+    "message": "Podaci igre"
+  },
+  "local-management.category.import": {
+    "message": "Sačuvani uvozi"
+  },
+  "local-management.category.recovery": {
+    "message": "Kopije za oporavak"
+  },
+  "local-management.category.retained-version": {
+    "message": "Sačuvane verzije paketa"
+  },
+  "local-management.confirm-removal": {
+    "message": "Potvrdi trajno uklanjanje"
+  },
+  "local-management.empty": {
+    "message": "Nisu pronađene kopije za oporavak."
+  },
+  "local-management.error": {
+    "message": "Operacija nije uspela. Tvoj izbor je sačuvan. Osveži i pokušaj ponovo."
+  },
+  "local-management.load-more": {
+    "message": "Učitaj još kopija"
+  },
+  "local-management.loading": {
+    "message": "Učitavanje lokalnih podataka…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Instalacija paketa u svetu} java_editor {Java uređivač} other {Lokalno upravljanje Bedrockom}}"
+  },
+  "local-management.partial": {
+    "message": "Ovaj spisak ili procena veličine nisu potpuni."
+  },
+  "local-management.preview": {
+    "message": "Pregled"
+  },
+  "local-management.recovery": {
+    "message": "Kopije za oporavak"
+  },
+  "local-management.remove": {
+    "message": "Ukloni izabrane stavke"
+  },
+  "local-management.remove-help": {
+    "message": "Mogu se ukloniti samo izabrane kopije za oporavak i sačuvani uvozi. Trajno uklanjanje onemogućava njihov oporavak."
+  },
+  "local-management.restore": {
+    "message": "Potvrdi vraćanje"
+  },
+  "local-management.restore-help": {
+    "message": "Pre vraćanja proveri odredište i kopiju ispod. Kasnije izmene ili zauzeto odredište mogu sprečiti vraćanje."
+  },
+  "local-management.retention.days": {
+    "message": "Starije od (dana)"
+  },
+  "local-management.retention.help": {
+    "message": "Izaberi stare kopije za oporavak radi pregleda. Ništa se ne uklanja automatski; nepotpune kopije i instalirani sadržaj se čuvaju."
+  },
+  "local-management.retention.keep": {
+    "message": "Čuvaj najnovije kopije za svaku datoteku ili svet"
+  },
+  "local-management.retention.select": {
+    "message": "Izaberi stare kopije"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# izabrana stavka} few {# izabrane stavke} other {# izabranih stavki}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} B"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Pripremljeno} applied {Primenjeno} rollback_failed {Vraćanje izmene nije uspelo} restored {Vraćeno} partial {Nepotpuno} legacy {Stara kopija} other {Dostupno}}"
+  },
+  "local-management.storage": {
+    "message": "Skladište"
+  },
+  "local-management.title": {
+    "message": "Oporavak i skladište"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft nalozi"

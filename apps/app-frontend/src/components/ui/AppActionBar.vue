@@ -96,6 +96,7 @@
 										<TerminalSquareIcon class="text-secondary size-5" />
 									</button>
 								</div>
+								<BedrockStopConfirm ref="stopConfirm" />
 							</div>
 						</template>
 					</FloatingMenu>
@@ -151,6 +152,7 @@ import { computed, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 import AppUpdateButton from '@/components/ui/app-update-button/index.vue'
+import BedrockStopConfirm from '@/components/ui/bedrock/BedrockStopConfirm.vue'
 import DownloadManager from '@/components/ui/download-manager/index.vue'
 import { useAppEvent } from '@/composables/use-app-event'
 import { bedrockStatusQueryOptions, stopBedrock } from '@/helpers/bedrock'
@@ -276,6 +278,7 @@ const selectedProcess = computed(
 		currentProcesses.value[0],
 )
 const stopping = ref<string[]>([])
+const stopConfirm = ref<InstanceType<typeof BedrockStopConfirm>>()
 
 const refresh = async () => {
 	const processes = ((await getRunningProcesses().catch((error) => {
@@ -289,7 +292,7 @@ const refresh = async () => {
 	})
 
 	javaProcesses.value = processes
-		.map((process) => {
+		.map((process): RunningProcess | null => {
 			const instance = instances.find((item) => process.instance_id === item.id)
 			if (!instance) {
 				return null
@@ -327,7 +330,7 @@ const stop = async (process: RunningProcess) => {
 	stopping.value.push(process.uuid)
 	try {
 		if (process.edition === 'bedrock') {
-			await stopBedrock()
+			await stopBedrock(() => stopConfirm.value?.ask() ?? Promise.resolve(false))
 			await bedrockStatus.refetch()
 		} else {
 			await killProcess(process.uuid)

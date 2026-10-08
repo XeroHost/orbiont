@@ -252,15 +252,17 @@ export function stripMinecraftFormatting(text: string): string {
 	return text.replace(MINECRAFT_FORMATTING_CODE, '').replace(/\u00A7/g, '')
 }
 
-export function getWorldDisplayName(world: World): string {
+export function getWorldDisplayName(world: {
+	name: string
+	type?: WorldType
+	address?: string
+	path?: string
+}): string {
 	const name = stripMinecraftFormatting(world.name).trim()
 	if (name) {
 		return name
 	}
-	if (world.type === 'server') {
-		return world.address
-	}
-	return world.path
+	return world.address ?? world.path ?? ''
 }
 
 export function worldNameMatchesQuery(name: string, query: string): boolean {

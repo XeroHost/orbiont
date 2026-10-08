@@ -258,7 +258,7 @@ onBeforeRouteUpdate(async (to, from) => {
 
 	try {
 		await ensureCriticalInstanceData(targetInstanceId)
-		instanceId.value = targetInstanceId
+		displayedInstanceRoute.value = to
 	} catch (error) {
 		if (isUnmanagedInstanceError(error)) return { path: '/' }
 		handleError(toError(error))
@@ -566,7 +566,7 @@ const handleRightClick = (event: MouseEvent) => {
 			id: 'edit',
 			label: formatMessage(messages.edit),
 			icon: EditIcon,
-			action: openSettings,
+			action: () => openSettings(),
 		},
 		{
 			id: 'open_folder',

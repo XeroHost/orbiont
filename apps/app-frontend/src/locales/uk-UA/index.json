@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Шукаю Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft досі працює"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Закрийте Minecraft, щоб редагувати файли, видалити вміст або відновити копію."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Не вдалося відкрити цю папку Minecraft. Оновіть дані та повторіть спробу."
   },
+  "app.bedrock.force-stop": {
+    "message": "Примусово закрити"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft не закрився після звичайного запиту. Примусово завершити цей процес гри? Незбережений прогрес може бути втрачено. Ви можете скасувати дію, зберегти гру й вийти з Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Імпорт файлу"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows встановлено"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Недостатньо вільного місця на диску, щоб підготувати цей вміст і зберегти копії для відновлення. Звільніть місце на цільовому диску та спробуйте знову."
+  },
   "app.bedrock.invalid-file": {
     "message": "Виберіть дійсний локальний архів .mcworld, .mcpack або .mcaddon."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Цей файл перевищує ліміт імпорту 8 GiB."
+    "message": "Цей файл перевищує обмеження імпорту в 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Не вдалося відкрити Minecraft. Відкрийте офіційну програму запуску або Microsoft Store, щоб перевірити встановлення."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} онлайн"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Експортувати діагностичний звіт"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Відкрийте офіційний лаунчер, щоб перевірити сеанс, або Microsoft Store, щоб установити оновлення чи відновити Minecraft. Після завершення оновіть виявлення."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Готово} requested {Запуск запитано} starting {Очікування Minecraft} running {Minecraft працює} timeout {Minecraft не запустився за відведений час} failed {Не вдалося запустити} other {Перевірка запуску}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Минуло: {seconds, number} с"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Діагностика запуску"
+  },
+  "bedrock.packs.activations": {
+    "message": "Активації у світах"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Залежності"
+  },
+  "bedrock.packs.details": {
+    "message": "Версії та залежності"
+  },
+  "bedrock.packs.none": {
+    "message": "Не вказано"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Активна версія} other {Збережена версія}}"
+  },
   "curseforge.manual.description": {
     "message": "Завантажте {file} з офіційної сторінки CurseForge, а потім виберіть завантажений файл, щоб продовжити. Розмір і SHA-1 буде перевірено."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Додавання файлів ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Файл змінено поза редактором. Вашу чернетку збережено. Скопіюйте її перед повторним відкриттям файлу, щоб переглянути останню версію."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Не вдалося зберегти файл. Вашу чернетку збережено."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Керуйте встановленим вмістом через сторінку вмісту"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Відкрийте файл знову перед збереженням."
   },
   "instance.files.save-as": {
     "message": "Зберегти як..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Світ наразі використовується"
+  },
+  "local-management.category.cache": {
+    "message": "Спільний кеш лаунчера"
+  },
+  "local-management.category.data": {
+    "message": "Дані гри"
+  },
+  "local-management.category.import": {
+    "message": "Збережені імпорти"
+  },
+  "local-management.category.recovery": {
+    "message": "Копії для відновлення"
+  },
+  "local-management.category.retained-version": {
+    "message": "Збережені версії пакетів"
+  },
+  "local-management.confirm-removal": {
+    "message": "Підтвердити остаточне видалення"
+  },
+  "local-management.empty": {
+    "message": "Копій для відновлення не знайдено."
+  },
+  "local-management.error": {
+    "message": "Операція не вдалася. Ваш вибір збережено. Оновіть дані та спробуйте знову."
+  },
+  "local-management.load-more": {
+    "message": "Завантажити більше копій"
+  },
+  "local-management.loading": {
+    "message": "Завантаження локальних даних…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Установлення пакетів у світі} java_editor {Редактор Java} other {Локальне керування Bedrock}}"
+  },
+  "local-management.partial": {
+    "message": "Цей список або оцінка розміру неповні."
+  },
+  "local-management.preview": {
+    "message": "Попередній перегляд"
+  },
+  "local-management.recovery": {
+    "message": "Копії для відновлення"
+  },
+  "local-management.remove": {
+    "message": "Видалити вибрані елементи"
+  },
+  "local-management.remove-help": {
+    "message": "Можна видалити лише вибрані копії для відновлення та збережені імпорти. Остаточне видалення унеможливлює їх відновлення."
+  },
+  "local-management.restore": {
+    "message": "Підтвердити відновлення"
+  },
+  "local-management.restore-help": {
+    "message": "Перед відновленням перевірте вказане нижче місце призначення та копію. Пізніші зміни або зайняте місце призначення можуть завадити відновленню."
+  },
+  "local-management.retention.days": {
+    "message": "Старші за (днів)"
+  },
+  "local-management.retention.help": {
+    "message": "Виберіть старі копії для відновлення, щоб переглянути їх. Нічого не видаляється автоматично; неповні копії та встановлений вміст зберігаються."
+  },
+  "local-management.retention.keep": {
+    "message": "Зберігати найновіші копії кожного файлу або світу"
+  },
+  "local-management.retention.select": {
+    "message": "Вибрати старі копії"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {Вибрано # елемент} few {Вибрано # елементи} many {Вибрано # елементів} other {Вибрано # елемента}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} Б"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Підготовлено} applied {Застосовано} rollback_failed {Відкат не вдався} restored {Відновлено} partial {Неповна копія} legacy {Стара копія} other {Доступно}}"
+  },
+  "local-management.storage": {
+    "message": "Сховище"
+  },
+  "local-management.title": {
+    "message": "Відновлення та сховище"
   },
   "minecraft-account.accounts": {
     "message": "Облікові записи Minecraft"

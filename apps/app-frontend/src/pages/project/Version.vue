@@ -55,8 +55,8 @@
 									{
 										id: 'report',
 										label: formatMessage(commonMessages.reportButton),
-										type: 'link',
-										tone: 'red',
+										type: 'link' as const,
+										tone: 'red' as const,
 										href: `${config.siteUrl}/report?item=version&itemID=${version.id}`,
 										target: '_blank',
 									},

@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "正在寻找 Minecraft for Windows..."
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft 仍在运行"
+  },
   "app.bedrock.close-to-manage": {
     "message": "关闭 Minecraft 即可编辑文件、删除内容或恢复副本。"
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "无法打开此 Minecraft 文件夹。刷新您的数据并重试。"
   },
+  "app.bedrock.force-stop": {
+    "message": "强制关闭"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft 在收到正常关闭请求后仍未关闭。要强制关闭此游戏进程吗？未保存的进度可能会丢失。你可以取消，然后在 Minecraft 中保存并退出。"
+  },
   "app.bedrock.import-button": {
     "message": "导入文件"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows 已安装"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "磁盘可用空间不足，无法准备此内容并保留恢复副本。请释放目标驱动器的空间后重试。"
+  },
   "app.bedrock.invalid-file": {
     "message": "选择有效的本地 .mcworld、.mcpack 或 .mcaddon 存档。"
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "此文件超出了 8 GiB 导入限制。"
+    "message": "此文件超过 2 GiB 的导入限制。"
   },
   "app.bedrock.launch-error": {
     "message": "无法打开 Minecraft。打开官方启动器或Microsoft Store检查安装情况。"
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} 人在线"
   },
+  "bedrock.diagnostics.export": {
+    "message": "导出诊断报告"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "打开官方启动器检查你的会话，或打开 Microsoft Store 安装更新或修复 Minecraft。完成后请刷新检测。"
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {就绪} requested {已请求启动} starting {正在等待 Minecraft} running {Minecraft 正在运行} timeout {Minecraft 未在等待时间内启动} failed {启动失败} other {正在检查启动}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "已用时间：{seconds, number} 秒"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "启动诊断"
+  },
+  "bedrock.packs.activations": {
+    "message": "世界中的启用情况"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "依赖项"
+  },
+  "bedrock.packs.details": {
+    "message": "版本和依赖项"
+  },
+  "bedrock.packs.none": {
+    "message": "未报告任何信息"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {当前启用的版本} other {保留的版本}}"
+  },
   "curseforge.manual.description": {
     "message": "从官方 CurseForge 页面下载 {file}，然后选择已下载的文件以继续。将验证文件大小和 SHA-1。"
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "正在添加文件（{completed}/{total}）"
   },
+  "instance.files.editor-conflict": {
+    "message": "文件已在编辑器外部发生更改。你的草稿已保留。在重新打开文件以查看最新版本之前，请先复制草稿。"
+  },
+  "instance.files.editor-save-error": {
+    "message": "无法保存文件。你的草稿已保留。"
+  },
   "instance.files.managed-content-read-only": {
     "message": "通过内容选项卡管理已安装的内容"
+  },
+  "instance.files.reload-before-save": {
+    "message": "请先重新打开文件再保存。"
   },
   "instance.files.save-as": {
     "message": "保存为……"
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "世界正在使用中"
+  },
+  "local-management.category.cache": {
+    "message": "启动器共享缓存"
+  },
+  "local-management.category.data": {
+    "message": "游戏数据"
+  },
+  "local-management.category.import": {
+    "message": "保留的导入内容"
+  },
+  "local-management.category.recovery": {
+    "message": "可恢复的副本"
+  },
+  "local-management.category.retained-version": {
+    "message": "保留的包版本"
+  },
+  "local-management.confirm-removal": {
+    "message": "确认永久删除"
+  },
+  "local-management.empty": {
+    "message": "未找到可恢复的副本。"
+  },
+  "local-management.error": {
+    "message": "操作失败。你的选择已保留。请刷新后重试。"
+  },
+  "local-management.load-more": {
+    "message": "加载更多副本"
+  },
+  "local-management.loading": {
+    "message": "正在加载本地数据…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {世界包安装} java_editor {Java 编辑器} other {Bedrock 本地管理}}"
+  },
+  "local-management.partial": {
+    "message": "此列表或大小估算不完整。"
+  },
+  "local-management.preview": {
+    "message": "预览"
+  },
+  "local-management.recovery": {
+    "message": "可恢复的副本"
+  },
+  "local-management.remove": {
+    "message": "删除所选项目"
+  },
+  "local-management.remove-help": {
+    "message": "只能删除选中的可恢复副本和保留的导入内容。永久删除后将无法恢复。"
+  },
+  "local-management.restore": {
+    "message": "确认恢复"
+  },
+  "local-management.restore-help": {
+    "message": "恢复前请查看下方的目标位置和副本。后续更改或目标位置已被占用可能会阻止恢复。"
+  },
+  "local-management.retention.days": {
+    "message": "早于（天数）"
+  },
+  "local-management.retention.help": {
+    "message": "选择较旧的可恢复副本进行检查。不会自动删除任何内容；不完整的副本和已安装的内容将会保留。"
+  },
+  "local-management.retention.keep": {
+    "message": "为每个文件或世界保留最新的副本"
+  },
+  "local-management.retention.select": {
+    "message": "选择旧副本"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, other {已选择 # 个项目}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} 字节"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {已准备} applied {已应用} rollback_failed {回滚失败} restored {已恢复} partial {不完整} legacy {旧版副本} other {可用}}"
+  },
+  "local-management.storage": {
+    "message": "存储"
+  },
+  "local-management.title": {
+    "message": "恢复与存储"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft 账户"

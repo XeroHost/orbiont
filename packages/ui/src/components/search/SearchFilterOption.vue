@@ -3,7 +3,9 @@
 		<button
 			data-animated-icon-trigger
 			:class="`flex border-none cursor-pointer flex-1 min-w-0 items-center gap-2 truncate rounded-xl px-2 py-2 [@media(hover:hover)]:py-1 text-sm font-semibold transition-all hover:text-contrast focus-visible:text-contrast active:scale-[0.98] ${included ? 'bg-brand-highlight text-contrast hover:brightness-125' : excluded ? 'bg-highlight-red text-contrast hover:brightness-125' : 'bg-transparent text-secondary hover:bg-button-bg focus-visible:bg-button-bg [&>svg.check-icon]:hover:text-brand [&>svg.check-icon]:focus-visible:text-brand [&>svg.ban-icon]:hover:text-red [&>svg.ban-icon]:focus-visible:text-red'}`"
-			@click="() => emit(primaryAction === 'exclude' ? 'toggleExclude' : 'toggle', option)"
+			@click="
+				() => (primaryAction === 'exclude' ? emit('toggleExclude', option) : emit('toggle', option))
+			"
 		>
 			<slot> </slot>
 			<BanIcon

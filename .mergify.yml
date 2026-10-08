@@ -9,8 +9,8 @@ scopes:
           - packages/ui/**/*
           - packages/utils/**/*
           - packages/assets/**/*
-          - "**/wrangler.jsonc"
-          - "**/pnpm-*.yaml"
+          - '**/wrangler.jsonc'
+          - '**/pnpm-*.yaml'
       backend:
         include:
           - apps/labrinth/**

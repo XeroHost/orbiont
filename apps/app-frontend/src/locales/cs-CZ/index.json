@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Hledám Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft je stále spuštěný"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Chcete-li upravit soubory, odstranit obsah nebo obnovit kopii, zavřete Minecraft."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Tuto složku Minecraft nelze otevřít. Obnovte data a zkuste to znovu."
   },
+  "app.bedrock.force-stop": {
+    "message": "Vynutit ukončení"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft se po běžném požadavku neukončil. Chcete vynutit ukončení tohoto procesu hry? Neuložený postup může být ztracen. Můžete akci zrušit a uložit a ukončit hru přímo v Minecraftu."
+  },
   "app.bedrock.import-button": {
     "message": "Importovat soubor"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows je nainstalován"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Na disku není dostatek volného místa pro přípravu tohoto obsahu a uchování kopií pro obnovu. Uvolněte místo na cílovém disku a zkuste to znovu."
+  },
   "app.bedrock.invalid-file": {
     "message": "Vyberte platný místní archiv .mcworld, .mcpack nebo .mcaddon."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Tento soubor překračuje limit importu 8 GiB."
+    "message": "Tento soubor překračuje limit importu 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Nelze otevřít Minecraft. Otevřete oficiální launcher nebo Microsoft Store a zkontrolujte instalaci."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Exportovat diagnostickou zprávu"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Otevřete oficiální launcher a zkontrolujte přihlášení, nebo otevřete Microsoft Store a nainstalujte aktualizace či opravte Minecraft. Po dokončení obnovte detekci."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Připraveno} requested {Vyžádáno spuštění} starting {Čekání na Minecraft} running {Minecraft je spuštěný} timeout {Minecraft se nespustil před vypršením časového limitu} failed {Spuštění selhalo} other {Kontrola spuštění}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Uplynulý čas: {seconds, number} sekund"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Diagnostika spuštění"
+  },
+  "bedrock.packs.activations": {
+    "message": "Aktivace ve světech"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Závislosti"
+  },
+  "bedrock.packs.details": {
+    "message": "Verze a závislosti"
+  },
+  "bedrock.packs.none": {
+    "message": "Žádné nebyly uvedeny"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Aktivní verze} other {Uchovaná verze}}"
+  },
   "curseforge.manual.description": {
     "message": "Stáhni {file} z jeho oficiální stránky CurseForge a vyber stažený soubor pro pokračování. Jeho velikost a SHA-1 budou ověřeny."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Přidávání souborů ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Soubor byl změněn mimo editor. Váš koncept zůstává zachován. Zkopírujte jej před opětovným otevřením souboru a kontrolou nejnovější verze."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Soubor se nepodařilo uložit. Váš koncept zůstává zachován."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Spravuj svůj nainstalovaný obsah na kartě Obsah"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Před uložením soubor znovu otevřete."
   },
   "instance.files.save-as": {
     "message": "Uložit jako..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Svět je používán"
+  },
+  "local-management.category.cache": {
+    "message": "Sdílená mezipaměť launcheru"
+  },
+  "local-management.category.data": {
+    "message": "Herní data"
+  },
+  "local-management.category.import": {
+    "message": "Uchované importy"
+  },
+  "local-management.category.recovery": {
+    "message": "Obnovitelné kopie"
+  },
+  "local-management.category.retained-version": {
+    "message": "Uchované verze balíčků"
+  },
+  "local-management.confirm-removal": {
+    "message": "Potvrdit trvalé odstranění"
+  },
+  "local-management.empty": {
+    "message": "Nebyly nalezeny žádné obnovitelné kopie."
+  },
+  "local-management.error": {
+    "message": "Operace selhala. Váš výběr zůstává zachován. Obnovte zobrazení a zkuste to znovu."
+  },
+  "local-management.load-more": {
+    "message": "Načíst další kopie"
+  },
+  "local-management.loading": {
+    "message": "Načítání místních dat…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Instalace balíčku do světa} java_editor {Editor pro Javu} other {Místní správa Bedrocku}}"
+  },
+  "local-management.partial": {
+    "message": "Tento seznam nebo odhad velikosti není úplný."
+  },
+  "local-management.preview": {
+    "message": "Náhled"
+  },
+  "local-management.recovery": {
+    "message": "Obnovitelné kopie"
+  },
+  "local-management.remove": {
+    "message": "Odstranit vybrané položky"
+  },
+  "local-management.remove-help": {
+    "message": "Odstranit lze pouze vybrané obnovitelné kopie a uchované importy. Trvalé odstranění znemožní jejich obnovu."
+  },
+  "local-management.restore": {
+    "message": "Potvrdit obnovení"
+  },
+  "local-management.restore-help": {
+    "message": "Před obnovením zkontrolujte níže uvedený cíl a kopii. Pozdější změny nebo obsazené cílové umístění mohou obnovení zablokovat."
+  },
+  "local-management.retention.days": {
+    "message": "Starší než (dní)"
+  },
+  "local-management.retention.help": {
+    "message": "Vyberte staré obnovitelné kopie ke kontrole. Nic se neodstraňuje automaticky; neúplné kopie a nainstalovaný obsah zůstávají zachovány."
+  },
+  "local-management.retention.keep": {
+    "message": "Ponechat nejnovější kopie každého souboru nebo světa"
+  },
+  "local-management.retention.select": {
+    "message": "Vybrat staré kopie"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# vybraná položka} few {# vybrané položky} many {# vybrané položky} other {# vybraných položek}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} bajtů"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Připraveno} applied {Použito} rollback_failed {Vrácení změn selhalo} restored {Obnoveno} partial {Neúplné} legacy {Starší kopie} other {Dostupné}}"
+  },
+  "local-management.storage": {
+    "message": "Úložiště"
+  },
+  "local-management.title": {
+    "message": "Obnova a úložiště"
   },
   "minecraft-account.accounts": {
     "message": "Účty Minecraftu"

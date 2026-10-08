@@ -35,8 +35,8 @@ withDefaults(
 
 const scrollableAtTop = ref(true)
 const scrollableAtBottom = ref(false)
-const scrollablePane = ref(null)
-let resizeObserver
+const scrollablePane = ref<HTMLElement | null>(null)
+let resizeObserver: ResizeObserver | undefined
 onMounted(() => {
 	resizeObserver = new ResizeObserver(function () {
 		if (scrollablePane.value) {
@@ -47,19 +47,21 @@ onMounted(() => {
 			)
 		}
 	})
-	resizeObserver.observe(scrollablePane.value)
+	if (scrollablePane.value) resizeObserver.observe(scrollablePane.value)
 })
 onUnmounted(() => {
 	if (resizeObserver) {
 		resizeObserver.disconnect()
 	}
 })
-function updateFade(scrollTop, offsetHeight, scrollHeight) {
+function updateFade(scrollTop: number, offsetHeight: number, scrollHeight: number) {
 	scrollableAtBottom.value = Math.ceil(scrollTop + offsetHeight) >= scrollHeight
 	scrollableAtTop.value = scrollTop <= 0
 }
-function onScroll({ target: { scrollTop, offsetHeight, scrollHeight } }) {
-	updateFade(scrollTop, offsetHeight, scrollHeight)
+function onScroll(event: Event) {
+	if (event.target instanceof HTMLElement) {
+		updateFade(event.target.scrollTop, event.target.offsetHeight, event.target.scrollHeight)
+	}
 }
 </script>
 

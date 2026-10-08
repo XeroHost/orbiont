@@ -71,8 +71,7 @@ const log = useQuery(
 				}}</Admonition>
 				<pre
 					class="m-0 max-h-[60vh] overflow-auto whitespace-pre-wrap break-all rounded-xl bg-surface-2 p-4 text-sm text-primary"
-					>{{ log.data.value?.text }}</pre
-				>
+					>{{ log.data.value?.text }}</pre>
 			</template>
 		</template>
 	</div>

@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "正在尋找 Minecraft for Windows..."
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft 仍在執行"
+  },
   "app.bedrock.close-to-manage": {
     "message": "關閉 Minecraft 即可編輯檔案、刪除內容或復原副本。"
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "無法開啟此 Minecraft 資料夾。刷新您的資料並重試。"
   },
+  "app.bedrock.force-stop": {
+    "message": "強制關閉"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft 收到一般關閉要求後仍未關閉。要強制關閉此遊戲處理程序嗎？未儲存的進度可能會遺失。你可以取消，然後在 Minecraft 中儲存並離開。"
+  },
   "app.bedrock.import-button": {
     "message": "導入文件"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows 已安裝"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "磁碟可用空間不足，無法準備此內容並保留復原副本。請釋放目標磁碟機的空間後再試一次。"
+  },
   "app.bedrock.invalid-file": {
     "message": "選擇有效的本機 .mcworld、.mcpack 或 .mcaddon 檔案。"
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "此文件超出了 8 GiB 匯入限制。"
+    "message": "此檔案超過 2 GiB 的匯入限制。"
   },
   "app.bedrock.launch-error": {
     "message": "無法開啟 Minecraft。打開官方啟動器或Microsoft Store檢查安裝狀況。"
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} 人在線上"
   },
+  "bedrock.diagnostics.export": {
+    "message": "匯出診斷報告"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "開啟官方啟動器以檢查你的工作階段，或開啟 Microsoft Store 安裝更新或修復 Minecraft。完成後請重新整理偵測。"
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {就緒} requested {已要求啟動} starting {正在等待 Minecraft} running {Minecraft 正在執行} timeout {Minecraft 未在等候時間內啟動} failed {啟動失敗} other {正在檢查啟動}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "經過時間：{seconds, number} 秒"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "啟動診斷"
+  },
+  "bedrock.packs.activations": {
+    "message": "世界中的啟用情況"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "相依項目"
+  },
+  "bedrock.packs.details": {
+    "message": "版本與相依項目"
+  },
+  "bedrock.packs.none": {
+    "message": "未回報任何資訊"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {目前啟用的版本} other {保留的版本}}"
+  },
   "curseforge.manual.description": {
     "message": "從官方 CurseForge 頁面下載 {file}，然後選擇已下載的檔案以繼續。將驗證檔案大小與 SHA-1。"
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "正在新增檔案 ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "檔案已在編輯器外部變更。你的草稿已保留。在重新開啟檔案以查看最新版本之前，請先複製草稿。"
+  },
+  "instance.files.editor-save-error": {
+    "message": "無法儲存檔案。你的草稿已保留。"
+  },
   "instance.files.managed-content-read-only": {
     "message": "透過「內容」頁籤管理已安裝的內容"
+  },
+  "instance.files.reload-before-save": {
+    "message": "請先重新開啟檔案再儲存。"
   },
   "instance.files.save-as": {
     "message": "另存新檔..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "世界正在使用中"
+  },
+  "local-management.category.cache": {
+    "message": "啟動器共用快取"
+  },
+  "local-management.category.data": {
+    "message": "遊戲資料"
+  },
+  "local-management.category.import": {
+    "message": "保留的匯入內容"
+  },
+  "local-management.category.recovery": {
+    "message": "可復原的副本"
+  },
+  "local-management.category.retained-version": {
+    "message": "保留的套件版本"
+  },
+  "local-management.confirm-removal": {
+    "message": "確認永久刪除"
+  },
+  "local-management.empty": {
+    "message": "找不到可復原的副本。"
+  },
+  "local-management.error": {
+    "message": "操作失敗。你的選取項目已保留。請重新整理後再試一次。"
+  },
+  "local-management.load-more": {
+    "message": "載入更多副本"
+  },
+  "local-management.loading": {
+    "message": "正在載入本機資料…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {世界套件安裝} java_editor {Java 編輯器} other {Bedrock 本機管理}}"
+  },
+  "local-management.partial": {
+    "message": "此清單或大小估計不完整。"
+  },
+  "local-management.preview": {
+    "message": "預覽"
+  },
+  "local-management.recovery": {
+    "message": "可復原的副本"
+  },
+  "local-management.remove": {
+    "message": "刪除選取的項目"
+  },
+  "local-management.remove-help": {
+    "message": "只能刪除選取的可復原副本和保留的匯入內容。永久刪除後將無法復原。"
+  },
+  "local-management.restore": {
+    "message": "確認復原"
+  },
+  "local-management.restore-help": {
+    "message": "復原前請檢查下方的目標位置與副本。後續變更或目標位置已被占用可能會阻止復原。"
+  },
+  "local-management.retention.days": {
+    "message": "早於（天數）"
+  },
+  "local-management.retention.help": {
+    "message": "選取較舊的可復原副本以進行檢查。不會自動刪除任何內容；不完整的副本和已安裝的內容將會保留。"
+  },
+  "local-management.retention.keep": {
+    "message": "為每個檔案或世界保留最新的副本"
+  },
+  "local-management.retention.select": {
+    "message": "選取舊副本"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, other {已選取 # 個項目}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} 位元組"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {已準備} applied {已套用} rollback_failed {回復變更失敗} restored {已復原} partial {不完整} legacy {舊版副本} other {可用}}"
+  },
+  "local-management.storage": {
+    "message": "儲存空間"
+  },
+  "local-management.title": {
+    "message": "復原與儲存空間"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft 帳號"

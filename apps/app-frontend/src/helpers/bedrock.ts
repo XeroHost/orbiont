@@ -1,13 +1,25 @@
 import { invoke } from '@tauri-apps/api/core'
 import { open } from '@tauri-apps/plugin-dialog'
 
+import { type BedrockStopOutcome, requestBedrockStop } from './bedrock-stop'
+
 export interface BedrockApplication {
 	version: string
 	can_launch: boolean
 }
+export interface BedrockLaunch {
+	state: 'idle' | 'requested' | 'starting' | 'running' | 'timeout' | 'failed'
+	elapsed_ms: number
+	diagnostic: string | null
+}
+export function isBedrockLaunchPending(launch: BedrockLaunch | null | undefined): boolean {
+	return launch?.state === 'requested' || launch?.state === 'starting'
+}
+
 export interface BedrockStatus {
 	supported: boolean
 	game_running: boolean
+	launch: BedrockLaunch
 	game: BedrockApplication | null
 	launcher: BedrockApplication | null
 }
@@ -25,6 +37,11 @@ export interface BedrockItem {
 	kind: BedrockItemKind
 	version: string | null
 	description: string | null
+	pack_id: string | null
+	pack_version: number[] | null
+	dependencies: { pack_id: string; version: number[] }[]
+	activations: { root_id: string; world_path: string; version: number[] }[]
+	active: boolean
 	development: boolean
 	icon_path?: string | null
 }
@@ -51,23 +68,25 @@ export interface BedrockLog {
 	truncated: boolean
 }
 
-export function getBedrockStatus(): Promise<BedrockStatus> {
-	return invoke('plugin:bedrock|get_status')
+export function getBedrockStatus(refresh = false): Promise<BedrockStatus> {
+	return invoke('plugin:bedrock|get_status', { refresh })
 }
 export function launchBedrock(): Promise<void> {
 	return invoke('plugin:bedrock|launch_game')
 }
-export function stopBedrock(): Promise<void> {
-	return invoke('plugin:bedrock|stop_game')
+export function stopBedrock(confirmForce?: () => Promise<boolean>): Promise<BedrockStopOutcome> {
+	return requestBedrockStop(
+		(forceToken) => invoke('plugin:bedrock|stop_game', { forceToken }),
+		confirmForce ?? (() => Promise.resolve(false)),
+	)
 }
 
 export function bedrockStatusQueryOptions() {
 	return {
 		queryKey: ['bedrock', 'status'],
-		queryFn: getBedrockStatus,
+		queryFn: () => getBedrockStatus(),
 		staleTime: 5000,
 		refetchOnWindowFocus: 'always' as const,
-		refetchInterval: 5000,
 		retry: false as const,
 	}
 }
@@ -80,8 +99,8 @@ export function openBedrockStore(): Promise<void> {
 export function openBedrockUpdates(): Promise<void> {
 	return invoke('plugin:bedrock|open_updates')
 }
-export function getBedrockWorkspace(): Promise<BedrockWorkspace> {
-	return invoke('plugin:bedrock|get_workspace')
+export function getBedrockWorkspace(refresh = false): Promise<BedrockWorkspace> {
+	return invoke('plugin:bedrock|get_workspace', { refresh })
 }
 export function listBedrockFiles(rootId: string, path = ''): Promise<BedrockDirectory> {
 	return invoke('plugin:bedrock|list_files', { rootId, path })
@@ -102,7 +121,12 @@ export interface BedrockRecovery {
 	root_id: string
 	path: string
 	saved_at: number
-	operation: 'edit' | 'delete'
+	operation: string
+	state: string
+	source: string
+	size_bytes: number
+	size_limited: boolean
+	diagnostic: string | null
 }
 export function readBedrockFile(rootId: string, path: string): Promise<BedrockDocument> {
 	return invoke('plugin:bedrock|read_file', { rootId, path })
@@ -135,4 +159,35 @@ export async function pickAndImportBedrockFile(filterName: string): Promise<bool
 	if (!path || typeof path !== 'string') return false
 	await invoke('plugin:bedrock|import_file', { path })
 	return true
+}
+
+export function getBedrockProcessStatus(): Promise<Pick<BedrockStatus, 'game_running' | 'launch'>> {
+	return invoke('plugin:bedrock|get_process_status')
+}
+export function listBedrockRecoveryPage(
+	offset = 0,
+	limit = 100,
+): Promise<{ items: BedrockRecovery[]; total: number; limited: boolean }> {
+	return invoke('plugin:bedrock|list_recoveries_page', { offset, limit })
+}
+export function previewBedrockRecovery(
+	rootId: string,
+	id: string,
+): Promise<{ recovery: BedrockRecovery; can_restore: boolean; conflicts: string[] }> {
+	return invoke('plugin:bedrock|preview_recovery', { rootId, id })
+}
+export interface BedrockStorageEntry {
+	id: string
+	root_id: string
+	path: string
+	category: string
+	size_bytes: number
+	size_limited: boolean
+	removable: boolean
+}
+export function getBedrockStorage(): Promise<{ entries: BedrockStorageEntry[]; limited: boolean }> {
+	return invoke('plugin:bedrock|get_storage')
+}
+export function removeBedrockStorage(rootId: string, id: string): Promise<void> {
+	return invoke('plugin:bedrock|remove_storage', { rootId, id })
 }

@@ -260,7 +260,7 @@ const selectedFilters = defineModel<FilterValue[]>('selectedFilters', { required
 const toggledGroups = defineModel<string[]>('toggledGroups', { required: true })
 const overriddenProvidedFilterTypes = defineModel<string[]>('overriddenProvidedFilterTypes', {
 	required: false,
-	default: [],
+	default: () => [],
 })
 
 const props = defineProps<{

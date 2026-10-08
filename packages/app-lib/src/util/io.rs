@@ -111,17 +111,38 @@ pub async fn remove_dir_all(
 /// (older Minecraft versions tended to rely on the system's default codepage
 /// more on Windows platforms), and mods used, while not being highly sensitive
 /// to occasional occurrences of mojibake or character replacements.
-pub async fn read_any_encoding_to_string(
+pub async fn read_manifest_any_encoding_to_string(
     path: impl AsRef<std::path::Path>,
 ) -> Result<(String, &'static encoding_rs::Encoding), IOError> {
     let path = path.as_ref();
-    let file_bytes =
-        tokio::fs::read(path)
-            .await
-            .map_err(|e| IOError::IOPathError {
-                source: e,
-                path: path.to_string_lossy().to_string(),
-            })?;
+    use tokio::io::AsyncReadExt;
+    let limit = crate::util::archive::MAX_MANIFEST_BYTES;
+    let file = tokio::fs::File::open(path)
+        .await
+        .map_err(|error| IOError::with_path(error, path))?;
+    if file
+        .metadata()
+        .await
+        .map_err(|error| IOError::with_path(error, path))?
+        .len()
+        > limit
+    {
+        return Err(IOError::with_path(
+            std::io::Error::other("Manifest exceeds size limit"),
+            path,
+        ));
+    }
+    let mut file_bytes = Vec::new();
+    file.take(limit + 1)
+        .read_to_end(&mut file_bytes)
+        .await
+        .map_err(|error| IOError::with_path(error, path))?;
+    if file_bytes.len() as u64 > limit {
+        return Err(IOError::with_path(
+            std::io::Error::other("Manifest exceeds size limit"),
+            path,
+        ));
+    }
 
     let file_encoding = {
         let mut encoding_detector = chardetng::EncodingDetector::new();

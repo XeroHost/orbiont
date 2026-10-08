@@ -4,7 +4,7 @@ import { type AnimatedIconName, hugeIcons, partMotion } from './registry'
 defineProps<{ name: AnimatedIconName }>()
 
 // Hugeicons data uses React attribute names; normalize them for native SVG.
-function svgAttributes(attributes: Record<string, string>) {
+function svgAttributes(attributes: Readonly<Record<string, string | number>>) {
 	return Object.fromEntries(
 		Object.entries(attributes)
 			.filter(([key]) => key !== 'key')

@@ -11,13 +11,7 @@ export type ButtonInteraction = 'surface' | 'filled' | 'none'
 
 // TODO: Standardized color string enum props across @orbiont/ui
 export type ButtonColor =
-	| 'brand'
-	| 'red'
-	| 'orange'
-	| 'green'
-	| 'blue'
-	| 'purple'
-	| 'medal_promotion'
+	'brand' | 'red' | 'orange' | 'green' | 'blue' | 'purple' | 'medal_promotion'
 
 export type ButtonVisualProps = {
 	size?: ButtonSize
@@ -117,10 +111,7 @@ export interface ButtonMenuHeading {
 }
 
 export type ButtonMenuLeafOption =
-	| ButtonMenuAction
-	| ButtonMenuLink
-	| ButtonMenuDivider
-	| ButtonMenuHeading
+	ButtonMenuAction | ButtonMenuLink | ButtonMenuDivider | ButtonMenuHeading
 
 export interface ButtonMenuSubmenu extends ButtonMenuItemBase {
 	type: 'submenu'

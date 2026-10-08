@@ -110,15 +110,17 @@ async function install() {
 		if (!(cause instanceof CurseforgeDownloadCancelled)) {
 			const code = (cause as { code?: string })?.code
 			error.value = formatMessage(
-				code === 'invalid_file'
-					? messages.invalidArchive
-					: code === 'game_running'
-						? messages.gameRunning
-						: code === 'missing_dependency'
-							? messages.missingDependency
-							: code === 'file_too_large'
-								? bedrockMessages.largeFile
-								: bedrockMessages.importError,
+				code === 'insufficient_space'
+					? bedrockMessages.insufficientSpace
+					: code === 'invalid_file'
+						? messages.invalidArchive
+						: code === 'game_running'
+							? messages.gameRunning
+							: code === 'missing_dependency'
+								? messages.missingDependency
+								: code === 'file_too_large'
+									? bedrockMessages.largeFile
+									: bedrockMessages.importError,
 			)
 		}
 	} finally {

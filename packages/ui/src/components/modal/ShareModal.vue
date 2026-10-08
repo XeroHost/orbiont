@@ -204,6 +204,7 @@ const postOnReddit = computed(
 )
 
 defineExpose({
+	hide: () => shareModal.value?.hide(),
 	show,
 })
 </script>

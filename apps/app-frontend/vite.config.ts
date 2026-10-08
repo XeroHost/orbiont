@@ -4,9 +4,10 @@ import { resolve } from 'path'
 import { defineConfig } from 'vite'
 import svgLoader from 'vite-svg-loader'
 
-import tauriConf from '../app/tauri.conf.json'
+import tauriConf from '../app/tauri.conf.json' with { type: 'json' }
+import { publicEnvPrefixes } from './public-env.ts'
 
-const projectRootDir = resolve(__dirname)
+const projectRootDir = import.meta.dirname
 const appLibEnvDir = resolve(projectRootDir, '../../packages/app-lib')
 const apiClientSource = resolve(projectRootDir, '../../packages/api-client/src/index.ts')
 
@@ -50,6 +51,27 @@ export default defineConfig({
 	},
 	plugins: [
 		vue(),
+		{
+			name: 'measure-ace-bundle',
+			generateBundle(_options, bundle) {
+				let aceSourceBytes = 0
+				let aceModules = 0
+				for (const chunk of Object.values(bundle)) {
+					if (chunk.type !== 'chunk') continue
+					for (const [id, info] of Object.entries(chunk.modules)) {
+						if (id.replaceAll('\\', '/').includes('/ace-builds/') && info.renderedLength > 0) {
+							aceSourceBytes += info.renderedLength
+							aceModules++
+						}
+					}
+				}
+				this.emitFile({
+					type: 'asset',
+					fileName: 'bundle-metrics.json',
+					source: JSON.stringify({ aceSourceBytes, aceModules }),
+				})
+			},
+		},
 		{
 			name: 'watch-interface-svg-sources',
 			enforce: 'pre',
@@ -105,9 +127,9 @@ export default defineConfig({
 				.join('; '),
 		},
 	},
-	// to make use of `TAURI_ENV_DEBUG` and other env variables
-	// https://v2.tauri.app/reference/environment-variables/#tauri-cli-hook-commands
-	envPrefix: ['VITE_', 'TAURI_', 'MODRINTH_', 'ORBIONT_'],
+	// Only public client settings belong in import.meta.env. TAURI_SIGNING_*
+	// stays in the build process and must never enter the frontend environment.
+	envPrefix: publicEnvPrefixes,
 	build: {
 		rolldownOptions: {
 			onwarn(warning, defaultHandler) {

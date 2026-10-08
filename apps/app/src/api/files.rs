@@ -1,7 +1,4 @@
 use crate::api::Result;
-use async_zip::base::read::seek::ZipFileReader;
-use serde::Serialize;
-use std::io::Cursor;
 use tauri::Runtime;
 use tauri_plugin_dialog::DialogExt;
 
@@ -12,6 +9,13 @@ pub fn init<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
             file_save_as,
             file_read_dragged_file,
             file_list,
+            file_read_document,
+            file_write_document,
+            file_list_recoveries,
+            file_preview_recovery,
+            file_restore_recovery,
+            file_remove_recoveries,
+            file_storage_summary,
             file_read,
             file_write,
             file_create_directory,
@@ -19,12 +23,6 @@ pub fn init<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
             file_delete,
         ])
         .build()
-}
-
-#[derive(Serialize)]
-pub struct ExtractDryRunResult {
-    modpack_name: Option<String>,
-    conflicting_files: Vec<String>,
 }
 
 #[tauri::command]
@@ -37,7 +35,24 @@ pub async fn file_read_dragged_file(path: String) -> Result<Vec<u8>> {
         .into());
     }
 
-    Ok(tokio::fs::read(path).await?)
+    const LIMIT: u64 = 64 * 1024 * 1024;
+    if metadata.len() > LIMIT {
+        return Err(theseus::Error::from(theseus::ErrorKind::InputError("Dropped file exceeds 64 MiB IPC limit; import larger packs by path".into())).into());
+    }
+    use tokio::io::AsyncReadExt;
+    let mut bytes = Vec::new();
+    tokio::fs::File::open(path)
+        .await?
+        .take(LIMIT + 1)
+        .read_to_end(&mut bytes)
+        .await?;
+    if bytes.len() as u64 > LIMIT {
+        return Err(theseus::Error::from(theseus::ErrorKind::InputError(
+            "Dropped file exceeds 64 MiB IPC limit".into(),
+        ))
+        .into());
+    }
+    Ok(bytes)
 }
 
 #[tauri::command]
@@ -46,90 +61,14 @@ pub async fn file_extract_zip(
     file_path: &str,
     override_conflicts: bool,
     dry_run: bool,
-) -> Result<Option<ExtractDryRunResult>> {
-    theseus::instance::validate_instance_file_write(instance_id, file_path)
-        .await?;
-    let parent = file_path
-        .trim_start_matches('/')
-        .rsplit_once('/')
-        .map_or("", |(parent, _)| parent);
-    let file_bytes =
-        theseus::instance::read_instance_file(instance_id, file_path).await?;
-    let zip_reader = ZipFileReader::with_tokio(Cursor::new(file_bytes))
-        .await
-        .map_err(|error| {
-        theseus::Error::from(theseus::ErrorKind::OtherError(format!(
-            "Failed to read zip file: {error}"
-        )))
-    })?;
-    let mut entries = Vec::new();
-    for (index, entry) in zip_reader.file().entries().iter().enumerate() {
-        let name = entry.filename().as_str().map_err(|error| {
-            theseus::Error::from(theseus::ErrorKind::InputError(
-                error.to_string(),
-            ))
-        })?;
-        if name.ends_with('/') {
-            continue;
-        }
-        if name.starts_with('/') || name.contains('\\') {
-            return Err(theseus::Error::from(theseus::ErrorKind::InputError(
-                "Invalid archive path".to_string(),
-            ))
-            .into());
-        }
-        let target = if parent.is_empty() {
-            name.to_string()
-        } else {
-            format!("{parent}/{name}")
-        };
-        let resolved = theseus::instance::validate_instance_file_write(
-            instance_id,
-            &target,
-        )
-        .await?;
-        entries.push((index, target, resolved));
-    }
-    if dry_run {
-        let conflicting_files = entries
-            .iter()
-            .filter(|(_, _, path)| path.exists())
-            .map(|(_, name, _)| name.clone())
-            .collect();
-        return Ok(Some(ExtractDryRunResult {
-            modpack_name: None,
-            conflicting_files,
-        }));
-    }
-    let mut zip_reader = zip_reader;
-    for (index, path, resolved) in entries {
-        if !override_conflicts && resolved.exists() {
-            continue;
-        }
-        let mut bytes = Vec::new();
-        let mut reader =
-            zip_reader.reader_with_entry(index).await.map_err(|error| {
-                theseus::Error::from(theseus::ErrorKind::OtherError(
-                    error.to_string(),
-                ))
-            })?;
-        reader
-            .read_to_end_checked(&mut bytes)
-            .await
-            .map_err(|error| {
-                theseus::Error::from(theseus::ErrorKind::OtherError(
-                    error.to_string(),
-                ))
-            })?;
-        theseus::instance::write_instance_file(
-            instance_id,
-            &path,
-            &bytes,
-            !override_conflicts,
-        )
-        .await?;
-    }
-    Ok(None)
+) -> Result<Option<theseus::instance::ExtractDryRunResult>> {
+    Ok(theseus::instance::extract_instance_zip(
+        instance_id,
+        file_path,
+        override_conflicts,
+        dry_run,
+    )
+    .await?)
 }
 
 #[tauri::command]
@@ -231,4 +170,73 @@ pub async fn file_save_as<R: Runtime>(
     }
 
     Ok(())
+}
+
+#[tauri::command]
+pub async fn file_read_document(
+    instance_id: &str,
+    path: &str,
+) -> Result<theseus::instance::FileDocument> {
+    Ok(theseus::instance::read_instance_document(instance_id, path).await?)
+}
+#[tauri::command]
+pub async fn file_write_document(
+    instance_id: &str,
+    path: &str,
+    content: &str,
+    expected_revision: &str,
+) -> Result<theseus::instance::FileDocumentWrite> {
+    Ok(theseus::instance::write_instance_document(
+        instance_id,
+        path,
+        content,
+        expected_revision,
+    )
+    .await?)
+}
+#[tauri::command]
+pub async fn file_list_recoveries(
+    instance_id: &str,
+) -> Result<theseus::instance::FileRecoveries> {
+    Ok(theseus::instance::list_instance_recoveries(instance_id).await?)
+}
+#[tauri::command]
+pub async fn file_preview_recovery(
+    instance_id: &str,
+    recovery_id: &str,
+) -> Result<theseus::instance::FileRecoveryPreview> {
+    Ok(
+        theseus::instance::preview_instance_recovery(instance_id, recovery_id)
+            .await?,
+    )
+}
+#[tauri::command]
+pub async fn file_restore_recovery(
+    instance_id: &str,
+    recovery_id: &str,
+    expected_revision: &str,
+) -> Result<theseus::instance::FileDocumentWrite> {
+    Ok(theseus::instance::restore_instance_recovery(
+        instance_id,
+        recovery_id,
+        expected_revision,
+    )
+    .await?)
+}
+#[tauri::command]
+pub async fn file_remove_recoveries(
+    instance_id: &str,
+    recovery_ids: Vec<String>,
+) -> Result<()> {
+    Ok(theseus::instance::remove_instance_recoveries(
+        instance_id,
+        &recovery_ids,
+    )
+    .await?)
+}
+#[tauri::command]
+pub async fn file_storage_summary(
+    instance_id: &str,
+) -> Result<theseus::instance::FileStorageSummary> {
+    Ok(theseus::instance::instance_storage_summary(instance_id).await?)
 }

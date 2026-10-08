@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Minecraft for Windows aranıyor…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft hâlâ çalışıyor"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Dosyaları düzenlemek, içeriği silmek veya bir kopyayı geri yüklemek için Minecraft’yi kapatın."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Bu Minecraft klasörü açılamadı. Verilerinizi yenileyin ve tekrar deneyin."
   },
+  "app.bedrock.force-stop": {
+    "message": "Zorla kapat"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft normal kapatma isteğinden sonra kapanmadı. Bu oyun işlemi zorla kapatılsın mı? Kaydedilmemiş ilerleme kaybolabilir. İptal edip Minecraft içinden kaydederek çıkabilirsiniz."
+  },
   "app.bedrock.import-button": {
     "message": "Dosyayı içe aktar"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows kuruldu"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Bu içeriği hazırlamak ve kurtarma kopyalarını saklamak için diskte yeterli boş alan yok. Hedef sürücüde yer açıp tekrar deneyin."
+  },
   "app.bedrock.invalid-file": {
     "message": "Geçerli bir yerel .mcworld, .mcpack veya .mcaddon arşivi seçin."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Bu dosya 8 GiB içe aktarma sınırını aşıyor."
+    "message": "Bu dosya 2 GiB içe aktarma sınırını aşıyor."
   },
   "app.bedrock.launch-error": {
     "message": "Minecraft açılamadı. Kurulumu kontrol etmek için resmi başlatıcıyı veya Microsoft Store’yi açın."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} çevrimiçi"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Tanılama raporunu dışa aktar"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Oturumunuzu kontrol etmek için resmi başlatıcıyı veya güncellemeleri yüklemek ya da Minecraft'ı onarmak için Microsoft Store'u açın. İşiniz bitince algılamayı yenileyin."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Hazır} requested {Başlatma istendi} starting {Minecraft bekleniyor} running {Minecraft çalışıyor} timeout {Minecraft zaman aşımından önce başlamadı} failed {Başlatma başarısız} other {Başlatma kontrol ediliyor}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Geçen süre: {seconds, number} saniye"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Başlatma tanılaması"
+  },
+  "bedrock.packs.activations": {
+    "message": "Dünyalarda etkinleştirmeler"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Bağımlılıklar"
+  },
+  "bedrock.packs.details": {
+    "message": "Sürümler ve bağımlılıklar"
+  },
+  "bedrock.packs.none": {
+    "message": "Bildirilmedi"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Etkin sürüm} other {Saklanan sürüm}}"
+  },
   "curseforge.manual.description": {
     "message": "{file} dosyasını resmi CurseForge sayfasından indirin ve devam etmek için indirilen dosyayı seçin. Boyutu ve SHA-1 değeri doğrulanacaktır."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Dosyalar ekleniyor ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Dosya düzenleyici dışında değiştirildi. Taslağınız saklandı. En son sürümü incelemek için dosyayı yeniden açmadan önce taslağınızı kopyalayın."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Dosya kaydedilemedi. Taslağınız saklandı."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Yüklü içeriğinizi İçerik sekmesinden yönetin"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Kaydetmeden önce dosyayı yeniden açın."
   },
   "instance.files.save-as": {
     "message": "Farklı kaydet..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Dünya şu anda kullanımda"
+  },
+  "local-management.category.cache": {
+    "message": "Paylaşılan başlatıcı önbelleği"
+  },
+  "local-management.category.data": {
+    "message": "Oyun verileri"
+  },
+  "local-management.category.import": {
+    "message": "Saklanan içe aktarmalar"
+  },
+  "local-management.category.recovery": {
+    "message": "Kurtarılabilir kopyalar"
+  },
+  "local-management.category.retained-version": {
+    "message": "Saklanan paket sürümleri"
+  },
+  "local-management.confirm-removal": {
+    "message": "Kalıcı silmeyi onayla"
+  },
+  "local-management.empty": {
+    "message": "Kurtarılabilir kopya bulunamadı."
+  },
+  "local-management.error": {
+    "message": "İşlem başarısız oldu. Seçiminiz saklandı. Yenileyip tekrar deneyin."
+  },
+  "local-management.load-more": {
+    "message": "Daha fazla kopya yükle"
+  },
+  "local-management.loading": {
+    "message": "Yerel veriler yükleniyor…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Dünya paketi kurulumu} java_editor {Java düzenleyicisi} other {Yerel Bedrock yönetimi}}"
+  },
+  "local-management.partial": {
+    "message": "Bu liste veya boyut tahmini eksik."
+  },
+  "local-management.preview": {
+    "message": "Önizleme"
+  },
+  "local-management.recovery": {
+    "message": "Kurtarılabilir kopyalar"
+  },
+  "local-management.remove": {
+    "message": "Seçili öğeleri sil"
+  },
+  "local-management.remove-help": {
+    "message": "Yalnızca seçili kurtarılabilir kopyalar ve saklanan içe aktarmalar silinebilir. Kalıcı olarak silinmeleri kurtarılmalarını engeller."
+  },
+  "local-management.restore": {
+    "message": "Geri yüklemeyi onayla"
+  },
+  "local-management.restore-help": {
+    "message": "Geri yüklemeden önce aşağıdaki hedefi ve kopyayı inceleyin. Sonradan yapılan değişiklikler veya dolu bir hedef geri yüklemeyi engelleyebilir."
+  },
+  "local-management.retention.days": {
+    "message": "Şu süreden eski (gün)"
+  },
+  "local-management.retention.help": {
+    "message": "İncelemek için eski kurtarılabilir kopyaları seçin. Hiçbir şey otomatik olarak silinmez; eksik kopyalar ve kurulu içerik korunur."
+  },
+  "local-management.retention.keep": {
+    "message": "Her dosya veya dünya için en yeni kopyaları sakla"
+  },
+  "local-management.retention.select": {
+    "message": "Eski kopyaları seç"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, other {# öğe seçildi}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} bayt"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Hazırlandı} applied {Uygulandı} rollback_failed {Geri alma başarısız} restored {Geri yüklendi} partial {Eksik} legacy {Eski kopya} other {Kullanılabilir}}"
+  },
+  "local-management.storage": {
+    "message": "Depolama"
+  },
+  "local-management.title": {
+    "message": "Kurtarma ve depolama"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft hesapları"

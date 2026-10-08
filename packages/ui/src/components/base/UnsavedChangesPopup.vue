@@ -1,4 +1,4 @@
-<script setup lang="ts" generic="T">
+<script setup lang="ts" generic="T extends object">
 import { HistoryIcon, SaveIcon, SpinnerIcon } from '@orbiont/assets'
 import { isEqual } from 'es-toolkit'
 import { type Component, computed, ref } from 'vue'
@@ -51,7 +51,9 @@ const props = withDefaults(
 const shown = computed(
 	() =>
 		props.saving ||
-		Object.keys(props.modified).some((key) => !isEqual(props.original[key], props.modified[key])),
+		(Object.keys(props.modified) as (keyof T)[]).some(
+			(key) => !isEqual(props.original[key], props.modified[key]),
+		),
 )
 
 function localizeIfPossible(message: MessageDescriptor | string) {
@@ -69,9 +71,7 @@ const saveDisabledTooltip = computed(() => {
 		Array.isArray(props.saveDisabledReason) ? props.saveDisabledReason : [props.saveDisabledReason]
 	).map(localizeIfPossible)
 
-	return reasons.length > 0
-		? { content: reasons.join('\n'), popperClass: 'unsaved-changes-save-tooltip' }
-		: undefined
+	return reasons.length > 0 ? { text: reasons.join('\n') } : undefined
 })
 
 const actionBar = ref<InstanceType<typeof FloatingActionBar> | null>(null)
@@ -87,7 +87,12 @@ defineExpose({ nudge })
 	<FloatingActionBar ref="actionBar" :shown="shown" :inline="inline">
 		<p class="m-0 font-semibold text-sm md:text-base">{{ localizeIfPossible(text) }}</p>
 		<div class="ml-auto flex gap-2">
-			<Button v-if="canReset" type="quiet" :disabled="saving" @click="(e) => emit('reset', e)">
+			<Button
+				v-if="canReset"
+				type="quiet"
+				:disabled="saving"
+				@click="(e: MouseEvent) => emit('reset', e)"
+			>
 				<HistoryIcon /> {{ formatMessage(commonMessages.resetButton) }}
 			</Button>
 			<span
@@ -100,7 +105,7 @@ defineExpose({ nudge })
 					color="brand"
 					:disabled="saveDisabled"
 					:class="{ 'pointer-events-none': saveDisabled }"
-					@click="(e) => emit('save', e)"
+					@click="(e: MouseEvent) => emit('save', e)"
 				>
 					<SpinnerIcon v-if="saving" class="animate-spin" />
 					<component :is="saveIcon" v-else />

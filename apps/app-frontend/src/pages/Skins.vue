@@ -25,7 +25,16 @@ import { useQuery } from '@tanstack/vue-query'
 import { type DragDropEvent, getCurrentWebview } from '@tauri-apps/api/webview'
 import { computedAsync } from '@vueuse/core'
 import type { Ref } from 'vue'
-import { computed, inject, onMounted, onUnmounted, ref, useTemplateRef, watch } from 'vue'
+import {
+	computed,
+	inject,
+	onMounted,
+	onScopeDispose,
+	onUnmounted,
+	ref,
+	useTemplateRef,
+	watch,
+} from 'vue'
 
 import EarsModIcon from '@/assets/skins/ears-mod.png'
 import type AccountsCard from '@/components/ui/AccountsCard.vue'
@@ -34,6 +43,7 @@ import SkinCatalog from '@/components/ui/skin/SkinCatalog.vue'
 import VirtualSkinSectionList from '@/components/ui/skin/VirtualSkinSectionList.vue'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { handleSevereError } from '@/composables/use-error.js'
+import { createAccountRefresh, onAccountChange } from '@/helpers/account-changes'
 import { check_reachable, get_default_user, login as login_flow, users } from '@/helpers/auth'
 import { cleanupUnusedPreviews } from '@/helpers/rendering/skin-previews'
 import { prepareCatalogSkin, type SkinProvider } from '@/helpers/skin-catalog'
@@ -207,7 +217,7 @@ const capes = ref<Cape[]>([])
 const offline = ref(!navigator.onLine)
 
 const accountsCard = inject('accountsCard') as Ref<typeof AccountsCard>
-const currentUser = ref(undefined)
+const currentUser = ref<import('@/helpers/types').MinecraftCredential>()
 const currentUserId = ref<string | undefined>(undefined)
 
 const username = computed(() => currentUser.value?.profile?.name ?? undefined)
@@ -369,10 +379,15 @@ const hasPendingSkinChange = computed(
 	() => !skinsMatch(selectedSkin.value, originalSelectedSkin.value),
 )
 
-let userCheckInterval: number | null = null
 let pendingSkinRefreshTimeout: number | null = null
 let unlistenAddSkinDragDrop: UnlistenFn | null = null
 let isUnmounted = false
+let accountRevision = 0
+
+function accountResultCurrent() {
+	const revision = accountRevision
+	return () => !isUnmounted && revision === accountRevision
+}
 
 const isDraggingSkinFile = ref(false)
 const isAddSkinButtonDragActive = ref(false)
@@ -403,19 +418,22 @@ async function deleteSkin() {
 	}
 }
 
-async function loadCapes() {
+async function loadCapes(isCurrent = accountResultCurrent()) {
 	try {
-		capes.value = (await get_available_capes()) ?? []
+		const loadedCapes = (await get_available_capes()) ?? []
+		if (!isCurrent()) return
+		capes.value = loadedCapes
 	} catch (error) {
-		if (currentUser.value && error instanceof Error) {
+		if (isCurrent() && currentUser.value && error instanceof Error) {
 			handleError(error)
 		}
 	}
 }
 
-async function loadSkins() {
+async function loadSkins(isCurrent = accountResultCurrent()) {
 	try {
 		const loadedSkins = (await get_available_skins()) ?? []
+		if (!isCurrent()) return
 		const loadedEquippedSkin = loadedSkins.find((s) => s.is_equipped)
 		const locallyKnownEquippedSkin =
 			originalSelectedSkin.value &&
@@ -438,7 +456,7 @@ async function loadSkins() {
 		selectedSkin.value = skins.value.find((s) => s.is_equipped) ?? null
 		originalSelectedSkin.value = selectedSkin.value
 	} catch (error) {
-		if (currentUser.value && error instanceof Error) {
+		if (isCurrent() && currentUser.value && error instanceof Error) {
 			handleError(error)
 		}
 	}
@@ -813,14 +831,22 @@ async function onSkinSaved(options: { applied: boolean; skin?: Skin; previousSki
 	}
 }
 
-async function loadCurrentUser() {
+async function loadCurrentUser(isCurrent: () => boolean) {
 	try {
-		const defaultId = await get_default_user()
+		const [defaultId, allAccounts] = await Promise.all([get_default_user(), users()])
+		if (!isCurrent()) return
+		if (defaultId !== currentUserId.value) {
+			selectedSkin.value = null
+			originalSelectedSkin.value = null
+			skins.value = []
+			capes.value = []
+		}
 		currentUserId.value = defaultId
-
-		const allAccounts = await users()
-		currentUser.value = allAccounts.find((acc) => acc.profile.id === defaultId)
+		currentUser.value = allAccounts.find(
+			(acc: import('@/helpers/types').MinecraftCredential) => acc.profile.id === defaultId,
+		)
 	} catch (e) {
+		if (!isCurrent()) return
 		handleError(e as Error)
 		currentUser.value = undefined
 		currentUserId.value = undefined
@@ -1021,7 +1047,6 @@ watch(isSkinManagementReadOnly, (readOnly) => {
 onMounted(() => {
 	window.addEventListener('offline', onOffline)
 	window.addEventListener('online', onOnline)
-	userCheckInterval = window.setInterval(checkUserChanges, 250)
 	void setupAddSkinDragDropListener()
 })
 
@@ -1029,10 +1054,6 @@ onUnmounted(() => {
 	isUnmounted = true
 	window.removeEventListener('offline', onOffline)
 	window.removeEventListener('online', onOnline)
-
-	if (userCheckInterval !== null) {
-		window.clearInterval(userCheckInterval)
-	}
 
 	if (pendingSkinRefreshTimeout !== null) {
 		window.clearTimeout(pendingSkinRefreshTimeout)
@@ -1054,24 +1075,21 @@ function onOnline() {
 	void authServerQuery.refetch()
 }
 
-async function checkUserChanges() {
-	try {
-		const defaultId = await get_default_user()
-		if (defaultId !== currentUserId.value) {
-			await accountsCard.value?.refreshValues()
-			await loadCurrentUser()
-			await loadCapes()
-			await loadSkins()
-		}
-	} catch (error) {
-		if (currentUser.value && error instanceof Error) {
-			handleError(error)
-		}
-	}
-}
-
-await Promise.all([loadCapes(), loadCurrentUser()])
-await loadSkins()
+const accountRefresh = createAccountRefresh(async (isCurrent) => {
+	await loadCurrentUser(isCurrent)
+	if (!isCurrent()) return
+	await Promise.all([loadCapes(isCurrent), loadSkins(isCurrent)])
+})
+const unsubscribeAccountChanges = onAccountChange(() => {
+	accountRevision++
+	void accountRefresh.request().catch(handleError)
+})
+onScopeDispose(() => {
+	isUnmounted = true
+	unsubscribeAccountChanges()
+	accountRefresh.dispose()
+})
+await accountRefresh.request()
 </script>
 
 <template>

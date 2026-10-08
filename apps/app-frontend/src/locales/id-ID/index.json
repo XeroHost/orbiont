@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Mencari Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft masih berjalan"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Tutup Minecraft untuk mengedit file, menghapus konten, atau memulihkan salinan."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Tidak dapat membuka folder Minecraft ini. Segarkan data Anda dan coba lagi."
   },
+  "app.bedrock.force-stop": {
+    "message": "Tutup paksa"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft tidak menutup setelah permintaan biasa. Tutup paksa proses game ini? Progres yang belum disimpan mungkin hilang. Anda dapat membatalkan, lalu menyimpan dan keluar dari dalam Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Impor berkas"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows diinstal"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Ruang disk kosong tidak cukup untuk menyiapkan konten ini dan menyimpan salinan pemulihan. Kosongkan ruang pada drive tujuan dan coba lagi."
+  },
   "app.bedrock.invalid-file": {
     "message": "Pilih arsip .mcworld, .mcpack, atau .mcaddon lokal yang valid."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "File ini melebihi batas impor 8 GiB."
+    "message": "File ini melebihi batas impor 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Tidak dapat membuka Minecraft. Buka peluncur resmi atau Microsoft Store untuk memeriksa instalasi."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} daring"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Ekspor laporan diagnostik"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Buka launcher resmi untuk memeriksa sesi Anda, atau buka Microsoft Store untuk memasang pembaruan atau memperbaiki Minecraft. Segarkan deteksi setelah selesai."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Siap} requested {Peluncuran diminta} starting {Menunggu Minecraft} running {Minecraft sedang berjalan} timeout {Minecraft tidak dimulai sebelum batas waktu} failed {Peluncuran gagal} other {Memeriksa peluncuran}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Waktu berlalu: {seconds, number} detik"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Diagnostik peluncuran"
+  },
+  "bedrock.packs.activations": {
+    "message": "Aktivasi di dunia"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Dependensi"
+  },
+  "bedrock.packs.details": {
+    "message": "Versi dan dependensi"
+  },
+  "bedrock.packs.none": {
+    "message": "Tidak ada yang dilaporkan"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Versi aktif} other {Versi yang disimpan}}"
+  },
   "curseforge.manual.description": {
     "message": "Unduh {file} dari halaman resmi CurseForge, lalu pilih file yang diunduh untuk melanjutkan. Ukuran dan SHA-1 akan diverifikasi."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Menambahkan berkas ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "File berubah di luar editor. Draf Anda tetap disimpan. Salin draf sebelum membuka kembali file untuk meninjau versi terbaru."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Tidak dapat menyimpan file. Draf Anda tetap disimpan."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Kelola konten terpasang Anda melalui tab Konten"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Buka kembali file sebelum menyimpan."
   },
   "instance.files.save-as": {
     "message": "Simpan sebagai..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Dunia sedang dimainkan"
+  },
+  "local-management.category.cache": {
+    "message": "Cache bersama launcher"
+  },
+  "local-management.category.data": {
+    "message": "Data game"
+  },
+  "local-management.category.import": {
+    "message": "Impor yang disimpan"
+  },
+  "local-management.category.recovery": {
+    "message": "Salinan yang dapat dipulihkan"
+  },
+  "local-management.category.retained-version": {
+    "message": "Versi paket yang disimpan"
+  },
+  "local-management.confirm-removal": {
+    "message": "Konfirmasi penghapusan permanen"
+  },
+  "local-management.empty": {
+    "message": "Tidak ditemukan salinan yang dapat dipulihkan."
+  },
+  "local-management.error": {
+    "message": "Operasi gagal. Pilihan Anda tetap disimpan. Segarkan dan coba lagi."
+  },
+  "local-management.load-more": {
+    "message": "Muat lebih banyak salinan"
+  },
+  "local-management.loading": {
+    "message": "Memuat data lokal…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Pemasangan paket di dunia} java_editor {Editor Java} other {Pengelolaan lokal Bedrock}}"
+  },
+  "local-management.partial": {
+    "message": "Daftar atau perkiraan ukuran ini belum lengkap."
+  },
+  "local-management.preview": {
+    "message": "Pratinjau"
+  },
+  "local-management.recovery": {
+    "message": "Salinan yang dapat dipulihkan"
+  },
+  "local-management.remove": {
+    "message": "Hapus item yang dipilih"
+  },
+  "local-management.remove-help": {
+    "message": "Hanya salinan yang dapat dipulihkan dan impor yang disimpan yang telah dipilih yang dapat dihapus. Penghapusan permanen membuatnya tidak dapat dipulihkan."
+  },
+  "local-management.restore": {
+    "message": "Konfirmasi pemulihan"
+  },
+  "local-management.restore-help": {
+    "message": "Tinjau tujuan dan salinan di bawah sebelum memulihkan. Perubahan selanjutnya atau lokasi tujuan yang sudah terisi dapat menghalangi pemulihan."
+  },
+  "local-management.retention.days": {
+    "message": "Lebih lama dari (hari)"
+  },
+  "local-management.retention.help": {
+    "message": "Pilih salinan lama yang dapat dipulihkan untuk ditinjau. Tidak ada yang dihapus otomatis; salinan yang belum lengkap dan konten yang terpasang tetap disimpan."
+  },
+  "local-management.retention.keep": {
+    "message": "Simpan salinan terbaru untuk setiap file atau dunia"
+  },
+  "local-management.retention.select": {
+    "message": "Pilih salinan lama"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# item dipilih} other {# item dipilih}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} bita"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Disiapkan} applied {Diterapkan} rollback_failed {Pengembalian perubahan gagal} restored {Dipulihkan} partial {Belum lengkap} legacy {Salinan lama} other {Tersedia}}"
+  },
+  "local-management.storage": {
+    "message": "Penyimpanan"
+  },
+  "local-management.title": {
+    "message": "Pemulihan dan penyimpanan"
   },
   "minecraft-account.accounts": {
     "message": "Akun Minecraft"

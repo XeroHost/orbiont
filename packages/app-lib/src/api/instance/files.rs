@@ -1,8 +1,6 @@
 use crate::State;
 use crate::state::content_store;
-use crate::state::content_store::{
-    ReadableContent, content_file_path, input, validate_relative,
-};
+use crate::state::content_store::{ReadableContent, content_file_path, input};
 use crate::state::instances::adapters::sqlite::{content_rows, instance_rows};
 use serde::Serialize;
 use std::path::{Path, PathBuf};
@@ -27,70 +25,142 @@ fn normalized(path: &str) -> &str {
     path.trim_start_matches('/')
 }
 
+const BACKUP_DIRECTORY: &str = ".orbiont-file-backups";
+const MAX_CHILDREN: usize = 1000;
+
+struct FileContext {
+    base: PathBuf,
+    protected: Vec<String>,
+}
+
+fn is_link(metadata: &std::fs::Metadata) -> bool {
+    if metadata.file_type().is_symlink() {
+        return true;
+    }
+    #[cfg(windows)]
+    {
+        use std::os::windows::fs::MetadataExt;
+        if metadata.file_attributes() & 0x400 != 0 {
+            return true;
+        }
+    }
+    false
+}
+
+async fn require_no_links(
+    base: &Path,
+    destination: &Path,
+) -> crate::Result<()> {
+    let relative = destination.strip_prefix(base)?;
+    let mut current = base.to_path_buf();
+    for component in
+        std::iter::once(None).chain(relative.components().map(Some))
+    {
+        if let Some(component) = component {
+            current.push(component);
+        }
+        match fs::symlink_metadata(&current).await {
+            Ok(metadata) if is_link(&metadata) => {
+                return Err(input(
+                    "Files cannot access links or reparse points",
+                ));
+            }
+            Ok(metadata) if current != destination && !metadata.is_dir() => {
+                return Err(input("File parent is not a directory"));
+            }
+            Ok(_) => {}
+            Err(error) if error.kind() == std::io::ErrorKind::NotFound => {}
+            Err(error) => return Err(error.into()),
+        }
+    }
+    Ok(())
+}
+
+impl FileContext {
+    async fn new(state: &State, instance_id: &str) -> crate::Result<Self> {
+        let instance =
+            instance_rows::get_instance_by_id(instance_id, &state.pool)
+                .await?
+                .ok_or_else(|| input("Unknown instance"))?;
+        let base = state
+            .content_store
+            .instance_path(&instance.path, "")
+            .await?;
+        require_no_links(&state.directories.instances_dir(), &base).await?;
+        let bindings =
+            content_store::instance_storage(&state.pool, instance_id).await?;
+        let files =
+            content_rows::get_instance_files(instance_id, &state.pool).await?;
+        let mut protected = Vec::new();
+        for file in files.iter().filter(|file| {
+            bindings.iter().any(|binding| binding.file_id == file.id)
+        }) {
+            protected.push(file.relative_path.to_lowercase());
+            protected.push(content_file_path(file).to_lowercase());
+        }
+        Ok(Self { base, protected })
+    }
+
+    async fn resolve(
+        &self,
+        path: &str,
+        writing: bool,
+    ) -> crate::Result<ReadableContent> {
+        let path = normalized(path);
+        if path.is_empty() && writing {
+            return Err(input(
+                "The instance directory cannot be changed in the Files tab",
+            ));
+        }
+        if !path.is_empty() {
+            crate::util::archive::validate_archive_path(path)?;
+        }
+        let first = path.split('/').next().unwrap_or_default();
+        if first.eq_ignore_ascii_case(BACKUP_DIRECTORY) {
+            return Err(input("Recovery copies are protected"));
+        }
+        if writing {
+            let lower = path.to_lowercase();
+            let prefix = format!("{lower}/");
+            if first.eq_ignore_ascii_case("mods")
+                || self.protected.iter().any(|managed| {
+                    managed == &lower || managed.starts_with(&prefix)
+                })
+            {
+                return Err(input(
+                    "Managed content is read-only in Files. Use the Content tab",
+                ));
+            }
+        }
+        let destination = self.base.join(path);
+        require_no_links(&self.base, &destination).await?;
+        Ok(ReadableContent::Local(destination))
+    }
+}
+
 async fn resolve(
     state: &State,
     instance_id: &str,
     path: &str,
     writing: bool,
 ) -> crate::Result<ReadableContent> {
-    let path = normalized(path);
-    let instance = instance_rows::get_instance_by_id(instance_id, &state.pool)
+    FileContext::new(state, instance_id)
         .await?
-        .ok_or_else(|| input("Unknown instance"))?;
-    let base = state
-        .content_store
-        .instance_path(&instance.path, "")
-        .await?;
-    if path.is_empty() {
-        if writing {
-            return Err(input(
-                "The instance directory cannot be changed in the Files tab",
-            ));
-        }
-        if fs::symlink_metadata(&base).await?.file_type().is_symlink() {
-            return Err(input(
-                "The instance directory must not be a symbolic link",
-            ));
-        }
-        return Ok(ReadableContent::Local(base));
+        .resolve(path, writing)
+        .await
+}
+
+#[path = "files_documents.rs"]
+mod documents;
+pub use documents::*;
+
+async fn count_children(path: &Path) -> crate::Result<Option<usize>> {
+    let mut children = fs::read_dir(path).await?;
+    let mut count = 0;
+    while count <= MAX_CHILDREN && children.next_entry().await?.is_some() {
+        count += 1;
     }
-    validate_relative(path)?;
-    if writing {
-        if path
-            .split('/')
-            .next()
-            .is_some_and(|part| part.eq_ignore_ascii_case("mods"))
-        {
-            return Err(input(
-                "The mods folder is read-only in Files. Manage mods from the Content tab",
-            ));
-        }
-        let prefix = format!("{}/", path.to_lowercase());
-        let bindings =
-            content_store::instance_storage(&state.pool, instance_id).await?;
-        let files =
-            content_rows::get_instance_files(instance_id, &state.pool).await?;
-        if files.iter().any(|file| {
-            bindings.iter().any(|binding| binding.file_id == file.id)
-                && (file.relative_path.eq_ignore_ascii_case(path)
-                    || content_file_path(file).eq_ignore_ascii_case(path)
-                    || file.relative_path.to_lowercase().starts_with(&prefix))
-        }) {
-            return Err(input(
-                "Managed content is read-only in Files. Use the Content tab",
-            ));
-        }
-    }
-    let destination = state
-        .content_store
-        .instance_path(&instance.path, path)
-        .await?;
-    if let Ok(metadata) = fs::symlink_metadata(&destination).await
-        && metadata.file_type().is_symlink()
-    {
-        return Err(input("Files cannot access a symbolic link or its target"));
-    }
-    Ok(ReadableContent::Local(destination))
+    Ok((count <= MAX_CHILDREN).then_some(count))
 }
 
 pub async fn list_instance_files(
@@ -98,7 +168,8 @@ pub async fn list_instance_files(
     path: &str,
 ) -> crate::Result<Vec<InstanceFileItem>> {
     let state = State::get().await?;
-    let directory = resolve(&state, instance_id, path, false).await?;
+    let context = FileContext::new(&state, instance_id).await?;
+    let directory = context.resolve(path, false).await?;
     let mut entries = fs::read_dir(directory.path()).await?;
     let mut output = Vec::new();
     while let Some(entry) = entries.next_entry().await? {
@@ -108,21 +179,21 @@ pub async fn list_instance_files(
         } else {
             format!("{}/{name}", normalized(path))
         };
+        if name.eq_ignore_ascii_case(BACKUP_DIRECTORY) {
+            continue;
+        }
         let file_type = entry.file_type().await?;
-        let resolved = resolve(&state, instance_id, &relative, false).await;
+        let resolved = context.resolve(&relative, false).await;
         let metadata = match &resolved {
             Ok(content) => fs::metadata(content.path()).await.ok(),
             Err(_) => None,
         };
-        let read_only =
-            resolve(&state, instance_id, &relative, true).await.is_err();
-        let count = if file_type.is_dir() && !file_type.is_symlink() {
-            let mut children = fs::read_dir(entry.path()).await?;
-            let mut count = 0;
-            while children.next_entry().await?.is_some() {
-                count += 1;
-            }
-            Some(count)
+        let read_only = context.resolve(&relative, true).await.is_err();
+        let count = if resolved.is_ok()
+            && file_type.is_dir()
+            && !file_type.is_symlink()
+        {
+            count_children(&entry.path()).await?
         } else {
             None
         };
@@ -301,6 +372,43 @@ pub async fn save_instance_file_as(
         return Err(input("Cannot save over a symbolic link"));
     }
     let content = resolve(&state, instance_id, source, false).await?;
-    fs::copy(content.path(), destination).await?;
+    let temporary =
+        tempfile::NamedTempFile::new_in(&canonical_parent)?.into_temp_path();
+    fs::copy(content.path(), &temporary).await?;
+    fs::File::options()
+        .write(true)
+        .open(&temporary)
+        .await?
+        .sync_all()
+        .await?;
+    temporary
+        .persist(destination)
+        .map_err(|error| error.error)?;
     Ok(())
+}
+
+#[path = "files_zip.rs"]
+mod archive_files;
+pub use archive_files::*;
+
+#[cfg(test)]
+mod listing_tests {
+    use super::*;
+    #[tokio::test]
+    async fn child_count_stops_and_marks_unknown_past_budget() {
+        let directory = tempfile::tempdir().unwrap();
+        for index in 0..=MAX_CHILDREN {
+            fs::write(directory.path().join(index.to_string()), b"")
+                .await
+                .unwrap();
+        }
+        assert_eq!(count_children(directory.path()).await.unwrap(), None);
+        fs::remove_file(directory.path().join(MAX_CHILDREN.to_string()))
+            .await
+            .unwrap();
+        assert_eq!(
+            count_children(directory.path()).await.unwrap(),
+            Some(MAX_CHILDREN)
+        );
+    }
 }

@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Szukasz Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft nadal działa"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Zamknij Minecraft, aby edytować pliki, usunąć zawartość lub przywrócić kopię."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Nie można otworzyć tego folderu Minecraft. Odśwież dane i spróbuj ponownie."
   },
+  "app.bedrock.force-stop": {
+    "message": "Wymuś zamknięcie"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft nie zamknął się po zwykłym żądaniu. Wymusić zamknięcie tego procesu gry? Niezapisane postępy mogą zostać utracone. Możesz anulować, a następnie zapisać grę i wyjść z Minecrafta."
+  },
   "app.bedrock.import-button": {
     "message": "Importuj plik"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows jest zainstalowany"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Za mało wolnego miejsca na dysku, aby przygotować tę zawartość i zachować kopie do odzyskania. Zwolnij miejsce na dysku docelowym i spróbuj ponownie."
+  },
   "app.bedrock.invalid-file": {
     "message": "Wybierz prawidłowe lokalne archiwum .mcworld, .mcpack lub .mcaddon."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Ten plik przekracza limit importu 8 GiB."
+    "message": "Ten plik przekracza limit importu wynoszący 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Nie można otworzyć Minecraft. Otwórz oficjalny program uruchamiający lub Microsoft Store, aby sprawdzić instalację."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Eksportuj raport diagnostyczny"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Otwórz oficjalny launcher, aby sprawdzić sesję, lub otwórz Microsoft Store, aby zainstalować aktualizacje lub naprawić Minecrafta. Po zakończeniu odśwież wykrywanie."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Gotowe} requested {Zażądano uruchomienia} starting {Oczekiwanie na Minecrafta} running {Minecraft działa} timeout {Minecraft nie uruchomił się w wyznaczonym czasie} failed {Uruchomienie nie powiodło się} other {Sprawdzanie uruchomienia}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Upłynęło: {seconds, number} s"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Diagnostyka uruchamiania"
+  },
+  "bedrock.packs.activations": {
+    "message": "Aktywacje w światach"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Zależności"
+  },
+  "bedrock.packs.details": {
+    "message": "Wersje i zależności"
+  },
+  "bedrock.packs.none": {
+    "message": "Brak zgłoszonych"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Aktywna wersja} other {Zachowana wersja}}"
+  },
   "curseforge.manual.description": {
     "message": "Pobierz {file} z oficjalnej strony CurseForge, a następnie wybierz pobrany plik, aby kontynuować. Rozmiar i SHA-1 zostaną sprawdzone."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Dodawanie plików ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Plik zmienił się poza edytorem. Twój szkic został zachowany. Skopiuj go przed ponownym otwarciem pliku, aby przejrzeć najnowszą wersję."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Nie udało się zapisać pliku. Twój szkic został zachowany."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Zarządzaj swoimi zainstalowanymi zasobami poprzez zakładkę \"Zawartość\""
+  },
+  "instance.files.reload-before-save": {
+    "message": "Otwórz plik ponownie przed zapisaniem."
   },
   "instance.files.save-as": {
     "message": "Zapisz jako..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Świat jest w użytku"
+  },
+  "local-management.category.cache": {
+    "message": "Wspólna pamięć podręczna launchera"
+  },
+  "local-management.category.data": {
+    "message": "Dane gry"
+  },
+  "local-management.category.import": {
+    "message": "Zachowane importy"
+  },
+  "local-management.category.recovery": {
+    "message": "Kopie do odzyskania"
+  },
+  "local-management.category.retained-version": {
+    "message": "Zachowane wersje pakietów"
+  },
+  "local-management.confirm-removal": {
+    "message": "Potwierdź trwałe usunięcie"
+  },
+  "local-management.empty": {
+    "message": "Nie znaleziono kopii do odzyskania."
+  },
+  "local-management.error": {
+    "message": "Operacja nie powiodła się. Twój wybór został zachowany. Odśwież i spróbuj ponownie."
+  },
+  "local-management.load-more": {
+    "message": "Wczytaj więcej kopii"
+  },
+  "local-management.loading": {
+    "message": "Wczytywanie danych lokalnych…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Instalacja pakietów świata} java_editor {Edytor Java} other {Lokalne zarządzanie Bedrock}}"
+  },
+  "local-management.partial": {
+    "message": "Ta lista lub oszacowanie rozmiaru są niekompletne."
+  },
+  "local-management.preview": {
+    "message": "Podgląd"
+  },
+  "local-management.recovery": {
+    "message": "Kopie do odzyskania"
+  },
+  "local-management.remove": {
+    "message": "Usuń wybrane elementy"
+  },
+  "local-management.remove-help": {
+    "message": "Można usunąć tylko wybrane kopie do odzyskania i zachowane importy. Trwałe usunięcie uniemożliwia ich odzyskanie."
+  },
+  "local-management.restore": {
+    "message": "Potwierdź przywracanie"
+  },
+  "local-management.restore-help": {
+    "message": "Przed przywróceniem sprawdź miejsce docelowe i kopię poniżej. Późniejsze zmiany lub zajęte miejsce docelowe mogą uniemożliwić przywrócenie."
+  },
+  "local-management.retention.days": {
+    "message": "Starsze niż (dni)"
+  },
+  "local-management.retention.help": {
+    "message": "Wybierz stare kopie do odzyskania, aby je przejrzeć. Nic nie jest usuwane automatycznie; niekompletne kopie i zainstalowana zawartość zostają zachowane."
+  },
+  "local-management.retention.keep": {
+    "message": "Zachowaj najnowsze kopie każdego pliku lub świata"
+  },
+  "local-management.retention.select": {
+    "message": "Wybierz stare kopie"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# wybrany element} few {# wybrane elementy} many {# wybranych elementów} other {# wybranego elementu}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} B"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Przygotowano} applied {Zastosowano} rollback_failed {Wycofanie nie powiodło się} restored {Przywrócono} partial {Niekompletna} legacy {Stara kopia} other {Dostępna}}"
+  },
+  "local-management.storage": {
+    "message": "Przestrzeń dyskowa"
+  },
+  "local-management.title": {
+    "message": "Odzyskiwanie i przestrzeń dyskowa"
   },
   "minecraft-account.accounts": {
     "message": "Konta Minecraft"

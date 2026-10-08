@@ -10,7 +10,13 @@ pub use catalog::import_catalog_file;
 mod data;
 pub use data::*;
 #[cfg(any(windows, test))]
+mod coordination;
+#[cfg(any(windows, test))]
 mod manage;
+mod process;
+#[cfg(any(windows, test))]
+mod storage;
+pub use process::{LaunchDiagnostic, ProcessStatus, StopOutcome};
 #[cfg(any(windows, test))]
 pub(crate) mod screenshots;
 #[cfg(any(windows, test))]
@@ -22,7 +28,7 @@ mod validation;
 #[cfg(windows)]
 mod windows;
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Clone, Serialize)]
 pub struct ApplicationInfo {
     /// Windows package version, not a Java game version or compatibility tag.
     pub version: String,
@@ -35,6 +41,7 @@ pub struct BedrockStatus {
     pub game: Option<ApplicationInfo>,
     pub launcher: Option<ApplicationInfo>,
     pub game_running: bool,
+    pub launch: LaunchDiagnostic,
 }
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize)]
@@ -54,6 +61,7 @@ pub enum ErrorCode {
     GameRunning,
     MissingDependency,
     Conflict,
+    InsufficientSpace,
 }
 
 #[derive(Debug, Serialize, thiserror::Error)]
@@ -125,10 +133,16 @@ fn data_root(id: &str) -> Result<DataRoot> {
 }
 
 pub async fn get_workspace() -> Result<Workspace> {
+    get_workspace_cached(true).await
+}
+pub async fn get_workspace_cached(refresh: bool) -> Result<Workspace> {
     #[cfg(windows)]
     {
-        on_windows(|| workspace::snapshot(data_roots()?).map_err(data_error))
-            .await
+        on_windows(move || {
+            workspace::cached_snapshot(data_roots()?, refresh)
+                .map_err(data_error)
+        })
+        .await
     }
     #[cfg(not(windows))]
     {
@@ -209,6 +223,7 @@ pub async fn list_recoveries() -> Result<Vec<Recovery>> {
                 data_roots()?.iter().filter(|r| r.kind != RootKind::Logs)
             {
                 result.extend(manage::recoveries(root)?);
+                result.extend(world_packs::recoveries(root, false)?);
             }
             result.sort_by_key(|item| std::cmp::Reverse(item.saved_at));
             Ok(result)
@@ -235,7 +250,11 @@ pub async fn restore_item(root_id: String, id: String) -> Result<()> {
                         "Refresh detected folders",
                     )
                 })?;
-            manage::restore(&roots, root, &id)
+            if id.starts_with("pack:") {
+                world_packs::restore(root, &id)
+            } else {
+                manage::restore(&roots, root, &id)
+            }
         })
         .await
     }
@@ -344,9 +363,12 @@ async fn on_windows<T: Send + 'static>(
 }
 
 pub async fn get_status() -> Result<BedrockStatus> {
+    get_status_cached(true).await
+}
+pub async fn get_status_cached(refresh: bool) -> Result<BedrockStatus> {
     #[cfg(windows)]
     {
-        on_windows(windows::get_status).await
+        on_windows(move || windows::get_status(refresh)).await
     }
     #[cfg(not(windows))]
     {
@@ -355,6 +377,7 @@ pub async fn get_status() -> Result<BedrockStatus> {
             game: None,
             launcher: None,
             game_running: false,
+            launch: process::status().launch,
         })
     }
 }
@@ -363,8 +386,19 @@ pub async fn launch_game() -> Result<()> {
     #[cfg(windows)]
     {
         on_windows(|| {
+            let _lock = coordination::mutation()?;
             manage::require_closed(manage::game_running())?;
-            windows::launch(windows::GAME_FAMILY)
+            process::requested();
+            match windows::launch(windows::GAME_FAMILY) {
+                Ok(()) => {
+                    process::accepted();
+                    Ok(())
+                }
+                Err(e) => {
+                    process::failed(e.message.clone());
+                    Err(e)
+                }
+            }
         })
         .await
     }
@@ -380,7 +414,11 @@ pub async fn launch_game() -> Result<()> {
 pub async fn launch_official_launcher() -> Result<()> {
     #[cfg(windows)]
     {
-        on_windows(|| windows::launch(windows::LAUNCHER_FAMILY)).await
+        on_windows(|| {
+            let _lock = coordination::mutation()?;
+            windows::launch(windows::LAUNCHER_FAMILY)
+        })
+        .await
     }
     #[cfg(not(windows))]
     {
@@ -392,13 +430,16 @@ pub async fn launch_official_launcher() -> Result<()> {
 }
 
 /// Stop only the Bedrock game, leaving Java instances and the launcher alone.
-pub async fn stop_game() -> Result<()> {
+pub async fn stop_game(
+    force_token: Option<String>,
+) -> Result<process::StopOutcome> {
     #[cfg(windows)]
     {
-        on_windows(manage::stop_game).await
+        on_windows(move || process::stop(force_token)).await
     }
     #[cfg(not(windows))]
     {
+        let _ = force_token;
         Err(BedrockError::new(
             ErrorCode::Unsupported,
             "Bedrock requires Windows",
@@ -436,18 +477,198 @@ pub async fn import_file(path: PathBuf) -> Result<()> {
                         validation::ImportError::FileTooLarge => {
                             BedrockError::new(
                                 ErrorCode::FileTooLarge,
-                                "Bedrock archive exceeds 8 GiB",
+                                "Bedrock archive exceeds 2 GiB",
                             )
                         }
                     },
                 )?;
-            windows::import_file(dunce::simplified(&path))
+            let _lock = coordination::mutation()?;
+            process::requested();
+            match windows::import_file(dunce::simplified(&path)) {
+                Ok(()) => {
+                    process::accepted();
+                    Ok(())
+                }
+                Err(e) => {
+                    process::failed(e.message.clone());
+                    Err(e)
+                }
+            }
         })
         .await
     }
     #[cfg(not(windows))]
     {
         let _ = path;
+        Err(BedrockError::new(
+            ErrorCode::Unsupported,
+            "Bedrock requires Windows",
+        ))
+    }
+}
+
+pub async fn get_process_status() -> Result<ProcessStatus> {
+    Ok(process::status())
+}
+pub async fn list_recoveries_page(
+    offset: usize,
+    limit: usize,
+) -> Result<RecoveryPage> {
+    let items = list_recoveries().await?;
+    let total = items.len();
+    Ok(RecoveryPage {
+        items: items
+            .into_iter()
+            .skip(offset)
+            .take(limit.clamp(1, 200))
+            .collect(),
+        total,
+        limited: false,
+    })
+}
+pub async fn preview_recovery(
+    root_id: String,
+    id: String,
+) -> Result<RecoveryPreview> {
+    #[cfg(windows)]
+    {
+        on_windows(move || {
+            let roots = data_roots()?;
+            let root =
+                roots.iter().find(|r| r.id == root_id).ok_or_else(|| {
+                    BedrockError::new(
+                        ErrorCode::InvalidPath,
+                        "Refresh detected folders",
+                    )
+                })?;
+            let mut all = manage::all_recoveries(root)?;
+            all.extend(world_packs::recoveries(root, true)?);
+            let recovery =
+                all.into_iter().find(|r| r.id == id).ok_or_else(|| {
+                    BedrockError::new(
+                        ErrorCode::InvalidPath,
+                        "Recovery no longer exists",
+                    )
+                })?;
+            let check = if id.starts_with("pack:") {
+                world_packs::preview(root, &id)
+            } else {
+                manage::preview(&roots, root, &id)
+            };
+            let conflicts =
+                check.err().map(|e| vec![e.message]).unwrap_or_default();
+            Ok(RecoveryPreview {
+                recovery,
+                can_restore: conflicts.is_empty(),
+                conflicts,
+            })
+        })
+        .await
+    }
+    #[cfg(not(windows))]
+    {
+        let _ = (root_id, id);
+        Err(BedrockError::new(
+            ErrorCode::Unsupported,
+            "Bedrock requires Windows",
+        ))
+    }
+}
+pub async fn get_storage() -> Result<StorageSummary> {
+    #[cfg(windows)]
+    {
+        let imports = crate::State::get()
+            .await
+            .map_err(|e| BedrockError::new(ErrorCode::DataUnavailable, e))?
+            .directories
+            .caches_dir()
+            .join("bedrock-imports");
+        on_windows(move || storage::summary(&data_roots()?, Some(&imports)))
+            .await
+    }
+    #[cfg(not(windows))]
+    {
+        Err(BedrockError::new(
+            ErrorCode::Unsupported,
+            "Bedrock requires Windows",
+        ))
+    }
+}
+pub async fn remove_storage(root_id: String, id: String) -> Result<()> {
+    #[cfg(windows)]
+    {
+        let imports = crate::State::get()
+            .await
+            .map_err(|e| BedrockError::new(ErrorCode::DataUnavailable, e))?
+            .directories
+            .caches_dir()
+            .join("bedrock-imports");
+        on_windows(move || {
+            let _lock = coordination::mutation()?;
+            manage::require_closed(manage::game_running())?;
+            let roots = data_roots()?;
+            let summary = storage::summary(&roots, Some(&imports))?;
+            let selected = summary
+                .entries
+                .iter()
+                .find(|entry| {
+                    entry.root_id == root_id
+                        && entry.id == id
+                        && entry.removable
+                })
+                .ok_or_else(|| {
+                    BedrockError::new(
+                        ErrorCode::InvalidPath,
+                        "Select an eligible recovery copy or completed import",
+                    )
+                })?;
+            let path = if root_id == "imports" {
+                if id.is_empty() || id.contains(['/', '\\', ':']) {
+                    return Err(BedrockError::new(
+                        ErrorCode::InvalidPath,
+                        "Invalid import ID",
+                    ));
+                }
+                let anchor = DataRoot {
+                    id: "imports".into(),
+                    path: imports,
+                    kind: RootKind::User,
+                };
+                workspace::resolve(&anchor, &id).map_err(data_error)?
+            } else {
+                let root = roots.iter().find(|r| r.id == root_id).ok_or_else(
+                    || {
+                        BedrockError::new(
+                            ErrorCode::InvalidPath,
+                            "Refresh detected folders",
+                        )
+                    },
+                )?;
+                let relative = if id.starts_with("pack:") {
+                    let parts: Vec<_> = id.split(':').collect();
+                    if parts.len() != 3 {
+                        return Err(BedrockError::new(
+                            ErrorCode::InvalidPath,
+                            "Invalid recovery ID",
+                        ));
+                    }
+                    format!(
+                        "minecraftWorlds/{}/.orbiont-pack-backups/{}",
+                        parts[1], parts[2]
+                    )
+                } else {
+                    format!(".orbiont-backups/{id}")
+                };
+                workspace::resolve(root, &relative).map_err(data_error)?
+            };
+            let _ = selected;
+            storage::remove_tree(&path)
+        })
+        .await
+    }
+    #[cfg(not(windows))]
+    {
+        let _ = (root_id, id);
         Err(BedrockError::new(
             ErrorCode::Unsupported,
             "Bedrock requires Windows",

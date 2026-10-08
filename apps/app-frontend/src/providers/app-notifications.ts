@@ -18,8 +18,8 @@ export class AppNotificationManager extends AbstractWebNotificationManager {
 	}
 
 	// The shared upstream limit is one incident, regardless of the requested path.
-	override handleError = (error: Error): void => {
-		const text = String(error?.message ?? error)
+	override handleError = (error: unknown): void => {
+		const text = error instanceof Error ? error.message : String(error)
 		if (/CurseForge/i.test(text) && /\b429\b/.test(text)) {
 			this.addNotification({
 				...this.curseforgeLimitNotification(),

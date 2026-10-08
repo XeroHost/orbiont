@@ -4,6 +4,7 @@ import {
 	commonMessages,
 	ContentCardLayout,
 	type ContentItem,
+	NewModal,
 	provideContentManager,
 	useVIntl,
 } from '@orbiont/ui'
@@ -13,6 +14,7 @@ import { useRouter } from 'vue-router'
 
 import type { BedrockItem } from '@/helpers/bedrock'
 import { bedrockMessages as messages } from '@/helpers/bedrock-messages'
+import { managementMessages } from '@/helpers/management-messages'
 
 const props = defineProps<{
 	items: BedrockItem[]
@@ -20,10 +22,13 @@ const props = defineProps<{
 	busy: boolean
 	confirmDelete: (items: BedrockItem[]) => Promise<boolean>
 	deleteItem: (item: BedrockItem) => Promise<void>
+	deleteItems: (items: BedrockItem[]) => Promise<void>
 }>()
 const emit = defineEmits<{ openFolder: [rootId: string, path: string]; import: []; refresh: [] }>()
 const { formatMessage } = useVIntl()
 const router = useRouter()
+const details = ref<InstanceType<typeof NewModal>>()
+const selectedPack = ref<BedrockItem | null>(null)
 const kinds = {
 	resource_pack: messages.resourcePack,
 	skin_pack: messages.skinPack,
@@ -56,7 +61,7 @@ const items = computed<ContentItem[]>(() =>
 					: formatMessage(kinds[kind]),
 				version: {
 					id,
-					version_number: item.version ?? '—',
+					version_number: item.pack_version?.join('.') ?? item.version ?? '—',
 					file_name: item.path.split('/').at(-1) ?? item.name,
 				},
 				file_name: item.path.split('/').at(-1) ?? item.name,
@@ -95,6 +100,13 @@ provideContentManager({
 		)
 		if (source) await props.deleteItem(source)
 	},
+	bulkDeleteItems: async (items) => {
+		await props.deleteItems(
+			props.items.filter((candidate) =>
+				items.some((item) => item.id === `${candidate.root_id}/${candidate.path}`),
+			),
+		)
+	},
 	confirmDeleteItems: (items) =>
 		props.confirmDelete(
 			props.items.filter((candidate) =>
@@ -114,6 +126,17 @@ provideContentManager({
 	mapToTableItem: (item) => item,
 	getOverflowOptions: (item) => [
 		{
+			id: 'pack-details',
+			label: formatMessage(managementMessages.packDetails),
+			icon: FolderOpenIcon,
+			action: () => {
+				selectedPack.value =
+					props.items.find((candidate) => `${candidate.root_id}/${candidate.path}` === item.id) ??
+					null
+				details.value?.show()
+			},
+		},
+		{
 			id: 'open-folder',
 			label: formatMessage(messages.openFolder),
 			icon: FolderOpenIcon,
@@ -129,4 +152,48 @@ provideContentManager({
 })
 </script>
 
-<template><ContentCardLayout :bottom-padding="false" /></template>
+<template>
+	<ContentCardLayout :bottom-padding="false" />
+	<NewModal ref="details" :header="formatMessage(managementMessages.packDetails)" max-width="720px">
+		<div v-if="selectedPack" class="flex flex-col gap-4">
+			<h3 class="m-0 break-all text-contrast">{{ selectedPack.name }}</h3>
+			<p class="m-0">
+				{{ selectedPack.pack_version?.join('.') ?? selectedPack.version ?? '�' }} �
+				{{
+					formatMessage(managementMessages.packState, {
+						active: String(selectedPack.active ?? false),
+					})
+				}}
+			</p>
+			<p class="m-0 break-all text-secondary">{{ selectedPack.pack_id }}</p>
+			<section>
+				<h4>{{ formatMessage(managementMessages.dependencies) }}</h4>
+				<p v-if="!selectedPack.dependencies?.length">
+					{{ formatMessage(managementMessages.none) }}
+				</p>
+				<ul v-else>
+					<li
+						v-for="dependency in selectedPack.dependencies"
+						:key="dependency.pack_id"
+						class="break-all"
+					>
+						{{ dependency.pack_id }} � {{ dependency.version.join('.') }}
+					</li>
+				</ul>
+			</section>
+			<section>
+				<h4>{{ formatMessage(managementMessages.activations) }}</h4>
+				<p v-if="!selectedPack.activations?.length">{{ formatMessage(managementMessages.none) }}</p>
+				<ul v-else>
+					<li
+						v-for="activation in selectedPack.activations"
+						:key="`${activation.root_id}/${activation.world_path}`"
+						class="break-all"
+					>
+						{{ activation.world_path }} � {{ activation.version.join('.') }}
+					</li>
+				</ul>
+			</section>
+		</div>
+	</NewModal>
+</template>

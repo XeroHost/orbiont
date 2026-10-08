@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Naghahanap ng Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Tumatakbo pa rin ang Minecraft"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Isara ang Minecraft upang i-edit ang mga file, tanggalin ang nilalaman o ibalik ang isang kopya."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Hindi mabuksan ang Minecraft folder na ito. I-refresh ang iyong data at subukang muli."
   },
+  "app.bedrock.force-stop": {
+    "message": "Puwersahang isara"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Hindi nagsara ang Minecraft matapos ang karaniwang kahilingan. Puwersahang isara ang prosesong ito ng laro? Maaaring mawala ang pag-usad na hindi pa na-save. Maaari mong kanselahin at mag-save at lumabas sa loob ng Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Mag-import ng file"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Naka-install ang Minecraft for Windows"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Walang sapat na bakanteng espasyo sa disk upang ihanda ang nilalamang ito at panatilihin ang mga kopya para sa pagbawi. Magbakante ng espasyo sa patutunguhang drive at subukang muli."
+  },
   "app.bedrock.invalid-file": {
     "message": "Pumili ng wastong lokal na .mcworld, .mcpack o .mcaddon archive."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Ang file na ito ay lumampas sa 8 GiB na limitasyon sa pag-import."
+    "message": "Lumampas ang file na ito sa limitasyong 2 GiB para sa pag-import."
   },
   "app.bedrock.launch-error": {
     "message": "Hindi mabuksan ang Minecraft. Buksan ang opisyal na launcher o Microsoft Store upang suriin ang pag-install."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
+  "bedrock.diagnostics.export": {
+    "message": "I-export ang ulat ng pagsusuri"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Buksan ang opisyal na launcher upang suriin ang iyong session, o buksan ang Microsoft Store upang mag-install ng mga update o ayusin ang Minecraft. I-refresh ang pagtukoy kapag tapos na."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Handa} requested {Hiniling ang paglunsad} starting {Hinihintay ang Minecraft} running {Tumatakbo ang Minecraft} timeout {Hindi nagsimula ang Minecraft bago matapos ang takdang oras} failed {Nabigo ang paglunsad} other {Sinusuri ang paglunsad}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Lumipas: {seconds, number} segundo"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Pagsusuri sa paglunsad"
+  },
+  "bedrock.packs.activations": {
+    "message": "Mga pag-activate sa mga mundo"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Mga kinakailangang pakete"
+  },
+  "bedrock.packs.details": {
+    "message": "Mga bersyon at kinakailangang pakete"
+  },
+  "bedrock.packs.none": {
+    "message": "Walang iniulat"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Aktibong bersyon} other {Pinanatiling bersyon}}"
+  },
   "curseforge.manual.description": {
     "message": "I-download ang {file} mula sa opisyal nitong pahina sa CurseForge, pagkatapos ay piliin ang na-download na file upang magpatuloy. Susuriin ang laki at SHA-1 nito."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Idinadagdag ang mga file ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Nabago ang file sa labas ng editor. Pinanatili ang iyong draft. Kopyahin ito bago muling buksan ang file upang suriin ang pinakabagong bersyon."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Hindi ma-save ang file. Pinanatili ang iyong draft."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Pamahalaan ang iyong naka-install na content sa pamamagitan ng tab na Content"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Muling buksan ang file bago mag-save."
   },
   "instance.files.save-as": {
     "message": "I-save bilang..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Ginagamit ang mundo"
+  },
+  "local-management.category.cache": {
+    "message": "Nakabahaging cache ng launcher"
+  },
+  "local-management.category.data": {
+    "message": "Data ng laro"
+  },
+  "local-management.category.import": {
+    "message": "Mga pinanatiling import"
+  },
+  "local-management.category.recovery": {
+    "message": "Mga kopyang maaaring maibalik"
+  },
+  "local-management.category.retained-version": {
+    "message": "Mga pinanatiling bersyon ng pakete"
+  },
+  "local-management.confirm-removal": {
+    "message": "Kumpirmahin ang permanenteng pagtanggal"
+  },
+  "local-management.empty": {
+    "message": "Walang nakitang kopyang maaaring maibalik."
+  },
+  "local-management.error": {
+    "message": "Nabigo ang operasyon. Pinanatili ang iyong pagpili. I-refresh at subukang muli."
+  },
+  "local-management.load-more": {
+    "message": "Mag-load ng higit pang kopya"
+  },
+  "local-management.loading": {
+    "message": "Nilo-load ang lokal na data…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Pag-install ng pakete sa mundo} java_editor {Editor ng Java} other {Lokal na pamamahala ng Bedrock}}"
+  },
+  "local-management.partial": {
+    "message": "Hindi kumpleto ang listahang ito o ang pagtatantya ng laki."
+  },
+  "local-management.preview": {
+    "message": "Paunang tingin"
+  },
+  "local-management.recovery": {
+    "message": "Mga kopyang maaaring maibalik"
+  },
+  "local-management.remove": {
+    "message": "Alisin ang mga napiling item"
+  },
+  "local-management.remove-help": {
+    "message": "Ang mga napiling kopyang maaaring maibalik at pinanatiling import lamang ang maaaring alisin. Kapag permanenteng inalis, hindi na maaaring maibalik ang mga ito."
+  },
+  "local-management.restore": {
+    "message": "Kumpirmahin ang pagpapanumbalik"
+  },
+  "local-management.restore-help": {
+    "message": "Suriin ang patutunguhan at kopya sa ibaba bago magpanumbalik. Maaaring humadlang sa pagpapanumbalik ang mga pagbabago pagkatapos nito o ang patutunguhang may laman na."
+  },
+  "local-management.retention.days": {
+    "message": "Mas luma sa (araw)"
+  },
+  "local-management.retention.help": {
+    "message": "Piliin ang mga lumang kopyang maaaring maibalik upang suriin. Walang awtomatikong inaalis; pinananatili ang mga hindi kumpletong kopya at naka-install na nilalaman."
+  },
+  "local-management.retention.keep": {
+    "message": "Panatilihin ang mga pinakabagong kopya sa bawat file o mundo"
+  },
+  "local-management.retention.select": {
+    "message": "Piliin ang mga lumang kopya"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# napiling item} other {# napiling item}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} byte"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Inihanda} applied {Inilapat} rollback_failed {Nabigo ang pagbawi ng mga pagbabago} restored {Naibalik} partial {Hindi kumpleto} legacy {Lumang kopya} other {Magagamit}}"
+  },
+  "local-management.storage": {
+    "message": "Imbakan"
+  },
+  "local-management.title": {
+    "message": "Pagbawi at imbakan"
   },
   "minecraft-account.accounts": {
     "message": "Mga Minecraft account"

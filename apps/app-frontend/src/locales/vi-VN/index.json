@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Đang tìm kiếm Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft vẫn đang chạy"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Đóng Minecraft để chỉnh sửa tệp, xóa nội dung hoặc khôi phục bản sao."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Không thể mở thư mục Minecraft này. Hãy làm mới dữ liệu của bạn và thử lại."
   },
+  "app.bedrock.force-stop": {
+    "message": "Buộc đóng"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft không đóng sau yêu cầu thông thường. Bạn có muốn buộc đóng tiến trình trò chơi này không? Tiến độ chưa lưu có thể bị mất. Bạn có thể hủy rồi lưu và thoát trong Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Nhập tập tin"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows đã được cài đặt"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Không đủ dung lượng đĩa trống để chuẩn bị nội dung này và giữ các bản sao khôi phục. Giải phóng dung lượng trên ổ đĩa đích rồi thử lại."
+  },
   "app.bedrock.invalid-file": {
     "message": "Chọn kho lưu trữ .mcworld, .mcpack hoặc .mcaddon cục bộ hợp lệ."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Tệp này vượt quá giới hạn nhập 8 GiB."
+    "message": "Tệp này vượt quá giới hạn nhập 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Không thể mở Minecraft. Mở launcher chính thức hoặc Microsoft Store để kiểm tra cài đặt."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} trực tuyến"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Xuất báo cáo chẩn đoán"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Mở trình khởi chạy chính thức để kiểm tra phiên của bạn hoặc mở Microsoft Store để cài đặt bản cập nhật hay sửa chữa Minecraft. Làm mới quá trình phát hiện khi hoàn tất."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Sẵn sàng} requested {Đã yêu cầu khởi chạy} starting {Đang chờ Minecraft} running {Minecraft đang chạy} timeout {Minecraft không khởi động trong thời gian chờ} failed {Khởi chạy thất bại} other {Đang kiểm tra khởi chạy}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Thời gian đã qua: {seconds, number} giây"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Chẩn đoán khởi chạy"
+  },
+  "bedrock.packs.activations": {
+    "message": "Kích hoạt trong thế giới"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Thành phần phụ thuộc"
+  },
+  "bedrock.packs.details": {
+    "message": "Phiên bản và thành phần phụ thuộc"
+  },
+  "bedrock.packs.none": {
+    "message": "Không có thông tin"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Phiên bản đang hoạt động} other {Phiên bản được giữ lại}}"
+  },
   "curseforge.manual.description": {
     "message": "Tải {file} từ trang CurseForge chính thức, rồi chọn tệp đã tải xuống để tiếp tục. Kích thước và SHA-1 sẽ được xác minh."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Đang thêm dữ liệu ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Tệp đã thay đổi bên ngoài trình chỉnh sửa. Bản nháp của bạn được giữ lại. Hãy sao chép bản nháp trước khi mở lại tệp để xem phiên bản mới nhất."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Không thể lưu tệp. Bản nháp của bạn được giữ lại."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Quản lý nội dung đã cài qua tab Nội dung"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Mở lại tệp trước khi lưu."
   },
   "instance.files.save-as": {
     "message": "Lưu như..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Thế giới đang mở"
+  },
+  "local-management.category.cache": {
+    "message": "Bộ nhớ đệm dùng chung của trình khởi chạy"
+  },
+  "local-management.category.data": {
+    "message": "Dữ liệu trò chơi"
+  },
+  "local-management.category.import": {
+    "message": "Nội dung nhập được giữ lại"
+  },
+  "local-management.category.recovery": {
+    "message": "Bản sao có thể khôi phục"
+  },
+  "local-management.category.retained-version": {
+    "message": "Phiên bản gói được giữ lại"
+  },
+  "local-management.confirm-removal": {
+    "message": "Xác nhận xóa vĩnh viễn"
+  },
+  "local-management.empty": {
+    "message": "Không tìm thấy bản sao có thể khôi phục."
+  },
+  "local-management.error": {
+    "message": "Thao tác thất bại. Lựa chọn của bạn được giữ lại. Làm mới rồi thử lại."
+  },
+  "local-management.load-more": {
+    "message": "Tải thêm bản sao"
+  },
+  "local-management.loading": {
+    "message": "Đang tải dữ liệu cục bộ…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Cài đặt gói trong thế giới} java_editor {Trình chỉnh sửa Java} other {Quản lý Bedrock cục bộ}}"
+  },
+  "local-management.partial": {
+    "message": "Danh sách hoặc ước tính kích thước này chưa đầy đủ."
+  },
+  "local-management.preview": {
+    "message": "Xem trước"
+  },
+  "local-management.recovery": {
+    "message": "Bản sao có thể khôi phục"
+  },
+  "local-management.remove": {
+    "message": "Xóa các mục đã chọn"
+  },
+  "local-management.remove-help": {
+    "message": "Chỉ có thể xóa các bản sao có thể khôi phục và nội dung nhập được giữ lại đã chọn. Xóa vĩnh viễn sẽ khiến bạn không thể khôi phục chúng."
+  },
+  "local-management.restore": {
+    "message": "Xác nhận khôi phục"
+  },
+  "local-management.restore-help": {
+    "message": "Kiểm tra vị trí đích và bản sao bên dưới trước khi khôi phục. Những thay đổi sau đó hoặc vị trí đích đã có dữ liệu có thể ngăn việc khôi phục."
+  },
+  "local-management.retention.days": {
+    "message": "Cũ hơn (ngày)"
+  },
+  "local-management.retention.help": {
+    "message": "Chọn các bản sao có thể khôi phục cũ để xem xét. Không có gì bị xóa tự động; các bản sao chưa đầy đủ và nội dung đã cài đặt được giữ lại."
+  },
+  "local-management.retention.keep": {
+    "message": "Giữ các bản sao mới nhất cho mỗi tệp hoặc thế giới"
+  },
+  "local-management.retention.select": {
+    "message": "Chọn bản sao cũ"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, other {Đã chọn # mục}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} byte"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Đã chuẩn bị} applied {Đã áp dụng} rollback_failed {Hoàn tác thất bại} restored {Đã khôi phục} partial {Chưa đầy đủ} legacy {Bản sao cũ} other {Có sẵn}}"
+  },
+  "local-management.storage": {
+    "message": "Lưu trữ"
+  },
+  "local-management.title": {
+    "message": "Khôi phục và lưu trữ"
   },
   "minecraft-account.accounts": {
     "message": "Tài khoản Minecraft"

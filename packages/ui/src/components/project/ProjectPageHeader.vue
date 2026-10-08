@@ -14,7 +14,7 @@
 			/>
 		</template>
 
-		<template v-if="showStatusBadge" #badges>
+		<template v-if="showStatusBadge && projectV3" #badges>
 			<ProjectStatusBadge :status="projectV3.status" />
 		</template>
 
@@ -84,6 +84,7 @@ type HeaderProject = Pick<
 	'id' | 'title' | 'description' | 'status' | 'downloads' | 'followers' | 'categories'
 > & {
 	icon_url?: string | null
+	raw_icon_url?: string | null
 }
 
 type HeaderProjectV3 = Pick<

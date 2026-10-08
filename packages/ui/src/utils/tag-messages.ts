@@ -661,11 +661,14 @@ export function getTagMessage(
 	enforceType?: 'loader' | 'category',
 ): MessageDescriptor | undefined {
 	if (enforceType === 'loader') {
-		return loaderMessages[tag]
+		return (loaderMessages as Record<string, MessageDescriptor>)[tag]
 	} else if (enforceType === 'category') {
-		return categoryMessages[tag.toLowerCase()]
+		return (categoryMessages as Record<string, MessageDescriptor>)[tag.toLowerCase()]
 	} else {
-		return loaderMessages[tag] ?? categoryMessages[tag.toLowerCase()]
+		return (
+			(loaderMessages as Record<string, MessageDescriptor>)[tag] ??
+			(categoryMessages as Record<string, MessageDescriptor>)[tag.toLowerCase()]
+		)
 	}
 }
 
@@ -678,7 +681,7 @@ export function getCategoryMessage(category: string) {
 }
 
 export function getCategoryHeaderMessage(header: string): MessageDescriptor | undefined {
-	return categoryHeaderMessages[header]
+	return (categoryHeaderMessages as Record<string, MessageDescriptor>)[header]
 }
 
 export function formatTag(

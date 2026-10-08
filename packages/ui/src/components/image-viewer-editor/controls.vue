@@ -13,7 +13,7 @@ import { computed } from 'vue'
 import Button from '#ui/components/base/buttons/Button.vue'
 import IconButton from '#ui/components/base/buttons/IconButton.vue'
 import SplitButton from '#ui/components/base/buttons/SplitButton.vue'
-import type { OverflowMenuOption } from '#ui/components/base/buttons/types'
+import type { ButtonMenuOption } from '#ui/components/base/buttons/types'
 import Chips from '#ui/components/base/Chips.vue'
 import ColorPicker from '#ui/components/base/inputs/ColorPicker.vue'
 import { useVIntl } from '#ui/composables/i18n'
@@ -82,7 +82,7 @@ const hasPropertyControls = computed(
 		Boolean(propertyValueKind.value),
 )
 const eraserModes: ScreenshotEraserMode[] = ['element', 'area']
-const saveOptions = computed<OverflowMenuOption[]>(() => [
+const saveOptions = computed<ButtonMenuOption[]>(() => [
 	{
 		id: 'overwrite',
 		label: formatMessage(messages.overwrite),

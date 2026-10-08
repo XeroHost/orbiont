@@ -146,7 +146,8 @@ pub async fn is_valid_mmc(instance_folder: PathBuf) -> bool {
     let instance_cfg = instance_folder.join("instance.cfg");
     let mmc_pack = instance_folder.join("mmc-pack.json");
 
-    let Ok((mmc_pack, _)) = io::read_any_encoding_to_string(&mmc_pack).await
+    let Ok((mmc_pack, _)) =
+        io::read_manifest_any_encoding_to_string(&mmc_pack).await
     else {
         return false;
     };
@@ -157,7 +158,10 @@ pub async fn is_valid_mmc(instance_folder: PathBuf) -> bool {
 
 #[tracing::instrument]
 pub async fn get_instances_subpath(config: PathBuf) -> Option<String> {
-    let launcher = io::read_any_encoding_to_string(&config).await.ok()?.0;
+    let launcher = io::read_manifest_any_encoding_to_string(&config)
+        .await
+        .ok()?
+        .0;
     let launcher: MMCLauncherEnum = serde_ini::from_str(&launcher).ok()?;
     match launcher {
         MMCLauncherEnum::General(p) => Some(p.general.instance_dir),
@@ -168,7 +172,7 @@ pub async fn get_instances_subpath(config: PathBuf) -> Option<String> {
 // Loading the INI (instance.cfg) file
 async fn load_instance_cfg(file_path: &Path) -> crate::Result<MMCInstance> {
     match serde_ini::from_str::<MMCInstanceEnum>(
-        &io::read_any_encoding_to_string(file_path).await?.0,
+        &io::read_manifest_any_encoding_to_string(file_path).await?.0,
     )? {
         MMCInstanceEnum::General(instance_cfg) => Ok(instance_cfg.general),
         MMCInstanceEnum::Instance(instance_cfg) => Ok(instance_cfg),
@@ -187,7 +191,7 @@ pub async fn import_mmc(
         mmc_base_path.join("instances").join(instance_folder);
 
     let mmc_pack = serde_json::from_str::<MMCPack>(
-        &io::read_any_encoding_to_string(
+        &io::read_manifest_any_encoding_to_string(
             &mmc_instance_path.join("mmc-pack.json"),
         )
         .await?

@@ -1,5 +1,3 @@
-import { queryOptions } from '@tanstack/vue-query'
-
 import { traceStartupStep } from '@/helpers/startup-debug'
 import type { GameInstance } from '@/helpers/types'
 import {
@@ -13,7 +11,7 @@ import {
 export const recentWorldsKey = ['worlds', 'recent'] as const
 
 export function recentWorldsQueryOptions(limit: number) {
-	return queryOptions({
+	return {
 		queryKey: [...recentWorldsKey, limit, ['normal', 'favorite']] as const,
 		queryFn: () =>
 			traceStartupStep('Load recent worlds', () =>
@@ -21,12 +19,12 @@ export function recentWorldsQueryOptions(limit: number) {
 			),
 		staleTime: 30_000,
 		refetchOnWindowFocus: false,
-	})
+	}
 }
 
 export function instanceProtocolQueryOptions(instance: GameInstance) {
 	const { id, game_version, loader, loader_version, install_stage, protocol_version } = instance
-	return queryOptions({
+	return {
 		queryKey: [
 			'worlds',
 			'protocol',
@@ -36,11 +34,11 @@ export function instanceProtocolQueryOptions(instance: GameInstance) {
 		queryFn: () =>
 			traceStartupStep(`Load server protocol: ${id}`, () => get_instance_protocol_version(id)),
 		staleTime: Infinity,
-	})
+	}
 }
 
 export function serverStatusQueryOptions(address: string, protocol: ProtocolVersion | null) {
-	return queryOptions({
+	return {
 		queryKey: ['worlds', 'server-status', address, protocol] as const,
 		queryFn: async () => {
 			const data: ServerData = { refreshing: true }
@@ -49,5 +47,5 @@ export function serverStatusQueryOptions(address: string, protocol: ProtocolVers
 		},
 		staleTime: 30_000,
 		refetchOnWindowFocus: false,
-	})
+	}
 }

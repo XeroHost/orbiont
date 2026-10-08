@@ -26,7 +26,10 @@ pub fn start_logger(_app_identifier: &str) -> Option<()> {
             tracing_subscriber::EnvFilter::new("theseus=info,theseus_gui=info")
         });
     tracing_subscriber::registry()
-        .with(tracing_subscriber::fmt::layer())
+        .with(
+            tracing_subscriber::fmt::layer()
+                .with_writer(|| RedactingWriter::new(std::io::stdout())),
+        )
         .with(filter)
         .with(tracing_error::ErrorLayer::default())
         .init();
@@ -80,7 +83,11 @@ pub fn start_logger(app_identifier: &str) -> Option<()> {
     tracing_subscriber::registry()
         .with(
             tracing_subscriber::fmt::layer()
-                .with_writer(file)
+                .with_writer(move || {
+                    RedactingWriter::new(
+                        file.try_clone().expect("clone log file"),
+                    )
+                })
                 .with_ansi(false) // disable ANSI escape codes
                 .with_timer(ChronoLocal::rfc_3339()),
         )
@@ -89,4 +96,106 @@ pub fn start_logger(app_identifier: &str) -> Option<()> {
         .init();
 
     Some(())
+}
+
+/// Redact labelled secrets even if a token was never persisted in the account database.
+pub fn redact_diagnostics(text: &str) -> String {
+    use std::sync::LazyLock;
+    static QUOTED: LazyLock<regex::Regex> = LazyLock::new(|| {
+        regex::Regex::new(
+        r#"(?i)((?:access_token|refresh_token|id_token|identityToken|RpsTicket|code_verifier|verifier|authorization|code_challenge|api_key|password|client_secret|[?&]token|[?&]key|[?&]sig|[?&]code|[?&]state|\bcode|\bstate|\btoken)\s*["']?\s*[:=]\s*)("(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*')"#
+    ).expect("quoted secret redaction regex")
+    });
+    static LABELLED: LazyLock<regex::Regex> = LazyLock::new(|| {
+        regex::Regex::new(
+        r#"(?i)((?:access_token|refresh_token|id_token|identityToken|RpsTicket|code_verifier|verifier|authorization|code_challenge|api_key|password|client_secret|[?&]token|[?&]key|[?&]sig|[?&]code|[?&]state)\s*[\"']?\s*[:=]\s*[\"']?)([^\s\"'&,}]+)"#
+    ).expect("secret redaction regex")
+    });
+    static BEARER: LazyLock<regex::Regex> = LazyLock::new(|| {
+        regex::Regex::new(r#"(?i)Bearer\s+[^\s\"'&,}]+"#).expect("bearer regex")
+    });
+    static JWT: LazyLock<regex::Regex> = LazyLock::new(|| {
+        regex::Regex::new(
+            r"\beyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\b",
+        )
+        .expect("JWT regex")
+    });
+    static IDENTITY: LazyLock<regex::Regex> = LazyLock::new(|| {
+        regex::Regex::new(r#"(?i)XBL3\.0\s+x=[^\s"'&,}]+"#)
+            .expect("Xbox identity regex")
+    });
+    let text = BEARER.replace_all(text, "Bearer [REDACTED]");
+    let text = IDENTITY.replace_all(&text, "[REDACTED]");
+    let text = QUOTED.replace_all(&text, "${1}\"[REDACTED]\"");
+    let text = LABELLED.replace_all(&text, "${1}[REDACTED]");
+    JWT.replace_all(&text, "[REDACTED]").into_owned()
+}
+
+struct RedactingWriter<W: std::io::Write> {
+    writer: W,
+    buffer: Vec<u8>,
+}
+impl<W: std::io::Write> RedactingWriter<W> {
+    fn new(writer: W) -> Self {
+        Self {
+            writer,
+            buffer: Vec::new(),
+        }
+    }
+}
+impl<W: std::io::Write> std::io::Write for RedactingWriter<W> {
+    fn write(&mut self, bytes: &[u8]) -> std::io::Result<usize> {
+        self.buffer.extend_from_slice(bytes);
+        Ok(bytes.len())
+    }
+    fn flush(&mut self) -> std::io::Result<()> {
+        if !self.buffer.is_empty() {
+            let redacted =
+                redact_diagnostics(&String::from_utf8_lossy(&self.buffer));
+            self.writer.write_all(redacted.as_bytes())?;
+            self.buffer.clear();
+        }
+        self.writer.flush()
+    }
+}
+impl<W: std::io::Write> Drop for RedactingWriter<W> {
+    fn drop(&mut self) {
+        let _ = std::io::Write::flush(self);
+    }
+}
+
+#[cfg(test)]
+mod security_tests {
+    use super::*;
+    #[test]
+    fn diagnostics_redact_unpersisted_secrets_and_split_writes() {
+        use std::io::Write;
+        let input = r#"access_token=sample-secret refresh_token:other-secret https://login/?code=oauth-secret&state=state-secret Bearer bearer-secret eyJhbGciOiJIUzI1NiJ9.cGF5bG9hZA.signature"#;
+        let input = format!(
+            r#"{input} Authorization: "Bearer quoted-bearer-secret" authorization: Bearer unquoted-bearer-secret identityToken="XBL3.0 x=hash;xbox-secret" password="long password secret" code="unpersisted-oauth-code""#
+        );
+        let output = redact_diagnostics(&input);
+        for secret in [
+            "sample-secret",
+            "other-secret",
+            "oauth-secret",
+            "state-secret",
+            "bearer-secret",
+            "eyJhbGciOiJIUzI1NiJ9",
+            "quoted-bearer-secret",
+            "unquoted-bearer-secret",
+            "xbox-secret",
+            "long password secret",
+            "unpersisted-oauth-code",
+        ] {
+            assert!(!output.contains(secret));
+        }
+        let mut output = Vec::new();
+        {
+            let mut writer = RedactingWriter::new(&mut output);
+            writer.write_all(b"access_token=").unwrap();
+            writer.write_all(b"split-secret").unwrap();
+        }
+        assert!(!String::from_utf8(output).unwrap().contains("split-secret"));
+    }
 }

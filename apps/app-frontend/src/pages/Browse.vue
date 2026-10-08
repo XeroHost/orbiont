@@ -671,7 +671,7 @@ async function chooseFilterMatchingInstallVersion(
 	const plan = await resolveInstallPlan({
 		project: {
 			project_id: project.project_id,
-			title: project.title,
+			title: project.name,
 			icon_url: project.icon_url,
 		},
 		contentType: projectTypeValue as BrowseInstallContentType,

@@ -32,11 +32,7 @@ export interface PopupNotificationProgressItem {
 }
 
 export type PopupNotificationToastType =
-	| 'friend-request'
-	| 'server-invite'
-	| 'instance-invite'
-	| 'instance-download'
-	| 'instance-ready'
+	'friend-request' | 'server-invite' | 'instance-invite' | 'instance-download' | 'instance-ready'
 
 interface PopupNotificationBase {
 	id: string | number
@@ -92,9 +88,7 @@ export interface PopupNotificationToast extends PopupNotificationBase {
 }
 
 export type PopupNotification =
-	| PopupNotificationCustom
-	| PopupNotificationStandard
-	| PopupNotificationToast
+	PopupNotificationCustom | PopupNotificationStandard | PopupNotificationToast
 
 type PopupNotificationDownload =
 	| (PopupNotificationStandard & { type: 'download' })
@@ -112,8 +106,7 @@ type PopupNotificationCustomInput<TComponent extends Component> = Omit<
 >
 
 type PopupNotificationNonCustomInput =
-	| Omit<PopupNotificationStandard, 'id' | 'timer'>
-	| Omit<PopupNotificationToast, 'id' | 'timer'>
+	Omit<PopupNotificationStandard, 'id' | 'timer'> | Omit<PopupNotificationToast, 'id' | 'timer'>
 
 type StoredPopupNotification<Input extends PopupNotificationInput> = Input &
 	Pick<PopupNotificationBase, 'id' | 'timer'>

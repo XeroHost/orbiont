@@ -45,7 +45,10 @@ import {
 	FILE_TEXT_EXTENSIONS,
 } from './file-extensions'
 
-export const PROJECT_TYPE_ICONS: Record<ProjectType, Component> = {
+export const PROJECT_TYPE_ICONS: Record<
+	ProjectType | 'server' | 'minecraft_java_server',
+	Component
+> = {
 	world: WorldIcon,
 	mod: BoxIcon,
 	modpack: PackageOpenIcon,
@@ -55,6 +58,7 @@ export const PROJECT_TYPE_ICONS: Record<ProjectType, Component> = {
 	datapack: BracesIcon,
 	project: BoxIcon,
 	minecraft_java_server: ServerIcon,
+	server: ServerIcon,
 }
 
 export const PAYMENT_METHOD_ICONS: Record<string, Component> = {
@@ -122,7 +126,7 @@ const BLOCKCHAIN_CONFIG: Record<string, { icon: Component; color: string }> = {
 	polygon: { icon: PolygonIcon, color: 'text-purple' },
 }
 
-export function getProjectTypeIcon(projectType: ProjectType): Component {
+export function getProjectTypeIcon(projectType: ProjectType | 'server'): Component {
 	return PROJECT_TYPE_ICONS[projectType] ?? BoxIcon
 }
 

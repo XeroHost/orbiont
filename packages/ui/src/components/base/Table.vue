@@ -207,17 +207,34 @@
 	</div>
 </template>
 
+<script lang="ts"></script>
+
 <script
 	setup
 	lang="ts"
 	generic="K extends string = string, T extends Record<string, unknown> = Record<K, unknown>"
 >
 import { ChevronDownIcon, ChevronUpIcon } from '@orbiont/assets'
-import { computed, ref, toRef, useSlots } from 'vue'
+import { computed, ref, useSlots } from 'vue'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'
 import { useVirtualScroll } from '../../composables/virtual-scroll'
 import Checkbox from './Checkbox.vue'
+export type TableColumnAlign = 'left' | 'center' | 'right'
+export type SortDirection = 'asc' | 'desc'
+export type TableLayout = 'fixed' | 'auto'
+
+/** Defines a column and the row key used to read its value. */
+export interface TableColumn<K extends string = string> {
+	key: K
+	label?: string
+	align?: TableColumnAlign
+	enableSorting?: boolean
+	defaultSortDirection?: SortDirection
+	width?: string
+	headerClass?: string
+	cellClass?: string
+}
 
 const { formatMessage } = useVIntl()
 
@@ -227,29 +244,6 @@ const messages = defineMessages({
 		defaultMessage: 'No data available.',
 	},
 })
-
-export type TableColumnAlign = 'left' | 'center' | 'right'
-export type SortDirection = 'asc' | 'desc'
-export type TableLayout = 'fixed' | 'auto'
-
-/**
- * Defines a table column configuration.
- * @template K - The column key is used to get cell data of row
- */
-export interface TableColumn<K extends string = string> {
-	key: K
-	label?: string
-	align?: TableColumnAlign
-	enableSorting?: boolean
-	defaultSortDirection?: SortDirection
-	/**
-	 * CSS width value for the column.
-	 * Accepts any valid CSS width (e.g., '200px', '20%', '10rem', 'auto', 'fit-content').
-	 */
-	width?: string
-	headerClass?: string
-	cellClass?: string
-}
 
 const props = withDefaults(
 	defineProps<{
@@ -298,11 +292,14 @@ const {
 	visibleRange,
 	visibleTop: topSpacerHeight,
 	visibleItems,
-} = useVirtualScroll(toRef(props, 'data'), {
-	itemHeight: props.virtualRowHeight,
-	bufferSize: props.virtualBufferSize,
-	enabled: toRef(props, 'virtualized'),
-})
+} = useVirtualScroll<T>(
+	computed(() => props.data),
+	{
+		itemHeight: props.virtualRowHeight,
+		bufferSize: props.virtualBufferSize,
+		enabled: computed(() => props.virtualized),
+	},
+)
 
 const renderedRows = computed(() => (props.virtualized ? visibleItems.value : props.data))
 const bottomSpacerHeight = computed(() => {

@@ -108,7 +108,17 @@
 <script setup lang="ts">
 import { SearchIcon, TrashIcon, XIcon } from '@orbiont/assets'
 import type { Terminal } from '@xterm/xterm'
-import { computed, isRef, nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import {
+	computed,
+	isRef,
+	nextTick,
+	onBeforeUnmount,
+	onMounted,
+	type Ref,
+	ref,
+	unref,
+	watch,
+} from 'vue'
 
 import Admonition from '#ui/components/base/Admonition.vue'
 import BaseTerminal from '#ui/components/base/BaseTerminal.vue'
@@ -215,7 +225,8 @@ const searchQuery = ref('')
 const isFullscreen = ref(false)
 const fullscreenBodyClass = 'console-fullscreen-active'
 const isApp =
-	typeof window !== 'undefined' && !!(window as Record<string, unknown>).__TAURI_INTERNALS__
+	typeof window !== 'undefined' &&
+	!!(window as unknown as Record<string, unknown>).__TAURI_INTERNALS__
 const isSharing = ref(false)
 const { activeFilters, toggleFilter, buildFilterPredicate } = useConsoleFilters()
 const hasLogs = computed(() => ctx.logLines.value.length > 0)
@@ -278,9 +289,9 @@ const resolvedDisableInput = computed(() => {
 	return isRef(v) ? v.value : v
 })
 
-function unwrapMaybeRef<T>(value: T | { value: T } | undefined): T | undefined {
+function unwrapMaybeRef<T>(value: T | Ref<T> | undefined): T | undefined {
 	if (value === undefined) return undefined
-	return isRef(value) ? value.value : value
+	return unref(value)
 }
 
 // needs historical log start/end flags on ws to be properly useful
@@ -293,7 +304,9 @@ const resolvedLoading = computed(() => {
 const resolvedInputDisabled = computed(() => resolvedDisableInput.value || resolvedLoading.value)
 
 const resolvedInputDisabledTooltip = computed(() =>
-	resolvedDisableInput.value ? unwrapMaybeRef(ctx.disableCommandInputTooltip) : undefined,
+	resolvedDisableInput.value
+		? unwrapMaybeRef<string | undefined>(ctx.disableCommandInputTooltip)
+		: undefined,
 )
 
 const resolvedInputDisabledPlaceholder = computed(() =>
@@ -323,7 +336,9 @@ const resolvedClearDisabled = computed(() => {
 })
 
 const resolvedClearDisabledTooltip = computed(() =>
-	resolvedClearDisabled.value ? unwrapMaybeRef(ctx.clearDisabledTooltip) : undefined,
+	resolvedClearDisabled.value
+		? unwrapMaybeRef<string | undefined>(ctx.clearDisabledTooltip)
+		: undefined,
 )
 
 function handleTerminalReady(_terminal: Terminal) {

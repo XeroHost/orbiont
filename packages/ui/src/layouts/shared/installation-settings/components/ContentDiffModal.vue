@@ -165,7 +165,7 @@
 					</Button>
 					<Button type="colored" color="brand" :disabled="confirmDisabled" @click="handleConfirm">
 						<component :is="confirmIcon" v-if="confirmIcon" />
-						{{ confirmLabel || formatMessage(commonMessages.confirmButton) }}
+						{{ confirmLabel || formatMessage(commonMessages.acceptButton) }}
 					</Button>
 				</div>
 			</div>
@@ -301,7 +301,7 @@ function getDiffTypeLabel(diff: ContentDiffItem) {
 	}
 	if (diff.type === 'added' && props.addedLabel) return props.addedLabel
 	if (diff.type === 'removed' && props.removedLabel) return props.removedLabel
-	return formatMessage(diffTypeMessages[diff.type])
+	return isDependencyDiff(diff) ? formatMessage(diffTypeMessages[diff.type]) : diff.type
 }
 
 function getVersionLabel(diff: ContentDiffItem) {

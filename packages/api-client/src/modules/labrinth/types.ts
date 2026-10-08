@@ -5,12 +5,7 @@ export namespace Labrinth {
 	export namespace Content {
 		export namespace v3 {
 			export type ContentType =
-				| 'mod'
-				| 'plugin'
-				| 'datapack'
-				| 'resourcepack'
-				| 'shader'
-				| 'modpack'
+				'mod' | 'plugin' | 'datapack' | 'resourcepack' | 'shader' | 'modpack'
 
 			export type ResolutionPreferences = {
 				game_versions?: string[]
@@ -81,16 +76,10 @@ export namespace Labrinth {
 			}
 
 			export type SubscriptionMetadata =
-				| { type: 'pyro'; id: string; region?: string }
-				| { type: 'medal'; id: string }
+				{ type: 'pyro'; id: string; region?: string } | { type: 'medal'; id: string }
 
 			export type ChargeStatus =
-				| 'open'
-				| 'processing'
-				| 'succeeded'
-				| 'failed'
-				| 'cancelled'
-				| 'expiring'
+				'open' | 'processing' | 'succeeded' | 'failed' | 'cancelled' | 'expiring'
 
 			export type ChargeType = 'one-time' | 'subscription' | 'proration' | 'refund'
 
@@ -223,12 +212,7 @@ export namespace Labrinth {
 			}
 
 			export type PayoutStatus =
-				| 'success'
-				| 'in-transit'
-				| 'cancelled'
-				| 'cancelling'
-				| 'failed'
-				| 'unknown'
+				'success' | 'in-transit' | 'cancelled' | 'cancelling' | 'failed' | 'unknown'
 
 			export type PayoutMethodType = 'venmo' | 'paypal' | 'tremendous' | 'muralpay'
 
@@ -304,11 +288,7 @@ export namespace Labrinth {
 	export namespace Attribution {
 		export namespace Internal {
 			export type AttributionPermissionKind =
-				| 'license'
-				| 'my_project'
-				| 'special_permissions'
-				| 'globally_allowed'
-				| 'no_permission'
+				'license' | 'my_project' | 'special_permissions' | 'globally_allowed' | 'no_permission'
 			export type AttributionResolutionKind = AttributionPermissionKind
 
 			export type AttributionLicense = string | { name: string }
@@ -519,11 +499,7 @@ export namespace Labrinth {
 			}
 
 			export type ProjectViewsField =
-				| 'project_id'
-				| 'domain'
-				| 'site_path'
-				| 'monetized'
-				| 'country'
+				'project_id' | 'domain' | 'site_path' | 'monetized' | 'country'
 
 			export type ProjectDownloadsField =
 				| 'project_id'
@@ -538,11 +514,7 @@ export namespace Labrinth {
 				| 'loader'
 
 			export type ProjectPlaytimeField =
-				| 'project_id'
-				| 'version_id'
-				| 'loader'
-				| 'game_version'
-				| 'country'
+				'project_id' | 'version_id' | 'loader' | 'game_version' | 'country'
 
 			export type ProjectRevenueField = 'project_id' | 'user_id'
 
@@ -928,14 +900,7 @@ export namespace Labrinth {
 			export type MonetizationStatus = 'monetized' | 'demonetized' | 'force-demonetized'
 
 			export type ProjectType =
-				| 'world'
-				| 'mod'
-				| 'modpack'
-				| 'resourcepack'
-				| 'shader'
-				| 'plugin'
-				| 'datapack'
-				| 'project'
+				'world' | 'mod' | 'modpack' | 'resourcepack' | 'shader' | 'plugin' | 'datapack' | 'project'
 
 			export type GalleryImage = {
 				url: string
@@ -1084,12 +1049,7 @@ export namespace Labrinth {
 
 		export namespace v3 {
 			export type ProjectType =
-				| 'mod'
-				| 'modpack'
-				| 'resourcepack'
-				| 'shader'
-				| 'plugin'
-				| 'datapack'
+				'mod' | 'modpack' | 'resourcepack' | 'shader' | 'plugin' | 'datapack'
 
 			export type Environment =
 				| 'client_and_server'
@@ -1509,12 +1469,7 @@ export namespace Labrinth {
 			export type VersionType = 'release' | 'beta' | 'alpha'
 
 			export type VersionStatus =
-				| 'listed'
-				| 'archived'
-				| 'draft'
-				| 'unlisted'
-				| 'scheduled'
-				| 'unknown'
+				'listed' | 'archived' | 'draft' | 'unlisted' | 'scheduled' | 'unknown'
 
 			export type DependencyType = 'required' | 'optional' | 'incompatible' | 'embedded'
 
@@ -1747,13 +1702,7 @@ export namespace Labrinth {
 			export type Role = 'developer' | 'moderator' | 'admin'
 
 			export type AuthProvider =
-				| 'github'
-				| 'discord'
-				| 'microsoft'
-				| 'gitlab'
-				| 'google'
-				| 'steam'
-				| 'paypal'
+				'github' | 'discord' | 'microsoft' | 'gitlab' | 'google' | 'steam' | 'paypal'
 
 			export type UserPayoutData = {
 				paypal_address?: string
@@ -2640,10 +2589,7 @@ export namespace Labrinth {
 			}
 
 			export type SearchProjectsSort =
-				| 'created_asc'
-				| 'created_desc'
-				| 'severity_asc'
-				| 'severity_desc'
+				'created_asc' | 'created_desc' | 'severity_asc' | 'severity_desc'
 
 			export type UpdateIssueRequest = {
 				detail_id: string

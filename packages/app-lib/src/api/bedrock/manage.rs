@@ -6,12 +6,10 @@ use std::{
     fs,
     io::{Read, Write},
     path::{Path, PathBuf},
-    sync::Mutex,
 };
 
 const LIMIT: usize = 8 * 1024 * 1024;
 const BACKUPS: &str = ".orbiont-backups";
-static MUTATION: Mutex<()> = Mutex::new(());
 
 fn error(e: impl ToString) -> BedrockError {
     BedrockError::new(ErrorCode::DataUnavailable, e)
@@ -174,6 +172,11 @@ fn create_backup(
             root_id: root.id.clone(),
             path: path.into(),
             operation: operation.into(),
+            state: "prepared".into(),
+            source: "management".into(),
+            size_bytes: 0,
+            size_limited: false,
+            diagnostic: None,
             saved_at: std::time::SystemTime::now()
                 .duration_since(std::time::UNIX_EPOCH)
                 .map_err(error)?
@@ -214,7 +217,7 @@ pub(super) fn write(
     text: &str,
     expected: &str,
 ) -> Result<Document> {
-    let _lock = MUTATION.lock().map_err(error)?;
+    let _lock = super::coordination::mutation()?;
     require_closed(game_running())?;
     let file = editable(root, path)?;
     let original = load(&file)?;
@@ -244,7 +247,7 @@ pub(super) fn write(
     if original == text.as_bytes() {
         return document(original);
     }
-    let (_, backup) = create_backup(
+    let (mut journal, backup) = create_backup(
         root,
         path,
         "edit",
@@ -257,6 +260,7 @@ pub(super) fn write(
         return Err(conflict());
     }
     atomic(&file, text.as_bytes())?;
+    phase(&mut journal, &backup, "applied", None)?;
     document(text.as_bytes().to_vec())
 }
 fn category(category: &str) -> bool {
@@ -270,7 +274,10 @@ fn category(category: &str) -> bool {
     ]
     .contains(&category)
 }
-fn removable(root: &DataRoot, path: &str) -> Result<(PathBuf, Option<String>)> {
+fn removable(
+    root: &DataRoot,
+    path: &str,
+) -> Result<(PathBuf, Option<(String, Option<serde_json::Value>)>)> {
     if root.kind == super::RootKind::Logs {
         return Err(invalid());
     }
@@ -302,11 +309,12 @@ fn removable(root: &DataRoot, path: &str) -> Result<(PathBuf, Option<String>)> {
     let id = manifest["header"]["uuid"].as_str().ok_or_else(invalid)?;
     Ok((
         directory,
-        Some(
+        Some((
             uuid::Uuid::parse_str(id)
                 .map_err(|_| invalid())?
                 .to_string(),
-        ),
+            manifest["header"].get("version").cloned(),
+        )),
     ))
 }
 fn reference_changes(
@@ -314,7 +322,9 @@ fn reference_changes(
     selected: &DataRoot,
     path: &str,
     id: &str,
+    version: Option<&serde_json::Value>,
 ) -> Result<Vec<Change>> {
+    let selected_path = path;
     let mut changes = Vec::new();
     let mut total_bytes = 0usize;
     let parts: Vec<_> = path.split('/').collect();
@@ -322,7 +332,10 @@ fn reference_changes(
         .iter()
         .filter(|root| root.kind != super::RootKind::Logs)
     {
-        if parts.len() == 4 && root.id != selected.id {
+        if (parts.len() == 4 && root.id != selected.id)
+            || (parts.len() == 2
+                && !super::workspace::accessible_pack_root(root, selected))
+        {
             continue;
         }
         let worlds = match super::workspace::list_files(root, "minecraftWorlds")
@@ -359,11 +372,27 @@ fn reference_changes(
                         .map_err(error)?;
                 let list = refs.as_array_mut().ok_or_else(invalid)?;
                 let old = list.len();
-                list.retain(|value| {
-                    !value["pack_id"]
+                let mut retained = Vec::new();
+                for value in list.drain(..) {
+                    let selected_reference = value["pack_id"]
                         .as_str()
                         .is_some_and(|v| v.eq_ignore_ascii_case(id))
-                });
+                        && version.is_none_or(|v| value["version"] == *v);
+                    if !selected_reference
+                        || alternate_pack(
+                            roots,
+                            root,
+                            &world.path,
+                            selected,
+                            selected_path,
+                            id,
+                            &value["version"],
+                        )?
+                    {
+                        retained.push(value);
+                    }
+                }
+                *list = retained;
                 if old != list.len() {
                     let after =
                         serde_json::to_string_pretty(&refs).map_err(error)?;
@@ -376,7 +405,7 @@ fn reference_changes(
                     }
                     changes.push(Change {
                         root_id: root.id.clone(),
-                        path,
+                        path: path.clone(),
                         before,
                         after,
                     });
@@ -385,6 +414,96 @@ fn reference_changes(
         }
     }
     Ok(changes)
+}
+fn alternate_pack(
+    roots: &[DataRoot],
+    world_root: &DataRoot,
+    world: &str,
+    selected: &DataRoot,
+    selected_path: &str,
+    id: &str,
+    version: &serde_json::Value,
+) -> Result<bool> {
+    // Embedded content shadows a global location. Preserve an activation whenever
+    // another matching location can still provide its exact version.
+    let directories = [
+        "resource_packs",
+        "behavior_packs",
+        "development_resource_packs",
+        "development_behavior_packs",
+    ];
+    for root in roots.iter().filter(|r| {
+        r.kind != super::RootKind::Logs
+            && super::workspace::accessible_pack_root(world_root, r)
+    }) {
+        for category in directories {
+            let mut locations = vec![category.to_string()];
+            if root.id == world_root.id {
+                locations.insert(0, format!("{world}/{category}"));
+            }
+            for location in locations {
+                let listing =
+                    match super::workspace::list_files(root, &location) {
+                        Ok(listing) => listing,
+                        Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
+                            continue;
+                        }
+                        Err(e) => return Err(error(e)),
+                    };
+                if listing.limited {
+                    return Err(error(
+                        "Pack locations exceed the safe reference resolution limit",
+                    ));
+                }
+                for entry in listing.entries.into_iter().filter(|e| e.is_dir) {
+                    if root.id == selected.id && entry.path == selected_path {
+                        continue;
+                    }
+                    let manifest = match resolve(
+                        root,
+                        &format!("{}/manifest.json", entry.path),
+                    ) {
+                        Ok(p) => p,
+                        Err(e) if e.code == ErrorCode::DataUnavailable => {
+                            continue;
+                        }
+                        Err(e) => return Err(e),
+                    };
+                    let bytes = load(&manifest)?;
+                    let value: serde_json::Value = serde_json::from_slice(
+                        bytes
+                            .strip_prefix(&[0xef, 0xbb, 0xbf])
+                            .unwrap_or(&bytes),
+                    )
+                    .map_err(error)?;
+                    if value["header"]["uuid"]
+                        .as_str()
+                        .is_some_and(|v| v.eq_ignore_ascii_case(id))
+                        && value["header"]["version"] == *version
+                    {
+                        return Ok(true);
+                    }
+                }
+            }
+        }
+    }
+    Ok(false)
+}
+fn save_journal(journal: &Journal, directory: &Path) -> Result<()> {
+    atomic(
+        &directory.join("journal.json"),
+        &serde_json::to_vec(journal).map_err(error)?,
+    )
+}
+fn phase(
+    journal: &mut Journal,
+    directory: &Path,
+    state: &str,
+    diagnostic: Option<String>,
+) -> Result<()> {
+    journal.recovery.state = state.into();
+    journal.recovery.diagnostic = diagnostic;
+    save_journal(journal, directory)
 }
 fn change_path(roots: &[DataRoot], change: &Change) -> Result<PathBuf> {
     let root = roots
@@ -408,14 +527,50 @@ pub(super) fn remove(
     root: &DataRoot,
     path: &str,
 ) -> Result<Recovery> {
-    let _lock = MUTATION.lock().map_err(error)?;
+    let _lock = super::coordination::mutation()?;
     require_closed(game_running())?;
     let (target, pack_id) = removable(root, path)?;
+    super::storage::validate_tree(&target)?;
     let changes = match pack_id {
-        Some(id) => reference_changes(roots, root, path, &id)?,
+        Some((id, version)) => {
+            let changes =
+                reference_changes(roots, root, path, &id, version.as_ref())?;
+            if !changes.is_empty() {
+                let workspace = super::workspace::snapshot(roots.to_vec())
+                    .map_err(error)?;
+                for change in &changes {
+                    let world = Path::new(&change.path)
+                        .parent()
+                        .and_then(|p| p.to_str())
+                        .ok_or_else(invalid)?;
+                    for item in &workspace.items {
+                        if item.activations.iter().any(|a| {
+                            a.root_id == change.root_id && a.world_path == world
+                        }) && item.pack_id.as_deref() != Some(&id)
+                            && item.dependencies.iter().any(|d| {
+                                d.pack_id == id
+                                    && version.as_ref().is_none_or(|v| {
+                                        serde_json::to_value(&d.version)
+                                            .ok()
+                                            .as_ref()
+                                            == Some(v)
+                                    })
+                            })
+                        {
+                            return Err(BedrockError::new(
+                                ErrorCode::MissingDependency,
+                                "An active world pack depends on this version. Remove the dependent pack first",
+                            ));
+                        }
+                    }
+                }
+            }
+            changes
+        }
         None => vec![],
     };
-    let (journal, backup) = create_backup(root, path, "delete", None, changes)?;
+    let (mut journal, backup) =
+        create_backup(root, path, "delete", None, changes)?;
     require_closed(game_running())?;
     for change in &journal.changes {
         if load(&change_path(roots, change)?)? != change.before.as_bytes() {
@@ -427,24 +582,91 @@ pub(super) fn remove(
         if let Err(e) = change_path(roots, change)
             .and_then(|path| atomic(&path, change.after.as_bytes()))
         {
+            let mut failures = Vec::new();
             for previous in journal.changes[..index].iter().rev() {
-                let _ = change_path(roots, previous)
-                    .and_then(|p| atomic(&p, previous.before.as_bytes()));
+                if let Err(rollback) = change_path(roots, previous)
+                    .and_then(|p| atomic(&p, previous.before.as_bytes()))
+                {
+                    failures.push(rollback.message);
+                }
             }
-            let _ = fs::rename(backup.join("payload"), root.path.join(path));
-            return Err(e);
+            if let Err(rollback) = super::storage::copy(
+                &backup.join("payload"),
+                &root.path.join(path),
+            ) {
+                failures.push(rollback.to_string());
+            }
+            let state = if failures.is_empty() {
+                "rolled_back"
+            } else {
+                "rollback_failed"
+            };
+            let detail = format!(
+                "{e}; rollback: {}; recovery {}",
+                failures.join("; "),
+                journal.recovery.id
+            );
+            phase(&mut journal, &backup, state, Some(detail.clone()))?;
+            return Err(error(detail));
         }
     }
+    phase(&mut journal, &backup, "applied", None)?;
     Ok(journal.recovery)
+}
+pub(super) fn preview(
+    roots: &[DataRoot],
+    root: &DataRoot,
+    id: &str,
+) -> Result<()> {
+    let (journal, _) = journal(root, id)?;
+    if ["restored", "rolled_back"].contains(&journal.recovery.state.as_str()) {
+        return Err(conflict());
+    }
+    let payload = resolve(root, &format!("{BACKUPS}/{id}/payload"))?;
+    let relative = &journal.recovery.path;
+    let parent = Path::new(relative)
+        .parent()
+        .and_then(|p| p.to_str())
+        .ok_or_else(invalid)?;
+    let target = resolve(root, parent)?
+        .join(Path::new(relative).file_name().ok_or_else(invalid)?);
+    if journal.recovery.operation == "edit" {
+        let current = load(&editable(root, relative)?)?;
+        if journal.after_revision.as_deref() != Some(&revision(&current))
+            && current != load(&payload)?
+        {
+            return Err(conflict());
+        }
+    } else if journal.recovery.operation == "delete" {
+        super::storage::validate_tree(&payload)?;
+        if target.exists() {
+            if !["rollback_failed", "restoring"]
+                .contains(&journal.recovery.state.as_str())
+            {
+                return Err(conflict());
+            }
+            super::storage::can_copy(&payload, &target)?;
+        }
+    } else {
+        return Err(invalid());
+    }
+    for change in &journal.changes {
+        let bytes = load(&change_path(roots, change)?)?;
+        if bytes != change.before.as_bytes() && bytes != change.after.as_bytes()
+        {
+            return Err(conflict());
+        }
+    }
+    Ok(())
 }
 pub(super) fn restore(
     roots: &[DataRoot],
     root: &DataRoot,
     id: &str,
 ) -> Result<()> {
-    let _lock = MUTATION.lock().map_err(error)?;
+    let _lock = super::coordination::mutation()?;
     require_closed(game_running())?;
-    let (journal, directory) = journal(root, id)?;
+    let (mut journal, directory) = journal(root, id)?;
     let payload = resolve(root, &format!("{BACKUPS}/{id}/payload"))?;
     let relative = &journal.recovery.path;
     let parent = Path::new(relative)
@@ -458,7 +680,9 @@ pub(super) fn restore(
     if journal.recovery.operation == "edit" {
         let existing = editable(root, relative)?;
         let bytes = load(&existing)?;
-        if journal.after_revision.as_deref() != Some(&revision(&bytes)) {
+        if journal.after_revision.as_deref() != Some(&revision(&bytes))
+            && bytes != load(&payload)?
+        {
             return Err(conflict());
         }
         original = Some(bytes);
@@ -474,47 +698,69 @@ pub(super) fn restore(
             return Err(invalid());
         }
         if fs::symlink_metadata(&target).is_ok() {
-            return Err(conflict());
+            if !["rollback_failed", "restoring"]
+                .contains(&journal.recovery.state.as_str())
+            {
+                return Err(conflict());
+            }
+            super::storage::can_copy(&payload, &target)?;
         }
+        super::storage::validate_tree(&payload)?;
     } else {
         return Err(invalid());
     }
     for change in &journal.changes {
-        if load(&change_path(roots, change)?)? != change.after.as_bytes() {
+        let bytes = load(&change_path(roots, change)?)?;
+        if bytes != change.after.as_bytes() && bytes != change.before.as_bytes()
+        {
             return Err(conflict());
         }
     }
     require_closed(game_running())?;
-    if original.is_some() {
-        atomic(&target, &load(&payload)?)?;
+    phase(&mut journal, &directory, "restoring", None)?;
+    let restoration = if original.is_some() {
+        atomic(&target, &load(&payload)?)
     } else {
-        fs::rename(&payload, &target).map_err(error)?;
+        super::storage::copy(&payload, &target)
+    };
+    if let Err(e) = restoration {
+        phase(
+            &mut journal,
+            &directory,
+            "rollback_failed",
+            Some(e.message.clone()),
+        )?;
+        return Err(e);
     }
     for (index, change) in journal.changes.iter().enumerate() {
         if let Err(e) = change_path(roots, change)
             .and_then(|path| atomic(&path, change.before.as_bytes()))
         {
-            for previous in journal.changes[..index].iter().rev() {
-                let _ = change_path(roots, previous)
-                    .and_then(|p| atomic(&p, previous.after.as_bytes()));
-            }
-            if let Some(bytes) = &original {
-                let _ = atomic(&target, bytes);
-            } else {
-                let _ = fs::rename(&target, &payload);
-            }
-            return Err(e);
+            // Keep the restored target and original payload on a partial restore.
+            // Retrying accepts each reference in either its original or applied state.
+            let detail = format!(
+                "{e}; restoration partial at reference {index}; recovery {id}"
+            );
+            phase(
+                &mut journal,
+                &directory,
+                "rollback_failed",
+                Some(detail.clone()),
+            )?;
+            return Err(error(detail));
         }
     }
-    // Keep recovery data on any failure. Only remove our own two plain files on success.
-    if original.is_some() {
-        fs::remove_file(payload).map_err(error)?;
-    }
-    fs::remove_file(directory.join("journal.json")).map_err(error)?;
-    fs::remove_dir(directory).map_err(error)?;
+    // Keep the immutable editor original until the user explicitly retires it.
+    phase(&mut journal, &directory, "restored", None)?;
     Ok(())
 }
 pub(super) fn recoveries(root: &DataRoot) -> Result<Vec<Recovery>> {
+    Ok(all_recoveries(root)?
+        .into_iter()
+        .filter(|r| !["restored", "rolled_back"].contains(&r.state.as_str()))
+        .collect())
+}
+pub(super) fn all_recoveries(root: &DataRoot) -> Result<Vec<Recovery>> {
     let base = match super::workspace::resolve(root, BACKUPS) {
         Ok(p) => p,
         Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
@@ -523,39 +769,61 @@ pub(super) fn recoveries(root: &DataRoot) -> Result<Vec<Recovery>> {
         Err(e) => return Err(error(e)),
     };
     let mut items = Vec::new();
-    for entry in fs::read_dir(base).map_err(error)?.take(1000) {
+    for entry in fs::read_dir(base).map_err(error)? {
         let entry = entry.map_err(error)?;
         let id = entry.file_name().to_string_lossy().to_string();
-        if let Ok((journal, _)) = journal(root, &id)
-            && resolve(root, &format!("{BACKUPS}/{id}/payload")).is_ok()
-        {
-            items.push(journal.recovery);
+        if uuid::Uuid::parse_str(&id).is_err() {
+            continue;
+        }
+        let Ok(directory) = resolve(root, &format!("{BACKUPS}/{id}")) else {
+            continue;
+        };
+        match journal(root, &id) {
+            Ok((mut journal, directory)) => {
+                let (bytes, limited) = super::storage::measure(&directory);
+                journal.recovery.size_bytes = bytes;
+                journal.recovery.size_limited = limited;
+                if !directory.join("payload").exists()
+                    && !["restored", "rolled_back"]
+                        .contains(&journal.recovery.state.as_str())
+                {
+                    journal.recovery.state = "partial".into();
+                }
+                items.push(journal.recovery);
+            }
+            Err(e) => {
+                let (size_bytes, size_limited) =
+                    super::storage::measure(&directory);
+                items.push(Recovery {
+                    id,
+                    root_id: root.id.clone(),
+                    path: String::new(),
+                    saved_at: fs::metadata(&directory)
+                        .ok()
+                        .and_then(|m| m.modified().ok())
+                        .and_then(|t| {
+                            t.duration_since(std::time::UNIX_EPOCH).ok()
+                        })
+                        .map(|d| d.as_secs())
+                        .unwrap_or(0),
+                    operation: "unknown".into(),
+                    state: "partial".into(),
+                    source: "management".into(),
+                    size_bytes,
+                    size_limited,
+                    diagnostic: Some(e.message),
+                });
+            }
         }
     }
     items.sort_by_key(|item| std::cmp::Reverse(item.saved_at));
     Ok(items)
 }
+#[cfg(test)]
 fn is_game_process(name: &std::ffi::OsStr) -> bool {
     let name = name.to_string_lossy();
     name.eq_ignore_ascii_case("Minecraft.Windows.exe")
         || name.eq_ignore_ascii_case("Minecraft.Windows")
-}
-
-#[cfg(windows)]
-pub(super) fn stop_game() -> Result<()> {
-    let system = sysinfo::System::new_all();
-    for process in system.processes().values() {
-        if is_game_process(process.name()) {
-            if !process.kill() {
-                return Err(BedrockError::new(
-                    ErrorCode::LaunchFailed,
-                    "Windows could not stop Minecraft Bedrock",
-                ));
-            }
-            process.wait();
-        }
-    }
-    Ok(())
 }
 
 // Fixture tests must not depend on a game running on the developer's PC.
@@ -563,18 +831,20 @@ pub(super) fn stop_game() -> Result<()> {
 pub(super) fn game_running() -> bool {
     #[cfg(not(test))]
     {
-        let system = sysinfo::System::new_all();
-        system
-            .processes()
-            .values()
-            .any(|p| is_game_process(p.name()))
+        super::process::running()
     }
     #[cfg(test)]
     {
         false
     }
 }
+#[allow(
+    clippy::cfg_not_test,
+    reason = "Fixture mutations must not depend on shared launch state from the developer's game"
+)]
 pub(super) fn require_closed(running: bool) -> Result<()> {
+    #[cfg(not(test))]
+    let running = running || super::process::mutation_pending();
     if running {
         Err(BedrockError::new(
             ErrorCode::GameRunning,
@@ -635,6 +905,231 @@ mod tests {
         fn drop(&mut self) {
             fs::remove_dir_all(&self.0.path).unwrap();
         }
+    }
+    #[test]
+    fn deleting_an_old_version_preserves_the_active_new_version() {
+        let f = Fixture::new();
+        let id = "8d9932da-e0fb-4a38-bbaf-3307f93ca4ee";
+        f.file(
+            "resource_packs/old/manifest.json",
+            format!(r#"{{"header":{{"uuid":"{id}","version":[1,0,0]}}}}"#)
+                .as_bytes(),
+        );
+        f.file(
+            "resource_packs/new/manifest.json",
+            format!(r#"{{"header":{{"uuid":"{id}","version":[2,0,0]}}}}"#)
+                .as_bytes(),
+        );
+        let refs = format!(r#"[{{"pack_id":"{id}","version":[2,0,0]}}]"#);
+        let active = f.file(
+            "minecraftWorlds/world/world_resource_packs.json",
+            refs.as_bytes(),
+        );
+        remove(std::slice::from_ref(&f.0), &f.0, "resource_packs/old").unwrap();
+        assert_eq!(fs::read(active).unwrap(), refs.as_bytes());
+    }
+    #[test]
+    fn deleting_global_pack_preserves_embedded_activation_of_same_uuid() {
+        let f = Fixture::new();
+        let manifest = br#"{"header":{"uuid":"8d9932da-e0fb-4a38-bbaf-3307f93ca4ee","version":[1,0,0]}}"#;
+        f.file("resource_packs/global/manifest.json", manifest);
+        f.file(
+            "minecraftWorlds/world/resource_packs/local/manifest.json",
+            manifest,
+        );
+        let refs = br#"[{"pack_id":"8d9932da-e0fb-4a38-bbaf-3307f93ca4ee","version":[1,0,0]}]"#;
+        let active =
+            f.file("minecraftWorlds/world/world_resource_packs.json", refs);
+        remove(std::slice::from_ref(&f.0), &f.0, "resource_packs/global")
+            .unwrap();
+        assert_eq!(fs::read(active).unwrap(), refs);
+    }
+    #[test]
+    fn recovery_enumeration_does_not_hide_newest_after_one_thousand_copies() {
+        let f = Fixture::new();
+        for n in 0..1005 {
+            let (mut item, backup) = create_backup(
+                &f.0,
+                "minecraftpe/options.txt",
+                "edit",
+                None,
+                vec![],
+            )
+            .unwrap();
+            item.recovery.saved_at = n;
+            fs::write(
+                backup.join("journal.json"),
+                serde_json::to_vec(&item).unwrap(),
+            )
+            .unwrap();
+            persist(&backup.join("payload"), b"old").unwrap();
+        }
+        let items = recoveries(&f.0).unwrap();
+        assert_eq!(items.len(), 1005);
+        assert_eq!(items[0].saved_at, 1004);
+    }
+    #[test]
+    fn a_prepared_editor_journal_can_restore_without_overwriting_external_data()
+    {
+        let f = Fixture::new();
+        f.file("minecraftpe/options.txt", b"old");
+        let (_, directory) = create_backup(
+            &f.0,
+            "minecraftpe/options.txt",
+            "edit",
+            Some(revision(b"new")),
+            vec![],
+        )
+        .unwrap();
+        persist(&directory.join("payload"), b"old").unwrap();
+        let recovery = recoveries(&f.0).unwrap().pop().unwrap();
+        assert_eq!(recovery.state, "prepared");
+        preview(std::slice::from_ref(&f.0), &f.0, &recovery.id).unwrap();
+        restore(std::slice::from_ref(&f.0), &f.0, &recovery.id).unwrap();
+        assert!(directory.join("payload").exists());
+        assert_eq!(all_recoveries(&f.0).unwrap()[0].state, "restored");
+    }
+    #[cfg(windows)]
+    #[test]
+    fn failed_partial_restore_keeps_payload_and_can_resume() {
+        use std::os::windows::fs::OpenOptionsExt;
+        let f = Fixture::new();
+        f.file("resource_packs/pack/manifest.json",br#"{"header":{"uuid":"8d9932da-e0fb-4a38-bbaf-3307f93ca4ee","version":[1,0,0]}}"#);
+        let refs=br#"[{"pack_id":"8d9932da-e0fb-4a38-bbaf-3307f93ca4ee","version":[1,0,0]}]"#;
+        let active =
+            f.file("minecraftWorlds/world/world_resource_packs.json", refs);
+        let recovery =
+            remove(std::slice::from_ref(&f.0), &f.0, "resource_packs/pack")
+                .unwrap();
+        let locked = fs::OpenOptions::new()
+            .read(true)
+            .share_mode(1)
+            .open(&active)
+            .unwrap();
+        assert!(
+            restore(std::slice::from_ref(&f.0), &f.0, &recovery.id).is_err()
+        );
+        let item = recoveries(&f.0).unwrap().pop().unwrap();
+        assert_eq!(item.state, "rollback_failed");
+        assert!(item.diagnostic.is_some());
+        assert!(
+            f.0.path
+                .join(format!("{BACKUPS}/{}/payload", recovery.id))
+                .exists()
+        );
+        drop(locked);
+        restore(std::slice::from_ref(&f.0), &f.0, &recovery.id).unwrap();
+        assert_eq!(fs::read(active).unwrap(), refs);
+    }
+    #[test]
+    fn incomplete_journal_remains_visible_and_cannot_be_silently_discarded() {
+        let f = Fixture::new();
+        let id = uuid::Uuid::new_v4().to_string();
+        f.file(&format!("{BACKUPS}/{id}/journal.json"), b"{interrupted");
+        f.file(&format!("{BACKUPS}/{id}/payload"), b"original");
+        let items = recoveries(&f.0).unwrap();
+        assert_eq!(items.len(), 1);
+        assert_eq!(items[0].state, "partial");
+        assert!(items[0].diagnostic.is_some());
+        assert!(preview(std::slice::from_ref(&f.0), &f.0, &id).is_err());
+        assert_eq!(
+            fs::read(f.0.path.join(format!("{BACKUPS}/{id}/payload"))).unwrap(),
+            b"original"
+        );
+    }
+    #[test]
+    fn bom_manifest_exposes_active_dependency_and_blocks_removing_its_required_pack()
+     {
+        let f = Fixture::new();
+        let id = "8d9932da-e0fb-4a38-bbaf-3307f93ca4ee";
+        let dependent = "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa";
+        let required = f.file(
+            "resource_packs/required/manifest.json",
+            format!(r#"{{"header":{{"uuid":"{id}","version":[1,0,0]}}}}"#)
+                .as_bytes(),
+        );
+        let mut manifest = vec![0xef, 0xbb, 0xbf];
+        manifest.extend_from_slice(format!(r#"{{"header":{{"uuid":"{dependent}","version":[2,0,0]}},"dependencies":[{{"uuid":"{id}","version":[1,0,0]}}]}}"#).as_bytes());
+        let addon = f.file("behavior_packs/dependent/manifest.json", &manifest);
+        let refs = format!(r#"[{{"pack_id":"{id}","version":[1,0,0]}}]"#);
+        let activation = f.file(
+            "minecraftWorlds/world/world_resource_packs.json",
+            refs.as_bytes(),
+        );
+        f.file(
+            "minecraftWorlds/world/world_behavior_packs.json",
+            format!(r#"[{{"pack_id":"{dependent}","version":[2,0,0]}}]"#)
+                .as_bytes(),
+        );
+        let result =
+            remove(std::slice::from_ref(&f.0), &f.0, "resource_packs/required");
+        assert_eq!(result.unwrap_err().code, ErrorCode::MissingDependency);
+        assert!(required.exists());
+        assert_eq!(fs::read(&addon).unwrap(), manifest);
+        assert_eq!(fs::read(&activation).unwrap(), refs.as_bytes());
+        assert!(recoveries(&f.0).unwrap().is_empty());
+        let workspace =
+            super::super::workspace::snapshot(vec![f.0.clone()]).unwrap();
+        let item = workspace
+            .items
+            .iter()
+            .find(|i| i.path == "behavior_packs/dependent")
+            .unwrap();
+        assert_eq!(item.pack_id.as_deref(), Some(dependent));
+        assert_eq!(item.pack_version, Some(vec![2, 0, 0]));
+        assert!(item.active);
+        assert_eq!(item.dependencies.len(), 1);
+        assert_eq!(item.dependencies[0].pack_id, id);
+        assert_eq!(item.dependencies[0].version, vec![1, 0, 0]);
+    }
+    #[test]
+    fn deleting_a_required_active_version_does_not_break_a_dependent_pack() {
+        let f = Fixture::new();
+        let id = "8d9932da-e0fb-4a38-bbaf-3307f93ca4ee";
+        let dependent = "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa";
+        let pack = f.file(
+            "resource_packs/required/manifest.json",
+            format!(r#"{{"header":{{"uuid":"{id}","version":[1,0,0]}}}}"#)
+                .as_bytes(),
+        );
+        f.file("behavior_packs/dependent/manifest.json",format!(r#"{{"header":{{"uuid":"{dependent}","version":[1,0,0]}},"dependencies":[{{"uuid":"{id}","version":[1,0,0]}}]}}"#).as_bytes());
+        let refs = f.file(
+            "minecraftWorlds/world/world_resource_packs.json",
+            format!(r#"[{{"pack_id":"{id}","version":[1,0,0]}}]"#).as_bytes(),
+        );
+        f.file(
+            "minecraftWorlds/world/world_behavior_packs.json",
+            format!(r#"[{{"pack_id":"{dependent}","version":[1,0,0]}}]"#)
+                .as_bytes(),
+        );
+        assert_eq!(
+            remove(std::slice::from_ref(&f.0), &f.0, "resource_packs/required")
+                .unwrap_err()
+                .code,
+            ErrorCode::MissingDependency
+        );
+        assert!(pack.exists());
+        assert_ne!(fs::read(refs).unwrap(), b"[]");
+        assert!(recoveries(&f.0).unwrap().is_empty());
+    }
+    #[test]
+    fn another_users_pack_is_not_a_provider_for_this_world() {
+        let f = Fixture::new();
+        let other = Fixture::new();
+        let mut second = other.0.clone();
+        second.id = "second-user".into();
+        let manifest=br#"{"header":{"uuid":"8d9932da-e0fb-4a38-bbaf-3307f93ca4ee","version":[1,0,0]}}"#;
+        f.file("resource_packs/pack/manifest.json", manifest);
+        other.file("resource_packs/pack/manifest.json", manifest);
+        let refs=br#"[{"pack_id":"8d9932da-e0fb-4a38-bbaf-3307f93ca4ee","version":[1,0,0]}]"#;
+        let own =
+            f.file("minecraftWorlds/world/world_resource_packs.json", refs);
+        let theirs =
+            other.file("minecraftWorlds/world/world_resource_packs.json", refs);
+        let roots = vec![f.0.clone(), second];
+        remove(&roots, &f.0, "resource_packs/pack").unwrap();
+        assert_eq!(fs::read(own).unwrap(), b"[]");
+        assert_eq!(fs::read(theirs).unwrap(), refs);
     }
     #[test]
     fn editor_saves_and_restores_original_bytes() {
@@ -776,7 +1271,8 @@ mod tests {
     #[test]
     fn global_pack_updates_cross_root_references_but_refuses_invalid_world_json()
      {
-        let f = Fixture::new();
+        let mut f = Fixture::new();
+        f.0.kind = super::super::RootKind::Shared;
         let other = Fixture::new();
         let mut user = other.0.clone();
         user.id = "second-user".into();

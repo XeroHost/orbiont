@@ -608,13 +608,13 @@ impl Process {
                     }
                     Ok(Event::Text(mut e)) => {
                         if in_message || in_throwable {
-                            if let Ok(text) = e.xml_content() {
+                            if let Ok(text) = e.xml10_content() {
                                 current_content.push_str(&text);
                             }
                         } else if !in_event
                             && !e.inplace_trim_end()
                             && !e.inplace_trim_start()
-                            && let Ok(text) = e.xml_content()
+                            && let Ok(text) = e.xml10_content()
                         {
                             if let Err(e) = Process::append_to_log_file(
                                 &log_path,
@@ -630,7 +630,7 @@ impl Process {
                     }
                     Ok(Event::CData(e)) => {
                         if (in_message || in_throwable)
-                            && let Ok(text) = e.xml_content()
+                            && let Ok(text) = e.xml10_content()
                         {
                             current_content.push_str(&text);
                         }

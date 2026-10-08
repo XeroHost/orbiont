@@ -1,8 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 
-import { renderHugeSvg } from './huge-svg'
 import manifest from './huge-icons.json'
+import { renderHugeSvg } from './huge-svg'
 
 const packageRoot = path.resolve(__dirname, '..')
 const checking = process.argv.includes('--check')

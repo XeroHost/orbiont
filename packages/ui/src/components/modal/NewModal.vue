@@ -315,7 +315,7 @@ function isFocusInsideModal() {
 }
 
 function focusElement(el: HTMLElement) {
-	el.focus({ preventScroll: true, focusVisible: inputModality.keyboard })
+	el.focus({ preventScroll: true })
 }
 
 function focusModal() {

@@ -2,8 +2,10 @@
 use super::data::*;
 use std::{
     fs,
+    hash::{Hash, Hasher},
     io::{self, Read, Seek, SeekFrom},
     path::{Component, Path, PathBuf},
+    sync::Mutex,
 };
 
 pub(super) const MAX_LOG_BYTES: usize = 1024 * 1024;
@@ -400,6 +402,9 @@ pub(super) fn snapshot(roots: Vec<DataRoot>) -> io::Result<Workspace> {
                 let mut name = entry.name;
                 let mut version = None;
                 let mut description = None;
+                let mut pack_id = None;
+                let mut pack_version = None;
+                let mut dependencies = Vec::new();
                 if kind == ItemKind::World {
                     if let Some(text) = small_text(
                         root,
@@ -415,10 +420,33 @@ pub(super) fn snapshot(roots: Vec<DataRoot>) -> io::Result<Workspace> {
                         &format!("{}/manifest.json", entry.path),
                     )
                     .and_then(|text| {
-                        serde_json::from_str::<serde_json::Value>(&text).ok()
+                        serde_json::from_str::<serde_json::Value>(
+                            text.trim_start_matches('\u{feff}'),
+                        )
+                        .ok()
                     })
                 {
                     let header = &manifest["header"];
+                    pack_id = header["uuid"]
+                        .as_str()
+                        .and_then(|id| uuid::Uuid::parse_str(id).ok())
+                        .map(|id| id.to_string());
+                    pack_version = numeric_version(&header["version"]);
+                    if let Some(deps) = manifest["dependencies"].as_array() {
+                        for dep in deps {
+                            if let (Some(id), Some(version)) = (
+                                dep["uuid"].as_str().and_then(|id| {
+                                    uuid::Uuid::parse_str(id).ok()
+                                }),
+                                numeric_version(&dep["version"]),
+                            ) {
+                                dependencies.push(PackDependency {
+                                    pack_id: id.to_string(),
+                                    version,
+                                });
+                            }
+                        }
+                    }
                     if let Some(text) = display_text(header["name"].as_str()) {
                         name = text;
                     }
@@ -474,11 +502,205 @@ pub(super) fn snapshot(roots: Vec<DataRoot>) -> io::Result<Workspace> {
                     version,
                     description,
                     development,
+                    pack_id,
+                    pack_version,
+                    dependencies,
+                    activations: Vec::new(),
+                    active: false,
                 });
             }
         }
     }
+    enrich_activations(&mut result);
     result.items.sort_by_key(|item| item.name.to_lowercase());
+    Ok(result)
+}
+
+pub(super) fn accessible_pack_root(world: &DataRoot, pack: &DataRoot) -> bool {
+    world.id == pack.id
+        || (pack.kind == RootKind::Shared
+            && matches!(world.kind, RootKind::User | RootKind::Shared))
+}
+fn numeric_version(value: &serde_json::Value) -> Option<Vec<u32>> {
+    let parts = value.as_array()?;
+    if parts.len() != 3 {
+        return None;
+    }
+    parts
+        .iter()
+        .map(|part| part.as_u64().and_then(|n| u32::try_from(n).ok()))
+        .collect()
+}
+fn enrich_activations(result: &mut Workspace) {
+    let worlds: Vec<_> = result
+        .items
+        .iter()
+        .filter(|i| i.kind == ItemKind::World)
+        .map(|i| (i.root_id.clone(), i.path.clone()))
+        .collect();
+    for (root_id, world_path) in worlds {
+        let Some(root) = result.roots.iter().find(|r| r.id == root_id) else {
+            continue;
+        };
+        for (name, kind) in [
+            ("world_resource_packs.json", ItemKind::ResourcePack),
+            ("world_behavior_packs.json", ItemKind::BehaviorPack),
+        ] {
+            let Some(text) = small_text(root, &format!("{world_path}/{name}"))
+            else {
+                continue;
+            };
+            let Some(values) = serde_json::from_str::<serde_json::Value>(
+                text.trim_start_matches('\u{feff}'),
+            )
+            .ok()
+            .and_then(|v| v.as_array().cloned()) else {
+                result.incomplete = true;
+                continue;
+            };
+            for activation in values {
+                let Some(id) = activation["pack_id"]
+                    .as_str()
+                    .and_then(|id| uuid::Uuid::parse_str(id).ok())
+                    .map(|id| id.to_string())
+                else {
+                    continue;
+                };
+                let Some(version) = numeric_version(&activation["version"])
+                else {
+                    continue;
+                };
+                let mut matches: Vec<_> = result
+                    .items
+                    .iter()
+                    .enumerate()
+                    .filter(|(_, item)| {
+                        item.kind == kind
+                            && item.pack_id.as_deref() == Some(&id)
+                            && item.pack_version.as_ref() == Some(&version)
+                    })
+                    .filter(|(_, item)| {
+                        result
+                            .roots
+                            .iter()
+                            .find(|r| r.id == item.root_id)
+                            .is_some_and(|pack_root| {
+                                accessible_pack_root(root, pack_root)
+                            })
+                    })
+                    .filter(|(_, item)| {
+                        !item.path.starts_with("minecraftWorlds/")
+                            || (item.root_id == root_id
+                                && item
+                                    .path
+                                    .starts_with(&format!("{world_path}/")))
+                    })
+                    .map(|(index, item)| {
+                        (
+                            if item.path.starts_with("minecraftWorlds/") {
+                                0
+                            } else if item.root_id == root_id {
+                                1
+                            } else {
+                                2
+                            },
+                            index,
+                        )
+                    })
+                    .collect();
+                matches.sort();
+                // Duplicate exact versions have no documented file-level selection.
+                // Expose all possible providers as active rather than labelling them safe to discard.
+                if let Some((priority, _)) = matches.first().copied() {
+                    for (_, index) in
+                        matches.into_iter().take_while(|(p, _)| *p == priority)
+                    {
+                        let item = &mut result.items[index];
+                        item.active = true;
+                        item.activations.push(PackActivation {
+                            root_id: root_id.clone(),
+                            world_path: world_path.clone(),
+                            version: version.clone(),
+                        });
+                    }
+                }
+            }
+        }
+    }
+}
+static CACHE: Mutex<Option<(u64, Workspace)>> = Mutex::new(None);
+fn fingerprint(roots: &[DataRoot]) -> Option<u64> {
+    let mut hash = std::collections::hash_map::DefaultHasher::new();
+    let mut visited = 0;
+    for root in roots {
+        root.id.hash(&mut hash);
+        root.path.hash(&mut hash);
+        let mut pending = vec![(root.path.clone(), 0)];
+        while let Some((path, depth)) = pending.pop() {
+            visited += 1;
+            if visited > 50000 {
+                return None;
+            }
+            let meta = fs::symlink_metadata(&path).ok()?;
+            if is_link(&meta) {
+                return None;
+            }
+            path.hash(&mut hash);
+            meta.len().hash(&mut hash);
+            meta.modified().ok()?.hash(&mut hash);
+            if meta.is_dir() && depth < 7 {
+                let mut children = fs::read_dir(path)
+                    .ok()?
+                    .map(|entry| entry.map(|e| e.path()))
+                    .collect::<io::Result<Vec<_>>>()
+                    .ok()?;
+                children.sort();
+                for child in children.into_iter().rev() {
+                    let name = child.file_name()?.to_str()?;
+                    if name == "db" || name.starts_with(".orbiont-") {
+                        continue;
+                    }
+                    let child_meta = fs::symlink_metadata(&child).ok()?;
+                    if child_meta.is_dir()
+                        || [
+                            "manifest.json",
+                            "levelname.txt",
+                            "world_resource_packs.json",
+                            "world_behavior_packs.json",
+                            "en_US.lang",
+                        ]
+                        .contains(&name)
+                        || name.starts_with("pack_icon.")
+                        || name.starts_with("world_icon.")
+                    {
+                        pending.push((child, depth + 1));
+                    }
+                }
+            }
+        }
+    }
+    Some(hash.finish())
+}
+pub(super) fn cached_snapshot(
+    roots: Vec<DataRoot>,
+    refresh: bool,
+) -> io::Result<Workspace> {
+    let stamp = fingerprint(&roots);
+    if !refresh
+        && let Some(stamp) = stamp
+        && let Ok(cache) = CACHE.lock()
+        && let Some((saved, workspace)) = cache.as_ref()
+        && *saved == stamp
+    {
+        return Ok(workspace.clone());
+    }
+    let result = snapshot(roots.clone())?;
+    if stamp.is_some()
+        && stamp == fingerprint(&roots)
+        && let Ok(mut cache) = CACHE.lock()
+    {
+        *cache = Some((stamp.unwrap(), result.clone()));
+    }
     Ok(result)
 }
 
@@ -515,6 +737,63 @@ pub(super) fn read_log(root: &DataRoot, relative: &str) -> io::Result<LogText> {
 
 #[cfg(test)]
 mod tests {
+    #[test]
+    fn cached_metadata_refreshes_after_external_edits_and_embedded_resolution()
+    {
+        let fixture = tempfile::tempdir().unwrap();
+        let root = DataRoot {
+            id: "cache-fixture".into(),
+            path: fixture.path().into(),
+            kind: RootKind::User,
+        };
+        let id = "8d9932da-e0fb-4a38-bbaf-3307f93ca4ee";
+        for path in [
+            "resource_packs/global",
+            "minecraftWorlds/world/resource_packs/local",
+        ] {
+            fs::create_dir_all(root.path.join(path)).unwrap();
+            fs::write(root.path.join(path).join("manifest.json"),format!(r#"{{"header":{{"uuid":"{id}","name":"old","version":[1,0,0]}}}}"#)).unwrap();
+        }
+        fs::write(
+            root.path
+                .join("minecraftWorlds/world/world_resource_packs.json"),
+            format!(r#"[{{"pack_id":"{id}","version":[1,0,0]}}]"#),
+        )
+        .unwrap();
+        let first = cached_snapshot(vec![root.clone()], false).unwrap();
+        assert!(
+            !first
+                .items
+                .iter()
+                .find(|i| i.path == "resource_packs/global")
+                .unwrap()
+                .active
+        );
+        assert!(
+            first
+                .items
+                .iter()
+                .find(|i| i.path.contains("/local"))
+                .unwrap()
+                .active
+        );
+        fs::write(root.path.join("resource_packs/global/manifest.json"),format!(r#"{{"header":{{"uuid":"{id}","name":"externally updated","version":[2,0,0]}}}}"#)).unwrap();
+        let fresh = cached_snapshot(vec![root.clone()], false).unwrap();
+        assert_eq!(
+            fresh
+                .items
+                .iter()
+                .find(|i| i.path == "resource_packs/global")
+                .unwrap()
+                .name,
+            "externally updated"
+        );
+        assert_eq!(
+            cached_snapshot(vec![root], true).unwrap().items.len(),
+            fresh.items.len()
+        );
+    }
+
     use super::*;
     use std::fs;
     struct Fixture(PathBuf);

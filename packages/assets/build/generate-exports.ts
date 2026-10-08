@@ -234,9 +234,9 @@ function generateFiles(): void {
 
 import type { FunctionalComponent, SVGAttributes } from 'vue'
 
+${imports}
 export type IconComponent = FunctionalComponent<SVGAttributes>
 
-${imports}
 ${exports}
 
 ${categoryMap}

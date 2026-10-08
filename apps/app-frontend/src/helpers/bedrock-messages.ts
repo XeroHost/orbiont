@@ -1,6 +1,18 @@
 import { defineMessages } from '@orbiont/ui'
 
 export const bedrockMessages = defineMessages({
+	insufficientSpace: {
+		id: 'app.bedrock.insufficient-space',
+		defaultMessage:
+			'There is not enough free disk space to stage this content and keep recovery copies. Free space on the destination drive and try again.',
+	},
+	closeTimeout: { id: 'app.bedrock.close-timeout', defaultMessage: 'Minecraft is still running' },
+	forceStop: { id: 'app.bedrock.force-stop', defaultMessage: 'Force close' },
+	forceStopHelp: {
+		id: 'app.bedrock.force-stop-help',
+		defaultMessage:
+			'Minecraft did not close after the normal request. Force close this game process? Unsaved progress may be lost. You can cancel and save and quit inside Minecraft.',
+	},
 	closeToManage: {
 		id: 'app.bedrock.close-to-manage',
 		defaultMessage: 'Close Minecraft to edit files, delete content or restore a copy.',
@@ -105,7 +117,7 @@ export const bedrockMessages = defineMessages({
 	},
 	largeFile: {
 		id: 'app.bedrock.large-file',
-		defaultMessage: 'This file exceeds the 8 GiB import limit.',
+		defaultMessage: 'This file exceeds the 2 GiB import limit.',
 	},
 	storeError: {
 		id: 'app.bedrock.store-error',

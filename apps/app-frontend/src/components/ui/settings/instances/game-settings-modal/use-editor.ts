@@ -66,7 +66,7 @@ export function useGameSettingsEditor(
 						['mixed', 'unset', 'invalid'].includes(setting.value_state)),
 			) ?? false,
 	)
-	const stateQuery = useQuery(
+	const stateQuery = useQuery<GameSettingsEditorState>(
 		computed(() => ({
 			...gameSettingsQueryOptions(editorInstanceId.value),
 			enabled: false,
@@ -110,7 +110,8 @@ export function useGameSettingsEditor(
 		cancelPreview()
 		editorInstanceId.value = toValue(instanceId)
 		const options = gameSettingsQueryOptions(editorInstanceId.value)
-		const cached = !editorInstanceId.value && queryClient.getQueryData(options.queryKey)
+		const cached =
+			!editorInstanceId.value && queryClient.getQueryData<GameSettingsEditorState>(options.queryKey)
 		if (cached) {
 			applyState(cached)
 			void queryClient.prefetchQuery(options)

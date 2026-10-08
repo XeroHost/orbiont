@@ -260,7 +260,7 @@ export function installTooltipDirective(app: App) {
 		},
 	} satisfies TooltipDirective)
 
-	function sync(el: HTMLElement, value: TooltipProps, modifiers: Record<string, boolean>) {
+	function sync(el: HTMLElement, value: TooltipProps, modifiers: Partial<Record<string, boolean>>) {
 		const text = tooltipText(value)
 		if (!text) {
 			releaseFocusable(el, addedTabIndex)

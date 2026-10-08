@@ -1,5 +1,7 @@
 import type { ModrinthId } from '@orbiont/utils'
 
+export type MinecraftCredential = { profile: { id: string; name: string }; id?: string }
+
 export type GameInstance = {
 	id: string
 	path: string
@@ -37,13 +39,13 @@ export type GameInstance = {
 	submitted_time_played: number
 	recent_time_played: number
 
-	java_path?: string
-	extra_launch_args?: string[]
-	custom_env_vars?: [string, string][]
+	java_path?: string | null
+	extra_launch_args?: string[] | null
+	custom_env_vars?: [string, string][] | null
 
-	memory?: MemorySettings
-	force_fullscreen?: boolean
-	game_resolution?: [number, number]
+	memory?: MemorySettings | null
+	force_fullscreen?: boolean | null
+	game_resolution?: [number, number] | null
 	hooks: Hooks
 	visible_tabs: {
 		files: boolean
@@ -69,11 +71,7 @@ export type InstanceIconConfig = {
 }
 
 type InstallStage =
-	| 'installed'
-	| 'minecraft_installing'
-	| 'pack_installed'
-	| 'pack_installing'
-	| 'not_installed'
+	'installed' | 'minecraft_installing' | 'pack_installed' | 'pack_installing' | 'not_installed'
 
 type InstanceLinkIdentity = {
 	project_id?: ModrinthId | null

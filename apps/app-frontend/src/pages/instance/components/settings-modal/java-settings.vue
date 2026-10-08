@@ -19,7 +19,7 @@ import {
 	useVIntl,
 } from '@orbiont/ui'
 import { open } from '@tauri-apps/plugin-dialog'
-import { computed, readonly, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 
 import JavaDetectionModal from '@/components/ui/JavaDetectionModal.vue'
 import useJavaTest from '@/composables/useJavaTest'
@@ -27,7 +27,6 @@ import useMemorySlider from '@/composables/useMemorySlider'
 import { edit, get_optimal_jre_key } from '@/helpers/instance'
 import { get, parseEnvVars, serializeEnvVars } from '@/helpers/settings.ts'
 
-import type { AppSettings } from '../../../../helpers/types'
 import { injectInstanceSettings } from './instance-settings-context'
 
 const { handleError } = injectNotificationManager()
@@ -35,9 +34,15 @@ const { formatMessage } = useVIntl()
 
 const { instance } = injectInstanceSettings()
 
-const globalSettings = (await get().catch(handleError)) as unknown as AppSettings
+const globalSettings = await get().catch((error: unknown) => {
+	handleError(error)
+	throw error
+})
 
-const optimalJava = readonly(await get_optimal_jre_key(instance.value.id).catch(handleError))
+const optimalJava = await get_optimal_jre_key(instance.value.id).catch((error: unknown) => {
+	handleError(error)
+	return null
+})
 
 const overrideJavaInstall = ref(!!instance.value.java_path)
 const javaPath = ref(instance.value.java_path ?? optimalJava?.path ?? '')
@@ -84,7 +89,8 @@ async function handleBrowseJava() {
 }
 
 function handleDetectJava() {
-	javaDetectionModal.value?.show(optimalJava?.parsed_version, { path: javaPath.value })
+	if (optimalJava)
+		javaDetectionModal.value?.show(optimalJava.parsed_version, { path: javaPath.value })
 }
 
 const overrideJavaArgs = ref((instance.value.extra_launch_args?.length ?? 0) > 0)
@@ -283,30 +289,17 @@ const messages = defineMessages({
 												: 'red'
 											: undefined
 									"
-									:disabled="!overrideJavaInstall || testingJava"
+									:disabled="!overrideJavaInstall || testingJava || !optimalJava"
 									:style="{
 										'--legacy-button-color':
-											(overrideJavaInstall && !hoveringTest && !testingJava
-												? javaTestResult === true
-													? 'green'
-													: 'red'
-												: 'standard') &&
-											(overrideJavaInstall && !hoveringTest && !testingJava
-												? javaTestResult === true
-													? 'green'
-													: 'red'
-												: 'standard') !== 'standard'
-												? `var(--color-${
-														overrideJavaInstall && !hoveringTest && !testingJava
-															? javaTestResult === true
-																? 'green'
-																: 'red'
-															: 'standard'
-													})`
+											overrideJavaInstall && !hoveringTest && !testingJava
+												? `var(--color-${javaTestResult === true ? 'green' : 'red'})`
 												: undefined,
 									}"
 									class="!text-[var(--legacy-button-color,var(--color-base))] [&>svg]:!text-[var(--legacy-button-color,var(--color-primary))]"
-									@click="testJavaInstallation(activePath, optimalJava?.parsed_version, true)"
+									@click="
+										optimalJava && testJavaInstallation(activePath, optimalJava.parsed_version)
+									"
 									@mouseenter="hoveringTest = true"
 									@mouseleave="hoveringTest = false"
 								>
@@ -323,7 +316,7 @@ const messages = defineMessages({
 								</Button>
 							</div>
 							<div class="flex gap-2">
-								<Button :disabled="!overrideJavaInstall" @click="handleDetectJava">
+								<Button :disabled="!overrideJavaInstall || !optimalJava" @click="handleDetectJava">
 									<SearchIcon />
 									Detect
 								</Button>

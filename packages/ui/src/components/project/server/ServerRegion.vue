@@ -17,7 +17,7 @@ const tooltip = defineMessage({
 })
 
 const regionName = computed(() => {
-	const name = SERVER_REGIONS[region]
+	const name = SERVER_REGIONS[region as keyof typeof SERVER_REGIONS]
 	if (name) return formatMessage(name)
 
 	return region

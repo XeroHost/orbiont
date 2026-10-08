@@ -61,11 +61,11 @@ let suppressBackgroundClickTimeout: ReturnType<typeof setTimeout> | null = null
 const selectedBackground = ref<BackgroundId>(DEFAULT_BACKGROUND_ID)
 const selectedSymbol = ref<SymbolId>(DEFAULT_SYMBOL_ID)
 
-const selectedBackgroundOption = computed(
-	() => backgroundOptions.find((option) => option.id === selectedBackground.value)!,
+const selectedBackgroundOption = computed(() =>
+	backgroundOptions.find((option) => option.id === selectedBackground.value)!,
 )
-const selectedSymbolOption = computed(
-	() => symbolOptions.find((option) => option.id === selectedSymbol.value)!,
+const selectedSymbolOption = computed(() =>
+	symbolOptions.find((option) => option.id === selectedSymbol.value)!,
 )
 const vanillaSymbolStartIndex = symbolOptions.findIndex((option) => option.category === 'vanilla')
 const selectedConfig = computed<InstanceIconConfig>(() => ({
@@ -460,8 +460,7 @@ const messages = defineMessages({
 							/>
 							<button
 								v-tooltip="{
-									content: formatMessage(option.name),
-									delay: { show: 500, hide: 0 },
+									text: formatMessage(option.name),
 								}"
 								class="icon-option icon-outline relative aspect-square cursor-pointer overflow-hidden rounded-[20px] border-0 bg-transparent p-0"
 								:class="{ 'icon-outline-selected': selectedSymbol === option.id }"

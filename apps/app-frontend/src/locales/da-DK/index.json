@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Leder efter Minecraft for Windows..."
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft kører stadig"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Luk Minecraft for at redigere filer, slette indhold eller gendanne en kopi."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Kunne ikke åbne denne Minecraft-mappe. Opdater dine data, og prøv igen."
   },
+  "app.bedrock.force-stop": {
+    "message": "Tving lukning"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft lukkede ikke efter den normale anmodning. Vil du tvinge denne spilproces til at lukke? Fremskridt, der ikke er gemt, kan gå tabt. Du kan annullere og gemme og afslutte inde i Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Importer fil"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows er installeret"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Der er ikke nok ledig diskplads til at klargøre dette indhold og beholde kopier til gendannelse. Frigør plads på destinationsdrevet, og prøv igen."
+  },
   "app.bedrock.invalid-file": {
     "message": "Vælg et gyldigt lokalt .mcworld-, .mcpack- eller .mcaddon-arkiv."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Denne fil overskrider importgrænsen for 8 GiB."
+    "message": "Denne fil overskrider importgrænsen på 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Kunne ikke åbne Minecraft. Åbn den officielle launcher eller Microsoft Store for at kontrollere installationen."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Eksportér diagnoserapport"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Åbn den officielle launcher for at kontrollere din session, eller åbn Microsoft Store for at installere opdateringer eller reparere Minecraft. Opdatér registreringen, når du er færdig."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Klar} requested {Start anmodet} starting {Venter på Minecraft} running {Minecraft kører} timeout {Minecraft startede ikke inden tidsfristen} failed {Start mislykkedes} other {Kontrollerer start}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Forløbet tid: {seconds, number} sekunder"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Startdiagnostik"
+  },
+  "bedrock.packs.activations": {
+    "message": "Aktiveringer i verdener"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Afhængigheder"
+  },
+  "bedrock.packs.details": {
+    "message": "Versioner og afhængigheder"
+  },
+  "bedrock.packs.none": {
+    "message": "Ingen angivet"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Aktiv version} other {Bevaret version}}"
+  },
   "curseforge.manual.description": {
     "message": "Download {file} fra den officielle CurseForge-side, og vælg den downloadede fil for at fortsætte. Størrelsen og SHA-1 bliver kontrolleret."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Tilføjer filer ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Filen blev ændret uden for editoren. Din kladde bevares. Kopiér den, før du åbner filen igen for at gennemgå den nyeste version."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Filen kunne ikke gemmes. Din kladde bevares."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Administrer dit installerede indhold via fanen Indhold"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Åbn filen igen, før du gemmer."
   },
   "instance.files.save-as": {
     "message": "Gem som..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Verden er i brug"
+  },
+  "local-management.category.cache": {
+    "message": "Delt cache for launcheren"
+  },
+  "local-management.category.data": {
+    "message": "Spildata"
+  },
+  "local-management.category.import": {
+    "message": "Bevarede importer"
+  },
+  "local-management.category.recovery": {
+    "message": "Kopier, der kan gendannes"
+  },
+  "local-management.category.retained-version": {
+    "message": "Bevarede pakkeversioner"
+  },
+  "local-management.confirm-removal": {
+    "message": "Bekræft permanent sletning"
+  },
+  "local-management.empty": {
+    "message": "Der blev ikke fundet nogen kopier, der kan gendannes."
+  },
+  "local-management.error": {
+    "message": "Handlingen mislykkedes. Dit valg bevares. Opdatér og prøv igen."
+  },
+  "local-management.load-more": {
+    "message": "Indlæs flere kopier"
+  },
+  "local-management.loading": {
+    "message": "Indlæser lokale data…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Pakkeinstallation i verdener} java_editor {Java-editor} other {Lokal Bedrock-administration}}"
+  },
+  "local-management.partial": {
+    "message": "Denne liste eller størrelsesberegning er ufuldstændig."
+  },
+  "local-management.preview": {
+    "message": "Forhåndsvisning"
+  },
+  "local-management.recovery": {
+    "message": "Kopier, der kan gendannes"
+  },
+  "local-management.remove": {
+    "message": "Fjern valgte elementer"
+  },
+  "local-management.remove-help": {
+    "message": "Kun valgte kopier, der kan gendannes, og bevarede importer kan fjernes. Permanent sletning forhindrer gendannelse af dem."
+  },
+  "local-management.restore": {
+    "message": "Bekræft gendannelse"
+  },
+  "local-management.restore-help": {
+    "message": "Gennemgå destinationen og kopien nedenfor, før du gendanner. Senere ændringer eller en optaget destination kan blokere gendannelsen."
+  },
+  "local-management.retention.days": {
+    "message": "Ældre end (dage)"
+  },
+  "local-management.retention.help": {
+    "message": "Vælg gamle kopier, der kan gendannes, til gennemgang. Intet fjernes automatisk; ufuldstændige kopier og installeret indhold bevares."
+  },
+  "local-management.retention.keep": {
+    "message": "Behold nyeste kopier pr. fil eller verden"
+  },
+  "local-management.retention.select": {
+    "message": "Vælg gamle kopier"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# valgt element} other {# valgte elementer}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} byte"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Forberedt} applied {Anvendt} rollback_failed {Tilbagerulning mislykkedes} restored {Gendannet} partial {Ufuldstændig} legacy {Ældre kopi} other {Tilgængelig}}"
+  },
+  "local-management.storage": {
+    "message": "Lagerplads"
+  },
+  "local-management.title": {
+    "message": "Gendannelse og lagerplads"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft-konti"

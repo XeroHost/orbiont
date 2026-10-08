@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "מחפש את Minecraft for Windows..."
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft עדיין פועל"
+  },
   "app.bedrock.close-to-manage": {
     "message": "סגור את Minecraft כדי לערוך קבצים, למחוק תוכן או לשחזר עותק."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "לא ניתן היה לפתוח את תיקיית Minecraft זו. רענן את הנתונים ונסה שוב."
   },
+  "app.bedrock.force-stop": {
+    "message": "סגירה כפויה"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft לא נסגר לאחר בקשת הסגירה הרגילה. לסגור את תהליך המשחק הזה בכפייה? התקדמות שלא נשמרה עלולה ללכת לאיבוד. אפשר לבטל, ואז לשמור ולצאת מתוך Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "ייבוא קובץ"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows מותקן"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "אין מספיק מקום פנוי בדיסק כדי להכין את התוכן הזה ולשמור עותקים לשחזור. יש לפנות מקום בכונן היעד ולנסות שוב."
+  },
   "app.bedrock.invalid-file": {
     "message": "בחר ארכיון מקומי חוקי של .mcworld, .mcpack או .mcaddon."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "קובץ זה חורג ממגבלת הייבוא 8 GiB."
+    "message": "הקובץ הזה חורג ממגבלת הייבוא של 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "לא ניתן היה לפתוח את Minecraft. פתח את המשגר ​​הרשמי או Microsoft Store כדי לבדוק את ההתקנה."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} מקוונים"
   },
+  "bedrock.diagnostics.export": {
+    "message": "ייצוא דוח אבחון"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "יש לפתוח את המשגר הרשמי כדי לבדוק את ההתחברות שלך, או לפתוח את Microsoft Store כדי להתקין עדכונים או לתקן את Minecraft. בסיום יש לרענן את הזיהוי."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {מוכן} requested {התבקשה הפעלה} starting {בהמתנה ל־Minecraft} running {Minecraft פועל} timeout {Minecraft לא הופעל לפני תום הזמן המוקצב} failed {ההפעלה נכשלה} other {בדיקת ההפעלה}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "זמן שחלף: {seconds, number} שניות"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "אבחון הפעלה"
+  },
+  "bedrock.packs.activations": {
+    "message": "הפעלות בעולמות"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "תלויות"
+  },
+  "bedrock.packs.details": {
+    "message": "גרסאות ותלויות"
+  },
+  "bedrock.packs.none": {
+    "message": "לא דווח על כאלה"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {גרסה פעילה} other {גרסה שנשמרה}}"
+  },
   "curseforge.manual.description": {
     "message": "יש להוריד את {file} מהעמוד הרשמי שלו ב-CurseForge, ואז לבחור את הקובץ שהורד כדי להמשיך. גודלו ו-SHA-1 ייבדקו."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "הוספת קבצים ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "הקובץ השתנה מחוץ לעורך. הטיוטה שלך נשמרה. יש להעתיק אותה לפני פתיחה מחדש של הקובץ לבדיקת הגרסה העדכנית."
+  },
+  "instance.files.editor-save-error": {
+    "message": "לא ניתן לשמור את הקובץ. הטיוטה שלך נשמרה."
+  },
   "instance.files.managed-content-read-only": {
     "message": "נהל את התוכן המותקן שלך דרך לשונית התוכן"
+  },
+  "instance.files.reload-before-save": {
+    "message": "יש לפתוח מחדש את הקובץ לפני השמירה."
   },
   "instance.files.save-as": {
     "message": "שמור כ..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "עולם בשימוש"
+  },
+  "local-management.category.cache": {
+    "message": "מטמון משותף של המשגר"
+  },
+  "local-management.category.data": {
+    "message": "נתוני המשחק"
+  },
+  "local-management.category.import": {
+    "message": "ייבואים שנשמרו"
+  },
+  "local-management.category.recovery": {
+    "message": "עותקים שניתן לשחזר"
+  },
+  "local-management.category.retained-version": {
+    "message": "גרסאות חבילות שנשמרו"
+  },
+  "local-management.confirm-removal": {
+    "message": "אישור מחיקה לצמיתות"
+  },
+  "local-management.empty": {
+    "message": "לא נמצאו עותקים שניתן לשחזר."
+  },
+  "local-management.error": {
+    "message": "הפעולה נכשלה. הבחירה שלך נשמרה. יש לרענן ולנסות שוב."
+  },
+  "local-management.load-more": {
+    "message": "טעינת עותקים נוספים"
+  },
+  "local-management.loading": {
+    "message": "טעינת נתונים מקומיים…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {התקנת חבילה בעולם} java_editor {עורך Java} other {ניהול מקומי של Bedrock}}"
+  },
+  "local-management.partial": {
+    "message": "הרשימה הזו או הערכת הגודל אינן מלאות."
+  },
+  "local-management.preview": {
+    "message": "תצוגה מקדימה"
+  },
+  "local-management.recovery": {
+    "message": "עותקים שניתן לשחזר"
+  },
+  "local-management.remove": {
+    "message": "הסרת הפריטים שנבחרו"
+  },
+  "local-management.remove-help": {
+    "message": "ניתן להסיר רק עותקים שניתן לשחזר וייבואים שנשמרו ונבחרו. הסרתם לצמיתות מונעת את שחזורם."
+  },
+  "local-management.restore": {
+    "message": "אישור שחזור"
+  },
+  "local-management.restore-help": {
+    "message": "יש לבדוק את היעד ואת העותק שמופיעים בהמשך לפני השחזור. שינויים מאוחרים יותר או יעד תפוס עלולים למנוע שחזור."
+  },
+  "local-management.retention.days": {
+    "message": "ישנים מ־(ימים)"
+  },
+  "local-management.retention.help": {
+    "message": "יש לבחור עותקים ישנים שניתן לשחזר כדי לבדוק אותם. שום דבר לא נמחק אוטומטית; עותקים לא מלאים ותוכן מותקן נשמרים."
+  },
+  "local-management.retention.keep": {
+    "message": "שמירת העותקים החדשים ביותר לכל קובץ או עולם"
+  },
+  "local-management.retention.select": {
+    "message": "בחירת עותקים ישנים"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {נבחר פריט #} two {נבחרו # פריטים} other {נבחרו # פריטים}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} בתים"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {הוכן} applied {הוחל} rollback_failed {ביטול השינויים נכשל} restored {שוחזר} partial {לא מלא} legacy {עותק ישן} other {זמין}}"
+  },
+  "local-management.storage": {
+    "message": "אחסון"
+  },
+  "local-management.title": {
+    "message": "שחזור ואחסון"
   },
   "minecraft-account.accounts": {
     "message": "חשבונות Minecraft"

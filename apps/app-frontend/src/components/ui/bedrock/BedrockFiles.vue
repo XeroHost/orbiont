@@ -12,6 +12,7 @@ import {
 import { useQuery } from '@tanstack/vue-query'
 import { computed, ref, watch } from 'vue'
 
+import { useEditorExit } from '@/composables/use-editor-exit'
 import {
 	type BedrockRoot,
 	listBedrockFiles,
@@ -25,10 +26,13 @@ const emit = defineEmits<{ openFolder: [rootId: string, path: string] }>()
 const { formatMessage } = useVIntl()
 const rootId = ref('')
 const path = ref('')
+const editingFile = ref<{ name: string; path: string } | null>(null)
+const layout = ref<InstanceType<typeof FilePageLayout>>()
 const roots = computed(() => props.roots.filter((root) => root.kind !== 'logs'))
 watch(
-	roots,
-	(available) => {
+	[roots, editingFile],
+	([available]) => {
+		if (editingFile.value) return
 		if (!available.some((root) => root.id === rootId.value))
 			rootId.value = (available.find((root) => root.kind === 'user') ?? available[0])?.id ?? ''
 	},
@@ -42,9 +46,16 @@ watch(
 	{ flush: 'sync' },
 )
 const root = computed(() => roots.value.find((candidate) => candidate.id === rootId.value))
-const editingFile = ref<{ name: string; path: string } | null>(null)
-const layout = ref<InstanceType<typeof FilePageLayout>>()
-defineExpose({ confirmLeave: () => layout.value?.confirmDiscardChanges() ?? Promise.resolve(true) })
+const confirmLeave = useEditorExit(
+	() => !!(layout.value?.hasUnsavedChanges || layout.value?.isSaving),
+	() => layout.value?.confirmDiscardChanges() ?? Promise.resolve(false),
+)
+defineExpose({ confirmLeave })
+async function changeRoot(id: string) {
+	if (id === rootId.value || !(await confirmLeave())) return
+	editingFile.value = null
+	rootId.value = id
+}
 const revisions = new Map<string, string>()
 const editable = (name: string) =>
 	/\.(txt|json|json5|jsonc|lang|mcfunction|js|ts|md|log|cfg|conf|properties|ini|yaml|yml|toml)$/i.test(
@@ -107,11 +118,12 @@ provideFileManager({
 	readFileAsBlob: unavailable,
 	writeFile: async (filePath, content) => {
 		const relative = filePath.replace(/^\/+/, '')
-		const key = `${rootId.value}/${relative}`
+		const activeRoot = rootId.value
+		const key = `${activeRoot}/${relative}`
 		const revision = revisions.get(key)
 		if (!revision) throw new Error(formatMessage(messages.reloadBeforeSave))
 		try {
-			const document = await writeBedrockFile(rootId.value, relative, content, revision)
+			const document = await writeBedrockFile(activeRoot, relative, content, revision)
 			revisions.set(key, document.revision)
 			void files.refetch()
 		} catch (error) {
@@ -156,7 +168,9 @@ provideFileManager({
 </script>
 
 <template>
-	<p v-if="!roots.length" class="text-secondary">{{ formatMessage(messages.noData) }}</p>
+	<p v-if="!roots.length && !editingFile" class="text-secondary">
+		{{ formatMessage(messages.noData) }}
+	</p>
 	<div v-else class="flex min-w-0 flex-col gap-4">
 		<p v-if="files.isPending.value" role="status">{{ formatMessage(messages.loadingData) }}</p>
 		<Admonition v-if="files.data.value?.limited" type="warning">{{
@@ -173,7 +187,7 @@ provideFileManager({
 						roots.map((candidate) => ({
 							id: candidate.id,
 							label: candidate.path,
-							action: () => (rootId = candidate.id),
+							action: () => changeRoot(candidate.id),
 						}))
 					"
 				>

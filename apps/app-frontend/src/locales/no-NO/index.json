@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Ser etter Minecraft for Windows..."
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft kjører fortsatt"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Lukk Minecraft for å redigere filer, slette innhold eller gjenopprette en kopi."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Kunne ikke åpne denne Minecraft-mappen. Oppdater dataene dine og prøv igjen."
   },
+  "app.bedrock.force-stop": {
+    "message": "Tving avslutning"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft ble ikke lukket etter den vanlige forespørselen. Vil du tvinge avslutning av denne spillprosessen? Fremdrift som ikke er lagret, kan gå tapt. Du kan avbryte og lagre og avslutte inne i Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Importer fil"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows er installert"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Det er ikke nok ledig diskplass til å klargjøre dette innholdet og beholde gjenopprettingskopier. Frigjør plass på målstasjonen og prøv igjen."
+  },
   "app.bedrock.invalid-file": {
     "message": "Velg et gyldig lokalt .mcworld-, .mcpack- eller .mcaddon-arkiv."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Denne filen overskrider importgrensen for 8 GiB."
+    "message": "Denne filen overskrider importgrensen på 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Kunne ikke åpne Minecraft. Åpne den offisielle lanseringen eller Microsoft Store for å sjekke installasjonen."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} pålogget"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Eksporter diagnoserapport"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Åpne den offisielle spillstarteren for å kontrollere økten, eller åpne Microsoft Store for å installere oppdateringer eller reparere Minecraft. Oppdater registreringen når du er ferdig."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Klar} requested {Oppstart forespurt} starting {Venter på Minecraft} running {Minecraft kjører} timeout {Minecraft startet ikke innen tidsfristen} failed {Oppstart mislyktes} other {Kontrollerer oppstart}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Tid brukt: {seconds, number} sekunder"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Oppstartsdiagnostikk"
+  },
+  "bedrock.packs.activations": {
+    "message": "Aktiveringer i verdener"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Avhengigheter"
+  },
+  "bedrock.packs.details": {
+    "message": "Versjoner og avhengigheter"
+  },
+  "bedrock.packs.none": {
+    "message": "Ingen oppgitt"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Aktiv versjon} other {Beholdt versjon}}"
+  },
   "curseforge.manual.description": {
     "message": "Last ned {file} fra den offisielle CurseForge-siden, og velg den nedlastede filen for å fortsette. Størrelsen og SHA-1 blir kontrollert."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Legger til filer ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Filen ble endret utenfor redigeringsprogrammet. Utkastet ditt beholdes. Kopier det før du åpner filen på nytt for å se den nyeste versjonen."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Kunne ikke lagre filen. Utkastet ditt beholdes."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Administrer det installerte innholdet ditt via Innhold-fanen"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Åpne filen på nytt før du lagrer."
   },
   "instance.files.save-as": {
     "message": "Lagre som …"
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Verdenen er i bruk"
+  },
+  "local-management.category.cache": {
+    "message": "Delt hurtigbuffer for spillstarteren"
+  },
+  "local-management.category.data": {
+    "message": "Spilldata"
+  },
+  "local-management.category.import": {
+    "message": "Beholdte importer"
+  },
+  "local-management.category.recovery": {
+    "message": "Kopier som kan gjenopprettes"
+  },
+  "local-management.category.retained-version": {
+    "message": "Beholdte pakkeversjoner"
+  },
+  "local-management.confirm-removal": {
+    "message": "Bekreft permanent sletting"
+  },
+  "local-management.empty": {
+    "message": "Fant ingen kopier som kan gjenopprettes."
+  },
+  "local-management.error": {
+    "message": "Operasjonen mislyktes. Valget ditt er beholdt. Oppdater og prøv igjen."
+  },
+  "local-management.load-more": {
+    "message": "Last inn flere kopier"
+  },
+  "local-management.loading": {
+    "message": "Laster inn lokale data…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Installasjon av verdenspakker} java_editor {Java-redigeringsprogram} other {Lokal Bedrock-administrasjon}}"
+  },
+  "local-management.partial": {
+    "message": "Denne listen eller størrelsesberegningen er ufullstendig."
+  },
+  "local-management.preview": {
+    "message": "Forhåndsvisning"
+  },
+  "local-management.recovery": {
+    "message": "Kopier som kan gjenopprettes"
+  },
+  "local-management.remove": {
+    "message": "Fjern valgte elementer"
+  },
+  "local-management.remove-help": {
+    "message": "Bare valgte kopier som kan gjenopprettes, og beholdte importer kan fjernes. Permanent sletting gjør gjenoppretting umulig."
+  },
+  "local-management.restore": {
+    "message": "Bekreft gjenoppretting"
+  },
+  "local-management.restore-help": {
+    "message": "Se gjennom målet og kopien nedenfor før du gjenoppretter. Senere endringer eller et opptatt mål kan hindre gjenopprettingen."
+  },
+  "local-management.retention.days": {
+    "message": "Eldre enn (dager)"
+  },
+  "local-management.retention.help": {
+    "message": "Velg gamle kopier som kan gjenopprettes, for gjennomgang. Ingenting fjernes automatisk; ufullstendige kopier og installert innhold beholdes."
+  },
+  "local-management.retention.keep": {
+    "message": "Behold de nyeste kopiene per fil eller verden"
+  },
+  "local-management.retention.select": {
+    "message": "Velg gamle kopier"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# valgt element} other {# valgte elementer}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} byte"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Klargjort} applied {Brukt} rollback_failed {Tilbakerulling mislyktes} restored {Gjenopprettet} partial {Ufullstendig} legacy {Eldre kopi} other {Tilgjengelig}}"
+  },
+  "local-management.storage": {
+    "message": "Lagring"
+  },
+  "local-management.title": {
+    "message": "Gjenoppretting og lagring"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft-kontoer"

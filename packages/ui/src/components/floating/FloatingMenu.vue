@@ -52,7 +52,7 @@ const isOpen = ref(false)
 const triggerEl = useTemplateRef<HTMLElement>('triggerEl')
 const floating = useTemplateRef<HTMLElement>('floating')
 const arrowEl = useTemplateRef<HTMLElement>('arrowEl')
-const expandOrigin = ref(SIDES.bottom.origin)
+const expandOrigin = ref<string>(SIDES.bottom.origin)
 const { floatingStyles, middlewareData, placement, x, y, isPositioned } = useFloating(
 	triggerEl,
 	floating,

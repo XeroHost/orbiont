@@ -7,7 +7,10 @@
 			</h3>
 			<div class="flex flex-wrap gap-1">
 				<TagItem
-					v-for="version in getVersionsToDisplay(project, tags.gameVersions)"
+					v-for="version in getVersionsToDisplay(
+						{ game_versions: project.game_versions ?? [] },
+						tags.gameVersions,
+					)"
 					:key="`version-tag-${version}`"
 				>
 					{{ version }}
@@ -135,6 +138,7 @@ const props = defineProps<{
 		actualProjectType: string
 		project_type: string
 		loaders: string[]
+		game_versions?: string[]
 		client_side: EnvironmentValue
 		server_side: EnvironmentValue
 		// eslint-disable-next-line @typescript-eslint/no-explicit-any

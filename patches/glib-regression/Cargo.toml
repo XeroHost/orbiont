@@ -1,0 +1,11 @@
+[package]
+name = "orbiont-glib-regression"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+# Isolated harness: no GTK upgrade or upstream development dependencies.
+[workspace]
+
+[dependencies]
+glib = { path = "../glib-0.18.5", default-features = false }

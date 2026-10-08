@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Op zoek naar Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft is nog actief"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Sluit Minecraft om bestanden te bewerken, inhoud te verwijderen of een kopie te herstellen."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Kan deze map Minecraft niet openen. Vernieuw uw gegevens en probeer het opnieuw."
   },
+  "app.bedrock.force-stop": {
+    "message": "Geforceerd sluiten"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft is niet gesloten na het normale verzoek. Dit spelproces geforceerd sluiten? Niet-opgeslagen voortgang kan verloren gaan. Je kunt annuleren en in Minecraft opslaan en afsluiten."
+  },
   "app.bedrock.import-button": {
     "message": "Bestand importeren"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows is geïnstalleerd"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Er is onvoldoende vrije schijfruimte om deze inhoud voor te bereiden en herstelkopieën te bewaren. Maak ruimte vrij op het doelstation en probeer het opnieuw."
+  },
   "app.bedrock.invalid-file": {
     "message": "Kies een geldig lokaal .mcworld-, .mcpack- of .mcaddon-archief."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Dit bestand overschrijdt de importlimiet van 8 GiB."
+    "message": "Dit bestand overschrijdt de importlimiet van 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Kan Minecraft niet openen. Open het officiële opstartprogramma of Microsoft Store om de installatie te controleren."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Diagnoserapport exporteren"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Open de officiële launcher om je sessie te controleren, of open Microsoft Store om updates te installeren of Minecraft te herstellen. Vernieuw de detectie wanneer je klaar bent."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Gereed} requested {Start aangevraagd} starting {Wachten op Minecraft} running {Minecraft is actief} timeout {Minecraft is niet binnen de wachttijd gestart} failed {Starten mislukt} other {Start controleren}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Verstreken: {seconds, number} seconden"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Startdiagnose"
+  },
+  "bedrock.packs.activations": {
+    "message": "Activeringen in werelden"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Afhankelijkheden"
+  },
+  "bedrock.packs.details": {
+    "message": "Versies en afhankelijkheden"
+  },
+  "bedrock.packs.none": {
+    "message": "Geen gemeld"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Actieve versie} other {Bewaarde versie}}"
+  },
   "curseforge.manual.description": {
     "message": "Download {file} vanaf de officiële CurseForge-pagina en selecteer het gedownloade bestand om door te gaan. De grootte en SHA-1 worden gecontroleerd."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Bestanden toevoegen ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Het bestand is buiten de editor gewijzigd. Je concept blijft bewaard. Kopieer het voordat je het bestand opnieuw opent om de nieuwste versie te bekijken."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Het bestand kon niet worden opgeslagen. Je concept blijft bewaard."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Beheer je geïnstalleerde inhoud via het tabblad Inhoud"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Open het bestand opnieuw voordat je opslaat."
   },
   "instance.files.save-as": {
     "message": "Opslaan als..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Wereld wordt gebruikt"
+  },
+  "local-management.category.cache": {
+    "message": "Gedeelde launchercache"
+  },
+  "local-management.category.data": {
+    "message": "Spelgegevens"
+  },
+  "local-management.category.import": {
+    "message": "Bewaarde imports"
+  },
+  "local-management.category.recovery": {
+    "message": "Herstelbare kopieën"
+  },
+  "local-management.category.retained-version": {
+    "message": "Bewaarde pakketversies"
+  },
+  "local-management.confirm-removal": {
+    "message": "Permanent verwijderen bevestigen"
+  },
+  "local-management.empty": {
+    "message": "Er zijn geen herstelbare kopieën gevonden."
+  },
+  "local-management.error": {
+    "message": "De bewerking is mislukt. Je selectie is bewaard. Vernieuw en probeer het opnieuw."
+  },
+  "local-management.load-more": {
+    "message": "Meer kopieën laden"
+  },
+  "local-management.loading": {
+    "message": "Lokale gegevens laden…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Installatie van wereldpakketten} java_editor {Java-editor} other {Lokaal Bedrock-beheer}}"
+  },
+  "local-management.partial": {
+    "message": "Deze lijst of schatting van de grootte is onvolledig."
+  },
+  "local-management.preview": {
+    "message": "Voorbeeld"
+  },
+  "local-management.recovery": {
+    "message": "Herstelbare kopieën"
+  },
+  "local-management.remove": {
+    "message": "Geselecteerde items verwijderen"
+  },
+  "local-management.remove-help": {
+    "message": "Alleen geselecteerde herstelbare kopieën en bewaarde imports kunnen worden verwijderd. Permanent verwijderen maakt herstel onmogelijk."
+  },
+  "local-management.restore": {
+    "message": "Herstel bevestigen"
+  },
+  "local-management.restore-help": {
+    "message": "Controleer de bestemming en de kopie hieronder voordat je herstelt. Latere wijzigingen of een bezette bestemming kunnen herstel blokkeren."
+  },
+  "local-management.retention.days": {
+    "message": "Ouder dan (dagen)"
+  },
+  "local-management.retention.help": {
+    "message": "Selecteer oude herstelbare kopieën om ze te bekijken. Er wordt niets automatisch verwijderd; onvolledige kopieën en geïnstalleerde inhoud blijven bewaard."
+  },
+  "local-management.retention.keep": {
+    "message": "Nieuwste kopieën per bestand of wereld bewaren"
+  },
+  "local-management.retention.select": {
+    "message": "Oude kopieën selecteren"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# geselecteerd item} other {# geselecteerde items}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} bytes"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Voorbereid} applied {Toegepast} rollback_failed {Terugdraaien mislukt} restored {Hersteld} partial {Onvolledig} legacy {Oude kopie} other {Beschikbaar}}"
+  },
+  "local-management.storage": {
+    "message": "Opslag"
+  },
+  "local-management.title": {
+    "message": "Herstel en opslag"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft-accounts"

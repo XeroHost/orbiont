@@ -235,11 +235,7 @@ const messages = defineMessages({
 })
 
 type NotificationToastType =
-	| 'friend-request'
-	| 'server-invite'
-	| 'instance-invite'
-	| 'instance-download'
-	| 'instance-ready'
+	'friend-request' | 'server-invite' | 'instance-invite' | 'instance-download' | 'instance-ready'
 type NotificationToastAction = 'accept'
 
 const props = withDefaults(

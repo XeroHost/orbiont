@@ -7,11 +7,11 @@
 		"app:build": "turbo run build --filter=@orbiont/app",
 		"build": "pnpm app:build",
 		"lint": "turbo run lint lint:ancillary --continue --concurrency=1",
-		"lint:ancillary": "prettier --check .github *.*",
+		"lint:ancillary": "prettier --check --ignore-unknown .github *.*",
 		"test": "turbo run test --continue --concurrency=1",
 		"test:i18n": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/i18n-icu-contract.test.ts scripts/i18n-source-catalog.test.ts",
 		"fix": "turbo run fix fix:ancillary --continue",
-		"fix:ancillary": "prettier --write .github *.*",
+		"fix:ancillary": "prettier --write --ignore-unknown .github *.*",
 		"ci": "pnpm test:i18n && turbo run lint test --continue --concurrency=1",
 		"prepr": "turbo run prepr --continue",
 		"prepr:frontend:lib": "turbo run prepr --filter=@orbiont/ui --filter=@orbiont/assets --filter=@orbiont/api-client --filter=@orbiont/utils --filter=@orbiont/tooling-config",
@@ -23,27 +23,33 @@
 		"scripts": "node scripts/run.mjs"
 	},
 	"devDependencies": {
-		"@clack/prompts": "^1.0.0",
+		"typescript": "^5.9.3",
+		"@clack/prompts": "^1.8.1",
 		"@formatjs/icu-messageformat-parser": "^2.11.4",
 		"@orbiont/tooling-config": "workspace:*",
 		"@tailwindcss/container-queries": "^0.1.1",
-		"@types/node": "^24",
-		"@typescript-eslint/typescript-estree": "^8.64.0",
-		"@vue/compiler-dom": "^3.5.26",
-		"@vue/compiler-sfc": "^3.5.26",
+		"@types/node": "^24.19.0",
+		"@typescript-eslint/typescript-estree": "^8.71.0",
+		"@vue/compiler-dom": "^3.5.43",
+		"@vue/compiler-sfc": "^3.5.43",
 		"chalk": "^5.6.2",
 		"if-ci": "^3.0.0",
-		"keep-a-changelog": "^3.0.2",
-		"prettier": "^3.3.2",
-		"turbo": "^2.5.4",
-		"vue": "^3.5.13",
-		"yaml": "^2.8.2"
+		"keep-a-changelog": "^3.2.0",
+		"prettier": "^3.9.9",
+		"turbo": "^2.11.5",
+		"vue": "^3.5.43",
+		"yaml": "^2.9.1"
 	},
 	"packageManager": "pnpm@10.33.2",
 	"engines": {
 		"node": ">=24.15.0"
 	},
 	"pnpm": {
+		"overrides": {
+			"source-map-js": "^1.2.2",
+			"postcss-selector-parser@6": "^7.1.6",
+			"postcss-selector-parser@7": "^7.1.6"
+		},
 		"peerDependencyRules": {
 			"allowedVersions": {
 				"vite": "8",

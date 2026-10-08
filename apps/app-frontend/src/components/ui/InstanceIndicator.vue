@@ -14,6 +14,7 @@ const messages = defineMessages({
 })
 
 type Instance = {
+	id: string
 	game_version: string
 	loader: string
 	path: string

@@ -407,6 +407,7 @@ const managedContent = computed<ManagedContentData | null>(() => {
 		return {
 			card: {
 				kind: 'server',
+				updateAvailable: false,
 				installing: isInstanceBusy.value,
 				manager: {
 					name: linkedProject?.name ?? instance.value.name,
@@ -624,8 +625,7 @@ async function getUpdaterProjectVersions(projectId: string, pinnedVersionId?: st
 
 	if (!versions) {
 		versions = (await get_project_versions(projectId).catch(() => null)) as
-			| Labrinth.Versions.v2.Version[]
-			| null
+			Labrinth.Versions.v2.Version[] | null
 	}
 
 	if (!versions && fetchError) {
@@ -922,7 +922,7 @@ async function bulkUpdateAllProjects(onProgress?: (status: BulkOperationStatus) 
 }
 
 async function updateProject(mod: ContentItem) {
-	if (!canUpdateProject(mod) || mod.locked) return
+	if (!canUpdateProject(mod) || mod.locked || !mod.file_path) return
 	const operation = beginContentOperation(mod)
 	if (!operation) return
 
@@ -1011,7 +1011,7 @@ async function handleUpdate(id: string) {
 		},
 		modalStateBeforeFetch: {
 			updatingModpack: updatingModpack.value,
-			updatingProjectId: updatingProject.value?.id,
+			updatingProjectId: undefined,
 			updatingProjectVersions: updatingProjectVersions.value.map((version) => ({
 				id: version.id,
 				versionNumber: version.version_number,
@@ -1187,7 +1187,7 @@ async function handleModpackUpdate() {
 		},
 		modalStateBeforeFetch: {
 			updatingModpack: updatingModpack.value,
-			updatingProjectId: updatingProject.value?.id,
+			updatingProjectId: undefined,
 			updatingProjectVersions: updatingProjectVersions.value.map((version) => ({
 				id: version.id,
 				versionNumber: version.version_number,

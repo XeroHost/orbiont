@@ -29,12 +29,12 @@
 		"fix": "eslint . --fix && prettier --write ."
 	},
 	"devDependencies": {
-		"@microsoft/api-extractor": "^7.58.9",
+		"@microsoft/api-extractor": "^7.59.3",
 		"@orbiont/tooling-config": "workspace:*",
-		"@tauri-apps/plugin-http": "^2.0.0",
-		"esbuild": "0.27.2",
+		"@tauri-apps/plugin-http": "^2.8.0",
+		"esbuild": "0.28.1",
 		"typescript": "^5.9.3",
-		"unplugin-dts": "^1.0.3"
+		"unplugin-dts": "^1.1.1"
 	},
 	"peerDependencies": {
 		"@tauri-apps/plugin-http": "^2.0.0"

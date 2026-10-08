@@ -22,9 +22,10 @@ import {
 } from '@orbiont/ui'
 import { useQuery, useQueryClient } from '@tanstack/vue-query'
 import { computed, ref, watch } from 'vue'
-import { onBeforeRouteLeave, useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 
 import bedrockLogo from '@/assets/editions/bedrock-edition.png?url'
+import LocalManagementCenter from '@/components/ui/management/LocalManagementCenter.vue'
 import {
 	type BedrockApplication,
 	type BedrockItem,
@@ -33,6 +34,9 @@ import {
 	openBedrockFolder,
 } from '@/helpers/bedrock'
 import { bedrockMessages as messages } from '@/helpers/bedrock-messages'
+import { removeBedrockBatch } from '@/helpers/bedrock-operations'
+import { createBedrockManagementAdapter } from '@/helpers/local-management'
+import { managementMessages } from '@/helpers/management-messages'
 
 import BedrockContent from './BedrockContent.vue'
 import BedrockFiles from './BedrockFiles.vue'
@@ -45,6 +49,7 @@ const props = defineProps<{
 	launcherAvailable: boolean
 	busy: boolean
 	running: boolean
+	launchPending?: boolean
 }>()
 const emit = defineEmits<{
 	play: []
@@ -63,9 +68,14 @@ const folderError = ref(false)
 const mutationBusy = ref(false)
 const mutationError = ref('')
 const management = ref<InstanceType<typeof BedrockManagement>>()
+const managementCenter = ref<InstanceType<typeof LocalManagementCenter>>()
+const managementAdapter = createBedrockManagementAdapter(async () => {
+	await invalidateContent()
+})
 const fileView = ref<InstanceType<typeof BedrockFiles>>()
 const manageBusy = computed(
-	() => props.busy || folderBusy.value || mutationBusy.value || props.running,
+	() =>
+		props.busy || folderBusy.value || mutationBusy.value || props.running || !!props.launchPending,
 )
 async function changeTab(index: number) {
 	if (activeTab.value === 1 && !(await fileView.value?.confirmLeave())) return
@@ -74,51 +84,60 @@ async function changeTab(index: number) {
 watch(
 	() => route.query.tab,
 	(tab) => {
-		if (tab === 'logs') void changeTab(3)
+		if (tab === 'logs') activeTab.value = 3
 	},
 	{ immediate: true },
-)
-onBeforeRouteLeave(
-	async () => activeTab.value !== 1 || (await fileView.value?.confirmLeave()) !== false,
 )
 function confirmDelete(items: BedrockItem[]) {
 	return management.value?.confirm(items) ?? Promise.resolve(false)
 }
-async function deleteItem(item: BedrockItem) {
-	if (props.running || mutationBusy.value) {
-		mutationError.value = formatMessage(messages.closeToManage)
-		throw new Error(mutationError.value)
-	}
+async function invalidateContent() {
+	await Promise.all(
+		['workspace', 'files', 'recoveries', 'storage'].map((key) =>
+			queryClient.invalidateQueries({ queryKey: ['bedrock', key] }),
+		),
+	)
+}
+async function deleteItems(items: BedrockItem[]) {
+	if (props.running || props.launchPending || mutationBusy.value)
+		throw new Error(formatMessage(messages.closeToManage))
 	mutationBusy.value = true
 	mutationError.value = ''
 	try {
-		await deleteBedrockItem(item.root_id, item.path)
-		await queryClient.invalidateQueries({ queryKey: ['bedrock'] })
+		await removeBedrockBatch(
+			items,
+			(item) => deleteBedrockItem(item.root_id, item.path),
+			invalidateContent,
+		)
 	} catch (error) {
 		mutationError.value = formatMessage(
-			(error as { code?: string })?.code === 'conflict'
-				? messages.conflictError
-				: messages.mutationError,
+			(error as { code?: string })?.code === 'game_running'
+				? messages.closeToManage
+				: (error as { code?: string })?.code === 'conflict'
+					? messages.conflictError
+					: messages.mutationError,
 		)
 		throw new Error(mutationError.value, { cause: error })
 	} finally {
 		mutationBusy.value = false
 	}
 }
+async function deleteItem(item: BedrockItem) {
+	await deleteItems([item])
+}
 async function deleteWorld(items: BedrockItem[]) {
 	if (!(await confirmDelete(items))) return
 	try {
-		for (const item of items) await deleteItem(item)
+		await deleteItems(items)
 	} catch {
-		/* The workspace keeps the failure visible. */
+		/* Visible error above; keep failed selections. */
 	}
 }
 const workspace = useQuery({
 	queryKey: ['bedrock', 'workspace'],
-	queryFn: getBedrockWorkspace,
+	queryFn: () => getBedrockWorkspace(),
 	staleTime: 5000,
 	refetchOnWindowFocus: 'always',
-	refetchInterval: 15_000,
 	retry: false,
 })
 const data = workspace.data
@@ -140,7 +159,11 @@ const emptyMessage = computed(() =>
 )
 async function refresh() {
 	emit('refresh')
-	await queryClient.invalidateQueries({ queryKey: ['bedrock'] })
+	await queryClient.fetchQuery({
+		queryKey: ['bedrock', 'workspace'],
+		queryFn: () => getBedrockWorkspace(true),
+	})
+	await queryClient.invalidateQueries({ queryKey: ['bedrock', 'files'] })
 }
 async function openFolder(rootId: string, path: string) {
 	if (folderBusy.value) return
@@ -158,7 +181,12 @@ async function openFolder(rootId: string, path: string) {
 
 <template>
 	<div class="flex min-w-0 flex-col gap-4">
-		<BedrockManagement ref="management" :running="running" />
+		<BedrockManagement ref="management" :running="running || !!launchPending" />
+		<LocalManagementCenter
+			ref="managementCenter"
+			:adapter="managementAdapter"
+			:disabled="manageBusy"
+		/>
 		<header
 			class="flex flex-wrap items-center justify-between gap-4 border-0 border-b border-solid border-surface-4 pb-4"
 		>
@@ -181,7 +209,7 @@ async function openFolder(rootId: string, path: string) {
 					type="colored"
 					:color="running ? 'red' : 'brand'"
 					size="xl"
-					:disabled="busy"
+					:disabled="busy || launchPending"
 					@click="running ? emit('stop') : emit('play')"
 					><StopCircleIcon v-if="running" /><AnimatedIcon v-else name="play" />{{
 						formatMessage(running ? commonMessages.stopButton : messages.play)
@@ -198,13 +226,19 @@ async function openFolder(rootId: string, path: string) {
 							label: formatMessage(messages.update),
 							icon: DownloadIcon,
 							action: () => emit('update'),
-							disabled: busy || running,
+							disabled: busy || running || launchPending,
 						},
 						{
 							id: 'recoveries',
 							label: formatMessage(messages.recoveryTitle),
 							icon: HistoryIcon,
-							action: () => management?.showRecovery(),
+							action: () => managementCenter?.show('recovery'),
+						},
+						{
+							id: 'storage',
+							label: formatMessage(managementMessages.storage),
+							icon: FolderOpenIcon,
+							action: () => managementCenter?.show('storage'),
 						},
 						{
 							id: 'launcher',
@@ -231,7 +265,11 @@ async function openFolder(rootId: string, path: string) {
 		<Admonition v-if="running" type="info">{{ formatMessage(messages.closeToManage) }}</Admonition>
 		<Admonition v-if="mutationError" type="warning" role="alert">{{ mutationError }}</Admonition>
 		<div v-if="activeTab === 2 || activeTab === 3" class="flex flex-wrap items-center gap-3">
-			<Button v-if="activeTab === 2" type="outlined" :disabled="busy" @click="emit('import')"
+			<Button
+				v-if="activeTab === 2"
+				type="outlined"
+				:disabled="busy || launchPending"
+				@click="emit('import')"
 				><UploadIcon />{{ formatMessage(messages.importButton) }}</Button
 			>
 			<Button type="outlined" :disabled="busy || workspace.isFetching.value" @click="refresh"
@@ -239,10 +277,13 @@ async function openFolder(rootId: string, path: string) {
 			>
 		</div>
 		<p v-if="workspace.isPending.value" role="status">{{ formatMessage(messages.loadingData) }}</p>
-		<Admonition v-else-if="workspace.isError.value" type="warning" role="alert">{{
+		<Admonition v-else-if="workspace.isError.value && !data" type="warning" role="alert">{{
 			formatMessage(messages.dataError)
 		}}</Admonition>
 		<template v-else-if="data">
+			<Admonition v-if="workspace.isError.value" type="warning" role="alert">{{
+				formatMessage(messages.dataError)
+			}}</Admonition>
 			<Admonition v-if="data.incomplete" type="warning">{{
 				formatMessage(messages.partialData)
 			}}</Admonition>
@@ -253,7 +294,7 @@ async function openFolder(rootId: string, path: string) {
 				v-if="activeTab === 1"
 				ref="fileView"
 				:roots="data.roots"
-				:running="running"
+				:running="running || !!launchPending"
 				:busy="busy || folderBusy || mutationBusy"
 				@open-folder="openFolder"
 			/>
@@ -271,6 +312,7 @@ async function openFolder(rootId: string, path: string) {
 				:busy="manageBusy"
 				:confirm-delete="confirmDelete"
 				:delete-item="deleteItem"
+				:delete-items="deleteItems"
 				@open-folder="openFolder"
 				@import="emit('import')"
 				@refresh="refresh"

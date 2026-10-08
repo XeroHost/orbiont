@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Se caută Minecraft for Windows..."
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft încă rulează"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Închideți Minecraft pentru a edita fișiere, a șterge conținut sau a restabili o copie."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Nu s-a putut deschide acest folder Minecraft. Actualizează-ți datele și încearcă din nou."
   },
+  "app.bedrock.force-stop": {
+    "message": "Închide forțat"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft nu s-a închis după solicitarea normală. Închizi forțat acest proces al jocului? Progresul nesalvat se poate pierde. Poți anula, apoi salva și ieși din Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Importați fișierul"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows este instalat"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Nu există suficient spațiu liber pe disc pentru pregătirea acestui conținut și păstrarea copiilor de recuperare. Eliberează spațiu pe unitatea de destinație și încearcă din nou."
+  },
   "app.bedrock.invalid-file": {
     "message": "Alegeți o arhivă locală validă .mcworld, .mcpack sau .mcaddon."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Acest fișier depășește limita de import 8 GiB."
+    "message": "Acest fișier depășește limita de import de 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Nu s-a putut deschide Minecraft. Deschideți lansatorul oficial sau Microsoft Store pentru a verifica instalarea."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Exportă raportul de diagnosticare"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Deschide lansatorul oficial pentru a verifica sesiunea sau deschide Microsoft Store pentru a instala actualizări ori a repara Minecraft. Reîmprospătează detectarea după ce termini."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Pregătit} requested {Lansare solicitată} starting {Se așteaptă Minecraft} running {Minecraft rulează} timeout {Minecraft nu a pornit înainte de expirarea timpului de așteptare} failed {Lansarea a eșuat} other {Se verifică lansarea}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Timp scurs: {seconds, number} secunde"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Diagnosticarea lansării"
+  },
+  "bedrock.packs.activations": {
+    "message": "Activări în lumi"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Dependențe"
+  },
+  "bedrock.packs.details": {
+    "message": "Versiuni și dependențe"
+  },
+  "bedrock.packs.none": {
+    "message": "Niciuna raportată"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Versiune activă} other {Versiune păstrată}}"
+  },
   "curseforge.manual.description": {
     "message": "Descarcă {file} de pe pagina sa oficială CurseForge, apoi selectează fișierul descărcat pentru a continua. Dimensiunea și SHA-1 vor fi verificate."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Se adaugă fișierele ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Fișierul a fost modificat în afara editorului. Ciorna ta este păstrată. Copiaz-o înainte de a redeschide fișierul pentru a verifica cea mai recentă versiune."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Fișierul nu a putut fi salvat. Ciorna ta este păstrată."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Gestionează-ți conținutul instalat din fila Conținut"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Redeschide fișierul înainte de a salva."
   },
   "instance.files.save-as": {
     "message": "Salvează ca..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Lumea este în folosință"
+  },
+  "local-management.category.cache": {
+    "message": "Memorie cache comună a lansatorului"
+  },
+  "local-management.category.data": {
+    "message": "Datele jocului"
+  },
+  "local-management.category.import": {
+    "message": "Importuri păstrate"
+  },
+  "local-management.category.recovery": {
+    "message": "Copii recuperabile"
+  },
+  "local-management.category.retained-version": {
+    "message": "Versiuni de pachete păstrate"
+  },
+  "local-management.confirm-removal": {
+    "message": "Confirmă ștergerea definitivă"
+  },
+  "local-management.empty": {
+    "message": "Nu s-au găsit copii recuperabile."
+  },
+  "local-management.error": {
+    "message": "Operațiunea a eșuat. Selecția ta a fost păstrată. Reîmprospătează și încearcă din nou."
+  },
+  "local-management.load-more": {
+    "message": "Încarcă mai multe copii"
+  },
+  "local-management.loading": {
+    "message": "Se încarcă datele locale…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Instalarea pachetelor în lumi} java_editor {Editor Java} other {Gestionare locală Bedrock}}"
+  },
+  "local-management.partial": {
+    "message": "Această listă sau estimare a dimensiunii este incompletă."
+  },
+  "local-management.preview": {
+    "message": "Previzualizare"
+  },
+  "local-management.recovery": {
+    "message": "Copii recuperabile"
+  },
+  "local-management.remove": {
+    "message": "Șterge elementele selectate"
+  },
+  "local-management.remove-help": {
+    "message": "Pot fi șterse doar copiile recuperabile și importurile păstrate care sunt selectate. Ștergerea definitivă împiedică recuperarea lor."
+  },
+  "local-management.restore": {
+    "message": "Confirmă restaurarea"
+  },
+  "local-management.restore-help": {
+    "message": "Verifică destinația și copia de mai jos înainte de restaurare. Modificările ulterioare sau o destinație ocupată pot împiedica restaurarea."
+  },
+  "local-management.retention.days": {
+    "message": "Mai vechi de (zile)"
+  },
+  "local-management.retention.help": {
+    "message": "Selectează copiile recuperabile vechi pentru verificare. Nimic nu este șters automat; copiile incomplete și conținutul instalat sunt păstrate."
+  },
+  "local-management.retention.keep": {
+    "message": "Păstrează cele mai recente copii pentru fiecare fișier sau lume"
+  },
+  "local-management.retention.select": {
+    "message": "Selectează copiile vechi"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# element selectat} few {# elemente selectate} other {# de elemente selectate}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} B"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Pregătită} applied {Aplicată} rollback_failed {Revenirea a eșuat} restored {Restaurată} partial {Incompletă} legacy {Copie veche} other {Disponibilă}}"
+  },
+  "local-management.storage": {
+    "message": "Stocare"
+  },
+  "local-management.title": {
+    "message": "Recuperare și stocare"
   },
   "minecraft-account.accounts": {
     "message": "Conturi Minecraft"

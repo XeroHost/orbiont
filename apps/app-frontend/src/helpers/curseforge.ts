@@ -21,12 +21,7 @@ import { registerCategoryIconAliases } from '@orbiont/assets'
 import { invoke } from '@tauri-apps/api/core'
 
 export type CurseforgeProjectType =
-	| 'modpack'
-	| 'mod'
-	| 'resourcepack'
-	| 'datapack'
-	| 'shader'
-	| 'world'
+	'modpack' | 'mod' | 'resourcepack' | 'datapack' | 'shader' | 'world'
 
 const PREFIX = 'cf-'
 

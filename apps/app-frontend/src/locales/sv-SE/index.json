@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Letar du efter Minecraft for Windows..."
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft körs fortfarande"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Stäng Minecraft för att redigera filer, radera innehåll eller återställa en kopia."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Det gick inte att öppna den här Minecraft-mappen. Uppdatera din data och försök igen."
   },
+  "app.bedrock.force-stop": {
+    "message": "Tvångsavsluta"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft stängdes inte efter den vanliga begäran. Vill du tvångsavsluta denna spelprocess? Osparade framsteg kan gå förlorade. Du kan avbryta och spara och avsluta inne i Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Importera fil"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows är installerad"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Det finns inte tillräckligt med ledigt diskutrymme för att förbereda detta innehåll och behålla återställningskopior. Frigör utrymme på målenheten och försök igen."
+  },
   "app.bedrock.invalid-file": {
     "message": "Välj ett giltigt lokalt .mcworld-, .mcpack- eller .mcaddon-arkiv."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Den här filen överskrider importgränsen för 8 GiB."
+    "message": "Den här filen överskrider importgränsen på 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Kunde inte öppna Minecraft. Öppna den officiella startprogrammet eller Microsoft Store för att kontrollera installationen."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Exportera diagnostikrapport"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Öppna den officiella startaren för att kontrollera din session, eller öppna Microsoft Store för att installera uppdateringar eller reparera Minecraft. Uppdatera identifieringen när du är klar."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Redo} requested {Start begärd} starting {Väntar på Minecraft} running {Minecraft körs} timeout {Minecraft startade inte inom tidsgränsen} failed {Start misslyckades} other {Kontrollerar start}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Förfluten tid: {seconds, number} sekunder"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Startdiagnostik"
+  },
+  "bedrock.packs.activations": {
+    "message": "Aktiveringar i världar"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Beroenden"
+  },
+  "bedrock.packs.details": {
+    "message": "Versioner och beroenden"
+  },
+  "bedrock.packs.none": {
+    "message": "Inga rapporterade"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Aktiv version} other {Behållen version}}"
+  },
   "curseforge.manual.description": {
     "message": "Ladda ned {file} från dess officiella CurseForge-sida och välj den nedladdade filen för att fortsätta. Storleken och SHA-1 kontrolleras."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Lägger till filer ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Filen ändrades utanför redigeraren. Ditt utkast behålls. Kopiera det innan du öppnar filen igen för att granska den senaste versionen."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Kunde inte spara filen. Ditt utkast behålls."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Hantera ditt installerade innehåll via fliken Innehåll"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Öppna filen igen innan du sparar."
   },
   "instance.files.save-as": {
     "message": "Spara som..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Värld används"
+  },
+  "local-management.category.cache": {
+    "message": "Startarens delade cache"
+  },
+  "local-management.category.data": {
+    "message": "Speldata"
+  },
+  "local-management.category.import": {
+    "message": "Behållna importer"
+  },
+  "local-management.category.recovery": {
+    "message": "Återställningsbara kopior"
+  },
+  "local-management.category.retained-version": {
+    "message": "Behållna paketversioner"
+  },
+  "local-management.confirm-removal": {
+    "message": "Bekräfta permanent borttagning"
+  },
+  "local-management.empty": {
+    "message": "Inga återställningsbara kopior hittades."
+  },
+  "local-management.error": {
+    "message": "Åtgärden misslyckades. Ditt urval har behållits. Uppdatera och försök igen."
+  },
+  "local-management.load-more": {
+    "message": "Läs in fler kopior"
+  },
+  "local-management.loading": {
+    "message": "Läser in lokala data…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Installation av världspaket} java_editor {Java-redigerare} other {Lokal Bedrock-hantering}}"
+  },
+  "local-management.partial": {
+    "message": "Denna lista eller storleksuppskattning är ofullständig."
+  },
+  "local-management.preview": {
+    "message": "Förhandsvisning"
+  },
+  "local-management.recovery": {
+    "message": "Återställningsbara kopior"
+  },
+  "local-management.remove": {
+    "message": "Ta bort valda objekt"
+  },
+  "local-management.remove-help": {
+    "message": "Endast valda återställningsbara kopior och behållna importer kan tas bort. Permanent borttagning gör det omöjligt att återställa dem."
+  },
+  "local-management.restore": {
+    "message": "Bekräfta återställning"
+  },
+  "local-management.restore-help": {
+    "message": "Granska målet och kopian nedan innan du återställer. Senare ändringar eller ett upptaget mål kan hindra återställningen."
+  },
+  "local-management.retention.days": {
+    "message": "Äldre än (dagar)"
+  },
+  "local-management.retention.help": {
+    "message": "Välj gamla återställningsbara kopior för granskning. Ingenting tas bort automatiskt; ofullständiga kopior och installerat innehåll behålls."
+  },
+  "local-management.retention.keep": {
+    "message": "Behåll de senaste kopiorna per fil eller värld"
+  },
+  "local-management.retention.select": {
+    "message": "Välj gamla kopior"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# valt objekt} other {# valda objekt}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} byte"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Förberedd} applied {Tillämpad} rollback_failed {Återgång misslyckades} restored {Återställd} partial {Ofullständig} legacy {Äldre kopia} other {Tillgänglig}}"
+  },
+  "local-management.storage": {
+    "message": "Lagring"
+  },
+  "local-management.title": {
+    "message": "Återställning och lagring"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft-konton"

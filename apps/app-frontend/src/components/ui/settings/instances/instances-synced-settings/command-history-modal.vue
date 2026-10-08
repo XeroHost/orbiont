@@ -8,8 +8,10 @@ import {
 	NewModal,
 	useVIntl,
 } from '@orbiont/ui'
+import { loadAceEditor } from '@orbiont/ui/src/utils/ace-loader'
 import { useMutation, useQuery, useQueryClient } from '@tanstack/vue-query'
-import { defineAsyncComponent, nextTick, ref } from 'vue'
+import type { Component } from 'vue'
+import { nextTick, ref, shallowRef } from 'vue'
 
 import { set_command_history } from '@/helpers/instance'
 import { commandHistoryQueryOptions, syncedOptionsKeys } from '@/helpers/synced-options'
@@ -20,14 +22,8 @@ const queryClient = useQueryClient()
 const modal = ref<InstanceType<typeof NewModal> | null>(null)
 const commandHistory = ref('')
 const historyQuery = useQuery({ ...commandHistoryQueryOptions(), enabled: false })
-const CommandHistoryEditor = defineAsyncComponent(async () => {
-	const [editor] = await Promise.all([
-		import('vue3-ace-editor'),
-		import('@orbiont/ui/src/utils/ace-theme'),
-		import('@orbiont/ui/src/utils/ace-mode-mcfunction'),
-	])
-	return editor.VAceEditor
-})
+const commandHistoryEditor = shallowRef<Component | null>(null)
+const isOpening = ref(false)
 const saveMutation = useMutation({
 	mutationFn: set_command_history,
 	onSuccess: (history) => {
@@ -44,14 +40,23 @@ const messages = defineMessages({
 })
 
 async function show() {
-	const result = await historyQuery.refetch()
-	if (result.isError) {
-		handleError(result.error)
-		return
+	if (isOpening.value) return
+	isOpening.value = true
+	try {
+		const result = await historyQuery.refetch()
+		if (result.isError) {
+			handleError(result.error)
+			return
+		}
+		if (!result.isSuccess) return
+		commandHistoryEditor.value = await loadAceEditor('mcfunction')
+		commandHistory.value = result.data
+		modal.value?.show()
+	} catch (error) {
+		handleError(error)
+	} finally {
+		isOpening.value = false
 	}
-	if (!result.isSuccess) return
-	commandHistory.value = result.data
-	modal.value?.show()
 }
 
 async function saveCommandHistory() {
@@ -78,7 +83,9 @@ defineExpose({ show })
 		max-width="700px"
 		width="700px"
 	>
-		<CommandHistoryEditor
+		<component
+			:is="commandHistoryEditor"
+			v-if="commandHistoryEditor"
 			v-model:value="commandHistory"
 			lang="mcfunction"
 			theme="modrinth"

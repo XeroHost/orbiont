@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Etsitkö Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft on edelleen käynnissä"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Sulje Minecraft muokataksesi tiedostoja, poistaaksesi sisältöä tai palauttaaksesi kopion."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Tätä Minecraft-kansiota ei voitu avata. Päivitä tietosi ja yritä uudelleen."
   },
+  "app.bedrock.force-stop": {
+    "message": "Pakota sulkeminen"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft ei sulkeutunut normaalin pyynnön jälkeen. Pakotetaanko tämän peliprosessin sulkeminen? Tallentamaton edistyminen voi kadota. Voit peruuttaa ja tallentaa ja poistua Minecraftissa."
+  },
   "app.bedrock.import-button": {
     "message": "Tuo tiedosto"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows on asennettu"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Vapaata levytilaa ei ole riittävästi tämän sisällön valmisteluun ja palautuskopioiden säilyttämiseen. Vapauta tilaa kohdelevyllä ja yritä uudelleen."
+  },
   "app.bedrock.invalid-file": {
     "message": "Valitse kelvollinen paikallinen .mcworld-, .mcpack- tai .mcaddon-arkisto."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Tämä tiedosto ylittää 8 GiB-tuontirajan."
+    "message": "Tämä tiedosto ylittää tuonnin 2 GiB:n rajan."
   },
   "app.bedrock.launch-error": {
     "message": "Ei voitu avata Minecraft. Avaa virallinen käynnistysohjelma tai Microsoft Store tarkistaaksesi asennuksen."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} paikalla"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Vie diagnostiikkaraportti"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Avaa virallinen käynnistin tarkistaaksesi istuntosi tai avaa Microsoft Store asentaaksesi päivityksiä tai korjataksesi Minecraftin. Päivitä tunnistus, kun olet valmis."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Valmis} requested {Käynnistystä pyydetty} starting {Odotetaan Minecraftia} running {Minecraft on käynnissä} timeout {Minecraft ei käynnistynyt määräajassa} failed {Käynnistys epäonnistui} other {Tarkistetaan käynnistystä}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Kulunut aika: {seconds, number} sekuntia"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Käynnistyksen diagnostiikka"
+  },
+  "bedrock.packs.activations": {
+    "message": "Aktivoinnit maailmoissa"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Riippuvuudet"
+  },
+  "bedrock.packs.details": {
+    "message": "Versiot ja riippuvuudet"
+  },
+  "bedrock.packs.none": {
+    "message": "Ei ilmoitettuja"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Aktiivinen versio} other {Säilytetty versio}}"
+  },
   "curseforge.manual.description": {
     "message": "Lataa {file} sen viralliselta CurseForge-sivulta ja valitse ladattu tiedosto jatkaaksesi. Sen koko ja SHA-1 tarkistetaan."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Lisätään tiedostoja ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Tiedostoa muutettiin editorin ulkopuolella. Luonnoksesi säilytetään. Kopioi se ennen tiedoston avaamista uudelleen uusimman version tarkistamiseksi."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Tiedostoa ei voitu tallentaa. Luonnoksesi säilytetään."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Hallitse asennettua sisältöä Sisältö-välilehdeltä"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Avaa tiedosto uudelleen ennen tallentamista."
   },
   "instance.files.save-as": {
     "message": "Tallenna nimellä..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Maailma on käytössä"
+  },
+  "local-management.category.cache": {
+    "message": "Käynnistimen jaettu välimuisti"
+  },
+  "local-management.category.data": {
+    "message": "Pelin tiedot"
+  },
+  "local-management.category.import": {
+    "message": "Säilytetyt tuonnit"
+  },
+  "local-management.category.recovery": {
+    "message": "Palautettavat kopiot"
+  },
+  "local-management.category.retained-version": {
+    "message": "Säilytetyt pakettiversiot"
+  },
+  "local-management.confirm-removal": {
+    "message": "Vahvista pysyvä poisto"
+  },
+  "local-management.empty": {
+    "message": "Palautettavia kopioita ei löytynyt."
+  },
+  "local-management.error": {
+    "message": "Toiminto epäonnistui. Valintasi säilytetään. Päivitä ja yritä uudelleen."
+  },
+  "local-management.load-more": {
+    "message": "Lataa lisää kopioita"
+  },
+  "local-management.loading": {
+    "message": "Ladataan paikallisia tietoja…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Pakettien asennus maailmoihin} java_editor {Java-editori} other {Bedrockin paikallinen hallinta}}"
+  },
+  "local-management.partial": {
+    "message": "Tämä luettelo tai kokoarvio on puutteellinen."
+  },
+  "local-management.preview": {
+    "message": "Esikatselu"
+  },
+  "local-management.recovery": {
+    "message": "Palautettavat kopiot"
+  },
+  "local-management.remove": {
+    "message": "Poista valitut kohteet"
+  },
+  "local-management.remove-help": {
+    "message": "Vain valitut palautettavat kopiot ja säilytetyt tuonnit voidaan poistaa. Pysyvä poisto estää niiden palauttamisen."
+  },
+  "local-management.restore": {
+    "message": "Vahvista palautus"
+  },
+  "local-management.restore-help": {
+    "message": "Tarkista alla oleva kohde ja kopio ennen palautusta. Myöhemmät muutokset tai varattu kohdesijainti voivat estää palautuksen."
+  },
+  "local-management.retention.days": {
+    "message": "Vanhempia kuin (päivää)"
+  },
+  "local-management.retention.help": {
+    "message": "Valitse vanhat palautettavat kopiot tarkistettaviksi. Mitään ei poisteta automaattisesti; puutteelliset kopiot ja asennettu sisältö säilytetään."
+  },
+  "local-management.retention.keep": {
+    "message": "Säilytä uusimmat kopiot kustakin tiedostosta tai maailmasta"
+  },
+  "local-management.retention.select": {
+    "message": "Valitse vanhat kopiot"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# valittu kohde} other {# valittua kohdetta}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} tavua"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Valmisteltu} applied {Otettu käyttöön} rollback_failed {Muutosten peruminen epäonnistui} restored {Palautettu} partial {Puutteellinen} legacy {Vanha kopio} other {Saatavilla}}"
+  },
+  "local-management.storage": {
+    "message": "Tallennustila"
+  },
+  "local-management.title": {
+    "message": "Palautus ja tallennustila"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft-tilit"

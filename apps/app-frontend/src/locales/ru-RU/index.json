@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "Ищем Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft всё ещё запущен"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Закройте Minecraft, чтобы редактировать файлы, удалять содержимое или восстанавливать копию."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Не удалось открыть папку Minecraft. Обновите данные и повторите попытку."
   },
+  "app.bedrock.force-stop": {
+    "message": "Принудительно закрыть"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft не закрылся после обычного запроса. Принудительно завершить этот процесс игры? Несохранённый прогресс может быть потерян. Можно отменить действие, сохранить игру и выйти из Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Импортировать файл"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows установлен."
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Недостаточно свободного места на диске для подготовки этого содержимого и хранения копий для восстановления. Освободите место на целевом диске и попробуйте снова."
+  },
   "app.bedrock.invalid-file": {
     "message": "Выберите действительный локальный архив .mcworld, .mcpack или .mcaddon."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Этот файл превышает лимит импорта 8 GiB."
+    "message": "Этот файл превышает ограничение импорта в 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Не удалось открыть Minecraft. Откройте официальный лаунчер или Microsoft Store, чтобы проверить установку."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} в игре"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Экспортировать диагностический отчёт"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Откройте официальный лаунчер, чтобы проверить сеанс, или Microsoft Store, чтобы установить обновления или восстановить Minecraft. По завершении обновите обнаружение."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Готово} requested {Запуск запрошен} starting {Ожидание Minecraft} running {Minecraft запущен} timeout {Minecraft не запустился за отведённое время} failed {Не удалось запустить} other {Проверка запуска}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Прошло: {seconds, number} с"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Диагностика запуска"
+  },
+  "bedrock.packs.activations": {
+    "message": "Активации в мирах"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Зависимости"
+  },
+  "bedrock.packs.details": {
+    "message": "Версии и зависимости"
+  },
+  "bedrock.packs.none": {
+    "message": "Не указаны"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Активная версия} other {Сохранённая версия}}"
+  },
   "curseforge.manual.description": {
     "message": "Скачайте {file} с официальной страницы CurseForge, затем выберите скачанный файл для продолжения. Размер и SHA-1 будут проверены."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Добавление файлов ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Файл изменён вне редактора. Ваш черновик сохранён. Скопируйте его перед повторным открытием файла для просмотра последней версии."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Не удалось сохранить файл. Ваш черновик сохранён."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Управляйте установленным контентом через вкладку Контент"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Откройте файл заново перед сохранением."
   },
   "instance.files.save-as": {
     "message": "Сохранить как..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Мир используется"
+  },
+  "local-management.category.cache": {
+    "message": "Общий кэш лаунчера"
+  },
+  "local-management.category.data": {
+    "message": "Данные игры"
+  },
+  "local-management.category.import": {
+    "message": "Сохранённые импорты"
+  },
+  "local-management.category.recovery": {
+    "message": "Копии для восстановления"
+  },
+  "local-management.category.retained-version": {
+    "message": "Сохранённые версии пакетов"
+  },
+  "local-management.confirm-removal": {
+    "message": "Подтвердить окончательное удаление"
+  },
+  "local-management.empty": {
+    "message": "Копии для восстановления не найдены."
+  },
+  "local-management.error": {
+    "message": "Операция не удалась. Ваш выбор сохранён. Обновите данные и попробуйте снова."
+  },
+  "local-management.load-more": {
+    "message": "Загрузить ещё копии"
+  },
+  "local-management.loading": {
+    "message": "Загрузка локальных данных…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Установка пакетов в мир} java_editor {Редактор Java} other {Локальное управление Bedrock}}"
+  },
+  "local-management.partial": {
+    "message": "Этот список или оценка размера неполны."
+  },
+  "local-management.preview": {
+    "message": "Предварительный просмотр"
+  },
+  "local-management.recovery": {
+    "message": "Копии для восстановления"
+  },
+  "local-management.remove": {
+    "message": "Удалить выбранные элементы"
+  },
+  "local-management.remove-help": {
+    "message": "Можно удалить только выбранные копии для восстановления и сохранённые импорты. Окончательное удаление делает их восстановление невозможным."
+  },
+  "local-management.restore": {
+    "message": "Подтвердить восстановление"
+  },
+  "local-management.restore-help": {
+    "message": "Перед восстановлением проверьте указанное ниже место назначения и копию. Последующие изменения или занятое место назначения могут помешать восстановлению."
+  },
+  "local-management.retention.days": {
+    "message": "Старше (дней)"
+  },
+  "local-management.retention.help": {
+    "message": "Выберите старые копии для восстановления и проверьте их. Ничего не удаляется автоматически; неполные копии и установленное содержимое сохраняются."
+  },
+  "local-management.retention.keep": {
+    "message": "Сохранять последние копии каждого файла или мира"
+  },
+  "local-management.retention.select": {
+    "message": "Выбрать старые копии"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {Выбран # элемент} few {Выбрано # элемента} many {Выбрано # элементов} other {Выбрано # элемента}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} Б"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Подготовлено} applied {Применено} rollback_failed {Откат не удался} restored {Восстановлено} partial {Неполная копия} legacy {Старая копия} other {Доступно}}"
+  },
+  "local-management.storage": {
+    "message": "Хранилище"
+  },
+  "local-management.title": {
+    "message": "Восстановление и хранилище"
   },
   "minecraft-account.accounts": {
     "message": "Аккаунты Minecraft"

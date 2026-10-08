@@ -5,6 +5,8 @@
  */
 import { invoke } from '@tauri-apps/api/core'
 
+import { notifyAccountChange } from './account-changes'
+
 // Example function:
 // User goes to auth_url to complete flow, and when completed, authenticate_await_completion() returns the credentials
 // export async function authenticate() {
@@ -30,7 +32,9 @@ export async function check_reachable() {
  * @property {string} user_code - The code to enter on the verification_uri page.
  */
 export async function login() {
-	return await invoke('plugin:auth|login')
+	const result = await invoke('plugin:auth|login')
+	if (result) notifyAccountChange()
+	return result
 }
 
 /**
@@ -46,7 +50,9 @@ export async function get_default_user() {
  * @param {UUID} user
  */
 export async function set_default_user(user) {
-	return await invoke('plugin:auth|set_default_user', { user })
+	const result = await invoke('plugin:auth|set_default_user', { user })
+	notifyAccountChange()
+	return result
 }
 
 /**
@@ -54,12 +60,14 @@ export async function set_default_user(user) {
  * @param {UUID} user
  */
 export async function remove_user(user) {
-	return await invoke('plugin:auth|remove_user', { user })
+	const result = await invoke('plugin:auth|remove_user', { user })
+	notifyAccountChange()
+	return result
 }
 
 /**
  * Returns a list of users
- * @returns {Promise<Credential[]>}
+ * @returns {Promise<import('./types').MinecraftCredential[]>}
  */
 export async function users() {
 	return await invoke('plugin:auth|get_users')

@@ -21,7 +21,7 @@ export function useLoadingBarToken(pending: Ref<boolean>): void {
 
 	function release() {
 		if (token) {
-			loadingState.end(token)
+			loadingState?.end(token)
 			token = null
 		}
 	}

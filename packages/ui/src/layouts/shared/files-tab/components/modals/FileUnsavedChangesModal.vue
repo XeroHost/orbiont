@@ -59,17 +59,21 @@ export type UnsavedChangesResult = 'cancel' | 'discard' | 'save'
 
 const modal = ref<InstanceType<typeof NewModal>>()
 let resolvePromise: ((value: UnsavedChangesResult) => void) | null = null
+let pendingPromise: Promise<UnsavedChangesResult> | null = null
 
 function prompt(): Promise<UnsavedChangesResult> {
-	return new Promise((resolve) => {
+	if (pendingPromise) return pendingPromise
+	pendingPromise = new Promise((resolve) => {
 		resolvePromise = resolve
 		modal.value?.show()
 	})
+	return pendingPromise
 }
 
 function settle(result: UnsavedChangesResult) {
 	const callback = resolvePromise
 	resolvePromise = null
+	pendingPromise = null
 	callback?.(result)
 }
 function resolve(result: UnsavedChangesResult) {

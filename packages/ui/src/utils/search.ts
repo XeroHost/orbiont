@@ -110,7 +110,7 @@ export type FilterType = {
 	ordering?: number
 } & (
 	| {
-			display: 'all' | 'scrollable' | 'none' | 'depends-on-project'
+			display: 'all' | 'scrollable' | 'none' | 'depends-on-project' | 'toggle'
 	  }
 	| {
 			display: 'expandable'
@@ -164,8 +164,7 @@ export function parseDependencyProjectFilterOption(option: string): {
 }
 
 export type EnvironmentSearchOverride =
-	| { mode: 'include'; values: string[] }
-	| { mode: 'exclude'; values: string[] }
+	{ mode: 'include'; values: string[] } | { mode: 'exclude'; values: string[] }
 
 export const LOADER_FILTER_TYPES = [
 	'mod_loader',

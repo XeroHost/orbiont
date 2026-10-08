@@ -2,9 +2,15 @@
 
 # Agents
 .claude
-.serena
 .freebuff/
-docs
+.superpowers/
+.codex-remote-attachments/
+hs_err_pid*.log
+docs/*
+!docs/audit-remediation.md
+!docs/audit-followup.md
+!docs/glib-backport.md
+!docs/releases/
 CLAUDE.md
 HANDOFF.md
 Plan.md
@@ -80,6 +86,8 @@ generated
 !apps/app-frontend/src/generated/app-events/postcard/index.js
 !apps/app-frontend/src/generated/app-events/postcard/package.json
 .env
+.env.*
+!.env.example
 packages/app-lib/.env.*
 !packages/app-lib/.env.example
 

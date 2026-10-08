@@ -41,7 +41,7 @@ const sidebarPreferenceValues = sidebarPreferences?.value
 
 			<AppearanceSettingsThemeSelector
 				class="mt-4"
-				:aria-label="formatMessage(messages.colorThemeTitle)"
+				:label="formatMessage(messages.colorThemeTitle)"
 				:model-value="currentTheme"
 				:theme-options="themeOptions"
 				:system-theme-color="systemTheme"

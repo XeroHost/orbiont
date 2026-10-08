@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "أبحث عن Minecraft for Windows..."
   },
+  "app.bedrock.close-timeout": {
+    "message": "لا تزال Minecraft قيد التشغيل"
+  },
   "app.bedrock.close-to-manage": {
     "message": "أغلق Minecraft لتحرير الملفات أو حذف المحتوى أو استعادة نسخة."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "تعذر فتح المجلد Minecraft هذا. قم بتحديث بياناتك وحاول مرة أخرى."
   },
+  "app.bedrock.force-stop": {
+    "message": "فرض الإغلاق"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "لم تُغلق Minecraft بعد طلب الإغلاق المعتاد. هل تريد فرض إغلاق عملية اللعبة هذه؟ قد يُفقد التقدم غير المحفوظ. يمكنك الإلغاء ثم الحفظ والخروج من داخل Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "استيراد الملف"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "تم تثبيت Minecraft for Windows"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "لا توجد مساحة خالية كافية على القرص لتجهيز هذا المحتوى والاحتفاظ بنسخ الاستعادة. حرّر مساحة على محرك الوجهة وحاول مجددًا."
+  },
   "app.bedrock.invalid-file": {
     "message": "اختر أرشيف .mcworld أو .mcpack أو .mcaddon المحلي الصالح."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "يتجاوز هذا الملف حد الاستيراد 8 GiB."
+    "message": "يتجاوز هذا الملف حد الاستيراد البالغ 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "لا يمكن فتح Minecraft. افتح المشغل الرسمي أو Microsoft Store للتحقق من التثبيت."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "نشط {count} "
   },
+  "bedrock.diagnostics.export": {
+    "message": "تصدير تقرير التشخيص"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "افتح المشغّل الرسمي للتحقق من جلستك، أو افتح Microsoft Store لتثبيت التحديثات أو إصلاح Minecraft. حدّث الاكتشاف عند الانتهاء."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {جاهز} requested {تم طلب التشغيل} starting {في انتظار Minecraft} running {Minecraft قيد التشغيل} timeout {لم تبدأ Minecraft قبل انتهاء مهلة الانتظار} failed {فشل التشغيل} other {جارٍ التحقق من التشغيل}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "الوقت المنقضي: {seconds, number} ثانية"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "تشخيص التشغيل"
+  },
+  "bedrock.packs.activations": {
+    "message": "التفعيلات في العوالم"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "التبعيات"
+  },
+  "bedrock.packs.details": {
+    "message": "الإصدارات والتبعيات"
+  },
+  "bedrock.packs.none": {
+    "message": "لم يُبلّغ عن أي منها"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {الإصدار النشط} other {الإصدار المحتفظ به}}"
+  },
   "curseforge.manual.description": {
     "message": "نزّل {file} من صفحته الرسمية على CurseForge، ثم اختر الملف الذي تم تنزيله للمتابعة. سيتم التحقق من حجمه ومن SHA-1."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "إضافة ملفات ({completed}\\{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "تغيّر الملف خارج المحرر. تم الاحتفاظ بمسودتك. انسخها قبل إعادة فتح الملف لمراجعة أحدث إصدار."
+  },
+  "instance.files.editor-save-error": {
+    "message": "تعذّر حفظ الملف. تم الاحتفاظ بمسودتك."
+  },
   "instance.files.managed-content-read-only": {
     "message": "أدر المحتوى المثبت لديك من تبويب المحتوى"
+  },
+  "instance.files.reload-before-save": {
+    "message": "أعد فتح الملف قبل الحفظ."
   },
   "instance.files.save-as": {
     "message": "حفظ ك..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "العالم قيد الاستخدام"
+  },
+  "local-management.category.cache": {
+    "message": "ذاكرة التخزين المؤقت المشتركة للمشغّل"
+  },
+  "local-management.category.data": {
+    "message": "بيانات اللعبة"
+  },
+  "local-management.category.import": {
+    "message": "الاستيرادات المحتفظ بها"
+  },
+  "local-management.category.recovery": {
+    "message": "النسخ القابلة للاستعادة"
+  },
+  "local-management.category.retained-version": {
+    "message": "إصدارات الحزم المحتفظ بها"
+  },
+  "local-management.confirm-removal": {
+    "message": "تأكيد الحذف الدائم"
+  },
+  "local-management.empty": {
+    "message": "لم يُعثر على نسخ قابلة للاستعادة."
+  },
+  "local-management.error": {
+    "message": "فشلت العملية. تم الاحتفاظ باختيارك. حدّث وحاول مجددًا."
+  },
+  "local-management.load-more": {
+    "message": "تحميل المزيد من النسخ"
+  },
+  "local-management.loading": {
+    "message": "جارٍ تحميل البيانات المحلية…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {تثبيت حزمة في عالم} java_editor {محرر Java} other {إدارة Bedrock المحلية}}"
+  },
+  "local-management.partial": {
+    "message": "هذه القائمة أو تقدير الحجم غير مكتمل."
+  },
+  "local-management.preview": {
+    "message": "معاينة"
+  },
+  "local-management.recovery": {
+    "message": "النسخ القابلة للاستعادة"
+  },
+  "local-management.remove": {
+    "message": "إزالة العناصر المحددة"
+  },
+  "local-management.remove-help": {
+    "message": "يمكن إزالة النسخ القابلة للاستعادة والاستيرادات المحتفظ بها التي حددتها فقط. تؤدي إزالتها نهائيًا إلى منع استعادتها."
+  },
+  "local-management.restore": {
+    "message": "تأكيد الاستعادة"
+  },
+  "local-management.restore-help": {
+    "message": "راجع الوجهة والنسخة أدناه قبل الاستعادة. قد تمنع التغييرات اللاحقة أو الوجهة المشغولة الاستعادة."
+  },
+  "local-management.retention.days": {
+    "message": "أقدم من (أيام)"
+  },
+  "local-management.retention.help": {
+    "message": "حدد النسخ القديمة القابلة للاستعادة لمراجعتها. لا يُحذف شيء تلقائيًا؛ ويُحتفظ بالنسخ غير المكتملة والمحتوى المثبّت."
+  },
+  "local-management.retention.keep": {
+    "message": "الاحتفاظ بأحدث النسخ لكل ملف أو عالم"
+  },
+  "local-management.retention.select": {
+    "message": "تحديد النسخ القديمة"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, zero {# من العناصر محددة} one {# عنصر محدد} two {# عنصران محددان} few {# عناصر محددة} many {# عنصرًا محددًا} other {# من العناصر محددة}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} بايت"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {مجهّزة} applied {مطبّقة} rollback_failed {فشل التراجع} restored {مستعادة} partial {غير مكتملة} legacy {نسخة قديمة} other {متاحة}}"
+  },
+  "local-management.storage": {
+    "message": "التخزين"
+  },
+  "local-management.title": {
+    "message": "الاستعادة والتخزين"
   },
   "minecraft-account.accounts": {
     "message": "حسابات Minecraft"

@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "กำลังมองหา Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft ยังทำงานอยู่"
+  },
   "app.bedrock.close-to-manage": {
     "message": "ปิด Minecraft เพื่อแก้ไขไฟล์ ลบเนื้อหา หรือกู้คืนสำเนา"
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "ไม่สามารถเปิดโฟลเดอร์ Minecraft นี้ รีเฟรชข้อมูลของคุณแล้วลองอีกครั้ง"
   },
+  "app.bedrock.force-stop": {
+    "message": "บังคับปิด"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft ไม่ได้ปิดหลังจากส่งคำขอปิดตามปกติ ต้องการบังคับปิดกระบวนการเกมนี้หรือไม่? ความคืบหน้าที่ยังไม่ได้บันทึกอาจสูญหาย คุณสามารถยกเลิก แล้วบันทึกและออกจากเกมใน Minecraft ได้"
+  },
   "app.bedrock.import-button": {
     "message": "นำเข้าไฟล์"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "ติดตั้ง Minecraft for Windows แล้ว"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "พื้นที่ว่างบนดิสก์ไม่เพียงพอสำหรับเตรียมเนื้อหานี้และเก็บสำเนาสำหรับกู้คืน เพิ่มพื้นที่ว่างในไดรฟ์ปลายทางแล้วลองอีกครั้ง"
+  },
   "app.bedrock.invalid-file": {
     "message": "เลือกไฟล์เก็บถาวร .mcworld, .mcpack หรือ .mcaddon ภายในเครื่องที่ถูกต้อง"
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "ไฟล์นี้เกินขีดจำกัดการนำเข้า 8 GiB"
+    "message": "ไฟล์นี้เกินขีดจำกัดการนำเข้า 2 GiB"
   },
   "app.bedrock.launch-error": {
     "message": "ไม่สามารถเปิด Minecraft ได้ เปิด Launcher อย่างเป็นทางการหรือ Microsoft Store เพื่อตรวจสอบการติดตั้ง"
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} ออนไลน์"
   },
+  "bedrock.diagnostics.export": {
+    "message": "ส่งออกรายงานการวินิจฉัย"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "เปิดตัวเรียกใช้งานอย่างเป็นทางการเพื่อตรวจสอบเซสชันของคุณ หรือเปิด Microsoft Store เพื่อติดตั้งการอัปเดตหรือซ่อมแซม Minecraft เมื่อเสร็จแล้วให้รีเฟรชการตรวจหา"
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {พร้อม} requested {ส่งคำขอเปิดเกมแล้ว} starting {กำลังรอ Minecraft} running {Minecraft กำลังทำงาน} timeout {Minecraft ไม่ได้เริ่มภายในเวลาที่กำหนด} failed {เปิดเกมไม่สำเร็จ} other {กำลังตรวจสอบการเปิดเกม}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "เวลาที่ผ่านไป: {seconds, number} วินาที"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "การวินิจฉัยการเปิดเกม"
+  },
+  "bedrock.packs.activations": {
+    "message": "การเปิดใช้งานในโลก"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "ส่วนประกอบที่ต้องใช้"
+  },
+  "bedrock.packs.details": {
+    "message": "เวอร์ชันและส่วนประกอบที่ต้องใช้"
+  },
+  "bedrock.packs.none": {
+    "message": "ไม่มีรายงาน"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {เวอร์ชันที่ใช้งานอยู่} other {เวอร์ชันที่เก็บไว้}}"
+  },
   "curseforge.manual.description": {
     "message": "ดาวน์โหลด {file} จากหน้า CurseForge อย่างเป็นทางการ แล้วเลือกไฟล์ที่ดาวน์โหลดเพื่อดำเนินการต่อ ระบบจะตรวจสอบขนาดและ SHA-1 ของไฟล์"
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "กำลังเพิ่มไฟล์ ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "ไฟล์ถูกแก้ไขจากภายนอกตัวแก้ไข ฉบับร่างของคุณยังถูกเก็บไว้ ให้คัดลอกฉบับร่างก่อนเปิดไฟล์อีกครั้งเพื่อตรวจสอบเวอร์ชันล่าสุด"
+  },
+  "instance.files.editor-save-error": {
+    "message": "ไม่สามารถบันทึกไฟล์ได้ ฉบับร่างของคุณยังถูกเก็บไว้"
+  },
   "instance.files.managed-content-read-only": {
     "message": "จัดการเนื้อหาที่ติดตั้งผ่านแท็บเนื้อหา"
+  },
+  "instance.files.reload-before-save": {
+    "message": "เปิดไฟล์อีกครั้งก่อนบันทึก"
   },
   "instance.files.save-as": {
     "message": "บันทึกเป็น..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "โลกนี้กำลังถูกใช้งานอยู่"
+  },
+  "local-management.category.cache": {
+    "message": "แคชร่วมของตัวเรียกใช้งาน"
+  },
+  "local-management.category.data": {
+    "message": "ข้อมูลเกม"
+  },
+  "local-management.category.import": {
+    "message": "รายการนำเข้าที่เก็บไว้"
+  },
+  "local-management.category.recovery": {
+    "message": "สำเนาที่กู้คืนได้"
+  },
+  "local-management.category.retained-version": {
+    "message": "เวอร์ชันแพ็กที่เก็บไว้"
+  },
+  "local-management.confirm-removal": {
+    "message": "ยืนยันการลบถาวร"
+  },
+  "local-management.empty": {
+    "message": "ไม่พบสำเนาที่กู้คืนได้"
+  },
+  "local-management.error": {
+    "message": "ดำเนินการไม่สำเร็จ รายการที่คุณเลือกยังคงอยู่ รีเฟรชแล้วลองอีกครั้ง"
+  },
+  "local-management.load-more": {
+    "message": "โหลดสำเนาเพิ่มเติม"
+  },
+  "local-management.loading": {
+    "message": "กำลังโหลดข้อมูลในเครื่อง…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {การติดตั้งแพ็กในโลก} java_editor {ตัวแก้ไข Java} other {การจัดการ Bedrock ในเครื่อง}}"
+  },
+  "local-management.partial": {
+    "message": "รายการนี้หรือขนาดโดยประมาณยังไม่ครบถ้วน"
+  },
+  "local-management.preview": {
+    "message": "ดูตัวอย่าง"
+  },
+  "local-management.recovery": {
+    "message": "สำเนาที่กู้คืนได้"
+  },
+  "local-management.remove": {
+    "message": "ลบรายการที่เลือก"
+  },
+  "local-management.remove-help": {
+    "message": "ลบได้เฉพาะสำเนาที่กู้คืนได้และรายการนำเข้าที่เก็บไว้ซึ่งคุณเลือกเท่านั้น การลบถาวรจะทำให้ไม่สามารถกู้คืนได้"
+  },
+  "local-management.restore": {
+    "message": "ยืนยันการกู้คืน"
+  },
+  "local-management.restore-help": {
+    "message": "ตรวจสอบปลายทางและสำเนาด้านล่างก่อนกู้คืน การเปลี่ยนแปลงในภายหลังหรือปลายทางที่มีข้อมูลอยู่แล้วอาจขัดขวางการกู้คืน"
+  },
+  "local-management.retention.days": {
+    "message": "เก่ากว่า (วัน)"
+  },
+  "local-management.retention.help": {
+    "message": "เลือกสำเนาที่กู้คืนได้เก่าเพื่อตรวจสอบ จะไม่มีการลบโดยอัตโนมัติ สำเนาที่ไม่ครบถ้วนและเนื้อหาที่ติดตั้งไว้จะถูกเก็บไว้"
+  },
+  "local-management.retention.keep": {
+    "message": "เก็บสำเนาล่าสุดของแต่ละไฟล์หรือโลก"
+  },
+  "local-management.retention.select": {
+    "message": "เลือกสำเนาเก่า"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, other {เลือกแล้ว # รายการ}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} ไบต์"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {เตรียมแล้ว} applied {นำไปใช้แล้ว} rollback_failed {ย้อนกลับไม่สำเร็จ} restored {กู้คืนแล้ว} partial {ไม่ครบถ้วน} legacy {สำเนาเก่า} other {พร้อมใช้งาน}}"
+  },
+  "local-management.storage": {
+    "message": "พื้นที่จัดเก็บ"
+  },
+  "local-management.title": {
+    "message": "การกู้คืนและพื้นที่จัดเก็บ"
   },
   "minecraft-account.accounts": {
     "message": "บัญชี Minecraft"

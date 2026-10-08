@@ -18,8 +18,8 @@
 			@replace-all="replaceAllOccurrences"
 		/>
 		<component
-			:is="props.editorComponent"
-			v-if="!isEditingImage && !isLoading && props.editorComponent"
+			:is="editorComponent"
+			v-if="!isEditingImage && !isLoading && !isEditorLoading && editorComponent"
 			v-model:value="fileContent"
 			:lang="editorLanguage"
 			theme="modrinth"
@@ -31,8 +31,19 @@
 		/>
 		<FileImageViewer v-else-if="isEditingImage && imagePreview" :image-blob="imagePreview" />
 		<div
-			v-else-if="isLoading || !props.editorComponent"
-			class="flex items-center justify-center rounded-[20px] bg-bg-raised"
+			v-else-if="editorLoadFailed"
+			class="flex flex-col items-center justify-center gap-3 rounded-[20px] bg-surface-2 p-6"
+			:style="{ height: editorHeight }"
+		>
+			<p class="m-0 font-semibold text-contrast">{{ formatMessage(messages.loadFailedTitle) }}</p>
+			<p class="m-0 text-secondary">{{ formatMessage(messages.loadFailedText) }}</p>
+			<Button :disabled="isEditorLoading" @click="retryEditor">
+				{{ formatMessage(commonMessages.retryButton) }}
+			</Button>
+		</div>
+		<div
+			v-else-if="isLoading || isEditorLoading || !editorComponent"
+			class="flex items-center justify-center rounded-[20px] bg-surface-2"
 			:style="{ height: editorHeight }"
 		>
 			<SpinnerIcon class="h-8 w-8 animate-spin text-secondary" />
@@ -43,11 +54,23 @@
 <script setup lang="ts">
 import { SpinnerIcon } from '@orbiont/assets'
 import type { Ace } from 'ace-builds'
-import { type Component, computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
+import {
+	type Component,
+	computed,
+	nextTick,
+	onMounted,
+	onUnmounted,
+	ref,
+	shallowRef,
+	watch,
+} from 'vue'
 
+import { Button } from '#ui/components/base/buttons'
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
 import { injectApiClient } from '#ui/providers'
 import { injectNotificationManager } from '#ui/providers/web-notifications'
+import { loadAceEditor } from '#ui/utils/ace-loader'
+import { commonMessages } from '#ui/utils/common-messages'
 import { getEditorLanguage, getFileExtension, isImageFile } from '#ui/utils/file-extensions'
 
 import { injectFileManager } from '../../providers/file-manager'
@@ -57,7 +80,6 @@ import FileImageViewer from './FileImageViewer.vue'
 
 const props = defineProps<{
 	file: EditingFile | null
-	editorComponent: Component | null
 }>()
 
 const emit = defineEmits<{
@@ -70,6 +92,14 @@ const ctx = injectFileManager()
 const client = injectApiClient()
 
 const messages = defineMessages({
+	loadFailedTitle: {
+		id: 'files.editor.load-failed-title',
+		defaultMessage: 'Unable to load editor',
+	},
+	loadFailedText: {
+		id: 'files.editor.load-failed-text',
+		defaultMessage: 'Try loading the editor again.',
+	},
 	failedToOpenTitle: {
 		id: 'files.editor.failed-to-open-title',
 		defaultMessage: 'Failed to open file',
@@ -118,6 +148,10 @@ const originalContent = ref('')
 const isEditingImage = ref(false)
 const imagePreview = ref<Blob | null>(null)
 const isLoading = ref(false)
+const editorComponent = shallowRef<Component | null>(null)
+const isEditorLoading = ref(false)
+const editorLoadFailed = ref(false)
+let loadSequence = 0
 const editorInstance = ref<Ace.Editor | null>(null)
 const editorContainer = ref<HTMLElement | null>(null)
 const editorHeight = ref('300px')
@@ -145,7 +179,7 @@ onMounted(() => {
 
 const editorLanguage = computed(() => {
 	const ext = getFileExtension(props.file?.name ?? '')
-	return getEditorLanguage(ext)
+	return ext === 'mcfunction' ? 'mcfunction' : getEditorLanguage(ext)
 })
 const isEditorReadOnly = computed(
 	() => (ctx.isBusy?.value ?? false) || (ctx.isReadOnly?.(props.file?.path ?? '') ?? false),
@@ -170,7 +204,11 @@ watch(
 )
 
 async function loadFileContent(file: { name: string; path: string }) {
+	const sequence = ++loadSequence
 	isLoading.value = true
+	isEditorLoading.value = false
+	editorComponent.value = null
+	editorLoadFailed.value = false
 	try {
 		window.scrollTo(0, 0)
 		const extension = getFileExtension(file.name)
@@ -178,15 +216,19 @@ async function loadFileContent(file: { name: string; path: string }) {
 
 		if (isImageFile(extension)) {
 			const content = await ctx.readFileAsBlob(normalizedPath)
+			if (sequence !== loadSequence) return
 			isEditingImage.value = true
 			imagePreview.value = content
 		} else {
 			isEditingImage.value = false
 			const content = await ctx.readFile(normalizedPath)
+			if (sequence !== loadSequence) return
 			fileContent.value = content
 			originalContent.value = content
+			await ensureEditor(sequence)
 		}
 	} catch (error) {
+		if (sequence !== loadSequence) return
 		console.error('Error fetching file content:', error)
 		addNotification({
 			title: formatMessage(messages.failedToOpenTitle),
@@ -195,8 +237,26 @@ async function loadFileContent(file: { name: string; path: string }) {
 		})
 		emit('close')
 	} finally {
-		isLoading.value = false
+		if (sequence === loadSequence) isLoading.value = false
 	}
+}
+
+async function ensureEditor(sequence: number) {
+	isEditorLoading.value = true
+	editorLoadFailed.value = false
+	try {
+		const editor = await loadAceEditor(editorLanguage.value)
+		if (sequence === loadSequence) editorComponent.value = editor
+	} catch {
+		if (sequence === loadSequence) editorLoadFailed.value = true
+	} finally {
+		if (sequence === loadSequence) isEditorLoading.value = false
+	}
+}
+
+async function retryEditor() {
+	if (isEditorLoading.value || !props.file || isEditingImage.value) return
+	await ensureEditor(loadSequence)
 }
 
 const hasUnsavedChanges = computed(
@@ -208,6 +268,10 @@ function revertChanges() {
 }
 
 function resetState() {
+	loadSequence++
+	editorComponent.value = null
+	isEditorLoading.value = false
+	editorLoadFailed.value = false
 	fileContent.value = ''
 	originalContent.value = ''
 	isEditingImage.value = false
@@ -246,11 +310,13 @@ async function saveFileContent(exit: boolean = false) {
 	if (isEditorReadOnly.value || isSaving.value) return
 	isSaving.value = true
 	const contentToSave = fileContent.value
+	const fileToSave = props.file
 
 	try {
-		const normalizedPath = props.file.path.startsWith('/') ? props.file.path : `/${props.file.path}`
+		const normalizedPath = fileToSave.path.startsWith('/') ? fileToSave.path : `/${fileToSave.path}`
 		await ctx.writeFile(normalizedPath, contentToSave)
 
+		if (props.file !== fileToSave) return
 		originalContent.value = contentToSave
 
 		if (exit && !hasUnsavedChanges.value) {

@@ -400,7 +400,7 @@ export interface ContentInstallProjectOwner {
 	name: string
 	iconUrl?: string
 	circle?: boolean
-	link: string | (() => void)
+	link?: string | (() => void)
 }
 
 export interface ContentInstallProjectInfo {

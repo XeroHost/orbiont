@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "À la recherche de Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft est toujours en cours d’exécution"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Fermez Minecraft pour modifier des fichiers, supprimer du contenu ou restaurer une copie."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Impossible d’ouvrir ce dossier Minecraft. Actualisez vos données et réessayez."
   },
+  "app.bedrock.force-stop": {
+    "message": "Forcer la fermeture"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft ne s’est pas fermé après la demande normale. Forcer la fermeture de ce processus du jeu ? La progression non enregistrée peut être perdue. Vous pouvez annuler, puis enregistrer et quitter dans Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Importer le fichier"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows est installé"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Il n’y a pas assez d’espace disque libre pour préparer ce contenu et conserver des copies de récupération. Libérez de l’espace sur le lecteur de destination et réessayez."
+  },
   "app.bedrock.invalid-file": {
     "message": "Choisissez une archive locale valide .mcworld, .mcpack ou .mcaddon."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Ce fichier dépasse la limite d’importation 8 GiB."
+    "message": "Ce fichier dépasse la limite d’importation de 2 GiB."
   },
   "app.bedrock.launch-error": {
     "message": "Impossible d’ouvrir Minecraft. Ouvrez le lanceur officiel ou Microsoft Store pour vérifier l’installation."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} en ligne"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Exporter le rapport de diagnostic"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Ouvrez le lanceur officiel pour vérifier votre session, ou ouvrez le Microsoft Store pour installer des mises à jour ou réparer Minecraft. Actualisez la détection une fois terminé."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Prêt} requested {Lancement demandé} starting {En attente de Minecraft} running {Minecraft est en cours d’exécution} timeout {Minecraft ne s’est pas lancé avant la fin du délai} failed {Échec du lancement} other {Vérification du lancement}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Temps écoulé : {seconds, number} secondes"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Diagnostic du lancement"
+  },
+  "bedrock.packs.activations": {
+    "message": "Activations dans les mondes"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Dépendances"
+  },
+  "bedrock.packs.details": {
+    "message": "Versions et dépendances"
+  },
+  "bedrock.packs.none": {
+    "message": "Aucune signalée"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Version active} other {Version conservée}}"
+  },
   "curseforge.manual.description": {
     "message": "Téléchargez {file} depuis sa page officielle CurseForge, puis sélectionnez le fichier téléchargé pour continuer. Sa taille et son SHA-1 seront vérifiés."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Ajout de fichiers ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "Le fichier a été modifié en dehors de l’éditeur. Votre brouillon est conservé. Copiez-le avant de rouvrir le fichier pour consulter la dernière version."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Impossible d’enregistrer le fichier. Votre brouillon est conservé."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Gérez votre contenu installé depuis l'onglet Contenu"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Rouvrez le fichier avant de l’enregistrer."
   },
   "instance.files.save-as": {
     "message": "Sauvegarder en tant que..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "Le monde en cours d'utilisation"
+  },
+  "local-management.category.cache": {
+    "message": "Cache partagé du lanceur"
+  },
+  "local-management.category.data": {
+    "message": "Données du jeu"
+  },
+  "local-management.category.import": {
+    "message": "Importations conservées"
+  },
+  "local-management.category.recovery": {
+    "message": "Copies récupérables"
+  },
+  "local-management.category.retained-version": {
+    "message": "Versions de packs conservées"
+  },
+  "local-management.confirm-removal": {
+    "message": "Confirmer la suppression définitive"
+  },
+  "local-management.empty": {
+    "message": "Aucune copie récupérable n’a été trouvée."
+  },
+  "local-management.error": {
+    "message": "L’opération a échoué. Votre sélection est conservée. Actualisez et réessayez."
+  },
+  "local-management.load-more": {
+    "message": "Charger plus de copies"
+  },
+  "local-management.loading": {
+    "message": "Chargement des données locales…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Installation de packs dans les mondes} java_editor {Éditeur Java} other {Gestion locale de Bedrock}}"
+  },
+  "local-management.partial": {
+    "message": "Cette liste ou estimation de taille est incomplète."
+  },
+  "local-management.preview": {
+    "message": "Aperçu"
+  },
+  "local-management.recovery": {
+    "message": "Copies récupérables"
+  },
+  "local-management.remove": {
+    "message": "Supprimer les éléments sélectionnés"
+  },
+  "local-management.remove-help": {
+    "message": "Seules les copies récupérables et les importations conservées sélectionnées peuvent être supprimées. Leur suppression définitive empêche toute récupération."
+  },
+  "local-management.restore": {
+    "message": "Confirmer la restauration"
+  },
+  "local-management.restore-help": {
+    "message": "Vérifiez la destination et la copie ci-dessous avant de restaurer. Des modifications ultérieures ou une destination occupée peuvent empêcher la restauration."
+  },
+  "local-management.retention.days": {
+    "message": "Plus anciennes que (jours)"
+  },
+  "local-management.retention.help": {
+    "message": "Sélectionnez les anciennes copies récupérables pour les examiner. Rien n’est supprimé automatiquement ; les copies incomplètes et les contenus installés sont conservés."
+  },
+  "local-management.retention.keep": {
+    "message": "Conserver les copies les plus récentes par fichier ou monde"
+  },
+  "local-management.retention.select": {
+    "message": "Sélectionner les anciennes copies"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# élément sélectionné} other {# éléments sélectionnés}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} octets"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Préparée} applied {Appliquée} rollback_failed {Échec de l’annulation} restored {Restaurée} partial {Incomplète} legacy {Ancienne copie} other {Disponible}}"
+  },
+  "local-management.storage": {
+    "message": "Stockage"
+  },
+  "local-management.title": {
+    "message": "Récupération et stockage"
   },
   "minecraft-account.accounts": {
     "message": "Comptes Minecraft"

@@ -102,7 +102,7 @@ pub struct ATLauncherMod {
 // Check if folder has a instance.json that parses
 pub async fn is_valid_atlauncher(instance_folder: PathBuf) -> bool {
     let instance = serde_json::from_str::<ATInstance>(
-        &io::read_any_encoding_to_string(
+        &io::read_manifest_any_encoding_to_string(
             &instance_folder.join("instance.json"),
         )
         .await
@@ -137,7 +137,7 @@ pub async fn import_atlauncher(
 
     // Load instance.json
     let atinstance = serde_json::from_str::<ATInstance>(
-        &io::read_any_encoding_to_string(
+        &io::read_manifest_any_encoding_to_string(
             &atlauncher_instance_path.join("instance.json"),
         )
         .await

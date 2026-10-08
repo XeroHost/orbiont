@@ -2,8 +2,18 @@
 
 <script setup lang="ts" generic="ItemType extends StackedAdmonitionItem">
 import { ChevronDownIcon, XIcon } from '@orbiont/assets'
-import { AnimatePresence, Motion } from 'motion-v'
-import { computed, onBeforeUnmount, onMounted, ref, useAttrs, useId, watch } from 'vue'
+import { AnimatePresence, Motion, type MotionProps } from 'motion-v'
+import {
+	computed,
+	normalizeStyle,
+	onBeforeUnmount,
+	onMounted,
+	ref,
+	type StyleValue,
+	useAttrs,
+	useId,
+	watch,
+} from 'vue'
 
 import { Button } from '#ui/components/base/buttons'
 
@@ -67,6 +77,10 @@ defineSlots<{
 const { formatMessage } = useVIntl()
 const stackId = useId()
 const attrs = useAttrs()
+const motionAttrs = computed(() => ({
+	...attrs,
+	style: normalizeStyle(attrs.style as StyleValue) as MotionProps<'div'>['style'],
+}))
 
 const internalExpanded = ref(false)
 const isHovered = ref(false)
@@ -463,7 +477,7 @@ const messages = defineMessages({
 	<AnimatePresence :initial="false">
 		<Motion
 			v-if="items.length > 0"
-			v-bind="attrs"
+			v-bind="motionAttrs"
 			as="div"
 			class="relative"
 			:initial="false"
@@ -471,7 +485,7 @@ const messages = defineMessages({
 			:exit="{
 				height: 0,
 				opacity: 0,
-				overflow: 'hidden',
+				overflow: 'hidden' as const,
 				y: -4,
 				transition: shellExitTransition,
 			}"

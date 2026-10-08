@@ -134,7 +134,6 @@
 					v-else
 					ref="fileEditorRef"
 					:file="ctx.editingFile.value"
-					:editor-component="editorComponent"
 					@close="handleEditorClose"
 				/>
 			</div>
@@ -205,8 +204,7 @@ import {
 	SaveIcon,
 	TrashIcon,
 } from '@orbiont/assets'
-import type { Component } from 'vue'
-import { computed, onMounted, onUnmounted, ref, shallowRef, watch } from 'vue'
+import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import { Button, ContextMenu } from '#ui/components/base/buttons'
 import FloatingActionBar from '#ui/components/base/FloatingActionBar.vue'
@@ -292,12 +290,6 @@ const { addNotification } = injectNotificationManager()
 const ctx = injectFileManager()
 const filePicker = injectFilePicker(null)
 
-const editorComponent = shallowRef<Component | null>(null)
-import('vue3-ace-editor').then(async (mod) => {
-	await Promise.all([import('#ui/utils/ace-theme'), import('#ui/utils/ace-mode-log.ts')])
-	editorComponent.value = mod.VAceEditor
-})
-
 const baseId = `files-${Math.random().toString(36).slice(2, 9)}`
 
 const items = computed(() => ctx.items.value)
@@ -382,6 +374,7 @@ const unsavedChangesModal = ref<InstanceType<typeof FileUnsavedChangesModal>>()
 const hasUnsavedChanges = computed(() => fileEditorRef.value?.hasUnsavedChanges ?? false)
 
 async function confirmDiscardChanges(): Promise<boolean> {
+	if (fileEditorRef.value?.isSaving) return false
 	if (!hasUnsavedChanges.value) return true
 	const result = await unsavedChangesModal.value?.prompt()
 	if (result === 'save') {
@@ -392,7 +385,11 @@ async function confirmDiscardChanges(): Promise<boolean> {
 	return result === 'discard'
 }
 
-defineExpose({ confirmDiscardChanges })
+defineExpose({
+	confirmDiscardChanges,
+	hasUnsavedChanges,
+	isSaving: computed(() => fileEditorRef.value?.isSaving ?? false),
+})
 
 // Navigation
 async function navigateToSegment(index: number) {
@@ -419,8 +416,9 @@ function handleNavigateToFolder(item: FileItem) {
 }
 
 // Editing
-function handleEditFile(item: { name: string; type: string; path: string }) {
+async function handleEditFile(item: { name: string; type: string; path: string }) {
 	if (ctx.browseOnly && !ctx.allowEditing) return
+	if (!(await confirmDiscardChanges())) return
 	ctx.startEditing({ name: item.name, path: item.path })
 }
 

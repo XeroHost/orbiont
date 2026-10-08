@@ -10,7 +10,11 @@ use ::windows::{
     },
     core::HSTRING,
 };
-use std::path::Path;
+use std::{
+    path::Path,
+    sync::Mutex,
+    time::{Duration, Instant},
+};
 
 pub(super) const GAME_FAMILY: &str = "Microsoft.MinecraftUWP_8wekyb3d8bbwe";
 pub(super) const LAUNCHER_FAMILY: &str =
@@ -66,17 +70,33 @@ fn info(family: &str) -> ::windows::core::Result<Option<ApplicationInfo>> {
     }))
 }
 
-pub(super) fn get_status() -> Result<BedrockStatus> {
-    let detect = || -> ::windows::core::Result<BedrockStatus> {
-        Ok(BedrockStatus {
-            supported: true,
-            game: info(GAME_FAMILY)?,
-            launcher: info(LAUNCHER_FAMILY)?,
-            game_running: super::manage::game_running(),
+type InstallationCache =
+    Option<(Instant, Option<ApplicationInfo>, Option<ApplicationInfo>)>;
+static INSTALLATION: Mutex<InstallationCache> = Mutex::new(None);
+pub(super) fn get_status(refresh: bool) -> Result<BedrockStatus> {
+    let mut cache = INSTALLATION
+        .lock()
+        .map_err(|e| BedrockError::new(ErrorCode::DetectionFailed, e))?;
+    if refresh
+        || cache.as_ref().is_none_or(|(time, _, _)| {
+            time.elapsed() >= Duration::from_secs(60)
         })
-    };
-    detect()
-        .map_err(|error| BedrockError::new(ErrorCode::DetectionFailed, error))
+    {
+        let game = info(GAME_FAMILY)
+            .map_err(|e| BedrockError::new(ErrorCode::DetectionFailed, e))?;
+        let launcher = info(LAUNCHER_FAMILY)
+            .map_err(|e| BedrockError::new(ErrorCode::DetectionFailed, e))?;
+        *cache = Some((Instant::now(), game, launcher));
+    }
+    let (_, game, launcher) = cache.as_ref().unwrap();
+    let process = super::process::status();
+    Ok(BedrockStatus {
+        supported: true,
+        game: game.clone(),
+        launcher: launcher.clone(),
+        game_running: process.game_running,
+        launch: process.launch,
+    })
 }
 
 fn ready_entry(family: &str) -> Result<AppListEntry> {
@@ -119,7 +139,18 @@ pub(super) fn launch(family: &str) -> Result<()> {
 }
 
 pub(super) fn ensure_game() -> Result<()> {
-    ready_entry(GAME_FAMILY).map(|_| ())
+    let status = get_status(false)?;
+    match status.game {
+        Some(game) if game.can_launch => Ok(()),
+        Some(_) => Err(BedrockError::new(
+            ErrorCode::NeedsRepair,
+            "Repair the official installation",
+        )),
+        None => Err(BedrockError::new(
+            ErrorCode::NotInstalled,
+            "Official application is not installed",
+        )),
+    }
 }
 
 pub(super) fn open_updates() -> Result<()> {

@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import ace from 'ace-builds'
+import { defineAceModule } from './ace-define'
 
-ace['define'](
+defineAceModule(
 	'ace/mode/mcfunction_highlight_rules',
 	['require', 'exports', 'ace/lib/oop', 'ace/mode/text_highlight_rules'],
 	function (require: any, exports: any) {
@@ -85,7 +85,7 @@ ace['define'](
 	},
 )
 
-ace['define'](
+defineAceModule(
 	'ace/mode/mcfunction',
 	['require', 'exports', 'ace/lib/oop', 'ace/mode/text', 'ace/mode/mcfunction_highlight_rules'],
 	function (require: any, exports: any) {

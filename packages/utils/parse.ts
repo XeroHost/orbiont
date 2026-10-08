@@ -1,8 +1,12 @@
+import type { Options as MarkdownOptions } from 'markdown-it'
 import MarkdownIt from 'markdown-it'
+import type * as XssModule from 'xss'
 import xss from 'xss'
 
-// @ts-expect-error xss types don't reflect CJS default export shape
-const { escapeAttrValue, FilterXSS, safeAttrValue, whiteList } = xss
+const { escapeAttrValue, FilterXSS, safeAttrValue, whiteList } = xss as unknown as Pick<
+	typeof XssModule,
+	'escapeAttrValue' | 'FilterXSS' | 'safeAttrValue' | 'whiteList'
+>
 
 // Imgur is blocked in UK and Indonesia
 const imgurProxyCountries = new Set(['GB', 'ID'])
@@ -182,7 +186,7 @@ export const configuredXss = new FilterXSS({
 	},
 })
 
-export const md = (options = {}) => {
+export const md = (options: MarkdownOptions = {}) => {
 	const md = new MarkdownIt('default', {
 		html: true,
 		linkify: true,

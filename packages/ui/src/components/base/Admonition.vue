@@ -62,13 +62,7 @@
 			<IconButton
 				v-if="dismissible"
 				type="quiet"
-				:color="
-					buttonColors[type] && buttonColors[type] !== 'standard'
-						? buttonColors[type] === 'medal-promo'
-							? 'medal_promotion'
-							: buttonColors[type]
-						: undefined
-				"
+				:color="buttonColors[type] ? buttonColors[type] : undefined"
 				label="Dismiss"
 				native-type="button"
 				@click="$emit('dismiss')"
@@ -196,7 +190,7 @@ const buttonColors = {
 	critical: 'red',
 	success: 'green',
 	moderation: 'orange',
-	neutral: 'standard',
+	neutral: undefined,
 } as const
 
 const progressTrackClasses = {
@@ -210,6 +204,7 @@ const progressTrackClasses = {
 }
 
 const progressFillClasses = {
+	moderation: 'bg-brand-orange',
 	info: 'bg-brand-blue',
 	warning: 'bg-brand-orange',
 	'circle-warning': 'bg-brand-orange',

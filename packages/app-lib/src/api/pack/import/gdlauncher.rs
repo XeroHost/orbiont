@@ -32,10 +32,12 @@ pub struct GDLauncherLoader {
 // Check if folder has a config.json that parses
 pub async fn is_valid_gdlauncher(instance_folder: PathBuf) -> bool {
     let config = serde_json::from_str::<GDLauncherConfig>(
-        &io::read_any_encoding_to_string(&instance_folder.join("config.json"))
-            .await
-            .unwrap_or(("".into(), encoding_rs::UTF_8))
-            .0,
+        &io::read_manifest_any_encoding_to_string(
+            &instance_folder.join("config.json"),
+        )
+        .await
+        .unwrap_or(("".into(), encoding_rs::UTF_8))
+        .0,
     );
     config.is_ok()
 }
@@ -48,7 +50,7 @@ pub async fn import_gdlauncher(
 ) -> crate::Result<()> {
     // Load config.json
     let config = serde_json::from_str::<GDLauncherConfig>(
-        &io::read_any_encoding_to_string(
+        &io::read_manifest_any_encoding_to_string(
             &gdlauncher_instance_folder.join("config.json"),
         )
         .await

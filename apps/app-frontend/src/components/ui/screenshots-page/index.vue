@@ -323,7 +323,9 @@ const messages = defineMessages({
 	},
 })
 
-const screenshotsQuery = useQuery(
+const screenshotsQuery = useQuery<
+	Awaited<ReturnType<ReturnType<typeof syncedScreenshotsQueryOptions>['queryFn']>>
+>(
 	computed(() =>
 		props.bedrock
 			? bedrockScreenshotsQueryOptions()

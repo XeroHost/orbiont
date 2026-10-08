@@ -5,7 +5,6 @@ import { computed, ref, watch } from 'vue'
 import { edit } from '@/helpers/instance'
 import { get } from '@/helpers/settings.ts'
 
-import type { AppSettings } from '../../../../helpers/types'
 import { injectInstanceSettings } from './instance-settings-context'
 
 const { handleError } = injectNotificationManager()
@@ -13,7 +12,10 @@ const { formatMessage } = useVIntl()
 
 const { instance } = injectInstanceSettings()
 
-const globalSettings = (await get().catch(handleError)) as AppSettings
+const globalSettings = await get().catch((error: unknown) => {
+	handleError(error)
+	throw error
+})
 
 const hasCustomHooks =
 	!!instance.value.hooks.pre_launch ||

@@ -1,4 +1,3 @@
-import { queryOptions } from '@tanstack/vue-query'
 import { invoke } from '@tauri-apps/api/core'
 
 export type GameOptionCanonicalValue =
@@ -82,10 +81,7 @@ export type GameSettingCategory = {
 }
 
 export type GameOptionValidationError =
-	| 'missing_value'
-	| 'no_compatible_instances'
-	| 'invalid_value'
-	| 'changed_since_opened'
+	'missing_value' | 'no_compatible_instances' | 'invalid_value' | 'changed_since_opened'
 
 export type EditableGameSetting = {
 	option_id: string
@@ -199,13 +195,13 @@ export const gameSettingsKeys = {
 }
 
 export function gameSettingsQueryOptions(instanceId?: string) {
-	return queryOptions({
+	return {
 		queryKey: instanceId ? gameSettingsKeys.local(instanceId) : gameSettingsKeys.synced,
 		queryFn: () =>
 			instanceId ? get_local_game_options_config(instanceId) : get_synced_game_options_config(),
 		staleTime: 30_000,
 		retry: false,
-	})
+	}
 }
 
 export async function preview_synced_game_option_changes(

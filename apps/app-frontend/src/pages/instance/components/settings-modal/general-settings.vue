@@ -313,6 +313,7 @@ const messages = defineMessages({
 							},
 							{
 								id: 'create',
+								label: formatMessage(messages.editIcon),
 								action: () => openIconEditor(),
 							},
 							{

@@ -39,7 +39,7 @@ const props = defineProps<{
 	small?: boolean
 }>()
 
-const modelValue = defineModel<boolean>()
+const modelValue = defineModel<boolean>({ default: false })
 
 function toggle() {
 	if (!props.disabled) {

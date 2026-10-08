@@ -1,20 +1,22 @@
-<script setup lang="ts" generic="T extends string">
+<script setup lang="ts">
 import { MoonIcon, RadioButtonCheckedIcon, RadioButtonIcon, SunIcon } from '@orbiont/assets'
 
 import { defineMessages, useVIntl } from '#ui/composables/i18n'
 
+import type { AppearanceThemeSelection } from '../types'
+
 const { formatMessage } = useVIntl()
 
-const { ariaLabel, modelValue, themeOptions, systemThemeColor, preferredDarkTheme } = defineProps<{
-	ariaLabel: string
-	modelValue: T
-	themeOptions: readonly T[]
-	systemThemeColor: T
-	preferredDarkTheme: T
+const { label, modelValue, themeOptions, systemThemeColor, preferredDarkTheme } = defineProps<{
+	label: string
+	modelValue: AppearanceThemeSelection
+	themeOptions: readonly AppearanceThemeSelection[]
+	systemThemeColor: AppearanceThemeSelection
+	preferredDarkTheme: AppearanceThemeSelection
 }>()
 
 const emit = defineEmits<{
-	'update:modelValue': [theme: T]
+	'update:modelValue': [theme: AppearanceThemeSelection]
 }>()
 
 const themeLabels = defineMessages({
@@ -51,19 +53,19 @@ const themeTooltips = defineMessages({
 	},
 })
 
-function formatTheme(theme: T): string {
+function formatTheme(theme: AppearanceThemeSelection): string {
 	const message = themeLabels[theme as keyof typeof themeLabels]
 	return message ? formatMessage(message) : theme
 }
 
-function getPreviewClass(option: T): string {
+function getPreviewClass(option: AppearanceThemeSelection): string {
 	const base = option === 'system' ? systemThemeColor : option
 	return base.endsWith('-mode') ? base : `${base}-mode`
 }
 </script>
 
 <template>
-	<div class="theme-options" role="group" :aria-label="ariaLabel">
+	<div class="theme-options" role="group" :aria-label="label">
 		<button
 			v-for="option in themeOptions"
 			:key="option"

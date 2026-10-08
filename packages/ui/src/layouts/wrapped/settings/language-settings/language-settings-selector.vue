@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { SearchIcon } from '@orbiont/assets'
-import Fuse from 'fuse.js/dist/fuse.basic'
+import Fuse from 'fuse.js'
 import { computed, ref } from 'vue'
 
 import CheckCircleButton from '#ui/components/base/buttons/CheckCircleButton.vue'
@@ -260,7 +260,7 @@ function getCategoryName(category: Category): string {
 						:checked="$activeLocale === loc.tag"
 						:disabled="isChangingLocale() && $changingTo !== loc.tag"
 						:aria-label="getItemLabel(loc)"
-						@click="(e) => onItemClick(e, loc)"
+						@click="(e: MouseEvent) => onItemClick(e, loc)"
 					>
 						<img
 							v-if="loc.flagUrl"

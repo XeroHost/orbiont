@@ -1,5 +1,3 @@
-import { queryOptions } from '@tanstack/vue-query'
-
 import { get_project_v3 } from '@/helpers/cache.js'
 import {
 	get as getInstance,
@@ -42,48 +40,48 @@ export const screenshotKeys = {
 }
 
 export function instanceListQueryOptions() {
-	return queryOptions({
+	return {
 		queryKey: instanceKeys.list(),
 		queryFn: listInstances,
 		staleTime: 30_000,
-	})
+	}
 }
 
 export function syncedScreenshotsQueryOptions() {
-	return queryOptions({
+	return {
 		queryKey: screenshotKeys.global(),
 		queryFn: list_synced_screenshots,
 		staleTime: 0,
-	})
+	}
 }
 
 export function bedrockScreenshotsQueryOptions() {
-	return queryOptions({
+	return {
 		queryKey: screenshotKeys.bedrock(),
 		queryFn: list_bedrock_screenshots,
 		staleTime: 0,
 		refetchInterval: 10_000,
-	})
+	}
 }
 
 export function instanceScreenshotsQueryOptions(instanceId: string) {
-	return queryOptions({
+	return {
 		queryKey: screenshotKeys.instance(instanceId),
 		queryFn: () => list_instance_screenshots(instanceId),
 		staleTime: 0,
-	})
+	}
 }
 
 export function screenshotGroupsQueryOptions() {
-	return queryOptions({
+	return {
 		queryKey: screenshotKeys.groups(),
 		queryFn: list_screenshot_groups,
 		staleTime: 0,
-	})
+	}
 }
 
 export function instanceDetailQueryOptions(instanceId: string) {
-	return queryOptions({
+	return {
 		queryKey: instanceKeys.detail(instanceId),
 		queryFn: async () => {
 			const instance = await getInstance(instanceId)
@@ -91,43 +89,43 @@ export function instanceDetailQueryOptions(instanceId: string) {
 			return instance
 		},
 		staleTime: 30_000,
-	})
+	}
 }
 
 export function instanceProcessesQueryOptions(instanceId: string) {
-	return queryOptions({
+	return {
 		queryKey: instanceKeys.processes(instanceId),
 		queryFn: async () => {
 			const processes = await get_by_instance_id(instanceId)
 			return Array.isArray(processes) ? processes : []
 		},
 		staleTime: 0,
-	})
+	}
 }
 
 export function instanceLinkedProjectQueryOptions(projectId: string) {
-	return queryOptions({
+	return {
 		queryKey: instanceKeys.linkedProject(projectId),
 		queryFn: () => get_project_v3(projectId, 'must_revalidate'),
 		staleTime: 30_000,
-	})
+	}
 }
 
 export function instanceContentQueryOptions(
 	instanceId: string,
 	onError?: (error: Error) => unknown,
 ) {
-	return queryOptions({
+	return {
 		queryKey: instanceKeys.content(instanceId),
 		queryFn: () => loadInstanceContentData(instanceId, undefined, onError),
 		staleTime: 30_000,
-	})
+	}
 }
 
 export function instanceWorldsQueryOptions(instanceId: string) {
-	return queryOptions({
+	return {
 		queryKey: instanceKeys.worlds(instanceId),
 		queryFn: () => refreshWorlds(instanceId),
 		staleTime: 0,
-	})
+	}
 }

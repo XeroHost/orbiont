@@ -17,7 +17,7 @@ const url = ref<string>()
 const key = computed(() => getSkinPreviewKey(props.skin))
 
 useIntersectionObserver(
-	button,
+	computed(() => button.value?.$el as HTMLElement | undefined),
 	([entry]) => {
 		visible.value = entry?.isIntersecting ?? false
 	},

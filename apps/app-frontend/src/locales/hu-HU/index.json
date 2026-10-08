@@ -497,6 +497,9 @@
   "app.bedrock.checking": {
     "message": "A Minecraft for Windows-t keresem…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "A Minecraft még fut"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Fájlok szerkesztéséhez, tartalom törléséhez vagy másolat visszaállításához zárja be a Minecraft-t."
   },
@@ -551,6 +554,12 @@
   "app.bedrock.folder-error": {
     "message": "Ez a Minecraft mappa nem nyitható meg. Frissítse az adatokat, és próbálja újra."
   },
+  "app.bedrock.force-stop": {
+    "message": "Kényszerített bezárás"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "A Minecraft nem zárult be a szokásos kérés után. Kényszeríted ennek a játékfolyamatnak a bezárását? A nem mentett előrehaladás elveszhet. Megszakíthatod a műveletet, majd menthetsz és kiléphetsz a Minecraftban."
+  },
   "app.bedrock.import-button": {
     "message": "Fájl importálása"
   },
@@ -569,6 +578,9 @@
   "app.bedrock.installed": {
     "message": "A Minecraft for Windows telepítve van"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "Nincs elég szabad lemezterület a tartalom előkészítéséhez és a visszaállítási másolatok megőrzéséhez. Szabadíts fel helyet a célmeghajtón, és próbáld újra."
+  },
   "app.bedrock.invalid-file": {
     "message": "Válasszon egy érvényes helyi .mcworld, .mcpack vagy .mcaddon archívumot."
   },
@@ -576,7 +588,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "Ez a fájl meghaladja a 8 GiB importálási korlátot."
+    "message": "Ez a fájl meghaladja a 2 GiB-os importálási korlátot."
   },
   "app.bedrock.launch-error": {
     "message": "A Minecraft nem nyitható meg. Nyissa meg a hivatalos indítót vagy a Microsoft Store programot a telepítés ellenőrzéséhez."
@@ -3941,6 +3953,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Diagnosztikai jelentés exportálása"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Nyisd meg a hivatalos indítót a munkamenet ellenőrzéséhez, vagy nyisd meg a Microsoft Store-t frissítések telepítéséhez vagy a Minecraft javításához. Ha végeztél, frissítsd az észlelést."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Kész} requested {Indítás kérve} starting {Várakozás a Minecraftra} running {A Minecraft fut} timeout {A Minecraft nem indult el az időkorlát lejárta előtt} failed {Sikertelen indítás} other {Indítás ellenőrzése}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Eltelt idő: {seconds, number} másodperc"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Indítási diagnosztika"
+  },
+  "bedrock.packs.activations": {
+    "message": "Aktiválások világokban"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Függőségek"
+  },
+  "bedrock.packs.details": {
+    "message": "Verziók és függőségek"
+  },
+  "bedrock.packs.none": {
+    "message": "Nincs megadva"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Aktív verzió} other {Megőrzött verzió}}"
+  },
   "curseforge.manual.description": {
     "message": "Töltsd le a(z) {file} fájlt a hivatalos CurseForge-oldaláról, majd válaszd ki a letöltött fájlt a folytatáshoz. A méretet és az SHA-1 értéket ellenőrizzük."
   },
@@ -4016,8 +4058,17 @@
   "instance.files.adding-files": {
     "message": "Fájlok hozzáadása ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "A fájl a szerkesztőn kívül megváltozott. A piszkozatod megmarad. Másold ki, mielőtt újra megnyitod a fájlt a legújabb verzió ellenőrzéséhez."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Nem sikerült menteni a fájlt. A piszkozatod megmarad."
+  },
   "instance.files.managed-content-read-only": {
     "message": "A telepített tartalmaidat a Tartalom lapon kezelheted"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Mentés előtt nyisd meg újra a fájlt."
   },
   "instance.files.save-as": {
     "message": "Mentés másként..."
@@ -4651,6 +4702,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "A világ használatban van"
+  },
+  "local-management.category.cache": {
+    "message": "Az indító közös gyorsítótára"
+  },
+  "local-management.category.data": {
+    "message": "Játékadatok"
+  },
+  "local-management.category.import": {
+    "message": "Megőrzött importálások"
+  },
+  "local-management.category.recovery": {
+    "message": "Visszaállítható másolatok"
+  },
+  "local-management.category.retained-version": {
+    "message": "Megőrzött csomagverziók"
+  },
+  "local-management.confirm-removal": {
+    "message": "Végleges törlés megerősítése"
+  },
+  "local-management.empty": {
+    "message": "Nem találhatók visszaállítható másolatok."
+  },
+  "local-management.error": {
+    "message": "A művelet sikertelen. A kijelölésed megmarad. Frissíts és próbáld újra."
+  },
+  "local-management.load-more": {
+    "message": "További másolatok betöltése"
+  },
+  "local-management.loading": {
+    "message": "Helyi adatok betöltése…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Csomagtelepítés világokba} java_editor {Java-szerkesztő} other {Helyi Bedrock-kezelés}}"
+  },
+  "local-management.partial": {
+    "message": "Ez a lista vagy méretbecslés hiányos."
+  },
+  "local-management.preview": {
+    "message": "Előnézet"
+  },
+  "local-management.recovery": {
+    "message": "Visszaállítható másolatok"
+  },
+  "local-management.remove": {
+    "message": "Kijelölt elemek eltávolítása"
+  },
+  "local-management.remove-help": {
+    "message": "Csak a kijelölt visszaállítható másolatok és megőrzött importálások távolíthatók el. Végleges eltávolításuk megakadályozza a visszaállításukat."
+  },
+  "local-management.restore": {
+    "message": "Visszaállítás megerősítése"
+  },
+  "local-management.restore-help": {
+    "message": "Visszaállítás előtt ellenőrizd az alábbi célhelyet és másolatot. Későbbi változások vagy egy foglalt célhely akadályozhatják a visszaállítást."
+  },
+  "local-management.retention.days": {
+    "message": "Ennél régebbi (nap)"
+  },
+  "local-management.retention.help": {
+    "message": "Jelöld ki a régi visszaállítható másolatokat ellenőrzésre. Semmi sem törlődik automatikusan; a hiányos másolatok és a telepített tartalom megmaradnak."
+  },
+  "local-management.retention.keep": {
+    "message": "A legújabb másolatok megtartása fájlonként vagy világonként"
+  },
+  "local-management.retention.select": {
+    "message": "Régi másolatok kijelölése"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# kijelölt elem} other {# kijelölt elem}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} bájt"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Előkészítve} applied {Alkalmazva} rollback_failed {Sikertelen visszavonás} restored {Visszaállítva} partial {Hiányos} legacy {Régi másolat} other {Elérhető}}"
+  },
+  "local-management.storage": {
+    "message": "Tárhely"
+  },
+  "local-management.title": {
+    "message": "Visszaállítás és tárhely"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft-fiókok"

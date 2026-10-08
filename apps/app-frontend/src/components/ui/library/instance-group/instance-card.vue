@@ -303,7 +303,7 @@ onMounted(() => {
 						type="colored"
 						color="red"
 						:size="compact ? 'md' : 'lg'"
-						@click="(e) => stop(e)"
+						@click="(e: MouseEvent) => stop(e)"
 						@mouseenter="checkProcess"
 					>
 						<StopCircleIcon />
@@ -322,7 +322,7 @@ onMounted(() => {
 						color="brand"
 						:size="compact ? 'md' : 'lg'"
 						class="origin-bottom scale-75 opacity-0 transition-opacity group-hover/card:scale-100 group-hover/card:opacity-100"
-						@click="(e) => repair(e)"
+						@click="(e: MouseEvent) => repair(e)"
 					>
 						<DownloadIcon />
 					</IconButton>
@@ -339,7 +339,7 @@ onMounted(() => {
 						color="brand"
 						:size="compact ? 'md' : 'lg'"
 						class="origin-bottom scale-75 opacity-0 transition-opacity group-hover/card:scale-100 group-hover/card:opacity-100"
-						@click="(e) => play(e)"
+						@click="(e: MouseEvent) => play(e)"
 						@mouseenter="checkProcess"
 					>
 						<PlayIcon class="translate-x-px" />

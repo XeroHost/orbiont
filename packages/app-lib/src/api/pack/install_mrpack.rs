@@ -250,6 +250,17 @@ pub(crate) async fn get_optifine_reference(
 impl MrpackZipReader {
     async fn new(file: &CreatePackFile) -> crate::Result<Self> {
         match file {
+            CreatePackFile::Bytes(bytes) => crate::util::archive::preflight(
+                &mut std::io::Cursor::new(bytes.as_ref()),
+            )?,
+            CreatePackFile::Downloaded(file) => {
+                crate::util::archive::preflight_file(file.path())?
+            }
+            CreatePackFile::Path(path) => {
+                crate::util::archive::preflight_file(path)?
+            }
+        }
+        match file {
             CreatePackFile::Bytes(file) => Ok(Self::Memory(
                 SeekZipFileReader::with_tokio(Cursor::new(file.clone()))
                     .await
@@ -280,6 +291,21 @@ impl MrpackZipReader {
     }
 
     fn manifest_index(&self) -> crate::Result<(usize, bool)> {
+        let mut total = 0;
+        if self.file().entries().len()
+            > crate::util::archive::MAX_ARCHIVE_ENTRIES
+        {
+            return Err(crate::state::content_store::input(
+                "Too many archive entries",
+            ));
+        }
+        for entry in self.file().entries() {
+            crate::util::archive::validate_entry(
+                entry.filename().as_str()?,
+                entry.uncompressed_size(),
+                &mut total,
+            )?;
+        }
         let indices = self
             .file()
             .entries()
@@ -317,19 +343,51 @@ impl MrpackZipReader {
         &mut self,
         index: usize,
     ) -> crate::Result<String> {
-        let mut value = String::new();
+        async fn bounded<R: futures_lite::io::AsyncBufRead + Unpin>(
+            mut reader: ZipEntryReader<'_, R, WithEntry<'_>>,
+        ) -> crate::Result<String> {
+            let limit = crate::util::archive::MAX_MANIFEST_BYTES;
+            if reader.entry().uncompressed_size() > limit {
+                return Err(crate::state::content_store::input(
+                    "Modpack manifest exceeds its size limit",
+                ));
+            }
+            let expected_crc = reader.entry().crc32();
+            let mut bytes = Vec::new();
+            let mut buffer = vec![0; 64 * 1024].into_boxed_slice();
+            loop {
+                let amount = futures_lite::io::AsyncReadExt::read(
+                    &mut reader,
+                    &mut buffer,
+                )
+                .await?;
+                if amount == 0 {
+                    break;
+                }
+                if bytes.len() as u64 + amount as u64 > limit {
+                    return Err(crate::state::content_store::input(
+                        "Modpack manifest exceeds its size limit",
+                    ));
+                }
+                bytes.extend_from_slice(&buffer[..amount]);
+            }
+            if reader.compute_hash() != expected_crc {
+                return Err(async_zip::error::ZipError::CRC32CheckError.into());
+            }
+            String::from_utf8(bytes).map_err(|_| {
+                crate::state::content_store::input(
+                    "Modpack manifest is not UTF-8",
+                )
+            })
+        }
         match self {
             Self::Memory(reader) => {
-                let mut reader = reader.reader_with_entry(index).await?;
-                reader.read_to_string_checked(&mut value).await?;
+                bounded(reader.reader_with_entry(index).await?).await
             }
             Self::File(reader) => {
-                let mut reader = reader.reader_with_entry(index).await?;
-                reader.read_to_string_checked(&mut value).await?;
+                bounded(reader.reader_with_entry(index).await?).await
             }
         }
-
-        Ok(value)
     }
 
     async fn hash_entry(
@@ -399,6 +457,13 @@ where
             break;
         }
 
+        if size + bytes_read as u64 > crate::util::archive::MAX_ENTRY_BYTES
+            || size + bytes_read as u64 > reader.entry().uncompressed_size()
+        {
+            return Err(crate::state::content_store::input(
+                "ZIP entry exceeds its decompression limit",
+            ));
+        }
         hasher.update(&buffer[..bytes_read]);
         size += bytes_read as u64;
         if let Some(progress) = progress.as_mut() {
@@ -619,9 +684,23 @@ where
             break;
         }
 
+        if size + bytes_read as u64 > crate::util::archive::MAX_ENTRY_BYTES
+            || size + bytes_read as u64 > reader.entry().uncompressed_size()
+        {
+            return Err(crate::state::content_store::input(
+                "ZIP entry exceeds its decompression limit",
+            ));
+        }
         file.write_all(&buffer[..bytes_read])
             .await
             .map_err(|e| io::IOError::with_path(e, &temp_path))?;
+        if size + bytes_read as u64 > crate::util::archive::MAX_ENTRY_BYTES
+            || size + bytes_read as u64 > reader.entry().uncompressed_size()
+        {
+            return Err(crate::state::content_store::input(
+                "ZIP entry exceeds its decompression limit",
+            ));
+        }
         hasher.update(&buffer[..bytes_read]);
         size += bytes_read as u64;
         if let Some(progress) = progress.as_mut() {
@@ -1599,6 +1678,37 @@ mod orbpack_tests {
     use super::*;
     use std::io::Write;
 
+    #[tokio::test]
+    async fn oversized_manifest_rejected_before_decompression() {
+        let directory = tempfile::tempdir().unwrap();
+        let path = directory.path().join("oversized.mrpack");
+        let mut zip =
+            zip::ZipWriter::new(std::fs::File::create(&path).unwrap());
+        zip.start_file(
+            "modrinth.index.json",
+            zip::write::SimpleFileOptions::default()
+                .compression_method(zip::CompressionMethod::Deflated),
+        )
+        .unwrap();
+        let block = vec![b' '; 64 * 1024].into_boxed_slice();
+        for _ in 0..128 {
+            zip.write_all(&block).unwrap();
+        }
+        zip.write_all(b" ").unwrap();
+        zip.finish().unwrap();
+        let mut reader = MrpackZipReader::new(&CreatePackFile::Path(path))
+            .await
+            .unwrap();
+        assert!(
+            reader
+                .read_manifest()
+                .await
+                .err()
+                .unwrap()
+                .to_string()
+                .contains("size limit")
+        );
+    }
     #[tokio::test]
     async fn curseforge_sha1_files_are_verified_and_staged_with_sha512() {
         use sha2::{Digest, Sha512};

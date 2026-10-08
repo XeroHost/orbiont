@@ -20,10 +20,21 @@ with local Minecraft Bedrock integration on Windows.
   activation settings.
 - Shared screenshot gallery and viewer for Java and Bedrock, with local pack
   and world icons in the Bedrock content lists.
+- File editing with external-change detection, recovery copies, and draft
+  protection when navigating or closing the launcher.
+- Recovery and storage management for Java and Bedrock, including an explicit
+  review of old copies and confirmation before removal.
+- Bedrock startup diagnostics and normal shutdown, with a separate confirmation
+  if a forced shutdown is needed.
+
+See [the beta.2 release notes](docs/releases/1.0.0-beta.2.md) and
+[the implementation and validation report](docs/audit-followup.md).
 
 ## Downloads
 
-See [GitHub Releases](https://github.com/XeroHost/orbiont/releases) for published installers.
+Download the installers directly from [the Orbiont website](https://www.xerohost.net/orbiont#downloads).
+Published versions and source archives are also available in
+[GitHub Releases](https://github.com/XeroHost/orbiont/releases).
 A Microsoft account that owns Minecraft Java Edition is required to play Java.
 Bedrock requires the official Minecraft for Windows installation; Minecraft
 and Microsoft Store handle its sign-in and license validation.
@@ -83,9 +94,10 @@ Orbiont is an independent fork of the [Modrinth App](https://github.com/modrinth
 originally developed by Rinth, Inc. It is not affiliated with, endorsed by,
 or sponsored by Modrinth or Rinth, Inc.
 
-**Modified by XeroHost — 2026-10-04:** custom branding and launcher UI,
+**Modified by XeroHost — 2026-10-07:** custom branding and launcher UI,
 CurseForge integration, Orbpack support, OptiFine setup, skin catalogs,
-local translations, and local Bedrock integration for Windows.
+local translations, local Bedrock integration for Windows, recoverable file
+management, startup diagnostics, and security and performance improvements.
 
 Orbiont is not an official Minecraft product and is not approved by or
 associated with Mojang or Microsoft. No Minecraft game files are distributed

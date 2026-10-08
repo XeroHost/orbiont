@@ -40,24 +40,8 @@ fn directory(path: &Path) -> Result<()> {
         Err(error) => Err(io_error(error)),
     }
 }
-// Fixture tests operate in temporary folders, independent of the real game.
-#[allow(clippy::cfg_not_test)]
 fn game_closed() -> Result<()> {
-    #[cfg(not(test))]
-    {
-        let system = sysinfo::System::new_all();
-        if system.processes().values().any(|process| {
-            let name = process.name().to_string_lossy();
-            name.eq_ignore_ascii_case("Minecraft.Windows.exe")
-                || name.eq_ignore_ascii_case("Minecraft.Windows")
-        }) {
-            return Err(BedrockError::new(
-                ErrorCode::GameRunning,
-                "Close Minecraft before modifying world packs",
-            ));
-        }
-    }
-    Ok(())
+    super::manage::require_closed(super::manage::game_running())
 }
 pub(super) fn target_path(
     root: &super::DataRoot,
@@ -106,10 +90,11 @@ fn collect_packs(
     if depth > 4 || packs.len() >= 16 {
         return Err(invalid("Too many nested Bedrock packs"));
     }
+    crate::util::archive::preflight_file(path).map_err(invalid)?;
     let mut archive =
         zip::ZipArchive::new(fs::File::open(path).map_err(io_error)?)
             .map_err(invalid)?;
-    if archive.len() > 100_000 {
+    if archive.len() > crate::util::archive::MAX_ARCHIVE_ENTRIES {
         return Err(invalid("Too many archive entries"));
     }
     let manifest = match archive.by_name("manifest.json") {
@@ -141,6 +126,10 @@ fn collect_packs(
         }
         let nested = tempfile::tempdir_in(stage).map_err(io_error)?;
         let zip = nested.path().join("bundle.zip");
+        super::catalog::require_space(
+            stage,
+            fs::metadata(path).map_err(io_error)?.len(),
+        )?;
         fs::copy(path, &zip).map_err(io_error)?;
         for path in super::catalog::prepare_archive(&zip, nested.path())? {
             collect_packs(&path, stage, packs, depth + 1, total)?;
@@ -172,6 +161,21 @@ fn collect_packs(
         return Err(invalid("Unsupported pack modules"));
     };
     let output = stage.join(format!("pack-{}", packs.len()));
+    let mut declared = 0;
+    for index in 0..archive.len() {
+        let entry = archive.by_index(index).map_err(invalid)?;
+        crate::util::archive::validate_entry(
+            entry.name(),
+            entry.size(),
+            &mut declared,
+        )
+        .map_err(invalid)?;
+    }
+    if total.saturating_add(declared) > crate::util::archive::MAX_EXPANDED_BYTES
+    {
+        return Err(invalid("Archive exceeds decompression limits"));
+    }
+    super::catalog::require_space(stage, declared)?;
     fs::create_dir(&output).map_err(io_error)?;
     let mut seen = std::collections::HashSet::new();
     for index in 0..archive.len() {
@@ -200,15 +204,6 @@ fn collect_packs(
         {
             return Err(invalid("Unsafe archive path"));
         }
-        *total = total
-            .checked_add(entry.size())
-            .ok_or_else(|| invalid("Archive too large"))?;
-        if *total > 8 * 1024 * 1024 * 1024 {
-            return Err(BedrockError::new(
-                ErrorCode::FileTooLarge,
-                "Archive too large",
-            ));
-        }
         let destination = output.join(relative);
         if entry.is_dir() {
             fs::create_dir_all(destination).map_err(io_error)?;
@@ -217,7 +212,12 @@ fn collect_packs(
         fs::create_dir_all(destination.parent().unwrap()).map_err(io_error)?;
         let size = entry.size();
         let written = std::io::copy(
-            &mut (&mut entry).take(size + 1),
+            &mut (&mut entry).take(
+                size.min(
+                    crate::util::archive::MAX_EXPANDED_BYTES
+                        .saturating_sub(*total),
+                ) + 1,
+            ),
             &mut fs::OpenOptions::new()
                 .write(true)
                 .create_new(true)
@@ -225,6 +225,14 @@ fn collect_packs(
                 .map_err(io_error)?,
         )
         .map_err(io_error)?;
+        *total = total
+            .checked_add(written)
+            .ok_or_else(|| invalid("Archive size overflow"))?;
+        if *total > crate::util::archive::MAX_EXPANDED_BYTES {
+            return Err(invalid(
+                "Archive exceeds streaming decompression limit",
+            ));
+        }
         if written != size {
             return Err(invalid("Invalid archive entry size"));
         }
@@ -284,6 +292,7 @@ pub(super) fn install_into_world(
     world: &Path,
     archives: &[PathBuf],
 ) -> Result<usize> {
+    let _lock = super::coordination::mutation()?;
     game_closed()?;
     plain_path(world, true)?;
     plain_path(&world.join("level.dat"), false)?;
@@ -367,29 +376,59 @@ pub(super) fn install_into_world(
         }
     }
     let backups = world.join(".orbiont-pack-backups");
+    let recovery_bytes: u64 = original
+        .iter()
+        .flatten()
+        .map(|bytes| bytes.len() as u64)
+        .sum();
+    let activation_bytes: u64 =
+        updated.iter().map(|bytes| bytes.len() as u64).sum();
+    super::catalog::require_space(
+        world,
+        recovery_bytes
+            .saturating_mul(4)
+            .saturating_add(activation_bytes.saturating_mul(4)),
+    )?;
     directory(&backups)?;
     let backup = backups.join(uuid::Uuid::new_v4().to_string());
     fs::create_dir(&backup).map_err(io_error)?;
     for index in 0..2 {
         let name = files[index].file_name().unwrap().to_string_lossy();
         if let Some(bytes) = &original[index] {
-            fs::write(backup.join(&*name), bytes).map_err(io_error)?;
+            atomic_write(&backup.join(&*name), bytes)?;
         } else {
-            fs::write(backup.join(format!("{name}.absent")), b"")
-                .map_err(io_error)?;
+            atomic_write(&backup.join(format!("{name}.absent")), b"")?;
         }
     }
+    let mut journal = InstallJournal {
+        state: "prepared".into(),
+        saved_at: std::time::SystemTime::now()
+            .duration_since(std::time::UNIX_EPOCH)
+            .map_err(io_error)?
+            .as_secs(),
+        original: original.clone(),
+        updated: updated.clone(),
+        destinations: packs
+            .iter()
+            .map(|pack| {
+                format!(
+                    "{}_packs/orbiont-{}-{}",
+                    pack.kind,
+                    pack.id,
+                    uuid::Uuid::new_v4()
+                )
+            })
+            .collect(),
+        diagnostic: None,
+    };
+    journal.save(&backup)?;
     let mut moved = Vec::new();
     let mut written = Vec::new();
     let commit: Result<()> = (|| {
-        for pack in &packs {
+        for (pack, relative) in packs.iter().zip(&journal.destinations) {
             let base = world.join(format!("{}_packs", pack.kind));
             directory(&base)?;
-            let destination = base.join(format!(
-                "orbiont-{}-{}",
-                pack.id,
-                uuid::Uuid::new_v4()
-            ));
+            let destination = world.join(relative);
             fs::rename(&pack.directory, &destination).map_err(io_error)?;
             moved.push(destination);
         }
@@ -400,34 +439,244 @@ pub(super) fn install_into_world(
         Ok(())
     })();
     if let Err(error) = commit {
-        let mut rollback_ok = true;
+        let mut failures = Vec::new();
         for index in written.into_iter().rev() {
             let restored = if let Some(bytes) = &original[index] {
                 atomic_write(&files[index], bytes)
             } else {
                 fs::remove_file(&files[index]).map_err(io_error)
             };
-            rollback_ok &= restored.is_ok();
-        }
-        // Remove only the new folders created by this transaction, never previous packs.
-        if rollback_ok {
-            let canonical_world = fs::canonicalize(world).map_err(io_error)?;
-            for path in moved {
-                if plain_path(&path, true).is_ok()
-                    && fs::canonicalize(&path).is_ok_and(|resolved| {
-                        resolved.starts_with(&canonical_world)
-                    })
-                {
-                    let _ = fs::remove_dir_all(path);
-                }
+            if let Err(rollback) = restored {
+                failures.push(rollback.message);
             }
         }
+        journal.state = if failures.is_empty() {
+            "rolled_back"
+        } else {
+            "rollback_failed"
+        }
+        .into();
+        journal.diagnostic = Some(format!(
+            "{error}; rollback: {}; retained new packs: {}",
+            failures.join("; "),
+            moved.len()
+        ));
+        journal.save(&backup)?;
         return Err(io_error(format!(
-            "{error}; activation backup: {}",
+            "{}; recovery: {}",
+            journal.diagnostic.as_deref().unwrap_or(""),
             backup.display()
         )));
     }
+    journal.state = "applied".into();
+    journal.save(&backup)?;
     Ok(packs.len())
+}
+
+#[derive(serde::Serialize, serde::Deserialize)]
+struct InstallJournal {
+    state: String,
+    saved_at: u64,
+    original: [Option<Vec<u8>>; 2],
+    updated: [Vec<u8>; 2],
+    destinations: Vec<String>,
+    diagnostic: Option<String>,
+}
+impl InstallJournal {
+    fn save(&self, path: &Path) -> Result<()> {
+        let bytes = serde_json::to_vec(self).map_err(io_error)?;
+        if bytes.len() > 8 * 1024 * 1024 {
+            return Err(BedrockError::new(
+                ErrorCode::FileTooLarge,
+                "Pack recovery metadata exceeds its safe limit",
+            ));
+        }
+        atomic_write(&path.join("install-journal.json"), &bytes)
+    }
+}
+fn load_journal(path: &Path) -> Result<InstallJournal> {
+    plain_path(&path.join("install-journal.json"), false)?;
+    let bytes =
+        fs::File::open(path.join("install-journal.json")).map_err(io_error)?;
+    let mut out = Vec::new();
+    bytes
+        .take(8 * 1024 * 1024 + 1)
+        .read_to_end(&mut out)
+        .map_err(io_error)?;
+    if out.len() > 8 * 1024 * 1024 {
+        return Err(invalid("Pack recovery metadata too large"));
+    }
+    serde_json::from_slice(&out).map_err(invalid)
+}
+fn backup_path(root: &super::DataRoot, id: &str) -> Result<(PathBuf, PathBuf)> {
+    let parts: Vec<_> = id.split(':').collect();
+    if parts.len() != 3
+        || parts[0] != "pack"
+        || uuid::Uuid::parse_str(parts[2]).is_err()
+        || parts[1].contains(['/', '\\'])
+    {
+        return Err(invalid("Invalid pack recovery ID"));
+    }
+    let world = super::workspace::resolve(
+        root,
+        &format!("minecraftWorlds/{}", parts[1]),
+    )
+    .map_err(io_error)?;
+    let backup = super::workspace::resolve(
+        root,
+        &format!(
+            "minecraftWorlds/{}/.orbiont-pack-backups/{}",
+            parts[1], parts[2]
+        ),
+    )
+    .map_err(io_error)?;
+    Ok((world, backup))
+}
+pub(super) fn recoveries(
+    root: &super::DataRoot,
+    include_restored: bool,
+) -> Result<Vec<super::Recovery>> {
+    let worlds = match super::workspace::list_files(root, "minecraftWorlds") {
+        Ok(v) => v,
+        Err(e) if e.kind() == std::io::ErrorKind::NotFound => {
+            return Ok(vec![]);
+        }
+        Err(e) => return Err(io_error(e)),
+    };
+    if worlds.limited {
+        return Err(io_error(
+            "Too many worlds to enumerate all pack recoveries",
+        ));
+    }
+    let mut items = Vec::new();
+    for world in worlds.entries.into_iter().filter(|e| e.is_dir) {
+        let base = match super::workspace::resolve(
+            root,
+            &format!("{}/.orbiont-pack-backups", world.path),
+        ) {
+            Ok(p) => p,
+            Err(e) if e.kind() == std::io::ErrorKind::NotFound => continue,
+            Err(e) => return Err(io_error(e)),
+        };
+        for entry in fs::read_dir(base).map_err(io_error)? {
+            let entry = entry.map_err(io_error)?;
+            let name = entry.file_name().to_string_lossy().to_string();
+            if uuid::Uuid::parse_str(&name).is_err() {
+                continue;
+            }
+            let id = format!("pack:{}:{name}", world.name);
+            let Ok((_, path)) = backup_path(root, &id) else {
+                continue;
+            };
+            let (state,saved_at,diagnostic)=match load_journal(&path) {
+                Ok(j)=>(j.state,j.saved_at,j.diagnostic),
+                Err(error) if path.join("install-journal.json").exists()=> ("partial".into(),0,Some(error.message)),
+                Err(_)=>("legacy".into(),entry.metadata().ok().and_then(|m|m.modified().ok()).and_then(|t|t.duration_since(std::time::UNIX_EPOCH).ok()).map(|d|d.as_secs()).unwrap_or(0),Some("Existing activation-only backup lacks committed revisions; restoration requires unchanged activation files".into())),
+            };
+            if !include_restored
+                && ["restored", "rolled_back"].contains(&state.as_str())
+            {
+                continue;
+            }
+            let (size_bytes, size_limited) = super::storage::measure(&path);
+            items.push(super::Recovery {
+                id,
+                root_id: root.id.clone(),
+                path: world.path.clone(),
+                operation: "install".into(),
+                saved_at,
+                state,
+                source: "world_pack_install".into(),
+                size_bytes,
+                size_limited,
+                diagnostic,
+            });
+        }
+    }
+    Ok(items)
+}
+pub(super) fn preview(root: &super::DataRoot, id: &str) -> Result<()> {
+    let (world, backup) = backup_path(root, id)?;
+    let files = [
+        world.join("world_resource_packs.json"),
+        world.join("world_behavior_packs.json"),
+    ];
+    match load_journal(&backup) {
+        Ok(journal) => {
+            for (index, file) in files.iter().enumerate() {
+                let current = read_activation(file)?;
+                if current != journal.original[index]
+                    && current.as_deref()
+                        != Some(journal.updated[index].as_slice())
+                {
+                    return Err(io_error(
+                        "Activation changed after this installation",
+                    ));
+                }
+            }
+        }
+        Err(error) if backup.join("install-journal.json").exists() => {
+            return Err(error);
+        }
+        Err(_) => {
+            for file in &files {
+                let name = file.file_name().unwrap();
+                let original = read_activation(&backup.join(name))?;
+                let absent =
+                    backup.join(format!("{}.absent", name.to_string_lossy()));
+                if original.is_none() {
+                    plain_path(&absent, false)?;
+                }
+                if read_activation(file)? != original {
+                    return Err(io_error(
+                        "Legacy backup has no committed revisions; current activation cannot be safely overwritten",
+                    ));
+                }
+            }
+        }
+    }
+    Ok(())
+}
+pub(super) fn restore(root: &super::DataRoot, id: &str) -> Result<()> {
+    let _lock = super::coordination::mutation()?;
+    game_closed()?;
+    preview(root, id)?;
+    let (world, backup) = backup_path(root, id)?;
+    let mut journal = load_journal(&backup).unwrap_or(InstallJournal {
+        state: "legacy".into(),
+        saved_at: 0,
+        original: [None, None],
+        updated: [Vec::new(), Vec::new()],
+        destinations: vec![],
+        diagnostic: None,
+    });
+    if journal.state == "legacy" {
+        journal.state = "restored".into();
+        return journal.save(&backup);
+    }
+    for (index, name) in
+        ["world_resource_packs.json", "world_behavior_packs.json"]
+            .iter()
+            .enumerate()
+    {
+        let file = world.join(name);
+        let result = if let Some(bytes) = &journal.original[index] {
+            atomic_write(&file, bytes)
+        } else if file.exists() {
+            fs::remove_file(&file).map_err(io_error)
+        } else {
+            Ok(())
+        };
+        if let Err(e) = result {
+            journal.state = "rollback_failed".into();
+            journal.diagnostic = Some(e.message.clone());
+            journal.save(&backup)?;
+            return Err(e);
+        }
+    }
+    journal.state = "restored".into();
+    journal.diagnostic = None;
+    journal.save(&backup)
 }
 
 #[cfg(test)]
@@ -438,6 +687,136 @@ mod tests {
 
     const RP: &str = "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa";
     const BP: &str = "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb";
+    #[test]
+    fn unsafe_pack_directory_is_rejected_before_reader_or_extraction() {
+        let fixture = tempfile::tempdir().unwrap();
+        let archive =
+            pack(fixture.path(), "rp.mcpack", RP, "resources", json!([]));
+        let mut bytes = fs::read(&archive).unwrap();
+        let end = bytes.len() - 22;
+        bytes[end + 12..end + 16]
+            .copy_from_slice(&(17u32 * 1024 * 1024).to_le_bytes());
+        fs::write(&archive, bytes).unwrap();
+        let stage = tempfile::tempdir().unwrap();
+        assert!(
+            collect_packs(&archive, stage.path(), &mut Vec::new(), 0, &mut 0)
+                .is_err()
+        );
+        assert_eq!(fs::read_dir(stage.path()).unwrap().count(), 0);
+    }
+    #[test]
+    fn install_recovery_restores_activation_but_keeps_imported_content() {
+        let dir = tempfile::tempdir().unwrap();
+        let a = world(dir.path(), "minecraftWorlds/a");
+        let archive = pack(dir.path(), "rp.mcpack", RP, "resources", json!([]));
+        install_into_world(&a, &[archive]).unwrap();
+        let root = super::super::DataRoot {
+            id: "fixture".into(),
+            path: dir.path().into(),
+            kind: super::super::RootKind::User,
+        };
+        let recovery = recoveries(&root, false).unwrap().pop().unwrap();
+        assert_eq!(recovery.state, "applied");
+        preview(&root, &recovery.id).unwrap();
+        restore(&root, &recovery.id).unwrap();
+        assert!(!a.join("world_resource_packs.json").exists());
+        assert_eq!(fs::read_dir(a.join("resource_packs")).unwrap().count(), 1);
+        assert!(recoveries(&root, false).unwrap().is_empty());
+    }
+    #[test]
+    fn install_recovery_rejects_later_activation_changes() {
+        let dir = tempfile::tempdir().unwrap();
+        let a = world(dir.path(), "minecraftWorlds/a");
+        let archive = pack(dir.path(), "rp.mcpack", RP, "resources", json!([]));
+        install_into_world(&a, &[archive]).unwrap();
+        let root = super::super::DataRoot {
+            id: "fixture".into(),
+            path: dir.path().into(),
+            kind: super::super::RootKind::User,
+        };
+        let recovery = recoveries(&root, false).unwrap().pop().unwrap();
+        fs::write(
+            a.join("world_resource_packs.json"),
+            b"[{\"pack_id\":\"external\"}]",
+        )
+        .unwrap();
+        assert!(preview(&root, &recovery.id).is_err());
+        assert!(restore(&root, &recovery.id).is_err());
+        assert_eq!(recoveries(&root, false).unwrap().len(), 1);
+    }
+    #[test]
+    fn world_install_waits_for_the_same_mutation_guard_as_the_editor() {
+        let dir = tempfile::tempdir().unwrap();
+        let a = world(dir.path(), "a");
+        let archive = pack(dir.path(), "rp.mcpack", RP, "resources", json!([]));
+        let guard = super::super::coordination::mutation().unwrap();
+        let (tx, rx) = std::sync::mpsc::channel();
+        let worker = std::thread::spawn(move || {
+            tx.send(install_into_world(&a, &[archive])).unwrap();
+        });
+        assert!(
+            rx.recv_timeout(std::time::Duration::from_millis(80))
+                .is_err()
+        );
+        drop(guard);
+        assert_eq!(
+            rx.recv_timeout(std::time::Duration::from_secs(5))
+                .unwrap()
+                .unwrap(),
+            1
+        );
+        worker.join().unwrap();
+    }
+    #[test]
+    fn legacy_pack_backup_never_overwrites_an_unverifiable_activation() {
+        let dir = tempfile::tempdir().unwrap();
+        let a = world(dir.path(), "minecraftWorlds/a");
+        let id = uuid::Uuid::new_v4().to_string();
+        let backup = a.join(".orbiont-pack-backups").join(&id);
+        fs::create_dir_all(&backup).unwrap();
+        fs::write(backup.join("world_resource_packs.json"), b"[]").unwrap();
+        fs::write(backup.join("world_behavior_packs.json.absent"), b"")
+            .unwrap();
+        fs::write(
+            a.join("world_resource_packs.json"),
+            b"[{\"pack_id\":\"later\"}]",
+        )
+        .unwrap();
+        let root = super::super::DataRoot {
+            id: "fixture".into(),
+            path: dir.path().into(),
+            kind: super::super::RootKind::User,
+        };
+        let recovery = recoveries(&root, false).unwrap().pop().unwrap();
+        assert_eq!(recovery.state, "legacy");
+        assert!(preview(&root, &recovery.id).is_err());
+        fs::write(a.join("world_resource_packs.json"), b"[]").unwrap();
+        preview(&root, &recovery.id).unwrap();
+        restore(&root, &recovery.id).unwrap();
+        assert!(backup.join("world_resource_packs.json").exists());
+    }
+    #[test]
+    fn prepared_install_journal_with_mixed_activation_files_can_be_recovered() {
+        let dir = tempfile::tempdir().unwrap();
+        let a = world(dir.path(), "minecraftWorlds/a");
+        let archive = pack(dir.path(), "rp.mcpack", RP, "resources", json!([]));
+        install_into_world(&a, &[archive]).unwrap();
+        let root = super::super::DataRoot {
+            id: "fixture".into(),
+            path: dir.path().into(),
+            kind: super::super::RootKind::User,
+        };
+        let recovery = recoveries(&root, false).unwrap().pop().unwrap();
+        let (_, backup) = backup_path(&root, &recovery.id).unwrap();
+        let mut journal = load_journal(&backup).unwrap();
+        journal.state = "prepared".into();
+        journal.save(&backup).unwrap();
+        fs::remove_file(a.join("world_behavior_packs.json")).unwrap();
+        preview(&root, &recovery.id).unwrap();
+        restore(&root, &recovery.id).unwrap();
+        assert!(!a.join("world_resource_packs.json").exists());
+        assert!(backup.join("install-journal.json").exists());
+    }
     #[test]
     fn targets_only_detected_world_directories() {
         let dir = tempfile::tempdir().unwrap();
@@ -511,7 +890,7 @@ mod tests {
     }
     #[cfg(windows)]
     #[test]
-    fn second_activation_write_failure_restores_first_and_removes_new_packs() {
+    fn second_activation_write_failure_restores_first_and_retains_new_packs() {
         let dir = tempfile::tempdir().unwrap();
         let a = world(dir.path(), "a");
         let original = b"[]";
@@ -532,7 +911,7 @@ mod tests {
             original
         );
         assert_eq!(fs::read(blocked).unwrap(), original);
-        assert_eq!(fs::read_dir(a.join("resource_packs")).unwrap().count(), 0);
+        assert_eq!(fs::read_dir(a.join("resource_packs")).unwrap().count(), 1);
     }
     fn pack(
         dir: &Path,

@@ -37,7 +37,7 @@ pub fn validate_import(path: &Path) -> Result<PathBuf, ImportError> {
     if !metadata.is_file() || metadata.len() < 4 {
         return Err(ImportError::InvalidFile);
     }
-    if metadata.len() > 8 * 1024 * 1024 * 1024 {
+    if metadata.len() > crate::util::archive::MAX_ARCHIVE_BYTES {
         return Err(ImportError::FileTooLarge);
     }
     let mut header = [0; 4];
@@ -45,6 +45,57 @@ pub fn validate_import(path: &Path) -> Result<PathBuf, ImportError> {
         .map_err(|_| ImportError::InvalidFile)?;
     if header != *b"PK\x03\x04" {
         return Err(ImportError::InvalidFile);
+    }
+    crate::util::archive::preflight(&mut file)
+        .map_err(|_| ImportError::InvalidFile)?;
+    let mut archive =
+        zip::ZipArchive::new(file).map_err(|_| ImportError::InvalidFile)?;
+    let mut declared = 0;
+    let mut expanded = 0u64;
+    let mut seen = std::collections::HashSet::new();
+    let mut buffer = vec![0u8; 64 * 1024].into_boxed_slice();
+    for index in 0..archive.len() {
+        let mut entry = archive
+            .by_index(index)
+            .map_err(|_| ImportError::InvalidFile)?;
+        crate::util::archive::validate_entry(
+            entry.name(),
+            entry.size(),
+            &mut declared,
+        )
+        .map_err(|_| ImportError::InvalidFile)?;
+        if entry.name().chars().any(char::is_control)
+            || !seen
+                .insert(entry.name().trim_end_matches('/').to_ascii_lowercase())
+            || entry
+                .unix_mode()
+                .is_some_and(|mode| mode & 0o170000 == 0o120000)
+        {
+            return Err(ImportError::InvalidFile);
+        }
+        let mut actual = 0u64;
+        loop {
+            let count = entry
+                .read(&mut buffer)
+                .map_err(|_| ImportError::InvalidFile)?;
+            if count == 0 {
+                break;
+            }
+            actual = actual
+                .checked_add(count as u64)
+                .ok_or(ImportError::FileTooLarge)?;
+            expanded = expanded
+                .checked_add(count as u64)
+                .ok_or(ImportError::FileTooLarge)?;
+            if actual > entry.size()
+                || expanded > crate::util::archive::MAX_EXPANDED_BYTES
+            {
+                return Err(ImportError::FileTooLarge);
+            }
+        }
+        if actual != entry.size() {
+            return Err(ImportError::InvalidFile);
+        }
     }
     Ok(path)
 }
@@ -87,7 +138,18 @@ mod tests {
     fn accepts_all_three_formats_and_uppercase_extensions() {
         let fixture = Fixture::new();
         for name in ["Mundo español.MCWORLD", "pack.mcpack", "addon.mcaddon"] {
-            let path = fixture.file(name, b"PK\x03\x04content");
+            use std::io::Write;
+            let path = fixture.0.join(name);
+            let mut archive =
+                zip::ZipWriter::new(fs::File::create(&path).unwrap());
+            archive
+                .start_file(
+                    "manifest.json",
+                    zip::write::SimpleFileOptions::default(),
+                )
+                .unwrap();
+            archive.write_all(b"{}").unwrap();
+            archive.finish().unwrap();
             assert_eq!(
                 validate_import(&path),
                 Ok(fs::canonicalize(path).unwrap())
@@ -109,6 +171,32 @@ mod tests {
                 Err(ImportError::InvalidFile)
             );
         }
+    }
+    #[test]
+    fn rejects_forged_directory_and_reserved_paths_in_local_imports() {
+        use std::io::Write;
+        let fixture = Fixture::new();
+        for name in [
+            "CON.txt",
+            "folder/trailing. ",
+            "folder/../escape",
+            "control\u{1f}.txt",
+        ] {
+            let path = fixture.0.join("unsafe.mcpack");
+            let mut zip = zip::ZipWriter::new(fs::File::create(&path).unwrap());
+            zip.start_file(name, zip::write::SimpleFileOptions::default())
+                .unwrap();
+            zip.write_all(b"data").unwrap();
+            zip.finish().unwrap();
+            assert_eq!(validate_import(&path), Err(ImportError::InvalidFile));
+        }
+        let path = fixture.0.join("directory.mcaddon");
+        let mut bytes = vec![0; 22];
+        bytes[..4].copy_from_slice(b"PK\x05\x06");
+        bytes[8..10].copy_from_slice(&20_001u16.to_le_bytes());
+        bytes[10..12].copy_from_slice(&20_001u16.to_le_bytes());
+        fs::write(&path, bytes).unwrap();
+        assert_eq!(validate_import(&path), Err(ImportError::InvalidFile));
     }
 
     #[test]

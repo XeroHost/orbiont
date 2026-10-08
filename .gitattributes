@@ -1,5 +1,8 @@
 * text=auto eol=lf
 
+# Preserve the exact upstream GLib license bytes required by the integrity guard.
+patches/glib-0.18.5/LICENSE whitespace=-blank-at-eof
+
 # SQLx calculates a checksum of migration scripts at build time to compare
 # it with the checksum of the applied migration for the same version at
 # runtime, to know if the migration script has been changed, and thus the

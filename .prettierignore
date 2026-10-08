@@ -3,3 +3,6 @@ pnpm-lock.yaml
 .github/**/*.png
 # TOML is formatted and linted by tombi (see check-generic.yml)
 *.toml
+# Published upstream source and pinned byte integrity baseline.
+patches/glib-0.18.5/
+patches/glib-0.18.5.integrity.json

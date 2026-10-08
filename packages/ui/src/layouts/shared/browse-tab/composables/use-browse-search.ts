@@ -365,7 +365,7 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 		(newType, oldType) => {
 			debug('projectType changed', { from: oldType, to: newType })
 			currentSortType.value =
-				sortTypes.value.find((sortType) => sortType.name === 'relevance') ?? sortTypes.value[0]
+				sortTypes.find((sortType) => sortType.name === 'relevance') ?? sortTypes[0]
 			query.value = ''
 
 			void nextTick(() => {

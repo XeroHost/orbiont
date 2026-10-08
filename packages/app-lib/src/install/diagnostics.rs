@@ -601,6 +601,8 @@ async fn censor_support_text(
     mut text: String,
     state: &State,
 ) -> crate::Result<String> {
+    // Redact OAuth/PKCE and labelled secrets even when they were never stored.
+    text = crate::logger::redact_diagnostics(&text);
     for token in minecraft_tokens(&state.pool).await? {
         replace_nonempty(&mut text, &token, "{MINECRAFT_TOKEN}");
     }

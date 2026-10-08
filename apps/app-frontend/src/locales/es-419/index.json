@@ -4542,7 +4542,7 @@
     "message": "Selecciona un archivo local válido de tipo .mcworld, .mcpack o .mcaddon."
   },
   "app.bedrock.large-file": {
-    "message": "Este archivo supera el límite de importación de 8 GiB."
+    "message": "Este archivo supera el límite de importación de 2 GiB."
   },
   "app.bedrock.store-error": {
     "message": "No se pudo abrir Microsoft Store. Ábrela desde el menú Inicio de Windows."
@@ -4756,5 +4756,137 @@
   },
   "app.bedrock.world-scope": {
     "message": "Mundo: {name}"
+  },
+  "bedrock.diagnostics.export": {
+    "message": "Exportar informe de diagnóstico"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Abre el launcher oficial para comprobar tu sesión o Microsoft Store para instalar actualizaciones o reparar Minecraft. Refresca la detección al terminar."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Listo} requested {Inicio solicitado} starting {Esperando a Minecraft} running {Minecraft está en ejecución} timeout {Minecraft no inició dentro del tiempo límite} failed {Error de inicio} other {Comprobando el inicio}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Tiempo transcurrido: {seconds, number} segundos"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Diagnóstico de inicio"
+  },
+  "bedrock.packs.activations": {
+    "message": "Activaciones en mundos"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Dependencias"
+  },
+  "bedrock.packs.details": {
+    "message": "Versiones y dependencias"
+  },
+  "bedrock.packs.none": {
+    "message": "Ninguna registrada"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Versión activa} other {Versión conservada}}"
+  },
+  "instance.files.editor-conflict": {
+    "message": "El archivo cambió fuera del editor. Se conservó tu borrador. Cópialo antes de volver a abrir el archivo para revisar la versión más reciente."
+  },
+  "instance.files.editor-save-error": {
+    "message": "No se pudo guardar el archivo. Se conservó tu borrador."
+  },
+  "instance.files.reload-before-save": {
+    "message": "Vuelve a abrir el archivo antes de guardar."
+  },
+  "local-management.category.cache": {
+    "message": "Caché compartida del launcher"
+  },
+  "local-management.category.data": {
+    "message": "Datos del juego"
+  },
+  "local-management.category.import": {
+    "message": "Importaciones conservadas"
+  },
+  "local-management.category.recovery": {
+    "message": "Copias recuperables"
+  },
+  "local-management.category.retained-version": {
+    "message": "Versiones conservadas de packs"
+  },
+  "local-management.confirm-removal": {
+    "message": "Confirmar eliminación permanente"
+  },
+  "local-management.empty": {
+    "message": "No se encontraron copias recuperables."
+  },
+  "local-management.error": {
+    "message": "La operación falló. Se conservó tu selección. Refresca e inténtalo de nuevo."
+  },
+  "local-management.load-more": {
+    "message": "Cargar más copias"
+  },
+  "local-management.loading": {
+    "message": "Cargando datos locales…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {Instalación de packs en un mundo} java_editor {Editor de Java} other {Gestión local de Bedrock}}"
+  },
+  "local-management.partial": {
+    "message": "Esta lista o estimación de tamaño está incompleta."
+  },
+  "local-management.preview": {
+    "message": "Vista previa"
+  },
+  "local-management.recovery": {
+    "message": "Copias recuperables"
+  },
+  "local-management.remove": {
+    "message": "Eliminar elementos seleccionados"
+  },
+  "local-management.remove-help": {
+    "message": "Solo se pueden eliminar las copias recuperables e importaciones conservadas que selecciones. Eliminarlas permanentemente impide su recuperación."
+  },
+  "local-management.restore": {
+    "message": "Confirmar restauración"
+  },
+  "local-management.restore-help": {
+    "message": "Revisa el destino y la copia antes de restaurar. Los cambios posteriores o un destino ocupado pueden impedir la restauración."
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# elemento seleccionado} other {# elementos seleccionados}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} bytes"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Preparada} applied {Aplicada} rollback_failed {Reversión fallida} restored {Restaurada} partial {Incompleta} legacy {Copia anterior} other {Disponible}}"
+  },
+  "local-management.storage": {
+    "message": "Almacenamiento"
+  },
+  "local-management.title": {
+    "message": "Recuperación y almacenamiento"
+  },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft sigue en ejecución"
+  },
+  "app.bedrock.force-stop": {
+    "message": "Forzar cierre"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft no se cerró después de la solicitud normal. ¿Quieres forzar el cierre de este proceso del juego? Podrías perder el progreso sin guardar. Puedes cancelar y guardar y salir desde Minecraft."
+  },
+  "local-management.retention.days": {
+    "message": "Antigüedad superior a (días)"
+  },
+  "local-management.retention.help": {
+    "message": "Selecciona copias recuperables antiguas para revisarlas. No se elimina nada automáticamente; se conservan las copias incompletas y el contenido instalado."
+  },
+  "local-management.retention.keep": {
+    "message": "Conservar las copias más recientes de cada archivo o mundo"
+  },
+  "local-management.retention.select": {
+    "message": "Seleccionar copias antiguas"
+  },
+  "app.bedrock.insufficient-space": {
+    "message": "No hay suficiente espacio libre en disco para preparar este contenido y conservar copias de recuperación. Libera espacio en la unidad de destino e inténtalo de nuevo."
   }
 }

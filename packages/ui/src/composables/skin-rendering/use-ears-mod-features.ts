@@ -45,15 +45,7 @@ type EarMode =
 	| 'TALL_CROSS'
 type EarAnchor = 'CENTER' | 'FRONT' | 'BACK'
 type TailMode =
-	| 'NONE'
-	| 'DOWN'
-	| 'BACK'
-	| 'UP'
-	| 'VERTICAL'
-	| 'CROSS'
-	| 'CROSS_OVERLAP'
-	| 'STAR'
-	| 'STAR_OVERLAP'
+	'NONE' | 'DOWN' | 'BACK' | 'UP' | 'VERTICAL' | 'CROSS' | 'CROSS_OVERLAP' | 'STAR' | 'STAR_OVERLAP'
 type WingMode =
 	| 'NONE'
 	| 'SYMMETRIC_DUAL'
@@ -349,6 +341,9 @@ function getImageDimensions(image: CanvasImageSource) {
 	if (image instanceof HTMLVideoElement) {
 		return [image.videoWidth, image.videoHeight] as const
 	}
+	if ('displayWidth' in image) return [image.displayWidth, image.displayHeight] as const
+	if (image instanceof SVGImageElement)
+		return [image.width.baseVal.value, image.height.baseVal.value] as const
 	return [image.width, image.height] as const
 }
 
@@ -780,7 +775,7 @@ function createCanvasTexture(data: Uint8ClampedArray, width: number, height: num
 	canvas.height = height
 	const context = canvas.getContext('2d')
 	if (!context) throw new Error('Could not create Ears texture canvas')
-	context.putImageData(new ImageData(data, width, height), 0, 0)
+	context.putImageData(new ImageData(new Uint8ClampedArray(data), width, height), 0, 0)
 
 	const texture = new THREE.CanvasTexture(canvas)
 	texture.colorSpace = THREE.SRGBColorSpace

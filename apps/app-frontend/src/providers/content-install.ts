@@ -84,8 +84,13 @@ const RESOLVABLE_PROJECT_TYPES = new Set<Labrinth.Content.v3.ContentType>([
 	'modpack',
 ])
 
-function resolveContentType(projectType?: Labrinth.Projects.v2.ProjectType) {
-	return projectType && projectType !== 'world' && RESOLVABLE_PROJECT_TYPES.has(projectType)
+function resolveContentType(
+	projectType?: Labrinth.Projects.v2.ProjectType,
+): Labrinth.Content.v3.ContentType {
+	return projectType &&
+		projectType !== 'world' &&
+		projectType !== 'project' &&
+		RESOLVABLE_PROJECT_TYPES.has(projectType)
 		? projectType
 		: 'mod'
 }
@@ -93,7 +98,7 @@ function resolveContentType(projectType?: Labrinth.Projects.v2.ProjectType) {
 function isVersionCompatible(
 	version: Labrinth.Versions.v2.Version,
 	project: Labrinth.Projects.v2.Project,
-	instance: GameInstance,
+	instance: Pick<GameInstance, 'game_version' | 'loader'>,
 ) {
 	return (
 		version.game_versions.includes(instance.game_version) &&
@@ -106,7 +111,7 @@ function isVersionCompatible(
 function findPreferredVersion(
 	versions: Labrinth.Versions.v2.Version[],
 	project: Labrinth.Projects.v2.Project,
-	instance: GameInstance,
+	instance: Pick<GameInstance, 'game_version' | 'loader'>,
 ) {
 	const projectType = project.project_type ?? 'mod'
 
@@ -130,10 +135,9 @@ function sortLoaders(loaders: string[]): string[] {
 	})
 }
 
-type InstallTargetInstance = Pick<
-	GameInstance,
-	'id' | 'name' | 'icon_path' | 'game_version' | 'loader'
->
+type InstallTargetInstance = Pick<GameInstance, 'id' | 'name' | 'game_version' | 'loader'> & {
+	icon_path?: string | null
+}
 
 export interface ContentInstallContext {
 	instances: Ref<ContentInstallInstance[]>
@@ -492,7 +496,6 @@ export function createContentInstall(opts: {
 										name: owner.user.username,
 										iconUrl: owner.user.avatar_url,
 										circle: true,
-										link: undefined,
 									},
 								}
 							}

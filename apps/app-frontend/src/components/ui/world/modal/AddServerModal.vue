@@ -50,6 +50,7 @@ async function addServer(play: boolean) {
 		{
 			name: serverName,
 			type: 'server',
+			display_status: 'normal',
 			index,
 			address: address.value,
 			pack_status: resourcePackStatus,

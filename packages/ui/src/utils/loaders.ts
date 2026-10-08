@@ -1,13 +1,5 @@
 export type ServerLoader =
-	| 'Forge'
-	| 'NeoForge'
-	| 'Fabric'
-	| 'Quilt'
-	| 'Purpur'
-	| 'Spigot'
-	| 'Vanilla'
-	| 'Paper'
-	| 'Bukkit'
+	'Forge' | 'NeoForge' | 'Fabric' | 'Quilt' | 'Purpur' | 'Spigot' | 'Vanilla' | 'Paper' | 'Bukkit'
 
 export const loaderDisplayNames: Record<string, string> = {
 	fabric: 'Fabric',

@@ -482,6 +482,9 @@
   "app.bedrock.checking": {
     "message": "Looking for Minecraft for Windows…"
   },
+  "app.bedrock.close-timeout": {
+    "message": "Minecraft is still running"
+  },
   "app.bedrock.close-to-manage": {
     "message": "Close Minecraft to edit files, delete content or restore a copy."
   },
@@ -536,6 +539,12 @@
   "app.bedrock.folder-error": {
     "message": "Could not open this Minecraft folder. Refresh your data and try again."
   },
+  "app.bedrock.force-stop": {
+    "message": "Force close"
+  },
+  "app.bedrock.force-stop-help": {
+    "message": "Minecraft did not close after the normal request. Force close this game process? Unsaved progress may be lost. You can cancel and save and quit inside Minecraft."
+  },
   "app.bedrock.import-button": {
     "message": "Import file"
   },
@@ -554,6 +563,9 @@
   "app.bedrock.installed": {
     "message": "Minecraft for Windows is installed"
   },
+  "app.bedrock.insufficient-space": {
+    "message": "There is not enough free disk space to stage this content and keep recovery copies. Free space on the destination drive and try again."
+  },
   "app.bedrock.invalid-file": {
     "message": "Choose a valid local .mcworld, .mcpack or .mcaddon archive."
   },
@@ -561,7 +573,7 @@
     "message": "Java Edition"
   },
   "app.bedrock.large-file": {
-    "message": "This file exceeds the 8 GiB import limit."
+    "message": "This file exceeds the 2 GiB import limit."
   },
   "app.bedrock.launch-error": {
     "message": "Could not open Minecraft. Open the official launcher or Microsoft Store to check the installation."
@@ -3923,6 +3935,36 @@
   "app.world.world-item.players-online": {
     "message": "{count} online"
   },
+  "bedrock.diagnostics.export": {
+    "message": "Export diagnostic report"
+  },
+  "bedrock.diagnostics.repair-help": {
+    "message": "Open the official launcher to check your session, or open Microsoft Store to install updates or repair Minecraft. Refresh detection when finished."
+  },
+  "bedrock.diagnostics.state": {
+    "message": "{state, select, idle {Ready} requested {Launch requested} starting {Waiting for Minecraft} running {Minecraft is running} timeout {Minecraft did not start before the timeout} failed {Launch failed} other {Checking launch}}"
+  },
+  "bedrock.diagnostics.time": {
+    "message": "Elapsed: {seconds, number} seconds"
+  },
+  "bedrock.diagnostics.title": {
+    "message": "Launch diagnostics"
+  },
+  "bedrock.packs.activations": {
+    "message": "World activations"
+  },
+  "bedrock.packs.dependencies": {
+    "message": "Dependencies"
+  },
+  "bedrock.packs.details": {
+    "message": "Versions and dependencies"
+  },
+  "bedrock.packs.none": {
+    "message": "None reported"
+  },
+  "bedrock.packs.state": {
+    "message": "{active, select, true {Active version} other {Retained version}}"
+  },
   "curseforge.manual.description": {
     "message": "Download {file} from its official CurseForge page, then select the downloaded file to continue. Its size and SHA-1 will be verified."
   },
@@ -3998,8 +4040,17 @@
   "instance.files.adding-files": {
     "message": "Adding files ({completed}/{total})"
   },
+  "instance.files.editor-conflict": {
+    "message": "The file changed outside the editor. Your draft is kept. Copy it before reopening the file to review the latest version."
+  },
+  "instance.files.editor-save-error": {
+    "message": "Could not save the file. Your draft is kept."
+  },
   "instance.files.managed-content-read-only": {
     "message": "Manage your installed content via the Content tab"
+  },
+  "instance.files.reload-before-save": {
+    "message": "Reopen the file before saving."
   },
   "instance.files.save-as": {
     "message": "Save as..."
@@ -4633,6 +4684,87 @@
   },
   "instance.worlds.world_in_use": {
     "message": "World is in use"
+  },
+  "local-management.category.cache": {
+    "message": "Shared launcher cache"
+  },
+  "local-management.category.data": {
+    "message": "Game data"
+  },
+  "local-management.category.import": {
+    "message": "Retained imports"
+  },
+  "local-management.category.recovery": {
+    "message": "Recoverable copies"
+  },
+  "local-management.category.retained-version": {
+    "message": "Retained pack versions"
+  },
+  "local-management.confirm-removal": {
+    "message": "Confirm permanent removal"
+  },
+  "local-management.empty": {
+    "message": "No recoverable copies were found."
+  },
+  "local-management.error": {
+    "message": "The operation failed. Your selection has been kept. Refresh and try again."
+  },
+  "local-management.load-more": {
+    "message": "Load more copies"
+  },
+  "local-management.loading": {
+    "message": "Loading local data…"
+  },
+  "local-management.origin": {
+    "message": "{source, select, world_pack_install {World pack installation} java_editor {Java editor} other {Bedrock local management}}"
+  },
+  "local-management.partial": {
+    "message": "This list or size estimate is incomplete."
+  },
+  "local-management.preview": {
+    "message": "Preview"
+  },
+  "local-management.recovery": {
+    "message": "Recoverable copies"
+  },
+  "local-management.remove": {
+    "message": "Remove selected items"
+  },
+  "local-management.remove-help": {
+    "message": "Only selected recoverable copies and retained imports can be removed. Removing them permanently prevents their recovery."
+  },
+  "local-management.restore": {
+    "message": "Confirm restoration"
+  },
+  "local-management.restore-help": {
+    "message": "Review the destination and copy below before restoring. Later changes or an occupied destination may block restoration."
+  },
+  "local-management.retention.days": {
+    "message": "Older than (days)"
+  },
+  "local-management.retention.help": {
+    "message": "Select old recoverable copies for review. Nothing is removed automatically; incomplete copies and installed content are preserved."
+  },
+  "local-management.retention.keep": {
+    "message": "Keep newest copies per file or world"
+  },
+  "local-management.retention.select": {
+    "message": "Select old copies"
+  },
+  "local-management.selected": {
+    "message": "{count, plural, one {# selected item} other {# selected items}}"
+  },
+  "local-management.size": {
+    "message": "{bytes, number} bytes"
+  },
+  "local-management.state": {
+    "message": "{state, select, prepared {Prepared} applied {Applied} rollback_failed {Rollback failed} restored {Restored} partial {Incomplete} legacy {Legacy copy} other {Available}}"
+  },
+  "local-management.storage": {
+    "message": "Storage"
+  },
+  "local-management.title": {
+    "message": "Recovery and storage"
   },
   "minecraft-account.accounts": {
     "message": "Minecraft accounts"

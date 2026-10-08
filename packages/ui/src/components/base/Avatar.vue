@@ -124,7 +124,7 @@ function clearDetectionTimeout() {
 	}
 }
 
-function onError(e) {
+function onError(e: Event) {
 	clearDetectionTimeout()
 	detectingSource = undefined
 	debug('Avatar image failed to load:', props.src, e)
