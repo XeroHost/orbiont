@@ -5,7 +5,7 @@
 		"build": "tauri build",
 		"dev": "tauri dev --features export-app-events",
 		"test": "cargo nextest run --all-targets --no-fail-fast",
-		"lint": "cargo fmt --check && cargo clippy --all-targets && cargo clippy --all-targets --features updater",
+		"lint": "cargo fmt --check && cargo clippy --all-targets -- --no-deps -Dwarnings && cargo clippy --all-targets --features updater -- --no-deps -Dwarnings",
 		"lint:ancillary": "prettier --check .",
 		"fix": "cargo clippy --all-targets --fix --allow-dirty && cargo clippy --all-targets --features updater --fix --allow-dirty && cargo fmt",
 		"fix:ancillary": "prettier --write ."

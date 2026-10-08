@@ -1,5 +1,5 @@
 [files]
-exclude = ["target/", "**/node_modules/", "patches/glib-0.18.5/"]
+exclude = ["target/", "**/node_modules/", "patches/glib-0.18.5/**"]
 
 # required since Tauri doesn't support TOML v1.1.0
 # and breaks on inline tables with newlines

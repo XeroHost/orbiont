@@ -3,6 +3,11 @@ extend-exclude = [
   "**/src/locales/",
   "apps/frontend/",
   "patches/",
+  # These documents are in Spanish; typos checks English spelling.
+  "docs/audit-followup.md",
+  "docs/audit-remediation.md",
+  "docs/glib-backport.md",
+  "docs/releases/1.0.0-beta.2.md",
   "packages/utils/",
   "packages/ui/",
   "packages/blog/",

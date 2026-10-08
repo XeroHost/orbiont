@@ -106,11 +106,8 @@ jobs:
       FORCE_COLOR: 3
       # Make cargo nextest successfully ignore projects without tests
       NEXTEST_NO_TESTS: pass
-      # Fail on warnings in CI
-      # (but don't do this in the root `Cargo.toml`,
-      # since we don't want warnings to become errors
-      # while developing)
-      RUSTFLAGS: -Dwarnings
+      # Package lint scripts deny warnings on their primary Clippy targets.
+      # Global RUSTFLAGS would also reject warnings in the reviewed GLib vendor.
       SQLX_OFFLINE: true
       # Avoid stack overflows in tests
       RUST_MIN_STACK: 134217728
@@ -164,6 +161,11 @@ jobs:
 
       - name: Lint and test
         run: pnpm run ci
+
+      - name: Deny warnings in remaining workspace crates
+        # These crates have no package.json lint task. Select each as a primary
+        # target so --no-deps excludes the unchanged third-party GLib source.
+        run: cargo clippy --locked -p content-management -p path-util -p serde-binhum -p async-minecraft-ping --all-targets -- --no-deps -Dwarnings
 
       - name: Build and check frontend size budget
         run: |

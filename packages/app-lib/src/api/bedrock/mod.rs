@@ -146,6 +146,7 @@ pub async fn get_workspace_cached(refresh: bool) -> Result<Workspace> {
     }
     #[cfg(not(windows))]
     {
+        let _ = refresh;
         Err(BedrockError::new(
             ErrorCode::Unsupported,
             "Bedrock requires Windows",
@@ -372,6 +373,7 @@ pub async fn get_status_cached(refresh: bool) -> Result<BedrockStatus> {
     }
     #[cfg(not(windows))]
     {
+        let _ = refresh;
         Ok(BedrockStatus {
             supported: false,
             game: None,

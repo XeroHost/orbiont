@@ -55,7 +55,7 @@ function center(adapter) {
 	return { state, dispose: () => scope.stop() }
 }
 
-test('common recovery view preserves loading/error state and requires a restoreable preview before restore', async () => {
+test('common recovery view preserves loading/error state and requires a restorable preview before restore', async () => {
 	let restoreCalls = 0,
 		loadFinish
 	const adapter = {

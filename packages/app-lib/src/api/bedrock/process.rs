@@ -313,6 +313,7 @@ static REQUEST: std::sync::Mutex<Request> = std::sync::Mutex::new(Request {
     accepted: false,
     failure: None,
 });
+#[cfg(windows)]
 pub(super) fn requested() {
     if let Ok(mut request) = REQUEST.lock() {
         *request = Request {
@@ -322,11 +323,13 @@ pub(super) fn requested() {
         };
     }
 }
+#[cfg(windows)]
 pub(super) fn accepted() {
     if let Ok(mut request) = REQUEST.lock() {
         request.accepted = true;
     }
 }
+#[cfg(windows)]
 pub(super) fn failed(message: String) {
     if let Ok(mut request) = REQUEST.lock() {
         request.failure = Some(message);
@@ -368,7 +371,7 @@ pub(super) fn running() -> bool {
     clippy::cfg_not_test,
     reason = "Only live operations use the process-wide launch timer; fixtures simulate launch states"
 )]
-#[cfg(not(test))]
+#[cfg(all(windows, not(test)))]
 pub(super) fn mutation_pending() -> bool {
     REQUEST
         .lock()
