@@ -1,31 +1,43 @@
 <template>
 	<Transition name="splash-fade" @after-leave="onAfterLeave">
-		<div v-if="!doneLoading" class="splash-screen" :class="`${theme.active}-mode`">
+		<div
+			v-if="!doneLoading"
+			class="splash-screen"
+			:class="`${theme.active}-mode`"
+			:style="splashStyle"
+		>
 			<div class="app-logo-wrapper" data-tauri-drag-region>
-				<img :src="wordmarkUrl" :alt="productName" class="app-logo" />
+				<AppLogo class="app-logo" />
 				<ProgressBar class="loading-bar" :progress="Math.min(loadingProgress, 100)" />
 				<span v-if="message">{{ message }}</span>
 			</div>
 			<div class="gradient-bg" data-tauri-drag-region></div>
-			<div class="image-bg" :style="{ backgroundImage: `url(${backgroundUrl})` }"></div>
+			<SplashBackground :accent="accent.effective.value" />
 			<div class="base-bg"></div>
 		</div>
 	</Transition>
 </template>
 
 <script setup>
-import { productName } from '@orbiont/branding'
 import { injectLoadingState } from '@orbiont/ui'
-import { onMounted, ref, watch } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 
-import backgroundUrl from '@/assets/branding/orbiont-splash-background.png'
-import wordmarkUrl from '@/assets/branding/orbiont-wordmark-cyan.svg?url'
+import AppLogo from '@/components/ui/AppLogo.vue'
 import ProgressBar from '@/components/ui/ProgressBar.vue'
+import SplashBackground from '@/components/ui/SplashBackground.vue'
+import { useAccent } from '@/composables/use-accent'
 import { useAppEvent } from '@/composables/use-app-event'
 import { useTheme } from '@/composables/use-theme.ts'
+import { getAccentPalette } from '@/helpers/accent'
 import { debugStartup } from '@/helpers/startup-debug'
 
 const theme = useTheme()
+const accent = useAccent()
+// The splash artwork stays dark even when the interface uses the light theme.
+const splashStyle = computed(() => ({
+	'--color-brand': getAccentPalette(accent.effective.value, 'dark').brand,
+	'--color-contrast': '#f6f8fa',
+}))
 
 const doneLoading = ref(false)
 const loadingProgress = ref(0)
@@ -136,16 +148,6 @@ useAppEvent('loading', (e) => {
 	width: 100vw;
 	background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.2));
 	z-index: 9997;
-}
-
-.image-bg {
-	position: absolute;
-	inset: 0;
-	background-color: #16181c;
-	background-position: center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	z-index: 9996;
 }
 
 .base-bg {

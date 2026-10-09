@@ -14,7 +14,8 @@ import {
 	useScrollViewport,
 	useVIntl,
 } from '@orbiont/ui'
-import { useElementSize, useWindowSize } from '@vueuse/core'
+import { createFrameResizeObserver } from '@orbiont/ui/src/utils/resize-observer'
+import { useWindowSize } from '@vueuse/core'
 import { computed, inject, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 
 import GroupActionButtons from '@/components/ui/library/instance-group/group-action-buttons.vue'
@@ -25,6 +26,7 @@ import type {
 } from '@/components/ui/library/use-library'
 import { useLibrary } from '@/components/ui/library/use-library'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
+import { useDisplayPreferences } from '@/composables/use-display-preferences'
 import { FAVORITES_GROUP_ID, MAX_INSTANCE_GROUP_NAME_LENGTH } from '@/helpers/instance-groups'
 
 const INSTANCE_GRID_OBSERVER_ACTIVATION_DELAY = 500
@@ -46,6 +48,7 @@ const props = withDefaults(
 )
 
 const { formatMessage } = useVIntl()
+const display = useDisplayPreferences()
 const appSettings = useAppSettings()
 const compactMode = computed(() => appSettings.getFeatureFlag('compact_instance_cards'))
 const { addNotification } = injectNotificationManager()
@@ -82,7 +85,19 @@ const {
 	viewportHeight,
 	syncScrollState,
 } = useScrollViewport()
-const { width: gridWidth } = useElementSize(instanceGridContent)
+const gridWidth = ref(0)
+watch(
+	instanceGridContent,
+	(element, _, onCleanup) => {
+		if (!element) return
+		const observer = createFrameResizeObserver(([entry]) => {
+			if (entry) gridWidth.value = entry.contentRect.width
+		})
+		observer.observe(element)
+		onCleanup(() => observer.disconnect())
+	},
+	{ flush: 'post' },
+)
 const { width: windowWidth } = useWindowSize()
 const focusedInstanceId = ref<string | null>(null)
 const enteringInstanceIds = ref(new Set<string>())
@@ -112,7 +127,17 @@ watch(
 	{ flush: 'sync' },
 )
 const remSize = ref(16)
-const gap = computed(() => remSize.value * 0.75)
+const gap = computed(
+	() => remSize.value * (display.effective.value.density === 'compact' ? 0.5 : 0.75),
+)
+watch(
+	() => display.effective.value.interfaceSize,
+	async () => {
+		await nextTick()
+		remSize.value = parseFloat(getComputedStyle(document.documentElement).fontSize)
+		syncScrollState()
+	},
+)
 const columnCount = computed(() => {
 	const minWidth = remSize.value * (compactMode.value ? 15 : windowWidth.value < 1280 ? 8 : 10)
 	return Math.max(1, Math.floor((gridWidth.value + gap.value) / (minWidth + gap.value)))
@@ -205,8 +230,8 @@ const isGroupToggleBlocked = computed(
 )
 let shouldSkipGroupToggle = false
 let groupToggleEventToSkip: MouseEvent | undefined
-let instanceGridResizeObserver: ResizeObserver | undefined
-let libraryResizeObserver: ResizeObserver | undefined
+let instanceGridResizeObserver: ReturnType<typeof createFrameResizeObserver> | undefined
+let libraryResizeObserver: ReturnType<typeof createFrameResizeObserver> | undefined
 let instanceGridObserverActivationTimeout: ReturnType<typeof setTimeout> | undefined
 
 const emit = defineEmits<{
@@ -459,7 +484,7 @@ function startInstanceGridResizeObserver() {
 		if (!gridContent?.isConnected) return
 
 		instanceGridHeight.value = gridContent.getBoundingClientRect().height
-		instanceGridResizeObserver = new ResizeObserver(() => {
+		instanceGridResizeObserver = createFrameResizeObserver(() => {
 			if (!gridContent.isConnected) return
 			instanceGridHeight.value = gridContent.getBoundingClientRect().height
 		})
@@ -477,7 +502,7 @@ onMounted(() => {
 	startInstanceGridResizeObserver()
 	const library = groupDropTarget.value?.closest('[data-library-page-background]')
 	if (library) {
-		libraryResizeObserver = new ResizeObserver(syncScrollState)
+		libraryResizeObserver = createFrameResizeObserver(syncScrollState)
 		libraryResizeObserver.observe(library)
 	}
 })
@@ -600,7 +625,7 @@ watch([gridHeight, () => props.instanceGroup.instances], () => nextTick(syncScro
 				<div ref="instanceGridContent" :style="{ height: `${gridHeight}px` }">
 					<TransitionGroup
 						tag="section"
-						:css="animationsReady"
+						:css="animationsReady && !display.reducedMotion.value"
 						class="relative min-h-[45px] w-full h-full"
 						:move-class="
 							animateCardMoves

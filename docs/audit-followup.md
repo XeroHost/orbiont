@@ -1,5 +1,22 @@
 # Ampliación de la auditoría con agentes — 2026-10-07
 
+## Publication follow-up — 2026-10-08
+
+These changes are included in the published `1.0.0-beta.2`. Build
+`37723959592` passed all six validation jobs and the Windows, universal macOS
+and Linux builds. The optimized GLib regression also passed on Linux in CI.
+The release notes and update feed are in English. The website was deployed and
+its English, Spanish and Portuguese pages were checked in production.
+
+GitHub now shows eight assets: five installers, the update manifest and two
+automatic source archives. Signed updater bundles are hosted on XeroHost and
+were verified before their temporary GitHub copies were removed. See
+[release-readiness.md](release-readiness.md) for the publication record.
+
+The sections below preserve the evidence from the earlier local review.
+Installer execution, real account sign-in and real Minecraft operations were
+not tested during publication.
+
 Cambios locales realizados sobre la rama de trabajo existente, conservando las
 mejoras de la otra sesión. Se mantuvieron la comprobación de compra Java, la
 integración oficial de Bedrock, las licencias y las firmas del actualizador.
@@ -50,7 +67,8 @@ El audit Cargo pasa con la exclusión condicionada del RSA opcional no alcanzabl
 y la comprobación adicional de GLib. Conserva 11 advertencias visibles: ocho
 paquetes sin mantenimiento, `rand` 0.7.3 y dos versiones retiradas de `spin`.
 El caso de `rand` necesita la feature `log`, ausente del grafo actual; no se añadió
-otra excepción. La ejecución optimizada GLib en Linux sigue pendiente del runner.
+otra excepción. La ejecución optimizada GLib se completó correctamente en el
+runner Linux durante la publicación de la beta 2.
 
 ## Verificación local
 

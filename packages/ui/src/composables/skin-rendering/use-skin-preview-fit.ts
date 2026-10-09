@@ -10,6 +10,7 @@ import {
 	watch,
 } from 'vue'
 
+import { createFrameResizeObserver } from '../../utils/resize-observer'
 import { useDebugLogger } from '../debug-logger'
 import type {
 	SkinPreviewBounds,
@@ -168,7 +169,7 @@ export function useSkinPreviewFit({
 }) {
 	const containerSize = ref({ width: 1, height: 1 })
 	const fitLock = ref<SkinPreviewFitLock | null>(null)
-	let resizeObserver: ResizeObserver | undefined
+	let resizeObserver: ReturnType<typeof createFrameResizeObserver> | undefined
 	let debugAnimationFrame: number | null = null
 	const pendingDebugReasons = new Set<string>()
 
@@ -505,7 +506,7 @@ export function useSkinPreviewFit({
 		const el = containerElement.value
 		if (!el) return
 
-		resizeObserver = new ResizeObserver(([entry]) => {
+		resizeObserver = createFrameResizeObserver(([entry]) => {
 			const { width, height } = entry.contentRect
 			const nextContainerSize = {
 				width: Math.max(width, 1),

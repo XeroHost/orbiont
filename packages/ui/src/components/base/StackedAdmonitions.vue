@@ -18,6 +18,7 @@ import {
 import { Button } from '#ui/components/base/buttons'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'
+import { prefersReducedMotion as readMotionPreference } from '../../utils/motion-preference'
 export type StackedAdmonitionType = 'info' | 'warning' | 'critical' | 'success'
 
 /** Extend this interface to attach arbitrary per-item data consumed in the #item slot. */
@@ -431,19 +432,26 @@ watch(
 )
 
 let mql: MediaQueryList | null = null
-function syncRM(e: MediaQueryListEvent | MediaQueryList) {
-	prefersReducedMotion.value = 'matches' in e ? e.matches : false
+let motionObserver: MutationObserver | null = null
+function syncRM() {
+	prefersReducedMotion.value = readMotionPreference()
 }
 
 onMounted(() => {
 	if (typeof window === 'undefined' || !window.matchMedia) return
 	mql = window.matchMedia('(prefers-reduced-motion: reduce)')
-	prefersReducedMotion.value = mql.matches
+	syncRM()
 	mql.addEventListener('change', syncRM)
+	motionObserver = new MutationObserver(syncRM)
+	motionObserver.observe(document.documentElement, {
+		attributes: true,
+		attributeFilter: ['data-reduced-motion'],
+	})
 })
 
 onBeforeUnmount(() => {
 	mql?.removeEventListener('change', syncRM)
+	motionObserver?.disconnect()
 	for (const ro of observers.values()) ro.disconnect()
 	actionBarObserver?.disconnect()
 	observers.clear()

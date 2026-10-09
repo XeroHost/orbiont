@@ -13,6 +13,7 @@ import {
 	sameOptionIds,
 	useAdvancedPrefs,
 } from '#ui/utils/advanced-filter-preferences'
+import { prefersReducedMotion } from '#ui/utils/motion-preference'
 import type {
 	EnvironmentSearchOverride,
 	FilterType,
@@ -348,7 +349,7 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 	async function setPage(newPageNumber: number) {
 		currentPage.value = newPageNumber
 		await nextTick()
-		window.scrollTo({ top: 0, behavior: 'smooth' })
+		window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'instant' : 'smooth' })
 	}
 
 	function clearSearch() {
@@ -357,7 +358,9 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 	}
 
 	function onFilterChange() {
-		nextTick(() => window.scrollTo({ top: 0, behavior: 'smooth' }))
+		nextTick(() =>
+			window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'instant' : 'smooth' }),
+		)
 	}
 
 	watch(

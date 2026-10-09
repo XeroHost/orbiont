@@ -111,6 +111,8 @@ export default defineConfig({
 	server: {
 		port: 1420,
 		strictPort: true,
+		// Surface WebView failures in the development terminal as well as DevTools.
+		forwardConsole: { unhandledErrors: true, logLevels: ['error'] },
 		headers: {
 			'content-security-policy': Object.entries(tauriConf.app.security.csp)
 				.map(([directive, sources]) => {

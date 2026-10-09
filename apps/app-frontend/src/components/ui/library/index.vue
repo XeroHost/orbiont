@@ -16,6 +16,7 @@ import {
 	provideLibrary,
 } from '@/components/ui/library/use-library'
 import ConfirmDeleteInstanceModal from '@/components/ui/modal/ConfirmDeleteInstanceModal.vue'
+import { isMotionReduced } from '@/composables/use-display-preferences'
 import { FAVORITES_GROUP_ID } from '@/helpers/instance-groups'
 import type { GameInstance } from '@/helpers/types'
 
@@ -132,10 +133,7 @@ function getReorderableGroupTops() {
 }
 
 function animateGroupReorder(previousGroupTops: Map<string, number>) {
-	if (
-		previousGroupTops.size === 0 ||
-		window.matchMedia('(prefers-reduced-motion: reduce)').matches
-	) {
+	if (previousGroupTops.size === 0 || isMotionReduced()) {
 		return
 	}
 

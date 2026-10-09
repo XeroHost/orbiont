@@ -72,6 +72,7 @@ pub enum FeatureFlag {
     I18nDebug,
     ShowInstancePlayTime,
     CompactInstanceCards,
+    RefocusOnGameExit,
     SkipNonEssentialWarnings,
     AdvancedFiltersCollapsed,
     AlwaysShowCopyDetails,
@@ -93,7 +94,40 @@ fn parse_feature_flags(json: &str) -> HashMap<FeatureFlag, bool> {
         .collect()
 }
 
+/// Preserve the previous Java exit behavior for existing settings.
+fn refocus_on_game_exit_enabled(flags: &HashMap<FeatureFlag, bool>) -> bool {
+    flags
+        .get(&FeatureFlag::RefocusOnGameExit)
+        .copied()
+        .unwrap_or(true)
+}
+
+#[cfg(test)]
+mod refocus_tests {
+    use super::*;
+
+    #[test]
+    fn saved_exit_focus_flag_round_trips_and_old_settings_keep_their_behavior()
+    {
+        assert!(refocus_on_game_exit_enabled(&parse_feature_flags("{}")));
+        for enabled in [false, true] {
+            let flags = parse_feature_flags(&format!(
+                r#"{{"refocus_on_game_exit":{enabled},"removed_flag":true}}"#
+            ));
+            assert_eq!(refocus_on_game_exit_enabled(&flags), enabled);
+            let stored = serde_json::to_string(&flags).unwrap();
+            assert_eq!(
+                refocus_on_game_exit_enabled(&parse_feature_flags(&stored)),
+                enabled
+            );
+        }
+    }
+}
+
 impl Settings {
+    pub fn refocus_on_game_exit_enabled(&self) -> bool {
+        refocus_on_game_exit_enabled(&self.feature_flags)
+    }
     const CURRENT_VERSION: usize = 3;
 
     pub async fn get(

@@ -114,9 +114,11 @@ button {
 }
 
 @media (prefers-reduced-motion) {
-	.button-animation,
-	button {
-		transform: none !important;
+	html:not([data-reduced-motion='off']) {
+		.button-animation,
+		button {
+			transform: none !important;
+		}
 	}
 }
 

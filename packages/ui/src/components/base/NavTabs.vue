@@ -81,6 +81,8 @@ import type { Component } from 'vue'
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from 'vue'
 import { RouterLink, useRouter } from 'vue-router'
 
+import { createFrameResizeObserver } from '../../utils/resize-observer'
+
 const router = useRouter()
 
 defineOptions({ inheritAttrs: false })
@@ -325,11 +327,11 @@ const initialActive = computeActiveIndex()
 currentActiveIndex.value = initialActive.index
 subpageSelected.value = initialActive.isSubpage
 
-let resizeObserver: ResizeObserver | undefined
+let resizeObserver: ReturnType<typeof createFrameResizeObserver> | undefined
 
 onMounted(() => {
 	updateActiveTab()
-	resizeObserver = new ResizeObserver(resetSliderPosition)
+	resizeObserver = createFrameResizeObserver(resetSliderPosition)
 	if (scrollContainer.value) {
 		resizeObserver.observe(scrollContainer.value)
 	}

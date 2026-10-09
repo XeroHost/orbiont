@@ -387,7 +387,7 @@ pub async fn get_status_cached(refresh: bool) -> Result<BedrockStatus> {
 pub async fn launch_game() -> Result<()> {
     #[cfg(windows)]
     {
-        on_windows(|| {
+        let result = on_windows(|| {
             let _lock = coordination::mutation()?;
             manage::require_closed(manage::game_running())?;
             process::requested();
@@ -402,7 +402,11 @@ pub async fn launch_game() -> Result<()> {
                 }
             }
         })
-        .await
+        .await;
+        if result.is_ok() {
+            process::monitor_exit();
+        }
+        result
     }
     #[cfg(not(windows))]
     {
@@ -466,7 +470,7 @@ pub async fn open_store() -> Result<()> {
 pub async fn import_file(path: PathBuf) -> Result<()> {
     #[cfg(windows)]
     {
-        on_windows(move || {
+        let result = on_windows(move || {
             let path =
                 validation::validate_import(&path).map_err(
                     |error| match error {
@@ -497,7 +501,11 @@ pub async fn import_file(path: PathBuf) -> Result<()> {
                 }
             }
         })
-        .await
+        .await;
+        if result.is_ok() {
+            process::monitor_exit();
+        }
+        result
     }
     #[cfg(not(windows))]
     {

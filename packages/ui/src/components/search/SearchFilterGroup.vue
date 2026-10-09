@@ -71,7 +71,7 @@ const open = ref(false)
 }
 
 @media (prefers-reduced-motion) {
-	.accordion-content {
+	html:not([data-reduced-motion='off']) .accordion-content {
 		transition: none !important;
 	}
 }

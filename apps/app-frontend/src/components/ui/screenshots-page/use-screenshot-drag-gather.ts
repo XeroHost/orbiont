@@ -1,5 +1,6 @@
 import { onBeforeUnmount, type Ref, ref } from 'vue'
 
+import { isMotionReduced } from '@/composables/use-display-preferences'
 import type { InstanceScreenshot } from '@/helpers/instance'
 
 type Point = {
@@ -60,7 +61,7 @@ export function useScreenshotDragGather(screenshots: Ref<InstanceScreenshot[]>) 
 	const start = (drag: ActiveScreenshotDrag | null, pointer: Point) => {
 		clear()
 
-		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+		const reduceMotion = isMotionReduced()
 		if (!drag || drag.selectionKeys.length < 2 || reduceMotion) return
 
 		const screenshotCards = Array.from(

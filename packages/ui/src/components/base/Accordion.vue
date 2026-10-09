@@ -128,8 +128,8 @@ defineOptions({
 }
 
 @media (prefers-reduced-motion) {
-	.accordion-content {
-		transition: none !important;
+	html:not([data-reduced-motion='off']) .accordion-content {
+		transition-duration: 0.01ms !important;
 	}
 }
 

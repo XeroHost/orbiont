@@ -49,6 +49,7 @@ import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import { useAppEvent } from '@/composables/use-app-event'
+import { isMotionReduced } from '@/composables/use-display-preferences'
 import { bedrockMessages } from '@/helpers/bedrock-messages'
 import {
 	create_screenshot_group,
@@ -798,7 +799,7 @@ function getScreenshotCardPositions() {
 }
 
 function animateScreenshotCardsFrom(previousPositions: Map<string, DOMRect>) {
-	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+	if (isMotionReduced()) return
 
 	const cards = screenshotsPage.value?.querySelectorAll<HTMLElement>('[data-screenshot-card]') ?? []
 	for (const card of cards) {
@@ -1170,7 +1171,7 @@ async function revealScreenshot(id: string) {
 				screenshotCardHeight.value / 2 -
 				screenshotViewportHeight.value / 2,
 		)
-		scrollTarget.scrollTo({ top, behavior: 'smooth' })
+		scrollTarget.scrollTo({ top, behavior: isMotionReduced() ? 'instant' : 'smooth' })
 	}
 
 	const card = await waitForScreenshotCard(id)

@@ -118,6 +118,8 @@ export function useScrollViewport(options: ScrollViewportOptions = {}) {
 
 			// Siblings can shift a list without changing its own size (headers, banners).
 			let attached = true
+			let layoutFrame: number | null = null
+			let observedElements = new Set<Element>()
 			const observer =
 				typeof ResizeObserver === 'undefined'
 					? undefined
@@ -127,9 +129,14 @@ export function useScrollViewport(options: ScrollViewportOptions = {}) {
 			const layoutObserver =
 				typeof MutationObserver === 'undefined'
 					? undefined
-					: new MutationObserver(() => {
+					: new MutationObserver((mutations) => {
 							if (!attached) return
-							observeLayout()
+							if (mutations.some((mutation) => mutation.type === 'childList')) {
+								layoutFrame ??= window.requestAnimationFrame(() => {
+									layoutFrame = null
+									observeLayout()
+								})
+							}
 							handleResize()
 						})
 			const observedList = listEl
@@ -141,16 +148,24 @@ export function useScrollViewport(options: ScrollViewportOptions = {}) {
 					for (const child of ancestor.children) elements.add(child)
 					ancestor = ancestor.parentElement
 				}
-				observer?.disconnect()
+				if (
+					elements.size === observedElements.size &&
+					[...elements].every((element) => observedElements.has(element))
+				)
+					return
+				for (const element of observedElements) {
+					if (!elements.has(element)) observer?.unobserve(element)
+				}
 				layoutObserver?.disconnect()
 				for (const element of elements) {
-					observer?.observe(element)
+					if (!observedElements.has(element)) observer?.observe(element)
 					layoutObserver?.observe(element, {
 						childList: element !== observedList,
 						attributes: true,
 						attributeFilter: ['style', 'class', 'hidden'],
 					})
 				}
+				observedElements = elements
 			}
 			observeLayout()
 
@@ -158,6 +173,7 @@ export function useScrollViewport(options: ScrollViewportOptions = {}) {
 				attached = false
 				active = false
 				if (frame !== null) window.cancelAnimationFrame(frame)
+				if (layoutFrame !== null) window.cancelAnimationFrame(layoutFrame)
 				frame = null
 				scrollPending = resizePending = false
 				window.removeEventListener('resize', handleResize)

@@ -93,6 +93,20 @@ impl EventState {
         let value = Self::get();
         Ok(value.app.get_window("main"))
     }
+
+    #[cfg(feature = "tauri")]
+    pub async fn refocus_after_game_exit() -> crate::Result<()> {
+        let state = crate::State::get().await?;
+        let settings = crate::state::Settings::get(&state.pool).await?;
+        if settings.refocus_on_game_exit_enabled()
+            && let Some(window) = Self::get_main_window().await?
+        {
+            window.show()?;
+            window.unminimize()?;
+            window.set_focus()?;
+        }
+        Ok(())
+    }
 }
 
 #[derive(Clone)]

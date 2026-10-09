@@ -2,6 +2,7 @@ import type { CSSProperties, Ref } from 'vue'
 import { nextTick, onUnmounted, ref, watch } from 'vue'
 
 import { dismissTooltip } from '../providers/tooltip'
+import { createFrameResizeObserver } from './resize-observer'
 
 export type AnchoredTeleportPlacement =
 	| 'bottom-start'
@@ -47,7 +48,7 @@ export function useAnchoredTeleport(
 	const resolvedSide = ref<AnchoredTeleportSide>('bottom')
 	const expandOrigin = ref('top center')
 
-	let resizeObserver: ResizeObserver | undefined
+	let resizeObserver: ReturnType<typeof createFrameResizeObserver> | undefined
 
 	function updatePosition() {
 		if (!isOpen.value || !trigger.value || !panel.value) return
@@ -157,7 +158,7 @@ export function useAnchoredTeleport(
 		window.addEventListener('resize', updatePosition)
 		window.addEventListener('scroll', updatePosition, true)
 
-		resizeObserver = new ResizeObserver(updatePosition)
+		resizeObserver = createFrameResizeObserver(updatePosition)
 		const element = triggerElement()
 		if (element) resizeObserver.observe(element)
 		if (panel.value) resizeObserver.observe(panel.value)

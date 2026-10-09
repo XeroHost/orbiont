@@ -129,6 +129,9 @@ export class SkinPreviewStorage {
 
 		return new Promise((resolve, reject) => {
 			const request = store.openKeyCursor()
+			transaction.oncomplete = () => resolve(deletedCount)
+			transaction.onabort = () => reject(transaction.error ?? new Error('Cache cleanup aborted'))
+			transaction.onerror = () => reject(transaction.error)
 
 			request.onsuccess = (event) => {
 				const cursor = (event.target as IDBRequest<IDBCursor>).result
@@ -137,18 +140,13 @@ export class SkinPreviewStorage {
 					const key = cursor.primaryKey as string
 
 					if (!validKeys.has(key)) {
-						const deleteRequest = cursor.delete()
+						const deleteRequest = store.delete(cursor.primaryKey)
 						deleteRequest.onsuccess = () => {
 							deletedCount++
-						}
-						deleteRequest.onerror = () => {
-							console.warn('Failed to delete invalid entry:', key)
 						}
 					}
 
 					cursor.continue()
-				} else {
-					resolve(deletedCount)
 				}
 			}
 

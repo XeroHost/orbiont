@@ -486,6 +486,7 @@ import { computed, type Ref, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 import { Button } from '#ui/components/base/buttons'
+import { prefersReducedMotion } from '#ui/utils/motion-preference'
 
 import { useRelativeTime } from '../../composables'
 import { defineMessages, useVIntl } from '../../composables/i18n'
@@ -748,7 +749,7 @@ function switchPage(page: number) {
 		},
 	})
 
-	window.scrollTo({ top: 0, behavior: 'smooth' })
+	window.scrollTo({ top: 0, behavior: prefersReducedMotion() ? 'instant' : 'smooth' })
 }
 
 function getVersionRowClass(): string {

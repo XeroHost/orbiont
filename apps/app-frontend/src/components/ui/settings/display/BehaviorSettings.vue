@@ -33,6 +33,7 @@ const compactInstanceCardsFlag: FeatureFlag = 'compact_instance_cards'
 const skipNonEssentialWarningsFlag: FeatureFlag = 'skip_non_essential_warnings'
 const skipUnknownPackWarningFlag: FeatureFlag = 'skip_unknown_pack_warning'
 const showPlayTimeFlag: FeatureFlag = 'show_instance_play_time'
+const refocusOnGameExitFlag: FeatureFlag = 'refocus_on_game_exit'
 
 const messages = defineMessages({
 	startupAndNavigationTitle: {
@@ -54,6 +55,14 @@ const messages = defineMessages({
 	minimizeLauncherDescription: {
 		id: 'app.appearance-settings.minimize-launcher.description',
 		defaultMessage: 'Minimize {productName} when Minecraft starts.',
+	},
+	refocusLauncherTitle: {
+		id: 'app.behavior-settings.refocus-launcher.title',
+		defaultMessage: 'Refocus app when Minecraft closes',
+	},
+	refocusLauncherDescription: {
+		id: 'app.behavior-settings.refocus-launcher.description',
+		defaultMessage: 'Bring {productName} to the foreground when Minecraft closes.',
 	},
 	defaultLandingPageHome: {
 		id: 'app.appearance-settings.default-landing-page.home',
@@ -109,6 +118,7 @@ const messages = defineMessages({
 
 type BehaviorSettingsState = {
 	minimizeApp: boolean
+	refocusApp: boolean
 	compactInstanceCards: boolean
 	showPlayTime: boolean
 	hideNametag: boolean
@@ -122,6 +132,8 @@ await settingsQuery.suspense()
 function getBehaviorSettingsState(settings: AppSettings): BehaviorSettingsState {
 	return {
 		minimizeApp: settings.hide_on_process_start,
+		refocusApp:
+			settings.feature_flags[refocusOnGameExitFlag] ?? DEFAULT_FEATURE_FLAGS[refocusOnGameExitFlag],
 		compactInstanceCards:
 			settings.feature_flags[compactInstanceCardsFlag] ??
 			DEFAULT_FEATURE_FLAGS[compactInstanceCardsFlag],
@@ -149,6 +161,7 @@ const settingsMutation = useMutation({
 			hide_nametag_skins_page: value.hideNametag,
 			feature_flags: {
 				...latestSettings.feature_flags,
+				[refocusOnGameExitFlag]: value.refocusApp,
 				[compactInstanceCardsFlag]: value.compactInstanceCards,
 				[showPlayTimeFlag]: value.showPlayTime,
 				[skipUnknownPackWarningFlag]: !value.warnOnUnknownModpacks,
@@ -159,6 +172,7 @@ const settingsMutation = useMutation({
 		await set(nextSettings)
 		queryClient.setQueryData(appSettingsKeys.all, nextSettings)
 		appSettings.hideNametagSkinsPage = value.hideNametag
+		appSettings.featureFlags[refocusOnGameExitFlag] = value.refocusApp
 		appSettings.featureFlags[compactInstanceCardsFlag] = value.compactInstanceCards
 		appSettings.featureFlags[showPlayTimeFlag] = value.showPlayTime
 		appSettings.featureFlags[skipUnknownPackWarningFlag] = !value.warnOnUnknownModpacks
@@ -214,6 +228,22 @@ onBeforeUnmount(() => {
 					</p>
 				</div>
 				<Toggle id="minimize-launcher" v-model="current.minimizeApp" />
+			</div>
+			<div class="flex items-center justify-between gap-4">
+				<div>
+					<h3 id="refocus-launcher-label" class="m-0 text-lg font-semibold text-contrast">
+						{{ formatMessage(messages.refocusLauncherTitle) }}
+					</h3>
+					<p id="refocus-launcher-description" class="m-0 mt-1">
+						{{ formatMessage(messages.refocusLauncherDescription) }}
+					</p>
+				</div>
+				<Toggle
+					id="refocus-launcher"
+					v-model="current.refocusApp"
+					aria-labelledby="refocus-launcher-label"
+					aria-describedby="refocus-launcher-description"
+				/>
 			</div>
 		</div>
 	</section>

@@ -340,12 +340,17 @@ test('scroll coalesces events, corrects sibling shifts and borders, and cancels 
 	globalThis.getComputedStyle = (element) => ({ overflowY: element.overflowY })
 	globalThis.ResizeObserver = class {
 		observed = new Set()
+		observeCalls = 0
 		constructor(callback) {
 			this.callback = callback
 			observers.push(this)
 		}
 		observe(element) {
+			this.observeCalls++
 			this.observed.add(element)
+		}
+		unobserve(element) {
+			this.observed.delete(element)
 		}
 		disconnect() {
 			this.observed.clear()
@@ -407,15 +412,22 @@ test('scroll coalesces events, corrects sibling shifts and borders, and cancels 
 		assert.equal(state.containerOffset.value, 120)
 		assert.equal(state.relativeScrollTop.value, 180)
 		assert.equal(mutations[0].observed.get(list).childList, false)
+		const observeCalls = observers[0].observeCalls
+		for (let i = 0; i < 20; i++) mutations[0].callback([{ type: 'attributes' }])
+		flushFrame()
+		assert.equal(observers[0].observeCalls, observeCalls, 'style changes must not reobserve layout')
+		mutations[0].callback([{ type: 'childList' }])
+		flushFrame()
+		assert.equal(observers[0].observeCalls, observeCalls, 'unchanged targets stay subscribed')
 		const banner = vue.markRaw(new Element())
 		parent.children.push(banner)
 		list.top += 20
-		mutations[0].callback()
+		mutations[0].callback([{ type: 'childList' }])
 		flushFrame()
 		assert.equal(state.containerOffset.value, 140)
 		assert.equal(observers[0].observed.has(banner), true)
 		parent.children = [list]
-		mutations[0].callback()
+		mutations[0].callback([{ type: 'childList' }])
 		flushFrame()
 		assert.equal(observers[0].observed.has(banner), false)
 		parent.dispatchEvent(new Event('scroll'))

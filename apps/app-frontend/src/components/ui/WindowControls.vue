@@ -43,6 +43,7 @@ import {
 	XIcon,
 } from '@orbiont/assets'
 import { defineMessages, IconButton, useVIntl } from '@orbiont/ui'
+import { createFrameResizeObserver } from '@orbiont/ui/src/utils/resize-observer'
 import { getCurrentWindow } from '@tauri-apps/api/window'
 import { saveWindowState, StateFlags } from '@tauri-apps/plugin-window-state'
 import { computed, onMounted, onUnmounted, ref, watch } from 'vue'
@@ -88,6 +89,8 @@ function setWindowControlsWidth(width) {
 }
 
 let resizeObserver
+let unlistenResize
+let disposed = false
 watch(controlsEl, (el) => {
 	resizeObserver?.disconnect()
 	resizeObserver = undefined
@@ -96,7 +99,7 @@ watch(controlsEl, (el) => {
 		return
 	}
 
-	resizeObserver = new ResizeObserver(() => {
+	resizeObserver = createFrameResizeObserver(() => {
 		setWindowControlsWidth(el.getBoundingClientRect().width)
 	})
 	resizeObserver.observe(el)
@@ -119,12 +122,13 @@ onMounted(async () => {
 		isMaximized.value = await getCurrentWindow().isMaximized()
 	})
 
-	onUnmounted(() => {
-		unlisten()
-	})
+	if (disposed) unlisten()
+	else unlistenResize = unlisten
 })
 
 onUnmounted(() => {
+	disposed = true
+	unlistenResize?.()
 	resizeObserver?.disconnect()
 	document.documentElement.style.removeProperty('--window-controls-width')
 })

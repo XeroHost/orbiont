@@ -10,17 +10,26 @@ import {
 import { platform } from '@tauri-apps/plugin-os'
 import { computed, inject, onBeforeUnmount, onMounted, watch } from 'vue'
 
+import { useAccent } from '@/composables/use-accent'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
+import { useDisplayPreferences } from '@/composables/use-display-preferences'
 import { type IconMotion, useIconMotion } from '@/composables/use-icon-motion'
 import { type ColorTheme, isDarkTheme, useTheme } from '@/composables/use-theme.ts'
+import type { Accent } from '@/helpers/accent'
+import type { DisplayPreferences } from '@/helpers/display-preferences'
 import { type AppSettings, get, set } from '@/helpers/settings.ts'
 import { appSettingsModalContextKey } from '@/providers/app-settings-modal'
+
+import AccentSettings from './AccentSettings.vue'
+import LayoutSettings from './LayoutSettings.vue'
 
 const theme = useTheme()
 const appSettings = useAppSettings()
 const settingsModal = inject(appSettingsModalContextKey, null)
 const os = platform()
 const iconMotion = useIconMotion()
+const accent = useAccent()
+const display = useDisplayPreferences()
 const { formatMessage } = useVIntl()
 const messages = defineMessages({
 	iconMotionTitle: {
@@ -38,6 +47,8 @@ type AppearanceSettingsState = {
 	advancedRendering: boolean
 	nativeDecorations: boolean
 	iconMotion: IconMotion
+	accent: Accent
+	display: DisplayPreferences
 }
 
 function getAppearanceSettingsState(): AppearanceSettingsState {
@@ -46,6 +57,8 @@ function getAppearanceSettingsState(): AppearanceSettingsState {
 		advancedRendering: theme.advancedRendering,
 		nativeDecorations: appSettings.nativeDecorations,
 		iconMotion: iconMotion.current.value,
+		accent: accent.current.value,
+		display: { ...display.current.value },
 	}
 }
 
@@ -61,6 +74,10 @@ const { saved, current, changes, saving, hasChanges, reset, save } = useSavable(
 		}
 
 		await set(nextSettings)
+		if (value.accent !== accent.current.value) accent.set(value.accent)
+		if (JSON.stringify(value.display) !== JSON.stringify(display.current.value)) {
+			display.set(value.display)
+		}
 		if (isDarkTheme(value.theme)) {
 			theme.preferredDark = value.theme
 		}
@@ -101,6 +118,22 @@ function setNativeDecorations(enabled: boolean): void {
 }
 
 watch(
+	() => current.value.display,
+	(value) => {
+		display.preview.value = { ...value }
+	},
+	{ immediate: true, deep: true, flush: 'sync' },
+)
+
+watch(
+	() => current.value.accent,
+	(value) => {
+		accent.preview.value = value
+	},
+	{ immediate: true, flush: 'sync' },
+)
+
+watch(
 	() => current.value.iconMotion,
 	(value) => {
 		iconMotion.preview.value = value
@@ -117,11 +150,7 @@ watch(
 )
 
 async function saveAppearanceSettings(): Promise<void> {
-	try {
-		await save()
-	} catch {
-		return
-	}
+	await save()
 }
 
 onMounted(() => {
@@ -136,6 +165,8 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
+	display.preview.value = null
+	accent.preview.value = null
 	iconMotion.preview.value = null
 	theme.preview = null
 	settingsModal?.registerUnsavedChangesController(null)
@@ -166,24 +197,31 @@ provideAppearanceSettings({
 
 <template>
 	<div>
-		<AppearanceSettingsLayout />
-		<section
-			class="mt-8 flex items-center justify-between gap-4 border-0 border-t border-solid border-divider pt-6"
-		>
-			<div>
-				<h2 id="icon-motion-label" class="m-0 text-lg font-semibold text-contrast">
-					{{ formatMessage(messages.iconMotionTitle) }}
-				</h2>
-				<p id="icon-motion-description" class="m-0 mt-1 text-secondary">
-					{{ formatMessage(messages.iconMotionDescription) }}
-				</p>
-			</div>
-			<Toggle
-				id="icon-motion"
-				v-model="iconMotionEnabled"
-				aria-labelledby="icon-motion-label"
-				aria-describedby="icon-motion-description"
-			/>
-		</section>
+		<AppearanceSettingsLayout>
+			<template #after-theme>
+				<AccentSettings v-model="current.accent" :disabled="saving" />
+				<LayoutSettings v-model="current.display" :disabled="saving">
+					<template #after-motion>
+						<section class="mt-6 flex items-center justify-between gap-4">
+							<div>
+								<h2 id="icon-motion-label" class="m-0 text-lg font-semibold text-contrast">
+									{{ formatMessage(messages.iconMotionTitle) }}
+								</h2>
+								<p id="icon-motion-description" class="m-0 mt-1 text-secondary">
+									{{ formatMessage(messages.iconMotionDescription) }}
+								</p>
+							</div>
+							<Toggle
+								id="icon-motion"
+								v-model="iconMotionEnabled"
+								:disabled="saving"
+								aria-labelledby="icon-motion-label"
+								aria-describedby="icon-motion-description"
+							/>
+						</section>
+					</template>
+				</LayoutSettings>
+			</template>
+		</AppearanceSettingsLayout>
 	</div>
 </template>

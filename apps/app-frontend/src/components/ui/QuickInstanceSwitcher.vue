@@ -26,7 +26,6 @@ import { get_all } from '@/helpers/process'
 import { showInstanceInFolder } from '@/helpers/utils'
 import { instanceListQueryOptions } from '@/pages/instance/query-options'
 
-const ITEM_SIZE = 52
 const { handleError } = injectNotificationManager()
 const instancesQuery = useQuery(instanceListQueryOptions())
 const router = useRouter()
@@ -107,6 +106,7 @@ const nudgeLimit = (delta) => {
 
 let dragStartY = 0
 let dragStartCount = 0
+let dragItemSize = 52
 let wasOverdragging = false
 let overdragTimeout = null
 
@@ -139,6 +139,7 @@ const onDividerPointerDown = (event) => {
 	clearOverdragFlash()
 	dragStartY = event.clientY
 	dragStartCount = visibleCount.value
+	dragItemSize = 3.25 * Number.parseFloat(getComputedStyle(document.documentElement).fontSize)
 	document.body.classList.add('quick-instance-dragging')
 	event.currentTarget.setPointerCapture(event.pointerId)
 }
@@ -148,7 +149,7 @@ const onDividerPointerMove = (event) => {
 		return
 	}
 	const delta = event.clientY - dragStartY
-	const target = dragStartCount + Math.round(delta / ITEM_SIZE)
+	const target = dragStartCount + Math.round(delta / dragItemSize)
 	const isOverdragging = target < 0 || target > maxAuto.value
 	if (isOverdragging && !wasOverdragging) {
 		flashOverdrag()
@@ -405,25 +406,27 @@ function openContextMenu(event, instance) {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.top-divider-enter-active,
-	.top-divider-leave-active,
-	.quick-instance-enter-active,
-	.quick-instance-leave-active {
-		transition: none;
-	}
+	html:not([data-reduced-motion='off']) {
+		.top-divider-enter-active,
+		.top-divider-leave-active,
+		.quick-instance-enter-active,
+		.quick-instance-leave-active {
+			transition: none;
+		}
 
-	.top-divider-enter-from,
-	.top-divider-leave-to {
-		opacity: 1;
-		height: calc(1rem + 1px);
-	}
+		.top-divider-enter-from,
+		.top-divider-leave-to {
+			opacity: 1;
+			height: calc(1rem + 1px);
+		}
 
-	.quick-instance-enter-from,
-	.quick-instance-leave-to {
-		opacity: 1;
-		transform: none;
-		height: 3rem;
-		margin-top: unset !important;
+		.quick-instance-enter-from,
+		.quick-instance-leave-to {
+			opacity: 1;
+			transform: none;
+			height: 3rem;
+			margin-top: unset !important;
+		}
 	}
 }
 </style>

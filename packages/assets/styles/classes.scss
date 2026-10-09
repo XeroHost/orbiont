@@ -1077,12 +1077,14 @@ a:not(.no-click-animation),
 		}
 
 		@media (prefers-reduced-motion: reduce) {
-			transition: none;
-
-			summary,
-			summary::before,
-			&::details-content {
+			html:not([data-reduced-motion='off']) & {
 				transition: none;
+
+				summary,
+				summary::before,
+				&::details-content {
+					transition: none;
+				}
 			}
 		}
 	}

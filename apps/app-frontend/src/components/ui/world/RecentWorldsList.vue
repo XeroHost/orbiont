@@ -406,7 +406,7 @@ onUnmounted(() => {
 		<div v-if="loading" class="text-center py-4">
 			<LoaderCircleIcon class="mx-auto size-8 animate-spin text-contrast" />
 		</div>
-		<div v-else class="grid-when-huge relative flex w-full flex-col gap-3">
+		<div v-else class="grid-when-huge relative flex w-full flex-col gap-[--density-grid-gap]">
 			<TransitionGroup name="jump-back-in-item">
 				<div
 					v-for="item in visibleJumpBackInItems"
@@ -538,16 +538,18 @@ onUnmounted(() => {
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.jump-back-in-item-enter-active,
-	.jump-back-in-item-leave-active {
-		transition: none;
-	}
+	html:not([data-reduced-motion='off']) {
+		.jump-back-in-item-enter-active,
+		.jump-back-in-item-leave-active {
+			transition: none;
+		}
 
-	.jump-back-in-item-enter-from,
-	.jump-back-in-item-leave-to {
-		opacity: 1;
-		transform: none;
-		height: 5rem;
+		.jump-back-in-item-enter-from,
+		.jump-back-in-item-leave-to {
+			opacity: 1;
+			transform: none;
+			height: 5rem;
+		}
 	}
 }
 </style>

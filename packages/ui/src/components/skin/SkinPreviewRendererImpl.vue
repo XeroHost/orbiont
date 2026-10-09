@@ -133,6 +133,7 @@ import {
 import { useDynamicFontSize } from '../../composables'
 import { defineMessages, useVIntl } from '../../composables/i18n'
 import { commonMessages } from '../../utils/common-messages'
+import { createFrameResizeObserver } from '../../utils/resize-observer'
 import { createRadialSpotlightShader, syncDamageFlashShader } from './skin-preview-shader'
 
 const { formatMessage } = useVIntl()
@@ -199,7 +200,7 @@ const selectedModelSrc = computed(() =>
 	props.variant === 'SLIM' ? SlimPlayerModel : ClassicPlayerModel,
 )
 
-let subtitleResizeObserver: ResizeObserver | undefined
+let subtitleResizeObserver: ReturnType<typeof createFrameResizeObserver> | undefined
 
 function getSubtitleLayoutRoot(element: HTMLElement) {
 	const elementChildren = Array.from(element.children).filter(
@@ -243,7 +244,7 @@ function observeSubtitleElement() {
 
 	const layoutRoot = getSubtitleLayoutRoot(element)
 
-	subtitleResizeObserver = new ResizeObserver(updateSubtitleWrapped)
+	subtitleResizeObserver = createFrameResizeObserver(updateSubtitleWrapped)
 	subtitleResizeObserver.observe(element)
 	if (layoutRoot !== element) {
 		subtitleResizeObserver.observe(layoutRoot)

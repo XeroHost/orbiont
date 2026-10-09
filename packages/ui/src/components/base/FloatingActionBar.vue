@@ -232,7 +232,7 @@ defineOptions({
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.floating-action-bar-attention {
+	html:not([data-reduced-motion='off']) .floating-action-bar-attention {
 		animation: none;
 	}
 }

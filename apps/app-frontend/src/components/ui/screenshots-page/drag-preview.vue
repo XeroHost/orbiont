@@ -2,6 +2,7 @@
 import { TagItem } from '@orbiont/ui'
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 
+import { isMotionReduced } from '@/composables/use-display-preferences'
 import { useImageThumbnail } from '@/composables/use-image-thumbnail'
 import type { InstanceScreenshot } from '@/helpers/instance'
 
@@ -26,7 +27,7 @@ const showGatheredCount = ref(false)
 let countTimer: number | undefined
 
 onMounted(() => {
-	if (props.count <= 1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+	if (props.count <= 1 || isMotionReduced()) {
 		showGatheredCount.value = true
 		return
 	}

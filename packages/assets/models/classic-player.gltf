@@ -1382,29 +1382,6 @@
 			"byteOffset": 0
 		}
 	],
-	"images": [
-		{
-			"name": "steve.png",
-			"uri": "steve.png"
-		},
-		{
-			"name": "cape",
-			"uri": "cape"
-		}
-	],
-	"samplers": [{}],
-	"textures": [
-		{
-			"name": "steve",
-			"sampler": 0,
-			"source": 0
-		},
-		{
-			"name": "cape",
-			"sampler": 0,
-			"source": 1
-		}
-	],
 	"materials": [
 		{
 			"name": "Mat",
@@ -1417,10 +1394,6 @@
 				}
 			},
 			"pbrMetallicRoughness": {
-				"baseColorTexture": {
-					"index": 0,
-					"texCoord": 0
-				},
 				"baseColorFactor": [1.0, 1.0, 1.0, 1.0],
 				"metallicFactor": 0.200000002980232,
 				"roughnessFactor": 0.800000011920929
@@ -1437,10 +1410,6 @@
 				}
 			},
 			"pbrMetallicRoughness": {
-				"baseColorTexture": {
-					"index": 1,
-					"texCoord": 0
-				},
 				"baseColorFactor": [1.0, 1.0, 1.0, 1.0],
 				"metallicFactor": 0.200000002980232,
 				"roughnessFactor": 0.800000011920929

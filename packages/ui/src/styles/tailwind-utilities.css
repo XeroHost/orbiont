@@ -2,55 +2,53 @@
 	--ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-@media (prefers-reduced-motion: no-preference) {
-	html.theme-color-transitioning *,
-	html.theme-color-transitioning *::before,
-	html.theme-color-transitioning *::after,
-	html.theme-color-transitioning *::backdrop,
-	html.theme-color-transitioning *::placeholder {
-		animation: none !important;
-		animation-delay: 0s !important;
-		transition:
-			color,
-			background-color,
-			border-color,
-			outline-color,
-			fill,
-			stroke,
-			box-shadow,
-			text-decoration-color,
-			caret-color,
-			column-rule-color 125ms ease-in-out !important;
-		transition-delay: 0s !important;
-	}
+html.theme-color-transitioning *:not(.huge-animated-icon, .huge-animated-icon *),
+html.theme-color-transitioning *:not(.huge-animated-icon, .huge-animated-icon *)::before,
+html.theme-color-transitioning *:not(.huge-animated-icon, .huge-animated-icon *)::after,
+html.theme-color-transitioning *:not(.huge-animated-icon, .huge-animated-icon *)::backdrop,
+html.theme-color-transitioning *:not(.huge-animated-icon, .huge-animated-icon *)::placeholder {
+	animation: none !important;
+	animation-delay: 0s !important;
+	transition:
+		color,
+		background-color,
+		border-color,
+		outline-color,
+		fill,
+		stroke,
+		box-shadow,
+		text-decoration-color,
+		caret-color,
+		column-rule-color 125ms ease-in-out !important;
+	transition-delay: 0s !important;
+}
 
-	/* save bars and stuff should still animate in/out */
-	html.theme-color-transitioning .floating-action-bar {
-		animation: revert !important;
-		animation-delay: revert !important;
-		transition:
-			color,
-			background-color,
-			border-color,
-			outline-color,
-			fill,
-			stroke,
-			box-shadow,
-			text-decoration-color,
-			caret-color,
-			column-rule-color 125ms ease-in-out,
-			transform 0.25s cubic-bezier(0.15, 1.4, 0.64, 0.96),
-			opacity 0.25s cubic-bezier(0.15, 1.4, 0.64, 0.96),
-			bottom 0.25s ease-in-out !important;
-		transition-delay: 0s !important;
-	}
+/* save bars and stuff should still animate in/out */
+html.theme-color-transitioning .floating-action-bar {
+	animation: revert !important;
+	animation-delay: revert !important;
+	transition:
+		color,
+		background-color,
+		border-color,
+		outline-color,
+		fill,
+		stroke,
+		box-shadow,
+		text-decoration-color,
+		caret-color,
+		column-rule-color 125ms ease-in-out,
+		transform 0.25s cubic-bezier(0.15, 1.4, 0.64, 0.96),
+		opacity 0.25s cubic-bezier(0.15, 1.4, 0.64, 0.96),
+		bottom 0.25s ease-in-out !important;
+	transition-delay: 0s !important;
+}
 
-	html.theme-color-transitioning .floating-action-bar *,
-	html.theme-color-transitioning .floating-action-bar *::before,
-	html.theme-color-transitioning .floating-action-bar *::after {
-		animation: revert !important;
-		animation-delay: revert !important;
-	}
+html.theme-color-transitioning .floating-action-bar *,
+html.theme-color-transitioning .floating-action-bar *::before,
+html.theme-color-transitioning .floating-action-bar *::after {
+	animation: revert !important;
+	animation-delay: revert !important;
 }
 
 .floating-expand-enter-from,

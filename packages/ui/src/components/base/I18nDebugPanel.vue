@@ -13,6 +13,7 @@ import {
 import { computed, nextTick, onBeforeUnmount, ref, watch } from 'vue'
 
 import { IconButton } from '#ui/components/base/buttons'
+import { prefersReducedMotion } from '#ui/utils/motion-preference'
 
 import { defineMessages, useVIntl } from '../../composables/i18n'
 import { injectI18nDebug } from '../../composables/i18n-debug'
@@ -121,7 +122,7 @@ function highlightElement(key: string) {
 	const el = document.querySelector(`[data-i18n-key="${CSS.escape(key)}"]`)
 	if (el) {
 		highlightedEl.value = el
-		el.scrollIntoView({ behavior: 'smooth', block: 'center' })
+		el.scrollIntoView({ behavior: prefersReducedMotion() ? 'instant' : 'smooth', block: 'center' })
 		;(el as HTMLElement).style.outline = '2px solid var(--color-brand)'
 		;(el as HTMLElement).style.outlineOffset = '3px'
 		;(el as HTMLElement).style.borderRadius = '4px'

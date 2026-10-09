@@ -313,6 +313,71 @@ static REQUEST: std::sync::Mutex<Request> = std::sync::Mutex::new(Request {
     accepted: false,
     failure: None,
 });
+
+#[cfg(any(all(windows, feature = "tauri"), test))]
+#[derive(Default)]
+struct ExitMonitor {
+    observed_running: bool,
+}
+
+#[cfg(any(all(windows, feature = "tauri"), test))]
+impl ExitMonitor {
+    fn finished(&mut self, running: bool) -> bool {
+        let finished = self.observed_running && !running;
+        self.observed_running = running;
+        finished
+    }
+}
+
+/// Track only accepted Orbiont launches. A timeout without an observed engine
+/// must never raise the launcher as though a game had exited.
+#[cfg(windows)]
+// Fixture tests must never start a live process monitor or focus a native window.
+#[allow(clippy::cfg_not_test)]
+pub(super) fn monitor_exit() {
+    #[cfg(all(feature = "tauri", not(test)))]
+    {
+        use std::sync::atomic::{AtomicBool, Ordering};
+        static ACTIVE: AtomicBool = AtomicBool::new(false);
+        if ACTIVE.swap(true, Ordering::SeqCst) {
+            return;
+        }
+        tokio::spawn(async {
+            struct Reset;
+            impl Drop for Reset {
+                fn drop(&mut self) {
+                    ACTIVE.store(false, Ordering::SeqCst);
+                }
+            }
+            let _reset = Reset;
+            let started = std::time::Instant::now();
+            let mut monitor = ExitMonitor::default();
+            loop {
+                // Process enumeration runs outside the async runtime workers.
+                let Ok(running) = tokio::task::spawn_blocking(running).await
+                else {
+                    break;
+                };
+                if monitor.finished(running) {
+                    if let Err(error) =
+                        crate::EventState::refocus_after_game_exit().await
+                    {
+                        tracing::warn!(
+                            "Could not refocus launcher after Bedrock exited: {error}"
+                        );
+                    }
+                    break;
+                }
+                if !monitor.observed_running
+                    && started.elapsed().as_secs() >= 30
+                {
+                    break;
+                }
+                tokio::time::sleep(std::time::Duration::from_secs(1)).await;
+            }
+        });
+    }
+}
 #[cfg(windows)]
 pub(super) fn requested() {
     if let Ok(mut request) = REQUEST.lock() {
@@ -420,6 +485,17 @@ pub(super) fn status() -> ProcessStatus {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn refocus_exit_monitor_requires_a_running_engine_and_emits_only_once_on_exit()
+     {
+        let mut monitor = ExitMonitor::default();
+        assert!(!monitor.finished(false)); // launch accepted, engine never started
+        assert!(!monitor.finished(false));
+        assert!(!monitor.finished(true));
+        assert!(!monitor.finished(true));
+        assert!(monitor.finished(false));
+        assert!(!monitor.finished(false));
+    }
     #[test]
     fn graceful_stop_requests_close_before_waiting_with_a_fixed_deadline() {
         let events = std::cell::RefCell::new(Vec::new());

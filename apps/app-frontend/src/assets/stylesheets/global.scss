@@ -17,6 +17,10 @@
 }
 
 :root {
+	--density-row-padding: 0.75rem;
+	--density-row-height: 5rem;
+	--density-row-icon: 3rem;
+	--density-grid-gap: 0.75rem;
 	font-family: var(--font-standard, sans-serif), sans-serif;
 	color-scheme: dark;
 	--view-width: calc(100% - 5rem);
@@ -33,6 +37,42 @@
 
 html.light-mode {
 	color-scheme: light;
+}
+
+html[data-interface-size='small'] {
+	font-size: 87.5%;
+}
+html[data-interface-size='normal'] {
+	font-size: 100%;
+}
+html[data-interface-size='large'] {
+	font-size: 112.5%;
+}
+html[data-density='compact'] {
+	--density-row-padding: 0.5rem;
+	--density-row-height: 4rem;
+	--density-row-icon: 2.5rem;
+	--density-grid-gap: 0.5rem;
+}
+html[data-reduced-motion='on'] *:not(.huge-animated-icon, .huge-animated-icon *),
+html[data-reduced-motion='on'] *:not(.huge-animated-icon, .huge-animated-icon *)::before,
+html[data-reduced-motion='on'] *:not(.huge-animated-icon, .huge-animated-icon *)::after {
+	// Keep completion events for components that finalize their state on animation/transition end.
+	animation-duration: 0.01ms !important;
+	animation-delay: 0s !important;
+	animation-iteration-count: 1 !important;
+	transition-duration: 0.01ms !important;
+	transition-delay: 0s !important;
+	scroll-behavior: auto !important;
+}
+
+.density-row {
+	min-height: var(--density-row-height);
+	padding: var(--density-row-padding);
+}
+.density-row-icon {
+	width: var(--density-row-icon) !important;
+	height: var(--density-row-icon) !important;
 }
 
 body {

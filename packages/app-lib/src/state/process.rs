@@ -986,13 +986,15 @@ impl Process {
 
         let _ = state.discord_rpc.clear_to_default(true).await;
 
-        // If in tauri, window should show itself again after process exists if it was hidden
+        // Read the current preference at exit, independently of minimizing on launch.
         #[cfg(feature = "tauri")]
         {
-            let window = crate::EventState::get_main_window().await?;
-            if let Some(window) = window {
-                window.unminimize()?;
-                window.set_focus()?;
+            if let Err(error) =
+                crate::EventState::refocus_after_game_exit().await
+            {
+                tracing::warn!(
+                    "Could not refocus launcher after Minecraft exited: {error}"
+                );
             }
         }
 

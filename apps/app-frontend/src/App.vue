@@ -67,6 +67,7 @@ import InstallWorldModal from '@/components/ui/world/modal/InstallWorldModal.vue
 import { useCheckDisableMouseover } from '@/composables/macCssFix.js'
 import { useAppEvent } from '@/composables/use-app-event'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
+import { useDisplayPreferences } from '@/composables/use-display-preferences'
 import { useError } from '@/composables/use-error.js'
 import { useIconMotion } from '@/composables/use-icon-motion'
 import { useInstanceMetadataRefresh } from '@/composables/use-instance-metadata-refresh'
@@ -81,6 +82,7 @@ import {
 	requestCurseforgeManualDownload,
 	setCurseforgeManualDownloadHandler,
 } from '@/helpers/curseforge'
+import { getRightPanelLayout } from '@/helpers/display-preferences'
 import { gameSettingsQueryOptions } from '@/helpers/game-options'
 import {
 	install_create_modpack_instance,
@@ -156,6 +158,7 @@ const isBedrock = computed(
 const { channel: appEventChannel, events: appEvents } = setupAppEventsProvider()
 useInstanceMetadataRefresh(appEvents)
 useIconMotion()
+useDisplayPreferences()
 const breadcrumbManager = createBreadcrumbManager()
 provideBreadcrumbManager(breadcrumbManager)
 const canNavigateBack = ref(false)
@@ -169,22 +172,8 @@ function updateHistoryNavigationState() {
 
 updateHistoryNavigationState()
 
-const APP_SIDEBAR_WIDTH = 324
-const forceSidebar = computed(
-	() => route.path.startsWith('/browse') || route.path.startsWith('/project'),
-)
-const sidebarLayout = computed(() => {
-	if (forceSidebar.value) return 'catalog'
-	if (
-		route.path === '/' ||
-		route.path === '/bedrock' ||
-		route.path === '/skins' ||
-		route.path === '/screenshots' ||
-		route.path.startsWith('/instance/')
-	)
-		return 'full'
-	return 'none'
-})
+const APP_SIDEBAR_WIDTH = '20.25rem'
+const sidebarLayout = computed(() => getRightPanelLayout(route.path))
 const sidebarVisible = computed(() => sidebarLayout.value !== 'none')
 
 const notificationManager = new AppNotificationManager(() => ({
@@ -251,7 +240,7 @@ providePageContext({
 	hierarchicalSidebarAvailable: ref(true),
 	floatingActionBarOffsets: {
 		left: leftBarWidth,
-		right: computed(() => (sidebarVisible.value ? `${APP_SIDEBAR_WIDTH}px` : '0px')),
+		right: computed(() => (sidebarVisible.value ? APP_SIDEBAR_WIDTH : '0px')),
 	},
 	featureFlags: {
 		serverRamAsBytesAlwaysOn: computed(() =>
@@ -1547,6 +1536,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 			</RouterView>
 		</div>
 		<div
+			id="app-right-panel"
 			class="app-sidebar mt-px shrink-0 flex flex-col border-0 border-l-[1px] border-[--brand-gradient-border] border-solid"
 		>
 			<div
@@ -1558,7 +1548,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 				<div class="app-sidebar-content w-full min-w-0 min-h-full flex flex-col">
 					<SidebarContent
 						:bedrock="isBedrock"
-						:layout="sidebarVisible ? sidebarLayout : 'none'"
+						:layout="sidebarLayout"
 						@visit-hosting="openUrl(companySiteUrl).catch(handleError)"
 					/>
 				</div>
@@ -1622,7 +1612,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 .app-grid-layout,
 .app-contents {
 	--top-bar-height: 3rem;
-	--right-bar-width: 324px;
+	--right-bar-width: 20.25rem;
 }
 
 .app-grid-layout {
@@ -1661,6 +1651,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 }
 
 .app-contents {
+	--right-bar-width: 0px;
 	position: absolute;
 	z-index: 1;
 	left: var(--left-bar-width);
@@ -1677,6 +1668,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 	// transition: grid-template-columns 0.4s ease-in-out;
 
 	&.sidebar-enabled {
+		--right-bar-width: 20.25rem;
 		grid-template-columns: minmax(0, 1fr) var(--right-bar-width);
 	}
 }
@@ -1752,7 +1744,7 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 	pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+html[data-reduced-motion='off'] {
 	.nav-button-animated-enter-active {
 		transition: all 0.5s cubic-bezier(0.15, 1.4, 0.64, 0.96);
 	}

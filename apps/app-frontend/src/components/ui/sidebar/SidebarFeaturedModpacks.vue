@@ -12,6 +12,7 @@ import { useDocumentVisibility } from '@vueuse/core'
 import { computed, onBeforeUnmount, ref, watch } from 'vue'
 import { RouterLink } from 'vue-router'
 
+import { useDisplayPreferences } from '@/composables/use-display-preferences'
 import { useFeaturedModpacks } from '@/composables/use-featured-modpacks'
 
 const { formatMessage } = useVIntl()
@@ -39,6 +40,7 @@ const currentIndex = computed(() =>
 	),
 )
 const current = computed(() => items.value[currentIndex.value])
+const { reducedMotion } = useDisplayPreferences()
 const paused = ref(false)
 const hovered = ref(false)
 const focused = ref(false)
@@ -79,12 +81,13 @@ function leaveFocus(event: FocusEvent) {
 }
 
 watch(
-	[items, selectedId, paused, hovered, focused, visibility],
+	[items, selectedId, paused, hovered, focused, visibility, reducedMotion],
 	() => {
 		clearTimeout(timer)
 		if (
 			items.value.length > 1 &&
 			!paused.value &&
+			!reducedMotion.value &&
 			!hovered.value &&
 			!focused.value &&
 			visibility.value === 'visible'

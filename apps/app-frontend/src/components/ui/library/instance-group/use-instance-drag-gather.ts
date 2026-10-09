@@ -1,6 +1,7 @@
 import { onBeforeUnmount, type Ref, ref } from 'vue'
 
 import type { ActiveInstanceGroupDrag } from '@/components/ui/library/use-library'
+import { isMotionReduced } from '@/composables/use-display-preferences'
 import type { GameInstance } from '@/helpers/types'
 
 type Point = {
@@ -60,7 +61,7 @@ export function useInstanceDragGather(instances: Ref<GameInstance[]>) {
 	) => {
 		clear()
 
-		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+		const reduceMotion = isMotionReduced()
 		if (!drag || drag.instances.length < 2 || reduceMotion) return
 
 		const instanceCards = Array.from(

@@ -1,15 +1,12 @@
 <script setup lang="ts">
 import { productName } from '@orbiont/branding'
-import { computed } from 'vue'
 
-import wordmarkDark from '@/assets/branding/orbiont-wordmark-cyan.svg?url'
-import wordmarkLight from '@/assets/branding/orbiont-wordmark-dark.svg?url'
-import { isDarkTheme, useTheme } from '@/composables/use-theme.ts'
+import Wordmark from '@/assets/branding/orbiont-wordmark-adaptive.svg?component'
+import { useAccent } from '@/composables/use-accent'
 
-const theme = useTheme()
-const wordmarkSrc = computed(() => (isDarkTheme(theme.active) ? wordmarkDark : wordmarkLight))
+useAccent()
 </script>
 
 <template>
-	<img :src="wordmarkSrc" :alt="productName" class="h-7 w-auto" />
+	<Wordmark :aria-label="productName" role="img" class="h-7 w-auto" />
 </template>

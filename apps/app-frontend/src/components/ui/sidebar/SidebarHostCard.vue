@@ -133,8 +133,10 @@ const messages = defineMessages({
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.hosting-card {
-		transition: none;
+	html:not([data-reduced-motion='off']) {
+		.hosting-card {
+			transition: none;
+		}
 	}
 }
 </style>

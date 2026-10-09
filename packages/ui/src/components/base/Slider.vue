@@ -300,14 +300,18 @@ function onInput(event: Event) {
 .filled-slider-track {
 	transition: width 0.25s var(--ease-out-expo);
 	@media (prefers-reduced-motion) {
-		transition: none;
+		html:not([data-reduced-motion='off']) & {
+			transition: none;
+		}
 	}
 }
 
 .snap-points-filled {
 	transition: clip-path 0.25s var(--ease-out-expo);
 	@media (prefers-reduced-motion) {
-		transition: none;
+		html:not([data-reduced-motion='off']) & {
+			transition: none;
+		}
 	}
 }
 </style>

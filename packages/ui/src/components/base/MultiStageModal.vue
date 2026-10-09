@@ -126,6 +126,7 @@ import { computed, nextTick, ref, useTemplateRef, watch } from 'vue'
 
 import type { ButtonColor } from '#ui/components/base/buttons'
 import { Button } from '#ui/components/base/buttons'
+import { prefersReducedMotion } from '#ui/utils/motion-preference'
 
 import NewModal from '../modal/NewModal.vue'
 
@@ -305,7 +306,7 @@ function scrollToCurrentBreadcrumb() {
 	nextTick(() => {
 		breadcrumbScroller.value?.scrollTo({
 			left: el.offsetLeft - 50,
-			behavior: 'smooth',
+			behavior: prefersReducedMotion() ? 'instant' : 'smooth',
 		})
 	})
 }

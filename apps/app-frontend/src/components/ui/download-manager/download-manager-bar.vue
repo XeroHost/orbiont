@@ -7,14 +7,11 @@ import {
 	PauseIcon,
 } from '@orbiont/assets'
 import { defineMessages, truncatedTooltip, useFormatNumber, useVIntl } from '@orbiont/ui'
-import {
-	refDebounced,
-	usePreferredReducedMotion,
-	useResizeObserver,
-	useWindowSize,
-} from '@vueuse/core'
+import { refDebounced, useResizeObserver, useWindowSize } from '@vueuse/core'
 import { Motion } from 'motion-v'
 import { computed, nextTick, onMounted, onScopeDispose, ref, useTemplateRef, watch } from 'vue'
+
+import { useDisplayPreferences } from '@/composables/use-display-preferences'
 
 import type { DownloadManagerJob } from './use-download-manager'
 
@@ -40,11 +37,11 @@ const messages = defineMessages({
 
 const { formatMessage } = useVIntl()
 const formatNumber = useFormatNumber()
-const reducedMotion = usePreferredReducedMotion()
+const { reducedMotion } = useDisplayPreferences()
 const { width: windowWidth } = useWindowSize()
 const trigger = useTemplateRef('trigger')
 const titleRef = useTemplateRef('title')
-const animate = computed(() => props.animated && reducedMotion.value !== 'reduce')
+const animate = computed(() => props.animated && !reducedMotion.value)
 const idle = computed(() => !props.selectedJob && !props.activeCount && !props.hasAttention)
 const appearance = computed(() => {
 	if (props.completing) {
@@ -412,7 +409,7 @@ defineExpose({ focus: () => trigger.value?.focus() })
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.download-bar-summary {
+	html:not([data-reduced-motion='off']) .download-bar-summary {
 		transition: none;
 	}
 }

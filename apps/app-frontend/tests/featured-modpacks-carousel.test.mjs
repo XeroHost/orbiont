@@ -31,6 +31,7 @@ function fixture(t, count = 6) {
 		})),
 	)
 	const visibility = vue.ref('visible')
+	const reducedMotion = vue.ref(false)
 	const exports = {}
 	const imports = {
 		vue,
@@ -42,6 +43,9 @@ function fixture(t, count = 6) {
 		},
 		'@vueuse/core': { useDocumentVisibility: () => visibility },
 		'vue-router': {},
+		'@/composables/use-display-preferences': {
+			useDisplayPreferences: () => ({ reducedMotion }),
+		},
 		'@/composables/use-featured-modpacks': {
 			useFeaturedModpacks: () => ({ items, loading: vue.ref(false), retry: () => {} }),
 		},
@@ -68,8 +72,23 @@ function fixture(t, count = 6) {
 	const app = renderer.createApp(component)
 	app.mount({})
 	t.after(() => app.unmount())
-	return { state, items, visibility, unmount: () => app.unmount() }
+	return { state, items, visibility, reducedMotion, unmount: () => app.unmount() }
 }
+
+test('reduced motion stops automatic rotation while manual navigation remains available', async (t) => {
+	const { state, reducedMotion } = fixture(t)
+	reducedMotion.value = true
+	await vue.nextTick()
+	t.mock.timers.tick(30_000)
+	assert.equal(state.current.value.projectId, 'project-0')
+	state.advance(1)
+	assert.equal(state.current.value.projectId, 'project-1')
+	reducedMotion.value = false
+	await vue.nextTick()
+	t.mock.timers.tick(8000)
+	await vue.nextTick()
+	assert.equal(state.current.value.projectId, 'project-2')
+})
 
 test('rotates after eight seconds and wraps the sixth modpack to the first', async (t) => {
 	const { state } = fixture(t)

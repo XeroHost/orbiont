@@ -4,6 +4,7 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 
 import InstanceCardView from '@/components/ui/library/instance-group/instance-card-view.vue'
 import { gatherDuration } from '@/components/ui/library/instance-group/use-instance-drag-gather'
+import { isMotionReduced } from '@/composables/use-display-preferences'
 import type { GameInstance } from '@/helpers/types'
 
 const props = withDefaults(
@@ -20,7 +21,7 @@ const showGatheredCount = ref(false)
 let countTimer: number | undefined
 
 onMounted(() => {
-	if (props.count <= 1 || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+	if (props.count <= 1 || isMotionReduced()) {
 		showGatheredCount.value = true
 		return
 	}

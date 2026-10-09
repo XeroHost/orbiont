@@ -471,7 +471,7 @@ function openContextMenu(event: MouseEvent) {
 				/>
 			</template>
 			<div
-				class="clickable-card grid grid-cols-[auto_minmax(0,3fr)_minmax(0,4fr)_auto] items-center gap-2 p-3 border border-solid border-surface-4 smart-clickable:highlight-on-hover rounded-[20px] transition-[filter] ease-out [--hover-brightness:1.25] min-h-20"
+				class="density-row clickable-card grid grid-cols-[auto_minmax(0,3fr)_minmax(0,4fr)_auto] items-center gap-2 p-3 border border-solid border-surface-4 smart-clickable:highlight-on-hover rounded-[20px] transition-[filter] ease-out [--hover-brightness:1.25] min-h-20"
 				:class="{
 					'world-item-highlighted': highlighted,
 					'bg-bg-raised': cardBackground === 'raised',
@@ -486,7 +486,7 @@ function openContextMenu(event: MouseEvent) {
 					"
 					size="48px"
 					no-shadow
-					class="!rounded-[14px]"
+					class="density-row-icon !rounded-[14px]"
 				/>
 				<div class="flex flex-col justify-center gap-0.5 h-full">
 					<div class="flex items-center gap-1.5">

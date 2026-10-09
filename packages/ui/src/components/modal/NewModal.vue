@@ -580,7 +580,9 @@ defineOptions({
 	}
 
 	@media (prefers-reduced-motion) {
-		transition: none !important;
+		html:not([data-reduced-motion='off']) & {
+			transition: none !important;
+		}
 	}
 
 	&.shown {
@@ -644,7 +646,9 @@ defineOptions({
 		transition: all 0.2s ease-in-out;
 
 		@media (prefers-reduced-motion) {
-			transition: none !important;
+			html:not([data-reduced-motion='off']) & {
+				transition: none !important;
+			}
 		}
 
 		@media screen and (max-width: 640px) {

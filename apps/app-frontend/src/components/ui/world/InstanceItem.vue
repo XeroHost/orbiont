@@ -212,14 +212,14 @@ function openContextMenu(event: MouseEvent) {
 				/>
 			</template>
 			<div
-				class="clickable-card grid grid-cols-[auto_minmax(0,3fr)_minmax(0,4fr)_auto] items-center gap-2 border border-surface-4 rounded-[20px] smart-clickable:highlight-on-hover transition-[filter] ease-out [--hover-brightness:1.1] min-h-20 p-3"
+				class="density-row clickable-card grid grid-cols-[auto_minmax(0,3fr)_minmax(0,4fr)_auto] items-center gap-2 border border-surface-4 rounded-[20px] smart-clickable:highlight-on-hover transition-[filter] ease-out [--hover-brightness:1.1] min-h-20 p-3"
 				:class="newlyAdded ? 'border-dashed bg-surface-2' : 'bg-bg-raised border-solid'"
 			>
 				<Avatar
 					:src="getInstanceIconUrl(instanceIcon)"
 					:tint-by="instance.id"
 					no-shadow
-					class="!rounded-[14px]"
+					class="density-row-icon !rounded-[14px]"
 					size="48px"
 					pad-transparent-corners
 				/>

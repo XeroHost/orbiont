@@ -145,8 +145,10 @@ watch(
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.skeleton {
-		animation: none;
+	html:not([data-reduced-motion='off']) {
+		.skeleton {
+			animation: none;
+		}
 	}
 }
 
