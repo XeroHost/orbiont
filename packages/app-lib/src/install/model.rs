@@ -199,6 +199,16 @@ pub enum InstallRequest {
         #[serde(default)]
         post_install_edit: Option<InstallPostInstallEdit>,
     },
+    BulkUpdateContent {
+        instance_id: String,
+        updates: Vec<ContentUpdateSelection>,
+    },
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug)]
+pub struct ContentUpdateSelection {
+    pub project_path: String,
+    pub version_id: String,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, Default)]
@@ -216,6 +226,7 @@ pub struct InstallPostInstallEdit {
 impl InstallRequest {
     pub fn kind(&self) -> InstallJobKind {
         match self {
+            Self::BulkUpdateContent { .. } => InstallJobKind::BulkUpdateContent,
             Self::CreateInstance { .. } => InstallJobKind::CreateInstance,
             Self::CreateModpackInstance { .. } => {
                 InstallJobKind::CreateModpackInstance
@@ -234,6 +245,7 @@ impl InstallRequest {
     pub fn target(&self) -> InstallTarget {
         match self {
             Self::InstallExistingInstance { instance_id, .. }
+            | Self::BulkUpdateContent { instance_id, .. }
             | Self::InstallPackToExistingInstance { instance_id, .. } => {
                 InstallTarget::ExistingInstance {
                     instance_id: instance_id.clone(),
@@ -246,6 +258,7 @@ impl InstallRequest {
     pub fn cleanup(&self) -> InstallCleanup {
         match self {
             Self::InstallExistingInstance { instance_id, .. }
+            | Self::BulkUpdateContent { instance_id, .. }
             | Self::InstallPackToExistingInstance { instance_id, .. } => {
                 InstallCleanup::RestoreExistingInstance {
                     instance_id: instance_id.clone(),
@@ -269,11 +282,13 @@ pub enum InstallJobKind {
     DuplicateInstance,
     InstallExistingInstance,
     InstallPackToExistingInstance,
+    BulkUpdateContent,
 }
 
 impl InstallJobKind {
     pub fn as_str(self) -> &'static str {
         match self {
+            Self::BulkUpdateContent => "bulk_update_content",
             Self::CreateInstance => "create_instance",
             Self::CreateModpackInstance => "create_modpack_instance",
             Self::ImportInstance => "import_instance",
@@ -294,6 +309,7 @@ impl InstallJobKind {
             "install_pack_to_existing_instance" => {
                 Self::InstallPackToExistingInstance
             }
+            "bulk_update_content" => Self::BulkUpdateContent,
             _ => Self::CreateInstance,
         }
     }
@@ -645,6 +661,7 @@ impl InstallErrorView {
     derive(ts_rs::TS, postcard_bindgen::PostcardBindings)
 )]
 pub struct InstallJobSnapshot {
+    pub content_count: Option<u32>,
     pub job_id: String,
     pub instance_id: Option<String>,
     pub kind: InstallJobKind,

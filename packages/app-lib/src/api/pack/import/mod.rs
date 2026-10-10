@@ -1,5 +1,6 @@
 use std::{
     fmt,
+    future::Future,
     path::{Path, PathBuf},
 };
 
@@ -122,21 +123,20 @@ pub async fn get_importable_instances(
     Ok(instances)
 }
 
-pub(crate) async fn import_instance_with_reporter(
+pub(crate) fn import_instance_with_reporter(
     instance_id: &str,
     launcher_type: ImportLauncherType,
     base_path: PathBuf,
     instance_folder: String,
     reporter: InstallProgressReporter,
-) -> crate::Result<()> {
-    import_instance_inner(
+) -> impl Future<Output = crate::Result<()>> + Send + '_ {
+    Box::pin(import_instance_inner(
         instance_id,
         launcher_type,
         base_path,
         instance_folder,
         reporter,
-    )
-    .await
+    ))
 }
 
 async fn import_instance_inner(
@@ -365,7 +365,23 @@ pub async fn recache_icon(
     }
 }
 
-pub(crate) async fn copy_dotminecraft_with_reporter(
+pub(crate) fn copy_dotminecraft_with_reporter<'a>(
+    instance_id: &'a str,
+    dotminecraft: PathBuf,
+    io_semaphore: &'a IoSemaphore,
+    reporter: InstallProgressReporter,
+    details: InstallPhaseDetails,
+) -> impl Future<Output = crate::Result<()>> + Send + 'a {
+    Box::pin(copy_dotminecraft_with_reporter_inner(
+        instance_id,
+        dotminecraft,
+        io_semaphore,
+        reporter,
+        details,
+    ))
+}
+
+async fn copy_dotminecraft_with_reporter_inner(
     instance_id: &str,
     dotminecraft: PathBuf,
     io_semaphore: &IoSemaphore,
@@ -546,15 +562,7 @@ pub(crate) async fn copy_dotminecraft_with_reporter(
                 .content_store
                 .instance_path(&target_instance.path, &relative)
                 .await?;
-            if tokio::fs::symlink_metadata(&target)
-                .await
-                .is_ok_and(|metadata| metadata.file_type().is_symlink())
-            {
-                return Err(crate::state::content_store::input(
-                    "Import cannot overwrite a symbolic link",
-                ));
-            }
-            fetch::copy(&source, &target, io_semaphore).await?;
+            copy_import_file(&source, &target, io_semaphore).await?;
         }
         reporter
             .update(
@@ -643,4 +651,49 @@ pub async fn get_all_subfiles(
     }
 
     Ok(files)
+}
+
+async fn copy_import_file(
+    source: &Path,
+    target: &Path,
+    semaphore: &IoSemaphore,
+) -> crate::Result<()> {
+    if tokio::fs::symlink_metadata(target)
+        .await
+        .is_ok_and(|metadata| metadata.file_type().is_symlink())
+    {
+        return Err(crate::state::content_store::input(
+            "Import cannot overwrite a symbolic link",
+        ));
+    }
+    let same_file = tokio::fs::try_exists(target).await?
+        && same_file::is_same_file(source, target)?;
+    if !same_file {
+        fetch::copy(source, target, semaphore).await?;
+    }
+    Ok(())
+}
+#[cfg(test)]
+mod upstream_import_tests {
+    use super::*;
+    #[tokio::test]
+    async fn import_preserves_same_file_and_hardlink_contents() {
+        let dir = tempfile::tempdir().unwrap();
+        let source = dir.path().join("command_history.txt");
+        let alias = dir.path().join("history-link.txt");
+        std::fs::write(&source, b"keep this history").unwrap();
+        std::fs::hard_link(&source, &alias).unwrap();
+        let semaphore = IoSemaphore(tokio::sync::Semaphore::new(1));
+        copy_import_file(&source, &source, &semaphore)
+            .await
+            .unwrap();
+        copy_import_file(&source, &alias, &semaphore).await.unwrap();
+        assert_eq!(std::fs::read(&source).unwrap(), b"keep this history");
+        assert!(same_file::is_same_file(&source, &alias).unwrap());
+        let destination = dir.path().join("copied.txt");
+        copy_import_file(&source, &destination, &semaphore)
+            .await
+            .unwrap();
+        assert_eq!(std::fs::read(destination).unwrap(), b"keep this history");
+    }
 }

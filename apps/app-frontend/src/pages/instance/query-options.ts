@@ -6,6 +6,7 @@ import {
 	list_instance_screenshots,
 	list_screenshot_groups,
 	list_synced_screenshots,
+	sync_content_files,
 } from '@/helpers/instance'
 import { loadInstanceContentData } from '@/helpers/instance-content'
 import { get_by_instance_id } from '@/helpers/process'
@@ -17,6 +18,7 @@ export const instanceKeys = {
 	detail: (instanceId: string) => [...instanceKeys.all, 'summary', instanceId] as const,
 	processes: (instanceId: string) => [...instanceKeys.all, 'processes', instanceId] as const,
 	content: (instanceId: string) => [...instanceKeys.all, 'content', instanceId] as const,
+	contentSync: (instanceId: string) => [...instanceKeys.all, 'content-sync', instanceId] as const,
 	contentUpdateCheck: (instanceId: string) =>
 		[...instanceKeys.all, 'content-update-check', instanceId] as const,
 	rootPath: (instanceId: string) => [...instanceKeys.detail(instanceId), 'root-path'] as const,
@@ -83,6 +85,7 @@ export function screenshotGroupsQueryOptions() {
 export function instanceDetailQueryOptions(instanceId: string) {
 	return {
 		queryKey: instanceKeys.detail(instanceId),
+		networkMode: 'always' as const,
 		queryFn: async () => {
 			const instance = await getInstance(instanceId)
 			if (!instance) throw new Error(`Instance ${instanceId} is not managed`)
@@ -117,6 +120,7 @@ export function instanceContentQueryOptions(
 ) {
 	return {
 		queryKey: instanceKeys.content(instanceId),
+		networkMode: 'always' as const,
 		queryFn: () => loadInstanceContentData(instanceId, undefined, onError),
 		staleTime: 30_000,
 	}
@@ -127,5 +131,25 @@ export function instanceWorldsQueryOptions(instanceId: string) {
 		queryKey: instanceKeys.worlds(instanceId),
 		queryFn: () => refreshWorlds(instanceId),
 		staleTime: 0,
+	}
+}
+
+export function instanceContentSyncQueryOptions(
+	instanceId: string,
+	onSynced: (instanceId: string) => Promise<void>,
+) {
+	return {
+		queryKey: instanceKeys.contentSync(instanceId),
+		queryFn: async () => {
+			await sync_content_files(instanceId)
+			await onSynced(instanceId)
+			return instanceId
+		},
+		networkMode: 'always' as const,
+		staleTime: 0,
+		gcTime: 0,
+		refetchOnWindowFocus: false,
+		refetchOnReconnect: false,
+		retry: false,
 	}
 }

@@ -836,11 +836,14 @@
   "app.download-manager.attention": {
     "message": "Needs attention"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Updating {count, plural, one {# item} other {# items}}"
+  },
   "app.download-manager.cancel": {
     "message": "Cancel installation"
   },
   "app.download-manager.canceling": {
-    "message": "Canceling installation…"
+    "message": "Canceling installationâ€¦"
   },
   "app.download-manager.clear-all": {
     "message": "Clear all"
@@ -1306,6 +1309,9 @@
   },
   "app.instance.navigation.back-to-instance": {
     "message": "Back to instance"
+  },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "This Java installation is valid, but does not match the required Java {version}. Minecraft may not launch."
   },
   "app.instance.shortcut.created": {
     "message": "Shortcut created"
@@ -2062,6 +2068,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Developer mode enabled."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Cancel export"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Save app and operating system versions and up to eight sanitized launcher logs to a local ZIP file. Tokens, custom environment values and user paths are redacted. No database, account records, game files or uploads are included. Review the archive before sharing it."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Save diagnostic archive"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Exporting logs: {completed} of {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Diagnostic archive saved locally."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Diagnostic archive"
   },
   "app.settings.downloading": {
     "message": "Downloading v{version}"
@@ -3698,6 +3722,12 @@
   "app.skins.section.default-skins": {
     "message": "Default skins"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3718,6 +3748,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Sign in to Microsoft"

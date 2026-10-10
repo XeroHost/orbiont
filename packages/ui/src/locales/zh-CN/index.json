@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "加载内容失败"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "无法加载更新日志"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "无法加载可用更新"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "筛选过滤"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "按{mode}排序"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "以下 CurseForge 项目不支持批量更新：{projects}。"
   },
   "content.page-layout.update-all": {
     "defaultMessage": "更新所有"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "无法识别的文件可能不安全。安装前请先确认其来源。"
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "{project} 的更新日志"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "更新日志已加载。"
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "关闭更新日志"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "当前版本"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "没有可用更新。"
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "更新项目"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "正在加载更新…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "正在加载更新日志…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "新版本"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "此版本未提供更新日志。"
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "没有可用的兼容更新。"
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "没有兼容更新"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "项目"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "项目更新"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, other {# 个项目可更新}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "选择所有项目"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "选择更新 {project}"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "{project} 的新版本"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "更新 {count, plural, other {# 个项目}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "当前版本 / 新版本"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "查看"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "查看 {project} 的更新日志"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "我们无法保证更新对你的世界是安全的。请查看更新日志并考虑先备份。"
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "我们无法保证更新对你的服务器是安全的。请查看更新日志并考虑先备份。"
   },
   "version.content.name": {
     "defaultMessage": "名称"

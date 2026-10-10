@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "ทำให้ไอคอนเคลื่อนไหวเมื่อวางตัวชี้หรือโฟกัสด้วยแป้นพิมพ์"
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "ปิดภาพเคลื่อนไหว"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "เคลื่อนไหวเสมอ"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "ตามการตั้งค่าระบบ"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "ภาพเคลื่อนไหวของไอคอน"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "ข้ามคำเตือนที่ไม่จำเป็น"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "ซ่อนแถบด้านข้างขวาเป็นค่าเริ่มต้น และเพิ่มปุ่มสำหรับแสดงหรือซ่อน"
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "ซ่อนแถบด้านข้างขวา"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "แสดงคำเตือนความปลอดภัยก่อนติดตั้งม็อดแพ็กที่นำเข้า (.mrpack หรือ .zip ของ CurseForge) ที่ไม่สามารถยืนยันแหล่งที่มาได้"
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "ต้องการความสนใจ"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "กำลังอัปเดต {count, plural, other {# รายการ}}"
+  },
   "app.download-manager.cancel": {
     "message": "ยกเลิกการติดตั้ง"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "กลับสู่อินสแตนซ์"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "การติดตั้ง Java นี้ถูกต้อง แต่ไม่ตรงกับ Java {version} ที่จำเป็น Minecraft อาจเปิดไม่ได้"
+  },
   "app.instance.shortcut.created": {
     "message": "สร้างทางลัดแล้ว"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "รูปแกลเลอรี"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "เปิดรูปในแท็บใหม่"
-  },
   "app.project.install-button.already-installed": {
     "message": "โปรเจคนี้ถูกติดตั้งแล้ว"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "โหมดนักพัฒนาเปิดอยู่"
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "ยกเลิกการส่งออก"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "บันทึกเวอร์ชันของแอปและระบบปฏิบัติการ รวมถึงบันทึกของตัวเปิดเกมที่ทำความสะอาดแล้วสูงสุดแปดไฟล์ลงในไฟล์ ZIP บนเครื่อง โทเค็น ค่าสภาพแวดล้อมที่กำหนดเอง และเส้นทางของผู้ใช้จะถูกซ่อน ไม่มีฐานข้อมูล ข้อมูลบัญชี ไฟล์เกม หรือการอัปโหลดรวมอยู่ด้วย โปรดตรวจสอบไฟล์ก่อนแชร์"
+  },
+  "app.settings.diagnostics.export": {
+    "message": "บันทึกไฟล์วินิจฉัย"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "กำลังส่งออกบันทึก: {completed} จาก {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "บันทึกไฟล์วินิจฉัยไว้ในเครื่องแล้ว"
+  },
+  "app.settings.diagnostics.title": {
+    "message": "ไฟล์วินิจฉัย"
   },
   "app.settings.downloading": {
     "message": "ดาวน์โหลดเวอร์ชัน {version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "สกินเริ่มต้น"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "ลงชื่อเข้าใช้ด้วย Microsoft"

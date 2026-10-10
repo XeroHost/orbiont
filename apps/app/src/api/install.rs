@@ -21,6 +21,8 @@ pub fn init<R: tauri::Runtime>() -> tauri::plugin::TauriPlugin<R> {
             install_change_optifine,
             install_create_instance,
             install_create_modpack_instance,
+            install_bulk_update_content,
+            validate_bulk_update_content,
             install_import_instance,
             install_duplicate_instance,
             install_existing_instance,
@@ -124,6 +126,25 @@ pub async fn install_create_modpack_instance(
         post_install_edit.map(|edit| edit.into_core()).transpose()?,
     )
     .await?)
+}
+
+#[tauri::command]
+pub async fn validate_bulk_update_content(
+    instance_id: String,
+    updates: Vec<theseus::install::ContentUpdateSelection>,
+) -> Result<()> {
+    Ok(
+        theseus::install::validate_bulk_update_content(instance_id, updates)
+            .await?,
+    )
+}
+
+#[tauri::command]
+pub async fn install_bulk_update_content(
+    instance_id: String,
+    updates: Vec<theseus::install::ContentUpdateSelection>,
+) -> Result<InstallJobSnapshot> {
+    Ok(theseus::install::bulk_update_content(instance_id, updates).await?)
 }
 
 #[tauri::command]

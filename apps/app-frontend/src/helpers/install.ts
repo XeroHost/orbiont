@@ -170,6 +170,16 @@ export async function install_pack_to_existing_instance(
 	})
 }
 
+export async function install_bulk_update_content(
+	instanceId: string,
+	updates: { project_path: string; version_id: string }[],
+) {
+	return await invoke<InstallJobSnapshot>('plugin:install|install_bulk_update_content', {
+		instanceId,
+		updates,
+	})
+}
+
 export async function install_job_list(includeFinished: boolean) {
 	return await invoke<InstallJobSnapshot[]>('plugin:install|install_job_list', { includeFinished })
 }
@@ -260,4 +270,11 @@ export async function wait_for_install_job(events: AppEvents, jobId: string) {
 		unlisten = events.on('install_job', resolveJob)
 		install_job_get(jobId).then(resolveJob).catch(rejectWait)
 	})
+}
+
+export async function validate_bulk_update_content(
+	instanceId: string,
+	updates: { project_path: string; version_id: string }[],
+): Promise<void> {
+	await invoke('plugin:install|validate_bulk_update_content', { instanceId, updates })
 }

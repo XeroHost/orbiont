@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Sisällön lataus epäonnistui"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Muutoslokin lataaminen epäonnistui"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "Saatavilla olevien päivitysten lataaminen epäonnistui"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "Suodata"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "Järjestä: {mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "Joukkopäivitykset eivät ole käytettävissä näille CurseForge-projekteille: {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "Päivitä kaikki"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "Tunnistamaton tiedosto voi olla turvaton. Tarkista sen lähde ennen asentamista."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "Muutosloki: {project}"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "Muutosloki ladattu."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "Sulje muutosloki"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "Nykyinen versio"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "Päivityksiä ei ole saatavilla."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "Päivitä projektit"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "Ladataan päivityksiä…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "Ladataan muutoslokia…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "Uusi versio"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "Tälle versiolle ei ole muutoslokia."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "Yhteensopivia päivityksiä ei ole saatavilla."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "Ei yhteensopivia päivityksiä"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "Projekti"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "Projektien päivitykset"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, one {# projekti valmiina päivitettäväksi} other {# projektia valmiina päivitettäväksi}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "Valitse kaikki projektit"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "Valitse {project} päivitettäväksi"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "Uusi versio: {project}"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "Päivitä {count, plural, one {# projekti} other {# projektia}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "Nykyinen versio / Uusi versio"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "Näytä"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "Näytä muutosloki: {project}"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "Emme voi taata, että päivitykset ovat turvallisia maailmoillesi. Lue muutoslokit ja harkitse varmuuskopion tekemistä."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "Emme voi taata, että päivitykset ovat turvallisia palvelimellesi. Lue muutoslokit ja harkitse varmuuskopion tekemistä."
   },
   "version.content.name": {
     "defaultMessage": "Nimi"

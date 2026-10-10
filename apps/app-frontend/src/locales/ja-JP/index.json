@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "カーソルを合わせたときやキーボードでフォーカスしたときにアイコンをアニメーション表示します。"
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "アニメーションを無効にする"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "常にアニメーションを表示"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "システム設定に従う"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "アイコンのアニメーション"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "重要でない警告をスキップ"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "右サイドバーをデフォルトで非表示にし、表示／非表示を切り替えるボタンを追加します。"
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "右のサイドバーを隠す"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "ソースを確認できなかったインポート済みModパック（.mrpack または CurseForge .zip）をインストールする前に、安全警告を表示します。"
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "注意が必要"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "{count, plural, other {#件を更新中}}"
+  },
   "app.download-manager.cancel": {
     "message": "インストールをキャンセル"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "インスタンスに戻る"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "このJavaインストールは有効ですが、必要なJava {version}と一致しません。Minecraftが起動しない可能性があります。"
+  },
   "app.instance.shortcut.created": {
     "message": "ショートカットを作成しました"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "ギャラリー画像"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "新しいタブで画像を開く"
-  },
   "app.project.install-button.already-installed": {
     "message": "このプロジェクトは既にインストールされています"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "開発者モードがオンになっています。"
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "エクスポートをキャンセル"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "アプリとOSのバージョン、および整理済みのランチャーログ最大8件をローカルのZIPファイルに保存します。トークン、カスタム環境変数の値、ユーザーパスは伏せ字になります。データベース、アカウント情報、ゲームファイル、アップロードは含まれません。共有する前にアーカイブを確認してください。"
+  },
+  "app.settings.diagnostics.export": {
+    "message": "診断アーカイブを保存"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "ログをエクスポート中: {completed}/{total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "診断アーカイブをローカルに保存しました。"
+  },
+  "app.settings.diagnostics.title": {
+    "message": "診断アーカイブ"
   },
   "app.settings.downloading": {
     "message": "v{version}をダウンロード中"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "デフォルトのスキン"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "ダンジョンズ・ヒーロー"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "ダンジョンズII・ヒーロー"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "タイニー・テイクオーバー"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "ワイルダネス・バウンド"
   },
   "app.skins.sign-in.button": {
     "message": "Microsoftにサインイン"

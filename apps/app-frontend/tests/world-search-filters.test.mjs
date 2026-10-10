@@ -10,9 +10,10 @@ const source = readFileSync(
 	new URL('../../../packages/ui/src/utils/search.ts', import.meta.url),
 	'utf8',
 )
+let routeQuery = {}
 const imports = {
 	vue,
-	'vue-router': { useRoute: () => ({ query: {} }) },
+	'vue-router': { useRoute: () => ({ query: routeQuery }) },
 	'@orbiont/assets': new Proxy(
 		{},
 		{ get: (_target, key) => (key === 'getCategoryIcon' ? (name) => name : {}) },
@@ -49,6 +50,32 @@ new Function(
 	assert.ok(name in imports, `Unexpected import ${name}`)
 	return imports[name]
 }, module.exports)
+
+test('provider and instance context parameters are not parsed as catalogue filters', (t) => {
+	routeQuery = { src: 'curseforge', i: 'local:one', ai: 'local:two', edition: 'java', v: '1.21.1' }
+	t.after(() => {
+		routeQuery = {}
+	})
+	const warnings = []
+	t.mock.method(console, 'error', (message) => warnings.push(message))
+	const search = module.exports.useSearch(
+		vue.ref(['modpack']),
+		vue.ref({
+			gameVersions: [{ version: '1.21.1', version_type: 'release' }],
+			loaders: [],
+			categories: [],
+		}),
+		vue.ref([]),
+		vue.ref(undefined),
+		['src', 'i', 'ai', 'edition'],
+	)
+	assert.deepEqual(warnings, [])
+	assert.ok(
+		search.currentFilters.value.some(
+			(filter) => filter.type === 'game_version' && filter.option === '1.21.1',
+		),
+	)
+})
 
 test('Worlds exposes Minecraft versions and retains them in filtering and navigation', () => {
 	const search = module.exports.useSearch(

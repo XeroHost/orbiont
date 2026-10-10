@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "無法載入內容"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "無法載入更新日誌"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "無法載入可用的更新"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "篩選條件"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "排序依據：{mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "以下 CurseForge 專案無法批次更新：{projects}。"
   },
   "content.page-layout.update-all": {
     "defaultMessage": "更新全部"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "無法辨識的檔案可能不安全。安裝前請先確認其來源。"
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "{project} 的更新日誌"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "已載入更新日誌。"
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "關閉更新日誌"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "目前版本"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "沒有可用的更新。"
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "更新專案"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "正在載入更新…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "正在載入更新日誌…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "新版本"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "此版本未提供更新日誌。"
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "沒有可用的相容更新。"
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "沒有相容的更新"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "專案"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "專案更新"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, other {# 個專案可更新}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "選擇所有專案"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "選擇更新 {project}"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "{project} 的新版本"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "更新 {count, plural, other {# 個專案}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "目前版本 / 新版本"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "檢視"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "檢視 {project} 的更新日誌"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "我們無法保證更新對你的世界是安全的。請查看更新日誌並考慮先備份。"
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "我們無法保證更新對你的伺服器是安全的。請查看更新日誌並考慮先備份。"
   },
   "version.content.name": {
     "defaultMessage": "名稱"

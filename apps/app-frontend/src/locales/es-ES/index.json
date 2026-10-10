@@ -164,12 +164,6 @@
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Omitir advertencias no esenciales"
   },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Ocultar la barra lateral derecha por defecto y añadir un botón para mostrarla u ocultarla."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Ocultar barra lateral derecha"
-  },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Muestra una advertencia antes de instalar un modpack importado (.mrpack o .zip de CurseForge) cuyo origen no se haya podido verificar."
   },
@@ -1396,9 +1390,6 @@
   },
   "app.project.gallery.image-fallback": {
     "message": "Imagen de la galería"
-  },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Abrir imagen en pestaña nueva"
   },
   "app.project.install-button.already-installed": {
     "message": "El proyecto ya está instalado"
@@ -4376,15 +4367,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Anima los iconos al pasar el cursor y al usar el teclado."
   },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Seguir el sistema"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Animar siempre"
-  },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Desactivar animaciones"
-  },
   "app.instance.worlds.browse": {
     "message": "Explorar mundos"
   },
@@ -4942,5 +4924,38 @@
   },
   "app.behavior-settings.refocus-launcher.description": {
     "message": "Trae Orbiont al primer plano cuando se cierra Minecraft."
+  },
+  "app.download-manager.bulk-update-content": {
+    "message": "Actualizando {count, plural, one {# elemento} other {# elementos}}"
+  },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Esta instalación de Java es válida, pero no coincide con la versión de Java {version} requerida. Es posible que Minecraft no se inicie."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Cancelar exportación"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Guarda las versiones de la aplicación y del sistema operativo y hasta ocho registros depurados del launcher en un archivo ZIP local. Los tokens, los valores de las variables de entorno personalizadas y las rutas del usuario se ocultan. No se incluyen bases de datos, registros de cuentas, archivos del juego ni subidas. Revisa el archivo antes de compartirlo."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Guardar archivo de diagnóstico"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Exportando registros: {completed} de {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Archivo de diagnóstico guardado localmente."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Archivo de diagnóstico"
+  },
+  "app.skins.section.dungeons-hero": {
+    "message": "Héroe de Dungeons"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Héroe de Dungeons II"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Rumbo a la naturaleza"
   }
 }

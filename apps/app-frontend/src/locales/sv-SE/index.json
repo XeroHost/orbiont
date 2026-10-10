@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Animera ikoner när pekaren hålls över dem och vid tangentbordsfokus."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Inaktivera animationer"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Animera alltid"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Följ systemet"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Ikonanimationer"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Hoppa över icke nödvändiga varningar"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Dölj det högra sidofältet och lägg till en knapp för att visa eller dölja det."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Dölj högra sidofält"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Visa en säkerhetsvarning innan du installerar ett importerat modpaket (.mrpack eller CurseForge .zip) vars källa inte kunde verifieras."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Behöver uppmärksamhet"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Uppdaterar {count, plural, one {# objekt} other {# objekt}}"
+  },
   "app.download-manager.cancel": {
     "message": "Avbryt installation"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Tillbaka till instans"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Den här Java-installationen är giltig men matchar inte den Java {version} som krävs. Minecraft kanske inte startar."
+  },
   "app.instance.shortcut.created": {
     "message": "Genväg skapad"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Galleribild"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Öppna bild i ny flik"
-  },
   "app.project.install-button.already-installed": {
     "message": "Detta projekt är redan installerat"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Utvecklarläge aktiverat."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Avbryt export"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Sparar app- och operativsystemversioner och upp till åtta rensade launcherloggar i en lokal ZIP-fil. Token, anpassade miljövärden och användarsökvägar döljs. Inga databaser, kontouppgifter, spelfiler eller uppladdningar ingår. Granska arkivet innan du delar det."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Spara diagnostikarkiv"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Exporterar loggar: {completed} av {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Diagnostikarkivet sparades lokalt."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Diagnostikarkiv"
   },
   "app.settings.downloading": {
     "message": "Ladda ner v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Standard utseenden"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Logga in på Microsoft"

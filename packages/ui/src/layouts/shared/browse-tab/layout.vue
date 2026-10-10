@@ -261,7 +261,7 @@ function getProjectCardTags(result: Labrinth.Search.v3.ResultSearchProject, disp
 		<section v-else-if="ctx.offline?.value && ctx.totalHits.value === 0" class="offline">
 			{{ formatMessage(messages.offline) }}
 		</section>
-		<section v-else-if="ctx.projectHits.value.length === 0" class="offline">
+		<section v-else-if="ctx.projectHits.value.length === 0" class="offline text-center">
 			<p>{{ formatMessage(messages.noResults) }}</p>
 		</section>
 

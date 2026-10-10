@@ -30,6 +30,7 @@ pub struct InstanceLaunchOverrides {
     pub force_fullscreen: Option<bool>,
     pub game_resolution: Option<WindowSize>,
     pub hooks: Hooks,
+    #[serde(default)]
     pub visible_tabs: InstanceTabVisibility,
 }
 
@@ -113,4 +114,19 @@ pub struct InstanceLaunchContext {
     pub applied_content_set: ContentSet,
     pub link: InstanceLink,
     pub launch_overrides: InstanceLaunchOverrides,
+}
+
+#[cfg(test)]
+mod upstream_legacy_tests {
+    use super::*;
+    #[test]
+    fn recovery_launch_overrides_without_tabs_remain_readable() {
+        let overrides: InstanceLaunchOverrides = serde_json::from_value(
+            serde_json::json!({"instance_id":"legacy","hooks":{}}),
+        )
+        .unwrap();
+        assert!(overrides.visible_tabs.files);
+        assert!(overrides.visible_tabs.worlds);
+        assert!(!overrides.visible_tabs.screenshots);
+    }
 }

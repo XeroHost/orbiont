@@ -505,7 +505,7 @@ pub async fn save_edited_screenshot(
         let mut source_row = source_row.clone();
         source_row.content_hash = content_hash;
         source_row.file_size = file_size;
-        let mut tx = state.pool.begin().await?;
+        let mut tx = state.pool.begin_with("BEGIN IMMEDIATE").await?;
         screenshot_rows::update_screenshot(&source_row, &mut tx).await?;
         tx.commit().await?;
     }
@@ -523,7 +523,7 @@ pub async fn save_edited_screenshot(
 
     if copy_group {
         let result: crate::Result<()> = async {
-            let mut tx = state.pool.begin().await?;
+            let mut tx = state.pool.begin_with("BEGIN IMMEDIATE").await?;
             screenshot_rows::copy_group_membership(
                 &source_row.id,
                 &saved.id,
@@ -558,7 +558,7 @@ pub async fn save_edited_screenshot(
         )
     })?;
     if !copy_group {
-        let mut tx = state.pool.begin().await?;
+        let mut tx = state.pool.begin_with("BEGIN IMMEDIATE").await?;
         if saved_row.created_at != source_row.created_at {
             saved_row.created_at = source_row.created_at;
             screenshot_rows::update_screenshot(&saved_row, &mut tx).await?;
@@ -602,6 +602,22 @@ pub(super) async fn source_screenshots_dir(
             .await
             .map_err(|error| IOError::with_path(error, &instance_dir))?;
     let screenshots_dir = canonical_instance_dir.join(SCREENSHOTS_DIRECTORY);
+    // The instance directory is the authorized root; links may only resolve inside it.
+    let screenshots_dir = match tokio::fs::canonicalize(&screenshots_dir).await
+    {
+        Ok(path) if path.starts_with(&canonical_instance_dir) => path,
+        Ok(_) => {
+            return Err(crate::state::content_store::input(
+                "Screenshot link leaves the authorized instance directory",
+            ));
+        }
+        Err(error) if error.kind() == std::io::ErrorKind::NotFound => {
+            screenshots_dir
+        }
+        Err(error) => {
+            return Err(IOError::with_path(error, &screenshots_dir).into());
+        }
+    };
 
     ensure_directory_is_not_symlink(&screenshots_dir).await?;
     Ok(screenshots_dir)

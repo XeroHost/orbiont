@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Nie udało się załadować zawartości"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Nie udało się wczytać dziennika zmian"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "Nie udało się wczytać dostępnych aktualizacji"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "Filtruj"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "Sortuj według: {mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "Aktualizacje zbiorcze są niedostępne dla tych projektów CurseForge: {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "Zaktualizuj wszystko"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "Nierozpoznany plik może być niebezpieczny. Sprawdź jego źródło przed instalacją."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "Dziennik zmian: {project}"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "Wczytano dziennik zmian."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "Zamknij dziennik zmian"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "Bieżąca wersja"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "Brak dostępnych aktualizacji."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "Aktualizuj projekty"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "Wczytywanie aktualizacji…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "Wczytywanie dziennika zmian…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "Nowa wersja"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "Ta wersja nie ma dziennika zmian."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "Brak dostępnych zgodnych aktualizacji."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "Brak zgodnych aktualizacji"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "Projekt"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "Aktualizacje projektów"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, one {# projekt gotowy do aktualizacji} few {# projekty gotowe do aktualizacji} many {# projektów gotowych do aktualizacji} other {# projektu gotowego do aktualizacji}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "Zaznacz wszystkie projekty"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "Zaznacz {project} do aktualizacji"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "Nowa wersja: {project}"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "Aktualizuj {count, plural, one {# projekt} few {# projekty} many {# projektów} other {# projektu}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "Bieżąca wersja / Nowa wersja"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "Pokaż"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "Pokaż dziennik zmian: {project}"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "Nie możemy zagwarantować, że aktualizacje są bezpieczne dla Twoich światów. Przejrzyj dzienniki zmian i rozważ wykonanie kopii zapasowej."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "Nie możemy zagwarantować, że aktualizacje będą bezpieczne dla Twojego serwera. Przejrzyj dzienniki zmian i rozważ wykonanie kopii zapasowej."
   },
   "version.content.name": {
     "defaultMessage": "Nazwa"

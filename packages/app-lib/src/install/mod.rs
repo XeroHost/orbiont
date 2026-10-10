@@ -1,3 +1,8 @@
+//! Major install stages box their futures at entry so callers do not embed
+//! the full stage state. Keep large awaited operations behind these boundaries.
+
+#![deny(clippy::large_futures)]
+
 pub(crate) mod control;
 mod diagnostics;
 pub mod events;
@@ -8,15 +13,16 @@ pub mod store;
 
 pub use events::InstallProgressReporter;
 pub use model::{
-    InstallErrorContext, InstallErrorView, InstallJavaStep,
-    InstallJobEventKind, InstallJobKind, InstallJobSnapshot, InstallJobStatus,
-    InstallModpackPreview, InstallPhaseDetails, InstallPhaseId,
-    InstallPostInstallEdit, InstallProgress, InstallProgressSecondary,
-    InstallRequest,
+    ContentUpdateSelection, InstallErrorContext, InstallErrorView,
+    InstallJavaStep, InstallJobEventKind, InstallJobKind, InstallJobSnapshot,
+    InstallJobStatus, InstallModpackPreview, InstallPhaseDetails,
+    InstallPhaseId, InstallPostInstallEdit, InstallProgress,
+    InstallProgressSecondary, InstallRequest,
 };
 pub use runner::{
-    cancel_job, change_optifine, create_instance, create_modpack_instance,
-    dismiss_job, duplicate_instance, get_job, import_instance,
-    install_existing_instance, install_pack_to_existing_instance,
-    job_support_details, list_jobs, pause_job, resume_job, retry_job,
+    bulk_update_content, cancel_job, change_optifine, create_instance,
+    create_modpack_instance, dismiss_job, duplicate_instance, get_job,
+    import_instance, install_existing_instance,
+    install_pack_to_existing_instance, job_support_details, list_jobs,
+    pause_job, resume_job, retry_job, validate_bulk_update_content,
 };

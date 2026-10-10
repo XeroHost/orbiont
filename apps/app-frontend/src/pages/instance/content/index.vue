@@ -77,7 +77,6 @@
 import type { Labrinth } from '@orbiont/api-client'
 import { ClipboardCopyIcon, FolderOpenIcon, LockIcon, LockOpenIcon } from '@orbiont/assets'
 import {
-	type BulkOperationStatus,
 	type ButtonMenuOption,
 	commonMessages,
 	ConfirmModpackUpdateModal,
@@ -97,6 +96,7 @@ import {
 	ReadyTransition,
 	summarizeManagedContent,
 	UnknownFileWarningModal,
+	type UpdateAllSelection,
 	useDebugLogger,
 	useVIntl,
 	versionChangesGameVersion,
@@ -117,6 +117,7 @@ import { useAppEvent } from '@/composables/use-app-event'
 import { type FeatureFlag, useAppSettings } from '@/composables/use-app-settings.ts'
 import { config } from '@/config'
 import { get_project_versions, get_version, get_version_many } from '@/helpers/cache.js'
+import { install_bulk_update_content, validate_bulk_update_content } from '@/helpers/install'
 import {
 	add_project_from_path,
 	edit,
@@ -127,21 +128,18 @@ import {
 	set_project_locked,
 	switch_project_version_with_dependencies,
 	toggle_disable_project,
-	update_all,
 	update_managed_modrinth_version,
 } from '@/helpers/instance'
 import { type InstanceContentData, loadInstanceContentData } from '@/helpers/instance-content'
+import { supportsNativeSelectedUpdate } from '@/helpers/selected-content-updates'
 import { get as getSettings, set as setSettings } from '@/helpers/settings'
 import { set_synced_pack_enabled, syncedPackKeys } from '@/helpers/synced-packs'
 import type { CacheBehaviour } from '@/helpers/types'
 import { highlightModInInstance } from '@/helpers/utils.js'
-import { type AppEventPayload, injectAppEvents } from '@/providers/app-events'
 import { injectContentInstall } from '@/providers/content-install'
 
 import { injectInstancePage } from '../instance-context'
 import { instanceContentQueryOptions, instanceKeys } from '../query-options'
-
-type InstanceBulkUpdateProgress = AppEventPayload<'instance_bulk_update_progress'>
 
 const messages = defineMessages({
 	serverContentHeader: {
@@ -213,7 +211,7 @@ function contentOwnerLink(owner: ContentOwner): ContentOwner['link'] {
 
 const { formatMessage } = useVIntl()
 const { handleError, addNotification } = injectNotificationManager()
-const appEvents = injectAppEvents()
+
 const { installingItems, installRevisionByInstance, installFailureRevisionByInstance } =
 	injectContentInstall()
 const router = useRouter()
@@ -350,6 +348,7 @@ let resolveUnknownFileConfirmation: ((confirmed: boolean) => void) | null = null
 const modpackContentQueryKey = computed(() => instanceKeys.linkedContent(instance.value.id))
 const modpackContentQuery = useQuery({
 	queryKey: modpackContentQueryKey,
+	networkMode: 'always',
 	queryFn: () => get_linked_modpack_content(instance.value.id),
 	enabled: computed(
 		() =>
@@ -871,54 +870,31 @@ async function getDeleteDependencyWarning(items: ContentItem[]) {
 	return dependents.length > 0 ? { items, dependents } : null
 }
 
-function formatBulkUpdateProgress(progress: InstanceBulkUpdateProgress): BulkOperationStatus {
-	if (progress.stage === 'resolving_versions') {
-		return {
-			message: formatMessage(messages.bulkUpdateResolvingVersions),
-			waiting: true,
-		}
-	}
-
-	if (progress.stage === 'finishing') {
-		return {
-			message: formatMessage(messages.bulkUpdateFinishing),
-			progress: progress.current,
-			total: progress.total,
-		}
-	}
-
-	return {
-		message: formatMessage(messages.bulkUpdateDownloadingProjects, {
-			current: progress.current,
-			total: progress.total,
-		}),
-		progress: progress.current,
-		total: progress.total,
-	}
+function selectedBulkUpdates(selections: UpdateAllSelection[]) {
+	const updates = selections.flatMap((selection) => {
+		const item = projects.value.find((project) => getContentItemId(project) === selection.id)
+		if (
+			!item ||
+			item.project?.id !== selection.projectId ||
+			!canChangeContentVersion(item) ||
+			!supportsNativeSelectedUpdate(item) ||
+			item.locked ||
+			!item.file_path ||
+			item.version?.id === selection.version.id
+		)
+			return []
+		return [{ project_path: item.file_path, version_id: selection.version.id }]
+	})
+	return updates
 }
 
-async function bulkUpdateAllProjects(onProgress?: (status: BulkOperationStatus) => void) {
-	let unlisten: (() => void) | null = null
-	try {
-		if (onProgress) {
-			onProgress({
-				message: formatMessage(messages.bulkUpdateResolvingVersions),
-				waiting: true,
-			})
-			unlisten = appEvents.on('instance_bulk_update_progress', (progress) => {
-				if (progress.instanceId !== instance.value.id) return
-				onProgress(formatBulkUpdateProgress(progress))
-			})
-		}
-
-		await update_all(instance.value.id)
-		await refreshContentState('must_revalidate')
-	} catch (err) {
-		handleError(err as Error)
-		throw err
-	} finally {
-		unlisten?.()
-	}
+async function validateBulkUpdateSelections(selections: UpdateAllSelection[]) {
+	await validate_bulk_update_content(instance.value.id, selectedBulkUpdates(selections))
+}
+async function bulkUpdateSelections(selections: UpdateAllSelection[]) {
+	if (isInstanceBusy.value) return
+	const updates = selectedBulkUpdates(selections)
+	if (updates.length) await install_bulk_update_content(instance.value.id, updates)
 }
 
 async function updateProject(mod: ContentItem) {
@@ -1533,8 +1509,14 @@ provideContentManager({
 	uploadFiles: handleUploadFiles,
 	hasUpdateSupport: true,
 	updateItem: handleUpdate,
-	bulkUpdateAll: bulkUpdateAllProjects,
-	bulkUpdateItem: updateProject,
+	bulkUpdateSelections,
+	validateBulkUpdateSelections,
+	bulkUpdatesInBackground: true,
+	canBulkUpdateItem: supportsNativeSelectedUpdate,
+	currentGameVersion: computed(() => instance.value.game_version),
+	currentLoader: computed(() => instance.value.loader),
+	getUpdateVersions: async (projectId) => (await get_project_versions(projectId)) ?? [],
+	getUpdateVersion: (versionId) => get_version(versionId),
 	runManagedContentPrimaryAction:
 		instance.value.link?.type === 'modrinth_modpack' && !isQuarantined.value
 			? handleModpackUpdate

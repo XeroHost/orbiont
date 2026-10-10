@@ -2,6 +2,7 @@
 pub mod bedrock;
 pub mod cache;
 pub mod curseforge_pack;
+pub mod debug_info;
 pub mod handler;
 pub mod instance;
 pub mod jre;

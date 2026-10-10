@@ -63,7 +63,6 @@ async fn open_app_db_pool(db_path: &Path) -> crate::Result<Pool<Sqlite>> {
         .max_connections(10)
         .min_connections(1)
         .idle_timeout(Duration::from_secs(120))
-        .max_lifetime(None)
         .connect_with(conn_options)
         .await?)
 }
@@ -115,7 +114,7 @@ async fn record_current_app_version(pool: &Pool<Sqlite>) -> crate::Result<()> {
 /// kept around for a little while to allow users to recover from accidental
 /// deletions.
 async fn stale_data_cleanup(pool: &Pool<Sqlite>) -> crate::Result<()> {
-    let mut tx = pool.begin().await?;
+    let mut tx = pool.begin_with("BEGIN IMMEDIATE").await?;
 
     let has_skin_tables = sqlx::query!(
 		"SELECT COUNT(*) AS \"count!: i64\" FROM sqlite_master WHERE type = 'table' AND name IN ('custom_minecraft_skins', 'minecraft_users')",
@@ -135,4 +134,98 @@ async fn stale_data_cleanup(pool: &Pool<Sqlite>) -> crate::Result<()> {
     tx.commit().await?;
 
     Ok(())
+}
+
+#[cfg(test)]
+mod upstream_regression_tests {
+    use super::*;
+    #[tokio::test]
+    async fn concurrent_immediate_writers_do_not_upgrade_stale_snapshots() {
+        let dir = tempfile::tempdir().unwrap();
+        let pool = open_app_db_pool(&dir.path().join("concurrent.db"))
+            .await
+            .unwrap();
+        sqlx::query("CREATE TABLE counter (value INTEGER NOT NULL)")
+            .execute(&pool)
+            .await
+            .unwrap();
+        sqlx::query("INSERT INTO counter VALUES (0)")
+            .execute(&pool)
+            .await
+            .unwrap();
+        let mut writers = Vec::new();
+        for _ in 0..8 {
+            let pool = pool.clone();
+            writers.push(tokio::spawn(async move {
+                let mut tx = pool.begin_with("BEGIN IMMEDIATE").await.unwrap();
+                let value: i64 =
+                    sqlx::query_scalar("SELECT value FROM counter")
+                        .fetch_one(&mut *tx)
+                        .await
+                        .unwrap();
+                tokio::task::yield_now().await;
+                sqlx::query("UPDATE counter SET value = ?")
+                    .bind(value + 1)
+                    .execute(&mut *tx)
+                    .await
+                    .unwrap();
+                tx.commit().await.unwrap();
+            }));
+        }
+        for writer in writers {
+            writer.await.unwrap();
+        }
+        assert_eq!(
+            sqlx::query_scalar::<_, i64>("SELECT value FROM counter")
+                .fetch_one(&pool)
+                .await
+                .unwrap(),
+            8
+        );
+        pool.close().await;
+    }
+
+    #[tokio::test]
+    async fn json_reads_accept_text_and_binary_recovery_state() {
+        let pool = SqlitePoolOptions::new()
+            .max_connections(1)
+            .connect("sqlite::memory:")
+            .await
+            .unwrap();
+        sqlx::query("CREATE TABLE jobs (state BLOB)")
+            .execute(&pool)
+            .await
+            .unwrap();
+        let original = crate::install::model::InstallJobState::new(
+            crate::install::InstallRequest::BulkUpdateContent {
+                instance_id: "legacy".into(),
+                updates: vec![],
+            },
+        );
+        let json = serde_json::to_string(&original).unwrap();
+        sqlx::query("INSERT INTO jobs VALUES (?), (jsonb(?))")
+            .bind(&json)
+            .bind(&json)
+            .execute(&pool)
+            .await
+            .unwrap();
+        let states: Vec<String> =
+            sqlx::query_scalar("SELECT json(state) FROM jobs")
+                .fetch_all(&pool)
+                .await
+                .unwrap();
+        assert_eq!(states.len(), 2);
+        for state in states {
+            let recovered: crate::install::model::InstallJobState =
+                serde_json::from_str(&state).unwrap();
+            assert_eq!(recovered.schema_version, original.schema_version);
+            assert!(matches!(recovered.request,
+                crate::install::InstallRequest::BulkUpdateContent { instance_id, .. }
+                if instance_id == "legacy"));
+            assert_eq!(
+                serde_json::from_str::<serde_json::Value>(&state).unwrap(),
+                serde_json::from_str::<serde_json::Value>(&json).unwrap()
+            );
+        }
+    }
 }

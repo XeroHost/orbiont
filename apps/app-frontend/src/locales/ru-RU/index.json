@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Анимировать значки при наведении и фокусе с клавиатуры."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Отключить анимацию"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Всегда анимировать"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Как в системе"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Анимация значков"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Только опасные предупреждения"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Скрывать панель справа при запуске и переключать кнопкой."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Скрытие панели справа"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Показывать предупреждение о безопасности перед установкой импортированной сборки модов (.mrpack или .zip из CurseForge), источник которой не удалось проверить."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Есть проблемы"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Обновление: {count, plural, one {# элемент} few {# элемента} many {# элементов} other {# элемента}}"
+  },
   "app.download-manager.cancel": {
     "message": "Отменить установку"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Вернуться к сборке"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Эта установка Java корректна, но не соответствует требуемой версии Java {version}. Minecraft может не запуститься."
+  },
   "app.instance.shortcut.created": {
     "message": "Ярлык создан"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Изображение галереи"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Открыть изображение в новой вкладке"
-  },
   "app.project.install-button.already-installed": {
     "message": "Этот проект уже установлен"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Режим разработчика включён."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Отменить экспорт"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Сохраняет версии приложения и операционной системы, а также до восьми очищенных журналов лаунчера в локальный ZIP-файл. Токены, пользовательские значения окружения и пути пользователя скрываются. Базы данных, данные учётных записей, игровые файлы и загрузки не включаются. Проверьте архив, прежде чем делиться им."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Сохранить диагностический архив"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Экспорт журналов: {completed} из {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Диагностический архив сохранён локально."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Диагностический архив"
   },
   "app.settings.downloading": {
     "message": "Скачивание версии {version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Стандартные скины"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Войти в Microsoft"

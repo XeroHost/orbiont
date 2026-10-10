@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "在滑鼠懸停或鍵盤聚焦時播放圖示動畫。"
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "關閉動畫"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "一律播放動畫"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "依照系統"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "圖示動畫"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "跳過非必要的警告"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "預設隱藏右側邊欄，並新增顯示或隱藏按鈕。"
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "隱藏右側邊欄"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "在安裝來源無法驗證的匯入模組包（.mrpack 或 CurseForge .zip）前顯示安全警告。"
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "需要注意"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "正在更新 {count, plural, other {# 個項目}}"
+  },
   "app.download-manager.cancel": {
     "message": "取消安裝"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "回到實例"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "此 Java 安裝有效，但與所需的 Java {version} 不符。Minecraft 可能無法啟動。"
+  },
   "app.instance.shortcut.created": {
     "message": "已建立捷徑"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "相簿圖片"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "在新分頁中開啟圖片"
-  },
   "app.project.install-button.already-installed": {
     "message": "這個專案已安裝"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "開發人員模式已啟用。"
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "取消匯出"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "將應用程式與作業系統版本，以及最多八個經過清理的啟動器記錄檔儲存到本機 ZIP 檔案。權杖、自訂環境變數值和使用者路徑會被隱藏。不包含資料庫、帳號記錄、遊戲檔案或上傳內容。分享前請先檢查該壓縮檔。"
+  },
+  "app.settings.diagnostics.export": {
+    "message": "儲存診斷壓縮檔"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "正在匯出記錄檔：{completed}/{total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "診斷壓縮檔已儲存到本機。"
+  },
+  "app.settings.diagnostics.title": {
+    "message": "診斷壓縮檔"
   },
   "app.settings.downloading": {
     "message": "正在下載 v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "預設外觀"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "地城英雄"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "地城 II 英雄"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "小鬼當家"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "荒野之旅"
   },
   "app.skins.sign-in.button": {
     "message": "登入 Microsoft"

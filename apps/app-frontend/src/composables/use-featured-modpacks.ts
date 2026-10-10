@@ -11,11 +11,11 @@ export function useFeaturedModpacks() {
 		queryKey: ['sidebar', 'featured-modpacks', 'modrinth'],
 		queryFn: async () => {
 			const params = new URLSearchParams({
-				facets: JSON.stringify([['project_type:modpack']]),
+				facets: JSON.stringify([['project_types:modpack']]),
 				index: 'relevance',
 				limit: '12',
 			})
-			const response = (await get_search_results_v3(params.toString(), 'must_revalidate')) as {
+			const response = (await get_search_results_v3(`?${params}`, 'must_revalidate')) as {
 				result: Labrinth.Search.v3.SearchResults
 			} | null
 			return response?.result.hits ?? []

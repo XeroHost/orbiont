@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "コンテンツの読み込みに失敗しました"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "更新履歴を読み込めませんでした"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "利用可能なアップデートを読み込めませんでした"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "フィルター"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "{mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "これらのCurseForgeプロジェクトは一括更新できません: {projects}。"
   },
   "content.page-layout.update-all": {
     "defaultMessage": "すべて更新"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "認識されていないファイルは安全でない可能性があります。インストールする前にソースを確認してください。"
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "{project}の更新履歴"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "更新履歴を読み込みました。"
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "更新履歴を閉じる"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "現在のバージョン"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "利用可能なアップデートはありません。"
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "プロジェクトを更新"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "アップデートを読み込み中…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "更新履歴を読み込み中…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "新しいバージョン"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "このバージョンには更新履歴がありません。"
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "互換性のあるアップデートはありません。"
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "互換性のあるアップデートなし"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "プロジェクト"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "プロジェクトのアップデート"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, other {#件のプロジェクトを更新できます}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "すべてのプロジェクトを選択"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "{project}を更新対象に選択"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "{project}の新しいバージョン"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "{count, plural, other {#件のプロジェクトを更新}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "現在のバージョン / 新しいバージョン"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "表示"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "{project}の更新履歴を表示"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "アップデートがワールドにとって安全であることは保証できません。更新履歴を確認し、バックアップを検討してください。"
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "アップデートがサーバーにとって安全であることは保証できません。更新履歴を確認し、バックアップを検討してください。"
   },
   "version.content.name": {
     "defaultMessage": "名前"

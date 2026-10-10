@@ -12,7 +12,7 @@
 		"test:i18n": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test scripts/i18n-icu-contract.test.ts scripts/i18n-source-catalog.test.ts",
 		"fix": "turbo run fix fix:ancillary --continue",
 		"fix:ancillary": "prettier --write --ignore-unknown .github *.*",
-		"ci": "pnpm test:i18n && turbo run lint test --continue --concurrency=1",
+		"ci": "pnpm ci:js && pnpm ci:native",
 		"prepr": "turbo run prepr --continue",
 		"prepr:frontend:lib": "turbo run prepr --filter=@orbiont/ui --filter=@orbiont/assets --filter=@orbiont/api-client --filter=@orbiont/utils --filter=@orbiont/tooling-config",
 		"prepr:frontend:app": "turbo run prepr --filter=@orbiont/app-frontend",
@@ -20,7 +20,11 @@
 		"i18n:apply": "node scripts/run.mjs i18n-apply",
 		"i18n:coverage": "node scripts/run.mjs coverage-i18n --write packages/ui/src/layouts/wrapped/settings/language-settings/language-settings-coverage.generated.ts --quiet",
 		"i18n:gaps": "node scripts/run.mjs i18n-gaps",
-		"scripts": "node scripts/run.mjs"
+		"scripts": "node scripts/run.mjs",
+		"ci:js": "pnpm test:i18n && turbo run lint test --continue --concurrency=100% --filter=!@orbiont/app --filter=!@orbiont/app-lib --filter=!@orbiont/daedalus --summarize",
+		"ci:native": "turbo run lint test --continue --concurrency=1 --filter=@orbiont/app --filter=@orbiont/app-lib --filter=@orbiont/daedalus --summarize",
+		"test:ci": "node --test scripts/ci-contract.test.mjs scripts/ci-inputs.test.mjs scripts/ci-environment.test.mjs",
+		"benchmark:ci": "node scripts/ci-benchmark.mjs"
 	},
 	"devDependencies": {
 		"typescript": "^5.9.3",

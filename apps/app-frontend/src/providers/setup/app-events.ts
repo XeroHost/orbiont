@@ -1,3 +1,4 @@
+import { isCancelledError } from '@tanstack/vue-query'
 import { Channel } from '@tauri-apps/api/core'
 import { onScopeDispose } from 'vue'
 
@@ -48,6 +49,7 @@ export function setupAppEventsProvider() {
 			void Promise.resolve()
 				.then(() => handler(event.payload))
 				.catch((error) => {
+					if (isCancelledError(error)) return
 					console.error(`Unhandled ${event.type} app event`, error)
 				})
 		}

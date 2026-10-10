@@ -73,7 +73,7 @@ function fixture({
 				},
 			},
 			'@/helpers/cache.js': {
-				get_project: async () => project,
+				get_project: async (id) => ({ ...project, id }),
 				get_version_many: async () => [version],
 				get_project_many: async () => [],
 			},
@@ -84,7 +84,7 @@ function fixture({
 			'@/helpers/install': {
 				install_create_instance: async (data) => {
 					calls.push(['create', data])
-					return { job_id: 'job' }
+					return { job_id: 'job', instance_id: 'new-instance' }
 				},
 				wait_for_install_job: async () => {
 					calls.push(['wait'])
@@ -236,6 +236,67 @@ test('Data Packs continue to use the existing dependency installer', async () =>
 			false,
 		)
 		assert.equal(f.calls.find(([name]) => name === 'dependencies')[2].content_type, 'datapack')
+	} finally {
+		f.scope.stop()
+	}
+})
+
+for (const type of ['mod', 'resourcepack', 'datapack', 'shader']) {
+	test(`${type} creation completes before dependency installation and failure installs nothing`, async () => {
+		for (const failedCreation of [false, true]) {
+			const f = fixture({ type, failedCreation })
+			const completion = []
+			try {
+				await f.context.install(f.project.id, null, null, 'test', (value) => completion.push(value))
+				const installing = f.context.handleCreateAndInstall({
+					name: 'Content',
+					gameVersion: '1.21.11',
+					loader: 'fabric',
+					iconPath: null,
+				})
+				await vue.nextTick()
+				assert.equal(
+					f.calls.some(([name]) => name === 'dependencies'),
+					false,
+				)
+				assert.deepEqual(completion, [])
+				f.finishCreation()
+				await installing
+				assert.equal(
+					f.calls.some(([name]) => name === 'dependencies'),
+					!failedCreation,
+				)
+				assert.deepEqual(completion, failedCreation ? [undefined] : ['cf-version'])
+				f.context.handleCancel()
+				assert.deepEqual(completion, failedCreation ? [undefined] : ['cf-version'])
+			} finally {
+				f.scope.stop()
+			}
+		}
+	})
+}
+
+test('reopening the modal while creating keeps the original project and callback', async () => {
+	const f = fixture({ type: 'mod' })
+	const original = []
+	const reopened = []
+	try {
+		await f.context.install(f.project.id, null, null, 'test', (value) => original.push(value))
+		const installing = f.context.handleCreateAndInstall({
+			name: 'Content',
+			gameVersion: '1.21.11',
+			loader: 'fabric',
+			iconPath: null,
+		})
+		await vue.nextTick()
+		await f.context.install('cf-reopened', null, null, 'test', (value) => reopened.push(value))
+		f.context.handleCancel()
+		f.finishCreation()
+		await installing
+		assert.deepEqual(original, ['cf-version'])
+		assert.deepEqual(reopened, [undefined])
+		assert.equal(f.calls.filter(([name]) => name === 'dependencies').length, 1)
+		assert.equal(f.calls.find(([name]) => name === 'dependencies')[2].project_id, f.project.id)
 	} finally {
 		f.scope.stop()
 	}

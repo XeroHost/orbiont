@@ -115,8 +115,11 @@ test('native provider searches feed six unique cards and duplicate replacements 
 	invoke = async (command, args) => {
 		calls.push(command)
 		if (command === 'plugin:cache|get_search_results_v3') {
-			const params = new URLSearchParams(args.id)
-			assert.deepEqual(JSON.parse(params.get('facets')), [['project_type:modpack']])
+			// The native cache appends the id directly to /v3/search.
+			const request = new URL(`https://api.modrinth.com/v3/search${args.id}`)
+			assert.equal(request.pathname, '/v3/search')
+			const params = request.searchParams
+			assert.deepEqual(JSON.parse(params.get('facets')), [['project_types:modpack']])
 			assert.equal(params.get('index'), 'relevance')
 			assert.equal(params.get('limit'), '12')
 			return { result: { hits: modrinthHits } }

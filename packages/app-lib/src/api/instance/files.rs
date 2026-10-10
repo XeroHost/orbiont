@@ -76,6 +76,18 @@ async fn require_no_links(
     Ok(())
 }
 
+async fn require_instance_directory(
+    profiles: &Path,
+    destination: &Path,
+) -> crate::Result<()> {
+    // Check the configured root before canonicalizing so a root reparse point
+    // remains forbidden. The content store returns paths under a canonical root
+    // (verbatim paths on Windows), so containment must use the same format.
+    require_no_links(profiles, profiles).await?;
+    let canonical_profiles = fs::canonicalize(profiles).await?;
+    require_no_links(&canonical_profiles, destination).await
+}
+
 impl FileContext {
     async fn new(state: &State, instance_id: &str) -> crate::Result<Self> {
         let instance =
@@ -86,7 +98,8 @@ impl FileContext {
             .content_store
             .instance_path(&instance.path, "")
             .await?;
-        require_no_links(&state.directories.instances_dir(), &base).await?;
+        require_instance_directory(&state.directories.instances_dir(), &base)
+            .await?;
         let bindings =
             content_store::instance_storage(&state.pool, instance_id).await?;
         let files =
@@ -394,6 +407,64 @@ pub use archive_files::*;
 #[cfg(test)]
 mod listing_tests {
     use super::*;
+    #[tokio::test]
+    async fn instance_root_accepts_the_content_stores_canonical_path() {
+        let directory = tempfile::tempdir().unwrap();
+        let profiles = directory.path().join("profiles");
+        fs::create_dir_all(profiles.join("OneClient"))
+            .await
+            .unwrap();
+        let destination =
+            fs::canonicalize(&profiles).await.unwrap().join("OneClient");
+        require_instance_directory(&profiles, &destination)
+            .await
+            .unwrap();
+    }
+
+    #[tokio::test]
+    async fn instance_root_rejects_a_destination_outside_profiles() {
+        let directory = tempfile::tempdir().unwrap();
+        let profiles = directory.path().join("profiles");
+        fs::create_dir(&profiles).await.unwrap();
+        let outside = fs::canonicalize(directory.path()).await.unwrap();
+        assert!(
+            require_instance_directory(&profiles, &outside)
+                .await
+                .is_err()
+        );
+    }
+
+    #[cfg(windows)]
+    #[tokio::test]
+    async fn instance_root_rejects_junctions_before_and_after_canonicalizing() {
+        let directory = tempfile::tempdir().unwrap();
+        let profiles = directory.path().join("profiles");
+        fs::create_dir(&profiles).await.unwrap();
+        let outside = tempfile::tempdir().unwrap();
+        let link = profiles.join("OneClient");
+        let result = std::process::Command::new("cmd")
+            .args(["/c", "mklink", "/J"])
+            .arg(&link)
+            .arg(outside.path())
+            .output()
+            .unwrap();
+        assert!(result.status.success());
+        let destination =
+            fs::canonicalize(&profiles).await.unwrap().join("OneClient");
+        assert!(
+            require_instance_directory(&profiles, &destination)
+                .await
+                .is_err()
+        );
+        let destination = fs::canonicalize(outside.path()).await.unwrap();
+        assert!(
+            require_instance_directory(&link, &destination)
+                .await
+                .is_err()
+        );
+        std::fs::remove_dir(link).unwrap();
+    }
+
     #[tokio::test]
     async fn child_count_stops_and_marks_unknown_past_budget() {
         let directory = tempfile::tempdir().unwrap();

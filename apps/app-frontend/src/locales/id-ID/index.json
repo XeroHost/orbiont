@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Animasikan ikon saat kursor diarahkan dan saat mendapat fokus keyboard."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Nonaktifkan animasi"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Selalu animasikan"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Ikuti sistem"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Animasi ikon"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Lewati peringatan non-esensial"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Sembunyikan bilah sisi kanan secara bawaan dan tambahkan tombol untuk menampilkan atau menyembunyikannya."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Sembunyikan bilah sisi kanan"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Tampilkan peringatan keamanan sebelum memasang paket mod yang diimpor (.mrpack atau .zip CurseForge) yang sumbernya tidak dapat diverifikasi."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Perlu perhatian"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Memperbarui {count, plural, other {# item}}"
+  },
   "app.download-manager.cancel": {
     "message": "Batalkan instalasi"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Kembali ke instans"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Instalasi Java ini valid, tetapi tidak cocok dengan Java {version} yang diperlukan. Minecraft mungkin tidak dapat dijalankan."
+  },
   "app.instance.shortcut.created": {
     "message": "Pintasan dibuat"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Gambar galeri"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Buka gambar di tab baru"
-  },
   "app.project.install-button.already-installed": {
     "message": "Proyek ini sudah terpasang"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Mode pengembang dihidupkan."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Batalkan ekspor"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Menyimpan versi aplikasi dan sistem operasi serta hingga delapan log launcher yang telah dibersihkan ke file ZIP lokal. Token, nilai lingkungan kustom, dan jalur pengguna disamarkan. Tidak ada basis data, data akun, file game, atau unggahan yang disertakan. Periksa arsip sebelum membagikannya."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Simpan arsip diagnostik"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Mengekspor log: {completed} dari {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Arsip diagnostik disimpan secara lokal."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Arsip diagnostik"
   },
   "app.settings.downloading": {
     "message": "Mengunduh v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Rupa bawaan"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Masuk ke Microsoft"

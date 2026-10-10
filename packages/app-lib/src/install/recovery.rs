@@ -12,6 +12,7 @@ use crate::state::{ContentEntry, InstanceFile, InstanceMetadata, State};
 use async_walkdir::WalkDir;
 use futures::StreamExt;
 use serde::{Deserialize, Serialize};
+use std::future::Future;
 use std::path::{Path, PathBuf};
 use uuid::Uuid;
 
@@ -24,6 +25,10 @@ struct InstanceUpdateRollback {
     entries: Vec<ContentEntry>,
     #[serde(default)]
     bindings: Vec<crate::state::content_store::InstanceFileStorage>,
+    #[serde(default)]
+    missing_file_ids: std::collections::HashSet<String>,
+    #[serde(default)]
+    copied_file_ids: std::collections::HashSet<String>,
 }
 
 pub(super) async fn prepare_instance_update_backup(
@@ -50,7 +55,12 @@ pub(super) async fn prepare_instance_update_backup(
     crate::util::io::create_dir_all(&staging_dir).await?;
 
     let result = async {
-        let files = content_rows::get_instance_files(
+		crate::state::instances::commands::reconcile_instance_renames(
+			&metadata.instance,
+			state,
+		)
+		.await?;
+        let mut files = content_rows::get_instance_files(
             &metadata.instance.id,
             &state.pool,
         )
@@ -65,9 +75,11 @@ pub(super) async fn prepare_instance_update_backup(
             &metadata.instance.id,
         )
         .await?;
+		let mut missing_file_ids = std::collections::HashSet::new();
+		let mut copied_file_ids = std::collections::HashSet::new();
 		for binding in &bindings {
 			let file = files
-				.iter()
+				.iter_mut()
 				.find(|file| file.id == binding.file_id)
 				.ok_or_else(|| {
 					crate::state::content_store::input(
@@ -76,20 +88,28 @@ pub(super) async fn prepare_instance_update_backup(
 				})?;
 			let file_status = state.content_store
 				.check_instance_file(&metadata.instance, file, binding).await?;
+			file.missing = file_status == crate::state::content_store::InstanceFileStatus::Missing;
+			if file.missing {
+				missing_file_ids.insert(file.id.clone());
+				continue;
+			}
 			let content = state.content_store.file_content(file).await?;
 			if file_status != crate::state::content_store::InstanceFileStatus::Healthy
-				|| !matches!(content, crate::state::content_store::FileContent::Stored { .. })
 			{
 				return Err(crate::state::content_store::input(format!(
 					"Restore or repair {} before updating this instance; its current content cannot be backed up safely",
 					file.relative_path,
 				)));
 			}
+			if !matches!(content, crate::state::content_store::FileContent::Stored { .. }) {
+				copied_file_ids.insert(file.id.clone());
+			}
 		}
         let skipped = files
             .iter()
             .filter(|file| {
                 bindings.iter().any(|binding| binding.file_id == file.id)
+					&& !copied_file_ids.contains(&file.id)
             })
             .map(crate::state::content_store::content_file_path)
             .collect();
@@ -101,6 +121,8 @@ pub(super) async fn prepare_instance_update_backup(
             files,
             entries,
             bindings,
+			missing_file_ids,
+			copied_file_ids,
         };
         let instance_path = state
             .directories
@@ -149,7 +171,8 @@ async fn recover_unrecorded_instance_update_backup(
     if job.state.paths.staging_dir.is_some()
         || !matches!(
             &job.state.request,
-            InstallRequest::InstallPackToExistingInstance { .. }
+            InstallRequest::BulkUpdateContent { .. }
+                | InstallRequest::InstallPackToExistingInstance { .. }
         )
     {
         return Ok(());
@@ -233,6 +256,30 @@ async fn restore_instance_update(
         ));
     }
     for binding in &snapshot.bindings {
+        if snapshot.missing_file_ids.contains(&binding.file_id) {
+            continue;
+        }
+        if snapshot.copied_file_ids.contains(&binding.file_id) {
+            let file = snapshot
+                .files
+                .iter()
+                .find(|file| file.id == binding.file_id)
+                .ok_or_else(|| {
+                    crate::state::content_store::input(
+                        "Backup content reference has no file record",
+                    )
+                })?;
+            let path = backup_path
+                .join(crate::state::content_store::content_file_path(file));
+            if crate::state::content_store::hash_file(&path).await?.sha512
+                != binding.blob_sha512
+            {
+                return Err(crate::state::content_store::input(
+                    "The instance backup contains changed content",
+                ));
+            }
+            continue;
+        }
         if state
             .content_store
             .lookup(Some(&binding.blob_sha512), None)
@@ -261,15 +308,17 @@ async fn restore_instance_update(
         &state.pool,
     )
     .await?;
-    restore_instance_metadata(&rollback.instance, state).await?;
     state
         .content_store
         .restore_instance_files(
             &rollback.instance.instance,
             &snapshot.files,
             &snapshot.bindings,
+            &snapshot.missing_file_ids,
+            &snapshot.copied_file_ids,
         )
         .await?;
+    restore_instance_metadata(&rollback.instance, state).await?;
 
     Ok(())
 }
@@ -278,7 +327,7 @@ async fn restore_instance_metadata(
     metadata: &InstanceMetadata,
     state: &State,
 ) -> crate::Result<()> {
-    let mut tx = state.pool.begin().await?;
+    let mut tx = state.pool.begin_with("BEGIN IMMEDIATE").await?;
     instance_rows::update_instance(&metadata.instance, &mut tx).await?;
     content_rows::update_content_set(&metadata.applied_content_set, &mut tx)
         .await?;
@@ -395,10 +444,81 @@ pub async fn recover_interrupted_jobs(state: &State) -> crate::Result<()> {
         }
     }
 
+    if let Err(error) = recover_orphaned_install_stages(state).await {
+        tracing::error!(
+            "Could not recover orphaned installation states: {error}"
+        );
+    }
     Ok(())
 }
 
-async fn recover_interrupted_job(
+async fn recover_orphaned_install_stages(state: &State) -> crate::Result<()> {
+    let jobs = store::list_all(state).await?;
+    for instance in instance_rows::list_instances(&state.pool).await? {
+        let needs_recovery = jobs.iter().any(|job| {
+            job.instance_id.as_deref() == Some(instance.id.as_str())
+                && job.needs_recovery()
+        });
+        let active = jobs.iter().any(|job| {
+            job.instance_id.as_deref() == Some(instance.id.as_str())
+                && !job.status.is_finished()
+        });
+        let running =
+            crate::state::instance_has_running_process(&instance.id, state)
+                .await?;
+        let Some(stage) = orphaned_install_stage(
+            instance.install_stage,
+            needs_recovery,
+            active,
+            running,
+        ) else {
+            continue;
+        };
+        if stage == instance.install_stage {
+            continue;
+        }
+        crate::state::instances::commands::set_instance_install_stage(
+            &instance.id,
+            stage,
+            &state.pool,
+        )
+        .await?;
+        emit_instance(&instance.id, InstancePayloadType::Edited).await?;
+    }
+    Ok(())
+}
+
+fn orphaned_install_stage(
+    stage: crate::state::InstanceInstallStage,
+    needs_recovery: bool,
+    active: bool,
+    running: bool,
+) -> Option<crate::state::InstanceInstallStage> {
+    use crate::state::InstanceInstallStage;
+    if needs_recovery {
+        return Some(InstanceInstallStage::MinecraftInstalling);
+    }
+    if active
+        || running
+        || !matches!(
+            stage,
+            InstanceInstallStage::MinecraftInstalling
+                | InstanceInstallStage::PackInstalling
+        )
+    {
+        return None;
+    }
+    Some(InstanceInstallStage::NotInstalled)
+}
+
+fn recover_interrupted_job<'a>(
+    job: store::InstallJobRecord,
+    state: &'a State,
+) -> impl Future<Output = crate::Result<()>> + Send + 'a {
+    Box::pin(recover_interrupted_job_inner(job, state))
+}
+
+async fn recover_interrupted_job_inner(
     mut job: store::InstallJobRecord,
     state: &State,
 ) -> crate::Result<()> {
@@ -542,6 +662,7 @@ fn display_from_request(state: &InstallJobState) -> Option<InstallJobDisplay> {
         }),
         InstallRequest::DuplicateInstance { .. }
         | InstallRequest::InstallExistingInstance { .. }
+        | InstallRequest::BulkUpdateContent { .. }
         | InstallRequest::InstallPackToExistingInstance { .. } => {
             state.rollback.as_ref().map(|rollback| InstallJobDisplay {
                 title: rollback.instance.instance.name.clone(),
@@ -610,4 +731,37 @@ pub async fn apply_cleanup(
     }
 
     Ok(())
+}
+
+#[cfg(test)]
+mod upstream_recovery_tests {
+    use super::*;
+    use crate::state::InstanceInstallStage as Stage;
+    #[test]
+    fn orphan_install_recovers_without_disturbing_active_work() {
+        for stage in [Stage::PackInstalling, Stage::MinecraftInstalling] {
+            assert_eq!(
+                orphaned_install_stage(stage, false, false, false),
+                Some(Stage::NotInstalled)
+            );
+            assert_eq!(orphaned_install_stage(stage, false, true, false), None);
+            assert_eq!(orphaned_install_stage(stage, false, false, true), None);
+        }
+        assert_eq!(
+            orphaned_install_stage(Stage::Installed, true, false, false),
+            Some(Stage::MinecraftInstalling)
+        );
+        assert_eq!(
+            orphaned_install_stage(Stage::Installed, false, false, false),
+            None
+        );
+    }
+    #[test]
+    fn legacy_backup_without_new_file_sets_is_readable() {
+        let snapshot: InstanceUpdateRollback =
+            serde_json::from_str(r#"{"files":[],"entries":[]}"#).unwrap();
+        assert!(snapshot.bindings.is_empty());
+        assert!(snapshot.missing_file_ids.is_empty());
+        assert!(snapshot.copied_file_ids.is_empty());
+    }
 }

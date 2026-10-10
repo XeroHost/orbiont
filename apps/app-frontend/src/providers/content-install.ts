@@ -448,7 +448,12 @@ export function createContentInstall(opts: {
 	) {
 		currentProject = project
 		currentVersions = versions
-		currentCallback = onInstall
+		let completed = false
+		currentCallback = (...args) => {
+			if (completed) return
+			completed = true
+			onInstall(...args)
+		}
 		worldSelectionCommitted = false
 
 		instances.value = []
@@ -826,6 +831,9 @@ export function createContentInstall(opts: {
 			}
 			return
 		}
+		const project = currentProject
+		const callback = currentCallback
+		if (!project) return
 		const loaderCandidates =
 			data.loader === 'vanilla' ? ['vanilla', 'datapack', 'minecraft'] : [data.loader]
 		const version =
@@ -836,6 +844,7 @@ export function createContentInstall(opts: {
 			) ?? currentVersions[0]
 
 		let createdInstanceId: string | null = null
+		worldSelectionCommitted = true
 		try {
 			const job = await install_create_instance({
 				optifineInstallerPath: data.optifineInstallerPath,
@@ -846,25 +855,28 @@ export function createContentInstall(opts: {
 				iconPath: data.iconPath,
 			})
 			const id = installJobInstanceId(job)
-			if (!id) return
+			if (!id) throw new Error('The new instance was not created')
 			createdInstanceId = id
-			addInstallingItem(id, currentProject!, version)
+			await wait_for_install_job(opts.appEvents, job.job_id)
+			addInstallingItem(id, project, version)
 
 			const plan = await install_project_with_dependencies(id, {
-				project_id: currentProject!.id,
+				project_id: project.id,
 				version_id: version.id,
-				content_type: resolveContentType(currentProject!.project_type),
+				content_type: resolveContentType(project.project_type),
 			})
-			await addInstallingItemsForPlan(id, plan, currentProject!, version)
+			await addInstallingItemsForPlan(id, plan, project, version)
 			await opts.router.push(`/instance/${encodeURIComponent(id)}`)
 
-			currentCallback(version.id, resolvedProjectIds(plan))
-			modalRef?.hide()
+			callback(version.id, resolvedProjectIds(plan))
+			if (currentCallback === callback) modalRef?.hide()
 		} catch (err) {
-			if (createdInstanceId && currentProject) {
-				removeInstallingItems(createdInstanceId, [currentProject.id])
+			if (createdInstanceId) {
+				removeInstallingItems(createdInstanceId, [project.id])
 				markInstanceContentInstallFailed(createdInstanceId)
 			}
+			callback()
+			if (currentCallback === callback) worldSelectionCommitted = false
 			opts.handleError(err)
 		}
 	}

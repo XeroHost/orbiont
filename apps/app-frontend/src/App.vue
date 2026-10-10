@@ -1683,7 +1683,11 @@ provideAppUpdateDownloadProgress(appUpdateDownload)
 	width: var(--right-bar-width);
 	position: relative;
 	height: calc(100vh - var(--top-bar-height));
-	background: var(--brand-gradient-bg);
+	background: linear-gradient(
+		0deg,
+		color-mix(in srgb, var(--color-brand) 3%, transparent) 0%,
+		color-mix(in srgb, var(--color-brand) 7%, transparent) 100%
+	);
 
 	--color-button-bg: var(--brand-gradient-button);
 	--surface-4: var(--brand-gradient-button);

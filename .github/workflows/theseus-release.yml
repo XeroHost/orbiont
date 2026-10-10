@@ -59,6 +59,11 @@ jobs:
           run_id: ${{ github.event.workflow_run.id }}
           use_unzip: true
 
+      - name: Verify successful source gate
+        env:
+          HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: node scripts/ci-release-gate.mjs --verify
+
       - name: Collect release files
         shell: bash
         run: |

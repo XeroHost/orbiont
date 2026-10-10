@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Üzerine gelindiğinde ve klavye odağında simgeleri canlandırın."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Animasyonları kapat"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Her zaman canlandır"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Sistemi izle"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Simge animasyonları"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Gerekli olmayan uyarıları atla"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Sağ kenar çubuğunu varsayılan olarak gizleyin ve onu göstermek ya da gizlemek için bir düğme ekleyin."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Sağ kenar çubuğunu gizle"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Kaynağı doğrulanamayan içe aktarılmış bir mod paketini (.mrpack veya CurseForge .zip) kurmadan önce güvenlik uyarısı göster."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "İlgilenilmesi gerekiyor"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "{count, plural, one {# öğe güncelleniyor} other {# öğe güncelleniyor}}"
+  },
   "app.download-manager.cancel": {
     "message": "İndirmeyi iptal et"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Kuruluma dön"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Bu Java kurulumu geçerli, ancak gereken Java {version} sürümüyle eşleşmiyor. Minecraft başlatılamayabilir."
+  },
   "app.instance.shortcut.created": {
     "message": "Kısayol oluşturuldu"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Galeri görseli"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Görseli yeni sekmede aç"
-  },
   "app.project.install-button.already-installed": {
     "message": "Bu proje zaten kurulu"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Geliştirici modu açıldı."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Dışa aktarmayı iptal et"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Uygulama ve işletim sistemi sürümlerini ve en fazla sekiz temizlenmiş başlatıcı günlüğünü yerel bir ZIP dosyasına kaydeder. Token’lar, özel ortam değerleri ve kullanıcı yolları gizlenir. Veritabanı, hesap kaydı, oyun dosyası veya yükleme dahil edilmez. Paylaşmadan önce arşivi gözden geçirin."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Tanılama arşivini kaydet"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Günlükler dışa aktarılıyor: {completed}/{total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Tanılama arşivi yerel olarak kaydedildi."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Tanılama arşivi"
   },
   "app.settings.downloading": {
     "message": "v{version} indiriliyor"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Varsayılan skinler"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Kahramanı"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Kahramanı"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Küçük Devralma"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Doğaya Doğru"
   },
   "app.skins.sign-in.button": {
     "message": "Microsoft'a giriş yap"

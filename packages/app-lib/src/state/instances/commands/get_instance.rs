@@ -15,6 +15,7 @@ pub struct InstanceMetadata {
     #[serde(default)]
     pub quarantined: bool,
     pub group_ids: Vec<String>,
+    #[serde(default)]
     pub synced_options: InstanceSyncedOptions,
     pub launch_overrides: InstanceLaunchOverrides,
 }
@@ -88,5 +89,33 @@ fn instance_metadata(
         group_ids: record.group_ids,
         synced_options: record.synced_options,
         launch_overrides: record.launch_overrides,
+    }
+}
+
+#[cfg(test)]
+mod upstream_legacy_tests {
+    use super::*;
+
+    #[test]
+    fn recovery_metadata_without_synced_options_and_tabs_is_readable() {
+        let timestamp = "2026-01-01T00:00:00Z";
+        let metadata: InstanceMetadata = serde_json::from_value(serde_json::json!({
+            "instance": {
+                "id": "legacy", "path": "legacy", "install_stage": "installed",
+                "launcher_feature_version": "none", "update_channel": "release",
+                "name": "Legacy", "created": timestamp, "modified": timestamp,
+                "submitted_time_played": 0, "recent_time_played": 0
+            },
+            "applied_content_set": {
+                "id": "set", "instance_id": "legacy", "name": "Legacy",
+                "source_kind": "local", "status": "available", "game_version": "1.20.1",
+                "loader": "fabric", "created": timestamp, "modified": timestamp
+            },
+            "link": "unmanaged", "group_ids": [],
+            "launch_overrides": { "instance_id": "legacy", "hooks": {} }
+        })).unwrap();
+        assert_eq!(metadata.synced_options, InstanceSyncedOptions::default());
+        assert!(metadata.launch_overrides.visible_tabs.files);
+        assert!(metadata.launch_overrides.visible_tabs.worlds);
     }
 }

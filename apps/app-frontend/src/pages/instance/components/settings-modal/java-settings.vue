@@ -58,8 +58,13 @@ watch(overrideJavaInstall, (enabled) => {
 	}
 })
 
-const { testingJava, javaTestResult, testJavaInstallationDebounced, testJavaInstallation } =
-	useJavaTest()
+const {
+	testingJava,
+	javaTestResult,
+	javaCompatibilityResult,
+	testJavaInstallationDebounced,
+	testJavaInstallation,
+} = useJavaTest()
 
 const hoveringTest = ref(false)
 let hasInitialized = false
@@ -67,19 +72,21 @@ let hasInitialized = false
 watch(
 	javaTestPath,
 	(newPath) => {
-		if (newPath && optimalJava?.parsed_version) {
+		if (newPath) {
 			if (!hasInitialized) {
-				testJavaInstallation(newPath, optimalJava?.parsed_version)
+				testJavaInstallation(newPath, optimalJava?.parsed_version ?? null)
 				hasInitialized = true
 			} else {
-				testJavaInstallationDebounced(newPath, optimalJava?.parsed_version)
+				testJavaInstallationDebounced(newPath, optimalJava?.parsed_version ?? null)
 			}
 		}
 	},
 	{ immediate: true },
 )
 
-const javaDetectionModal = ref<{ show: (version: number, current: object) => void } | null>(null)
+const javaDetectionModal = ref<{ show: (version: number | null, current: object) => void } | null>(
+	null,
+)
 
 async function handleBrowseJava() {
 	const result = await open({ multiple: false })
@@ -89,8 +96,7 @@ async function handleBrowseJava() {
 }
 
 function handleDetectJava() {
-	if (optimalJava)
-		javaDetectionModal.value?.show(optimalJava.parsed_version, { path: javaPath.value })
+	javaDetectionModal.value?.show(null, { path: javaPath.value })
 }
 
 const overrideJavaArgs = ref((instance.value.extra_launch_args?.length ?? 0) > 0)
@@ -157,6 +163,11 @@ watch(
 )
 
 const messages = defineMessages({
+	javaVersionMismatch: {
+		id: 'app.instance.settings.java.version-mismatch',
+		defaultMessage:
+			'This Java installation is valid, but does not match the required Java {version}. Minecraft may not launch.',
+	},
 	javaInstallation: {
 		id: 'instance.settings.tabs.java.java-installation',
 		defaultMessage: 'Custom Java installation',
@@ -268,9 +279,22 @@ const messages = defineMessages({
 							<CoffeeIcon />
 						</div>
 						<div class="flex flex-col gap-2 flex-1 min-w-0">
-							<span class="font-semibold leading-none mt-2"
-								>Java {{ optimalJava?.parsed_version }}</span
+							<span class="font-semibold">Java {{ optimalJava?.parsed_version }}</span>
+							<p
+								v-if="
+									overrideJavaInstall &&
+									javaTestResult === true &&
+									javaCompatibilityResult === false
+								"
+								role="status"
+								class="m-0 text-orange"
 							>
+								{{
+									formatMessage(messages.javaVersionMismatch, {
+										version: optimalJava?.parsed_version ?? '',
+									})
+								}}
+							</p>
 							<div class="flex gap-2 items-center">
 								<Input
 									:model-value="activePath"
@@ -284,7 +308,7 @@ const messages = defineMessages({
 									type="quiet"
 									:color="
 										overrideJavaInstall && !hoveringTest && !testingJava
-											? javaTestResult === true
+											? javaTestResult === true && javaCompatibilityResult !== false
 												? 'green'
 												: 'red'
 											: undefined
@@ -293,7 +317,7 @@ const messages = defineMessages({
 									:style="{
 										'--legacy-button-color':
 											overrideJavaInstall && !hoveringTest && !testingJava
-												? `var(--color-${javaTestResult === true ? 'green' : 'red'})`
+												? `var(--color-${javaTestResult === true && javaCompatibilityResult !== false ? 'green' : 'red'})`
 												: undefined,
 									}"
 									class="!text-[var(--legacy-button-color,var(--color-base))] [&>svg]:!text-[var(--legacy-button-color,var(--color-primary))]"
@@ -305,11 +329,20 @@ const messages = defineMessages({
 								>
 									<SpinnerIcon v-if="testingJava" class="animate-spin h-4 w-4" />
 									<CheckCircleIcon
-										v-else-if="overrideJavaInstall && javaTestResult === true && !hoveringTest"
+										v-else-if="
+											overrideJavaInstall &&
+											javaTestResult === true &&
+											javaCompatibilityResult !== false &&
+											!hoveringTest
+										"
 										class="h-4 w-4"
 									/>
 									<XCircleIcon
-										v-else-if="overrideJavaInstall && javaTestResult !== true && !hoveringTest"
+										v-else-if="
+											overrideJavaInstall &&
+											(javaTestResult !== true || javaCompatibilityResult === false) &&
+											!hoveringTest
+										"
 										class="h-4 w-4"
 									/>
 									<RefreshCwIcon v-else class="h-4 w-4" />

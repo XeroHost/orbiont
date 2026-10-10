@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "حرّك الأيقونات عند تمرير المؤشر والتركيز بلوحة المفاتيح."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "تعطيل التحريك"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "التحريك دائمًا"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "اتباع النظام"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "تحريك الأيقونات"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "تخطي التحذيرات غير الضرورية"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "قم بإخفاء الشريط الجانبي الأيمن افتراضيًا وأضف زرًا لإظهاره أو إخفائه."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "قم بإخفاء الشريط الجانبي الأيمن"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "اعرض تحذير أمان قبل تثبيت مودباك مستورد (.mrpack أو ‎.zip‎ من CurseForge) تعذّر التحقق من مصدره."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "يحتاج إلى الاهتمام"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "جارٍ تحديث {count, plural, zero {# عنصر} one {عنصر واحد} two {عنصرين} few {# عناصر} many {# عنصرًا} other {# عنصر}}"
+  },
   "app.download-manager.cancel": {
     "message": "إلغاء التثبيت"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "العودة إلى النسخة"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "تثبيت Java هذا صالح، لكنه لا يطابق إصدار Java {version} المطلوب. قد لا يعمل Minecraft."
+  },
   "app.instance.shortcut.created": {
     "message": "تم إنشاء الاختصار"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "صورة المعرض"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "فتح الصورة في تبويب جديد"
-  },
   "app.project.install-button.already-installed": {
     "message": "هذا المشروع مُثبَّت بالفعل"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "تم تفعيل وضع المطوّر."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "إلغاء التصدير"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "يحفظ إصدارات التطبيق ونظام التشغيل وما يصل إلى ثمانية سجلات منقّحة للمشغّل في ملف ZIP محلي. يتم إخفاء الرموز المميزة وقيم البيئة المخصصة ومسارات المستخدم. لا يتضمن أي قاعدة بيانات أو سجلات حسابات أو ملفات اللعبة أو عمليات رفع. راجع الأرشيف قبل مشاركته."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "حفظ أرشيف التشخيص"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "جارٍ تصدير السجلات: {completed} من {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "تم حفظ أرشيف التشخيص محليًا."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "أرشيف التشخيص"
   },
   "app.settings.downloading": {
     "message": "جار تنزيل الإصدار {version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "شكل الشخصية الافتراضية"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "بطل Dungeons"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "بطل Dungeons II"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "الاستحواذ الصغير"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "نحو البرية"
   },
   "app.skins.sign-in.button": {
     "message": "تسجيل الدخول إلى Microsoft"

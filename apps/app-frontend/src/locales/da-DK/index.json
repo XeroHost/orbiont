@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Animer ikoner, når markøren holdes over dem, og ved tastaturfokus."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Deaktiver animationer"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Animer altid"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Følg systemet"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Ikonanimationer"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Spring ikke nødvendige advarseler over"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Skjul som standard højre sidepanel og tilføj en knap for at vise eller skjule det."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Skjul højre sidebar"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Vis en sikkerhedsadvarsel, før du installerer en importeret modpack (.mrpack eller CurseForge .zip), hvis kilde ikke kunne bekræftes."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Kræver opmærksomhed"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Opdaterer {count, plural, one {# element} other {# elementer}}"
+  },
   "app.download-manager.cancel": {
     "message": "Annuller installation"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Tilbage til instance"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Denne Java-installation er gyldig, men matcher ikke den krævede Java {version}. Minecraft starter muligvis ikke."
+  },
   "app.instance.shortcut.created": {
     "message": "Genvej oprettet"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Galleribillede"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Åbn billede i ny fane"
-  },
   "app.project.install-button.already-installed": {
     "message": "Dette projekt er allerede installeret"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Udvikler-tilstand aktiveret."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Annuller eksport"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Gemmer app- og styresystemversioner og op til otte rensede launcherlogfiler i en lokal ZIP-fil. Tokens, brugerdefinerede miljøværdier og brugerstier skjules. Der medtages ingen databaser, kontooplysninger, spilfiler eller uploads. Gennemgå arkivet, før du deler det."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Gem diagnosearkiv"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Eksporterer logfiler: {completed} af {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Diagnosearkiv gemt lokalt."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Diagnosearkiv"
   },
   "app.settings.downloading": {
     "message": "Downloader v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Standard skins"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Log ind på Microsoft"

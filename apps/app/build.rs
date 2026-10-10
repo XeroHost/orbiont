@@ -113,6 +113,7 @@ fn main() {
                 "logs",
                 InlinedPlugin::new()
                     .commands(&[
+                        "webview_log",
                         "logs_get_logs",
                         "logs_get_logs_by_filename",
                         "logs_get_output_by_filename",
@@ -184,6 +185,8 @@ fn main() {
                         "install_duplicate_instance",
                         "install_existing_instance",
                         "install_pack_to_existing_instance",
+                        "install_bulk_update_content",
+                        "validate_bulk_update_content",
                         "install_job_list",
                         "install_job_get",
                         "install_job_retry",
@@ -220,6 +223,7 @@ fn main() {
                         "instance_get_projects",
                         "instance_get_installed_project_ids",
                         "instance_get_install_candidates",
+                        "instance_sync_content_files",
                         "instance_content",
                         "instance_get_content_items",
                         "instance_refresh_content_updates",
@@ -366,6 +370,8 @@ fn main() {
                         "open_path",
                         "show_launcher_logs_folder",
                         "show_app_db_backups_folder",
+                        "export_debug_info",
+                        "cancel_debug_info",
                         "progress_bars_list",
                         "get_opening_command",
                         "get_image_thumbnail",

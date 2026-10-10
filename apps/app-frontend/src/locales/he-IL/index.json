@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "הנפשת סמלים בריחוף הסמן ובמיקוד באמצעות המקלדת."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "השבתת הנפשות"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "להנפיש תמיד"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "לפי המערכת"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "הנפשות סמלים"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "דלג על אזהרות שאינן חיוניות"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "הסתר את סרגל הצד הימני כברירת מחדל והוסף לחצן להצגתו או להסתָרתו."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "הסתר את סרגל הצד הימני"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "הצג אזהרת בטיחות לפני התקנת חבילת מודים מיובאת (.mrpack או .zip של CurseForge) שמקורה לא אומת."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "דורש תשומת לב"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "מעדכן {count, plural, one {פריט אחד} two {שני פריטים} other {# פריטים}}"
+  },
   "app.download-manager.cancel": {
     "message": "בטל התקנה"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "חזרה להעתק"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "התקנת Java זו תקינה, אך אינה תואמת לגרסת Java {version} הנדרשת. ייתכן ש-Minecraft לא יופעל."
+  },
   "app.instance.shortcut.created": {
     "message": "קיצור הדרך נוצר"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "תמונת גלריה"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "פתח תמונה בכרטיסייה חדשה"
-  },
   "app.project.install-button.already-installed": {
     "message": "פרויקט זה כבר מותקן"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "מצב מפתח מופעל."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "ביטול הייצוא"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "שומר את גרסאות האפליקציה ומערכת ההפעלה ועד שמונה יומני משגר מנוקים בקובץ ZIP מקומי. אסימונים, ערכי סביבה מותאמים אישית ונתיבי משתמש מוסתרים. לא נכללים מסדי נתונים, רשומות חשבון, קובצי משחק או העלאות. יש לבדוק את הארכיון לפני שיתופו."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "שמירת ארכיון אבחון"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "מייצא יומנים: {completed} מתוך {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "ארכיון האבחון נשמר מקומית."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "ארכיון אבחון"
   },
   "app.settings.downloading": {
     "message": "מוריד גרסה {version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "סקינים ברירת מחדל"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "גיבור Dungeons"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "גיבור Dungeons II"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "השתלטות זעירה"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "אל הטבע הפראי"
   },
   "app.skins.sign-in.button": {
     "message": "התחבר ל־Microsoft"

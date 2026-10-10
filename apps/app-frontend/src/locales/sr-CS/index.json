@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Анимирај иконе при преласку показивача и фокусу тастатуре."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Искључи анимације"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Увек анимирај"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Прати систем"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Анимације икона"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Preskači nebitna upozorenja"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Sakrij desnu bočnu traku podrazumevano i dodaj dugme da se prikaže i sakrije."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Sakrij desnu bočnu traku"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Prikaži bezbednosno upozorenje pre instaliranja uvezenog modpacka (.mrpack ili CurseForge .zip) čiji izvor nije mogao biti verifikovan."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Zahteva pažnju"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Ažuriranje: {count, plural, one {# stavka} few {# stavke} other {# stavki}}"
+  },
   "app.download-manager.cancel": {
     "message": "Otkaži instalaciju"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Nazad na instancu"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Ova Java instalacija je ispravna, ali ne odgovara potrebnoj verziji Java {version}. Minecraft se možda neće pokrenuti."
+  },
   "app.instance.shortcut.created": {
     "message": "Prečica je kreirana"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Slika galerije"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Otvori sliku u novoj kartici"
-  },
   "app.project.install-button.already-installed": {
     "message": "Ovaj projekat je već instaliran"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Režim programera je ukljućen."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Otkaži izvoz"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Čuva verzije aplikacije i operativnog sistema i do osam očišćenih zapisa pokretača u lokalnu ZIP datoteku. Tokeni, prilagođene vrednosti okruženja i korisničke putanje se sakrivaju. Ne uključuju se baze podataka, podaci naloga, datoteke igre niti otpremanja. Pregledajte arhivu pre deljenja."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Sačuvaj dijagnostičku arhivu"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Izvoz zapisa: {completed} od {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Dijagnostička arhiva je sačuvana lokalno."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Dijagnostička arhiva"
   },
   "app.settings.downloading": {
     "message": "Instaliranje v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Podrazumevani skinovi"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Prijavi se na Microsoft"

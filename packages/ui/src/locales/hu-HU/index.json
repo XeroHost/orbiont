@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Hiba történt a tartalom betöltésekor"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Nem sikerült betölteni a változásnaplót"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "Nem sikerült betölteni az elérhető frissítéseket"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "Szűrő"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "Rendezés {mode} szerint"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "A tömeges frissítés nem érhető el ezekhez a CurseForge-projektekhez: {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "Összes frissítése"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "Egy ismeretlen fájl veszélyes lehet. Telepítés előtt ellenőrizd a forrását."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "{project} változásnaplója"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "Változásnapló betöltve."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "Változásnapló bezárása"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "Jelenlegi verzió"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "Nincs elérhető frissítés."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "Projektek frissítése"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "Frissítések betöltése…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "Változásnapló betöltése…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "Új verzió"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "Ehhez a verzióhoz nincs változásnapló."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "Nincs elérhető kompatibilis frissítés."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "Nincs kompatibilis frissítés"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "Projekt"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "Projektfrissítések"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, one {# projekt frissítésre kész} other {# projekt frissítésre kész}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "Összes projekt kiválasztása"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "{project} kiválasztása frissítésre"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "{project} új verziója"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "{count, plural, one {# projekt frissítése} other {# projekt frissítése}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "Jelenlegi verzió / Új verzió"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "Megtekintés"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "{project} változásnaplójának megtekintése"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "Nem tudjuk garantálni, hogy a frissítések biztonságosak a világaid számára. Nézd át a változásnaplókat, és fontold meg egy biztonsági mentés készítését."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "Nem tudjuk garantálni, hogy a frissítések biztonságosak lesznek a szervered számára. Nézd át a változásnaplókat, és fontold meg egy biztonsági mentés készítését."
   },
   "version.content.name": {
     "defaultMessage": "Név"

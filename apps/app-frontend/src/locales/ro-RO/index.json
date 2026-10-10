@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Animează pictogramele la trecerea cursorului și la focalizarea cu tastatura."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Dezactivează animațiile"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Animează întotdeauna"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Urmează sistemul"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Animațiile pictogramelor"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Sari peste avertismentele neesențiale"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Ascundeți implicit bara laterală dreapta si adaugați un buton pentru a o afișa sau a o ascunde."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Ascundeți bara laterală dreapta"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Afișează un avertisment de siguranță înainte de a instala un modpack importat (.mrpack sau .zip de CurseForge) a cărui sursă nu a putut fi verificată."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Necesită atenție"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Se actualizează {count, plural, one {# element} few {# elemente} other {# de elemente}}"
+  },
   "app.download-manager.cancel": {
     "message": "Anulează instalarea"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Înapoi la instanță"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Această instalare Java este validă, dar nu corespunde versiunii Java {version} necesare. Este posibil ca Minecraft să nu pornească."
+  },
   "app.instance.shortcut.created": {
     "message": "Comandă rapidă creată"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Imagine din galerie"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Deschide imaginea într-o filă nouă"
-  },
   "app.project.install-button.already-installed": {
     "message": "Acest proiect este deja instalat"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Modul dezvoltator activat."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Anulează exportul"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Salvează versiunile aplicației și ale sistemului de operare și până la opt jurnale curățate ale launcherului într-un fișier ZIP local. Tokenurile, valorile de mediu personalizate și căile utilizatorului sunt ascunse. Nu sunt incluse baze de date, date ale conturilor, fișiere de joc sau încărcări. Verifică arhiva înainte de a o distribui."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Salvează arhiva de diagnosticare"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Se exportă jurnalele: {completed} din {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Arhiva de diagnosticare a fost salvată local."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Arhivă de diagnosticare"
   },
   "app.settings.downloading": {
     "message": "Se descarcă v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Skinuri implicite"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Autentifică-te cu Microsoft"

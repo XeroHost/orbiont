@@ -33,9 +33,33 @@ pub(crate) fn validate_relative(path: &str) -> crate::Result<()> {
             .components()
             .any(|part| !matches!(part, Component::Normal(_)))
     {
-        return Err(input("Invalid instance-relative path"));
+        return Err(input(format!("Invalid instance-relative path: {path:?}")));
     }
     Ok(())
+}
+
+pub(crate) fn validate_instance_path(path: &str) -> crate::Result<()> {
+    // Legacy instance names can end in dots or spaces; preserve their on-disk path.
+    let normalized = path
+        .split('/')
+        .map(|part| part.trim_end_matches(['.', ' ']))
+        .join("/");
+    if normalized
+        .chars()
+        .any(|c| c.is_control() || ['<', '>', '"', '|', '?', '*'].contains(&c))
+        || normalized.contains('/')
+        || normalized.split('.').next().is_some_and(|name| {
+            let name = name.trim_end_matches(' ').to_ascii_uppercase();
+            matches!(name.as_str(), "CON" | "PRN" | "AUX" | "NUL")
+                || (name.len() == 4
+                    && (name.starts_with("COM") || name.starts_with("LPT"))
+                    && matches!(name.as_bytes()[3], b'1'..=b'9'))
+        })
+    {
+        return Err(input("Invalid reserved instance folder path"));
+    }
+    validate_relative(&normalized)
+        .map_err(|_| input(format!("Invalid instance folder path: {path:?}")))
 }
 
 pub(crate) fn is_managed_content_path(path: &str) -> bool {
@@ -92,5 +116,31 @@ pub(crate) fn file_path_on_disk(relative_path: &str, enabled: bool) -> String {
         canonical.to_string()
     } else {
         format!("{canonical}.disabled")
+    }
+}
+
+#[cfg(test)]
+mod upstream_path_tests {
+    use super::*;
+    #[test]
+    fn legacy_folder_suffix_is_narrowly_accepted() {
+        for path in ["My instance.", "My instance ", "1.20.1"] {
+            assert!(validate_instance_path(path).is_ok(), "{path}");
+        }
+        for path in [
+            "",
+            ".",
+            "..",
+            "../outside",
+            "folder/child",
+            "C:/outside",
+            "folder\\child",
+            "CON.",
+            "nul.txt",
+            "LPT1 ",
+        ] {
+            assert!(validate_instance_path(path).is_err(), "{path}");
+        }
+        assert!(validate_relative("mods/example.jar.").is_err());
     }
 }

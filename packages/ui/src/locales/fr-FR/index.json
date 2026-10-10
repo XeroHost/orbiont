@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Impossible de charger le contenu"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Impossible de charger le journal des modifications"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "Impossible de charger les mises à jour disponibles"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "Filtre"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "Trier par {mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "Les mises à jour groupées ne sont pas disponibles pour ces projets CurseForge : {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "Tout mettre à jour"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "Un fichier non reconnu peut être dangereux. Vérifiez sa source avant de l'installer."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "Journal des modifications de {project}"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "Journal des modifications chargé."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "Fermer le journal des modifications"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "Version actuelle"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "Aucune mise à jour disponible."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "Mettre à jour les projets"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "Chargement des mises à jour…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "Chargement du journal des modifications…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "Nouvelle version"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "Aucun journal des modifications fourni pour cette version."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "Aucune mise à jour compatible disponible."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "Aucune mise à jour compatible"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "Projet"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "Mises à jour des projets"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, one {# projet prêt à être mis à jour} other {# projets prêts à être mis à jour}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "Sélectionner tous les projets"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "Sélectionner {project} pour la mise à jour"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "Nouvelle version de {project}"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "Mettre à jour {count, plural, one {# projet} other {# projets}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "Version actuelle / Nouvelle version"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "Voir"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "Voir le journal des modifications de {project}"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "Nous ne pouvons pas garantir que les mises à jour sont sans risque pour vos mondes. Consultez les journaux des modifications et pensez à faire une sauvegarde."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "Nous ne pouvons pas garantir que les mises à jour seront sans risque pour votre serveur. Consultez les journaux des modifications et pensez à faire une sauvegarde."
   },
   "version.content.name": {
     "defaultMessage": "Nom"

@@ -6,6 +6,8 @@ on:
     tags:
       - 'v*'
     paths:
+      - 'patches/**'
+      - '.cargo/**'
       - .github/workflows/theseus-build.yml
       - .github/workflows/turbo-ci.yml
       - Cargo.toml
@@ -31,14 +33,39 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: ${{ github.ref != 'refs/heads/main' }}
 
+permissions:
+  contents: read
+
 jobs:
+  source:
+    name: Resolve build source
+    runs-on: ubuntu-latest
+    outputs:
+      required: ${{ steps.source.outputs.required }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          fetch-depth: 0
+      - id: source
+        shell: bash
+        run: |
+          # A tag run owns packaging when main already points to a release tag.
+          required=true
+          if [ "$GITHUB_REF" = refs/heads/main ] && git tag --points-at "$GITHUB_SHA" | grep -q '^v'; then
+            required=false
+          fi
+          echo "required=$required" >> "$GITHUB_OUTPUT"
+
   validation:
     name: Validate release source
+    needs: source
+    if: needs.source.outputs.required == 'true'
     uses: ./.github/workflows/turbo-ci.yml
 
   build:
     name: Build
-    needs: validation
+    needs: source
+    if: needs.source.outputs.required == 'true'
     strategy:
       fail-fast: false
       matrix:
@@ -67,9 +94,21 @@ jobs:
         uses: actions-rust-lang/setup-rust-toolchain@166cdcfd11aee3cb47222f9ddb555ce30ddb9659 # v1.17.0
         with:
           rustflags: ''
+          cache: false
           target: ${{ contains(matrix.artifact-target-name, 'darwin') && 'x86_64-apple-darwin' || '' }}
-          cache-workspaces: '. -> target'
 
+      - name: Setup compiler cache
+        uses: mozilla-actions/sccache-action@d651010b8da762cde178750d8eda7b5febfe147a # v0.0.9
+        with:
+          version: v0.10.0
+      # PR compiler-cache writes use their own namespace in addition to GHA merge-ref scope.
+      # Trusted main/dispatch/tag runs never read a PR namespace.
+      - name: Configure compiler cache scope
+        shell: bash
+        run: |
+          echo "RUSTC_WRAPPER=sccache" >> "$GITHUB_ENV"
+          echo "SCCACHE_GHA_ENABLED=on" >> "$GITHUB_ENV"
+          echo "SCCACHE_GHA_VERSION=orbiont-v1-${{ github.event_name == 'pull_request' && format('pr-{0}', github.event.pull_request.number) || 'trusted' }}-${{ runner.os }}-${{ runner.arch }}-${{ matrix.artifact-target-name || 'native-checks' }}-${{ hashFiles('rust-toolchain.toml', 'Cargo.lock', 'Cargo.toml') }}" >> "$GITHUB_ENV"
       - name: Setup Node
         uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
@@ -153,8 +192,24 @@ jobs:
           writeFileSync('packages/app-lib/.env', content);
           NODE
 
+      - name: Locate pnpm store
+        id: pnpm-store
+        shell: bash
+        run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+      - name: Restore pnpm store
+        uses: actions/cache/restore@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: pnpm-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('pnpm-lock.yaml') }}
+          restore-keys: pnpm-v1-${{ runner.os }}-${{ runner.arch }}-
       - name: Install dependencies
-        run: pnpm install
+        run: pnpm install --frozen-lockfile
+      - name: Save trusted pnpm store
+        if: github.event_name != 'pull_request' && (github.ref == 'refs/heads/main' || github.event_name == 'workflow_dispatch')
+        uses: actions/cache/save@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
+        with:
+          path: ${{ steps.pnpm-store.outputs.path }}
+          key: pnpm-v1-${{ runner.os }}-${{ runner.arch }}-${{ hashFiles('pnpm-lock.yaml') }}
 
       - name: Build macOS app
         if: contains(matrix.artifact-target-name, 'darwin')
@@ -197,6 +252,10 @@ jobs:
           TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_KEY_PASSWORD }}
 
+      - name: Compiler cache statistics
+        if: always()
+        run: sccache --show-stats
+
       - name: Upload app bundles
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
@@ -210,3 +269,24 @@ jobs:
             target/universal-apple-darwin/release/bundle/dmg/Orbiont*.dmg*
             target/release/bundle/nsis/Orbiont*-setup.exe*
             target/release/bundle/nsis/Orbiont*-setup.nsis.zip*
+
+  release-gate:
+    name: All release checks succeeded
+    if: always() && needs.source.outputs.required == 'true'
+    needs: [source, validation, build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+      - name: Require validation and every installer
+        env:
+          VALIDATION_RESULT: ${{ needs.validation.result }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          SOURCE_SHA: ${{ github.sha }}
+          SOURCE_REF: ${{ github.ref }}
+        run: node scripts/ci-release-gate.mjs
+      - name: Upload immutable validation evidence
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: Release gate
+          path: release-gate.json
+          if-no-files-found: error

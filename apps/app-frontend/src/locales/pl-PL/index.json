@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Animuj ikony po najechaniu kursorem i przy ustawieniu fokusu klawiaturą."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Wyłącz animacje"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Zawsze animuj"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Zgodnie z systemem"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Animacje ikon"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Pomiń mało znaczące ostrzeżenia"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Domyślnie ukrywa prawy pasek boczny i dodaje guzik pozwalający go pokazywać lub ukrywać."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Ukryj prawy pasek boczny"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Pokaż ostrzeżenie o bezpieczeństwie przed zainstalowaniem zaimportowanej paczki modów (.mrpack lub CurseForge .zip), której źródła nie można było zweryfikować."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Wymaga działania"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Aktualizowanie {count, plural, one {# elementu} few {# elementów} many {# elementów} other {# elementu}}"
+  },
   "app.download-manager.cancel": {
     "message": "Przerwij instalację"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Powrót do instancji"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Ta instalacja Javy jest prawidłowa, ale nie odpowiada wymaganej wersji Java {version}. Minecraft może się nie uruchomić."
+  },
   "app.instance.shortcut.created": {
     "message": "Skrót utworzony"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Obraz galerii"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Otwórz obraz w nowej karcie"
-  },
   "app.project.install-button.already-installed": {
     "message": "Ten projekt jest już zainstalowany"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Tryb dewelopera włączony."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Anuluj eksport"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Zapisuje wersje aplikacji i systemu operacyjnego oraz maksymalnie osiem oczyszczonych dzienników launchera w lokalnym pliku ZIP. Tokeny, niestandardowe wartości środowiskowe i ścieżki użytkownika są ukrywane. Nie są dołączane bazy danych, dane kont, pliki gry ani przesłane pliki. Przejrzyj archiwum przed udostępnieniem."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Zapisz archiwum diagnostyczne"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Eksportowanie dzienników: {completed} z {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Archiwum diagnostyczne zapisano lokalnie."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Archiwum diagnostyczne"
   },
   "app.settings.downloading": {
     "message": "Pobieranie v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Domyślne skórki"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Zaloguj się do Microsoft"

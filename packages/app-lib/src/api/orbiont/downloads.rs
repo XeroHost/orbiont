@@ -390,6 +390,7 @@ mod tests {
     #[tokio::test]
     async fn complete_downloads_are_verified_and_failed_streams_leave_no_files()
     {
+        let _rate = super::super::RATE_TEST_LOCK.lock().await;
         let dir = tempfile::tempdir().unwrap();
         let client = reqwest::Client::builder()
             .redirect(reqwest::redirect::Policy::none())
@@ -443,6 +444,7 @@ mod tests {
     #[tokio::test]
     async fn restricted_files_return_the_official_page_without_following_redirects()
      {
+        let _rate = super::super::RATE_TEST_LOCK.lock().await;
         let dir = tempfile::tempdir().unwrap();
         let client = reqwest::Client::builder()
             .redirect(reqwest::redirect::Policy::none())

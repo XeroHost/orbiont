@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Tạo hiệu ứng động khi di chuột hoặc lấy tiêu điểm bằng bàn phím."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Tắt hiệu ứng động"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Luôn tạo hiệu ứng động"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Theo hệ thống"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Hiệu ứng động cho biểu tượng"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Bỏ qua các cảnh báo không quan trọng"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Ẩn thanh bên phải theo mặc định và thêm nút để hiển thị hoặc ẩn nó."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Ẩn thanh bên"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Hiển thị cảnh báo an toàn trước khi cài đặt modpack đã nhập (.mrpack hoặc CurseForge .zip) mà không thể xác minh nguồn gốc."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Cần chú ý"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Đang cập nhật {count, plural, other {# mục}}"
+  },
   "app.download-manager.cancel": {
     "message": "Hủy cài đặt"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Quay lại instance"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Bản cài đặt Java này hợp lệ nhưng không khớp với Java {version} được yêu cầu. Minecraft có thể không khởi chạy."
+  },
   "app.instance.shortcut.created": {
     "message": "Đã tạo lối tắt"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Ảnh thư viện"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Mở ảnh trong tab mới"
-  },
   "app.project.install-button.already-installed": {
     "message": "Dự án này đã được cài đặt"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Chế độ nhà phát triển đã được bật."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Hủy xuất"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Lưu phiên bản ứng dụng, hệ điều hành và tối đa tám nhật ký launcher đã được làm sạch vào một tệp ZIP cục bộ. Token, giá trị môi trường tùy chỉnh và đường dẫn người dùng được ẩn. Không bao gồm cơ sở dữ liệu, thông tin tài khoản, tệp trò chơi hay tải lên. Hãy kiểm tra tệp lưu trữ trước khi chia sẻ."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Lưu tệp chẩn đoán"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Đang xuất nhật ký: {completed}/{total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Đã lưu tệp chẩn đoán trên máy."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Tệp chẩn đoán"
   },
   "app.settings.downloading": {
     "message": "Đang tải về v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Skin mặc định"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Đăng nhập bằng Microsoft"

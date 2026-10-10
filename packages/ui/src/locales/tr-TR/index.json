@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "İçerik yüklemesi başarısız oldu"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Değişiklik günlüğü yüklenemedi"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "Mevcut güncellemeler yüklenemedi"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "Filtre"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "Sıralama şekli {mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "Toplu güncellemeler şu CurseForge projeleri için kullanılamıyor: {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "Tümünü güncelle"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "Tanınmayan bir dosya güvenli olmayabilir. Kurmadan önce kaynağını kontrol edin."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "{project} değişiklik günlüğü"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "Değişiklik günlüğü yüklendi."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "Değişiklik günlüğünü kapat"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "Mevcut sürüm"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "Kullanılabilir güncelleme yok."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "Projeleri güncelle"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "Güncellemeler yükleniyor…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "Değişiklik günlüğü yükleniyor…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "Yeni sürüm"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "Bu sürüm için değişiklik günlüğü sağlanmadı."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "Uyumlu güncelleme yok."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "Uyumlu güncelleme yok"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "Proje"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "Proje güncellemeleri"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, one {# proje güncellenmeye hazır} other {# proje güncellenmeye hazır}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "Tüm projeleri seç"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "{project} projesini güncelleme için seç"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "{project} için yeni sürüm"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "{count, plural, one {# projeyi güncelle} other {# projeyi güncelle}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "Mevcut sürüm / Yeni sürüm"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "Görüntüle"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "{project} değişiklik günlüğünü görüntüle"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "Güncellemelerin dünyaların için güvenli olduğunu garanti edemeyiz. Değişiklik günlüklerini incele ve yedek almayı düşün."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "Güncellemelerin sunucun için güvenli olacağını garanti edemeyiz. Değişiklik günlüklerini incele ve yedek almayı düşün."
   },
   "version.content.name": {
     "defaultMessage": "İsim"

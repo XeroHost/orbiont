@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "تعذّر تحميل المحتوى"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "تعذّر تحميل سجل التغييرات"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "تعذّر تحميل التحديثات المتاحة"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "تصفية"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "ترتيب حسب {mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "التحديثات المجمّعة غير متاحة لمشاريع CurseForge هذه: {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "حدّث الكلّ"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "قد يكون الملف غير المعروف غير آمن. تحقق من مصدره قبل تثبيته."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "سجل تغييرات {project}"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "تم تحميل سجل التغييرات."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "إغلاق سجل التغييرات"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "الإصدار الحالي"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "لا توجد تحديثات متاحة."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "تحديث المشاريع"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "جارٍ تحميل التحديثات…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "جارٍ تحميل سجل التغييرات…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "إصدار جديد"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "لا يوجد سجل تغييرات لهذا الإصدار."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "لا توجد تحديثات متوافقة متاحة."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "لا توجد تحديثات متوافقة"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "المشروع"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "تحديثات المشاريع"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, zero {لا توجد مشاريع جاهزة للتحديث} one {مشروع واحد جاهز للتحديث} two {مشروعان جاهزان للتحديث} few {# مشاريع جاهزة للتحديث} many {# مشروعًا جاهزًا للتحديث} other {# مشروع جاهز للتحديث}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "تحديد كل المشاريع"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "تحديد {project} للتحديث"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "إصدار جديد لـ {project}"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "تحديث {count, plural, zero {# مشروع} one {مشروع واحد} two {مشروعين} few {# مشاريع} many {# مشروعًا} other {# مشروع}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "الإصدار الحالي / الإصدار الجديد"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "عرض"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "عرض سجل تغييرات {project}"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "لا يمكننا ضمان أن التحديثات آمنة لعوالمك. راجع سجلات التغييرات وفكّر في إنشاء نسخة احتياطية."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "لا يمكننا ضمان أن التحديثات ستكون آمنة لخادمك. راجع سجلات التغييرات وفكّر في إنشاء نسخة احتياطية."
   },
   "version.content.name": {
     "defaultMessage": "الاسم"

@@ -43,6 +43,11 @@ const stagesByKind: Record<InstallJobSnapshot['kind'], readonly Stage[]> = {
 	import_instance: copyStages,
 	duplicate_instance: copyStages,
 	install_existing_instance: instanceStages,
+	bulk_update_content: [
+		['resolving_pack', 5],
+		['downloading_content', 90],
+		['finalizing', 5],
+	],
 	install_pack_to_existing_instance: packStages,
 }
 

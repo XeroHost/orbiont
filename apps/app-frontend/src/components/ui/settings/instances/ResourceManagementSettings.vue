@@ -16,6 +16,7 @@ import { ref } from 'vue'
 
 import ConfirmModalWrapper from '@/components/ui/modal/ConfirmModalWrapper.vue'
 import ContentStorageSettings from '@/components/ui/settings/instances/ContentStorageSettings.vue'
+import DiagnosticsExport from '@/components/ui/settings/instances/DiagnosticsExport.vue'
 import { useAppSettings } from '@/composables/use-app-settings.ts'
 import { useSettingsChanges } from '@/composables/use-settings-changes'
 import { purge_cache_types } from '@/helpers/cache.js'
@@ -198,6 +199,7 @@ async function findLauncherDir() {
 <template>
 	<div class="flex flex-col gap-6">
 		<ContentStorageSettings />
+		<DiagnosticsExport />
 		<div class="flex flex-col gap-2.5">
 			<h2 class="m-0 text-lg font-semibold text-contrast">
 				{{ formatMessage(messages.appDirectoryTitle) }}

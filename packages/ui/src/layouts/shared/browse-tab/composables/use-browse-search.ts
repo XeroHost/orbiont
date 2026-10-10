@@ -102,6 +102,7 @@ export function useBrowseSearch(options: UseBrowseSearchOptions): BrowseSearchSt
 		options.tags,
 		options.providedFilters ?? computed(() => []),
 		options.environmentOverride ?? computed(() => undefined),
+		options.persistentQueryParams,
 	)
 
 	const effectiveMaxResultsOptions = computed(

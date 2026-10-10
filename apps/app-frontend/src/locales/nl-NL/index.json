@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Animeer pictogrammen bij aanwijzen en toetsenbordfocus."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Animaties uitschakelen"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Altijd animeren"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Systeem volgen"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Pictogramanimaties"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Niet-essentiële waarschuwingen overslaan"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Verberg de rechterzijbalk standaard en voeg een knop toe om deze weer te geven of te verbergen."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Rechterzijbalk verbergen"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Toon een veiligheidswaarschuwing voordat een geïmporteerde modpack (.mrpack of CurseForge .zip) waarvan de bron niet kon worden geverifieerd, wordt geïnstalleerd."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Heeft aandacht nodig"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "{count, plural, one {# item wordt bijgewerkt} other {# items worden bijgewerkt}}"
+  },
   "app.download-manager.cancel": {
     "message": "Installatie annuleren"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Terug naar de instantie"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Deze Java-installatie is geldig, maar komt niet overeen met de vereiste Java {version}. Minecraft start mogelijk niet."
+  },
   "app.instance.shortcut.created": {
     "message": "Snelkoppeling gemaakt"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Galerijafbeelding"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Afbeelding openen in nieuw tabblad"
-  },
   "app.project.install-button.already-installed": {
     "message": "Dit project is al geïnstalleerd"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Ontwikkelaarsmodus ingeschakeld."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Export annuleren"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Slaat app- en besturingssysteemversies en maximaal acht opgeschoonde launcherlogboeken op in een lokaal ZIP-bestand. Tokens, aangepaste omgevingswaarden en gebruikerspaden worden afgeschermd. Er worden geen databases, accountgegevens, gamebestanden of uploads meegenomen. Controleer het archief voordat je het deelt."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Diagnostisch archief opslaan"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Logboeken exporteren: {completed} van {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Diagnostisch archief lokaal opgeslagen."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Diagnostisch archief"
   },
   "app.settings.downloading": {
     "message": "v{version} wordt gedownload"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Standaardskins"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Aanmelden bij Microsoft"

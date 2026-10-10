@@ -17,7 +17,7 @@ pub(crate) fn scan_content_files(
     instances_dir: &Path,
     instance_path: &str,
 ) -> crate::Result<Vec<ScannedContentFile>> {
-    crate::state::content_store::validate_relative(instance_path)?;
+    crate::state::content_store::validate_instance_path(instance_path)?;
     let instance_full_path = instances_dir.join(instance_path);
     let instance_dir = io::canonicalize(instance_full_path)?;
     let linked_instance =
@@ -108,5 +108,32 @@ fn is_scannable_project_file(
             extension.eq_ignore_ascii_case("zip")
                 || extension.eq_ignore_ascii_case("jar")
         }
+    }
+}
+
+#[cfg(test)]
+mod upstream_scan_tests {
+    use super::*;
+    #[test]
+    fn disabled_file_uses_actual_disk_timestamp_and_path() {
+        let dir = tempfile::tempdir().unwrap();
+        let mods = dir.path().join("instance/mods");
+        std::fs::create_dir_all(&mods).unwrap();
+        let path = mods.join("example.jar.disabled");
+        std::fs::write(&path, b"disabled-content").unwrap();
+        let files = scan_content_files(dir.path(), "instance").unwrap();
+        assert_eq!(files.len(), 1);
+        assert_eq!(files[0].relative_path, "mods/example.jar.disabled");
+        assert!(!files[0].enabled);
+        let metadata = std::fs::metadata(path).unwrap();
+        assert_eq!(
+            files[0].hash_cache_key,
+            file_hash_cache_key(
+                metadata.len(),
+                file_modified_at_ns(&metadata).unwrap(),
+                "instance/mods/example.jar.disabled"
+            )
+        );
+        assert!(scan_content_files(dir.path(), "../outside").is_err());
     }
 }

@@ -15,6 +15,8 @@ use url::Url;
 pub fn init<R: Runtime>() -> tauri::plugin::TauriPlugin<R> {
     tauri::plugin::Builder::new("utils")
         .invoke_handler(tauri::generate_handler![
+            export_debug_info,
+            cancel_debug_info,
             get_os,
             is_network_metered,
             should_disable_mouseover,
@@ -204,4 +206,109 @@ pub(crate) fn tauri_convert_file_src(path: &Path) -> Result<Url> {
     let encoded = urlencoding::encode(&path);
 
     Ok(theseus_try!(Url::parse(&format!("{BASE}{encoded}"))))
+}
+
+static DEBUG_EXPORTS: std::sync::LazyLock<
+    DashMap<uuid::Uuid, std::sync::Arc<std::sync::atomic::AtomicBool>>,
+> = std::sync::LazyLock::new(DashMap::new);
+static DEBUG_EXPORT_ACTIVE: std::sync::atomic::AtomicBool =
+    std::sync::atomic::AtomicBool::new(false);
+struct DebugExportGuard(uuid::Uuid);
+impl Drop for DebugExportGuard {
+    fn drop(&mut self) {
+        DEBUG_EXPORTS.remove(&self.0);
+        DEBUG_EXPORT_ACTIVE.store(false, std::sync::atomic::Ordering::Release);
+    }
+}
+
+#[tauri::command]
+pub fn cancel_debug_info<R: Runtime>(
+    webview: tauri::Webview<R>,
+    operation: uuid::Uuid,
+) {
+    if webview.label() != "main" {
+        return;
+    }
+    if let Some(cancel) = DEBUG_EXPORTS.get(&operation) {
+        cancel.store(true, std::sync::atomic::Ordering::Relaxed);
+    }
+}
+
+#[tauri::command]
+pub async fn export_debug_info<R: Runtime>(
+    app: tauri::AppHandle<R>,
+    webview: tauri::Webview<R>,
+    operation: uuid::Uuid,
+    runtime_version: String,
+    progress: tauri::ipc::Channel<theseus::debug_info::Progress>,
+) -> Result<bool> {
+    use tauri_plugin_dialog::DialogExt;
+    if webview.label() != "main" {
+        return Err(std::io::Error::other(
+            "Diagnostics restricted to main window",
+        )
+        .into());
+    }
+    // One export at a time bounds memory and avoids overlapping save destinations.
+    let cancel = std::sync::Arc::new(std::sync::atomic::AtomicBool::new(false));
+    if DEBUG_EXPORT_ACTIVE
+        .compare_exchange(
+            false,
+            true,
+            std::sync::atomic::Ordering::AcqRel,
+            std::sync::atomic::Ordering::Acquire,
+        )
+        .is_err()
+    {
+        return Err(
+            std::io::Error::other("Diagnostic export already running").into()
+        );
+    }
+    DEBUG_EXPORTS.insert(operation, cancel.clone());
+    let _guard = DebugExportGuard(operation);
+    let (tx, rx) = tokio::sync::oneshot::channel();
+    app.dialog()
+        .file()
+        .add_filter("ZIP", &["zip"])
+        .set_file_name("launcher-diagnostics.zip")
+        .save_file(move |path| {
+            let _ = tx.send(path);
+        });
+    let Some(path) = rx.await.unwrap_or(None) else {
+        return Ok(false);
+    };
+    if cancel.load(std::sync::atomic::Ordering::Relaxed) {
+        return Ok(false);
+    }
+    let destination = PathBuf::try_from(path)
+        .map_err(|_| std::io::Error::other("Invalid save destination"))?;
+    let state = theseus::State::get().await?;
+    let logs = state
+        .directories
+        .launcher_logs_dir()
+        .ok_or_else(|| std::io::Error::other("Launcher logs unavailable"))?;
+    let secrets = theseus::debug_info::secret_values().await?;
+    let version = app.package_info().version.to_string();
+    let outcome = tauri::async_runtime::spawn_blocking(move || {
+        theseus::debug_info::export(
+            &logs,
+            &destination,
+            &version,
+            &runtime_version,
+            &secrets,
+            cancel,
+            |value| {
+                let _ = progress.send(value);
+            },
+        )
+    })
+    .await
+    .map_err(|_| std::io::Error::other("Diagnostic export worker failed"))?;
+    match outcome {
+        Ok(()) => Ok(true),
+        Err(error) if error.kind() == std::io::ErrorKind::Interrupted => {
+            Ok(false)
+        }
+        Err(error) => Err(error.into()),
+    }
 }

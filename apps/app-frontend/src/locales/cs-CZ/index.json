@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Animovat ikony při najetí myší a zaměření klávesnicí."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Vypnout animace"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Vždy animovat"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Podle systému"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Animace ikon"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Přeskočit nedůležitá upozornění"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Ve výchozím nastavení skrýt pravý postranní panel a přidat tlačítko pro jeho zobrazení nebo skrývání."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Skrýt pravý postranní panel"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Zobrazit bezpečnostní upozornění před instalací importovaného modpacku (.mrpack nebo CurseForge .zip), jehož zdroj se nepodařilo ověřit."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Vyžaduje pozornost"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Aktualizace: {count, plural, one {# položka} few {# položky} many {# položky} other {# položek}}"
+  },
   "app.download-manager.cancel": {
     "message": "Zrušit instalaci"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Zpět k instanci"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Tato instalace Javy je platná, ale neodpovídá požadované verzi Java {version}. Minecraft se nemusí spustit."
+  },
   "app.instance.shortcut.created": {
     "message": "Zkratka vytvořena"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Obrázek galerie"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Otevřít obrázek na nové kartě"
-  },
   "app.project.install-button.already-installed": {
     "message": "Tento projekt je již nainstalován"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Vývojářský režim povolen."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Zrušit export"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Uloží verze aplikace a operačního systému a až osm vyčištěných protokolů launcheru do místního souboru ZIP. Tokeny, vlastní hodnoty prostředí a uživatelské cesty jsou skryty. Nejsou zahrnuty žádné databáze, údaje o účtech, herní soubory ani nahrávání. Před sdílením archiv zkontrolujte."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Uložit diagnostický archiv"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Export protokolů: {completed} z {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Diagnostický archiv byl uložen místně."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Diagnostický archiv"
   },
   "app.settings.downloading": {
     "message": "Stahování v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Výchozí skiny"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Přihlásit se do Microsoftu"

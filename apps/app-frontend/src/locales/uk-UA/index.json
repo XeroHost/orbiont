@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Анімуйте значки під час наведення та фокусування з клавіатури."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Вимкнути анімацію"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Завжди анімувати"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Як у системі"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Анімація значків"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Пропускати несуттєві попередження"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Приховати праву бічну панель і додати кнопку для її перемикання."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Приховати праву бічну панель"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Показувати попередження про безпеку перед установленням імпортованої збірки (.mrpack або .zip з CurseForge), джерело якої не вдалося перевірити."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Потребує уваги"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Оновлення: {count, plural, one {# елемент} few {# елементи} many {# елементів} other {# елемента}}"
+  },
   "app.download-manager.cancel": {
     "message": "Скасувати встановлення"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Назад до примірника"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Ця інсталяція Java дійсна, але не відповідає потрібній версії Java {version}. Minecraft може не запуститися."
+  },
   "app.instance.shortcut.created": {
     "message": "Ярлик створено"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Зображення галереї"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Відкрити зображення в новій вкладці"
-  },
   "app.project.install-button.already-installed": {
     "message": "Проєкт уже встановлено"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Увімкнено режим розробника."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Скасувати експорт"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Зберігає версії застосунку й операційної системи та до восьми очищених журналів лаунчера в локальний ZIP-файл. Токени, власні значення середовища та шляхи користувача приховуються. Бази даних, дані облікових записів, файли гри та вивантаження не додаються. Перегляньте архів, перш ніж ділитися ним."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Зберегти діагностичний архів"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Експорт журналів: {completed} з {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Діагностичний архів збережено локально."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Діагностичний архів"
   },
   "app.settings.downloading": {
     "message": "Завантаження v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Усталені скіни"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Увійти в Microsoft"

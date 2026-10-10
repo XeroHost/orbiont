@@ -11,6 +11,9 @@ pub mod downloads;
 const REQUEST_INTERVAL: Duration = Duration::from_millis(1250);
 static NEXT_REQUEST: LazyLock<Mutex<Option<Instant>>> =
     LazyLock::new(|| Mutex::new(None));
+/// Tests that reset or time NEXT_REQUEST run one at a time.
+#[cfg(test)]
+pub(crate) static RATE_TEST_LOCK: Mutex<()> = Mutex::const_new(());
 
 fn retry_after_delay(
     value: Option<&str>,
@@ -219,6 +222,7 @@ mod rate_limit_tests {
     #[tokio::test]
     async fn requests_share_cooldown_and_retry_only_once() {
         use tokio::io::{AsyncReadExt, AsyncWriteExt};
+        let _rate = RATE_TEST_LOCK.lock().await;
         let listener =
             tokio::net::TcpListener::bind("127.0.0.1:0").await.unwrap();
         let url = format!("http://{}", listener.local_addr().unwrap());

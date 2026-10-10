@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Ikonok animálása rámutatáskor és billentyűzetes fókusznál."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Animációk kikapcsolása"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Mindig animáljon"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Rendszer követése"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Ikonanimációk"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Lényegtelen figyelmeztetések kihagyása"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Alapértelmezés szerint elrejti a jobb oldalsávot, és hozzáad egy gombot a megjelenítéséhez vagy elrejtéséhez."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Jobb oldalsáv elrejtése"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Mutass biztonsági figyelmeztetést importált modcsomag (.mrpack vagy CurseForge .zip) telepítése előtt, ha a forrása nem ellenőrizhető."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Figyelmet igényel"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "{count, plural, one {# elem frissítése} other {# elem frissítése}}"
+  },
   "app.download-manager.cancel": {
     "message": "Telepítés megszakítása"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Vissza a példányhoz"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Ez a Java-telepítés érvényes, de nem felel meg a szükséges Java {version} verziónak. Lehet, hogy a Minecraft nem indul el."
+  },
   "app.instance.shortcut.created": {
     "message": "Parancsikon létrehozva"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Galériakép"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Kép megnyitása új lapon"
-  },
   "app.project.install-button.already-installed": {
     "message": "Ez a projekt már telepítve van"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Fejlesztői mód bekapcsolva."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Exportálás megszakítása"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Elmenti az alkalmazás és az operációs rendszer verzióit, valamint legfeljebb nyolc megtisztított launchernaplót egy helyi ZIP-fájlba. A tokenek, az egyéni környezeti értékek és a felhasználói útvonalak rejtve maradnak. Nem tartalmaz adatbázist, fiókadatokat, játékfájlokat vagy feltöltést. Megosztás előtt ellenőrizd az archívumot."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Diagnosztikai archívum mentése"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Naplók exportálása: {completed}/{total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "A diagnosztikai archívum helyben elmentve."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Diagnosztikai archívum"
   },
   "app.settings.downloading": {
     "message": "v{version} letöltése"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Alap kinézetek"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Bejelentkezés Microsofttal"

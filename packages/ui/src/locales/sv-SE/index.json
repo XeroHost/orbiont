@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Kunde inte ladda in innehåll"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Det gick inte att läsa in ändringsloggen"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "Det gick inte att läsa in tillgängliga uppdateringar"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "Filter"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "Sortera i {mode} ordning"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "Massuppdateringar är inte tillgängliga för dessa CurseForge-projekt: {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "Uppdatera alla"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "En okänd fil kan vara osäker. Kontrollera dess källa innan du installerar den."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "Ändringslogg för {project}"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "Ändringsloggen har lästs in."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "Stäng ändringslogg"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "Nuvarande version"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "Inga uppdateringar tillgängliga."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "Uppdatera projekt"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "Läser in uppdateringar…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "Läser in ändringslogg…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "Ny version"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "Ingen ändringslogg finns för den här versionen."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "Inga kompatibla uppdateringar tillgängliga."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "Inga kompatibla uppdateringar"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "Projekt"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "Projektuppdateringar"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, one {# projekt redo att uppdateras} other {# projekt redo att uppdateras}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "Markera alla projekt"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "Välj {project} för uppdatering"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "Ny version för {project}"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "Uppdatera {count, plural, one {# projekt} other {# projekt}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "Nuvarande version / Ny version"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "Visa"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "Visa ändringslogg för {project}"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "Vi kan inte garantera att uppdateringar är säkra för dina världar. Läs ändringsloggarna och överväg att göra en säkerhetskopia."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "Vi kan inte garantera att uppdateringar blir säkra för din server. Läs ändringsloggarna och överväg att göra en säkerhetskopia."
   },
   "version.content.name": {
     "defaultMessage": "Namn"

@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "콘텐츠 불러오기 실패"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "변경 사항을 불러오지 못했습니다"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "사용 가능한 업데이트를 불러오지 못했습니다"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "필터"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "{mode}으로 정렬"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "다음 CurseForge 프로젝트는 일괄 업데이트를 사용할 수 없습니다: {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "모두 업데이트"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "인식되지 않는 파일은 안전하지 않을 수 있습니다. 설치하기 전에 출처를 확인하세요."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "{project} 변경 사항"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "변경 사항을 불러왔습니다."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "변경 사항 닫기"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "현재 버전"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "사용 가능한 업데이트가 없습니다."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "프로젝트 업데이트"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "업데이트 불러오는 중…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "변경 사항 불러오는 중…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "새 버전"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "이 버전에는 변경 사항이 제공되지 않았습니다."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "호환되는 업데이트가 없습니다."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "호환되는 업데이트 없음"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "프로젝트"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "프로젝트 업데이트 목록"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, other {#개 프로젝트 업데이트 준비됨}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "모든 프로젝트 선택"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "{project} 업데이트 선택"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "{project}의 새 버전"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "{count, plural, other {#개 프로젝트 업데이트}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "현재 버전 / 새 버전"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "보기"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "{project} 변경 사항 보기"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "업데이트가 월드에 안전하다고 보장할 수 없습니다. 변경 사항을 검토하고 백업을 고려하세요."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "업데이트가 서버에 안전하다고 보장할 수 없습니다. 변경 사항을 검토하고 백업을 고려하세요."
   },
   "version.content.name": {
     "defaultMessage": "이름"

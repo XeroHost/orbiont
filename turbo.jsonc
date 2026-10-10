@@ -1,13 +1,31 @@
 {
 	"$schema": "./node_modules/turbo/schema.json",
+	"agentGuidance": false,
 	"concurrency": "100%",
 	"globalDependencies": [
 		"packages/tooling-config/**",
 		"!packages/tooling-config/.turbo/**",
 		"!packages/tooling-config/node_modules/**",
-		"packages/app-lib/.env"
+		"packages/app-lib/.env",
+		"Cargo.toml",
+		"Cargo.lock",
+		"rust-toolchain.toml",
+		".cargo/**",
+		"patches/**",
+		"apps/app/**",
+		"packages/app-lib/**",
+		"packages/content-management/**",
+		"packages/daedalus/**",
+		"packages/path-util/**",
+		"packages/serde-binhum/**",
+		"packages/async-minecraft-ping/**",
+		"!**/target/**",
+		"!**/node_modules/**",
+		"!**/.turbo/**",
+		"!**/java/.gradle/**",
+		"!**/java/build/**"
 	],
-	"globalEnv": ["MODRINTH_URL", "MODRINTH_API_BASE_URL", "ORBIONT_UPDATES_URL"],
+	"globalEnv": ["MODRINTH_URL", "MODRINTH_API_BASE_URL", "ORBIONT_UPDATES_URL", "JAVA_HOME"],
 	"tasks": {
 		"build": {
 			"dependsOn": ["//#i18n:coverage", "^build"],
@@ -32,7 +50,13 @@
 				"BUILD_ENV",
 				"PREVIEW"
 			],
-			"passThroughEnv": ["SCCACHE_*", "RUSTC_WRAPPER", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
 		},
 		"@orbiont/app#build": {
 			"cache": false,
@@ -53,9 +77,17 @@
 				"RUST_*",
 				"RUSTFLAGS",
 				"FORCE_COLOR",
-				"NEXTEST_*"
+				"NEXTEST_*",
+				"BUILD_ENV",
+				"PREVIEW"
 			],
-			"passThroughEnv": ["SCCACHE_*", "RUSTC_WRAPPER", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
 		},
 		"lint": {
 			"env": [
@@ -67,7 +99,13 @@
 				"FORCE_COLOR",
 				"NEXTEST_*"
 			],
-			"passThroughEnv": ["SCCACHE_*", "RUSTC_WRAPPER", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
 		},
 		"lint:ancillary": {},
 		"//#i18n:coverage": {
@@ -103,7 +141,13 @@
 				"FORCE_COLOR",
 				"NEXTEST_*"
 			],
-			"passThroughEnv": ["SCCACHE_*", "RUSTC_WRAPPER", "AWS_ACCESS_KEY_ID", "AWS_SECRET_ACCESS_KEY"]
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
 		},
 		"fix": {},
 		"fix:ancillary": {
@@ -116,6 +160,183 @@
 		},
 		"prepr": {
 			"dependsOn": ["^prepr", "fix", "intl:extract", "intl:prune-local"]
+		},
+		"@orbiont/app#lint": {
+			"cache": false,
+			"dependsOn": ["@orbiont/app-frontend#build"],
+			"env": [
+				"DATABASE_URL",
+				"SQLX_OFFLINE",
+				"CARGO_*",
+				"RUST_*",
+				"RUSTFLAGS",
+				"FORCE_COLOR",
+				"NEXTEST_*"
+			],
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
+		},
+		"@orbiont/app#test": {
+			"cache": false,
+			"dependsOn": ["@orbiont/app-frontend#build"],
+			"env": [
+				"SQLX_OFFLINE",
+				"DATABASE_URL",
+				"REDIS_*",
+				"CARGO_*",
+				"RUST_*",
+				"RUSTFLAGS",
+				"FORCE_COLOR",
+				"NEXTEST_*"
+			],
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
+		},
+		"@orbiont/app-lib#lint": {
+			"cache": false,
+			"env": [
+				"DATABASE_URL",
+				"SQLX_OFFLINE",
+				"CARGO_*",
+				"RUST_*",
+				"RUSTFLAGS",
+				"FORCE_COLOR",
+				"NEXTEST_*"
+			],
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
+		},
+		"@orbiont/app-lib#test": {
+			"cache": false,
+			"env": [
+				"SQLX_OFFLINE",
+				"DATABASE_URL",
+				"REDIS_*",
+				"CARGO_*",
+				"RUST_*",
+				"RUSTFLAGS",
+				"FORCE_COLOR",
+				"NEXTEST_*"
+			],
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
+		},
+		"@orbiont/app-lib#build": {
+			"cache": false,
+			"env": [
+				"NODE_ENV",
+				"SITE_URL",
+				"BASE_URL",
+				"PREVIEW",
+				"BUILD_ENV",
+				"FLAG_OVERRIDES",
+				"BROWSER_BASE_URL",
+				"PORT",
+				"SQLX_OFFLINE",
+				"DATABASE_URL",
+				"CARGO_*",
+				"RUST_*",
+				"RUSTFLAGS",
+				"FORCE_COLOR",
+				"NEXTEST_*",
+				"BUILD_ENV",
+				"PREVIEW"
+			],
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
+		},
+		"@orbiont/daedalus#lint": {
+			"cache": false,
+			"env": [
+				"DATABASE_URL",
+				"SQLX_OFFLINE",
+				"CARGO_*",
+				"RUST_*",
+				"RUSTFLAGS",
+				"FORCE_COLOR",
+				"NEXTEST_*"
+			],
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
+		},
+		"@orbiont/daedalus#test": {
+			"cache": false,
+			"env": [
+				"SQLX_OFFLINE",
+				"DATABASE_URL",
+				"REDIS_*",
+				"CARGO_*",
+				"RUST_*",
+				"RUSTFLAGS",
+				"FORCE_COLOR",
+				"NEXTEST_*"
+			],
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
+		},
+		"@orbiont/daedalus#build": {
+			"cache": false,
+			"env": [
+				"NODE_ENV",
+				"SITE_URL",
+				"BASE_URL",
+				"PREVIEW",
+				"BUILD_ENV",
+				"FLAG_OVERRIDES",
+				"BROWSER_BASE_URL",
+				"PORT",
+				"SQLX_OFFLINE",
+				"DATABASE_URL",
+				"CARGO_*",
+				"RUST_*",
+				"RUSTFLAGS",
+				"FORCE_COLOR",
+				"NEXTEST_*",
+				"BUILD_ENV",
+				"PREVIEW"
+			],
+			"passThroughEnv": [
+				"SCCACHE_*",
+				"RUSTC_WRAPPER",
+				"ACTIONS_CACHE_SERVICE_V2",
+				"ACTIONS_RESULTS_URL",
+				"ACTIONS_RUNTIME_TOKEN"
+			]
 		}
 	}
 }

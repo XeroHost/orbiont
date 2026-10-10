@@ -78,7 +78,9 @@ pub fn start_logger(app_identifier: &str) -> Option<()> {
     };
 
     let filter = tracing_subscriber::EnvFilter::try_from_default_env()
-        .unwrap_or_else(|_| tracing_subscriber::EnvFilter::new("theseus=info"));
+        .unwrap_or_else(|_| {
+            tracing_subscriber::EnvFilter::new("theseus=info,theseus_gui=info")
+        });
 
     tracing_subscriber::registry()
         .with(
@@ -128,7 +130,14 @@ pub fn redact_diagnostics(text: &str) -> String {
     let text = IDENTITY.replace_all(&text, "[REDACTED]");
     let text = QUOTED.replace_all(&text, "${1}\"[REDACTED]\"");
     let text = LABELLED.replace_all(&text, "${1}[REDACTED]");
-    JWT.replace_all(&text, "[REDACTED]").into_owned()
+    static USER_PATH: LazyLock<regex::Regex> = LazyLock::new(|| {
+        regex::Regex::new(
+            r#"(?i)([A-Z]:[\\/]+Users[\\/]+|/(?:Users|home)/)[^\\/\r\n"']+"#,
+        )
+        .expect("user path regex")
+    });
+    let text = JWT.replace_all(&text, "[REDACTED]");
+    USER_PATH.replace_all(&text, "${1}[USER]").into_owned()
 }
 
 struct RedactingWriter<W: std::io::Write> {

@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Conținutul nu s-a putut încărca"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Nu s-a putut încărca jurnalul de modificări"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "Nu s-au putut încărca actualizările disponibile"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "Filtru"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "Sortează cu {mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "Actualizările în bloc nu sunt disponibile pentru aceste proiecte CurseForge: {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "Actualizează tot"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "Un fișier nerecunoscut poate fi nesigur. Verifică-i sursa înainte de a-l instala."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "Jurnal de modificări pentru {project}"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "Jurnalul de modificări a fost încărcat."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "Închide jurnalul de modificări"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "Versiunea curentă"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "Nu există actualizări disponibile."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "Actualizează proiectele"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "Se încarcă actualizările…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "Se încarcă jurnalul de modificări…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "Versiune nouă"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "Această versiune nu are un jurnal de modificări."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "Nu există actualizări compatibile disponibile."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "Nicio actualizare compatibilă"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "Proiect"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "Actualizări de proiecte"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, one {# proiect pregătit pentru actualizare} few {# proiecte pregătite pentru actualizare} other {# de proiecte pregătite pentru actualizare}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "Selectează toate proiectele"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "Selectează {project} pentru actualizare"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "Versiune nouă pentru {project}"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "Actualizează {count, plural, one {# proiect} few {# proiecte} other {# de proiecte}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "Versiunea curentă / Versiune nouă"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "Vezi"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "Vezi jurnalul de modificări pentru {project}"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "Nu putem garanta că actualizările sunt sigure pentru lumile tale. Citește jurnalele de modificări și ia în considerare o copie de rezervă."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "Nu putem garanta că actualizările vor fi sigure pentru serverul tău. Citește jurnalele de modificări și ia în considerare o copie de rezervă."
   },
   "version.content.name": {
     "defaultMessage": "Nume"

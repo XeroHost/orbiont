@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "โหลดเนื้อหาไม่สำเร็จ"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "โหลดบันทึกการเปลี่ยนแปลงไม่สำเร็จ"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "โหลดอัปเดตที่มีอยู่ไม่สำเร็จ"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "ตัวกรอง"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "เรียงตาม {mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "ไม่สามารถอัปเดตพร้อมกันสำหรับโปรเจกต์ CurseForge เหล่านี้: {projects}"
   },
   "content.page-layout.update-all": {
     "defaultMessage": "อัปเดตทั้งหมด"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "ไฟล์ที่ไม่รู้จักอาจไม่ปลอดภัย ตรวจสอบแหล่งก่อนติดตั้ง"
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "บันทึกการเปลี่ยนแปลงของ {project}"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "โหลดบันทึกการเปลี่ยนแปลงแล้ว"
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "ปิดบันทึกการเปลี่ยนแปลง"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "เวอร์ชันปัจจุบัน"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "ไม่มีอัปเดต"
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "อัปเดตโปรเจกต์"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "กำลังโหลดอัปเดต…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "กำลังโหลดบันทึกการเปลี่ยนแปลง…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "เวอร์ชันใหม่"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "เวอร์ชันนี้ไม่มีบันทึกการเปลี่ยนแปลง"
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "ไม่มีอัปเดตที่เข้ากันได้"
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "ไม่มีอัปเดตที่เข้ากันได้"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "โปรเจกต์"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "อัปเดตโปรเจกต์"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, other {# โปรเจกต์พร้อมอัปเดต}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "เลือกโปรเจกต์ทั้งหมด"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "เลือก {project} เพื่ออัปเดต"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "เวอร์ชันใหม่ของ {project}"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "อัปเดต {count, plural, other {# โปรเจกต์}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "เวอร์ชันปัจจุบัน / เวอร์ชันใหม่"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "ดู"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "ดูบันทึกการเปลี่ยนแปลงของ {project}"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "เราไม่สามารถรับประกันได้ว่าการอัปเดตจะปลอดภัยสำหรับโลกของคุณ โปรดตรวจสอบบันทึกการเปลี่ยนแปลงและพิจารณาสำรองข้อมูล"
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "เราไม่สามารถรับประกันได้ว่าการอัปเดตจะปลอดภัยสำหรับเซิร์ฟเวอร์ของคุณ โปรดตรวจสอบบันทึกการเปลี่ยนแปลงและพิจารณาสำรองข้อมูล"
   },
   "version.content.name": {
     "defaultMessage": "ชื่อ"

@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "Animoi kuvakkeet osoittimen ollessa niiden päällä ja näppäimistökohdistuksessa."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Poista animaatiot käytöstä"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Animoi aina"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Noudata järjestelmää"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Kuvakkeiden animaatiot"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Ohita ei olennaiset varoitukset"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Piilota oikea sivupalkki oletuksena ja lisää painike sen näyttämiseen tai piilottamiseen."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Piilota oikea sivupalkki"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Näytä turvavaroitus ennen tuodun modipaketin (.mrpack tai CurseForge .zip) asentamista, jonka lähdettä ei voitu varmistaa."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Vaatii huomiota"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Päivitetään {count, plural, one {# kohde} other {# kohdetta}}"
+  },
   "app.download-manager.cancel": {
     "message": "Peruuta asennus"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Takaisin instanssiin"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Tämä Java-asennus on kelvollinen, mutta se ei vastaa vaadittua Java {version} -versiota. Minecraft ei ehkä käynnisty."
+  },
   "app.instance.shortcut.created": {
     "message": "Pikakuvake luotu"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Gallerian kuva"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Avaa kuva uudessa välilehdessä"
-  },
   "app.project.install-button.already-installed": {
     "message": "Tämä projekti on jo asennettu"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Kehittäjätila käytössä."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Peruuta vienti"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Tallentaa sovelluksen ja käyttöjärjestelmän versiot sekä enintään kahdeksan siistittyä launcherin lokia paikalliseen ZIP-tiedostoon. Tunnukset, mukautetut ympäristöarvot ja käyttäjäpolut piilotetaan. Mukana ei ole tietokantoja, tilitietoja, pelitiedostoja eikä latauksia palveluun. Tarkista arkisto ennen kuin jaat sen."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "Tallenna diagnostiikka-arkisto"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Viedään lokeja: {completed}/{total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Diagnostiikka-arkisto tallennettu paikallisesti."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Diagnostiikka-arkisto"
   },
   "app.settings.downloading": {
     "message": "Ladataan v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Oletus ulkoasut"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Pienten vallankumous"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Kirjaudu Microsoftilla"

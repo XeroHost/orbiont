@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "I-animate ang mga icon kapag tinapatan ng cursor at pinili gamit ang keyboard."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "Patayin ang mga animasyon"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "Palaging i-animate"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "Sundin ang system"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "Mga animasyon ng icon"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "Laktawan ang mga hindi mahalagang babala"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "Itago ang kanang sidebar bilang default at magdagdag ng button upang ipakita o itago ito."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "Itago ang kanang sidebar"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "Magpakita ng babala sa kaligtasan bago mag-install ng inangkat na modpack (.mrpack o CurseForge .zip) na hindi maberipika ang pinagmulan."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "Nangangailangan ng pansin"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "Ina-update ang {count, plural, one {# item} other {# item}}"
+  },
   "app.download-manager.cancel": {
     "message": "Kanselahin ang pag-install"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "Bumalik sa instansiya"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "Valid ang Java installation na ito, pero hindi ito tugma sa kinakailangang Java {version}. Maaaring hindi mag-launch ang Minecraft."
+  },
   "app.instance.shortcut.created": {
     "message": "Nalikha ang shortcut"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "Larawan ng gallery"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "Buksan ang larawan sa bagong tab"
-  },
   "app.project.install-button.already-installed": {
     "message": "Naka-install na ang proyektong ito"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "Binuksan ang moda ng nagdi-develop."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "Kanselahin ang pag-export"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "Sine-save ang mga bersyon ng app at operating system at hanggang walong nalinis na log ng launcher sa isang lokal na ZIP file. Itinatago ang mga token, custom na environment value, at mga path ng user. Walang kasamang database, record ng account, file ng laro, o upload. Suriin ang archive bago ito ibahagi."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "I-save ang diagnostic archive"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "Ine-export ang mga log: {completed} sa {total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "Na-save nang lokal ang diagnostic archive."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "Diagnostic archive"
   },
   "app.settings.downloading": {
     "message": "Dina-download ang v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "Mga default na skin"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Mag-sign in sa Microsoft"

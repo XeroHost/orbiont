@@ -1045,10 +1045,6 @@ a:not(.no-click-animation),
 			}
 		}
 
-		> :nth-child(2) {
-			@apply mt-5;
-		}
-
 		> :nth-child(n + 2) {
 			@apply mx-1;
 		}
@@ -1068,7 +1064,7 @@ a:not(.no-click-animation),
 			grid-template-rows: min-content 1fr;
 
 			> summary {
-				@apply border-b-surface-5;
+				@apply border-b-surface-5 mb-3;
 
 				&::before {
 					transform: rotate(180deg);

@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Nepodařilo se načíst obsah"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Seznam změn se nepodařilo načíst"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "Dostupné aktualizace se nepodařilo načíst"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "Třídit podle"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "Seřadit {mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "Hromadné aktualizace nejsou dostupné pro tyto projekty CurseForge: {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "Aktualizovat vše"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "Nerozpoznaný soubor může být nebezpečný. Před instalací zkontroluj jeho zdroj."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "Seznam změn pro {project}"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "Seznam změn načten."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "Zavřít seznam změn"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "Aktuální verze"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "Nejsou dostupné žádné aktualizace."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "Aktualizovat projekty"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "Načítání aktualizací…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "Načítání seznamu změn…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "Nová verze"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "Tato verze nemá seznam změn."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "Nejsou dostupné žádné kompatibilní aktualizace."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "Žádné kompatibilní aktualizace"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "Projekt"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "Aktualizace projektů"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, one {# projekt připraven k aktualizaci} few {# projekty připraveny k aktualizaci} many {# projektu připraveno k aktualizaci} other {# projektů připraveno k aktualizaci}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "Vybrat všechny projekty"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "Vybrat {project} k aktualizaci"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "Nová verze pro {project}"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "Aktualizovat {count, plural, one {# projekt} few {# projekty} many {# projektu} other {# projektů}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "Aktuální verze / Nová verze"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "Zobrazit"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "Zobrazit seznam změn pro {project}"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "Nemůžeme zaručit, že aktualizace budou pro vaše světy bezpečné. Projděte si seznamy změn a zvažte vytvoření zálohy."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "Nemůžeme zaručit, že aktualizace budou pro váš server bezpečné. Projděte si seznamy změn a zvažte vytvoření zálohy."
   },
   "version.content.name": {
     "defaultMessage": "Název"

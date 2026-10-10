@@ -1,47 +1,56 @@
-import { ref } from 'vue'
+import { onScopeDispose, ref } from 'vue'
 
-import { test_jre } from '@/helpers/jre.js'
+import { get_jre, test_jre } from '@/helpers/jre.js'
 
 export default function useJavaTest() {
 	const testingJava = ref(false)
 	const javaTestResult = ref<boolean | null>(null)
+	const javaCompatibilityResult = ref<boolean | null>(null)
 	let testDebounceTimer: ReturnType<typeof setTimeout> | null = null
-
-	async function runJavaTest(path: string, version: number) {
+	let requestId = 0
+	async function runJavaTest(path: string, version: number | null) {
+		const request = ++requestId
 		if (testDebounceTimer) {
 			clearTimeout(testDebounceTimer)
 			testDebounceTimer = null
 		}
+		javaTestResult.value = null
+		javaCompatibilityResult.value = null
 		if (!path) {
-			javaTestResult.value = null
+			testingJava.value = false
 			return
 		}
 		testingJava.value = true
 		try {
-			javaTestResult.value = await test_jre(path, version)
+			const valid = !!(await get_jre(path))
+			const compatible = valid && version !== null ? await test_jre(path, version) : null
+			if (request !== requestId) return
+			javaTestResult.value = valid
+			javaCompatibilityResult.value = compatible
 		} catch {
-			javaTestResult.value = false
+			if (request === requestId) javaTestResult.value = false
+		} finally {
+			if (request === requestId) testingJava.value = false
 		}
-		testingJava.value = false
 	}
-
-	function testJavaInstallationDebounced(path: string, version: number, delay = 600) {
+	function testJavaInstallationDebounced(path: string, version: number | null, delay = 600) {
+		++requestId
 		if (testDebounceTimer) clearTimeout(testDebounceTimer)
-		if (!path) {
-			javaTestResult.value = null
-			return
-		}
+		javaTestResult.value = null
+		javaCompatibilityResult.value = null
+		testingJava.value = false
+		if (!path) return
 		testDebounceTimer = setTimeout(() => runJavaTest(path, version), delay)
 	}
-
-	async function testJavaInstallation(path: string, version: number) {
-		await runJavaTest(path, version)
-	}
-
+	onScopeDispose(() => {
+		++requestId
+		if (testDebounceTimer) clearTimeout(testDebounceTimer)
+	})
 	return {
 		testingJava,
 		javaTestResult,
+		javaCompatibilityResult,
 		testJavaInstallationDebounced,
-		testJavaInstallation,
+		testJavaInstallation: runJavaTest,
 	}
 }

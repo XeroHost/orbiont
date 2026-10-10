@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "마우스를 올리거나 키보드로 포커스할 때 아이콘에 애니메이션을 적용합니다."
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "애니메이션 끄기"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "항상 애니메이션 사용"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "시스템 설정 따르기"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "아이콘 애니메이션"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "중요하지 않은 경고 넘기기"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "기본 상태에서 오른쪽 사이드바를 숨기고, 이를 표시하거나 숨기는 버튼을 추가합니다."
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "오른쪽 사이드바 숨기기"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "출처를 확인할 수 없는 가져온 모드팩(.mrpack 또는 CurseForge .zip)을 설치하기 전에 안전 경고를 표시합니다."
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "확인 필요"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "{count, plural, other {#개 항목 업데이트 중}}"
+  },
   "app.download-manager.cancel": {
     "message": "설치 취소"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "인스턴스로 돌아가기"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "이 Java 설치는 유효하지만 필요한 Java {version}와 일치하지 않습니다. Minecraft가 실행되지 않을 수 있습니다."
+  },
   "app.instance.shortcut.created": {
     "message": "바로가기 생성됨"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "갤러리 이미지"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "새 탭에서 이미지 열기"
-  },
   "app.project.install-button.already-installed": {
     "message": "이미 설치되어 있음"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "개발자 모드가 활성화되었습니다."
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "내보내기 취소"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "앱 및 운영 체제 버전과 정리된 런처 로그를 최대 8개까지 로컬 ZIP 파일에 저장합니다. 토큰, 사용자 지정 환경 값, 사용자 경로는 가려집니다. 데이터베이스, 계정 기록, 게임 파일 또는 업로드는 포함되지 않습니다. 공유하기 전에 압축 파일을 확인하세요."
+  },
+  "app.settings.diagnostics.export": {
+    "message": "진단 압축 파일 저장"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "로그 내보내는 중: {completed}/{total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "진단 압축 파일을 로컬에 저장했습니다."
+  },
+  "app.settings.diagnostics.title": {
+    "message": "진단 압축 파일"
   },
   "app.settings.downloading": {
     "message": "v{version} 다운로드 중"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "기본 스킨"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "Dungeons Hero"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "Dungeons II Hero"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "Tiny Takeover"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "Wilderness Bound"
   },
   "app.skins.sign-in.button": {
     "message": "Microsoft에 로그인"

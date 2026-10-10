@@ -1,10 +1,11 @@
+import type { Labrinth } from '@orbiont/api-client'
 import type { ComputedRef, Ref } from 'vue'
 
 import type { ButtonMenuOption } from '#ui/components/base/buttons'
+import type { UpdateAllSelection } from '#ui/components/modal/update-all-modal/update-all-modal-types'
 import { createContext } from '#ui/providers/create-context'
 
 import type {
-	BulkOperationStatus,
 	ContentActionWarning,
 	ContentCardTableItem,
 	ContentItem,
@@ -44,6 +45,8 @@ export interface ContentManagerContext {
 
 	// Labelling
 	contentTypeLabel: Ref<string> | ComputedRef<string>
+	currentGameVersion?: Ref<string> | ComputedRef<string>
+	currentLoader?: Ref<string> | ComputedRef<string>
 	getTypeLabel?: (type: string) => string | undefined
 
 	// Core actions
@@ -53,7 +56,7 @@ export interface ContentManagerContext {
 	browse: () => void
 	uploadFiles: () => void
 
-	// Bulk actions (optional — when provided, used instead of one-by-one loops)
+	// Bulk actions (optional â€” when provided, used instead of one-by-one loops)
 	bulkDeleteItems?: (items: ContentItem[]) => Promise<void>
 	bulkEnableItems?: (items: ContentItem[]) => Promise<void>
 	bulkDisableItems?: (items: ContentItem[]) => Promise<void>
@@ -69,10 +72,16 @@ export interface ContentManagerContext {
 
 	// Update support (optional per-platform)
 	hasUpdateSupport: boolean
+	bulkUpdatesInBackground?: boolean
+	canBulkUpdateItem?: (item: ContentItem) => boolean
+	validateBulkUpdateSelections?: (selections: UpdateAllSelection[]) => Promise<void>
+	getUpdateVersions?: (projectId: string) => Promise<Labrinth.Versions.v2.Version[]>
+	getUpdateVersion?: (versionId: string) => Promise<Labrinth.Versions.v2.Version>
 	updateItem?: (id: string) => void
-	bulkUpdateAll?: (onProgress?: (status: BulkOperationStatus) => void) => Promise<void>
-	bulkUpdateItem?: (item: ContentItem) => Promise<void>
-	bulkUpdateItems?: (items: ContentItem[]) => Promise<void>
+	bulkUpdateSelections?: (
+		selections: UpdateAllSelection[],
+		onProgress?: (completed: number) => void,
+	) => Promise<void>
 
 	// Managed-content actions (optional)
 	runManagedContentPrimaryAction?: (event?: MouseEvent) => void
@@ -86,13 +95,13 @@ export interface ContentManagerContext {
 	// Per-item overflow menu (optional)
 	getOverflowOptions?: (item: ContentItem) => ButtonMenuOption[]
 
-	// Share support (optional — when undefined, share button becomes hidden entirely)
+	// Share support (optional â€” when undefined, share button becomes hidden entirely)
 	shareItems?: (items: ContentItem[], format: 'names' | 'file-names' | 'urls' | 'markdown') => void
 
 	// Stable per-row identity. ContentItem.id can be a content hash, so it is not always unique.
 	getItemId?: (item: ContentItem) => string
 
-	// Bulk operation guard — set by layout, checked by providers to suppress refreshes
+	// Bulk operation guard â€” set by layout, checked by providers to suppress refreshes
 	isBulkOperating?: Ref<boolean>
 
 	// Deletion context (controls modal variant)
@@ -102,7 +111,7 @@ export interface ContentManagerContext {
 	// Table item mapping (link generation differs per platform)
 	mapToTableItem: (item: ContentItem) => ContentCardTableItem
 
-	// Filter persistence key — when set, filter and sort settings are saved/restored via sessionStorage
+	// Filter persistence key â€” when set, filter and sort settings are saved/restored via sessionStorage
 	filterPersistKey?: string
 	showSharedContentFilter?: Ref<boolean> | ComputedRef<boolean>
 }

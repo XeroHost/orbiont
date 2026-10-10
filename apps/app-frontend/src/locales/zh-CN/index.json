@@ -149,15 +149,6 @@
   "app.appearance-settings.icon-motion.description": {
     "message": "在鼠标悬停或键盘聚焦时播放图标动画。"
   },
-  "app.appearance-settings.icon-motion.off": {
-    "message": "关闭动画"
-  },
-  "app.appearance-settings.icon-motion.on": {
-    "message": "始终播放动画"
-  },
-  "app.appearance-settings.icon-motion.system": {
-    "message": "跟随系统"
-  },
   "app.appearance-settings.icon-motion.title": {
     "message": "图标动画"
   },
@@ -178,12 +169,6 @@
   },
   "app.appearance-settings.skip-non-essential-warnings.title": {
     "message": "跳过非必要的警告"
-  },
-  "app.appearance-settings.toggle-sidebar.description": {
-    "message": "默认隐藏右侧边栏，并添加一个按钮来显示或隐藏它。"
-  },
-  "app.appearance-settings.toggle-sidebar.title": {
-    "message": "隐藏右侧边栏"
   },
   "app.appearance-settings.unknown-pack-warning.imported-description": {
     "message": "在安装来源无法验证的导入整合包（.mrpack 或 CurseForge .zip）前显示安全警告。"
@@ -797,6 +782,9 @@
   "app.download-manager.attention": {
     "message": "需要注意"
   },
+  "app.download-manager.bulk-update-content": {
+    "message": "正在更新 {count, plural, other {# 项}}"
+  },
   "app.download-manager.cancel": {
     "message": "取消安装"
   },
@@ -1268,6 +1256,9 @@
   "app.instance.navigation.back-to-instance": {
     "message": "返回实例"
   },
+  "app.instance.settings.java.version-mismatch": {
+    "message": "此 Java 安装有效，但与所需的 Java {version} 不匹配。Minecraft 可能无法启动。"
+  },
   "app.instance.shortcut.created": {
     "message": "已创建快捷方式"
   },
@@ -1715,9 +1706,6 @@
   "app.project.gallery.image-fallback": {
     "message": "图库图片"
   },
-  "app.project.gallery.open-image-new-tab": {
-    "message": "在新标签页中打开图片"
-  },
   "app.project.install-button.already-installed": {
     "message": "此项目已安装"
   },
@@ -2026,6 +2014,24 @@
   },
   "app.settings.developer-mode-enabled": {
     "message": "开发者模式已启用。"
+  },
+  "app.settings.diagnostics.cancel": {
+    "message": "取消导出"
+  },
+  "app.settings.diagnostics.description": {
+    "message": "将应用和操作系统版本以及最多八个经过清理的启动器日志保存到本地 ZIP 文件。令牌、自定义环境变量值和用户路径会被隐藏。不包含数据库、账户记录、游戏文件或上传内容。分享前请先检查该压缩包。"
+  },
+  "app.settings.diagnostics.export": {
+    "message": "保存诊断压缩包"
+  },
+  "app.settings.diagnostics.progress": {
+    "message": "正在导出日志：{completed}/{total}"
+  },
+  "app.settings.diagnostics.saved": {
+    "message": "诊断压缩包已保存到本地。"
+  },
+  "app.settings.diagnostics.title": {
+    "message": "诊断压缩包"
   },
   "app.settings.downloading": {
     "message": "正在下载 v{version}"
@@ -3662,6 +3668,12 @@
   "app.skins.section.default-skins": {
     "message": "默认皮肤"
   },
+  "app.skins.section.dungeons-hero": {
+    "message": "地下城英雄"
+  },
+  "app.skins.section.dungeons-ii-hero": {
+    "message": "地下城 II 英雄"
+  },
   "app.skins.section.minecon-earth-2017": {
     "message": "MINECON Earth 2017"
   },
@@ -3682,6 +3694,9 @@
   },
   "app.skins.section.tiny-takeover": {
     "message": "小鬼当家"
+  },
+  "app.skins.section.wilderness-bound": {
+    "message": "荒野之旅"
   },
   "app.skins.sign-in.button": {
     "message": "登录 Minecraft"

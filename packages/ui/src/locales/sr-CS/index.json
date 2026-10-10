@@ -644,6 +644,12 @@
   "content.page-layout.failed-to-load": {
     "defaultMessage": "Greška sa pokazivanjem sadržaja"
   },
+  "content.page-layout.failed-to-load-changelog": {
+    "defaultMessage": "Učitavanje spiska promena nije uspelo"
+  },
+  "content.page-layout.failed-to-load-updates": {
+    "defaultMessage": "Učitavanje dostupnih ažuriranja nije uspelo"
+  },
   "content.page-layout.filter.add": {
     "defaultMessage": "Filter"
   },
@@ -691,6 +697,9 @@
   },
   "content.page-layout.sort.label": {
     "defaultMessage": "Sortiraj so {mode}"
+  },
+  "content.page-layout.unsupported-bulk-provider": {
+    "defaultMessage": "Grupna ažuriranja nisu dostupna za ove CurseForge projekte: {projects}."
   },
   "content.page-layout.update-all": {
     "defaultMessage": "Ažuiraj sve"
@@ -3847,6 +3856,78 @@
   },
   "unknown-file-warning-modal.unverified-files": {
     "defaultMessage": "Nepoznat fajl može biti nesiguran. Proveri njegov izvor pre instaliranja."
+  },
+  "update-all-modal.changelog-for": {
+    "defaultMessage": "Spisak promena za {project}"
+  },
+  "update-all-modal.changelog-loaded": {
+    "defaultMessage": "Spisak promena je učitan."
+  },
+  "update-all-modal.close-changelog": {
+    "defaultMessage": "Zatvori spisak promena"
+  },
+  "update-all-modal.current-version": {
+    "defaultMessage": "Trenutna verzija"
+  },
+  "update-all-modal.empty": {
+    "defaultMessage": "Nema dostupnih ažuriranja."
+  },
+  "update-all-modal.header": {
+    "defaultMessage": "Ažuriraj projekte"
+  },
+  "update-all-modal.loading": {
+    "defaultMessage": "Učitavanje ažuriranja…"
+  },
+  "update-all-modal.loading-changelog": {
+    "defaultMessage": "Učitavanje spiska promena…"
+  },
+  "update-all-modal.new-version": {
+    "defaultMessage": "Nova verzija"
+  },
+  "update-all-modal.no-changelog": {
+    "defaultMessage": "Za ovu verziju nije naveden spisak promena."
+  },
+  "update-all-modal.no-compatible-updates": {
+    "defaultMessage": "Nema dostupnih kompatibilnih ažuriranja."
+  },
+  "update-all-modal.no-version": {
+    "defaultMessage": "Nema kompatibilnih ažuriranja"
+  },
+  "update-all-modal.project": {
+    "defaultMessage": "Projekat"
+  },
+  "update-all-modal.project-list": {
+    "defaultMessage": "Ažuriranja projekata"
+  },
+  "update-all-modal.results": {
+    "defaultMessage": "{count, plural, one {# projekat spreman za ažuriranje} few {# projekta spremna za ažuriranje} other {# projekata spremno za ažuriranje}}"
+  },
+  "update-all-modal.select-all": {
+    "defaultMessage": "Izaberi sve projekte"
+  },
+  "update-all-modal.select-project": {
+    "defaultMessage": "Izaberi {project} za ažuriranje"
+  },
+  "update-all-modal.select-version": {
+    "defaultMessage": "Nova verzija za {project}"
+  },
+  "update-all-modal.update": {
+    "defaultMessage": "Ažuriraj {count, plural, one {# projekat} few {# projekta} other {# projekata}}"
+  },
+  "update-all-modal.versions": {
+    "defaultMessage": "Trenutna verzija / Nova verzija"
+  },
+  "update-all-modal.view": {
+    "defaultMessage": "Prikaži"
+  },
+  "update-all-modal.view-changelog": {
+    "defaultMessage": "Prikaži spisak promena za {project}"
+  },
+  "update-all-modal.warning": {
+    "defaultMessage": "Ne možemo da garantujemo da su ažuriranja bezbedna za vaše svetove. Pregledajte spiskove promena i razmislite o rezervnoj kopiji."
+  },
+  "update-all-modal.warning-server": {
+    "defaultMessage": "Ne možemo da garantujemo da će ažuriranja biti bezbedna za vaš server. Pregledajte spiskove promena i razmislite o rezervnoj kopiji."
   },
   "version.content.name": {
     "defaultMessage": "Ime"
