@@ -9,7 +9,16 @@
 			<div class="app-logo-wrapper" data-tauri-drag-region>
 				<AppLogo class="app-logo" />
 				<ProgressBar class="loading-bar" :progress="Math.min(loadingProgress, 100)" />
-				<span v-if="message">{{ message }}</span>
+				<template v-if="movingDirectory">
+					<span>
+						{{
+							formatMessage(messages.movingDirectory, {
+								percent: Math.floor(Math.min(loadingProgress, 100)),
+							})
+						}}
+					</span>
+					<span class="splash-hint">{{ formatMessage(messages.movingDirectoryHint) }}</span>
+				</template>
 			</div>
 			<div class="gradient-bg" data-tauri-drag-region></div>
 			<SplashBackground :accent="accent.effective.value" />
@@ -19,7 +28,7 @@
 </template>
 
 <script setup>
-import { injectLoadingState } from '@orbiont/ui'
+import { defineMessages, injectLoadingState, useVIntl } from '@orbiont/ui'
 import { computed, onMounted, ref, watch } from 'vue'
 
 import AppLogo from '@/components/ui/AppLogo.vue'
@@ -39,9 +48,22 @@ const splashStyle = computed(() => ({
 	'--color-contrast': '#f6f8fa',
 }))
 
+const { formatMessage } = useVIntl()
+const messages = defineMessages({
+	movingDirectory: {
+		id: 'app.splash.moving-directory',
+		defaultMessage: 'Moving your launcher data… {percent}%',
+	},
+	movingDirectoryHint: {
+		id: 'app.splash.moving-directory-hint',
+		defaultMessage: 'This can take several minutes. Keep the launcher open until it finishes.',
+	},
+})
+
 const doneLoading = ref(false)
 const loadingProgress = ref(0)
-const message = ref()
+// Real copy progress replaces the simulated startup progress.
+const movingDirectory = ref(false)
 
 const MIN_DISPLAY_MS = 500
 const mountedAt = Date.now()
@@ -85,7 +107,7 @@ watch(
 )
 
 function fakeLoadingIncrease() {
-	if (loadingProgress.value < 95) {
+	if (!movingDirectory.value && loadingProgress.value < 95) {
 		setTimeout(() => {
 			loadingProgress.value += 2
 			fakeLoadingIncrease()
@@ -95,8 +117,8 @@ function fakeLoadingIncrease() {
 
 useAppEvent('loading', (e) => {
 	if (e.event.type === 'directory_move') {
+		movingDirectory.value = true
 		loadingProgress.value = 100 * (e.fraction ?? 1)
-		message.value = 'Updating app directory...'
 	}
 })
 </script>
@@ -135,6 +157,14 @@ useAppEvent('loading', (e) => {
 .app-logo {
 	height: 3rem;
 	width: auto;
+}
+
+.splash-hint {
+	max-width: 24rem;
+	margin-top: -0.5rem;
+	text-align: center;
+	font-size: 0.875rem;
+	opacity: 0.75;
 }
 
 .loading-bar {

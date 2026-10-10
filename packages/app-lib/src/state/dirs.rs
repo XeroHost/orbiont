@@ -294,13 +294,28 @@ impl DirectoryInfo {
                 "Moving launcher directory",
             )
             .await?;
+            // The bar counts to 100; report only forward progress.
+            let reported = std::sync::Mutex::new(0.0_f64);
+            let on_progress = |fraction: f64| {
+                let Ok(mut last) = reported.lock() else {
+                    return;
+                };
+                let target = fraction.clamp(0.0, 1.0) * 100.0;
+                if target > *last
+                    && emit_loading(&loading, target - *last, None).is_ok()
+                {
+                    *last = target;
+                }
+            };
             move_app_directory::move_app_directory(
                 previous,
                 &destination,
                 pool,
+                &on_progress,
             )
             .await?;
-            emit_loading(&loading, 100.0, None)?;
+            let last = reported.lock().map(|last| *last).unwrap_or(0.0);
+            emit_loading(&loading, 100.0 - last, None)?;
         }
         if !moving {
             move_app_directory::resume_completed_move(&destination, pool)

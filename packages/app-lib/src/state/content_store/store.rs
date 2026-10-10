@@ -39,9 +39,10 @@ impl ContentStore {
             .open(settings_dir.join("store.lock"))
             .await?;
         if !file.try_lock_exclusive()? {
-            return Err(input(
-                "Another Modrinth process is using this application directory",
-            ));
+            return Err(input(format!(
+                "Another {} process is using this application directory",
+                crate::api::orbiont::PRODUCT_NAME
+            )));
         }
         Ok(file)
     }

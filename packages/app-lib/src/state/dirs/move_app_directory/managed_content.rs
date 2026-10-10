@@ -83,9 +83,11 @@ pub(super) async fn copy_and_checkpoint(
     files: Vec<ManagedContentMove>,
     from: &Path,
     to: &Path,
+    on_moved: &(dyn Fn(usize) + Send + Sync),
 ) -> crate::Result<()> {
     let mut bindings = Vec::new();
-    for mut file in files {
+    for (index, mut file) in files.into_iter().enumerate() {
+        on_moved(index);
         validate_parent_directories(from, &file.source).await?;
         validate_parent_directories(to, &file.destination).await?;
         validate_parent_directories(to, &file.stored_path).await?;
@@ -108,7 +110,7 @@ pub(super) async fn copy_and_checkpoint(
             .ok_or_else(|| input("Invalid content destination"))?;
         fs::create_dir_all(parent).await?;
         let temporary =
-            parent.join(format!(".modrinth-move-{}.tmp", uuid::Uuid::new_v4()));
+            parent.join(format!(".orbiont-move-{}.tmp", uuid::Uuid::new_v4()));
         let result = async {
             let stored_matches = hashes.sha512 == file.binding.sha512
                 && fs::symlink_metadata(&file.stored_path)

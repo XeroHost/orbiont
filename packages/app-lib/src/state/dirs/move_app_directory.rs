@@ -6,10 +6,19 @@ use crate::state::content_store::{
 };
 use crate::state::instances::adapters::sqlite::instance_rows;
 use crate::state::{Instance, JavaVersion};
+use crate::util::content_hash::copy_and_hash;
+use futures::stream::{FuturesUnordered, StreamExt};
 use serde_json::Value;
 use sqlx::SqlitePool;
 use std::path::{Path, PathBuf};
+use std::sync::atomic::{AtomicU64, Ordering};
 use tokio::fs;
+use tokio::io::AsyncWriteExt;
+
+/// Files copied at the same time while moving the app directory.
+const COPY_CONCURRENCY: usize = 8;
+/// Share of the move progress used by plain file copies; managed content follows.
+const COPY_PROGRESS_SHARE: f64 = 0.95;
 
 const MOVED_APP_DIRECTORIES: [&str; 6] = [
     "store",
@@ -46,6 +55,7 @@ pub(crate) async fn relocate_tree(from: &Path, to: &Path) -> crate::Result<()> {
         to,
         &[(from.to_path_buf(), to.to_path_buf())],
         &std::collections::HashSet::new(),
+        &|_| {},
     )
     .await
 }
@@ -55,7 +65,9 @@ async fn copy_tree(
     to: &Path,
     mappings: &[(PathBuf, PathBuf)],
     managed_paths: &std::collections::HashSet<PathBuf>,
+    on_copied: &(dyn Fn(u64) + Send + Sync),
 ) -> crate::Result<()> {
+    let mut copies = FuturesUnordered::new();
     let mut pending = vec![(from.to_path_buf(), to.to_path_buf())];
     while let Some((source, target)) = pending.pop() {
         if managed_paths.contains(&source) {
@@ -121,31 +133,64 @@ async fn copy_tree(
                 }
                 continue;
             }
-            let parent = target
-                .parent()
-                .ok_or_else(|| input("Invalid migration target"))?;
-            fs::create_dir_all(parent).await?;
-            let temporary = parent
-                .join(format!(".modrinth-move-{}.tmp", uuid::Uuid::new_v4()));
-            crate::state::content_store::writable_copy(&source, &temporary)
-                .await?;
-            fs::File::options()
-                .write(true)
-                .open(&temporary)
-                .await?
-                .sync_all()
-                .await?;
-            fs::set_permissions(&temporary, metadata.permissions()).await?;
-            if hash_file(&source).await? != hash_file(&temporary).await? {
-                return Err(input(
-                    "File changed or failed verification during directory migration",
-                ));
+            // Per-file sync latency dominates many small files, so overlap a few copies.
+            if copies.len() >= COPY_CONCURRENCY
+                && let Some(result) = copies.next().await
+            {
+                on_copied(result?);
             }
-            fs::rename(&temporary, &target).await?;
-            sync_directory(parent).await?;
+            copies.push(copy_file(source, target, metadata));
         }
     }
+    while let Some(result) = copies.next().await {
+        on_copied(result?);
+    }
     Ok(())
+}
+
+/// Copies one file through a temporary sibling and returns its size. The source is read once
+/// to copy and hash it; the copy is then re-read and must match before it is moved into place.
+async fn copy_file(
+    source: PathBuf,
+    target: PathBuf,
+    metadata: std::fs::Metadata,
+) -> crate::Result<u64> {
+    let parent = target
+        .parent()
+        .ok_or_else(|| input("Invalid migration target"))?;
+    fs::create_dir_all(parent).await?;
+    let temporary =
+        parent.join(format!(".orbiont-move-{}.tmp", uuid::Uuid::new_v4()));
+    let result = async {
+        let mut output = fs::File::create(&temporary).await?;
+        let copied = copy_and_hash(
+            fs::File::open(&source).await?,
+            &mut output,
+            &|_| {},
+        )
+        .await?;
+        output.flush().await?;
+        output.sync_all().await?;
+        drop(output);
+        fs::set_permissions(&temporary, metadata.permissions()).await?;
+        let after = fs::metadata(&source).await?;
+        if after.len() != copied.size
+            || after.modified().ok() != metadata.modified().ok()
+            || hash_file(&temporary).await? != copied
+        {
+            return Err(input(
+                "File changed or failed verification during directory migration",
+            ));
+        }
+        fs::rename(&temporary, &target).await?;
+        sync_directory(parent).await?;
+        Ok(copied.size)
+    }
+    .await;
+    if result.is_err() {
+        let _ = fs::remove_file(&temporary).await;
+    }
+    result
 }
 
 async fn create_link(
@@ -336,10 +381,12 @@ async fn rewrite_database_paths(
     Ok(())
 }
 
+/// `on_progress` receives the completed fraction of the copy, from 0 to 1.
 pub(crate) async fn move_app_directory(
     from: &Path,
     to: &Path,
     pool: &SqlitePool,
+    on_progress: &(dyn Fn(f64) + Send + Sync),
 ) -> crate::Result<()> {
     let original_from = normalize(from);
     fs::create_dir_all(to).await?;
@@ -425,15 +472,43 @@ pub(crate) async fn move_app_directory(
         }
     }
     ensure_move_space(&to, required)?;
+    let copied = AtomicU64::new(0);
+    let on_copied = |bytes: u64| {
+        let done = copied.fetch_add(bytes, Ordering::Relaxed) + bytes;
+        on_progress(
+            COPY_PROGRESS_SHARE
+                * (done as f64 / required.max(1) as f64).min(1.0),
+        );
+    };
     for directory in MOVED_APP_DIRECTORIES {
         let source = from.join(directory);
         if fs::try_exists(&source).await? {
-            copy_tree(&source, &to.join(directory), &mappings, &managed_paths)
-                .await?;
+            copy_tree(
+                &source,
+                &to.join(directory),
+                &mappings,
+                &managed_paths,
+                &on_copied,
+            )
+            .await?;
         }
     }
-    managed_content::copy_and_checkpoint(pool, managed_files, &from, &to)
-        .await?;
+    on_progress(COPY_PROGRESS_SHARE);
+    let managed_count = managed_files.len().max(1) as f64;
+    managed_content::copy_and_checkpoint(
+        pool,
+        managed_files,
+        &from,
+        &to,
+        &|moved| {
+            on_progress(
+                COPY_PROGRESS_SHARE
+                    + (1.0 - COPY_PROGRESS_SHARE) * moved as f64
+                        / managed_count,
+            );
+        },
+    )
+    .await?;
     rewrite_database_paths(pool, &mappings, &checkpoint).await?;
     Ok(())
 }
@@ -601,4 +676,81 @@ pub(crate) async fn remove_migrated_tree(root: &Path) -> crate::Result<()> {
     }
     fs::remove_dir_all(root).await?;
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    use std::collections::HashSet;
+    use std::sync::Mutex;
+
+    #[tokio::test]
+    async fn concurrent_copy_reports_every_byte_and_leaves_no_temporaries() {
+        let root = tempfile::tempdir().unwrap();
+        let from = root.path().join("from");
+        let to = root.path().join("to");
+        let mut expected = 0_u64;
+        for index in 0..(COPY_CONCURRENCY * 3) {
+            let folder = from.join(format!("folder-{}", index % 4));
+            fs::create_dir_all(&folder).await.unwrap();
+            let body = vec![index as u8; 1000 + index];
+            expected += body.len() as u64;
+            fs::write(folder.join(format!("file-{index}.bin")), body)
+                .await
+                .unwrap();
+        }
+        let reported = Mutex::new(Vec::new());
+        copy_tree(&from, &to, &[], &HashSet::new(), &|bytes| {
+            reported.lock().unwrap().push(bytes)
+        })
+        .await
+        .unwrap();
+        let reported = reported.into_inner().unwrap();
+        assert_eq!(reported.len(), COPY_CONCURRENCY * 3);
+        assert_eq!(reported.iter().sum::<u64>(), expected);
+        for index in 0..(COPY_CONCURRENCY * 3) {
+            let name = format!("folder-{}/file-{index}.bin", index % 4);
+            assert_eq!(
+                fs::read(to.join(&name)).await.unwrap(),
+                fs::read(from.join(&name)).await.unwrap()
+            );
+        }
+        for index in 0..4 {
+            let mut entries = fs::read_dir(to.join(format!("folder-{index}")))
+                .await
+                .unwrap();
+            while let Some(entry) = entries.next_entry().await.unwrap() {
+                assert!(!entry.file_name().to_string_lossy().ends_with(".tmp"));
+            }
+        }
+    }
+
+    #[tokio::test]
+    async fn resumed_copy_skips_identical_files_and_rejects_different_data() {
+        let root = tempfile::tempdir().unwrap();
+        let from = root.path().join("from");
+        let to = root.path().join("to");
+        fs::create_dir_all(&from).await.unwrap();
+        fs::create_dir_all(&to).await.unwrap();
+        fs::write(from.join("same.txt"), b"same").await.unwrap();
+        fs::write(to.join("same.txt"), b"same").await.unwrap();
+        fs::write(from.join("new.txt"), b"new data").await.unwrap();
+        let reported = Mutex::new(0_u64);
+        copy_tree(&from, &to, &[], &HashSet::new(), &|bytes| {
+            *reported.lock().unwrap() += bytes
+        })
+        .await
+        .unwrap();
+        // Files already copied by an interrupted move are verified, not counted again.
+        assert_eq!(*reported.lock().unwrap(), 8);
+        assert_eq!(fs::read(to.join("new.txt")).await.unwrap(), b"new data");
+
+        fs::write(to.join("same.txt"), b"different").await.unwrap();
+        assert!(
+            copy_tree(&from, &to, &[], &HashSet::new(), &|_| {})
+                .await
+                .is_err()
+        );
+        assert_eq!(fs::read(to.join("same.txt")).await.unwrap(), b"different");
+    }
 }
